@@ -36,9 +36,7 @@ When you use a vertical Swiper, be sure to set its height through the `--height`
 
 <code src="./demos/demo7.tsx" debug></code>
 
-### rtl support
-
-The RTL (right-to-left) mode is only effective when the direction attribute is set to `horizontal`. <code src="./demos/demo8.tsx"></code>
+<code src="./demos/demo8.tsx"></code>
 
 ## Swiper
 

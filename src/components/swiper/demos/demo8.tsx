@@ -17,7 +17,7 @@ const items = colors.map((color, index) => (
 export default () => {
   return (
     <>
-      <DemoBlock title='基础用法'>
+      <DemoBlock title='rtl 基础用法'>
         <Swiper docDirection={'rtl'}>{items}</Swiper>
       </DemoBlock>
       <DemoBlock title='循环'>

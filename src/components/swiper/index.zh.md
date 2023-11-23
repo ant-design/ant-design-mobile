@@ -34,9 +34,7 @@
 
 <code src="./demos/demo6.tsx" debug></code> <code src="./demos/demo7.tsx" debug></code>
 
-### rtl 支持
-
-rtl 模式仅在 direction 属性为`horizontal`时生效 <code src="./demos/demo8.tsx"></code>
+<code src="./demos/demo8.tsx"></code>
 
 ## Swiper
 
