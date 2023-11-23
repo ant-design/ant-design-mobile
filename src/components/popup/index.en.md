@@ -23,6 +23,7 @@ It is suitable for displaying pop-up windows, information prompts, selection inp
 | bodyClassName | Content section class name | `string` | - |
 | bodyStyle | Content section style | `React.CSSProperties` | - |
 | className | Container class name | `string` | - |
+| closeOnBack | Whether to close after clicking browser back button or use back swipe guesture | `boolean` | `false` |
 | closeOnMaskClick | Whether to close after clicking the mask layer | `boolean` | `false` |
 | destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | forceRender | Render content forcely | `boolean` | `false` |

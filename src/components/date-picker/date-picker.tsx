@@ -31,6 +31,7 @@ export type DatePickerProps = Pick<
   | 'onCancel'
   | 'onClose'
   | 'closeOnMaskClick'
+  | 'closeOnBack'
   | 'visible'
   | 'confirmText'
   | 'cancelText'
@@ -135,6 +136,7 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
         value={pickerValue}
         onCancel={props.onCancel}
         onClose={props.onClose}
+        closeOnBack={props.closeOnBack}
         closeOnMaskClick={props.closeOnMaskClick}
         visible={props.visible}
         confirmText={props.confirmText}

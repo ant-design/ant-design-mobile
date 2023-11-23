@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import type { FC, PropsWithChildren } from 'react'
 import { renderToContainer } from '../../utils/render-to-container'
 import Mask from '../mask'
@@ -143,6 +143,21 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
       </div>
     )
   )
+
+  useEffect(() => {
+    if (maskVisible && props.closeOnBack) {
+      const handlePopState = (e: PopStateEvent) => {
+        // prevent history back
+        history.go(1)
+        // close popup instead
+        props.onClose?.()
+      }
+      window.addEventListener('popstate', handlePopState)
+      return () => {
+        window.removeEventListener('popstate', handlePopState)
+      }
+    }
+  }, [maskVisible])
 
   return (
     <ShouldRender

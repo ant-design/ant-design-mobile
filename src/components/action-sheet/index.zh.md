@@ -20,6 +20,7 @@
 | afterClose | 完全关闭后触发 | `() => void` | - |
 | cancelText | 取消按钮文字，如果设置为空则不显示取消按钮 | `ReactNode` | - |
 | closeOnAction | 点击选项后是否关闭 | `boolean` | `false` |
+| closeOnBack | 点击后退按钮或滑动后退手势是否关闭 | `boolean` | `false` |
 | closeOnMaskClick | 点击背景蒙层后是否关闭 | `boolean` | `true` |
 | destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | forceRender | 强制渲染内容 | `boolean` | `false` |

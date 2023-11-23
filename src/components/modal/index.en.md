@@ -26,6 +26,7 @@ When users need to process transactions, but do not want to jump to pages to int
 | bodyClassName | `Modal` content class name | `string` | - |
 | bodyStyle | `Modal` content style | `React.CSSProperties` | - |
 | closeOnAction | Whether to close after clicking the operation button | `boolean` | `false` |
+| closeOnBack | Whether to close after clicking browser back button or use back swipe guesture | `boolean` | `false` |
 | closeOnMaskClick | Whether to support clicking the mask to close the modal box | `boolean` | `false` |
 | content | The content of the Modal | `React.ReactNode` | - |
 | destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
