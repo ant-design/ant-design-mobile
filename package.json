@@ -26,7 +26,7 @@
     "classnames": "^2.3.2",
     "dayjs": "^1.11.7",
     "lodash": "^4.17.21",
-    "rc-field-form": "~1.27.4",
+    "rc-field-form": "~1.41.0",
     "rc-util": "^5.30.0",
     "react-is": "^18.2.0",
     "runes2": "^1.1.2",

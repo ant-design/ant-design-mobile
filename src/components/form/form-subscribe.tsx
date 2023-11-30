@@ -1,10 +1,9 @@
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 import type { FC, ReactNode } from 'react'
 import { FieldContext, useWatch } from 'rc-field-form'
-import { useUpdate } from 'ahooks'
 import type { FormInstance } from 'rc-field-form'
 import type { NamePath } from 'rc-field-form/es/interface'
-import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import pick from 'lodash/pick'
 
 type RenderChildren<Values = any> = (
   changedValues: Record<string, any>,
@@ -18,9 +17,9 @@ export interface FormSubscribeProps {
 }
 
 export const FormSubscribe: FC<FormSubscribeProps> = props => {
-  const update = useUpdate()
   const form = useContext(FieldContext)
 
+  useWatch(values => pick(values, props.to), form)
   const value = form.getFieldsValue(props.to)
 
   // Memo to avoid useless render
@@ -29,29 +28,5 @@ export const FormSubscribe: FC<FormSubscribeProps> = props => {
     [JSON.stringify(value), props.children]
   )
 
-  return (
-    <>
-      {childNode}
-      {props.to.map(namePath => (
-        <Watcher
-          key={namePath.toString()}
-          form={form}
-          namePath={namePath}
-          onChange={update}
-        />
-      ))}
-    </>
-  )
+  return <>{childNode}</>
 }
-
-export const Watcher = memo<{
-  form: FormInstance
-  namePath: NamePath
-  onChange: () => void
-}>(props => {
-  const value = useWatch(props.namePath, props.form)
-  useIsomorphicUpdateLayoutEffect(() => {
-    props.onChange()
-  }, [value])
-  return null
-})
