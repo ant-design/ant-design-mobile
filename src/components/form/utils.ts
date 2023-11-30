@@ -1,4 +1,8 @@
 import { isMemo, isFragment } from 'react-is'
+import { NamePath, Store } from 'rc-field-form/es/interface'
+import getValue from 'rc-util/lib/utils/get'
+import setValue from 'rc-util/lib/utils/set'
+
 export function toArray<T>(candidate?: T | T[] | false): T[] {
   if (candidate === undefined || candidate === false) return []
 
@@ -24,4 +28,17 @@ export function isSafeSetRefComponent(component: any): boolean {
   if (isMemo(component)) return isSafeSetRefComponent(component.type)
 
   return !isSimpleFunctionComponent(component.type)
+}
+
+export function cloneByNamePathList(
+  store: Store,
+  namePathList: NamePath[]
+): Store {
+  let newStore = {}
+  namePathList.forEach(namePath => {
+    const value = getValue(store, toArray(namePath))
+    newStore = setValue(newStore, toArray(namePath), value)
+  })
+
+  return newStore
 }
