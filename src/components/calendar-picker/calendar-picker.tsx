@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import Button from '../button'
 import Divider from '../divider'
 import Popup from '../popup'
+import { type GetContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import CalendarPickerView, {
@@ -25,6 +26,7 @@ export type CalendarPickerProps = CalendarPickerViewProps & {
   closeOnMaskClick?: boolean
   onClose?: () => void
   onMaskClick?: () => void
+  getContainer?: GetContainer
 } & (
     | {
         selectionMode?: undefined
@@ -68,6 +70,7 @@ export const CalendarPicker = forwardRef<
     onClose,
     onConfirm,
     onMaskClick,
+    getContainer,
     ...calendarViewProps
   } = props
 
@@ -117,6 +120,7 @@ export const CalendarPicker = forwardRef<
             onClose?.()
           }
         }}
+        getContainer={getContainer}
       >
         <CalendarPickerView ref={calendarRef} {...calendarViewProps} />
         {footer}
