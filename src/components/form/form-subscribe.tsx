@@ -19,8 +19,7 @@ export interface FormSubscribeProps {
 export const FormSubscribe: FC<FormSubscribeProps> = props => {
   const form = useContext(FieldContext)
 
-  useWatch(values => pick(values, props.to), form)
-  const value = form.getFieldsValue(props.to)
+  const value = useWatch(values => pick(values, props.to), form)
 
   // Memo to avoid useless render
   const childNode = React.useMemo(
