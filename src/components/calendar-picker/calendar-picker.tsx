@@ -26,7 +26,7 @@ export type CalendarPickerProps = CalendarPickerViewProps & {
   closeOnMaskClick?: boolean
   onClose?: () => void
   onMaskClick?: () => void
-  getPopupContainer?: GetContainer
+  getContainer?: GetContainer
 } & (
     | {
         selectionMode?: undefined
@@ -70,7 +70,7 @@ export const CalendarPicker = forwardRef<
     onClose,
     onConfirm,
     onMaskClick,
-    getPopupContainer,
+    getContainer,
     ...calendarViewProps
   } = props
 
@@ -120,7 +120,7 @@ export const CalendarPicker = forwardRef<
             onClose?.()
           }
         }}
-        getContainer={getPopupContainer}
+        getContainer={getContainer}
       >
         <CalendarPickerView ref={calendarRef} {...calendarViewProps} />
         {footer}
