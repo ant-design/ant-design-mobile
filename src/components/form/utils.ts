@@ -30,15 +30,15 @@ export function isSafeSetRefComponent(component: any): boolean {
   return !isSimpleFunctionComponent(component.type)
 }
 
-export function cloneByNamePathList(
+export const cloneByNamePathList = (
   store: Store,
   namePathList: NamePath[]
-): Store {
-  let newStore = {}
-  namePathList.forEach(namePath => {
-    const value = getValue(store, toArray(namePath))
-    newStore = setValue(newStore, toArray(namePath), value)
-  })
-
-  return newStore
+): Store => {
+  return namePathList.reduce((accumulator, currentValue) => {
+    return setValue(
+      accumulator,
+      toArray(currentValue),
+      getValue(store, toArray(currentValue))
+    )
+  }, {})
 }
