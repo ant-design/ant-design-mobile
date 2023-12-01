@@ -28,5 +28,5 @@ export const FormSubscribe: FC<FormSubscribeProps> = props => {
     [JSON.stringify(value), props.children]
   )
 
-  return <>{childNode}</>
+  return childNode as React.ReactElement
 }
