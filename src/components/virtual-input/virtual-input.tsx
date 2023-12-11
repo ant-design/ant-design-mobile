@@ -3,7 +3,9 @@ import React, {
   useEffect,
   useImperativeHandle,
   useRef,
+  MouseEvent,
   useState,
+  useCallback,
 } from 'react'
 import type { ReactElement } from 'react'
 import type { InputProps } from '../input'
@@ -53,6 +55,25 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const contentRef = useRef<HTMLDivElement>(null)
     const [hasFocus, setHasFocus] = useState(false)
     const { locale } = useConfig()
+    const propsCacheRef = useRef({ props })
+    propsCacheRef.current.props = props
+
+    const blurHandlerRef = useRef({
+      blurHandler: () => {},
+      addBlurListener: () => {
+        blurHandlerRef.current.blurHandler = () => {
+          setHasFocus(false)
+          propsCacheRef.current.props.onBlur?.()
+        }
+        document.addEventListener('click', blurHandlerRef.current.blurHandler)
+      },
+      removeBlurListener: () => {
+        document.removeEventListener(
+          'click',
+          blurHandlerRef.current.blurHandler
+        )
+      },
+    })
 
     function scrollToEnd() {
       const root = rootRef.current
@@ -74,23 +95,45 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       }
     }, [hasFocus])
 
+    const handleFocus = useCallback(() => {
+      setHasFocus(true)
+      props?.onFocus?.()
+    }, [props.onFocus])
+
+    const handleBlur = useCallback(() => {
+      setHasFocus(false)
+      props?.onBlur?.()
+    }, [props.onBlur])
+
     useImperativeHandle(ref, () => ({
       focus: () => {
-        rootRef.current?.focus()
+        handleFocus()
       },
       blur: () => {
-        rootRef.current?.blur()
+        handleBlur()
       },
     }))
 
-    function onFocus() {
-      setHasFocus(true)
-      props.onFocus?.()
-    }
+    // unmount: remove blurListener
+    useEffect(
+      () => () => {
+        blurHandlerRef.current.removeBlurListener()
+      },
+      []
+    )
 
-    function onBlur() {
-      setHasFocus(false)
-      props.onBlur?.()
+    function handleInputClick(e: MouseEvent<HTMLDivElement>) {
+      if (props.disabled) {
+        return
+      }
+      if (!hasFocus) {
+        blurHandlerRef.current.removeBlurListener()
+        handleFocus()
+        setTimeout(() => {
+          blurHandlerRef.current.addBlurListener()
+        }, 50)
+      }
+      props.onClick?.(e)
     }
 
     const keyboard = props.keyboard
@@ -107,7 +150,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         },
         visible: hasFocus,
         onClose: () => {
-          rootRef.current?.blur()
+          handleBlur()
           keyboard.props.onClose?.()
         },
         getContainer: null,
@@ -122,9 +165,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         })}
         tabIndex={props.disabled ? undefined : 0}
         role='option'
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onClick={props.onClick}
+        onClick={handleInputClick}
       >
         <div
           className={`${classPrefix}-content`}
