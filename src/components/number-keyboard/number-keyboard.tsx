@@ -127,7 +127,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
           [`${classPrefix}-header-with-title`]: !!title,
         })}
       >
-        {'title' && (
+        {!!title && (
           <div className={`${classPrefix}-title`} aria-label={title}>
             {title}
           </div>
