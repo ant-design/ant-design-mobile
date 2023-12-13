@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { fireEvent, render, screen, waitFor } from 'testing'
 import Dropdown from '..'
 
@@ -82,5 +82,29 @@ describe('Dropdown', () => {
       </Dropdown>
     )
     expect(screen.getByText('content')).toBeInTheDocument()
+  })
+
+  test('trigger the click of Dropdown.Item ', () => {
+    const ClickTest = () => {
+      const [count, setCount] = useState(0)
+      return (
+        <Dropdown>
+          <Dropdown.Item
+            onClick={() => setCount(count + 1)}
+            title='sorter'
+            key='sorter'
+          >
+            click{count}
+          </Dropdown.Item>
+        </Dropdown>
+      )
+    }
+
+    render(<ClickTest />)
+
+    fireEvent.click(screen.getByText('sorter'))
+    expect(screen.getByText('click1'))
+    fireEvent.click(screen.getByText('sorter'))
+    expect(screen.getByText('click2'))
   })
 })
