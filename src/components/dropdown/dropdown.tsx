@@ -89,8 +89,9 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
       if (isValidElement<ComponentProps<typeof Item>>(child)) {
         const childProps = {
           ...child.props,
-          onClick: () => {
+          onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
             changeActive(child.key as string)
+            child.props.onClick?.(event)
           },
           active: child.key === value,
           arrow:
