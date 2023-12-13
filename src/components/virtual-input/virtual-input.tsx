@@ -107,6 +107,11 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         },
         visible: hasFocus,
         onClose: () => {
+          // Long press the delete button to close the keyboard, the focus will be lost
+          // We need to focus the input element again first
+          rootRef.current?.focus()
+
+          // Then we can close the keyboard
           rootRef.current?.blur()
           keyboard.props.onClose?.()
         },

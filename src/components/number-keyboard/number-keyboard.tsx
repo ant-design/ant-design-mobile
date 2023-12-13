@@ -229,6 +229,10 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                     onKeyPress(e, 'BACKSPACE')
                     onBackspacePressEnd()
                   }}
+                  onContextMenu={e => {
+                    // Long press should not trigger native context menu
+                    e.preventDefault()
+                  }}
                   title='BACKSPACE'
                   role='grid'
                   tabIndex={-1}
