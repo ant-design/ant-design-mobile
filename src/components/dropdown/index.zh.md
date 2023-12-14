@@ -34,11 +34,12 @@
 
 ### 属性
 
-| 属性           | 说明                        | 类型              | 默认值  |
-| -------------- | --------------------------- | ----------------- | ------- |
-| arrow          | 自定义 arrow                | `React.ReactNode` | -       |
-| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean`         | `false` |
-| forceRender    | 被隐藏时是否渲染 `DOM` 结构 | `boolean`         | `false` |
-| highlight      | 高亮                        | `boolean`         | `false` |
-| key            | 唯一值                      | `string`          | -       |
-| title          | 标题                        | `ReactNode`       | -       |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| arrow | 自定义 arrow | `React.ReactNode` | - |
+| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
+| forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean` | `false` |
+| highlight | 高亮 | `boolean` | `false` |
+| key | 唯一值 | `string` | - |
+| title | 标题 | `ReactNode` | - |
+| onClick | 点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
