@@ -47,9 +47,9 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
 ### Ref
 
-| Name      | Description                            | Type       |
-| --------- | -------------------------------------- | ---------- |
-| doRefresh | Manually trigger the drop-down refresh | `()=>void` |
+| Name    | Description                            | Type       |
+| ------- | -------------------------------------- | ---------- |
+| refresh | Manually trigger the drop-down refresh | `()=>void` |
 
 ## FAQ
 
