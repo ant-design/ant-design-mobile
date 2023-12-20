@@ -127,7 +127,7 @@ function getViteConfigForPackage({ env, formats, external }) {
 
     mode: env,
 
-    // logLevel: 'silent',
+    logLevel: 'silent',
 
     define: { 'process.env.NODE_ENV': `"${env}"` },
 
@@ -165,7 +165,12 @@ async function buildBundles(cb) {
     })
   )
 
-  await Promise.all(configs.map(config => vite.build(config)))
+  // Let it step by step since `style.css` is same name.
+  // Production should override it.
+  for (const config of configs) {
+    await vite.build(config)
+  }
+
   cb && cb()
 }
 
