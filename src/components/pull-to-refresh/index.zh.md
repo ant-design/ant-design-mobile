@@ -47,9 +47,9 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
 ### Ref
 
-| 属性      | 说明             | 类型                |
-| --------- | ---------------- | ------------------- |
-| doRefresh | 手动触发下拉刷新 | `()=>Promise<void>` |
+| 属性      | 说明             | 类型       |
+| --------- | ---------------- | ---------- |
+| doRefresh | 手动触发下拉刷新 | `()=>void` |
 
 ## 常见问题
 

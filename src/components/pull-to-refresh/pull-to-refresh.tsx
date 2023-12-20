@@ -35,7 +35,7 @@ export type PullToRefreshProps = {
 }
 
 export type PullToRefreshRef = {
-  doRefresh: () => Promise<void>
+  doRefresh: () => void
 }
 
 export const defaultProps = {
@@ -119,7 +119,10 @@ export const PullToRefresh$: ForwardRefRenderFunction<
 
   useImperativeHandle(ref, () => {
     return {
-      doRefresh,
+      doRefresh: () => {
+        if (status === 'refreshing' || status === 'complete') return
+        doRefresh()
+      },
     }
   })
 
