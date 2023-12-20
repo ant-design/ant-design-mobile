@@ -12,6 +12,8 @@
 
 ## 示例
 
+tips: 建议在移动端打开 demo 预览效果更佳，因为组件使用的 touch 事件在 web 端看不到效果
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

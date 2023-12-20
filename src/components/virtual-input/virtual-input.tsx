@@ -107,7 +107,16 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         },
         visible: hasFocus,
         onClose: () => {
-          rootRef.current?.blur()
+          const activeElement = document.activeElement as HTMLElement
+
+          // Long press makes `activeElement` to be the child of rootRef
+          // We will trigger blur on the child element instead
+          if (activeElement && rootRef.current?.contains(activeElement)) {
+            activeElement.blur()
+          } else {
+            rootRef.current?.blur()
+          }
+
           keyboard.props.onClose?.()
         },
         getContainer: null,

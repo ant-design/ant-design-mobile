@@ -31,6 +31,7 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | closeOnMaskClick | Whether to close after clicking the mask layer | `boolean` | `true` |
 | onClose | Triggered when closed | `() => void` | - |
 | onMaskClick | Triggered when the mask is clicked | `() => void` | - |
+| getContainer | To get the specified mounted `HTML` node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `() => document.body` | - |
 | allowClear | Whether to allow clearing after another click. | `boolean` | `true` |
 | defaultValue | The default selected date or date range. | Same as `value` prop. | - |
 | max | Maximum value of a selectable range. | `Date` | - |

@@ -63,11 +63,11 @@ const defaultProps = {
   defaultVisible: false,
   stopPropagation: ['click'],
   getContainer: () => document.body,
+  mode: 'light',
 }
 
 export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
-  const { mode = 'light' } = props
   const placement = normalizePlacement(props.placement)
 
   const [visible, setVisible] = usePropsValue<boolean>({
@@ -95,11 +95,9 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     withNativeProps(
       props,
       <div
-        className={classNames(
-          classPrefix,
-          `${classPrefix}-${mode}`,
-          !visible && `${classPrefix}-hidden`
-        )}
+        className={classNames(classPrefix, `${classPrefix}-${props.mode}`, {
+          [`${classPrefix}-hidden`]: !visible,
+        })}
         ref={floatingRef}
       >
         <div className={`${classPrefix}-arrow`} ref={arrowRef}>

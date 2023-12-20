@@ -42,3 +42,4 @@ It is suitable for filtering, sorting and changing the display range or order of
 | highlight | Highlight | `boolean` | `false` |
 | key | The unique value | `string` | - |
 | title | Title | `ReactNode` | - |
+| onClick | The click event | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |

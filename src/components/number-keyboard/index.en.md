@@ -12,6 +12,8 @@ If possible, we recommend using the native keyboard provided by the system or cl
 
 ## Demos
 
+tips: It is recommended to open the demo on the mobile side for better preview effect, because the touch event used by the component cannot be seen on the web side.
+
 <code src="./demos/demo1.tsx"></code>
 
 <code src="./demos/demo2.tsx"></code>

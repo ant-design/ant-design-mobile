@@ -127,7 +127,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
           [`${classPrefix}-header-with-title`]: !!title,
         })}
       >
-        {'title' && (
+        {!!title && (
           <div className={`${classPrefix}-title`} aria-label={title}>
             {title}
           </div>
@@ -228,6 +228,10 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                   onTouchEnd={e => {
                     onKeyPress(e, 'BACKSPACE')
                     onBackspacePressEnd()
+                  }}
+                  onContextMenu={e => {
+                    // Long press should not trigger native context menu
+                    e.preventDefault()
                   }}
                   title='BACKSPACE'
                   role='grid'
