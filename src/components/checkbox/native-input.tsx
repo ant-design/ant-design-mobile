@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react'
-import type { FC } from 'react'
 import { useMemoizedFn } from 'ahooks'
+import type { FC } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 interface Props {
   type: 'checkbox' | 'radio'
@@ -8,6 +8,8 @@ interface Props {
   onChange: (checked: boolean) => void
   disabled?: boolean
   id?: string
+  classname?: string
+  style?: React.CSSProperties
 }
 
 export const NativeInput: FC<Props> = props => {
@@ -37,6 +39,8 @@ export const NativeInput: FC<Props> = props => {
       onChange={() => {}}
       disabled={props.disabled}
       id={props.id}
+      className={props.classname}
+      style={props.style}
     />
   )
 }
