@@ -127,7 +127,7 @@ function getViteConfigForPackage({ env, formats, external }) {
 
     mode: env,
 
-    logLevel: 'silent',
+    // logLevel: 'silent',
 
     define: { 'process.env.NODE_ENV': `"${env}"` },
 
