@@ -130,7 +130,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           [`${classPrefix}-disabled`]: props.disabled,
         })}
         tabIndex={props.disabled ? undefined : 0}
-        role='option'
+        role='textbox'
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={props.onClick}

@@ -138,8 +138,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
             onClick={() => {
               props.onClose?.()
             }}
-            role='grid'
-            title='CLOSE'
+            role='button'
+            title='收起'
             tabIndex={-1}
           >
             <DownOutline />
@@ -160,7 +160,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
 
     const ariaProps = key
       ? {
-          role: 'grid',
+          role: 'button',
           title: key,
           tabIndex: -1,
         }
@@ -233,8 +233,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                     // Long press should not trigger native context menu
                     e.preventDefault()
                   }}
-                  title='BACKSPACE'
-                  role='grid'
+                  title='删除'
+                  role='button'
                   tabIndex={-1}
                 >
                   <TextDeletionOutline />
@@ -242,7 +242,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                 <div
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
                   onTouchEnd={e => onKeyPress(e, 'OK')}
-                  role='grid'
+                  role='button'
                   tabIndex={-1}
                   aria-label={confirmText}
                 >
