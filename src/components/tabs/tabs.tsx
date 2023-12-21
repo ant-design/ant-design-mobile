@@ -84,7 +84,7 @@ export const Tabs: FC<TabsProps> = p => {
     },
   })
 
-  const [{ x, width }, api] = useSpring(() => ({
+  const [{ x, width }, inkApi] = useSpring(() => ({
     x: 0,
     width: 0,
     config: {
@@ -109,12 +109,13 @@ export const Tabs: FC<TabsProps> = p => {
     },
   }))
 
-  function animate(immediate = false) {
+  function animate(immediate = false, fromMutation = false) {
     const container = tabListContainerRef.current
     if (!container) return
+
     const activeIndex = keyToIndexRecord[activeKey as string]
     if (activeIndex === undefined) {
-      api.start({
+      inkApi.start({
         x: 0,
         width: 0,
         immediate: true,
@@ -162,7 +163,7 @@ export const Tabs: FC<TabsProps> = p => {
       x = -(containerWidth - x - w)
     }
 
-    api.start({
+    inkApi.start({
       x,
       width,
       immediate,
@@ -194,11 +195,13 @@ export const Tabs: FC<TabsProps> = p => {
       )
     }
 
-    scrollApi.start({
-      scrollLeft: nextScrollLeft,
-      from: { scrollLeft: containerScrollLeft },
-      immediate,
-    })
+    if (!fromMutation || props.autoScroll !== false) {
+      scrollApi.start({
+        scrollLeft: nextScrollLeft,
+        from: { scrollLeft: containerScrollLeft },
+        immediate,
+      })
+    }
   }
 
   useIsomorphicLayoutEffect(() => {
@@ -215,9 +218,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   useMutationEffect(
     () => {
-      if (props.autoScroll !== false) {
-        animate(!x.isAnimating)
-      }
+      animate(!x.isAnimating, true)
     },
     tabListContainerRef,
     {
