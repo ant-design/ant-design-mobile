@@ -35,6 +35,11 @@ export type TabsProps = {
   onChange?: (key: string) => void
   children?: ReactNode
   direction?: 'ltr' | 'rtl'
+  /**
+   * @experimental Support disabled auto scroll when Tabs header content change.
+   * This API name or function may change in the future.
+   * Please lock the version if you want to use it.
+   */
   autoScroll?: boolean
 } & NativeProps<
   | '--fixed-active-line-width'
