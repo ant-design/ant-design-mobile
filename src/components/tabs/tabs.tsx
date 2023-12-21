@@ -35,6 +35,7 @@ export type TabsProps = {
   onChange?: (key: string) => void
   children?: ReactNode
   direction?: 'ltr' | 'rtl'
+  autoScroll?: boolean
 } & NativeProps<
   | '--fixed-active-line-width'
   | '--active-line-height'
@@ -214,7 +215,9 @@ export const Tabs: FC<TabsProps> = p => {
 
   useMutationEffect(
     () => {
-      animate(!x.isAnimating)
+      if (props.autoScroll !== false) {
+        animate(!x.isAnimating)
+      }
     },
     tabListContainerRef,
     {
