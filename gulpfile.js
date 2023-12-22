@@ -167,7 +167,12 @@ async function buildBundles(cb) {
 
   // Let it step by step since `style.css` is same name.
   // Production should override it.
-  for (const config of configs) {
+  for (let i = 0; i < configs.length; i += 1) {
+    const config = configs[i]
+    if (i !== 0) {
+      config.build.emptyOutDir = false
+    }
+
     await vite.build(config)
   }
 
