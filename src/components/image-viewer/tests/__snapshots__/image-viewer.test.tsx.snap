@@ -10,6 +10,19 @@ exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 1`]
       Show
     </span>
   </button>
+</div>
+`;
+
+exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 2`] = `
+<div>
+  <button
+    class="adm-button adm-button-default adm-button-shape-default"
+    type="button"
+  >
+    <span>
+      Show
+    </span>
+  </button>
   <div
     aria-hidden="true"
     class="adm-mask"
