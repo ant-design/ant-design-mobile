@@ -164,15 +164,12 @@ describe('ImageViewer.Multi', () => {
       </>
     )
 
-    console.log(document.body.innerHTML)
-
     fireEvent.click(screen.getByText('show'))
     await waitFakeTimers()
 
     const img = document.querySelector<HTMLImageElement>('img')!
     expect(img).toBeTruthy()
 
-    console.log('~~~~~~~~~~~~~~~')
     userEvent.click(img)
     await waitFakeTimers()
 
@@ -180,8 +177,6 @@ describe('ImageViewer.Multi', () => {
       expect(document.querySelector<HTMLImageElement>('img')).toBeFalsy()
     })
   })
-
-  return
 
   test('slide and slide with pinched should be work', async () => {
     Object.defineProperty(window, 'innerWidth', {
@@ -243,13 +238,21 @@ describe('ImageViewer.Multi', () => {
 })
 
 describe('ImageViewer', () => {
+  beforeEach(() => {
+    document.body.innerHTML = ''
+    jest.useFakeTimers()
+  })
+
+  afterEach(() => {
+    jest.clearAllTimers()
+    jest.useRealTimers()
+  })
+
   test('a11y', async () => {
     await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
   })
 
   test('maxZoom support auto', async () => {
-    jest.useFakeTimers()
-
     render(<ImageViewer image={demoImages[0]} visible maxZoom='auto' />)
 
     // Pinch to zoom bigger
@@ -259,14 +262,10 @@ describe('ImageViewer', () => {
 
     expect(G.nextZoom).toEqual(10)
 
-    jest.clearAllTimers()
-    jest.useRealTimers()
     jest.restoreAllMocks()
   })
 
   test('`ImageViewer.show/ImageViewer.clear` should be work', async () => {
-    jest.useFakeTimers()
-
     const { container } = render(
       <button
         onClick={() => {
@@ -280,8 +279,6 @@ describe('ImageViewer', () => {
     fireEvent.click(container.querySelector<HTMLButtonElement>('button')!)
     await waitFakeTimers()
 
-    console.log()
-
     expect(document.querySelector('img')).toBeTruthy()
 
     act(() => {
@@ -290,8 +287,5 @@ describe('ImageViewer', () => {
     await waitFakeTimers()
 
     expect(document.querySelector('img')).toBeFalsy()
-
-    jest.clearAllTimers()
-    jest.useRealTimers()
   })
 })
