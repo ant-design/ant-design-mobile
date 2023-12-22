@@ -61,8 +61,6 @@ describe('Modal', () => {
   })
 
   test('close on mask click', async () => {
-    jest.useFakeTimers()
-
     const onClose = jest.fn()
     const afterClose = jest.fn()
     render(
@@ -74,12 +72,11 @@ describe('Modal', () => {
 
     const mask = document.querySelector('.adm-mask-aria-button')!
     fireEvent.click(mask)
+
     await waitForElementToBeRemoved(mask)
+
     expect(onClose).toBeCalled()
     expect(afterClose).toBeCalled()
-
-    jest.clearAllTimers()
-    jest.useRealTimers()
   })
 
   test('show close button', async () => {
