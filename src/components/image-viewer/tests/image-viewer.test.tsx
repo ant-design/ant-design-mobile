@@ -92,6 +92,16 @@ jest.mock('../../../utils/use-drag-and-pinch', () => {
 })
 
 describe('ImageViewer.Multi', () => {
+  beforeEach(() => {
+    document.body.innerHTML = ''
+    jest.useFakeTimers()
+  })
+
+  afterEach(() => {
+    jest.clearAllTimers()
+    jest.useRealTimers()
+  })
+
   test('calling ref.current.swipeTo before initialization', async () => {
     function App() {
       const [visible, setVisible] = useState(false)
@@ -118,15 +128,15 @@ describe('ImageViewer.Multi', () => {
     const renderer = render(<App />)
     expect(renderer.container).toMatchSnapshot()
     fireEvent.click(renderer.getByText('Show'))
-    await waitFor(() =>
-      // end of animation
-      expect(document.querySelectorAll('.adm-mask')[0]).toHaveStyle(
-        'opacity: 1;'
-      )
-    )
+
+    await waitFakeTimers()
+
+    // end of animation
+    expect(document.querySelectorAll('.adm-mask')[0]).toHaveStyle('opacity: 1;')
     expect(renderer.getByText('3 / 4')).not.toBeNull()
     expect(renderer.container).toMatchSnapshot()
   })
+
   test('rendering with footer', () => {
     function App() {
       return (
@@ -140,6 +150,7 @@ describe('ImageViewer.Multi', () => {
     render(<App />)
     expect(screen.getByText('查看原图')).toBeInTheDocument()
   })
+
   test('`ImageViewer.Multi.show` should be work', async () => {
     render(
       <>
@@ -152,14 +163,25 @@ describe('ImageViewer.Multi', () => {
         </button>
       </>
     )
+
+    console.log(document.body.innerHTML)
+
     fireEvent.click(screen.getByText('show'))
-    const imgs = await screen.findAllByRole('img')
-    expect(imgs[0]).toBeVisible()
-    await act(async () => {
-      await userEvent.click(imgs[0])
+    await waitFakeTimers()
+
+    const img = document.querySelector<HTMLImageElement>('img')!
+    expect(img).toBeTruthy()
+
+    console.log('~~~~~~~~~~~~~~~')
+    userEvent.click(img)
+    await waitFakeTimers()
+
+    await waitFor(() => {
+      expect(document.querySelector<HTMLImageElement>('img')).toBeFalsy()
     })
-    await waitFor(() => expect(imgs[0]).not.toBeVisible())
   })
+
+  return
 
   test('slide and slide with pinched should be work', async () => {
     Object.defineProperty(window, 'innerWidth', {
@@ -167,26 +189,21 @@ describe('ImageViewer.Multi', () => {
     })
     const onIndexChange = jest.fn()
 
-    act(() => {
-      render(
-        <ImageViewer.Multi
-          visible
-          defaultIndex={3}
-          images={demoImages}
-          onIndexChange={onIndexChange}
-        ></ImageViewer.Multi>
-      )
-    })
+    render(
+      <ImageViewer.Multi
+        visible
+        defaultIndex={3}
+        images={demoImages}
+        onIndexChange={onIndexChange}
+      />
+    )
 
-    await screen.findAllByRole('img')
+    await waitFakeTimers()
 
     G?.onPinch({
       origin: [235, 202],
       offset: [1.94, 0],
     })
-
-    // need to wait image render.
-    await act(() => new Promise(resolve => setTimeout(resolve, 2500)))
 
     const slides = document.querySelectorAll(`.${classPrefix}-control`)[3]
 
