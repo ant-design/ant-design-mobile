@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from 'react'
 import {
   render,
@@ -7,6 +8,7 @@ import {
   waitForElementToBeRemoved,
   screen,
   act,
+  waitFakeTimers,
 } from 'testing'
 import Modal, { ModalAlertProps } from '..'
 
@@ -59,6 +61,8 @@ describe('Modal', () => {
   })
 
   test('close on mask click', async () => {
+    jest.useFakeTimers()
+
     const onClose = jest.fn()
     const afterClose = jest.fn()
     render(
@@ -66,11 +70,16 @@ describe('Modal', () => {
     )
 
     fireEvent.click(screen.getByRole('button', { name: 'btn' }))
-    const mask = await screen.findByRole('button', { name: '背景蒙层' })
+    await waitFakeTimers()
+
+    const mask = document.querySelector('.adm-mask-aria-button')!
     fireEvent.click(mask)
     await waitForElementToBeRemoved(mask)
     expect(onClose).toBeCalled()
     expect(afterClose).toBeCalled()
+
+    jest.clearAllTimers()
+    jest.useRealTimers()
   })
 
   test('show close button', async () => {
