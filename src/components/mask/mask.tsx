@@ -101,6 +101,7 @@ export const Mask: FC<MaskProps> = p => {
       <animated.div
         className={classPrefix}
         ref={ref}
+        aria-hidden
         style={{
           ...props.style,
           background,

@@ -8,6 +8,7 @@ import Popup, { PopupProps } from '../popup'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -58,6 +59,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     showCloseButton,
     onInput,
   } = props
+
+  const { locale } = useConfig()
 
   const keyboardRef = useRef<HTMLDivElement | null>(null)
 
@@ -138,8 +141,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
             onClick={() => {
               props.onClose?.()
             }}
-            role='grid'
-            title='CLOSE'
+            role='button'
+            title={locale.common.close}
             tabIndex={-1}
           >
             <DownOutline />
@@ -160,7 +163,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
 
     const ariaProps = key
       ? {
-          role: 'grid',
+          role: 'button',
           title: key,
           tabIndex: -1,
         }
@@ -233,8 +236,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                     // Long press should not trigger native context menu
                     e.preventDefault()
                   }}
-                  title='BACKSPACE'
-                  role='grid'
+                  title={locale.Input.clear}
+                  role='button'
                   tabIndex={-1}
                 >
                   <TextDeletionOutline />
@@ -242,7 +245,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                 <div
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
                   onTouchEnd={e => onKeyPress(e, 'OK')}
-                  role='grid'
+                  role='button'
                   tabIndex={-1}
                   aria-label={confirmText}
                 >

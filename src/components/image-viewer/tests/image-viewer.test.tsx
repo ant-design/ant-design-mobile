@@ -87,6 +87,14 @@ jest.mock('../../../utils/use-drag-and-pinch', () => {
   }
 })
 
+async function getImages() {
+  const images = await screen.findAllByText(
+    (content, element) => element?.tagName.toLowerCase() === 'img'
+  )
+
+  return images[0]
+}
+
 describe('ImageViewer.Multi', () => {
   test('calling ref.current.swipeTo before initialization', async () => {
     function App() {
@@ -149,12 +157,13 @@ describe('ImageViewer.Multi', () => {
       </>
     )
     fireEvent.click(screen.getByText('show'))
-    const imgs = await screen.findAllByRole('img')
-    expect(imgs[0]).toBeVisible()
+    const img = await getImages()
+
+    expect(img).toBeVisible()
     await act(async () => {
-      await userEvent.click(imgs[0])
+      await userEvent.click(img)
     })
-    await waitFor(() => expect(imgs[0]).not.toBeVisible())
+    await waitFor(() => expect(img).not.toBeVisible())
   })
 
   test('slide and slide with pinched should be work', async () => {
@@ -174,7 +183,7 @@ describe('ImageViewer.Multi', () => {
       )
     })
 
-    await screen.findAllByRole('img')
+    await getImages()
 
     G?.onPinch({
       origin: [235, 202],
@@ -254,7 +263,8 @@ describe('ImageViewer', () => {
       </button>
     )
     fireEvent.click(screen.getByText('show'))
-    const img = await screen.findByRole('img')
+
+    const img = await getImages()
     expect(img).toBeVisible()
 
     act(() => {

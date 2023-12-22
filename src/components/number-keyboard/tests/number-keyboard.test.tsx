@@ -27,7 +27,8 @@ describe('NumberKeyboard', () => {
   test('onClose should be called by close button', () => {
     const onClose = jest.fn()
     render(<NumberKeyboard visible onClose={onClose} />)
-    fireEvent.click(screen.getByTitle('CLOSE'))
+
+    fireEvent.click(screen.getByTitle('关闭'))
     expect(onClose).toBeCalledTimes(1)
   })
 
@@ -75,7 +76,7 @@ describe('NumberKeyboard', () => {
       />
     )
     const confirm = screen.getByText('confirm')
-    const del = screen.getByTitle('BACKSPACE')
+    const del = screen.getByTitle('清除')
     expect(confirm).toBeInTheDocument()
     expect(confirm).toHaveClass(
       `${classPrefix}-key-extra ${classPrefix}-key-ok`
@@ -118,7 +119,7 @@ describe('NumberKeyboard', () => {
     const popup = document.querySelector(`.${classPrefix}-popup`)
     const main = document.querySelector(`.${classPrefix}-main`)
     expect(main).not.toHaveTextContent('1234567890')
-    fireEvent.click(screen.getByTitle('CLOSE'))
+    fireEvent.click(screen.getByTitle('关闭'))
     await waitFor(() => expect(popup).not.toBeVisible())
   })
 
