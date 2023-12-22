@@ -236,7 +236,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                     // Long press should not trigger native context menu
                     e.preventDefault()
                   }}
-                  title='删除'
+                  title={locale.Input.clear}
                   role='button'
                   tabIndex={-1}
                 >
