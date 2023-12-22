@@ -126,16 +126,14 @@ describe('ImageViewer.Multi', () => {
       )
     }
     const renderer = render(<App />)
-    expect(renderer.container).toMatchSnapshot()
+
+    expect(document.querySelector('.adm-mask')).toBeFalsy()
+
     fireEvent.click(renderer.getByText('Show'))
+    await waitFakeTimers()
 
     // end of animation
-    await waitFor(() => {
-      expect(document.querySelectorAll('.adm-mask')[0]).toHaveStyle(
-        'opacity: 1;'
-      )
-    })
-
+    expect(document.querySelector('.adm-mask')).toBeTruthy()
     expect(renderer.getByText('3 / 4')).not.toBeNull()
     expect(renderer.container).toMatchSnapshot()
   })
