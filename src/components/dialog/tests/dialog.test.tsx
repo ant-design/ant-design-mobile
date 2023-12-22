@@ -61,8 +61,6 @@ describe('Dialog', () => {
   })
 
   test('close on mask click', async () => {
-    jest.useFakeTimers()
-
     const onClose = jest.fn()
     const afterClose = jest.fn()
     render(
@@ -78,9 +76,6 @@ describe('Dialog', () => {
     await waitForElementToBeRemoved(mask)
     expect(onClose).toBeCalled()
     expect(afterClose).toBeCalled()
-
-    jest.clearAllTimers()
-    jest.useRealTimers()
   })
 
   test('custom content', async () => {
