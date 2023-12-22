@@ -129,10 +129,13 @@ describe('ImageViewer.Multi', () => {
     expect(renderer.container).toMatchSnapshot()
     fireEvent.click(renderer.getByText('Show'))
 
-    await waitFakeTimers()
-
     // end of animation
-    expect(document.querySelectorAll('.adm-mask')[0]).toHaveStyle('opacity: 1;')
+    await waitFor(() => {
+      expect(document.querySelectorAll('.adm-mask')[0]).toHaveStyle(
+        'opacity: 1;'
+      )
+    })
+
     expect(renderer.getByText('3 / 4')).not.toBeNull()
     expect(renderer.container).toMatchSnapshot()
   })
@@ -249,6 +252,7 @@ describe('ImageViewer', () => {
   })
 
   test('a11y', async () => {
+    jest.useRealTimers()
     await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
   })
 
@@ -266,10 +270,12 @@ describe('ImageViewer', () => {
   })
 
   test('`ImageViewer.show/ImageViewer.clear` should be work', async () => {
+    const onClose = jest.fn()
+
     const { container } = render(
       <button
         onClick={() => {
-          ImageViewer.show({ image: demoImages[0] })
+          ImageViewer.show({ image: demoImages[0], onClose })
         }}
       >
         show
@@ -284,8 +290,7 @@ describe('ImageViewer', () => {
     act(() => {
       ImageViewer.clear()
     })
-    await waitFakeTimers()
 
-    expect(document.querySelector('img')).toBeFalsy()
+    expect(onClose).toHaveBeenCalled()
   })
 })
