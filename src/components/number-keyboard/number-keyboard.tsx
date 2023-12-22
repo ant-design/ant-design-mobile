@@ -8,6 +8,7 @@ import Popup, { PopupProps } from '../popup'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -58,6 +59,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     showCloseButton,
     onInput,
   } = props
+
+  const { locale } = useConfig()
 
   const keyboardRef = useRef<HTMLDivElement | null>(null)
 
@@ -139,7 +142,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
               props.onClose?.()
             }}
             role='button'
-            title='收起'
+            title={locale.common.close}
             tabIndex={-1}
           >
             <DownOutline />
