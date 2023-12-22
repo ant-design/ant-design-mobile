@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+
 import React, { useRef, useState } from 'react'
 import {
   render,
@@ -8,10 +10,12 @@ import {
   userEvent,
   mockDrag,
   act,
+  waitFakeTimers,
 } from 'testing'
 import ImageViewer, { MultiImageViewerRef } from '../index'
 import Button from '../../button'
 import image from './image.json'
+import { a } from '@react-spring/web'
 const classPrefix = `adm-image-viewer`
 
 const demoImages = [
@@ -244,7 +248,9 @@ describe('ImageViewer', () => {
   })
 
   test('`ImageViewer.show/ImageViewer.clear` should be work', async () => {
-    render(
+    jest.useFakeTimers()
+
+    const { container } = render(
       <button
         onClick={() => {
           ImageViewer.show({ image: demoImages[0] })
@@ -253,13 +259,22 @@ describe('ImageViewer', () => {
         show
       </button>
     )
-    fireEvent.click(screen.getByText('show'))
-    const img = await screen.findByRole('img')
-    expect(img).toBeVisible()
+
+    fireEvent.click(container.querySelector<HTMLButtonElement>('button')!)
+    await waitFakeTimers()
+
+    console.log()
+
+    expect(document.querySelector('img')).toBeTruthy()
 
     act(() => {
       ImageViewer.clear()
     })
-    await waitFor(() => expect(img).not.toBeVisible())
+    await waitFakeTimers()
+
+    expect(document.querySelector('img')).toBeFalsy()
+
+    jest.clearAllTimers()
+    jest.useRealTimers()
   })
 })
