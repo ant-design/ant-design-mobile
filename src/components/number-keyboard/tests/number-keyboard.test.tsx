@@ -119,7 +119,7 @@ describe('NumberKeyboard', () => {
     const popup = document.querySelector(`.${classPrefix}-popup`)
     const main = document.querySelector(`.${classPrefix}-main`)
     expect(main).not.toHaveTextContent('1234567890')
-    fireEvent.click(screen.getByTitle('Close'))
+    fireEvent.click(screen.getByTitle('关闭'))
     await waitFor(() => expect(popup).not.toBeVisible())
   })
 
