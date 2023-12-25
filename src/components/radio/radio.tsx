@@ -101,9 +101,6 @@ export const Radio: FC<RadioProps> = p => {
         onChange={setChecked}
         disabled={disabled}
         id={props.id}
-        style={{
-          display: 'none',
-        }}
       />
       {renderIcon()}
       {props.children && (
