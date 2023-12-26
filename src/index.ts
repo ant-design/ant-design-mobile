@@ -61,7 +61,7 @@ export type {
 } from './components/checkbox'
 export { default as Collapse } from './components/collapse'
 export type { CollapseProps, CollapsePanelProps } from './components/collapse'
-export { default as ConfigProvider } from './components/config-provider'
+export { default as ConfigProvider, useConfig } from './components/config-provider'
 export type { ConfigProviderProps } from './components/config-provider'
 export { default as DatePicker } from './components/date-picker'
 export type { DatePickerProps, DatePickerRef } from './components/date-picker'
