@@ -275,7 +275,9 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       }
 
       useImperativeHandle(ref, () => ({
-        swipeTo,
+        swipeTo: index => {
+          swipeTo(isRtl ? -index : index)
+        },
         swipeNext,
         swipePrev,
       }))
