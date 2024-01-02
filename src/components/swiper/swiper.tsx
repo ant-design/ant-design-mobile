@@ -258,6 +258,8 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
         const nextKey = validChildren[targetIndex]?.key as string
 
+        console.log('Change!!!!', index, targetIndex, nextKey)
+
         if (targetIndex !== current) {
           props.onChange?.(nextKey)
           props.onIndexChange?.(targetIndex)
@@ -349,17 +351,16 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
                 ),
               }}
             >
-              {React.Children.map(validChildren, (child, index) => {
-                return (
-                  <div
-                    className={classNames(`${classPrefix}-slide`, {
-                      [`${classPrefix}-slide-active`]: current === index,
-                    })}
-                  >
-                    {child}
-                  </div>
-                )
-              })}
+              {validChildren.map((child, index) => (
+                <div
+                  className={classNames(`${classPrefix}-slide`, {
+                    [`${classPrefix}-slide-active`]: current === index,
+                  })}
+                  key={child?.key}
+                >
+                  {child}
+                </div>
+              ))}
             </animated.div>
           )
         }
