@@ -32,7 +32,11 @@
 
 <code src="./demos/demo5.tsx"></code>
 
-<code src="./demos/demo6.tsx" debug></code> <code src="./demos/demo7.tsx" debug></code>
+<code src="./demos/demo6.tsx" debug></code>
+
+<code src="./demos/demo7.tsx" debug></code>
+
+<code src="./demos/demo8.tsx" debug></code>
 
 ## Swiper
 

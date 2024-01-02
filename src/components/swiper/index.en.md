@@ -36,6 +36,8 @@ When you use a vertical Swiper, be sure to set its height through the `--height`
 
 <code src="./demos/demo7.tsx" debug></code>
 
+<code src="./demos/demo8.tsx" debug></code>
+
 ## Swiper
 
 ### Props
