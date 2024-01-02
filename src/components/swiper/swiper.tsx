@@ -6,6 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
+import toArray from 'rc-util/lib/Children/toArray'
 import type { ReactNode, CSSProperties, ReactElement } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
@@ -20,6 +21,7 @@ import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
 import { useIsomorphicLayoutEffect, useGetState } from 'ahooks'
 import { mergeFuncProps } from '../../utils/with-func-props'
+import { useEvent, useMergedState } from 'rc-util'
 
 const classPrefix = `adm-swiper`
 
@@ -42,12 +44,19 @@ export type SwiperRef = {
 }
 
 export type SwiperProps = {
+  /**
+   * Since React will convert `key` to string,
+   * the control mode should alway use string type
+   */
+  activeKey?: string
+  defaultActiveKey?: string
   defaultIndex?: number
   allowTouchMove?: boolean
   autoplay?: boolean
   autoplayInterval?: number
   loop?: boolean
   direction?: 'horizontal' | 'vertical'
+  onChange?: (key: string) => void
   onIndexChange?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   indicator?: (total: number, current: number) => ReactNode
@@ -87,7 +96,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
     const { validChildren, count } = useMemo(() => {
       let count = 0
-      const validChildren = React.Children.map(props.children, child => {
+      const validChildren = toArray(props.children).map(child => {
         if (!React.isValidElement(child)) return null
         if (child.type !== SwiperItem) {
           devWarning(
@@ -124,7 +133,17 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         return (trackPixels * props.slideSize) / 100
       }
 
-      const [current, setCurrent, getCurrent] = useGetState(props.defaultIndex)
+      const [activeKey, setActiveKey] = useMergedState(props.defaultActiveKey, {
+        value: props.activeKey,
+        postState: key =>
+          validChildren.find(itemNode => itemNode?.key === key)
+            ? key
+            : (validChildren[0]?.key as string),
+      })
+
+      const current = validChildren.findIndex(
+        itemNode => itemNode?.key === activeKey
+      )
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
@@ -231,23 +250,26 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         }
       )
 
-      function swipeTo(index: number, immediate = false) {
+      const swipeTo = useEvent((index: number, immediate = false) => {
         const roundedIndex = Math.round(index)
         const targetIndex = loop
           ? modulus(roundedIndex, count)
           : bound(roundedIndex, 0, count - 1)
 
-        if (targetIndex !== getCurrent()) {
+        const nextKey = validChildren[targetIndex]?.key as string
+
+        if (targetIndex !== current) {
+          props.onChange?.(nextKey)
           props.onIndexChange?.(targetIndex)
         }
 
-        setCurrent(targetIndex)
+        setActiveKey(nextKey)
 
         api.start({
           position: (loop ? roundedIndex : boundIndex(roundedIndex)) * 100,
           immediate,
         })
-      }
+      })
 
       function swipeNext() {
         swipeTo(Math.round(position.get() / 100) + 1)
