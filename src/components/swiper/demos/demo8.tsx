@@ -28,10 +28,6 @@ export default () => {
     )
   })
 
-  const onChange = (nextKey: string) => {
-    setActiveKey(nextKey)
-  }
-
   return (
     <>
       <DemoBlock title='无限滚动'>
@@ -41,8 +37,6 @@ export default () => {
             slideSize={60}
             trackOffset={20}
             stuckAtBoundary={false}
-            onChange={onChange}
-            activeKey={activeKey}
           >
             {items}
           </Swiper>
