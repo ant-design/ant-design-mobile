@@ -10,30 +10,29 @@ const DATA_COUNT = 5
 
 export default () => {
   return (
-    <>
-      <DemoBlock title='无限滚动'>
-        <Space direction='vertical' block>
-          <Swiper
-            className={styles.root}
-            slideSize={60}
-            trackOffset={20}
-            stuckAtBoundary={false}
-            total={70}
-            indicator={false}
-          >
-            {index => (
-              <Swiper.Item key={index}>
-                <div
-                  className={styles.scaleContent}
-                  style={{ background: colors[index % DATA_COUNT] }}
-                >
-                  {index + 1}
-                </div>
-              </Swiper.Item>
-            )}
-          </Swiper>
-        </Space>
-      </DemoBlock>
-    </>
+    <DemoBlock title='无限滚动'>
+      <Space direction='vertical' block>
+        <Swiper
+          className={styles.root}
+          slideSize={60}
+          trackOffset={20}
+          stuckAtBoundary={false}
+          total={20}
+          indicator={false}
+          defaultIndex={2}
+        >
+          {index => (
+            <Swiper.Item key={index}>
+              <div
+                className={styles.scaleContent}
+                style={{ background: colors[index % DATA_COUNT] }}
+              >
+                {index + 1}
+              </div>
+            </Swiper.Item>
+          )}
+        </Swiper>
+      </Space>
+    </DemoBlock>
   )
 }

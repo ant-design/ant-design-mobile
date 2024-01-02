@@ -345,15 +345,26 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
       function renderItems() {
         if (renderChildren && total) {
-          const startIndex = Math.max(current - 2, 0)
-          const endIndex = Math.min(current + 2, total - 1)
+          const offsetCount = 2
+          const startIndex = Math.max(current - offsetCount, 0)
+          const endIndex = Math.min(current + offsetCount, total - 1)
 
           const items: ReactElement[] = []
           for (let index = startIndex; index <= endIndex; index += 1) {
             items.push(renderItem(index, renderChildren(index)))
           }
 
-          return items
+          return (
+            <>
+              <div
+                className={`${classPrefix}-slide-placeholder`}
+                style={{
+                  width: `${startIndex * 100}%`,
+                }}
+              />
+              {items}
+            </>
+          )
         }
 
         return React.Children.map(validChildren, (child, index) => {
