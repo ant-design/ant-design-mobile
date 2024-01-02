@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Button, Space, Swiper } from 'antd-mobile'
+import React from 'react'
+import { Space, Swiper } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 
 import styles from './demo8.less'
@@ -19,6 +19,7 @@ export default () => {
             trackOffset={20}
             stuckAtBoundary={false}
             total={70}
+            indicator={false}
           >
             {index => (
               <Swiper.Item key={index}>

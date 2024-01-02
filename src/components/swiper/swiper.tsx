@@ -50,7 +50,7 @@ export type SwiperProps = {
   direction?: 'horizontal' | 'vertical'
   onIndexChange?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
-  indicator?: (total: number, current: number) => ReactNode
+  indicator?: false | ((total: number, current: number) => ReactNode)
   slideSize?: number
   trackOffset?: number
   stuckAtBoundary?: boolean
@@ -86,7 +86,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
   staged<SwiperProps, SwiperRef>((p, ref) => {
     const props = mergeProps(defaultProps, p)
 
-    const { direction, total, children } = props
+    const { direction, total, children, indicator } = props
 
     const [uid] = useState({})
     const timeoutRef = useRef<number | null>(null)
@@ -98,7 +98,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
     const { validChildren, count, renderChildren } = useMemo(() => {
       let count = 0
 
-      let renderChildren: (index: number) => ReactElement | undefined =
+      let renderChildren: ((index: number) => ReactElement) | undefined =
         undefined
       let validChildren: ReactElement[] | null | undefined = undefined
 
@@ -312,6 +312,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       }, [autoplay, autoplayInterval, dragging, mergedTotal])
 
       // ============================== Render ==============================
+      // Render Item
       function renderItem(index: number, child: React.ReactNode) {
         let itemStyle: React.CSSProperties = {}
 
@@ -335,20 +336,36 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               [`${classPrefix}-slide-active`]: current === index,
             })}
             style={itemStyle}
+            key={index}
           >
             {child}
           </animated.div>
         )
       }
 
+      function renderItems() {
+        if (renderChildren && total) {
+          const startIndex = Math.max(current - 2, 0)
+          const endIndex = Math.min(current + 2, total - 1)
+
+          const items: ReactElement[] = []
+          for (let index = startIndex; index <= endIndex; index += 1) {
+            items.push(renderItem(index, renderChildren(index)))
+          }
+
+          return items
+        }
+
+        return React.Children.map(validChildren, (child, index) => {
+          return renderItem(index, child)
+        })
+      }
+
+      // Render Track Inner
       function renderTrackInner() {
         if (loop) {
           return (
-            <div className={`${classPrefix}-track-inner`}>
-              {React.Children.map(validChildren, (child, index) => {
-                return renderItem(index, child)
-              })}
-            </div>
+            <div className={`${classPrefix}-track-inner`}>{renderItems()}</div>
           )
         } else {
           return (
@@ -360,14 +377,13 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
                 ),
               }}
             >
-              {React.Children.map(validChildren, (child, index) => {
-                return renderItem(index, child)
-              })}
+              {renderItems()}
             </animated.div>
           )
         }
       }
 
+      // Render
       const style: CSSProperties &
         Record<'--slide-size' | '--track-offset', string> = {
         '--slide-size': `${props.slideSize}%`,
@@ -386,6 +402,23 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       }
 
       const mergedProps = mergeFuncProps(dragProps, stopPropagationProps)
+
+      let indicatorNode: ReactNode = null
+
+      if (typeof indicator === 'function') {
+        indicatorNode = indicator(mergedTotal, current)
+      } else if (indicator !== false) {
+        indicatorNode = (
+          <div className={`${classPrefix}-indicator`}>
+            <PageIndicator
+              {...props.indicatorProps}
+              total={mergedTotal}
+              current={current}
+              direction={direction}
+            />
+          </div>
+        )
+      }
 
       return withNativeProps(
         props,
@@ -408,18 +441,8 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           >
             {renderTrackInner()}
           </div>
-          {props.indicator === undefined ? (
-            <div className={`${classPrefix}-indicator`}>
-              <PageIndicator
-                {...props.indicatorProps}
-                total={mergedTotal}
-                current={current}
-                direction={direction}
-              />
-            </div>
-          ) : (
-            props.indicator(mergedTotal, current)
-          )}
+
+          {indicatorNode}
         </div>
       )
     }
