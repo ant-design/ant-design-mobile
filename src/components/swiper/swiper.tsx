@@ -95,21 +95,32 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
     const slideRatio = props.slideSize / 100
     const offsetRatio = props.trackOffset / 100
 
-    const { validChildren, count } = useMemo(() => {
+    const { validChildren, count, renderChildren } = useMemo(() => {
       let count = 0
-      const validChildren = React.Children.map(children, child => {
-        if (!React.isValidElement(child)) return null
-        if (child.type !== SwiperItem) {
-          devWarning(
-            'Swiper',
-            'The children of `Swiper` must be `Swiper.Item` components.'
-          )
-          return null
-        }
-        count++
-        return child
-      })
+
+      let renderChildren: (index: number) => ReactElement | undefined =
+        undefined
+      let validChildren: ReactElement[] | null | undefined = undefined
+
+      if (typeof children === 'function') {
+        renderChildren = children
+      } else {
+        validChildren = React.Children.map(children, child => {
+          if (!React.isValidElement(child)) return null
+          if (child.type !== SwiperItem) {
+            devWarning(
+              'Swiper',
+              'The children of `Swiper` must be `Swiper.Item` components.'
+            )
+            return null
+          }
+          count++
+          return child
+        })
+      }
+
       return {
+        renderChildren,
         validChildren,
         count,
       }
@@ -117,7 +128,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
     const mergedTotal = total ?? count
 
-    if (mergedTotal === 0 || !validChildren) {
+    if (mergedTotal === 0 || (!validChildren && !renderChildren)) {
       devWarning('Swiper', '`Swiper` needs at least one child.')
       return null
     }
@@ -276,7 +287,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       }))
 
       useIsomorphicLayoutEffect(() => {
-        const maxIndex = validChildren.length - 1
+        const maxIndex = mergedTotal - 1
         if (current > maxIndex) {
           swipeTo(maxIndex, true)
         }
@@ -300,32 +311,42 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         }
       }, [autoplay, autoplayInterval, dragging, mergedTotal])
 
+      // ============================== Render ==============================
+      function renderItem(index: number, child: React.ReactNode) {
+        let itemStyle: React.CSSProperties = {}
+
+        if (loop) {
+          itemStyle = {
+            [isVertical ? 'y' : 'x']: position.to(position => {
+              let finalPosition = -position + index * 100
+              const totalWidth = mergedTotal * 100
+              const flagWidth = totalWidth / 2
+              finalPosition =
+                modulus(finalPosition + flagWidth, totalWidth) - flagWidth
+              return `${finalPosition}%`
+            }),
+            [isVertical ? 'top' : 'left']: `-${index * 100}%`,
+          }
+        }
+
+        return (
+          <animated.div
+            className={classNames(`${classPrefix}-slide`, {
+              [`${classPrefix}-slide-active`]: current === index,
+            })}
+            style={itemStyle}
+          >
+            {child}
+          </animated.div>
+        )
+      }
+
       function renderTrackInner() {
         if (loop) {
           return (
             <div className={`${classPrefix}-track-inner`}>
               {React.Children.map(validChildren, (child, index) => {
-                return (
-                  <animated.div
-                    className={classNames(`${classPrefix}-slide`, {
-                      [`${classPrefix}-slide-active`]: current === index,
-                    })}
-                    style={{
-                      [isVertical ? 'y' : 'x']: position.to(position => {
-                        let finalPosition = -position + index * 100
-                        const totalWidth = mergedTotal * 100
-                        const flagWidth = totalWidth / 2
-                        finalPosition =
-                          modulus(finalPosition + flagWidth, totalWidth) -
-                          flagWidth
-                        return `${finalPosition}%`
-                      }),
-                      [isVertical ? 'top' : 'left']: `-${index * 100}%`,
-                    }}
-                  >
-                    {child}
-                  </animated.div>
-                )
+                return renderItem(index, child)
               })}
             </div>
           )
@@ -340,15 +361,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               }}
             >
               {React.Children.map(validChildren, (child, index) => {
-                return (
-                  <div
-                    className={classNames(`${classPrefix}-slide`, {
-                      [`${classPrefix}-slide-active`]: current === index,
-                    })}
-                  >
-                    {child}
-                  </div>
-                )
+                return renderItem(index, child)
               })}
             </animated.div>
           )
