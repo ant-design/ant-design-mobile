@@ -32,6 +32,12 @@ When you use a vertical Swiper, be sure to set its height through the `--height`
 
 <code src="./demos/demo5.tsx"></code>
 
+### Virtual Scroll
+
+Use `total` with `renderProps` for render. Not support `loop`
+
+<code src="./demos/demo8.tsx"></code>
+
 <code src="./demos/demo6.tsx" debug></code>
 
 <code src="./demos/demo7.tsx" debug></code>
@@ -55,6 +61,7 @@ When you use a vertical Swiper, be sure to set its height through the `--height`
 | slideSize | The slide width in percentage | `number` | `100` |
 | stuckAtBoundary | Whether to stuck at boundary in order to prevent white spaces. Only available when `loop` is `false` and `slideWidth` < 100. | `boolean` | `true` |
 | trackOffset | The track offset in percentage | `number` | `0` |
+| total | Virtual scroll config total size which should work with renderProps. (Not support `loop`) | `number` | 5.34.0 |
 | stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `[]` | 5.28.0 |
 
 ```ts

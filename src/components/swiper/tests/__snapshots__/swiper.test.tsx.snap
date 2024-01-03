@@ -153,3 +153,91 @@ exports[`Swiper loop 2`] = `
   </div>
 </div>
 `;
+
+exports[`Swiper virtual scroll 1`] = `
+<div>
+  <div
+    class="adm-swiper adm-swiper-horizontal"
+    style="--slide-size: 100%; --track-offset: 0%;"
+  >
+    <div
+      class="adm-swiper-track adm-swiper-track-allow-touch-move"
+    >
+      <div
+        class="adm-swiper-track-inner"
+        style="transform: translate3d(-900%,0,0);"
+      >
+        <div
+          class="adm-swiper-slide-placeholder"
+          style="width: 700%;"
+        />
+        <div
+          class="adm-swiper-slide"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            7
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            8
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide adm-swiper-slide-active"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            9
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-swiper-indicator"
+    >
+      <div
+        class="adm-page-indicator adm-page-indicator-horizontal adm-page-indicator-color-primary"
+      >
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot adm-page-indicator-dot-active"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

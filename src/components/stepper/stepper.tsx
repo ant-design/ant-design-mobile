@@ -6,7 +6,7 @@ import React, {
   useImperativeHandle,
 } from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
-import useMergedState from 'rc-util/lib/hooks/useMergedState'
+import { useMergedState } from 'rc-util'
 import getMiniDecimal, {
   toFixed,
   type DecimalClass,
