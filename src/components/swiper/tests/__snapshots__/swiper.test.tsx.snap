@@ -4,7 +4,7 @@ exports[`Swiper loop 1`] = `
 <div>
   <div
     class="adm-swiper adm-swiper-horizontal"
-    style="--slide-size: 100%; --track-offset: 0%;"
+    style="--slide-size: 100%; --track-offset: 0%; direction: ltr;"
   >
     <div
       class="adm-swiper-track adm-swiper-track-allow-touch-move"
@@ -81,7 +81,7 @@ exports[`Swiper loop 2`] = `
 <div>
   <div
     class="adm-swiper adm-swiper-horizontal"
-    style="--slide-size: 100%; --track-offset: 0%;"
+    style="--slide-size: 100%; --track-offset: 0%; direction: ltr;"
   >
     <div
       class="adm-swiper-track adm-swiper-track-allow-touch-move"
@@ -144,6 +144,156 @@ exports[`Swiper loop 2`] = `
         />
         <div
           class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Swiper rtl mode 1`] = `
+<div>
+  <div
+    class="adm-swiper adm-swiper-horizontal"
+    style="--slide-size: 100%; --track-offset: 0%; direction: rtl;"
+  >
+    <div
+      class="adm-swiper-track adm-swiper-track-allow-touch-move"
+    >
+      <div
+        class="adm-swiper-track-inner"
+        style="transform: none;"
+      >
+        <div
+          class="adm-swiper-slide adm-swiper-slide-active"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              1
+            </div>
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              2
+            </div>
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-swiper-indicator"
+    >
+      <div
+        class="adm-page-indicator adm-page-indicator-horizontal adm-page-indicator-color-primary"
+      >
+        <div
+          class="adm-page-indicator-dot adm-page-indicator-dot-active"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Swiper rtl mode 2`] = `
+<div>
+  <div
+    class="adm-swiper adm-swiper-horizontal"
+    style="--slide-size: 100%; --track-offset: 0%; direction: rtl;"
+  >
+    <div
+      class="adm-swiper-track adm-swiper-track-allow-touch-move"
+    >
+      <div
+        class="adm-swiper-track-inner"
+        style="transform: translate3d(100%,0,0);"
+      >
+        <div
+          class="adm-swiper-slide"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              1
+            </div>
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide adm-swiper-slide-active"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              2
+            </div>
+          </div>
+        </div>
+        <div
+          class="adm-swiper-slide"
+        >
+          <div
+            class="adm-swiper-item"
+          >
+            <div
+              style="height: 120px;"
+            >
+              3
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="adm-swiper-indicator"
+    >
+      <div
+        class="adm-page-indicator adm-page-indicator-horizontal adm-page-indicator-color-primary"
+      >
+        <div
+          class="adm-page-indicator-dot"
+        />
+        <div
+          class="adm-page-indicator-dot adm-page-indicator-dot-active"
         />
         <div
           class="adm-page-indicator-dot"
