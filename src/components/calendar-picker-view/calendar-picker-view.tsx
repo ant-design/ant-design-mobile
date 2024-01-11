@@ -244,21 +244,16 @@ export const CalendarPickerView = forwardRef<
                 return (
                   <div
                     key={d.valueOf()}
-                    className={classNames(
-                      `${classPrefix}-cell`,
-                      `${classPrefix}-cell-${d.format('YYYY-MM-DD')}`,
-                      {
-                        [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
-                        [`${classPrefix}-cell-selected`]: isSelect,
-                        [`${classPrefix}-cell-selected-begin`]: isBegin,
-                        [`${classPrefix}-cell-selected-end`]: isEnd,
-                        [`${classPrefix}-cell-selected-row-begin`]:
-                          isSelectRowBegin,
-                        [`${classPrefix}-cell-selected-row-end`]:
-                          isSelectRowEnd,
-                        [`${classPrefix}-cell-disabled`]: !!disabled,
-                      }
-                    )}
+                    className={classNames(`${classPrefix}-cell`, {
+                      [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
+                      [`${classPrefix}-cell-selected`]: isSelect,
+                      [`${classPrefix}-cell-selected-begin`]: isBegin,
+                      [`${classPrefix}-cell-selected-end`]: isEnd,
+                      [`${classPrefix}-cell-selected-row-begin`]:
+                        isSelectRowBegin,
+                      [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
+                      [`${classPrefix}-cell-disabled`]: !!disabled,
+                    })}
                     onClick={() => {
                       if (!props.selectionMode) return
                       if (disabled) return
@@ -302,7 +297,12 @@ export const CalendarPickerView = forwardRef<
                     <div className={`${classPrefix}-cell-top`}>
                       {renderTop()}
                     </div>
-                    <div className={`${classPrefix}-cell-date`}>
+                    <div
+                      className={classNames(
+                        `${classPrefix}-cell-date`,
+                        `${classPrefix}-cell-${d.format('YYYY-MM-DD')}`
+                      )}
+                    >
                       {props.renderDate
                         ? props.renderDate(d.toDate())
                         : d.date()}
