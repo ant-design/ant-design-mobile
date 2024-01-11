@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+
 import React from 'react'
 import {
   render,
@@ -6,6 +8,7 @@ import {
   waitFor,
   waitForElementToBeRemoved,
   screen,
+  waitFakeTimers,
 } from 'testing'
 import Dialog, { DialogAlertProps } from '..'
 import { act } from '@testing-library/react'
@@ -65,8 +68,11 @@ describe('Dialog', () => {
     )
 
     fireEvent.click(screen.getByRole('button', { name: 'btn' }))
-    const mask = await screen.findByRole('button', { name: '背景蒙层' })
+    await waitFakeTimers()
+
+    const mask = document.querySelector('.adm-mask-aria-button')!
     fireEvent.click(mask)
+
     await waitForElementToBeRemoved(mask)
     expect(onClose).toBeCalled()
     expect(afterClose).toBeCalled()

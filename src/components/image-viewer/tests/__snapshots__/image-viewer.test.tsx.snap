@@ -24,6 +24,7 @@ exports[`ImageViewer.Multi calling ref.current.swipeTo before initialization 2`]
     </span>
   </button>
   <div
+    aria-hidden="true"
     class="adm-mask"
     style="background: rgba(0, 0, 0, 0.75); opacity: 1;"
   >

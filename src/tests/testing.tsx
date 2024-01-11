@@ -116,6 +116,15 @@ export const actSleep = (time: number) => {
   return act(() => sleep(time))
 }
 
+export const waitFakeTimers = async () => {
+  for (let i = 0; i < 10; i += 1) {
+    await act(async () => {
+      jest.advanceTimersByTime(1000)
+      await Promise.resolve()
+    })
+  }
+}
+
 export const mockDrag = async (el: Element, options: any[], time?: number) => {
   const [downOptions, ...moveOptions] = options
   fireEvent.mouseDown(el, {

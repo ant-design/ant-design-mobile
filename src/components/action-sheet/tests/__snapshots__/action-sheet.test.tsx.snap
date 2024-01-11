@@ -18,6 +18,7 @@ exports[`ActionSheet basic usage 1`] = `
     class="adm-popup adm-action-sheet-popup"
   >
     <div
+      aria-hidden="true"
       class="adm-mask"
       style="background: rgba(0, 0, 0, 0.55); opacity: 1;"
     >

@@ -165,7 +165,17 @@ async function buildBundles(cb) {
     })
   )
 
-  await Promise.all(configs.map(config => vite.build(config)))
+  // Let it step by step since `style.css` is same name.
+  // Production should override it.
+  for (let i = 0; i < configs.length; i += 1) {
+    const config = configs[i]
+    if (i !== 0) {
+      config.build.emptyOutDir = false
+    }
+
+    await vite.build(config)
+  }
+
   cb && cb()
 }
 

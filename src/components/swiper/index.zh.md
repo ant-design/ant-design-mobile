@@ -32,7 +32,15 @@
 
 <code src="./demos/demo5.tsx"></code>
 
-<code src="./demos/demo6.tsx" debug></code> <code src="./demos/demo7.tsx" debug></code>
+### 虚拟滚动
+
+通过 `total` 与 `renderProps` 渲染，不支持 `loop`
+
+<code src="./demos/demo8.tsx"></code>
+
+<code src="./demos/demo6.tsx" debug></code>
+
+<code src="./demos/demo7.tsx" debug></code>
 
 ## Swiper
 
@@ -53,6 +61,7 @@
 | slideSize | 滑块的宽度百分比 | `number` | `100` |
 | stuckAtBoundary | 是否在边界两边卡住，避免出现空白，仅在非 `loop` 模式且 `slideSize` < 100 时生效 | `boolean` | `true` |
 | trackOffset | 滑块轨道整体的偏移量百分比 | `number` | `0` |
+| total | 虚拟滚动时渲染总数，需要配合 renderProps 一同使用。（不支持 `loop`） | `number` | 5.34.0 |
 | stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `[]` | 5.28.0 |
 
 ```ts

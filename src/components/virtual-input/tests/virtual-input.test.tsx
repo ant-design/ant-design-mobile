@@ -99,8 +99,8 @@ describe('VirtualInput', () => {
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '0'
     )
-    expect(screen.getByTitle('CLOSE')).toBeInTheDocument()
-    fireEvent.click(screen.getByTitle('CLOSE'))
+    expect(screen.getByTitle('关闭')).toBeInTheDocument()
+    fireEvent.click(screen.getByTitle('关闭'))
     fireEvent.blur(screen.getByTestId('virtualInput'))
     await waitFor(() => {
       expect(

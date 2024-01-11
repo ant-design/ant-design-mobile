@@ -353,4 +353,14 @@ describe('Swiper', () => {
     expect(onMouseMove).not.toBeCalled()
     expect(onMouseUp).not.toBeCalled()
   })
+
+  test('virtual scroll', async () => {
+    const { container } = render(
+      <Swiper defaultIndex={10} total={10}>
+        {index => <Swiper.Item key={index}>{index}</Swiper.Item>}
+      </Swiper>
+    )
+
+    expect(container).toMatchSnapshot()
+  })
 })

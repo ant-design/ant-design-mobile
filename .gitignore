@@ -10,6 +10,8 @@
 /report.json
 /report.html
 
+~*
+
 # build
 /dist/
 /lib/
