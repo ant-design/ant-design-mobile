@@ -3,6 +3,7 @@ import React, {
   useState,
   useImperativeHandle,
   useMemo,
+  useRef,
 } from 'react'
 import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -28,6 +29,7 @@ const classPrefix = 'adm-calendar-picker-view'
 export type CalendarPickerViewRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
+  scrollTo: (date: Date) => void
   getDateRange: () => DateRange
 }
 
@@ -76,6 +78,7 @@ export const CalendarPickerView = forwardRef<
   CalendarPickerViewRef,
   CalendarPickerViewProps
 >((p, ref) => {
+  const rootRef = useRef<HTMLDivElement>(null)
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
@@ -123,6 +126,14 @@ export const CalendarPickerView = forwardRef<
       setCurrent(dayjs().date(1))
     },
     getDateRange: () => dateRange,
+    scrollTo: (date: Date) => {
+      const cell = rootRef.current?.querySelector(
+        `.${classPrefix}-cell-${dayjs(date).format('YYYY-MM-DD')}`
+      )
+      if (cell) {
+        cell.scrollIntoView({ block: 'center' })
+      }
+    },
   }))
 
   const header = (
@@ -233,16 +244,21 @@ export const CalendarPickerView = forwardRef<
                 return (
                   <div
                     key={d.valueOf()}
-                    className={classNames(`${classPrefix}-cell`, {
-                      [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
-                      [`${classPrefix}-cell-selected`]: isSelect,
-                      [`${classPrefix}-cell-selected-begin`]: isBegin,
-                      [`${classPrefix}-cell-selected-end`]: isEnd,
-                      [`${classPrefix}-cell-selected-row-begin`]:
-                        isSelectRowBegin,
-                      [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
-                      [`${classPrefix}-cell-disabled`]: !!disabled,
-                    })}
+                    className={classNames(
+                      `${classPrefix}-cell`,
+                      `${classPrefix}-cell-${d.format('YYYY-MM-DD')}`,
+                      {
+                        [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
+                        [`${classPrefix}-cell-selected`]: isSelect,
+                        [`${classPrefix}-cell-selected-begin`]: isBegin,
+                        [`${classPrefix}-cell-selected-end`]: isEnd,
+                        [`${classPrefix}-cell-selected-row-begin`]:
+                          isSelectRowBegin,
+                        [`${classPrefix}-cell-selected-row-end`]:
+                          isSelectRowEnd,
+                        [`${classPrefix}-cell-disabled`]: !!disabled,
+                      }
+                    )}
                     onClick={() => {
                       if (!props.selectionMode) return
                       if (disabled) return
@@ -320,7 +336,7 @@ export const CalendarPickerView = forwardRef<
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div ref={rootRef} className={classPrefix}>
       {header}
       {mark}
       {body}
