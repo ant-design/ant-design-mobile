@@ -92,6 +92,9 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       blur: () => {
         nativeTextAreaRef.current?.blur()
       },
+      setSelectionRange: (startPos: number, endPos: number) => {
+        nativeTextAreaRef.current?.setSelectionRange(startPos, endPos)
+      },
       get nativeElement() {
         return nativeTextAreaRef.current
       },
