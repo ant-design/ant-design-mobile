@@ -101,6 +101,12 @@ describe('TextArea', () => {
 
     fireEvent.change(textarea, { target: { value: 'abc' } })
     expect(textarea.value).toBe('abc')
+    ref.current?.setSelectionRange(0, 2)
+    expect(textarea.selectionStart).toBe(0)
+    expect(textarea.selectionEnd).toBe(2)
+    ref.current?.setSelectionRange(1, 1)
+    expect(textarea.selectionStart).toBe(1)
+    expect(textarea.selectionEnd).toBe(1)
     act(() => ref.current?.clear())
     expect(textarea.value).toBe('')
     expect(ref.current?.nativeElement).toBeDefined()
