@@ -52,6 +52,7 @@ export type TextAreaRef = {
   clear: () => void
   focus: () => void
   blur: () => void
+  setSelectionRange: (startPos: number, endPos: number) => void
   nativeElement: HTMLTextAreaElement | null
 }
 
@@ -92,7 +93,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       blur: () => {
         nativeTextAreaRef.current?.blur()
       },
-      setSelectionRange: (startPos: number, endPos: number) => {
+      setSelectionRange: (startPos, endPos) => {
         nativeTextAreaRef.current?.setSelectionRange(startPos, endPos)
       },
       get nativeElement() {
