@@ -41,9 +41,10 @@
 
 ### Ref
 
-| 属性          | 说明                | 类型                            |
-| ------------- | ------------------- | ------------------------------- |
-| blur          | 让输入框失去焦点    | `() => void`                    |
-| clear         | 清空输入内容        | `() => void`                    |
-| focus         | 让输入框获得焦点    | `() => void`                    |
-| nativeElement | 原始 text-area 元素 | `HTMLTextAreaElement` \| `null` |
+| 属性 | 说明 | 类型 | Version |
+| --- | --- | --- | --- |
+| blur | 让输入框失去焦点 | `() => void` | - |
+| clear | 清空输入内容 | `() => void` | - |
+| focus | 让输入框获得焦点 | `() => void` | - |
+| setSelectionRange | 设定当前选中文本的起始和结束位置 | `(startPos: number, endPos: number) => void` | 5.34.1 |
+| nativeElement | 原始 text-area 元素 | `HTMLTextAreaElement` \| `null` | - |

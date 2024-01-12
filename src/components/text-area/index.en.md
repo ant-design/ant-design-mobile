@@ -41,9 +41,10 @@ In addition, the following native attributes are supported: `autoComplete` `auto
 
 ### Ref
 
-| Name | Description | Type |
-| --- | --- | --- |
-| blur | Let the input box lose focus | `() => void` |
-| clear | Clear the input content | `() => void` |
-| focus | Let the input box get focus | `() => void` |
-| nativeElement | Native text-area element | `HTMLTextAreaElement` \| `null` |
+| Name | Description | Type | Version |
+| --- | --- | --- | --- |
+| blur | Let the input box lose focus | `() => void` | - |
+| clear | Clear the input content | `() => void` | - |
+| focus | Let the input box get focus | `() => void` | - |
+| setSelectionRange | sets the start and end positions of the current text selection | `(startPos: number, endPos: number) => void` | 5.34.1 |
+| nativeElement | Native text-area element | `HTMLTextAreaElement` \| `null` | - |
