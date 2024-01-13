@@ -10,7 +10,7 @@ import {
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { bound } from '../../utils/bound'
 import { PickerColumnItem, PickerValue } from './index'
-import isEqual from 'lodash/isEqual'
+import isEqual from 'react-fast-compare'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
 import { supportsPassive } from '../../utils/supports-passive'
