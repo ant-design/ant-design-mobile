@@ -36,6 +36,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.7
     version: 1.11.9
+  deepmerge:
+    specifier: ^4.3.1
+    version: 4.3.1
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -116,6 +119,9 @@ devDependencies:
   '@types/big.js':
     specifier: ^6.1.6
     version: 6.2.0
+  '@types/deepmerge':
+    specifier: ^2.2.0
+    version: 2.2.0
   '@types/jest':
     specifier: ^28.1.8
     version: 28.1.8
@@ -3572,6 +3578,13 @@ packages:
 
   /@types/big.js@6.2.0:
     resolution: {integrity: sha512-ubLURWoc4tCw/8Yds0P3CE9cBG5q+aoycwWBiXXx4gp7XPYZy9ch0L9+Pv6osSoSRgvuQNqJdlwEhP5QhKKl6w==}
+    dev: true
+
+  /@types/deepmerge@2.2.0:
+    resolution: {integrity: sha512-FEQYDHh6+Q+QXKSrIY46m+/lAmAj/bk4KpLaam+hArmzaVpMBHLcfwOH2Q2UOkWM7XsdY9PmZpGyPAjh/JRGhQ==}
+    deprecated: This is a stub types definition. deepmerge provides its own type definitions, so you do not need this installed.
+    dependencies:
+      deepmerge: 4.3.1
     dev: true
 
   /@types/eslint-scope@3.7.4:
@@ -7289,7 +7302,6 @@ packages:
   /deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /default-compare@1.0.0:
     resolution: {integrity: sha512-QWfXlM0EkAbqOCbD/6HjdwT19j7WCkMyiRhWilc4H9/5h/RzTF9gv5LYh1+CmDV5d1rki6KAWLtQale0xt20eQ==}
@@ -15189,6 +15201,7 @@ packages:
       react: 16.14.0
       scheduler: 0.19.1
     dev: true
+    bundledDependencies: false
 
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
@@ -15418,6 +15431,7 @@ packages:
       object-assign: 4.1.1
       prop-types: 15.8.1
     dev: true
+    bundledDependencies: false
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
