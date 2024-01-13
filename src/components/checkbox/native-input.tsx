@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react'
-import type { FC } from 'react'
 import { useMemoizedFn } from 'ahooks'
+import type { FC } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 interface Props {
   type: 'checkbox' | 'radio'
