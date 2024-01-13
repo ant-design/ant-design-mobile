@@ -41,6 +41,7 @@ CalendarPickerView 是 [CalendarPicker](/zh/components/calendar-picker) 的内�
 | jumpTo | 跳转至指定日期的区间 | `(page: Page \| ((page: Page) => Page)) => void` |
 | jumpToToday | 跳转至今日 | `() => void` |
 | getDateRange | 获取日期 | `[Date, Date]` |
+| scrollTo | 视图滚动至指定日期 | `(date:Date) => void` |
 
 ```ts
 type Page = { month: number; year: number }

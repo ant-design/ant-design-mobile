@@ -128,7 +128,7 @@ export const CalendarPickerView = forwardRef<
     getDateRange: () => dateRange,
     scrollTo: (date: Date) => {
       const cell = rootRef.current?.querySelector(
-        `.${classPrefix}-cell-${dayjs(date).format('YYYY-MM-DD')}`
+        `[data-date="${dayjs(date).format('YYYY-MM-DD')}"]`
       )
       if (cell) {
         cell.scrollIntoView({ block: 'center' })
@@ -298,10 +298,8 @@ export const CalendarPickerView = forwardRef<
                       {renderTop()}
                     </div>
                     <div
-                      className={classNames(
-                        `${classPrefix}-cell-date`,
-                        `${classPrefix}-cell-${d.format('YYYY-MM-DD')}`
-                      )}
+                      data-date={d.format('YYYY-MM-DD')}
+                      className={`${classPrefix}-cell-date`}
                     >
                       {props.renderDate
                         ? props.renderDate(d.toDate())
