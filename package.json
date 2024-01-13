@@ -26,6 +26,7 @@
     "classnames": "^2.3.2",
     "dayjs": "^1.11.7",
     "lodash": "^4.17.21",
+    "nano-memoize": "^3.0.16",
     "rc-field-form": "~1.27.4",
     "rc-util": "^5.38.1",
     "react-is": "^18.2.0",
