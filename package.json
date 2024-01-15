@@ -28,6 +28,7 @@
     "lodash": "^4.17.21",
     "rc-field-form": "~1.27.4",
     "rc-util": "^5.38.1",
+    "react-fast-compare": "^3.2.2",
     "react-is": "^18.2.0",
     "runes2": "^1.1.2",
     "staged-components": "^1.1.3",
