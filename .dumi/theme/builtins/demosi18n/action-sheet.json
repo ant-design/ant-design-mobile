@@ -1,0 +1,23 @@
+{
+  "请选择你要进行的操作": "Please select the operation you want to perform",
+  "删除后数据不可恢复": "Data cannot be recovered after deletion",
+  "确定要保存吗？": "Are you sure you want to save?",
+  "执行了保存操作": "Save operation executed",
+  "动作面板已关闭": "Action sheet closed",
+  "取消按钮和额外描述": "Cancel button and additional description",
+  "动作面板关闭": "Action sheet closed",
+  "禁用和危险的选项": "Disabled and dangerous options",
+  "基础用法": "Basic usage",
+  "选项状态": "Option status",
+  "事件处理": "Event handling",
+  "最简单的用法": "Simplest usage",
+  "确定要保存吗": "Are you sure you want to save?",
+  "指令式": "Imperative",
+  "复制": "Copy",
+  "修改": "Modify",
+  "保存": "Save",
+  "取消": "Cancel",
+  "删除": "Delete",
+  "点击了": "Clicked",
+  "显示": "Display"
+}

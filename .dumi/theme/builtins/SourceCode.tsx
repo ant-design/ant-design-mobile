@@ -2,6 +2,8 @@ import React from 'react'
 import type { Language } from 'prism-react-renderer'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import { useCopy } from 'dumi/theme'
+import { useLocation } from 'dumi'
+import { translateCode } from './demosi18n'
 import 'prismjs/themes/prism.css'
 import './SourceCode.less'
 
@@ -13,12 +15,13 @@ export interface ICodeBlockProps {
 
 export default ({ code, lang, showCopy = true }: ICodeBlockProps) => {
   const [copyCode, copyStatus] = useCopy()
+  const location = useLocation()
 
   return (
     <div className='__dumi-default-code-block'>
       <Highlight
         {...defaultProps}
-        code={code}
+        code={translateCode(code, location.pathname)}
         language={lang}
         theme={undefined}
       >

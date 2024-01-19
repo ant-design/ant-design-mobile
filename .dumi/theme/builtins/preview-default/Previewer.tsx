@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef } from 'react'
 import { Tabs } from 'antd-mobile'
 // @ts-ignore
-import { history } from 'dumi'
+import { history, useLocation } from 'dumi'
 import type { IPreviewerComponentProps } from 'dumi/theme'
 import {
   context,
@@ -16,6 +16,7 @@ import {
 import { useCodeSandbox } from './use-code-sandbox'
 import type { ICodeBlockProps } from '../SourceCode'
 import SourceCode from '../SourceCode'
+import { translateCode } from '../demosi18n'
 import './Previewer.less'
 
 export interface IPreviewerProps extends IPreviewerComponentProps {
@@ -75,8 +76,12 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
   const [sourceType, setSourceType] = useState(
     getSourceType(currentFile, props.sources[currentFile])
   )
-  const currentFileCode =
-    props.sources[currentFile][sourceType] || props.sources[currentFile].content
+  const location = useLocation()
+  const currentFileCode = translateCode(
+    props.sources[currentFile][sourceType] ||
+      props.sources[currentFile].content,
+    location?.pathname
+  )
   const playgroundUrl = useTSPlaygroundUrl(locale, currentFileCode)
   const [color] = usePrefersColor()
 
