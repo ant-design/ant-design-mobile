@@ -12,6 +12,10 @@ const mixDate: Date = new Date('2023-05-01')
 const maxDate: Date = new Date('2023-05-31')
 const singleDate: Date = new Date('2023-05-03')
 
+beforeEach(() => {
+  window.HTMLElement.prototype.scrollIntoView = jest.fn()
+})
+
 describe('Calendar', () => {
   test('a11y', async () => {
     await testA11y(<CalendarPicker />)

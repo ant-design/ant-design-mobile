@@ -11,6 +11,7 @@ import CalendarPickerView, {
   CalendarPickerViewProps,
   CalendarPickerViewRef,
 } from '../calendar-picker-view'
+import { sleep } from '../../utils/sleep'
 
 const classPrefix = 'adm-calendar-picker'
 
@@ -74,7 +75,7 @@ export const CalendarPicker = forwardRef<
     ...calendarViewProps
   } = props
   useEffect(() => {
-    setImmediate(() => {
+    sleep(0).then(() => {
       const dateRange = calendarRef.current?.getDateRange() ?? null
       if (dateRange && dateRange[0]) {
         calendarRef.current?.scrollTo(dateRange[0])
