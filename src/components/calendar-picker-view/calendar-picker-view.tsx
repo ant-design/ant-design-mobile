@@ -3,6 +3,7 @@ import React, {
   useState,
   useImperativeHandle,
   useMemo,
+  useRef,
 } from 'react'
 import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -28,6 +29,7 @@ const classPrefix = 'adm-calendar-picker-view'
 export type CalendarPickerViewRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
+  scrollTo: (date: Date) => void
   getDateRange: () => DateRange
 }
 
@@ -76,6 +78,7 @@ export const CalendarPickerView = forwardRef<
   CalendarPickerViewRef,
   CalendarPickerViewProps
 >((p, ref) => {
+  const rootRef = useRef<HTMLDivElement>(null)
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
@@ -123,6 +126,14 @@ export const CalendarPickerView = forwardRef<
       setCurrent(dayjs().date(1))
     },
     getDateRange: () => dateRange,
+    scrollTo: (date: Date) => {
+      const cell = rootRef.current?.querySelector(
+        `[data-date="${dayjs(date).format('YYYY-MM')}"`
+      )
+      if (cell) {
+        cell.scrollIntoView()
+      }
+    },
   }))
 
   const header = (
@@ -153,9 +164,9 @@ export const CalendarPickerView = forwardRef<
         year,
         month: month + 1,
       }
-
+      const dateId = dayjs(year + '-' + (month + 1)).format('YYYY-MM')
       cells.push(
-        <div key={`${year}-${month}`}>
+        <div key={`${year}-${month}`} data-date={`${dateId}`}>
           <div className={`${classPrefix}-title`}>
             {locale.Calendar.yearAndMonth?.replace(
               /\${(.*?)}/g,
@@ -320,7 +331,7 @@ export const CalendarPickerView = forwardRef<
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div ref={rootRef} className={classPrefix}>
       {header}
       {mark}
       {body}

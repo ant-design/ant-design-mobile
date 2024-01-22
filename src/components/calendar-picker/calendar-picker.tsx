@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react'
+import React, { forwardRef, useRef, useEffect } from 'react'
 import { withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Button from '../button'
@@ -73,7 +73,14 @@ export const CalendarPicker = forwardRef<
     getContainer,
     ...calendarViewProps
   } = props
-
+  useEffect(() => {
+    setImmediate(() => {
+      const dateRange = calendarRef.current?.getDateRange() ?? null
+      if (dateRange && dateRange[0]) {
+        calendarRef.current?.scrollTo(dateRange[0])
+      }
+    })
+  }, [visible])
   const footer = (
     <div className={`${classPrefix}-footer`}>
       <Divider />
