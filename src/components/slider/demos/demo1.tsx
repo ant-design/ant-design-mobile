@@ -12,7 +12,7 @@ const marks = {
 }
 
 export default () => {
-  const toastValue = (value: number | number[]) => {
+  const toastValue = (value: number | [number, number]) => {
     let text = ''
     if (typeof value === 'number') {
       text = `${value}`
