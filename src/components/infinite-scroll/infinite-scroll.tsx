@@ -73,7 +73,10 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
         const nextFlag = {}
         nextFlagRef.current = nextFlag
         await doLoadMore(false)
-        setFlag(nextFlag)
+          .then(() => {
+            setFlag(nextFlag)
+          })
+          .catch(() => {})
       }
     },
     {
@@ -104,7 +107,10 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   async function retry() {
     setFailed(false)
     await doLoadMore(true)
-    setFlag(nextFlagRef.current)
+      .then(() => {
+        setFlag(nextFlagRef.current)
+      })
+      .catch(() => {})
   }
 
   return withNativeProps(
