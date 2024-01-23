@@ -114,7 +114,7 @@ export const CalendarPickerView = forwardRef<
     const cell = rootRef.current?.querySelector(
       `[data-date="${convertPageToDayjs(page).format('YYYY-MM')}"`
     )
-    if (cell) {
+    if (cell && cell.scrollIntoView) {
       cell.scrollIntoView()
     }
   }
