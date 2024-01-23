@@ -4,6 +4,7 @@ import React, {
   useImperativeHandle,
   useMemo,
   useRef,
+  useEffect,
 } from 'react'
 import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -29,7 +30,7 @@ const classPrefix = 'adm-calendar-picker-view'
 export type CalendarPickerViewRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
-  scrollTo: (date: Date) => void
+  scrollTo: (page: Page) => void
   getDateRange: () => DateRange
 }
 
@@ -109,6 +110,19 @@ export const CalendarPickerView = forwardRef<
     dayjs(dateRange ? dateRange[0] : today).date(1)
   )
 
+  const scrollTo = (page: Page) => {
+    const cell = rootRef.current?.querySelector(
+      `[data-date="${convertPageToDayjs(page).format('YYYY-MM')}"`
+    )
+    if (cell) {
+      cell.scrollIntoView()
+    }
+  }
+
+  useEffect(() => {
+    scrollTo({ year: current.year(), month: current.month() + 1 })
+  }, [current])
+
   useImperativeHandle(ref, () => ({
     jumpTo: pageOrPageGenerator => {
       let page: Page
@@ -123,17 +137,11 @@ export const CalendarPickerView = forwardRef<
       setCurrent(convertPageToDayjs(page))
     },
     jumpToToday: () => {
-      setCurrent(dayjs().date(1))
+      const curr = dayjs().date(1)
+      setCurrent(curr)
     },
     getDateRange: () => dateRange,
-    scrollTo: (date: Date) => {
-      const cell = rootRef.current?.querySelector(
-        `[data-date="${dayjs(date).format('YYYY-MM')}"`
-      )
-      if (cell) {
-        cell.scrollIntoView()
-      }
-    },
+    scrollTo: scrollTo,
   }))
 
   const header = (
