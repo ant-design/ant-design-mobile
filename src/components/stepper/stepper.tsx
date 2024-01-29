@@ -7,10 +7,7 @@ import React, {
 } from 'react'
 import { MinusOutline, AddOutline } from 'antd-mobile-icons'
 import { useMergedState } from 'rc-util'
-import getMiniDecimal, {
-  toFixed,
-  type DecimalClass,
-} from '@rc-component/mini-decimal'
+import Big from 'big.js'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Input, { InputProps, InputRef } from '../input'
@@ -129,13 +126,12 @@ export function InnerStepper<ValueType extends number | string>(
 
   // ========================== Parse / Format ==========================
   const fixedValue = (value: ValueType): string => {
-    const fixedValue =
-      digits !== undefined ? toFixed(value.toString(), '.', digits) : value
+    const fixedValue = digits !== undefined ? Big(value).toFixed(digits) : value
 
     return fixedValue.toString()
   }
 
-  const getValueAsType = (value: DecimalClass) =>
+  const getValueAsType = (value: Big) =>
     (stringMode ? value.toString() : value.toNumber()) as ValueType
 
   const parseValue = (text: string): string | null => {
@@ -145,8 +141,11 @@ export function InnerStepper<ValueType extends number | string>(
       return String(parser(text))
     }
 
-    const decimal = getMiniDecimal(text)
-    return decimal.isInvalidate() ? null : decimal.toString()
+    try {
+      return Big(text).toString()
+    } catch (e) {
+      return null
+    }
   }
 
   const formatValue = (value: ValueType | null): string => {
@@ -169,29 +168,37 @@ export function InnerStepper<ValueType extends number | string>(
   const [inputValue, setInputValue] = useState(() => formatValue(mergedValue))
 
   // >>>>> Value
-  function setValueWithCheck(nextValue: DecimalClass) {
-    if (nextValue.isNaN()) return
+  function setValueWithCheck(nextValue: Big) {
+    if (nextValue === null) return
 
     let target = nextValue
 
     // Put into range
     if (min !== undefined) {
-      const minDecimal = getMiniDecimal(min)
-      if (target.lessEquals(minDecimal)) {
-        target = minDecimal
+      try {
+        const minDecimal = Big(min)
+        if (target.lt(minDecimal)) {
+          target = minDecimal
+        }
+      } catch (e) {
+        console.error('min is not a valid number:', min)
       }
     }
 
     if (max !== undefined) {
-      const maxDecimal = getMiniDecimal(max)
-      if (maxDecimal.lessEquals(target)) {
-        target = maxDecimal
+      try {
+        const maxDecimal = Big(max)
+        if (target.gt(maxDecimal)) {
+          target = maxDecimal
+        }
+      } catch (e) {
+        console.error('max is not a valid number:', max)
       }
     }
 
     // Fix digits
     if (digits !== undefined) {
-      target = getMiniDecimal(fixedValue(getValueAsType(target)))
+      target = Big(fixedValue(getValueAsType(target)))
     }
 
     setMergedValue(getValueAsType(target))
@@ -209,7 +216,7 @@ export function InnerStepper<ValueType extends number | string>(
         setMergedValue(defaultValue)
       }
     } else {
-      setValueWithCheck(getMiniDecimal(valueStr))
+      setValueWithCheck(Big(valueStr))
     }
   }
 
@@ -245,14 +252,12 @@ export function InnerStepper<ValueType extends number | string>(
 
   // ============================ Operations ============================
   const handleOffset = (positive: boolean) => {
-    let stepValue = getMiniDecimal(step)
+    let stepValue = Big(step)
     if (!positive) {
-      stepValue = stepValue.negate()
+      stepValue = stepValue.neg()
     }
 
-    setValueWithCheck(
-      getMiniDecimal(mergedValue ?? 0).add(stepValue.toString())
-    )
+    setValueWithCheck(Big(mergedValue ?? 0).add(stepValue.toString()))
   }
 
   const handleMinus = () => {

@@ -4,7 +4,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Ticks from './ticks'
 import Marks, { SliderMarks } from './marks'
-import getMiniDecimal, { toFixed } from '@rc-component/mini-decimal'
+import Big from 'big.js'
 import Thumb from './thumb'
 import { mergeProps } from '../../utils/with-default-props'
 import { nearest } from '../../utils/nearest'
@@ -54,10 +54,10 @@ export const Slider: FC<SliderProps> = p => {
     return (props.range ? value : [props.min, value]) as any
   }
   function alignValue(value: number, decimalLen: number) {
-    const decimal = getMiniDecimal(value)
-    const fixedStr = toFixed(decimal.toString(), '.', decimalLen)
+    const decimal = Big(value)
+    const fixedStr = decimal.toFixed(decimalLen)
 
-    return getMiniDecimal(fixedStr).toNumber()
+    return Big(fixedStr).toNumber()
   }
 
   function reverseValue(value: [number, number]): SliderValue {
@@ -114,11 +114,7 @@ export const Slider: FC<SliderProps> = p => {
         .sort((a, b) => a - b)
     } else if (ticks) {
       const points: number[] = []
-      for (
-        let i = getMiniDecimal(min);
-        i.lessEquals(getMiniDecimal(max));
-        i = i.add(step)
-      ) {
+      for (let i = Big(min); i.lte(Big(max)); i = i.add(step)) {
         points.push(i.toNumber())
       }
       return points
@@ -138,8 +134,8 @@ export const Slider: FC<SliderProps> = p => {
     } else {
       // 使用 MiniDecimal 避免精度问题
       const cell = Math.round((newPosition - min) / step)
-      const nextVal = getMiniDecimal(cell).multi(step)
-      value = getMiniDecimal(min).add(nextVal.toString()).toNumber()
+      const nextVal = Big(cell).mul(step)
+      value = Big(min).add(nextVal).toNumber()
     }
     return value
   }
