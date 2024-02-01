@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
+import isEqual from 'react-fast-compare'
 import memoize from 'nano-memoize'
 import { CascaderValue, CascaderValueExtend } from './cascader-view'
 import type { CascaderOption } from './cascader-view'
-import isEqual from 'react-fast-compare'
 
 export function useCascaderValueExtend(
   options: CascaderOption[],
