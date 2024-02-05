@@ -72,11 +72,10 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
       if (current >= elementTop - props.threshold) {
         const nextFlag = {}
         nextFlagRef.current = nextFlag
-        await doLoadMore(false)
-          .then(() => {
-            setFlag(nextFlag)
-          })
-          .catch(() => {})
+        try {
+          await doLoadMore(false)
+          setFlag(nextFlag)
+        } catch (e) {}
       }
     },
     {
@@ -106,11 +105,10 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
 
   async function retry() {
     setFailed(false)
-    await doLoadMore(true)
-      .then(() => {
-        setFlag(nextFlagRef.current)
-      })
-      .catch(() => {})
+    try {
+      await doLoadMore(true)
+      setFlag(nextFlagRef.current)
+    } catch (e) {}
   }
 
   return withNativeProps(
