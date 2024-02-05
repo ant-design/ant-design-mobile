@@ -17,7 +17,7 @@ const marks = {
 export default () => {
   const [afterValue, setAfterValue] = useState<number | [number, number]>(10)
 
-  const toastValue = (value: number | number[]) => {
+  const toastValue = (value: number | [number, number]) => {
     let text = ''
     if (typeof value === 'number') {
       text = `${value}`
