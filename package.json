@@ -25,6 +25,7 @@
     "antd-mobile-v5-count": "^1.0.1",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.7",
+    "deepmerge": "^4.3.1",
     "lodash": "^4.17.21",
     "rc-field-form": "~1.27.4",
     "rc-util": "^5.38.1",

@@ -36,6 +36,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.7
     version: 1.11.9
+  deepmerge:
+    specifier: ^4.3.1
+    version: 4.3.1
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -7292,7 +7295,6 @@ packages:
   /deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /default-compare@1.0.0:
     resolution: {integrity: sha512-QWfXlM0EkAbqOCbD/6HjdwT19j7WCkMyiRhWilc4H9/5h/RzTF9gv5LYh1+CmDV5d1rki6KAWLtQale0xt20eQ==}
