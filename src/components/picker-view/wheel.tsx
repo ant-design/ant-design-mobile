@@ -59,7 +59,7 @@ export const Wheel = memo<Props>(
     useIsomorphicLayoutEffect(() => {
       if (draggingRef.current) return
       if (value === null) return
-      const targetIndex = column.findIndex(item => item.value === value)
+      const targetIndex = column.findIndex(item => item.value == value)
       if (targetIndex < 0) return
       const finalPosition = targetIndex * -itemHeight.current
       api.start({ y: finalPosition, immediate: y.goal !== finalPosition })
@@ -71,7 +71,7 @@ export const Wheel = memo<Props>(
           onSelect(null)
         }
       } else {
-        if (!column.some(item => item.value === value)) {
+        if (!column.some(item => item.value == value)) {
           const firstItem = column[0]
           onSelect(firstItem.value)
         }
@@ -269,7 +269,7 @@ export const Wheel = memo<Props>(
           aria-hidden
         >
           {column.map((item, index) => {
-            const selected = props.value === item.value
+            const selected = props.value == item.value
             if (selected) selectedIndex = index
             function handleClick() {
               draggingRef.current = false
@@ -278,7 +278,7 @@ export const Wheel = memo<Props>(
             return (
               <div
                 key={item.key ?? item.value}
-                data-selected={item.value === value}
+                data-selected={item.value == value}
                 className={`${classPrefix}-column-item`}
                 onClick={handleClick}
                 aria-hidden={!selected}
