@@ -39,6 +39,9 @@ dependencies:
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
+  nano-memoize:
+    specifier: ^3.0.16
+    version: 3.0.16
   rc-field-form:
     specifier: ~1.27.4
     version: 1.27.4(react-dom@18.2.0)(react@18.2.0)
@@ -12596,6 +12599,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /nano-memoize@3.0.16:
+    resolution: {integrity: sha512-JyK96AKVGAwVeMj3MoMhaSXaUNqgMbCRSQB3trUV8tYZfWEzqUBKdK1qJpfuNXgKeHOx1jv/IEYTM659ly7zUA==}
+    dev: false
 
   /nanoid@2.1.11:
     resolution: {integrity: sha512-s/snB+WGm6uwi0WjsZdaVcuf3KJXlfGl2LcxgwkEwJF0D/BWzVWAZW/XY4bFaiR7s0Jk3FPvlnepg1H1b1UwlA==}

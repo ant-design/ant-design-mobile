@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
-import memoize from 'lodash/memoize'
+import isEqual from 'react-fast-compare'
+import memoize from 'nano-memoize'
 import { CascaderValue, CascaderValueExtend } from './cascader-view'
 import type { CascaderOption } from './cascader-view'
 
@@ -27,7 +28,9 @@ export function useCascaderValueExtend(
 
         return ret
       },
-      val => JSON.stringify(val)
+      {
+        equals: isEqual,
+      }
     )
   }, [options])
 
@@ -44,7 +47,9 @@ export function useCascaderValueExtend(
 
         return children.length === 0
       },
-      val => JSON.stringify(val)
+      {
+        equals: isEqual,
+      }
     )
   }, [options])
 
