@@ -1,4 +1,3 @@
-import './error-block.less'
 import type { ReactNode } from 'react'
 import { ErrorBlock } from './error-block'
 
