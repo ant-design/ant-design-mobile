@@ -5,6 +5,7 @@ import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useConfig } from '../config-provider'
 import type { ErrorBlockStatus, ImageRecord } from '.'
+import './error-block.less'
 
 const classPrefix = `adm-error-block`
 
