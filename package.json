@@ -60,9 +60,9 @@
     "@types/jest-axe": "3.5.4",
     "@types/lodash": "^4.14.194",
     "@types/node": "^18.15.13",
-    "@types/react": "18",
+    "@types/react": "^18.0.38",
     "@types/react-beautiful-dnd": "^13.1.4",
-    "@types/react-dom": "18",
+    "@types/react-dom": "^18.0.11",
     "@types/react-helmet": "^6.1.6",
     "@types/react-is": "^17.0.3",
     "@types/react-virtualized": "^9.21.21",
@@ -129,6 +129,10 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
+  "resolutions": {
+    "@types/react": "18",
+    "@types/react-dom": "18"
+  },
   "main": "./cjs/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
@@ -154,17 +158,5 @@
     "url": "git+https://github.com/ant-design/ant-design-mobile.git",
     "branch": "master",
     "platform": "github"
-  },
-  "overrides": {
-    "@types/react": {
-      ".": "18"
-    },
-    "@types/react-dom": {
-      ".": "18"
-    }
-  },
-  "_resolutions": {
-    "@types/react": "18",
-    "@types/react-dom": "18"
   }
 }
