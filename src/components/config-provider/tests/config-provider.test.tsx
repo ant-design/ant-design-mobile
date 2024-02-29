@@ -29,6 +29,7 @@ import nlNL from '../../../locales/nl-NL'
 import ruRU from '../../../locales/ru-RU'
 import trTR from '../../../locales/tr-TR'
 import thTH from '../../../locales/th-TH'
+import huHU from '../../../locales/hu-HU'
 
 const locales = [
   zhCN,
@@ -40,6 +41,7 @@ const locales = [
   koKR,
   jaJP,
   frFR,
+  huHU,
   kkKZ,
   idID,
   itIT,
