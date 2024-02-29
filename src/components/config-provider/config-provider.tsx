@@ -26,7 +26,7 @@ export function getDefaultConfig() {
 
 const ConfigContext = React.createContext<Config | null>(null)
 
-export type ConfigProviderProps = Config
+export type ConfigProviderProps = Omit<Config, 'locale'> & { locale?: Locale }
 
 export const ConfigProvider: FC<ConfigProviderProps> = props => {
   const { children, ...config } = props
