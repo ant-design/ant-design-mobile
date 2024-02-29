@@ -33,3 +33,5 @@
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+.node
+package-lock.json

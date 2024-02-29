@@ -330,4 +330,28 @@ describe('Form', () => {
       expect(renderTimes).toEqual(1)
     })
   })
+
+  test('click help not propagate', () => {
+    jest.useFakeTimers()
+    const onClick = jest.fn()
+
+    const { container } = render(
+      <div onClick={onClick}>
+        <Form>
+          <Form.Item name='name' label='name' help='hello world'>
+            <Input />
+          </Form.Item>
+        </Form>
+      </div>
+    )
+
+    fireEvent.click(container.querySelector('.adm-form-item-label-help')!)
+    expect(onClick).not.toHaveBeenCalled()
+
+    // Click input
+    fireEvent.click(container.querySelector('input')!)
+    expect(onClick).toHaveBeenCalled()
+
+    jest.useRealTimers()
+  })
 })
