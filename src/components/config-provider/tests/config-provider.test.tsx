@@ -10,6 +10,7 @@ import Form from '../../form'
 import Picker from '../../picker'
 import SearchBar from '../../search-bar'
 import ImageUploader from '../../image-uploader'
+import { useConfig } from '../'
 
 import zhCN from '../../../locales/zh-CN'
 import zhTW from '../../../locales/zh-TW'
@@ -93,5 +94,17 @@ describe('ConfigProvider', () => {
 
       expect(container).toMatchSnapshot()
     })
+  })
+
+  test('useConfig should only has `locale`', () => {
+    let config: ReturnType<typeof useConfig>
+
+    const Demo = () => {
+      config = useConfig()
+      return null
+    }
+    render(<Demo />)
+
+    expect(Object.keys(config!)).toEqual(['locale'])
   })
 })
