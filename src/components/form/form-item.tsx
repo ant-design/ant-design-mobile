@@ -158,6 +158,7 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
           <span
             className={`${classPrefix}-label-help`}
             onClick={e => {
+              e.stopPropagation()
               e.preventDefault()
             }}
           >
