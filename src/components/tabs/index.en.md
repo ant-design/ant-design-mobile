@@ -40,7 +40,6 @@ The current content needs to be divided into groups of the same hierarchical str
 | --active-line-height | The height of the active tab underline | `2px` |
 | --active-title-color | The color of the active tab title | `var(--adm-color-primary)` |
 | --content-padding | Padding of the tab content | `12px` |
-| --content-padding | Padding of the tab content | `12px` |
 | --fixed-active-line-width | The width of the active tab underline. Only take effect when `activeLineMode` is `'fixed'`. | `30px` |
 | --title-font-size | Font size of the displayed text of the tab header | `17px` |
 
