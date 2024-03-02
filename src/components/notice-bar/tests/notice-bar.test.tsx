@@ -23,10 +23,17 @@ describe('NoticeBar', () => {
     expect(renderer2.getByTestId('alert')).toHaveClass(`${classPrefix}-alert`)
   })
 
-  test('can be close', async () => {
-    const fn = jest.fn()
+  test('can be close and not propagate', async () => {
+    const onClose = jest.fn()
+    const onClick = jest.fn()
     const { getByTestId } = render(
-      <NoticeBar content='notice' closeable data-testid='notice' onClose={fn} />
+      <NoticeBar
+        content='notice'
+        closeable
+        data-testid='notice'
+        onClose={onClose}
+        onClick={onClick}
+      />
     )
 
     const el = getByTestId('notice')
@@ -35,7 +42,8 @@ describe('NoticeBar', () => {
 
     fireEvent.click(iconEl)
     expect(el).not.toBeInTheDocument()
-    expect(fn).toBeCalled()
+    expect(onClose).toBeCalled()
+    expect(onClick).not.toBeCalled()
   })
 
   test('`icon` prop', async () => {

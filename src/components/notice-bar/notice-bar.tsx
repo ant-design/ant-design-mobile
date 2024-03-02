@@ -144,7 +144,8 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
           {props.closeable && (
             <div
               className={`${classPrefix}-close`}
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation()
                 setVisible(false)
                 props.onClose?.()
               }}
