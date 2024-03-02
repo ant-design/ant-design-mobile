@@ -22,9 +22,9 @@ export type NoticeBarProps = {
   /** Whether it can be closed */
   closeable?: boolean
   /** Callback when closed */
-  onClose?: () => void
+  onClose?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   /** Event when click */
-  onClick?: () => void
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   /** Additional operating area, displayed to the left of the close button */
   extra?: ReactNode
   /** Radio icon on the left */
@@ -145,9 +145,8 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
             <div
               className={`${classPrefix}-close`}
               onClick={e => {
-                e.stopPropagation()
                 setVisible(false)
-                props.onClose?.()
+                props.onClose?.(e)
               }}
             >
               <CloseOutline className={`${classPrefix}-close-icon`} />

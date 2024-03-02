@@ -31,7 +31,10 @@ describe('NoticeBar', () => {
         content='notice'
         closeable
         data-testid='notice'
-        onClose={onClose}
+        onClose={e => {
+          e.stopPropagation()
+          onClose()
+        }}
         onClick={onClick}
       />
     )

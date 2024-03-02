@@ -22,8 +22,8 @@
 | delay | 开始滚动的延迟，单位 `ms` | `number` | `2000` |
 | extra | 额外操作区域，显示在关闭按钮左侧 | `React.ReactNode` | - |
 | icon | 左侧广播图标 | `React.ReactNode` | `<SoundOutline />` |
-| onClose | 关闭时的回调 | `() => void` | - |
-| onClick | 点击事件 | `() => void` | - |
+| onClose | 关闭时的回调 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
+| onClick | 点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 | speed | 滚动速度，单位 `px/s` | `number` | `50` |
 | wrap | 是否多行展示 | `boolean` | `false` |
 
