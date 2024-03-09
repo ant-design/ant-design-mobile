@@ -153,6 +153,11 @@ export const CalendarPickerView = forwardRef<
         year,
         month: month + 1,
       }
+      let emptyCount =
+        props.weekStartsOn === 'Monday'
+          ? monthIterator.date(1).isoWeekday() - 1
+          : monthIterator.date(1).isoWeekday()
+      emptyCount = emptyCount % 7
 
       cells.push(
         <div key={`${year}-${month}`}>
@@ -166,11 +171,7 @@ export const CalendarPickerView = forwardRef<
           </div>
           <div className={`${classPrefix}-cells`}>
             {/* 空格填充 */}
-            {Array(
-              props.weekStartsOn === 'Monday'
-                ? monthIterator.date(1).isoWeekday() - 1
-                : monthIterator.date(1).isoWeekday()
-            )
+            {Array(emptyCount)
               .fill(null)
               .map((_, index) => (
                 <div key={index} className={`${classPrefix}-cell`}></div>
