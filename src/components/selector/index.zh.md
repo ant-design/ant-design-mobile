@@ -41,8 +41,8 @@
 | --padding | 选项的 padding | `8px 16px` |
 | --text-color | 文字颜色 | `var(--adm-color-text)` |
 | --gap | 间距大小，仅在 `columns` 存在时生效 | `8px` |
-| --gap-horizontal | 水平方向的间距大小，，仅在 `columns` 存在时生效 | `var(--gap)` |
-| --gap-vertical | 垂直方向的间距大小，，仅在 `columns` 存在时生效 | `var(--gap)` |
+| --gap-horizontal | 水平方向的间距大小，仅在 `columns` 存在时生效 | `var(--gap)` |
+| --gap-vertical | 垂直方向的间距大小，仅在 `columns` 存在时生效 | `var(--gap)` |
 
 ## 类型定义
 
