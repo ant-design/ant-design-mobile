@@ -39,9 +39,6 @@ dependencies:
   deepmerge:
     specifier: ^4.3.1
     version: 4.3.1
-  lodash:
-    specifier: ^4.17.21
-    version: 4.17.21
   nano-memoize:
     specifier: ^3.0.16
     version: 3.0.16
@@ -254,6 +251,9 @@ devDependencies:
   less:
     specifier: ^4.1.3
     version: 4.2.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   lorem-ipsum:
     specifier: ^2.0.8
     version: 2.0.8
