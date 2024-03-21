@@ -1,5 +1,5 @@
 import React from 'react'
-import { Ellipsis, Space } from 'antd-mobile'
+import { Ellipsis, Space, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import { DownOutline, UpOutline } from 'antd-mobile-icons'
 
@@ -31,6 +31,9 @@ export default () => {
           content={content}
           expandText='展开'
           collapseText='收起'
+          toggle={expanded => {
+            Toast.show(`${expanded ? '展开' : '收起'}了`)
+          }}
         />
       </DemoBlock>
 

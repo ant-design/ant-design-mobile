@@ -118,6 +118,26 @@ describe('Ellipsis', () => {
     expect(ellipsis).toHaveTextContent('...')
   })
 
+  test('toggle should be work', () => {
+    const toggle = jest.fn()
+    const { getByText } = render(
+      <Ellipsis
+        content={content}
+        defaultExpanded
+        expandText='expand'
+        collapseText='collapse'
+        toggle={expanded => {
+          toggle(expanded)
+        }}
+      />
+    )
+    fireEvent.click(getByText('collapse'))
+    expect(toggle).toBeCalledWith(false)
+
+    fireEvent.click(getByText('expand'))
+    expect(toggle).toBeCalledWith(true)
+  })
+
   test('content not exceeded', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       value: lineHeight,
