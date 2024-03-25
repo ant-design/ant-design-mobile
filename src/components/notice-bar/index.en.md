@@ -22,8 +22,8 @@ It is applicable to the notification of information in the current page, which i
 | delay | Delay to start scrolling, unit `ms` | `number` | `2000` |
 | extra | Additional operating area, displayed to the left of the close button | `React.ReactNode` | - |
 | icon | Radio icon on the left | `React.ReactNode` | `<SoundOutline />` |
-| onClose | Callback when closed | `() => void` | - |
-| onClick | Click event | `() => void` | - |
+| onClose | Callback when closed | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
+| onClick | Click event | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 | speed | Scroll speed, unit `px/s` | `number` | `50` |
 | wrap | Whether to display multiple lines | `boolean` | `false` |
 
