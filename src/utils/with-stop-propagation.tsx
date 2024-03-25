@@ -1,9 +1,10 @@
 import React from 'react'
 import type { ReactElement } from 'react'
-export type PropagationEvent = 'click'
+export type PropagationEvent = 'click' | 'touchstart'
 
 const eventToPropRecord: Record<PropagationEvent, string> = {
   'click': 'onClick',
+  'touchstart': 'onTouchStart'
 }
 
 export function withStopPropagation(
