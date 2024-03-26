@@ -3,6 +3,8 @@ import React, {
   useState,
   useImperativeHandle,
   useMemo,
+  useRef,
+  useEffect,
 } from 'react'
 import type { ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -28,6 +30,7 @@ const classPrefix = 'adm-calendar-picker-view'
 export type CalendarPickerViewRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
+  scrollTo: (page: Page) => void
   getDateRange: () => DateRange
 }
 
@@ -76,6 +79,7 @@ export const CalendarPickerView = forwardRef<
   CalendarPickerViewRef,
   CalendarPickerViewProps
 >((p, ref) => {
+  const rootRef = useRef<HTMLDivElement>(null)
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
   const { locale } = useConfig()
@@ -106,6 +110,19 @@ export const CalendarPickerView = forwardRef<
     dayjs(dateRange ? dateRange[0] : today).date(1)
   )
 
+  const scrollTo = (page: Page) => {
+    const cell = rootRef.current?.querySelector(
+      `[data-date="${convertPageToDayjs(page).format('YYYY-MM')}"`
+    )
+    if (cell && cell.scrollIntoView) {
+      cell.scrollIntoView()
+    }
+  }
+
+  useEffect(() => {
+    scrollTo({ year: current.year(), month: current.month() + 1 })
+  }, [current])
+
   useImperativeHandle(ref, () => ({
     jumpTo: pageOrPageGenerator => {
       let page: Page
@@ -120,9 +137,11 @@ export const CalendarPickerView = forwardRef<
       setCurrent(convertPageToDayjs(page))
     },
     jumpToToday: () => {
-      setCurrent(dayjs().date(1))
+      const curr = dayjs().date(1)
+      setCurrent(curr)
     },
     getDateRange: () => dateRange,
+    scrollTo: scrollTo,
   }))
 
   const header = (
@@ -153,9 +172,9 @@ export const CalendarPickerView = forwardRef<
         year,
         month: month + 1,
       }
-
+      const dateId = dayjs(year + '-' + (month + 1)).format('YYYY-MM')
       cells.push(
-        <div key={`${year}-${month}`}>
+        <div key={`${year}-${month}`} data-date={`${dateId}`}>
           <div className={`${classPrefix}-title`}>
             {locale.Calendar.yearAndMonth?.replace(
               /\${(.*?)}/g,
@@ -320,7 +339,7 @@ export const CalendarPickerView = forwardRef<
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div ref={rootRef} className={classPrefix}>
       {header}
       {mark}
       {body}
