@@ -5,12 +5,14 @@ on:
     types: [opened, synchronize]
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   size:
     permissions:
-      contents: read
+      checks: read
+      contents: write
       pull-requests: write
     runs-on: ubuntu-latest
 
