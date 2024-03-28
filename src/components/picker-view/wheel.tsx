@@ -14,6 +14,7 @@ import isEqual from 'react-fast-compare'
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { measureCSSLength } from '../../utils/measure-css-length'
 import { supportsPassive } from '../../utils/supports-passive'
+import classNames from 'classnames'
 
 const classPrefix = `adm-picker-view`
 
@@ -271,15 +272,19 @@ export const Wheel = memo<Props>(
           {column.map((item, index) => {
             const selected = props.value === item.value
             if (selected) selectedIndex = index
+
             function handleClick() {
               draggingRef.current = false
               scrollSelect(index)
             }
+
             return (
               <div
                 key={item.key ?? item.value}
-                data-selected={item.value === value}
-                className={`${classPrefix}-column-item`}
+                data-selected={selected}
+                className={classNames(`${classPrefix}-column-item`, {
+                  [`${classPrefix}-column-item-active`]: selected,
+                })}
                 onClick={handleClick}
                 aria-hidden={!selected}
                 aria-label={selected ? 'active' : ''}
