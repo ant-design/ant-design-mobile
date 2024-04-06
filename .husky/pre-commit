@@ -1,3 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-pnpm pretty-quick --staged
+PATH=$(pwd)/.node/bin:$(pwd)/node_modules/.bin:$PATH lint-staged

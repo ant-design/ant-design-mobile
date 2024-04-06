@@ -22,7 +22,6 @@
 # dumi assets meta data
 /assets.json
 
-/.vscode/
 /.idea/
 
 # yarn https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
