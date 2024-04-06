@@ -34,7 +34,7 @@ type ResultPageDetails = ResultPageDetail[]
 
 type OnClick = (
   event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-) => void | Promise<void> | unknown
+) => void | Promise<void>
 
 export type ResultPageProps = {
   status?: 'success' | 'error' | 'info' | 'waiting' | 'warning'
