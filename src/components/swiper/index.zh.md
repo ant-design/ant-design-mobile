@@ -49,7 +49,7 @@
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowTouchMove | 是否允许手势滑动 | `boolean` | `true` |
-| autoplay | 是否自动切换 | `boolean` | `false` |
+| autoplay | 是否自动切换 | `boolean` | `false` | `reverse` |
 | autoplayInterval | 自动切换的间隔，单位为 `ms` | `number` | `3000` |
 | defaultIndex | 初始位置 | `number` | `0` |
 | direction | 方向，默认是水平方向 | `'horizontal' \| 'vertical'` | `'horizontal'` |

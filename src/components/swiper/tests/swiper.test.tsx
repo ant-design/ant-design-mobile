@@ -76,6 +76,23 @@ describe('Swiper', () => {
     jest.useRealTimers()
   })
 
+  test('auto play reverse', () => {
+    jest.useFakeTimers()
+    render(
+      <Swiper autoplay='reverse' defaultIndex={1}>
+        {items}
+      </Swiper>
+    )
+
+    // trigger once
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+
+    expect($$(`.${classPrefix}-track-inner`)[0]).toHaveStyle('transform: none')
+    jest.useRealTimers()
+  })
+
   test('loop', async () => {
     const { container } = render(
       <Swiper loop defaultIndex={3}>

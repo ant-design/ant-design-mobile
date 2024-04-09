@@ -44,7 +44,7 @@ export type SwiperRef = {
 export type SwiperProps = {
   defaultIndex?: number
   allowTouchMove?: boolean
-  autoplay?: boolean
+  autoplay?: boolean | 'reverse'
   autoplayInterval?: number
   loop?: boolean
   direction?: 'horizontal' | 'vertical'
@@ -69,7 +69,7 @@ export type SwiperProps = {
 const defaultProps = {
   defaultIndex: 0,
   allowTouchMove: true,
-  autoplay: false,
+  autoplay: false as SwiperProps['autoplay'],
   autoplayInterval: 3000,
   loop: false,
   direction: 'horizontal',
@@ -297,7 +297,11 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
       const runTimeSwiper = () => {
         timeoutRef.current = window.setTimeout(() => {
-          swipeNext()
+          if (autoplay === 'reverse') {
+            swipePrev()
+          } else {
+            swipeNext()
+          }
           runTimeSwiper()
         }, autoplayInterval)
       }
