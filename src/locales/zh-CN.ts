@@ -1,9 +1,8 @@
-import { mergeLocale } from '../utils/merge-locale'
-import { base } from './base'
+import { Locale } from './base'
 
 const typeTemplate = '${label}不是一个有效的${type}'
 
-const zhCN = mergeLocale(base, {
+const zhCN: Locale = {
   locale: 'zh-CH',
   common: {
     confirm: '确定',
@@ -140,6 +139,6 @@ const zhCN = mergeLocale(base, {
   Selector: {
     name: '选择组',
   },
-})
+}
 
 export default zhCN
