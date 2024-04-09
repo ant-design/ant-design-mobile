@@ -78,7 +78,11 @@ describe('Swiper', () => {
 
   test('auto play reverse', () => {
     jest.useFakeTimers()
-    render(<Swiper autoplay='reverse'>{items}</Swiper>)
+    render(
+      <Swiper autoplay='reverse' defaultIndex={1}>
+        {items}
+      </Swiper>
+    )
 
     // trigger once
     act(() => {
