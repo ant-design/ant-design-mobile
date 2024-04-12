@@ -142,4 +142,27 @@ describe('TextArea', () => {
     const textarea = getByRole('textbox')
     expect(textarea).toHaveAttribute('rows', '1')
   })
+
+  test('should works with `onEnterPress`', async () => {
+    const onEnterPress = jest.fn()
+    const { getByRole } = render(
+      <TextArea defaultValue={'testValue'} onEnterPress={onEnterPress} />
+    )
+    const textarea = getByRole('textbox') as HTMLTextAreaElement
+    expect(textarea).toBeInTheDocument()
+    act(() => {
+      textarea.focus()
+    })
+    fireEvent.keyDown(textarea, { code: 'Enter' })
+    expect(onEnterPress).toBeCalledTimes(1)
+    fireEvent.keyUp(textarea, { code: 'Enter' })
+
+    fireEvent.keyDown(textarea, { keyCode: 13 })
+    expect(onEnterPress).toBeCalledTimes(2)
+    fireEvent.keyUp(textarea, { keyCode: 13 })
+
+    fireEvent.keyDown(textarea, { keyCode: 14 })
+    expect(onEnterPress).toBeCalledTimes(2)
+    fireEvent.keyUp(textarea, { keyCode: 14 })
+  })
 })
