@@ -45,6 +45,7 @@ export type InputProps = Pick<
   | 'placeholder'
   | 'readOnly'
   | 'disabled'
+  | 'enterKeyHint'
 > & {
   value?: string
   defaultValue?: string
@@ -53,14 +54,6 @@ export type InputProps = Pick<
   onlyShowClearWhenFocus?: boolean
   onClear?: () => void
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
-  enterKeyHint?:
-    | 'enter'
-    | 'done'
-    | 'go'
-    | 'next'
-    | 'previous'
-    | 'search'
-    | 'send'
   min?: number
   max?: number
 } & NativeProps<

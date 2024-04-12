@@ -24,6 +24,7 @@ export type TextAreaProps = Pick<
   | 'onCompositionStart'
   | 'onCompositionEnd'
   | 'onClick'
+  | 'onKeyDown'
 > & {
   onChange?: (val: string) => void
   value?: string
@@ -39,6 +40,15 @@ export type TextAreaProps = Pick<
         maxRows?: number
       }
   id?: string
+  onEnterPress?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void
+  enterKeyHint?:
+    | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send'
 } & NativeProps<
     | '--font-size'
     | '--color'
@@ -119,6 +129,24 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       textArea.style.height = `${height}px`
     }, [value, autoSize])
 
+    const handleKeydown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+      if (props.onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
+        props.onEnterPress(e)
+      }
+      props.onKeyDown?.(e)
+    }
+
+    useIsomorphicLayoutEffect(() => {
+      if (!props.enterKeyHint) return
+      nativeTextAreaRef.current?.setAttribute(
+        'enterkeyhint',
+        props.enterKeyHint
+      )
+      return () => {
+        nativeTextAreaRef.current?.removeAttribute('enterkeyhint')
+      }
+    }, [props.enterKeyHint])
+
     const compositingRef = useRef(false)
 
     let count
@@ -182,6 +210,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onFocus={props.onFocus}
           onBlur={props.onBlur}
           onClick={props.onClick}
+          onKeyDown={handleKeydown}
         />
         {count}
 
