@@ -1,12 +1,13 @@
-import React, { useState, useRef, memo } from 'react'
-import type { ReactNode } from 'react'
-import classNames from 'classnames'
-import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
 import { useTimeout } from 'ahooks'
-import { mergeProps } from '../../utils/with-default-props'
+import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
+import classNames from 'classnames'
+import type { ReactNode } from 'react'
+import React, { memo, useRef, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useResizeEffect } from '../../utils/use-resize-effect'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
+import { useResizeEffect } from '../../utils/use-resize-effect'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-notice-bar`
 
@@ -21,6 +22,8 @@ export type NoticeBarProps = {
   content: ReactNode
   /** Whether it can be closed */
   closeable?: boolean
+  /** Custom close icon */
+  closeIcon?: ReactNode
   /** Callback when closed */
   onClose?: () => void
   /** Event when click */
@@ -44,12 +47,14 @@ const defaultProps = {
   color: 'default',
   delay: 2000,
   speed: 50,
-  wrap: false,
   icon: <SoundOutline />,
+  closeIcon: <CloseOutline />,
+  wrap: false,
 }
 
 export const NoticeBar = memo<NoticeBarProps>(p => {
-  const props = mergeProps(defaultProps, p)
+  const { noticeBar: componentConfig = {} } = useConfig()
+  const props = mergeProps(defaultProps, componentConfig, p)
 
   const containerRef = useRef<HTMLSpanElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
@@ -149,7 +154,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
                 props.onClose?.()
               }}
             >
-              <CloseOutline className={`${classPrefix}-close-icon`} />
+              {props.closeIcon}
             </div>
           )}
         </span>

@@ -1,15 +1,16 @@
-import React, { isValidElement, useRef } from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import List from '../list'
-import { DownOutline } from 'antd-mobile-icons'
-import classNames from 'classnames'
-import { useSpring, animated } from '@react-spring/web'
-import { usePropsValue } from '../../utils/use-props-value'
+import { animated, useSpring } from '@react-spring/web'
 import { useMount } from 'ahooks'
+import classNames from 'classnames'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React, { isValidElement, useRef } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
-import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 import { traverseReactNode } from '../../utils/traverse-react-node'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import List from '../list'
 
 const classPrefix = `adm-collapse`
 
@@ -20,8 +21,12 @@ export type CollapsePanelProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
-  arrow?: ReactNode | ((active: boolean) => ReactNode)
+  arrowIcon?: ReactNode | ((active: boolean) => ReactNode)
   children?: ReactNode
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
+  arrow?: ReactNode | ((active: boolean) => ReactNode)
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -106,6 +111,10 @@ type ValueProps<T> = {
   activeKey?: T
   defaultActiveKey?: T
   onChange?: (activeKey: T) => void
+  arrowIcon?: ReactNode | ((active: boolean) => ReactNode)
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
   arrow?: ReactNode | ((active: boolean) => ReactNode)
 }
 
@@ -120,7 +129,11 @@ export type CollapseProps = (
   children?: ReactNode
 } & NativeProps
 
-export const Collapse: FC<CollapseProps> = props => {
+const defaultProps = {}
+
+export const Collapse: FC<CollapseProps> = p => {
+  const { collapse: componentConfig = {} } = useConfig()
+  const props = mergeProps(defaultProps, componentConfig, p)
   const panels: ReactElement<CollapsePanelProps>[] = []
   traverseReactNode(props.children, child => {
     if (!isValidElement<CollapsePanelProps>(child)) return
@@ -196,15 +209,13 @@ export const Collapse: FC<CollapseProps> = props => {
             panel.props.onClick?.(event)
           }
 
-          const renderArrow = () => {
-            let arrow: CollapseProps['arrow'] = <DownOutline />
-            if (props.arrow !== undefined) {
-              arrow = props.arrow
-            }
-            if (panel.props.arrow !== undefined) {
-              arrow = panel.props.arrow
-            }
-            return typeof arrow === 'function' ? (
+          const arrow =
+            panel.props.arrow ||
+            panel.props.arrowIcon ||
+            props.arrow ||
+            props.arrowIcon
+          const arrowIcon =
+            typeof arrow === 'function' ? (
               arrow(active)
             ) : (
               <div
@@ -215,7 +226,6 @@ export const Collapse: FC<CollapseProps> = props => {
                 {arrow}
               </div>
             )
-          }
 
           return (
             <React.Fragment key={key}>
@@ -225,7 +235,7 @@ export const Collapse: FC<CollapseProps> = props => {
                   className={`${classPrefix}-panel-header`}
                   onClick={handleClick}
                   disabled={panel.props.disabled}
-                  arrow={renderArrow()}
+                  arrowIcon={arrowIcon}
                 >
                   {panel.props.title}
                 </List.Item>

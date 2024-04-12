@@ -11,11 +11,11 @@ import classNames from 'classnames'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
 import { useLockScroll } from '../../utils/use-lock-scroll'
-import { CloseOutline } from 'antd-mobile-icons'
 import {
   defaultPopupBaseProps,
   PopupBaseProps,
 } from '../popup/popup-base-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-center-popup'
 
@@ -38,7 +38,8 @@ const defaultProps = {
 }
 
 export const CenterPopup: FC<CenterPopupProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const { popup: componentConfig = {} } = useConfig()
+  const props = mergeProps(defaultProps, componentConfig, p)
 
   const unmountedRef = useUnmountedRef()
   const style = useSpring({
@@ -134,7 +135,7 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
                   props.onClose?.()
                 }}
               >
-                <CloseOutline />
+                {props.closeIcon}
               </a>
             )}
             {body}

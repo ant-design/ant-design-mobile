@@ -1,10 +1,52 @@
-import React, { useContext } from 'react'
-import type { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, useContext } from 'react'
 import { Locale } from '../../locales/base'
 import zhCN from '../../locales/zh-CN'
 
 type Config = {
   locale: Locale
+  checkList?: {
+    activeIcon?: ReactNode
+  }
+  collapse?: {
+    arrowIcon?: ReactNode | ((active: boolean) => ReactNode)
+  }
+  dropdown?: {
+    arrowIcon?: ReactNode
+  }
+  form?: {
+    helpIcon?: ReactNode
+  }
+  input?: {
+    clearIcon?: ReactNode
+  }
+  list?: {
+    arrowIcon?: ReactNode
+  }
+  navBar?: {
+    backIcon?: ReactNode
+  }
+  noticeBar?: {
+    icon?: ReactNode
+    closeIcon?: ReactNode
+  }
+  popup?: {
+    closeIcon?: ReactNode
+  }
+  result?: {
+    successIcon?: ReactNode
+    errorIcon?: ReactNode
+    infoIcon?: ReactNode
+    waitingIcon?: ReactNode
+    warningIcon?: ReactNode
+  }
+  searchBar?: {
+    searchIcon?: ReactNode
+  }
+  toast?: {
+    successIcon?: ReactNode
+    errorIcon?: ReactNode
+    loadingIcon?: ReactNode
+  }
 }
 
 export const defaultConfigRef: {

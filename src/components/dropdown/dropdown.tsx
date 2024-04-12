@@ -1,26 +1,27 @@
 import { useClickAway } from 'ahooks'
 import classNames from 'classnames'
-import React, {
-  cloneElement,
-  useEffect,
-  useRef,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-  isValidElement,
-} from 'react'
 import type {
-  ReactNode,
   ComponentProps,
   PropsWithChildren,
   ReactElement,
+  ReactNode,
 } from 'react'
-import Popup, { PopupProps } from '../popup'
-import Item, { ItemChildrenWrap } from './item'
+import React, {
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import Popup, { PopupProps } from '../popup'
 import { defaultPopupBaseProps } from '../popup/popup-base-props'
+import Item, { ItemChildrenWrap } from './item'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-dropdown`
 
@@ -30,6 +31,10 @@ export type DropdownProps = {
   closeOnMaskClick?: boolean
   closeOnClickAway?: boolean
   onChange?: (key: string | null) => void
+  arrowIcon?: ReactNode
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
   arrow?: ReactNode
   getContainer?: PopupProps['getContainer']
 } & NativeProps
@@ -47,7 +52,8 @@ export type DropdownRef = {
 
 const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
   (p, ref) => {
-    const props = mergeProps(defaultProps, p)
+    const { dropdown: componentConfig = {} } = useConfig()
+    const props = mergeProps(defaultProps, componentConfig, p)
     const [value, setValue] = usePropsValue({
       value: props.activeKey,
       defaultValue: props.defaultActiveKey,
@@ -95,7 +101,10 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
           },
           active: child.key === value,
           arrow:
-            child.props.arrow === undefined ? props.arrow : child.props.arrow,
+            child.props.arrow ||
+            child.props.arrowIcon ||
+            props.arrow ||
+            props.arrowIcon,
         }
         items.push(child)
         if (child.props.forceRender) popupForceRender = true

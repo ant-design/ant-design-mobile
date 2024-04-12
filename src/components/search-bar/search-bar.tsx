@@ -1,13 +1,13 @@
-import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
-import type { ReactNode } from 'react'
-import classNames from 'classnames'
-import Input, { InputRef, InputProps } from '../input'
-import Button from '../button'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutline } from 'antd-mobile-icons'
+import classNames from 'classnames'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import Button from '../button'
 import { useConfig } from '../config-provider'
+import Input, { InputProps, InputRef } from '../input'
 
 const classPrefix = `adm-search-bar`
 
@@ -25,6 +25,10 @@ export type SearchBarProps = Pick<
   onlyShowClearWhenFocus?: boolean
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
+  searchIcon?: ReactNode
+  /**
+   * @deprecated use `searchIcon` instead
+   */
   icon?: ReactNode
   clearOnCancel?: boolean
   onSearch?: (val: string) => void
@@ -44,13 +48,14 @@ const defaultProps = {
   showCancelButton: false as NonNullable<SearchBarProps['showCancelButton']>,
   defaultValue: '',
   clearOnCancel: true,
-  icon: <SearchOutline />,
+  searchIcon: <SearchOutline />,
 }
 
 export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
-  const { locale } = useConfig()
+  const { locale, searchBar: componentConfig = {} } = useConfig()
   const props = mergeProps(
     defaultProps,
+    componentConfig,
     {
       cancelText: locale.common.cancel,
     },
@@ -111,13 +116,16 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
       })}
     >
       <div className={`${classPrefix}-input-box`}>
-        {props.icon && (
-          <div className={`${classPrefix}-input-box-icon`}>{props.icon}</div>
+        {(props.searchIcon || props.icon) && (
+          <div className={`${classPrefix}-input-box-icon`}>
+            {props.searchIcon || props.icon}
+          </div>
         )}
         <Input
           ref={inputRef}
           className={classNames(`${classPrefix}-input`, {
-            [`${classPrefix}-input-without-icon`]: !props.icon,
+            [`${classPrefix}-input-without-icon`]:
+              !props.searchIcon && !props.icon,
           })}
           value={value}
           onChange={setValue}

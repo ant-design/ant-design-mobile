@@ -1,13 +1,14 @@
-import React, { useMemo } from 'react'
-import type { FC, ReactNode } from 'react'
-import classNames from 'classnames'
 import { CheckOutline, CloseOutline } from 'antd-mobile-icons'
-import Mask from '../mask'
-import type { MaskProps } from '../mask'
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React, { useMemo } from 'react'
+import { GetContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
-import { GetContainer } from '../../utils/render-to-container'
 import AutoCenter from '../auto-center'
+import { useConfig } from '../config-provider'
+import type { MaskProps } from '../mask'
+import Mask from '../mask'
 import SpinLoading from '../spin-loading'
 
 const classPrefix = `adm-toast`
@@ -32,19 +33,22 @@ const defaultProps = {
 }
 
 export const InternalToast: FC<ToastProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const { toast: componentConfig = {} } = useConfig()
+  const props = mergeProps(defaultProps, componentConfig, p)
   const { maskClickable, content, icon, position } = props
 
   const iconElement = useMemo(() => {
     if (icon === null || icon === undefined) return null
     switch (icon) {
       case 'success':
-        return <CheckOutline className={`${classPrefix}-icon-success`} />
+        return componentConfig?.successIcon || <CheckOutline />
       case 'fail':
-        return <CloseOutline className={`${classPrefix}-icon-fail`} />
+        return componentConfig?.errorIcon || <CloseOutline />
       case 'loading':
         return (
-          <SpinLoading color='white' className={`${classPrefix}-loading`} />
+          componentConfig?.loadingIcon || (
+            <SpinLoading color='white' style={{ '--size': '48px' }} />
+          )
         )
       default:
         return icon

@@ -1,8 +1,8 @@
-import React from 'react'
-import type { CSSProperties } from 'react'
+import React, { CSSProperties, ReactNode } from 'react'
 import { GetContainer } from '../../utils/render-to-container'
 import { MaskProps } from '../mask'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
+import { CloseOutline } from 'antd-mobile-icons'
 
 export type PopupBaseProps = {
   afterClose?: () => void
@@ -10,6 +10,7 @@ export type PopupBaseProps = {
   bodyClassName?: string
   bodyStyle?: CSSProperties
   closeOnMaskClick?: boolean
+  closeIcon?: ReactNode
   destroyOnClose?: boolean
   disableBodyScroll?: boolean
   forceRender?: boolean
@@ -27,6 +28,7 @@ export type PopupBaseProps = {
 
 export const defaultPopupBaseProps = {
   closeOnMaskClick: false,
+  closeIcon: <CloseOutline />,
   destroyOnClose: false,
   disableBodyScroll: true,
   forceRender: false,

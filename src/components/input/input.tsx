@@ -1,4 +1,10 @@
-import React, { useState, forwardRef, useImperativeHandle, useRef } from 'react'
+import React, {
+  useState,
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  ReactNode,
+} from 'react'
 import { usePropsValue } from '../../utils/use-props-value'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -50,6 +56,7 @@ export type InputProps = Pick<
   defaultValue?: string
   onChange?: (val: string) => void
   clearable?: boolean
+  clearIcon?: ReactNode
   onlyShowClearWhenFocus?: boolean
   onClear?: () => void
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
@@ -70,6 +77,7 @@ export type InputProps = Pick<
 
 const defaultProps = {
   defaultValue: '',
+  clearIcon: <CloseCircleFill />,
   onlyShowClearWhenFocus: true,
 }
 
@@ -81,12 +89,12 @@ export type InputRef = {
 }
 
 export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
-  const props = mergeProps(defaultProps, p)
+  const { locale, input: componentConfig = {} } = useConfig()
+  const props = mergeProps(defaultProps, componentConfig, p)
   const [value, setValue] = usePropsValue(props)
   const [hasFocus, setHasFocus] = useState(false)
   const compositionStartRef = useRef(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
-  const { locale } = useConfig()
 
   useImperativeHandle(ref, () => ({
     clear: () => {
@@ -219,7 +227,7 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
           }}
           aria-label={locale.Input.clear}
         >
-          <CloseCircleFill />
+          {props.clearIcon}
         </div>
       )}
     </div>

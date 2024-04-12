@@ -1,11 +1,12 @@
 import React from 'react'
 import type { FC, ReactNode } from 'react'
+import { CheckOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import List, { ListProps } from '../list'
 import { mergeProps } from '../../utils/with-default-props'
 import { CheckListContext } from './context'
 import { usePropsValue } from '../../utils/use-props-value'
-import { CheckOutline } from 'antd-mobile-icons'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-check-list'
 
@@ -30,7 +31,8 @@ const defaultProps = {
 }
 
 export const CheckList: FC<CheckListProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const { checkList: componentConfig = {} } = useConfig()
+  const props = mergeProps(defaultProps, componentConfig, p)
 
   const [value, setValue] = usePropsValue(props)
 

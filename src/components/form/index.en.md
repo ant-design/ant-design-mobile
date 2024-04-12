@@ -93,6 +93,7 @@ const validateMessages = {
 | getValueProps | Customize additional props with value. This prop will disable `valuePropName` | `(value) => any` | - |
 | hasFeedback | Whether to show error feedback | `boolean` | `true` |
 | help | Prompt text | `ReactNode` | - |
+| helpIcon | Prompt icon | `ReactNode` | `<QuestionCircleOutline />` |
 | hidden | Hide this field | `boolean` | `false` |
 | initialValue | Config sub default value. Form `initialValues` get higher priority when conflict. | `any` | - |
 | label | Label name | `ReactNode` | - |

@@ -25,7 +25,10 @@ export type VirtualInputProps = {
   keyboard?: ReactElement<NumberKeyboardProps>
   clearable?: boolean
   onClear?: () => void
-} & Pick<InputProps, 'value' | 'onChange' | 'placeholder' | 'disabled'> &
+} & Pick<
+  InputProps,
+  'value' | 'onChange' | 'placeholder' | 'disabled' | 'clearIcon'
+> &
   NativeProps<
     | '--font-size'
     | '--color'
@@ -38,6 +41,7 @@ export type VirtualInputProps = {
 
 const defaultProps = {
   defaultValue: '',
+  clearIcon: <CloseCircleFill />,
 }
 
 export type VirtualInputRef = {
@@ -47,12 +51,12 @@ export type VirtualInputRef = {
 
 export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
   (p, ref) => {
-    const props = mergeProps(defaultProps, p)
+    const { locale, input: componentConfig = {} } = useConfig()
+    const props = mergeProps(defaultProps, componentConfig, p)
     const [value, setValue] = usePropsValue(props)
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
     const [hasFocus, setHasFocus] = useState(false)
-    const { locale } = useConfig()
 
     function scrollToEnd() {
       const root = rootRef.current
@@ -157,7 +161,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             role='button'
             aria-label={locale.Input.clear}
           >
-            <CloseCircleFill />
+            {props.clearIcon}
           </div>
         )}
         {[undefined, null, ''].includes(value) && (

@@ -16,8 +16,8 @@ Need to display the title and action of the current page content.
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| back | The returned text of the area, if `null` returned, `backArrow` would not be rendered | `ReacNode \| null` | `''` |
-| backArrow | Whether to display the arrow of the return area, you can also pass in `ReactNode` for customization | `boolean \| ReactNode` | `true` |
+| back | The returned text of the area, if `null` returned, `backIcon` would not be rendered | `ReacNode \| null` | `''` |
+| backIcon | Whether to display the back arrow icon of the return area, you can also pass in `ReactNode` for customization | `boolean \| ReactNode` | `true` |
 | children | Title | `ReactNode` | - |
 | left | Content on the left, rendered on the right side of the return area | `ReactNode` | - |
 | onBack | Callback after clicking the return area | `() => void` | - |

@@ -10,7 +10,6 @@ import { renderToContainer } from '../../utils/render-to-container'
 import { useSpring, animated } from '@react-spring/web'
 import { withStopPropagation } from '../../utils/with-stop-propagation'
 import { ShouldRender } from '../../utils/should-render'
-import { CloseOutline } from 'antd-mobile-icons'
 import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useConfig } from '../config-provider'
@@ -32,7 +31,8 @@ const defaultProps = {
 }
 
 export const Popup: FC<PopupProps> = p => {
-  const props = mergeProps(defaultProps, p)
+  const { locale, popup: componentConfig = {} } = useConfig()
+  const props = mergeProps(defaultProps, componentConfig, p)
 
   const bodyCls = classNames(
     `${classPrefix}-body`,
@@ -40,7 +40,6 @@ export const Popup: FC<PopupProps> = p => {
     `${classPrefix}-body-position-${props.position}`
   )
 
-  const { locale } = useConfig()
   const [active, setActive] = useState(props.visible)
   const ref = useRef<HTMLDivElement>(null)
   useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
@@ -156,7 +155,7 @@ export const Popup: FC<PopupProps> = p => {
               role='button'
               aria-label={locale.common.close}
             >
-              <CloseOutline />
+              {props.closeIcon}
             </a>
           )}
           {props.children}

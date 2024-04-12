@@ -21,6 +21,7 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | clearable | 是否启用清除图标，点击清除图标后会清空输入框 | `boolean` | `false` |
+| clearIcon | 自定义清除图标 | `ReactNode` | `<CloseCircleFill />` |
 | defaultValue | 默认值 | `string` | - |
 | disabled | 是否禁用 | `boolean` | `false` |
 | id | `input` 元素的 `id`，常用来配合 `label` 使用 | `string` | - |
