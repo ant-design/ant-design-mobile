@@ -4,10 +4,10 @@ import { CloseCircleFill } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { useIsomorphicLayoutEffect } from 'ahooks'
 import { bound } from '../../utils/bound'
 import { isIOS } from '../../utils/validate'
 import { useConfig } from '../config-provider'
+import { useInputHandleKeyDown } from './useInputHandleKeyDown'
 
 const classPrefix = `adm-input`
 
@@ -71,39 +71,6 @@ export type InputRef = {
   focus: () => void
   blur: () => void
   nativeElement: HTMLInputElement | null
-}
-
-interface InputHandleKeyDownType<T> {
-  onEnterPress?: (e: React.KeyboardEvent<T>) => void
-  onKeyDown?: (e: React.KeyboardEvent<T>) => void
-  enterKeyHint?: React.InputHTMLAttributes<HTMLInputElement>['enterKeyHint']
-  nativeInputRef: React.RefObject<T>
-}
-
-export function useInputHandleKeyDown<
-  T extends HTMLInputElement | HTMLTextAreaElement,
->({
-  onEnterPress,
-  onKeyDown,
-  nativeInputRef,
-  enterKeyHint,
-}: InputHandleKeyDownType<T>) {
-  const handleKeydown = (e: React.KeyboardEvent<T>) => {
-    if (onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
-      onEnterPress(e)
-    }
-    onKeyDown?.(e)
-  }
-
-  useIsomorphicLayoutEffect(() => {
-    if (!enterKeyHint) return
-    nativeInputRef.current?.setAttribute('enterkeyhint', enterKeyHint)
-    return () => {
-      nativeInputRef.current?.removeAttribute('enterkeyhint')
-    }
-  }, [enterKeyHint])
-
-  return handleKeydown
 }
 
 export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
