@@ -6,6 +6,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { devError } from '../../utils/dev-log'
+import { useInputHandleKeyDown } from '../../hooks/useInputHandleKeyDown'
 
 const classPrefix = 'adm-text-area'
 
@@ -92,6 +93,13 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     // https://github.com/ant-design/ant-design-mobile/issues/6051
     const hiddenTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
+    const handleKeydown = useInputHandleKeyDown({
+      onEnterPress: props.onEnterPress,
+      onKeyDown: props.onKeyDown,
+      nativeInputRef: nativeTextAreaRef,
+      enterKeyHint: props.enterKeyHint,
+    })
+
     useImperativeHandle(ref, () => ({
       clear: () => {
         setValue('')
@@ -128,24 +136,6 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       heightRef.current = `${height}px`
       textArea.style.height = `${height}px`
     }, [value, autoSize])
-
-    const handleKeydown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (props.onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
-        props.onEnterPress(e)
-      }
-      props.onKeyDown?.(e)
-    }
-
-    useIsomorphicLayoutEffect(() => {
-      if (!props.enterKeyHint) return
-      nativeTextAreaRef.current?.setAttribute(
-        'enterkeyhint',
-        props.enterKeyHint
-      )
-      return () => {
-        nativeTextAreaRef.current?.removeAttribute('enterkeyhint')
-      }
-    }, [props.enterKeyHint])
 
     const compositingRef = useRef(false)
 
