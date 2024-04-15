@@ -32,8 +32,8 @@
     "build": "gulp",
     "build-doc": "dumi build && echo '!.*' > dist/.surgeignore",
     "postinstall": "husky install",
-    "lint": "eslint .",
-    "lint:fix": "prettier --write . && eslint --fix .",
+    "lint": "eslint . && stylelint \"**/*.{css,less,scss}\"",
+    "lint:fix": "prettier --write . && eslint --fix . && stylelint --fix \"**/*.{css,less,scss}\"",
     "package-diff": "antd-tools run package-diff --path=./lib",
     "prepare": "husky install",
     "pub": "npm run package-diff && npm publish ./lib",
@@ -47,7 +47,8 @@
   },
   "lint-staged": {
     "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx,vue}": "eslint --fix",
-    "*.{cjs,css,cts,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,vue,yaml,yml}": "prettier --write"
+    "*.{cjs,css,cts,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,vue,yaml,yml}": "prettier --write",
+    "*.{css,less,scss}": "stylelint --fix"
   },
   "resolutions": {
     "@types/react": "18",
@@ -158,6 +159,9 @@
     "react-virtualized": "^9.22.5",
     "size-limit": "^11.1.0",
     "style-loader": "^3.3.2",
+    "stylelint": "^16.3.1",
+    "stylelint-config-ali": "^2.1.0",
+    "stylelint-prettier": "^5.0.0",
     "through2": "^4.0.2",
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1",
