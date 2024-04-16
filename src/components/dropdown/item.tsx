@@ -31,7 +31,7 @@ const defaultProps = {
 
 const Item: FC<DropdownItemProps> = props => {
   const { dropdown: componentConfig = {} } = useConfig()
-  const { active, arrowIcon, arrow, highlight, onClick, title } = mergeProps(
+  const { active, arrowIcon, highlight, onClick, title } = mergeProps(
     defaultProps,
     componentConfig,
     props
@@ -51,7 +51,7 @@ const Item: FC<DropdownItemProps> = props => {
             [`${classPrefix}-title-arrow-active`]: active,
           })}
         >
-          {arrow || arrowIcon}
+          {arrowIcon}
         </span>
       </div>
     </div>
