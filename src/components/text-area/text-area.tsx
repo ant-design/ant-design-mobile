@@ -6,7 +6,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { devError } from '../../utils/dev-log'
-import { useInputHandleKeyDown } from '../../components/input'
+import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
 
 const classPrefix = 'adm-text-area'
 

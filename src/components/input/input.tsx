@@ -7,7 +7,7 @@ import classNames from 'classnames'
 import { bound } from '../../utils/bound'
 import { isIOS } from '../../utils/validate'
 import { useConfig } from '../config-provider'
-import { useInputHandleKeyDown } from './useInputHandleKeyDown'
+import useInputHandleKeyDown from './useInputHandleKeyDown'
 
 const classPrefix = `adm-input`
 

@@ -7,7 +7,7 @@ interface InputHandleKeyDownType<T> {
   nativeInputRef: React.RefObject<T>
 }
 
-export function useInputHandleKeyDown<
+export default function useInputHandleKeyDown<
   T extends HTMLInputElement | HTMLTextAreaElement,
 >({
   onEnterPress,
@@ -23,10 +23,13 @@ export function useInputHandleKeyDown<
   }
 
   useIsomorphicLayoutEffect(() => {
-    if (!enterKeyHint) return
-    nativeInputRef.current?.setAttribute('enterkeyhint', enterKeyHint)
+    const ele = nativeInputRef.current
+
+    if (!enterKeyHint || !ele) return
+
+    ele.setAttribute('enterkeyhint', enterKeyHint)
     return () => {
-      nativeInputRef.current?.removeAttribute('enterkeyhint')
+      ele.removeAttribute('enterkeyhint')
     }
   }, [enterKeyHint])
 
