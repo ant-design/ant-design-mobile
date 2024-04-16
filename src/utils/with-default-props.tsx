@@ -4,11 +4,13 @@ export function mergeProps<A, B, C, D>(a: A, b: B, c: C, d: D): D & C & B & A
 export function mergeProps(...items: any[]) {
   const ret: any = {}
   items.forEach(item => {
-    Object.keys(item).forEach(key => {
-      if (item[key] !== undefined) {
-        ret[key] = item[key]
-      }
-    })
+    if (item) {
+      Object.keys(item).forEach(key => {
+        if (item[key] !== undefined) {
+          ret[key] = item[key]
+        }
+      })
+    }
   })
   return ret
 }

@@ -3,15 +3,15 @@ import { useMount } from 'ahooks'
 import classNames from 'classnames'
 import type { FC, ReactElement, ReactNode } from 'react'
 import React, { isValidElement, useRef } from 'react'
+import { DownOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
 import { traverseReactNode } from '../../utils/traverse-react-node'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 import { usePropsValue } from '../../utils/use-props-value'
-import { mergeProps } from '../../utils/with-default-props'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import List from '../list'
-import useComposeProp from '../../hooks/useComposeProp'
 
 const classPrefix = `adm-collapse`
 
@@ -210,11 +210,12 @@ export const Collapse: FC<CollapseProps> = props => {
             panel.props.onClick?.(event)
           }
 
-          const arrow = mergeProps(
+          const arrow = mergeProp(
             panel.props.arrowIcon,
             panel.props.arrow,
             mergedProps.arrowIcon,
-            mergedProps.arrow
+            mergedProps.arrow,
+            <DownOutline />
           )
 
           const arrowIcon =

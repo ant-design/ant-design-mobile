@@ -143,7 +143,7 @@ describe('arrow', () => {
         </Collapse.Panel>
       </Collapse>
     )
-    expect(screen.getByText('foo')).toBeVisible()
+    expect(screen.getByText('bar')).toBeVisible()
   })
 
   it('both (deprecated) arrow and arrowIcon of pannel', async () => {
@@ -154,7 +154,7 @@ describe('arrow', () => {
         </Collapse.Panel>
       </Collapse>
     )
-    expect(screen.getByText('foo')).toBeVisible()
+    expect(screen.getByText('bar')).toBeVisible()
   })
 
   it('arrow (deprecated) of collapse and arrowIcon of panel', async () => {
