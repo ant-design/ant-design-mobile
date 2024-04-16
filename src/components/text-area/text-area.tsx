@@ -6,6 +6,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { devError } from '../../utils/dev-log'
+import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
 
 const classPrefix = 'adm-text-area'
 
@@ -24,6 +25,7 @@ export type TextAreaProps = Pick<
   | 'onCompositionStart'
   | 'onCompositionEnd'
   | 'onClick'
+  | 'onKeyDown'
 > & {
   onChange?: (val: string) => void
   value?: string
@@ -39,6 +41,15 @@ export type TextAreaProps = Pick<
         maxRows?: number
       }
   id?: string
+  onEnterPress?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void
+  enterKeyHint?:
+    | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send'
 } & NativeProps<
     | '--font-size'
     | '--color'
@@ -81,6 +92,13 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     const heightRef = useRef<string>('auto')
     // https://github.com/ant-design/ant-design-mobile/issues/6051
     const hiddenTextAreaRef = useRef<HTMLTextAreaElement>(null)
+
+    const handleKeydown = useInputHandleKeyDown({
+      onEnterPress: props.onEnterPress,
+      onKeyDown: props.onKeyDown,
+      nativeInputRef: nativeTextAreaRef,
+      enterKeyHint: props.enterKeyHint,
+    })
 
     useImperativeHandle(ref, () => ({
       clear: () => {
@@ -182,6 +200,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onFocus={props.onFocus}
           onBlur={props.onBlur}
           onClick={props.onClick}
+          onKeyDown={handleKeydown}
         />
         {count}
 
