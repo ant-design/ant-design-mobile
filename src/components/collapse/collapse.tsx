@@ -11,6 +11,7 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import List from '../list'
+import useComposeProp from '../../hooks/useComposeProp'
 
 const classPrefix = `adm-collapse`
 
@@ -129,13 +130,11 @@ export type CollapseProps = (
   children?: ReactNode
 } & NativeProps
 
-const defaultProps = {}
-
-export const Collapse: FC<CollapseProps> = p => {
+export const Collapse: FC<CollapseProps> = props => {
   const { collapse: componentConfig = {} } = useConfig()
-  const props = mergeProps(defaultProps, componentConfig, p)
+  const mergedProps = mergeProps(componentConfig, props)
   const panels: ReactElement<CollapsePanelProps>[] = []
-  traverseReactNode(props.children, child => {
+  traverseReactNode(mergedProps.children, child => {
     if (!isValidElement<CollapsePanelProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
@@ -144,11 +143,11 @@ export const Collapse: FC<CollapseProps> = p => {
   })
 
   const handlePropsValue = () => {
-    if (!props.accordion) {
+    if (!mergedProps.accordion) {
       return {
-        value: props.activeKey,
-        defaultValue: props.defaultActiveKey ?? [],
-        onChange: props.onChange,
+        value: mergedProps.activeKey,
+        defaultValue: mergedProps.defaultActiveKey ?? [],
+        onChange: mergedProps.onChange,
       }
     }
 
@@ -160,20 +159,22 @@ export const Collapse: FC<CollapseProps> = p => {
       value: [],
       defaultValue: [],
       onChange: v => {
-        props.onChange?.(v[0] ?? null)
+        mergedProps.onChange?.(v[0] ?? null)
       },
     }
 
-    if (props.activeKey === undefined) {
+    if (mergedProps.activeKey === undefined) {
       initValue.value = undefined
-    } else if (props.activeKey !== null) {
-      initValue.value = [props.activeKey]
+    } else if (mergedProps.activeKey !== null) {
+      initValue.value = [mergedProps.activeKey]
     }
 
     if (
-      ![null, undefined].includes(props.defaultActiveKey as null | undefined)
+      ![null, undefined].includes(
+        mergedProps.defaultActiveKey as null | undefined
+      )
     ) {
-      initValue.defaultValue = [props.defaultActiveKey as string]
+      initValue.defaultValue = [mergedProps.defaultActiveKey as string]
     }
 
     return initValue
@@ -185,14 +186,14 @@ export const Collapse: FC<CollapseProps> = p => {
     activeKey === null ? [] : Array.isArray(activeKey) ? activeKey : [activeKey]
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>
       <List>
         {panels.map(panel => {
           const key = panel.key as string
           const active = activeKeyList.includes(key)
           function handleClick(event: React.MouseEvent<Element, MouseEvent>) {
-            if (props.accordion) {
+            if (mergedProps.accordion) {
               if (active) {
                 setActiveKey([])
               } else {
@@ -209,11 +210,13 @@ export const Collapse: FC<CollapseProps> = p => {
             panel.props.onClick?.(event)
           }
 
-          const arrow =
-            panel.props.arrow ||
-            panel.props.arrowIcon ||
-            props.arrow ||
-            props.arrowIcon
+          const arrow = mergeProps(
+            panel.props.arrowIcon,
+            panel.props.arrow,
+            mergedProps.arrowIcon,
+            mergedProps.arrow
+          )
+
           const arrowIcon =
             typeof arrow === 'function' ? (
               arrow(active)
