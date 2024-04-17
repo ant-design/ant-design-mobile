@@ -56,7 +56,7 @@
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| arrow | 右侧是否显示箭头图标，也支持传入 `ReactNode` 来自定义图标 | `boolean \| ReactNode` | 默认和 `clickable` 的值保持一致 |
+| arrowIcon | 右侧是否显示箭头图标，也支持传入 `ReactNode` 来自定义图标 | `boolean \| ReactNode` | 默认和 `clickable` 的值保持一致 |
 | children | 列表项中间的主内容区域 | `ReactNode` | - |
 | clickable | 是否显示点击效果 | `boolean` | 当 `onClick` 属性存在时，默认为 `true`，否则默认为 `false` |
 | description | 列表项中间下部的描述区域 | `ReactNode` | - |

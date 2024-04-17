@@ -5,6 +5,7 @@ import React from 'react'
 import { isNodeWithContent } from '../../utils/is-node-with-content'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useConfig } from '../config-provider'
+import { mergeProp } from '../../utils/with-default-props'
 
 const classPrefix = `adm-list-item`
 
@@ -27,9 +28,16 @@ export type ListItemProps = {
 >
 
 export const ListItem: FC<ListItemProps> = props => {
+  const { arrow, arrowIcon } = props
   const { list: componentConfig = {} } = useConfig()
   const clickable = props.clickable ?? !!props.onClick
-  const arrow = props.arrow ?? props.arrowIcon ?? clickable
+
+  const showArrow = arrow ?? arrowIcon ?? clickable
+  const mergedArrowIcon = mergeProp(
+    arrowIcon !== true ? arrowIcon : null,
+    arrow !== true ? arrowIcon : null,
+    componentConfig.arrowIcon
+  )
 
   const content = (
     <div className={`${classPrefix}-content`}>
@@ -50,11 +58,9 @@ export const ListItem: FC<ListItemProps> = props => {
       {isNodeWithContent(props.extra) && (
         <div className={`${classPrefix}-content-extra`}>{props.extra}</div>
       )}
-      {isNodeWithContent(arrow) && (
+      {showArrow && (
         <div className={`${classPrefix}-content-arrow`}>
-          {arrow === true
-            ? componentConfig?.arrowIcon || <RightOutline />
-            : arrow}
+          {mergedArrowIcon || <RightOutline />}
         </div>
       )}
     </div>

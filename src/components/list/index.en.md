@@ -56,7 +56,7 @@ Carry text, lists, pictures, paragraphs, etc. cleanly and efficiently in the for
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| arrow | Whether to show the arrow icon on the right side, also supports passing `ReactNode` to customize the icon. | `boolean \| ReactNode` | same as `clickable` |
+| arrowIcon | Whether to show the arrow icon on the right side, also supports passing `ReactNode` to customize the icon. | `boolean \| ReactNode` | same as `clickable` |
 | children | The main content area in the middle of the list item. | `ReactNode` | - |
 | clickable | Whether to show click effect. | `boolean` | Defaults to `true` when the `onClick` prop is present, otherwise defaults to `false` |
 | description | The description area in the lower middle of the list item. | `ReactNode` | - |
