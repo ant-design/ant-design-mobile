@@ -1,9 +1,9 @@
-import React from 'react'
 import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
+import React from 'react'
 import { RadioValue } from '.'
-import { RadioGroupContext } from './group-context'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { RadioGroupContext } from './group-context'
 
 export interface RadioGroupProps {
   value?: RadioValue | null
@@ -18,14 +18,14 @@ const defaultProps = {
   defaultValue: null,
 }
 
-export const Group: FC<RadioGroupProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const Group: FC<RadioGroupProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const [value, setValue] = usePropsValue({
-    value: props.value,
-    defaultValue: props.defaultValue,
+    value: mergedProps.value,
+    defaultValue: mergedProps.defaultValue,
     onChange: v => {
       if (v === null) return
-      props.onChange?.(v)
+      mergedProps.onChange?.(v)
     },
   })
   return (
@@ -37,10 +37,10 @@ export const Group: FC<RadioGroupProps> = p => {
           setValue(v)
         },
         uncheck: () => {},
-        disabled: props.disabled,
+        disabled: mergedProps.disabled,
       }}
     >
-      {props.children}
+      {mergedProps.children}
     </RadioGroupContext.Provider>
   )
 }

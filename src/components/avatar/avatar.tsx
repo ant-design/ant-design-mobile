@@ -1,9 +1,9 @@
-import React from 'react'
 import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { Fallback } from './fallback'
 import Image, { ImageProps } from '../image'
+import { Fallback } from './fallback'
 
 const classPrefix = 'adm-avatar'
 
@@ -19,21 +19,21 @@ const defaultProps = {
   fit: 'cover',
 }
 
-export const Avatar: FC<AvatarProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const Avatar: FC<AvatarProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   return withNativeProps(
-    props,
+    mergedProps,
     <Image
       className={classPrefix}
-      src={props.src}
-      fallback={props.fallback}
-      placeholder={props.fallback}
-      alt={props.alt}
-      lazy={props.lazy}
-      fit={props.fit}
-      onClick={props.onClick}
-      onError={props.onError}
-      onLoad={props.onLoad}
+      src={mergedProps.src}
+      fallback={mergedProps.fallback}
+      placeholder={mergedProps.fallback}
+      alt={mergedProps.alt}
+      lazy={mergedProps.lazy}
+      fit={mergedProps.fit}
+      onClick={mergedProps.onClick}
+      onError={mergedProps.onError}
+      onLoad={mergedProps.onLoad}
     />
   )
 }

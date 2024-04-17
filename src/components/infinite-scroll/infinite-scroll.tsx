@@ -1,9 +1,9 @@
-import { mergeProps } from '../../utils/with-default-props'
-import React, { useEffect, useRef, useState } from 'react'
-import type { FC, ReactNode } from 'react'
 import { useLockFn, useThrottleFn } from 'ahooks'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import type { FC, ReactNode } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import DotLoading from '../dot-loading'
 
@@ -31,13 +31,13 @@ const defaultProps: Required<
   ),
 }
 
-export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const InfiniteScroll: FC<InfiniteScrollProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   const [failed, setFailed] = useState(false)
   const doLoadMore = useLockFn(async (isRetry: boolean) => {
     try {
-      await props.loadMore(isRetry)
+      await mergedProps.loadMore(isRetry)
     } catch (e) {
       setFailed(true)
       throw e
@@ -57,7 +57,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   const { run: check } = useThrottleFn(
     async () => {
       if (nextFlagRef.current !== flag) return
-      if (!props.hasMore) return
+      if (!mergedProps.hasMore) return
       const element = elementRef.current
       if (!element) return
       if (!element.offsetParent) return
@@ -69,7 +69,7 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
       const current = isWindow(parent)
         ? window.innerHeight
         : parent.getBoundingClientRect().bottom
-      if (current >= elementTop - props.threshold) {
+      if (current >= elementTop - mergedProps.threshold) {
         const nextFlag = {}
         nextFlagRef.current = nextFlag
         try {
@@ -112,11 +112,11 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix} ref={elementRef}>
-      {typeof props.children === 'function'
-        ? props.children(props.hasMore, failed, retry)
-        : props.children}
+      {typeof mergedProps.children === 'function'
+        ? mergedProps.children(mergedProps.hasMore, failed, retry)
+        : mergedProps.children}
     </div>
   )
 }

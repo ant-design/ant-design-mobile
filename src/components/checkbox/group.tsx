@@ -1,9 +1,9 @@
-import React from 'react'
 import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
+import React from 'react'
 import { CheckboxValue } from '.'
-import { CheckboxGroupContext } from './group-context'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { CheckboxGroupContext } from './group-context'
 
 export interface CheckboxGroupProps {
   value?: CheckboxValue[]
@@ -18,16 +18,16 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export const Group: FC<CheckboxGroupProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const [value, setValue] = usePropsValue(props)
+export const Group: FC<CheckboxGroupProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const [value, setValue] = usePropsValue(mergedProps)
 
   return (
     <CheckboxGroupContext.Provider
       // TODO: 性能优化
       value={{
         value: value,
-        disabled: props.disabled,
+        disabled: mergedProps.disabled,
         check: v => {
           setValue([...value, v])
         },
@@ -36,7 +36,7 @@ export const Group: FC<CheckboxGroupProps> = p => {
         },
       }}
     >
-      {props.children}
+      {mergedProps.children}
     </CheckboxGroupContext.Provider>
   )
 }

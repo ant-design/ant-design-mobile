@@ -31,27 +31,27 @@ const defaultProps = {
   defaultChecked: false,
 }
 
-export const Radio: FC<RadioProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const Radio: FC<RadioProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const groupContext = useContext(RadioGroupContext)
 
   let [checked, setChecked] = usePropsValue<boolean>({
-    value: props.checked,
-    defaultValue: props.defaultChecked,
-    onChange: props.onChange,
+    value: mergedProps.checked,
+    defaultValue: mergedProps.defaultChecked,
+    onChange: mergedProps.onChange,
   }) as [boolean, (v: boolean) => void]
-  let disabled = props.disabled
+  let disabled = mergedProps.disabled
 
-  const { value } = props
+  const { value } = mergedProps
   if (groupContext && value !== undefined) {
     if (isDev) {
-      if (p.checked !== undefined) {
+      if (props.checked !== undefined) {
         devWarning(
           'Radio',
           'When used within `Radio.Group`, the `checked` prop of `Radio` will not work.'
         )
       }
-      if (p.defaultChecked !== undefined) {
+      if (props.defaultChecked !== undefined) {
         devWarning(
           'Radio',
           'When used within `Radio.Group`, the `defaultChecked` prop of `Radio` will not work.'
@@ -66,16 +66,16 @@ export const Radio: FC<RadioProps> = p => {
       } else {
         groupContext.uncheck(value)
       }
-      props.onChange?.(innerChecked)
+      mergedProps.onChange?.(innerChecked)
     }
     disabled = disabled || groupContext.disabled
   }
 
   const renderIcon = () => {
-    if (props.icon) {
+    if (mergedProps.icon) {
       return (
         <div className={`${classPrefix}-custom-icon`}>
-          {props.icon(checked)}
+          {mergedProps.icon(checked)}
         </div>
       )
     }
@@ -86,13 +86,13 @@ export const Radio: FC<RadioProps> = p => {
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <label
-      onClick={props.onClick}
+      onClick={mergedProps.onClick}
       className={classNames(classPrefix, {
         [`${classPrefix}-checked`]: checked,
         [`${classPrefix}-disabled`]: disabled,
-        [`${classPrefix}-block`]: props.block,
+        [`${classPrefix}-block`]: mergedProps.block,
       })}
     >
       <NativeInput
@@ -100,11 +100,11 @@ export const Radio: FC<RadioProps> = p => {
         checked={checked}
         onChange={setChecked}
         disabled={disabled}
-        id={props.id}
+        id={mergedProps.id}
       />
       {renderIcon()}
-      {props.children && (
-        <div className={`${classPrefix}-content`}>{props.children}</div>
+      {mergedProps.children && (
+        <div className={`${classPrefix}-content`}>{mergedProps.children}</div>
       )}
     </label>
   )

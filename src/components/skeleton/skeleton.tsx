@@ -1,8 +1,8 @@
-import React from 'react'
-import type { FC } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
+import type { FC } from 'react'
+import React from 'react'
 import { generateIntArray } from '../../utils/generate-int-array'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-skeleton'
@@ -42,19 +42,19 @@ const defaultSkeletonParagraphProps = {
   lineCount: 3,
 }
 
-export const SkeletonParagraph: FC<SkeletonParagraphProps> = p => {
-  const props = mergeProps(defaultSkeletonParagraphProps, p)
-  const keys = generateIntArray(1, props.lineCount)
+export const SkeletonParagraph: FC<SkeletonParagraphProps> = props => {
+  const mergedProps = mergeProps(defaultSkeletonParagraphProps, props)
+  const keys = generateIntArray(1, mergedProps.lineCount)
   const node = (
     <div className={`${classPrefix}-paragraph`}>
       {keys.map(key => (
         <Skeleton
           key={key}
-          animated={props.animated}
+          animated={mergedProps.animated}
           className={`${classPrefix}-paragraph-line`}
         />
       ))}
     </div>
   )
-  return withNativeProps(props, node)
+  return withNativeProps(mergedProps, node)
 }

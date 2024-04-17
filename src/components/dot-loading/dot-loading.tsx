@@ -1,7 +1,7 @@
-import React, { memo } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
+import React, { memo } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-dot-loading`
 
@@ -19,13 +19,13 @@ const defaultProps = {
   color: 'default',
 }
 
-export const DotLoading = memo<DotLoadingProps>(p => {
-  const props = mergeProps(defaultProps, p)
+export const DotLoading = memo<DotLoadingProps>(props => {
+  const mergedProps = mergeProps(defaultProps, props)
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       style={{
-        color: colorRecord[props.color] ?? props.color,
+        color: colorRecord[mergedProps.color] ?? mergedProps.color,
       }}
       className={classNames('adm-loading', classPrefix)}
     >

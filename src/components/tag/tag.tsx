@@ -1,8 +1,8 @@
-import React from 'react'
-import type { FC, CSSProperties, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
+import type { CSSProperties, FC, ReactNode } from 'react'
+import React from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tag`
 
@@ -36,9 +36,9 @@ const defaultProps = {
   round: false,
 }
 
-export const Tag: FC<TagProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const color = colorRecord[props.color] ?? props.color
+export const Tag: FC<TagProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const color = colorRecord[mergedProps.color] ?? mergedProps.color
 
   const style: CSSProperties & {
     '--border-color': string
@@ -46,19 +46,20 @@ export const Tag: FC<TagProps> = p => {
     '--background-color': string
   } = {
     '--border-color': color,
-    '--text-color': props.fill === 'outline' ? color : '#ffffff',
-    '--background-color': props.fill === 'outline' ? 'transparent' : color,
+    '--text-color': mergedProps.fill === 'outline' ? color : '#ffffff',
+    '--background-color':
+      mergedProps.fill === 'outline' ? 'transparent' : color,
   }
   return withNativeProps(
-    props,
+    mergedProps,
     <span
       style={style}
-      onClick={props.onClick}
+      onClick={mergedProps.onClick}
       className={classNames(classPrefix, {
-        [`${classPrefix}-round`]: props.round,
+        [`${classPrefix}-round`]: mergedProps.round,
       })}
     >
-      {props.children}
+      {mergedProps.children}
     </span>
   )
 }

@@ -1,21 +1,21 @@
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
 import React, {
   forwardRef,
+  useCallback,
   useImperativeHandle,
   useRef,
   useState,
-  useCallback,
 } from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import {
   GetContainer,
   renderToContainer,
 } from '../../utils/render-to-container'
+import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
 import SafeArea from '../safe-area'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
-import classNames from 'classnames'
 
 const classPrefix = `adm-image-viewer`
 
@@ -39,41 +39,41 @@ const defaultProps = {
   visible: false,
 }
 
-export const ImageViewer: FC<ImageViewerProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const ImageViewer: FC<ImageViewerProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   const node = (
     <Mask
-      visible={props.visible}
+      visible={mergedProps.visible}
       disableBodyScroll={false}
       opacity='thick'
-      afterClose={props.afterClose}
+      afterClose={mergedProps.afterClose}
       destroyOnClose
-      className={props?.classNames?.mask}
+      className={mergedProps?.classNames?.mask}
     >
       <div
         className={classNames(
           `${classPrefix}-content`,
-          props?.classNames?.body
+          mergedProps?.classNames?.body
         )}
       >
-        {props.image && (
+        {mergedProps.image && (
           <Slide
-            image={props.image}
-            onTap={props.onClose}
-            maxZoom={props.maxZoom}
+            image={mergedProps.image}
+            onTap={mergedProps.onClose}
+            maxZoom={mergedProps.maxZoom}
           />
         )}
       </div>
-      {props.image && (
+      {mergedProps.image && (
         <div className={`${classPrefix}-footer`}>
-          {props.renderFooter?.(props.image)}
+          {mergedProps.renderFooter?.(mergedProps.image)}
           <SafeArea position='bottom' />
         </div>
       )}
     </Mask>
   )
-  return renderToContainer(props.getContainer, node)
+  return renderToContainer(mergedProps.getContainer, node)
 }
 
 export type MultiImageViewerRef = SlidesRef
@@ -96,9 +96,9 @@ const multiDefaultProps = {
 export const MultiImageViewer = forwardRef<
   MultiImageViewerRef,
   MultiImageViewerProps
->((p, ref) => {
-  const props = mergeProps(multiDefaultProps, p)
-  const [index, setIndex] = useState(props.defaultIndex)
+>((props, ref) => {
+  const mergedProps = mergeProps(multiDefaultProps, props)
+  const [index, setIndex] = useState(mergedProps.defaultIndex)
 
   const slidesRef = useRef<SlidesRef>(null)
   useImperativeHandle(ref, () => ({
@@ -112,44 +112,44 @@ export const MultiImageViewer = forwardRef<
     (newIndex: number) => {
       if (newIndex === index) return
       setIndex(newIndex)
-      props.onIndexChange?.(newIndex)
+      mergedProps.onIndexChange?.(newIndex)
     },
-    [props.onIndexChange, index]
+    [mergedProps.onIndexChange, index]
   )
 
   const node = (
     <Mask
-      visible={props.visible}
+      visible={mergedProps.visible}
       disableBodyScroll={false}
       opacity='thick'
-      afterClose={props.afterClose}
+      afterClose={mergedProps.afterClose}
       destroyOnClose
-      className={props?.classNames?.mask}
+      className={mergedProps?.classNames?.mask}
     >
       <div
         className={classNames(
           `${classPrefix}-content`,
-          props?.classNames?.body
+          mergedProps?.classNames?.body
         )}
       >
-        {props.images && (
+        {mergedProps.images && (
           <Slides
             ref={slidesRef}
             defaultIndex={index}
             onIndexChange={onSlideChange}
-            images={props.images}
-            onTap={props.onClose}
-            maxZoom={props.maxZoom}
+            images={mergedProps.images}
+            onTap={mergedProps.onClose}
+            maxZoom={mergedProps.maxZoom}
           />
         )}
       </div>
-      {props.images && (
+      {mergedProps.images && (
         <div className={`${classPrefix}-footer`}>
-          {props.renderFooter?.(props.images[index], index)}
+          {mergedProps.renderFooter?.(mergedProps.images[index], index)}
           <SafeArea position='bottom' />
         </div>
       )}
     </Mask>
   )
-  return renderToContainer(props.getContainer, node)
+  return renderToContainer(mergedProps.getContainer, node)
 })

@@ -1,7 +1,7 @@
-import React, { memo } from 'react'
-import type { ReactElement } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
+import type { ReactElement } from 'react'
+import React, { memo } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-page-indicator`
@@ -26,28 +26,28 @@ const defaultProps = {
   direction: 'horizontal',
 }
 
-export const PageIndicator = memo<PageIndicatorProps>(p => {
-  const props = mergeProps(defaultProps, p)
+export const PageIndicator = memo<PageIndicatorProps>(props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   const dots: ReactElement[] = []
-  for (let i = 0; i < props.total; i++) {
+  for (let i = 0; i < mergedProps.total; i++) {
     dots.push(
       <div
         key={i}
         className={classNames(`${classPrefix}-dot`, {
-          [`${classPrefix}-dot-active`]: props.current === i,
+          [`${classPrefix}-dot-active`]: mergedProps.current === i,
         })}
       />
     )
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(
         classPrefix,
-        `${classPrefix}-${props.direction}`,
-        `${classPrefix}-color-${props.color}`
+        `${classPrefix}-${mergedProps.direction}`,
+        `${classPrefix}-color-${mergedProps.color}`
       )}
     >
       {dots}

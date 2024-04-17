@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React, { useState } from 'react'
+import { isNodeWithContent } from '../../utils/is-node-with-content'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { isNodeWithContent } from '../../utils/is-node-with-content'
 import Button from '../button'
 import { useResultIcon } from '../result/use-result-icon'
 
@@ -39,8 +39,8 @@ const defaultProps = {
   details: [] as ResultPageDetails,
 }
 
-export const ResultPage: FC<ResultPageProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const ResultPage: FC<ResultPageProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const {
     status,
     title,
@@ -51,7 +51,7 @@ export const ResultPage: FC<ResultPageProps> = p => {
     secondaryButtonText,
     onPrimaryButtonClick,
     onSecondaryButtonClick,
-  } = props
+  } = mergedProps
   const fallbackIcon = useResultIcon(status)
 
   const [collapse, setCollapse] = useState(true)
@@ -60,7 +60,7 @@ export const ResultPage: FC<ResultPageProps> = p => {
   const showPrimaryButton = isNodeWithContent(primaryButtonText)
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>
       <div className={`${classPrefix}-header`}>
         <div className={`${classPrefix}-icon`}>{icon || fallbackIcon}</div>
@@ -101,7 +101,7 @@ export const ResultPage: FC<ResultPageProps> = p => {
         </div>
       </div>
 
-      <div className={`${classPrefix}-content`}>{props.children}</div>
+      <div className={`${classPrefix}-content`}>{mergedProps.children}</div>
 
       {(showPrimaryButton || showSecondaryButton) && (
         <div className={`${classPrefix}-footer`}>

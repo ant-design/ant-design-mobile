@@ -1,9 +1,9 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
-import type { StepProps } from './step'
-import { mergeProps } from '../../utils/with-default-props'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import type { StepProps } from './step'
 
 const classPrefix = `adm-steps`
 const stepClassPrefix = `adm-step`
@@ -28,15 +28,15 @@ const defaultProps = {
   direction: 'horizontal',
 }
 
-export const Steps: FC<StepsProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const { direction, current } = props
+export const Steps: FC<StepsProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const { direction, current } = mergedProps
   const classString = classNames(classPrefix, `${classPrefix}-${direction}`)
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classString}>
-      {React.Children.map(props.children, (child, index) => {
+      {React.Children.map(mergedProps.children, (child, index) => {
         if (!React.isValidElement<StepProps>(child)) {
           return child
         }

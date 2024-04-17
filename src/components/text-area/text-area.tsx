@@ -1,12 +1,12 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
-import type { ReactNode } from 'react'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import runes from 'runes2'
+import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
+import { devError } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
-import { devError } from '../../utils/dev-log'
-import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
 
 const classPrefix = 'adm-text-area'
 
@@ -74,14 +74,14 @@ const defaultProps = {
 }
 
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
-  (p: TextAreaProps, ref) => {
-    const props = mergeProps(defaultProps, p)
-    const { autoSize, showCount, maxLength } = props
+  (props: TextAreaProps, ref) => {
+    const mergedProps = mergeProps(defaultProps, props)
+    const { autoSize, showCount, maxLength } = mergedProps
     const [value, setValue] = usePropsValue({
-      ...props,
-      value: props.value === null ? '' : props.value,
+      ...mergedProps,
+      value: mergedProps.value === null ? '' : mergedProps.value,
     })
-    if (props.value === null) {
+    if (mergedProps.value === null) {
       devError(
         'TextArea',
         '`value` prop on `TextArea` should not be `null`. Consider using an empty string to clear the component.'
@@ -94,10 +94,10 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     const hiddenTextAreaRef = useRef<HTMLTextAreaElement>(null)
 
     const handleKeydown = useInputHandleKeyDown({
-      onEnterPress: props.onEnterPress,
-      onKeyDown: props.onKeyDown,
+      onEnterPress: mergedProps.onEnterPress,
+      onKeyDown: mergedProps.onKeyDown,
       nativeInputRef: nativeTextAreaRef,
-      enterKeyHint: props.enterKeyHint,
+      enterKeyHint: mergedProps.enterKeyHint,
     })
 
     useImperativeHandle(ref, () => ({
@@ -153,7 +153,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       )
     }
 
-    let rows = props.rows
+    let rows = mergedProps.rows
     if (typeof autoSize === 'object') {
       if (autoSize.maxRows && rows > autoSize.maxRows) {
         rows = autoSize.maxRows
@@ -164,14 +164,14 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     }
 
     return withNativeProps(
-      props,
+      mergedProps,
       <div className={classPrefix}>
         <textarea
           ref={nativeTextAreaRef}
           className={`${classPrefix}-element`}
           rows={rows}
           value={value}
-          placeholder={props.placeholder}
+          placeholder={mergedProps.placeholder}
           onChange={e => {
             let v = e.target.value
             if (maxLength && !compositingRef.current) {
@@ -179,10 +179,10 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
             }
             setValue(v)
           }}
-          id={props.id}
+          id={mergedProps.id}
           onCompositionStart={e => {
             compositingRef.current = true
-            props.onCompositionStart?.(e)
+            mergedProps.onCompositionStart?.(e)
           }}
           onCompositionEnd={e => {
             compositingRef.current = false
@@ -190,16 +190,16 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               const v = (e.target as HTMLTextAreaElement).value
               setValue(runes(v).slice(0, maxLength).join(''))
             }
-            props.onCompositionEnd?.(e)
+            mergedProps.onCompositionEnd?.(e)
           }}
-          autoComplete={props.autoComplete}
-          autoFocus={props.autoFocus}
-          disabled={props.disabled}
-          readOnly={props.readOnly}
-          name={props.name}
-          onFocus={props.onFocus}
-          onBlur={props.onBlur}
-          onClick={props.onClick}
+          autoComplete={mergedProps.autoComplete}
+          autoFocus={mergedProps.autoFocus}
+          disabled={mergedProps.disabled}
+          readOnly={mergedProps.readOnly}
+          name={mergedProps.name}
+          onFocus={mergedProps.onFocus}
+          onBlur={mergedProps.onBlur}
+          onClick={mergedProps.onClick}
           onKeyDown={handleKeydown}
         />
         {count}

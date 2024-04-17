@@ -1,19 +1,19 @@
-import classNames from 'classnames'
-import React, { useState, useRef } from 'react'
-import type { FC, PropsWithChildren } from 'react'
-import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import Mask from '../mask'
-import { useLockScroll } from '../../utils/use-lock-scroll'
-import { renderToContainer } from '../../utils/render-to-container'
-import { useSpring, animated } from '@react-spring/web'
-import { withStopPropagation } from '../../utils/with-stop-propagation'
-import { ShouldRender } from '../../utils/should-render'
-import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
-import { useInnerVisible } from '../../utils/use-inner-visible'
-import { useConfig } from '../config-provider'
+import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
+import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
+import classNames from 'classnames'
+import type { FC, PropsWithChildren } from 'react'
+import React, { useRef, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { renderToContainer } from '../../utils/render-to-container'
+import { ShouldRender } from '../../utils/should-render'
+import { useInnerVisible } from '../../utils/use-inner-visible'
+import { useLockScroll } from '../../utils/use-lock-scroll'
+import { mergeProps } from '../../utils/with-default-props'
+import { withStopPropagation } from '../../utils/with-stop-propagation'
+import { useConfig } from '../config-provider'
+import Mask from '../mask'
+import { PopupBaseProps, defaultPopupBaseProps } from './popup-base-props'
 
 const classPrefix = `adm-popup`
 
@@ -30,29 +30,29 @@ const defaultProps = {
   position: 'bottom',
 }
 
-export const Popup: FC<PopupProps> = p => {
+export const Popup: FC<PopupProps> = props => {
   const { locale, popup: componentConfig = {} } = useConfig()
-  const props = mergeProps(defaultProps, componentConfig, p)
+  const mergedProps = mergeProps(defaultProps, componentConfig, props)
 
   const bodyCls = classNames(
     `${classPrefix}-body`,
-    props.bodyClassName,
-    `${classPrefix}-body-position-${props.position}`
+    mergedProps.bodyClassName,
+    `${classPrefix}-body-position-${mergedProps.position}`
   )
 
-  const [active, setActive] = useState(props.visible)
+  const [active, setActive] = useState(mergedProps.visible)
   const ref = useRef<HTMLDivElement>(null)
-  useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
+  useLockScroll(ref, mergedProps.disableBodyScroll && active ? 'strict' : false)
 
   useIsomorphicLayoutEffect(() => {
-    if (props.visible) {
+    if (mergedProps.visible) {
       setActive(true)
     }
-  }, [props.visible])
+  }, [mergedProps.visible])
 
   const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({
-    percent: props.visible ? 0 : 100,
+    percent: mergedProps.visible ? 0 : 100,
     config: {
       precision: 0.1,
       mass: 0.4,
@@ -61,81 +61,81 @@ export const Popup: FC<PopupProps> = p => {
     },
     onRest: () => {
       if (unmountedRef.current) return
-      setActive(props.visible)
-      if (props.visible) {
-        props.afterShow?.()
+      setActive(mergedProps.visible)
+      if (mergedProps.visible) {
+        mergedProps.afterShow?.()
       } else {
-        props.afterClose?.()
+        mergedProps.afterClose?.()
       }
     },
   })
 
   const bind = useDrag(
     ({ swipe: [, swipeY] }) => {
-      if (!props.closeOnSwipe) return
+      if (!mergedProps.closeOnSwipe) return
       if (
-        (swipeY === 1 && props.position === 'bottom') ||
-        (swipeY === -1 && props.position === 'top')
+        (swipeY === 1 && mergedProps.position === 'bottom') ||
+        (swipeY === -1 && mergedProps.position === 'top')
       ) {
-        props.onClose?.()
+        mergedProps.onClose?.()
       }
     },
     {
       axis: 'y',
-      enabled: ['top', 'bottom'].includes(props.position),
+      enabled: ['top', 'bottom'].includes(mergedProps.position),
     }
   )
 
-  const maskVisible = useInnerVisible(active && props.visible)
+  const maskVisible = useInnerVisible(active && mergedProps.visible)
 
   const node = withStopPropagation(
-    props.stopPropagation,
+    mergedProps.stopPropagation,
     withNativeProps(
-      props,
+      mergedProps,
       <div
         className={classPrefix}
-        onClick={props.onClick}
+        onClick={mergedProps.onClick}
         style={{
           display: active ? undefined : 'none',
-          touchAction: ['top', 'bottom'].includes(props.position)
+          touchAction: ['top', 'bottom'].includes(mergedProps.position)
             ? 'none'
             : 'auto',
         }}
         {...bind()}
       >
-        {props.mask && (
+        {mergedProps.mask && (
           <Mask
             visible={maskVisible}
-            forceRender={props.forceRender}
-            destroyOnClose={props.destroyOnClose}
+            forceRender={mergedProps.forceRender}
+            destroyOnClose={mergedProps.destroyOnClose}
             onMaskClick={e => {
-              props.onMaskClick?.(e)
-              if (props.closeOnMaskClick) {
-                props.onClose?.()
+              mergedProps.onMaskClick?.(e)
+              if (mergedProps.closeOnMaskClick) {
+                mergedProps.onClose?.()
               }
             }}
-            className={props.maskClassName}
-            style={props.maskStyle}
+            className={mergedProps.maskClassName}
+            style={mergedProps.maskStyle}
             disableBodyScroll={false}
-            stopPropagation={props.stopPropagation}
+            stopPropagation={mergedProps.stopPropagation}
           />
         )}
         <animated.div
           className={bodyCls}
           style={{
-            ...props.bodyStyle,
+            ...mergedProps.bodyStyle,
             pointerEvents: percent.to(v => (v === 0 ? 'unset' : 'none')),
             transform: percent.to(v => {
-              if (props.position === 'bottom') {
+              if (mergedProps.position === 'bottom') {
                 return `translate(0, ${v}%)`
               }
-              if (props.position === 'top') {
+              if (mergedProps.position === 'top') {
                 return `translate(0, -${v}%)`
               }
-              if (props.position === 'left') {
+              if (mergedProps.position === 'left') {
                 return `translate(-${v}%, 0)`
               }
-              if (props.position === 'right') {
+              if (mergedProps.position === 'right') {
                 return `translate(${v}%, 0)`
               }
               return 'none'
@@ -143,22 +143,22 @@ export const Popup: FC<PopupProps> = p => {
           }}
           ref={ref}
         >
-          {props.showCloseButton && (
+          {mergedProps.showCloseButton && (
             <a
               className={classNames(
                 `${classPrefix}-close-icon`,
                 'adm-plain-anchor'
               )}
               onClick={() => {
-                props.onClose?.()
+                mergedProps.onClose?.()
               }}
               role='button'
               aria-label={locale.common.close}
             >
-              {props.closeIcon}
+              {mergedProps.closeIcon}
             </a>
           )}
-          {props.children}
+          {mergedProps.children}
         </animated.div>
       </div>
     )
@@ -167,10 +167,10 @@ export const Popup: FC<PopupProps> = p => {
   return (
     <ShouldRender
       active={active}
-      forceRender={props.forceRender}
-      destroyOnClose={props.destroyOnClose}
+      forceRender={mergedProps.forceRender}
+      destroyOnClose={mergedProps.destroyOnClose}
     >
-      {renderToContainer(props.getContainer, node)}
+      {renderToContainer(mergedProps.getContainer, node)}
     </ShouldRender>
   )
 }

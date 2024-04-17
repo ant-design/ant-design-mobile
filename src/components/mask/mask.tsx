@@ -1,20 +1,20 @@
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import React, { useMemo, useRef, useState } from 'react'
-import type { FC, ReactNode } from 'react'
+import { animated, useSpring } from '@react-spring/web'
 import { useUnmountedRef } from 'ahooks'
-import { useLockScroll } from '../../utils/use-lock-scroll'
-import { useSpring, animated } from '@react-spring/web'
+import type { FC, ReactNode } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import {
-  renderToContainer,
   GetContainer,
+  renderToContainer,
 } from '../../utils/render-to-container'
-import { mergeProps } from '../../utils/with-default-props'
-import { useConfig } from '../config-provider'
 import { ShouldRender } from '../../utils/should-render'
+import { useLockScroll } from '../../utils/use-lock-scroll'
+import { mergeProps } from '../../utils/with-default-props'
 import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-mask`
 
@@ -54,25 +54,25 @@ const defaultProps = {
   stopPropagation: ['click'],
 }
 
-export const Mask: FC<MaskProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const Mask: FC<MaskProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const { locale } = useConfig()
 
   const ref = useRef<HTMLDivElement>(null)
 
-  useLockScroll(ref, props.visible && props.disableBodyScroll)
+  useLockScroll(ref, mergedProps.visible && mergedProps.disableBodyScroll)
 
   const background = useMemo(() => {
-    const opacity = opacityRecord[props.opacity] ?? props.opacity
-    const rgb = colorRecord[props.color]
-    return rgb ? `rgba(${rgb}, ${opacity})` : props.color
-  }, [props.color, props.opacity])
+    const opacity = opacityRecord[mergedProps.opacity] ?? mergedProps.opacity
+    const rgb = colorRecord[mergedProps.color]
+    return rgb ? `rgba(${rgb}, ${opacity})` : mergedProps.color
+  }, [mergedProps.color, mergedProps.opacity])
 
-  const [active, setActive] = useState(props.visible)
+  const [active, setActive] = useState(mergedProps.visible)
 
   const unmountedRef = useUnmountedRef()
   const { opacity } = useSpring({
-    opacity: props.visible ? 1 : 0,
+    opacity: mergedProps.visible ? 1 : 0,
     config: {
       precision: 0.01,
       mass: 1,
@@ -85,44 +85,44 @@ export const Mask: FC<MaskProps> = p => {
     },
     onRest: () => {
       if (unmountedRef.current) return
-      setActive(props.visible)
-      if (props.visible) {
-        props.afterShow?.()
+      setActive(mergedProps.visible)
+      if (mergedProps.visible) {
+        mergedProps.afterShow?.()
       } else {
-        props.afterClose?.()
+        mergedProps.afterClose?.()
       }
     },
   })
 
   const node = withStopPropagation(
-    props.stopPropagation,
+    mergedProps.stopPropagation,
     withNativeProps(
-      props,
+      mergedProps,
       <animated.div
         className={classPrefix}
         ref={ref}
         aria-hidden
         style={{
-          ...props.style,
+          ...mergedProps.style,
           background,
           opacity,
           display: active ? undefined : 'none',
         }}
         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           if (e.target === e.currentTarget) {
-            props.onMaskClick?.(e)
+            mergedProps.onMaskClick?.(e)
           }
         }}
       >
-        {props.onMaskClick && (
+        {mergedProps.onMaskClick && (
           <div
             className={`${classPrefix}-aria-button`}
             role='button'
             aria-label={locale.Mask.name}
-            onClick={props.onMaskClick}
+            onClick={mergedProps.onMaskClick}
           />
         )}
-        <div className={`${classPrefix}-content`}>{props.children}</div>
+        <div className={`${classPrefix}-content`}>{mergedProps.children}</div>
       </animated.div>
     )
   )
@@ -130,10 +130,10 @@ export const Mask: FC<MaskProps> = p => {
   return (
     <ShouldRender
       active={active}
-      forceRender={props.forceRender}
-      destroyOnClose={props.destroyOnClose}
+      forceRender={mergedProps.forceRender}
+      destroyOnClose={mergedProps.destroyOnClose}
     >
-      {renderToContainer(props.getContainer, node)}
+      {renderToContainer(mergedProps.getContainer, node)}
     </ShouldRender>
   )
 }

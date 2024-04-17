@@ -1,10 +1,10 @@
-import React from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useConfig } from '../config-provider'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React from 'react'
 import type { ErrorBlockStatus, ImageRecord } from '.'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import './error-block.less'
 
 const classPrefix = `adm-error-block`
@@ -28,15 +28,18 @@ const defaultProps = {
 }
 
 export function createErrorBlock(imageRecord: ImageRecord) {
-  const ErrorBlock: FC<ErrorBlockProps> = p => {
-    const props = mergeProps(defaultProps, p)
+  const ErrorBlock: FC<ErrorBlockProps> = props => {
+    const mergedProps = mergeProps(defaultProps, props)
     const { locale } = useConfig()
-    const contentPack = locale.ErrorBlock[props.status]
+    const contentPack = locale.ErrorBlock[mergedProps.status]
     const desc =
-      'description' in props ? props.description : contentPack.description
-    const title = 'title' in props ? props.title : contentPack.title
+      'description' in mergedProps
+        ? mergedProps.description
+        : contentPack.description
+    const title = 'title' in mergedProps ? mergedProps.title : contentPack.title
 
-    const image: ReactNode = props.image ?? imageRecord[props.status]
+    const image: ReactNode =
+      mergedProps.image ?? imageRecord[mergedProps.status]
     const imageNode =
       typeof image === 'string' ? (
         <img src={image} alt='error block image' />
@@ -45,10 +48,10 @@ export function createErrorBlock(imageRecord: ImageRecord) {
       )
 
     return withNativeProps(
-      props,
+      mergedProps,
       <div
         className={classNames(classPrefix, {
-          [`${classPrefix}-full-page`]: props.fullPage,
+          [`${classPrefix}-full-page`]: mergedProps.fullPage,
         })}
       >
         <div className={`${classPrefix}-image`}>{imageNode}</div>
@@ -62,8 +65,8 @@ export function createErrorBlock(imageRecord: ImageRecord) {
           )}
         </div>
 
-        {props.children && (
-          <div className={`${classPrefix}-content`}>{props.children}</div>
+        {mergedProps.children && (
+          <div className={`${classPrefix}-content`}>{mergedProps.children}</div>
         )}
       </div>
     )

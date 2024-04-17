@@ -1,11 +1,11 @@
-import React from 'react'
-import type { FC, ReactNode, CSSProperties } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
+import type { CSSProperties, FC, ReactNode } from 'react'
+import React from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { renderImperatively } from '../../utils/render-imperatively'
+import { mergeProps } from '../../utils/with-default-props'
 import Popup, { PopupProps } from '../popup'
 import SafeArea from '../safe-area'
-import { renderImperatively } from '../../utils/render-imperatively'
 
 const classPrefix = `adm-action-sheet`
 
@@ -51,36 +51,36 @@ const defaultProps = {
   forceRender: false,
 }
 
-export const ActionSheet: FC<ActionSheetProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const { styles } = props
+export const ActionSheet: FC<ActionSheetProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const { styles } = mergedProps
 
   return (
     <Popup
-      visible={props.visible}
+      visible={mergedProps.visible}
       onMaskClick={() => {
-        props.onMaskClick?.()
-        if (props.closeOnMaskClick) {
-          props.onClose?.()
+        mergedProps.onMaskClick?.()
+        if (mergedProps.closeOnMaskClick) {
+          mergedProps.onClose?.()
         }
       }}
-      afterClose={props.afterClose}
-      className={classNames(`${classPrefix}-popup`, props.popupClassName)}
-      style={props.popupStyle}
-      getContainer={props.getContainer}
-      destroyOnClose={props.destroyOnClose}
-      forceRender={props.forceRender}
+      afterClose={mergedProps.afterClose}
+      className={classNames(`${classPrefix}-popup`, mergedProps.popupClassName)}
+      style={mergedProps.popupStyle}
+      getContainer={mergedProps.getContainer}
+      destroyOnClose={mergedProps.destroyOnClose}
+      forceRender={mergedProps.forceRender}
       bodyStyle={styles?.body}
       maskStyle={styles?.mask}
     >
       {withNativeProps(
-        props,
+        mergedProps,
         <div className={classPrefix}>
-          {props.extra && (
-            <div className={`${classPrefix}-extra`}>{props.extra}</div>
+          {mergedProps.extra && (
+            <div className={`${classPrefix}-extra`}>{mergedProps.extra}</div>
           )}
           <div className={`${classPrefix}-button-list`}>
-            {props.actions.map((action, index) => (
+            {mergedProps.actions.map((action, index) => (
               <div
                 key={action.key}
                 className={`${classPrefix}-button-item-wrapper`}
@@ -97,9 +97,9 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                   )}
                   onClick={() => {
                     action.onClick?.()
-                    props.onAction?.(action, index)
-                    if (props.closeOnAction) {
-                      props.onClose?.()
+                    mergedProps.onAction?.(action, index)
+                    if (mergedProps.closeOnAction) {
+                      mergedProps.onClose?.()
                     }
                   }}
                   role='option'
@@ -118,11 +118,11 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
             ))}
           </div>
 
-          {props.cancelText && (
+          {mergedProps.cancelText && (
             <div
               className={`${classPrefix}-cancel`}
               role='option'
-              aria-label={props.cancelText}
+              aria-label={mergedProps.cancelText}
             >
               <div className={`${classPrefix}-button-item-wrapper`}>
                 <a
@@ -130,17 +130,17 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                     'adm-plain-anchor',
                     `${classPrefix}-button-item`
                   )}
-                  onClick={props.onClose}
+                  onClick={mergedProps.onClose}
                 >
                   <div className={`${classPrefix}-button-item-name`}>
-                    {props.cancelText}
+                    {mergedProps.cancelText}
                   </div>
                 </a>
               </div>
             </div>
           )}
 
-          {props.safeArea && <SafeArea position='bottom' />}
+          {mergedProps.safeArea && <SafeArea position='bottom' />}
         </div>
       )}
     </Popup>

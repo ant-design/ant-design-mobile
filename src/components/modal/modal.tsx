@@ -1,13 +1,13 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { Action, ModalActionButton } from './modal-action-button'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
+import { NativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import AutoCenter from '../auto-center'
+import CenterPopup, { CenterPopupProps } from '../center-popup'
 import Image from '../image'
 import Space from '../space'
-import AutoCenter from '../auto-center'
-import { NativeProps } from '../../utils/native-props'
-import CenterPopup, { CenterPopupProps } from '../center-popup'
+import { Action, ModalActionButton } from './modal-action-button'
 
 export type ModalProps = Pick<
   CenterPopupProps,
@@ -43,26 +43,32 @@ const defaultProps = {
   getContainer: null,
 }
 
-export const Modal: FC<ModalProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const Modal: FC<ModalProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const element = (
     <>
-      {!!props.image && (
+      {!!mergedProps.image && (
         <div className={cls('image-container')}>
-          <Image src={props.image} alt='modal header image' width='100%' />
+          <Image
+            src={mergedProps.image}
+            alt='modal header image'
+            width='100%'
+          />
         </div>
       )}
-      {!!props.header && (
+      {!!mergedProps.header && (
         <div className={cls('header')}>
-          <AutoCenter>{props.header}</AutoCenter>
+          <AutoCenter>{mergedProps.header}</AutoCenter>
         </div>
       )}
-      {!!props.title && <div className={cls('title')}>{props.title}</div>}
+      {!!mergedProps.title && (
+        <div className={cls('title')}>{mergedProps.title}</div>
+      )}
       <div className={cls('content')}>
-        {typeof props.content === 'string' ? (
-          <AutoCenter>{props.content}</AutoCenter>
+        {typeof mergedProps.content === 'string' ? (
+          <AutoCenter>{mergedProps.content}</AutoCenter>
         ) : (
-          props.content
+          mergedProps.content
         )}
       </div>
       <Space
@@ -70,20 +76,20 @@ export const Modal: FC<ModalProps> = p => {
         block
         className={classNames(
           cls('footer'),
-          props.actions.length === 0 && cls('footer-empty')
+          mergedProps.actions.length === 0 && cls('footer-empty')
         )}
       >
-        {props.actions.map((action, index) => (
+        {mergedProps.actions.map((action, index) => (
           <ModalActionButton
             key={action.key}
             action={action}
             onAction={async () => {
               await Promise.all([
                 action.onClick?.(),
-                props.onAction?.(action, index),
+                mergedProps.onAction?.(action, index),
               ])
-              if (props.closeOnAction) {
-                props.onClose?.()
+              if (mergedProps.closeOnAction) {
+                mergedProps.onClose?.()
               }
             }}
           />
@@ -94,27 +100,27 @@ export const Modal: FC<ModalProps> = p => {
 
   return (
     <CenterPopup
-      className={classNames(cls(), props.className)}
-      style={props.style}
-      afterClose={props.afterClose}
-      afterShow={props.afterShow}
-      showCloseButton={props.showCloseButton}
-      closeOnMaskClick={props.closeOnMaskClick}
-      onClose={props.onClose}
-      visible={props.visible}
-      getContainer={props.getContainer}
-      bodyStyle={props.bodyStyle}
+      className={classNames(cls(), mergedProps.className)}
+      style={mergedProps.style}
+      afterClose={mergedProps.afterClose}
+      afterShow={mergedProps.afterShow}
+      showCloseButton={mergedProps.showCloseButton}
+      closeOnMaskClick={mergedProps.closeOnMaskClick}
+      onClose={mergedProps.onClose}
+      visible={mergedProps.visible}
+      getContainer={mergedProps.getContainer}
+      bodyStyle={mergedProps.bodyStyle}
       bodyClassName={classNames(
         cls('body'),
-        props.image && cls('with-image'),
-        props.bodyClassName
+        mergedProps.image && cls('with-image'),
+        mergedProps.bodyClassName
       )}
-      maskStyle={props.maskStyle}
-      maskClassName={props.maskClassName}
-      stopPropagation={props.stopPropagation}
-      disableBodyScroll={props.disableBodyScroll}
-      destroyOnClose={props.destroyOnClose}
-      forceRender={props.forceRender}
+      maskStyle={mergedProps.maskStyle}
+      maskClassName={mergedProps.maskClassName}
+      stopPropagation={mergedProps.stopPropagation}
+      disableBodyScroll={mergedProps.disableBodyScroll}
+      destroyOnClose={mergedProps.destroyOnClose}
+      forceRender={mergedProps.forceRender}
     >
       {element}
     </CenterPopup>

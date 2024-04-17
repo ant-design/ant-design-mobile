@@ -1,6 +1,6 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Divider from '../divider'
@@ -33,9 +33,9 @@ const defaultProps: FooterProps = {
   chips: [],
 }
 
-export const Footer: FC<FooterProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const { label, links, content, chips, onChipClick, onLinkClick } = props
+export const Footer: FC<FooterProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const { label, links, content, chips, onChipClick, onLinkClick } = mergedProps
 
   const clickChipItem = (item: ChipItem, index: number) => {
     if (chips?.length && item.type === 'link') {
@@ -54,7 +54,7 @@ export const Footer: FC<FooterProps> = p => {
     }
   }
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classNames(classPrefix)}>
       {label && (
         <div className={`${classPrefix}-label`}>

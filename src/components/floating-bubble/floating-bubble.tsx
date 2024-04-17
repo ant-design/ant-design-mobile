@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react'
-import type { FC, ReactNode } from 'react'
-import { useSpring, animated, to } from '@react-spring/web'
+import { animated, to, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { mergeProps } from '../../utils/with-default-props'
+import type { FC, ReactNode } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-floating-bubble`
 
@@ -34,20 +34,22 @@ const defaultProps = {
   defaultOffset: { x: 0, y: 0 },
 }
 
-export const FloatingBubble: FC<FloatingBubbleProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const FloatingBubble: FC<FloatingBubbleProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   const boundaryRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
 
   const [innerValue, setInnerValue] = useState<Offset>(
-    props.offset === undefined ? props.defaultOffset : props.offset
+    mergedProps.offset === undefined
+      ? mergedProps.defaultOffset
+      : mergedProps.offset
   )
 
   useEffect(() => {
-    if (props.offset === undefined) return
-    api.start({ x: props.offset.x, y: props.offset.y })
-  }, [props.offset])
+    if (mergedProps.offset === undefined) return
+    api.start({ x: mergedProps.offset.x, y: mergedProps.offset.y })
+  }, [mergedProps.offset])
 
   /**
    * memoize the `to` function
@@ -65,13 +67,13 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       let nextX = state.offset[0]
       let nextY = state.offset[1]
 
-      if (state.last && props.magnetic) {
+      if (state.last && mergedProps.magnetic) {
         const boundary = boundaryRef.current
         const button = buttonRef.current
         if (!boundary || !button) return
         const boundaryRect = boundary.getBoundingClientRect()
         const buttonRect = button.getBoundingClientRect()
-        if (props.magnetic === 'x') {
+        if (mergedProps.magnetic === 'x') {
           const compensation = x.goal - x.get()
           const leftDistance =
             buttonRect.left + compensation - boundaryRect.left
@@ -82,7 +84,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
           } else {
             nextX -= leftDistance
           }
-        } else if (props.magnetic === 'y') {
+        } else if (mergedProps.magnetic === 'y') {
           const compensation = y.goal - y.get()
           const topDistance = buttonRect.top + compensation - boundaryRect.top
           const bottomDistance =
@@ -96,13 +98,13 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       }
 
       const nextOffest = { x: nextX, y: nextY }
-      if (props.offset === undefined) {
+      if (mergedProps.offset === undefined) {
         // Uncontrolled mode
         api.start(nextOffest)
       } else {
         setInnerValue(nextOffest)
       }
-      props.onOffsetChange?.(nextOffest)
+      mergedProps.onOffsetChange?.(nextOffest)
 
       // active status
       api.start({
@@ -110,7 +112,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
       })
     },
     {
-      axis: props.axis === 'xy' ? undefined : props.axis,
+      axis: mergedProps.axis === 'xy' ? undefined : mergedProps.axis,
       pointer: {
         touch: true,
       },
@@ -123,7 +125,7 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
   )
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>
       <div className={`${classPrefix}-boundary-outer`}>
         <div className={`${classPrefix}-boundary`} ref={boundaryRef} />
@@ -134,11 +136,11 @@ export const FloatingBubble: FC<FloatingBubbleProps> = p => {
           opacity,
           transform: to([x, y], (x, y) => `translate(${x}px, ${y}px)`),
         }}
-        onClick={props.onClick}
+        onClick={mergedProps.onClick}
         className={`${classPrefix}-button`}
         ref={buttonRef}
       >
-        {props.children}
+        {mergedProps.children}
       </animated.div>
     </div>
   )

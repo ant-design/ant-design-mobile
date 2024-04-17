@@ -1,6 +1,6 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -27,22 +27,23 @@ const defaultProps = {
   direction: 'horizontal',
 }
 
-export const Space: FC<SpaceProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const { direction, onClick } = props
+export const Space: FC<SpaceProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const { direction, onClick } = mergedProps
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(classPrefix, {
-        [`${classPrefix}-wrap`]: props.wrap,
-        [`${classPrefix}-block`]: props.block,
+        [`${classPrefix}-wrap`]: mergedProps.wrap,
+        [`${classPrefix}-block`]: mergedProps.block,
         [`${classPrefix}-${direction}`]: true,
-        [`${classPrefix}-align-${props.align}`]: !!props.align,
-        [`${classPrefix}-justify-${props.justify}`]: !!props.justify,
+        [`${classPrefix}-align-${mergedProps.align}`]: !!mergedProps.align,
+        [`${classPrefix}-justify-${mergedProps.justify}`]:
+          !!mergedProps.justify,
       })}
       onClick={onClick}
     >
-      {React.Children.map(props.children, child => {
+      {React.Children.map(mergedProps.children, child => {
         return (
           child !== null &&
           child !== undefined && (

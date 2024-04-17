@@ -1,12 +1,12 @@
 import classNames from 'classnames'
-import React, { useMemo } from 'react'
 import type { FC } from 'react'
+import React, { useMemo } from 'react'
+import type { FieldNamesType } from '../../hooks'
+import { useFieldNames } from '../../hooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
-import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useFieldNames } from '../../hooks'
-import type { FieldNamesType } from '../../hooks'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tree-select`
 
@@ -32,16 +32,18 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export const TreeSelect: FC<TreeSelectProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const [labelName, valueName, childrenName] = useFieldNames(props.fieldNames)
+export const TreeSelect: FC<TreeSelectProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const [labelName, valueName, childrenName] = useFieldNames(
+    mergedProps.fieldNames
+  )
   const [value, setValue] = usePropsValue({
-    value: props.value,
-    defaultValue: props.defaultValue,
+    value: mergedProps.value,
+    defaultValue: mergedProps.defaultValue,
   })
 
   const [deep, optionsMap, optionsParentMap] = useMemo(() => {
-    const deep = getTreeDeep(props.options, childrenName)
+    const deep = getTreeDeep(mergedProps.options, childrenName)
 
     const optionsMap = new Map<string, TreeSelectOption>()
     const optionsParentMap = new Map<string, TreeSelectOption | undefined>()
@@ -58,10 +60,10 @@ export const TreeSelect: FC<TreeSelectProps> = p => {
         }
       })
     }
-    traverse(undefined, props.options)
+    traverse(undefined, mergedProps.options)
 
     return [deep, optionsMap, optionsParentMap]
-  }, [props.options])
+  }, [mergedProps.options])
 
   const onItemSelect = (node: TreeSelectOption) => {
     // 找到父级节点
@@ -74,7 +76,7 @@ export const TreeSelect: FC<TreeSelectProps> = p => {
     }
     const values = parentNodes.reverse().map(i => i[valueName])
     setValue(values)
-    props.onChange?.(values, {
+    mergedProps.onChange?.(values, {
       options: parentNodes,
     })
   }
@@ -124,7 +126,7 @@ export const TreeSelect: FC<TreeSelectProps> = p => {
         >
           {renderItems(
             i === 0
-              ? props.options
+              ? mergedProps.options
               : optionsMap.get(value[i - 1])?.[childrenName],
             i
           )}
@@ -136,7 +138,7 @@ export const TreeSelect: FC<TreeSelectProps> = p => {
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>{renderColumns()}</div>
   )
 }

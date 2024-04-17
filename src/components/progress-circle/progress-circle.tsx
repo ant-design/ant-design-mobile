@@ -1,5 +1,5 @@
+import type { CSSProperties, FC, ReactNode } from 'react'
 import React from 'react'
-import type { FC, CSSProperties, ReactNode } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -10,20 +10,20 @@ export type ProgressCircleProps = {
   children?: ReactNode
 } & NativeProps<'--size' | '--track-width' | '--track-color' | '--fill-color'>
 
-export const ProgressCircle: FC<ProgressCircleProps> = p => {
-  const props = mergeProps({ percent: 0 }, p)
+export const ProgressCircle: FC<ProgressCircleProps> = props => {
+  const mergedProps = mergeProps({ percent: 0 }, props)
   const style: CSSProperties & Record<'--percent', string> = {
-    '--percent': props.percent.toString(),
+    '--percent': mergedProps.percent.toString(),
   }
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={`${classPrefix}`} style={style}>
       <div className={`${classPrefix}-content`}>
         <svg className={`${classPrefix}-svg`}>
           <circle className={`${classPrefix}-track`} fill='transparent' />
           <circle className={`${classPrefix}-fill`} fill='transparent' />
         </svg>
-        <div className={`${classPrefix}-info`}>{props.children}</div>
+        <div className={`${classPrefix}-info`}>{mergedProps.children}</div>
       </div>
     </div>
   )

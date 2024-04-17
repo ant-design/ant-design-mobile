@@ -1,17 +1,17 @@
-import React, { isValidElement, useRef } from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
+import { animated, useSpring } from '@react-spring/web'
+import { useIsomorphicLayoutEffect, useThrottleFn } from 'ahooks'
 import classNames from 'classnames'
-import { useSpring, animated } from '@react-spring/web'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { usePropsValue } from '../../utils/use-props-value'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React, { isValidElement, useRef } from 'react'
 import { bound } from '../../utils/bound'
-import { useThrottleFn, useIsomorphicLayoutEffect } from 'ahooks'
-import { useMutationEffect } from '../../utils/use-mutation-effect'
-import { useResizeEffect } from '../../utils/use-resize-effect'
-import { mergeProps } from '../../utils/with-default-props'
-import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
 import { traverseReactNode } from '../../utils/traverse-react-node'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { useMutationEffect } from '../../utils/use-mutation-effect'
+import { usePropsValue } from '../../utils/use-props-value'
+import { useResizeEffect } from '../../utils/use-resize-effect'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tabs`
 
@@ -57,8 +57,8 @@ const defaultProps = {
   direction: 'ltr',
 }
 
-export const Tabs: FC<TabsProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const Tabs: FC<TabsProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const tabListContainerRef = useRef<HTMLDivElement>(null)
   const activeLineRef = useRef<HTMLDivElement>(null)
   const keyToIndexRecord: Record<string, number> = {}
@@ -66,9 +66,9 @@ export const Tabs: FC<TabsProps> = p => {
 
   const panes: ReactElement<TabProps>[] = []
 
-  const isRTL = props.direction === 'rtl'
+  const isRTL = mergedProps.direction === 'rtl'
 
-  traverseReactNode(props.children, (child, index) => {
+  traverseReactNode(mergedProps.children, (child, index) => {
     if (!isValidElement<TabProps>(child)) return
 
     const key = child.key
@@ -81,11 +81,11 @@ export const Tabs: FC<TabsProps> = p => {
   })
 
   const [activeKey, setActiveKey] = usePropsValue({
-    value: props.activeKey,
-    defaultValue: props.defaultActiveKey ?? firstActiveKey,
+    value: mergedProps.activeKey,
+    defaultValue: mergedProps.defaultActiveKey ?? firstActiveKey,
     onChange: v => {
       if (v === null) return
-      props.onChange?.(v)
+      mergedProps.onChange?.(v)
     },
   })
 
@@ -147,10 +147,10 @@ export const Tabs: FC<TabsProps> = p => {
 
     let x = 0
     let width = 0
-    if (props.activeLineMode === 'auto') {
+    if (mergedProps.activeLineMode === 'auto') {
       x = activeTabLeft
       width = activeTabWidth
-    } else if (props.activeLineMode === 'full') {
+    } else if (mergedProps.activeLineMode === 'full') {
       x = activeTabWrapperLeft
       width = activeTabWrapperWidth
     } else {
@@ -162,7 +162,7 @@ export const Tabs: FC<TabsProps> = p => {
        * In RTL mode, x equals the container width minus the x-coordinate of the current tab minus the width of the current tab.
        * https://github.com/Fog3211/reproduce-codesandbox/blob/f0a3396a114cc00e88a51a67d3be60a746519b30/assets/images/antd_mobile_tabs_rtl_x.jpg?raw=true
        */
-      const w = ['auto', 'full'].includes(props.activeLineMode)
+      const w = ['auto', 'full'].includes(mergedProps.activeLineMode)
         ? width
         : activeLineWidth
       x = -(containerWidth - x - w)
@@ -200,7 +200,7 @@ export const Tabs: FC<TabsProps> = p => {
       )
     }
 
-    if (!fromMutation || props.autoScroll !== false) {
+    if (!fromMutation || mergedProps.autoScroll !== false) {
       scrollApi.start({
         scrollLeft: nextScrollLeft,
         from: { scrollLeft: containerScrollLeft },
@@ -277,11 +277,11 @@ export const Tabs: FC<TabsProps> = p => {
   }, [])
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classPrefix}
       style={{
-        direction: props.direction,
+        direction: mergedProps.direction,
       }}
     >
       <div className={`${classPrefix}-header`}>
@@ -315,7 +315,7 @@ export const Tabs: FC<TabsProps> = p => {
             className={`${classPrefix}-tab-line`}
             style={{
               width:
-                props.activeLineMode === 'fixed'
+                mergedProps.activeLineMode === 'fixed'
                   ? 'var(--fixed-active-line-width, 30px)'
                   : width,
               x,
@@ -327,7 +327,7 @@ export const Tabs: FC<TabsProps> = p => {
               <div
                 key={pane.key}
                 className={classNames(`${classPrefix}-tab-wrapper`, {
-                  [`${classPrefix}-tab-wrapper-stretch`]: props.stretch,
+                  [`${classPrefix}-tab-wrapper-stretch`]: mergedProps.stretch,
                 })}
               >
                 <div

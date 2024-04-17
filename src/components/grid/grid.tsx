@@ -1,8 +1,8 @@
-import { mergeProps } from '../../utils/with-default-props'
+import type { CSSProperties, FC, ReactNode } from 'react'
 import React from 'react'
-import type { FC, ReactNode, CSSProperties } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { toCSSLength } from '../../utils/to-css-length'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-grid`
 
@@ -43,20 +43,20 @@ export type GridItemProps = {
 type GridItemStyle = CSSProperties &
   Record<'--item-span', GridItemProps['span']>
 
-export const GridItem: FC<GridItemProps> = p => {
-  const props = mergeProps({ span: 1 }, p)
+export const GridItem: FC<GridItemProps> = props => {
+  const mergedProps = mergeProps({ span: 1 }, props)
 
   const itemStyle: GridItemStyle = {
-    '--item-span': props.span,
+    '--item-span': mergedProps.span,
   }
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={`${classPrefix}-item`}
       style={itemStyle}
-      onClick={props.onClick}
+      onClick={mergedProps.onClick}
     >
-      {props.children}
+      {mergedProps.children}
     </div>
   )
 }
