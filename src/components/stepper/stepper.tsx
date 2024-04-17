@@ -1,21 +1,21 @@
-import classNames from 'classnames'
-import React, {
-  useEffect,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
-import { MinusOutline, AddOutline } from 'antd-mobile-icons'
-import { useMergedState } from 'rc-util'
 import getMiniDecimal, {
   toFixed,
   type DecimalClass,
 } from '@rc-component/mini-decimal'
+import { AddOutline, MinusOutline } from 'antd-mobile-icons'
+import classNames from 'classnames'
+import { useMergedState } from 'rc-util'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import Input, { InputProps, InputRef } from '../input'
 import Button from '../button'
 import { useConfig } from '../config-provider'
+import Input, { InputProps, InputRef } from '../input'
 
 const classPrefix = `adm-stepper`
 
@@ -93,10 +93,10 @@ const defaultProps = {
 }
 
 export function InnerStepper<ValueType extends number | string>(
-  p: StepperProps,
+  props: StepperProps,
   ref: React.ForwardedRef<StepperRef>
 ) {
-  const props = mergeProps(defaultProps, p)
+  const mergedProps = mergeProps(defaultProps, props)
   const {
     defaultValue = 0 as ValueType,
     value,
@@ -110,7 +110,7 @@ export function InnerStepper<ValueType extends number | string>(
     stringMode,
     formatter,
     parser,
-  } = props as MergedStepperProps<ValueType>
+  } = mergedProps as MergedStepperProps<ValueType>
 
   const { locale } = useConfig()
 
@@ -203,7 +203,7 @@ export function InnerStepper<ValueType extends number | string>(
     const valueStr = parseValue(v)
 
     if (valueStr === null) {
-      if (props.allowEmpty) {
+      if (mergedProps.allowEmpty) {
         setMergedValue(null)
       } else {
         setMergedValue(defaultValue)
@@ -283,7 +283,7 @@ export function InnerStepper<ValueType extends number | string>(
 
   // ============================== Render ==============================
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(classPrefix, {
         [`${classPrefix}-active`]: focused,
@@ -306,7 +306,7 @@ export function InnerStepper<ValueType extends number | string>(
           className={`${classPrefix}-input`}
           onFocus={e => {
             triggerFocus(true)
-            props.onFocus?.(e)
+            mergedProps.onFocus?.(e)
           }}
           value={inputValue}
           onChange={val => {
@@ -315,7 +315,7 @@ export function InnerStepper<ValueType extends number | string>(
           disabled={disabled}
           onBlur={e => {
             triggerFocus(false)
-            props.onBlur?.(e)
+            mergedProps.onBlur?.(e)
           }}
           readOnly={inputReadOnly}
           role='spinbutton'

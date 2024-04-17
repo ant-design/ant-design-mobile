@@ -1,26 +1,27 @@
 import { useClickAway } from 'ahooks'
 import classNames from 'classnames'
-import React, {
-  cloneElement,
-  useEffect,
-  useRef,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-  isValidElement,
-} from 'react'
 import type {
-  ReactNode,
   ComponentProps,
   PropsWithChildren,
   ReactElement,
+  ReactNode,
 } from 'react'
-import Popup, { PopupProps } from '../popup'
-import Item, { ItemChildrenWrap } from './item'
+import React, {
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import Popup, { PopupProps } from '../popup'
 import { defaultPopupBaseProps } from '../popup/popup-base-props'
+import Item, { ItemChildrenWrap } from './item'
 
 const classPrefix = `adm-dropdown`
 
@@ -30,6 +31,10 @@ export type DropdownProps = {
   closeOnMaskClick?: boolean
   closeOnClickAway?: boolean
   onChange?: (key: string | null) => void
+  arrowIcon?: ReactNode
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
   arrow?: ReactNode
   getContainer?: PopupProps['getContainer']
 } & NativeProps
@@ -46,12 +51,13 @@ export type DropdownRef = {
 }
 
 const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
-  (p, ref) => {
-    const props = mergeProps(defaultProps, p)
+  (props, ref) => {
+    const { dropdown: componentConfig = {} } = useConfig()
+    const mergedProps = mergeProps(defaultProps, componentConfig, props)
     const [value, setValue] = usePropsValue({
-      value: props.activeKey,
-      defaultValue: props.defaultActiveKey,
-      onChange: props.onChange,
+      value: mergedProps.activeKey,
+      defaultValue: mergedProps.defaultActiveKey,
+      onChange: mergedProps.onChange,
     })
 
     const navRef = useRef<HTMLDivElement>(null)
@@ -59,7 +65,7 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
 
     // 点击外部区域，关闭
     useClickAway(() => {
-      if (!props.closeOnClickAway) return
+      if (!mergedProps.closeOnClickAway) return
       setValue(null)
     }, [navRef, contentRef])
 
@@ -85,7 +91,7 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
 
     let popupForceRender = false
     const items: ReactElement<ComponentProps<typeof Item>>[] = []
-    const navs = React.Children.map(props.children, child => {
+    const navs = React.Children.map(mergedProps.children, child => {
       if (isValidElement<ComponentProps<typeof Item>>(child)) {
         const childProps = {
           ...child.props,
@@ -94,8 +100,12 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
             child.props.onClick?.(event)
           },
           active: child.key === value,
-          arrow:
-            child.props.arrow === undefined ? props.arrow : child.props.arrow,
+          arrowIcon: mergeProp(
+            child.props.arrowIcon,
+            child.props.arrow,
+            mergedProps.arrowIcon,
+            mergedProps.arrow
+          ),
         }
         items.push(child)
         if (child.props.forceRender) popupForceRender = true
@@ -116,7 +126,7 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
     )
 
     return withNativeProps(
-      props,
+      mergedProps,
       <div
         className={classNames(classPrefix, {
           [`${classPrefix}-open`]: !!value,
@@ -129,14 +139,14 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
         <Popup
           visible={!!value}
           position='top'
-          getContainer={props.getContainer}
+          getContainer={mergedProps.getContainer}
           className={`${classPrefix}-popup`}
           maskClassName={`${classPrefix}-popup-mask`}
           bodyClassName={`${classPrefix}-popup-body`}
           style={{ top }}
           forceRender={popupForceRender}
           onMaskClick={
-            props.closeOnMaskClick
+            mergedProps.closeOnMaskClick
               ? () => {
                   changeActive(null)
                 }

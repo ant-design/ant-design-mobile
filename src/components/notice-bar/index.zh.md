@@ -17,6 +17,7 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | closeable | 是否可关闭 | `boolean` | `false` |
+| closeIcon | 自定义关闭按钮图标 | `ReactNode` | `<CloseOutline />` |
 | color | 通告栏的类型 | `'default' \| 'alert' \| 'error' \| 'info'` | `'default'` |
 | content | 公告内容 | `React.ReactNode` | - |
 | delay | 开始滚动的延迟，单位 `ms` | `number` | `2000` |

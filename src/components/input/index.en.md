@@ -21,6 +21,7 @@ The `Input` component is layout-independent. It only includes the most basic inp
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | clearable | Whether to enable the clear icon, the input box will be cleared after clicking the clear icon | `boolean` | `false` |
+| clearIcon | Custom clear icon | `ReactNode` | `<CloseCircleFill />` |
 | defaultValue | The default value | `string` | - |
 | disabled | Whether it is disabled or not | `boolean` | `false` |
 | id | The `id` of the `input` element, usually used with `label` | `string` | - |

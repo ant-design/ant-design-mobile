@@ -1,3 +1,8 @@
+import { animated, useSpring } from '@react-spring/web'
+import { useDrag } from '@use-gesture/react'
+import { useGetState, useIsomorphicLayoutEffect } from 'ahooks'
+import classNames from 'classnames'
+import type { CSSProperties, ReactElement, ReactNode } from 'react'
 import React, {
   forwardRef,
   useEffect,
@@ -6,20 +11,15 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import type { ReactNode, CSSProperties, ReactElement } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
-import { SwiperItem } from './swiper-item'
-import { devWarning } from '../../utils/dev-log'
-import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from '@use-gesture/react'
-import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
-import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { useIsomorphicLayoutEffect, useGetState } from 'ahooks'
+import { devWarning } from '../../utils/dev-log'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useRefState } from '../../utils/use-ref-state'
+import { mergeProps } from '../../utils/with-default-props'
 import { mergeFuncProps } from '../../utils/with-func-props'
+import PageIndicator, { PageIndicatorProps } from '../page-indicator'
+import { SwiperItem } from './swiper-item'
 
 const classPrefix = `adm-swiper`
 
@@ -83,17 +83,17 @@ const defaultProps = {
 let currentUid: undefined | {}
 
 export const Swiper = forwardRef<SwiperRef, SwiperProps>(
-  staged<SwiperProps, SwiperRef>((p, ref) => {
-    const props = mergeProps(defaultProps, p)
+  staged<SwiperProps, SwiperRef>((props, ref) => {
+    const mergedProps = mergeProps(defaultProps, props)
 
-    const { direction, total, children, indicator } = props
+    const { direction, total, children, indicator } = mergedProps
 
     const [uid] = useState({})
     const timeoutRef = useRef<number | null>(null)
     const isVertical = direction === 'vertical'
 
-    const slideRatio = props.slideSize / 100
-    const offsetRatio = props.trackOffset / 100
+    const slideRatio = mergedProps.slideSize / 100
+    const offsetRatio = mergedProps.trackOffset / 100
 
     const { validChildren, count, renderChildren } = useMemo(() => {
       let count = 0
@@ -134,7 +134,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
     }
 
     return () => {
-      let loop = props.loop
+      let loop = mergedProps.loop
       if (slideRatio * (mergedTotal - 1) < 1) {
         loop = false
       }
@@ -144,17 +144,19 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         const track = trackRef.current
         if (!track) return 0
         const trackPixels = isVertical ? track.offsetHeight : track.offsetWidth
-        return (trackPixels * props.slideSize) / 100
+        return (trackPixels * mergedProps.slideSize) / 100
       }
 
-      const [current, setCurrent, getCurrent] = useGetState(props.defaultIndex)
+      const [current, setCurrent, getCurrent] = useGetState(
+        mergedProps.defaultIndex
+      )
 
       const [dragging, setDragging, draggingRef] = useRefState(false)
 
       function boundIndex(current: number) {
         let min = 0
         let max = mergedTotal - 1
-        if (props.stuckAtBoundary) {
+        if (mergedProps.stuckAtBoundary) {
           min += offsetRatio / slideRatio
           max -= (1 - slideRatio - offsetRatio) / slideRatio
         }
@@ -245,7 +247,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
                   right: upperBound,
                 }
           },
-          rubberband: props.rubberband,
+          rubberband: mergedProps.rubberband,
           axis: isVertical ? 'y' : 'x',
           preventScroll: !isVertical,
           pointer: {
@@ -261,7 +263,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           : bound(roundedIndex, 0, mergedTotal - 1)
 
         if (targetIndex !== getCurrent()) {
-          props.onIndexChange?.(targetIndex)
+          mergedProps.onIndexChange?.(targetIndex)
         }
 
         setCurrent(targetIndex)
@@ -293,7 +295,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         }
       })
 
-      const { autoplay, autoplayInterval } = props
+      const { autoplay, autoplayInterval } = mergedProps
 
       const runTimeSwiper = () => {
         timeoutRef.current = window.setTimeout(() => {
@@ -401,22 +403,22 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       // Render
       const style: CSSProperties &
         Record<'--slide-size' | '--track-offset', string> = {
-        '--slide-size': `${props.slideSize}%`,
-        '--track-offset': `${props.trackOffset}%`,
+        '--slide-size': `${mergedProps.slideSize}%`,
+        '--track-offset': `${mergedProps.trackOffset}%`,
       }
 
-      const dragProps = { ...(props.allowTouchMove ? bind() : {}) }
+      const dragProps = { ...(mergedProps.allowTouchMove ? bind() : {}) }
       const stopPropagationProps: Partial<
         Record<ValuesToUnion<typeof eventToPropRecord>, any>
       > = {}
-      for (const key of props.stopPropagation) {
+      for (const key of mergedProps.stopPropagation) {
         const prop = eventToPropRecord[key]
         stopPropagationProps[prop] = function (e: Event) {
           e.stopPropagation()
         }
       }
 
-      const mergedProps = mergeFuncProps(dragProps, stopPropagationProps)
+      const mergedFuncProps = mergeFuncProps(dragProps, stopPropagationProps)
 
       let indicatorNode: ReactNode = null
 
@@ -426,7 +428,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         indicatorNode = (
           <div className={`${classPrefix}-indicator`}>
             <PageIndicator
-              {...props.indicatorProps}
+              {...mergedProps.indicatorProps}
               total={mergedTotal}
               current={current}
               direction={direction}
@@ -436,7 +438,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       }
 
       return withNativeProps(
-        props,
+        mergedProps,
         <div
           className={classNames(classPrefix, `${classPrefix}-${direction}`)}
           style={style}
@@ -444,7 +446,8 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           <div
             ref={trackRef}
             className={classNames(`${classPrefix}-track`, {
-              [`${classPrefix}-track-allow-touch-move`]: props.allowTouchMove,
+              [`${classPrefix}-track-allow-touch-move`]:
+                mergedProps.allowTouchMove,
             })}
             onClickCapture={e => {
               if (draggingRef.current) {
@@ -452,7 +455,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               }
               forceCancelDrag()
             }}
-            {...mergedProps}
+            {...mergedFuncProps}
           >
             {renderTrackInner()}
           </div>

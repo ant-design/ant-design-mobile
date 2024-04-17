@@ -1,3 +1,6 @@
+import { animated, useSpring } from '@react-spring/web'
+import { useDrag } from '@use-gesture/react'
+import type { ReactNode } from 'react'
 import React, {
   forwardRef,
   RefObject,
@@ -5,17 +8,14 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react'
-import type { ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from '@use-gesture/react'
-import Button from '../button'
-import { nearest } from '../../utils/nearest'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { nearest } from '../../utils/nearest'
+import { mergeProps } from '../../utils/with-default-props'
 import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import Button from '../button'
 
 const classPrefix = `adm-swipe-action`
 
@@ -61,8 +61,8 @@ const defaultProps = {
 }
 
 export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
-  (p, ref) => {
-    const props = mergeProps(defaultProps, p)
+  (props, ref) => {
+    const mergedProps = mergeProps(defaultProps, props)
 
     const rootRef = useRef<HTMLDivElement>(null)
 
@@ -121,7 +121,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
             x: targetX,
           })
           if (targetX !== 0) {
-            p.onActionsReveal?.(targetX > 0 ? 'left' : 'right')
+            props.onActionsReveal?.(targetX > 0 ? 'left' : 'right')
           }
           window.setTimeout(() => {
             draggingRef.current = false
@@ -168,13 +168,13 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
             x: getLeftWidth(),
           })
         }
-        p.onActionsReveal?.(side)
+        props.onActionsReveal?.(side)
       },
       close,
     }))
 
     useEffect(() => {
-      if (!props.closeOnTouchOutside) return
+      if (!mergedProps.closeOnTouchOutside) return
       function handle(e: Event) {
         if (x.get() === 0) {
           return
@@ -188,7 +188,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       return () => {
         document.removeEventListener('touchstart', handle)
       }
-    }, [props.closeOnTouchOutside])
+    }, [mergedProps.closeOnTouchOutside])
 
     function renderAction(action: Action) {
       const color = action.color ?? 'light'
@@ -200,11 +200,11 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
             '--background-color': colorRecord[color] ?? color,
           }}
           onClick={e => {
-            if (props.closeOnAction) {
+            if (mergedProps.closeOnAction) {
               close()
             }
             action.onClick?.(e)
-            props.onAction?.(action, e)
+            mergedProps.onAction?.(action, e)
           }}
         >
           {action.text}
@@ -213,7 +213,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
     }
 
     return withNativeProps(
-      props,
+      mergedProps,
       <div
         className={classPrefix}
         {...bind()}
@@ -227,12 +227,12 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       >
         <animated.div className={`${classPrefix}-track`} style={{ x }}>
           {withStopPropagation(
-            props.stopPropagation,
+            mergedProps.stopPropagation,
             <div
               className={`${classPrefix}-actions ${classPrefix}-actions-left`}
               ref={leftRef}
             >
-              {props.leftActions.map(renderAction)}
+              {mergedProps.leftActions.map(renderAction)}
             </div>
           )}
           <div
@@ -252,16 +252,16 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
                 ),
               }}
             >
-              {props.children}
+              {mergedProps.children}
             </animated.div>
           </div>
           {withStopPropagation(
-            props.stopPropagation,
+            mergedProps.stopPropagation,
             <div
               className={`${classPrefix}-actions ${classPrefix}-actions-right`}
               ref={rightRef}
             >
-              {props.rightActions.map(renderAction)}
+              {mergedProps.rightActions.map(renderAction)}
             </div>
           )}
         </animated.div>

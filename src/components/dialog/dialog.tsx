@@ -1,12 +1,12 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { Action, DialogActionButton } from './dialog-action-button'
-import Image from '../image'
-import AutoCenter from '../auto-center'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import AutoCenter from '../auto-center'
 import CenterPopup, { CenterPopupProps } from '../center-popup'
+import Image from '../image'
+import { Action, DialogActionButton } from './dialog-action-button'
 
 export type DialogProps = Pick<
   CenterPopupProps,
@@ -41,36 +41,42 @@ const defaultProps = {
   getContainer: null,
 }
 
-export const Dialog: FC<DialogProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const Dialog: FC<DialogProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   const element = (
     <>
-      {!!props.image && (
+      {!!mergedProps.image && (
         <div className={cls('image-container')}>
-          <Image src={props.image} alt='dialog header image' width='100%' />
+          <Image
+            src={mergedProps.image}
+            alt='dialog header image'
+            width='100%'
+          />
         </div>
       )}
-      {!!props.header && (
+      {!!mergedProps.header && (
         <div className={cls('header')}>
-          <AutoCenter>{props.header}</AutoCenter>
+          <AutoCenter>{mergedProps.header}</AutoCenter>
         </div>
       )}
-      {!!props.title && <div className={cls('title')}>{props.title}</div>}
+      {!!mergedProps.title && (
+        <div className={cls('title')}>{mergedProps.title}</div>
+      )}
       <div
         className={classNames(
           cls('content'),
-          !props.content && cls('content-empty')
+          !mergedProps.content && cls('content-empty')
         )}
       >
-        {typeof props.content === 'string' ? (
-          <AutoCenter>{props.content}</AutoCenter>
+        {typeof mergedProps.content === 'string' ? (
+          <AutoCenter>{mergedProps.content}</AutoCenter>
         ) : (
-          props.content
+          mergedProps.content
         )}
       </div>
       <div className={cls('footer')}>
-        {props.actions.map((row, index) => {
+        {mergedProps.actions.map((row, index) => {
           const actions = Array.isArray(row) ? row : [row]
           return (
             <div className={cls('action-row')} key={index}>
@@ -81,10 +87,10 @@ export const Dialog: FC<DialogProps> = p => {
                   onAction={async () => {
                     await Promise.all([
                       action.onClick?.(),
-                      props.onAction?.(action, index),
+                      mergedProps.onAction?.(action, index),
                     ])
-                    if (props.closeOnAction) {
-                      props.onClose?.()
+                    if (mergedProps.closeOnAction) {
+                      mergedProps.onClose?.()
                     }
                   }}
                 />
@@ -98,33 +104,33 @@ export const Dialog: FC<DialogProps> = p => {
 
   return (
     <CenterPopup
-      className={classNames(cls(), props.className)}
-      style={props.style}
-      afterClose={props.afterClose}
-      afterShow={props.afterShow}
+      className={classNames(cls(), mergedProps.className)}
+      style={mergedProps.style}
+      afterClose={mergedProps.afterClose}
+      afterShow={mergedProps.afterShow}
       onMaskClick={
-        props.closeOnMaskClick
+        mergedProps.closeOnMaskClick
           ? () => {
-              props.onClose?.()
+              mergedProps.onClose?.()
             }
           : undefined
       }
-      visible={props.visible}
-      getContainer={props.getContainer}
-      bodyStyle={props.bodyStyle}
+      visible={mergedProps.visible}
+      getContainer={mergedProps.getContainer}
+      bodyStyle={mergedProps.bodyStyle}
       bodyClassName={classNames(
         cls('body'),
-        props.image && cls('with-image'),
-        props.bodyClassName
+        mergedProps.image && cls('with-image'),
+        mergedProps.bodyClassName
       )}
-      maskStyle={props.maskStyle}
-      maskClassName={props.maskClassName}
-      stopPropagation={props.stopPropagation}
-      disableBodyScroll={props.disableBodyScroll}
-      destroyOnClose={props.destroyOnClose}
-      forceRender={props.forceRender}
+      maskStyle={mergedProps.maskStyle}
+      maskClassName={mergedProps.maskClassName}
+      stopPropagation={mergedProps.stopPropagation}
+      disableBodyScroll={mergedProps.disableBodyScroll}
+      destroyOnClose={mergedProps.destroyOnClose}
+      forceRender={mergedProps.forceRender}
       role='dialog'
-      aria-label={props['aria-label']}
+      aria-label={mergedProps['aria-label']}
     >
       {element}
     </CenterPopup>

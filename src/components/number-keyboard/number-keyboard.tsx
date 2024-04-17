@@ -1,14 +1,14 @@
-import React, { useRef, useMemo } from 'react'
-import type { FC, TouchEvent, MouseEvent } from 'react'
-import classNames from 'classnames'
-import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
-import { mergeProps } from '../../utils/with-default-props'
-import { shuffle } from '../../utils/shuffle'
-import Popup, { PopupProps } from '../popup'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
+import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
+import classNames from 'classnames'
+import type { FC, MouseEvent, TouchEvent } from 'react'
+import React, { useMemo, useRef } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { shuffle } from '../../utils/shuffle'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import Popup, { PopupProps } from '../popup'
+import SafeArea from '../safe-area'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -47,8 +47,8 @@ const defaultProps = {
   forceRender: false,
 }
 
-export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const NumberKeyboard: FC<NumberKeyboardProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const {
     visible,
     title,
@@ -58,7 +58,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     randomOrder,
     showCloseButton,
     onInput,
-  } = props
+  } = mergedProps
 
   const { locale } = useConfig()
 
@@ -85,7 +85,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
   const intervalRef = useRef(-1)
 
   const onDelete = useMemoizedFn(() => {
-    props.onDelete?.()
+    mergedProps.onDelete?.()
   })
 
   const onBackspacePressStart = () => {
@@ -110,9 +110,9 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
         onDelete?.()
         break
       case 'OK':
-        props.onConfirm?.()
-        if (props.closeOnConfirm) {
-          props.onClose?.()
+        mergedProps.onConfirm?.()
+        if (mergedProps.closeOnConfirm) {
+          mergedProps.onClose?.()
         }
         break
       default:
@@ -139,7 +139,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
           <span
             className={`${classPrefix}-header-close-button`}
             onClick={() => {
-              props.onClose?.()
+              mergedProps.onClose?.()
             }}
             role='button'
             title={locale.common.close}
@@ -196,15 +196,15 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
       visible={visible}
       getContainer={getContainer}
       mask={false}
-      afterClose={props.afterClose}
-      afterShow={props.afterShow}
+      afterClose={mergedProps.afterClose}
+      afterShow={mergedProps.afterShow}
       className={`${classPrefix}-popup`}
-      stopPropagation={props.stopPropagation}
-      destroyOnClose={props.destroyOnClose}
-      forceRender={props.forceRender}
+      stopPropagation={mergedProps.stopPropagation}
+      destroyOnClose={mergedProps.destroyOnClose}
+      forceRender={mergedProps.forceRender}
     >
       {withNativeProps(
-        props,
+        mergedProps,
         <div
           ref={keyboardRef}
           className={classPrefix}
@@ -254,7 +254,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
               </div>
             )}
           </div>
-          {props.safeArea && (
+          {mergedProps.safeArea && (
             <div className={`${classPrefix}-footer`}>
               <SafeArea position='bottom' />
             </div>

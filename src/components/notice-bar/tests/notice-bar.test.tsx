@@ -30,7 +30,7 @@ describe('NoticeBar', () => {
     )
 
     const el = getByTestId('notice')
-    const iconEl = el.querySelectorAll(`.${classPrefix}-close-icon`)[0]
+    const iconEl = el.querySelectorAll(`.${classPrefix}-close`)[0]
     expect(iconEl).toBeVisible()
 
     fireEvent.click(iconEl)

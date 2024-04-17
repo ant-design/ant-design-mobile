@@ -1,9 +1,11 @@
+import { DownFill } from 'antd-mobile-icons'
 import classNames from 'classnames'
-import React from 'react'
 import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
-import { DownFill } from 'antd-mobile-icons'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-dropdown-item`
 
@@ -15,27 +17,41 @@ export type DropdownItemProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  arrowIcon?: ReactNode
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
   arrow?: ReactNode
   children?: ReactNode
 } & NativeProps
 
+const defaultProps = {
+  arrowIcon: <DownFill />,
+}
+
 const Item: FC<DropdownItemProps> = props => {
+  const { dropdown: componentConfig = {} } = useConfig()
+  const { active, arrowIcon, highlight, onClick, title } = mergeProps(
+    defaultProps,
+    componentConfig,
+    props
+  )
   const cls = classNames(classPrefix, {
-    [`${classPrefix}-active`]: props.active,
-    [`${classPrefix}-highlight`]: props.highlight ?? props.active,
+    [`${classPrefix}-active`]: active,
+    [`${classPrefix}-highlight`]: highlight ?? active,
   })
 
   return withNativeProps(
     props,
-    <div className={cls} onClick={props.onClick}>
+    <div className={cls} onClick={onClick}>
       <div className={`${classPrefix}-title`}>
-        <span className={`${classPrefix}-title-text`}>{props.title}</span>
+        <span className={`${classPrefix}-title-text`}>{title}</span>
         <span
           className={classNames(`${classPrefix}-title-arrow`, {
-            [`${classPrefix}-title-arrow-active`]: props.active,
+            [`${classPrefix}-title-arrow-active`]: active,
           })}
         >
-          {props.arrow === undefined ? <DownFill /> : props.arrow}
+          {arrowIcon}
         </span>
       </div>
     </div>

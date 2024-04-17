@@ -17,7 +17,7 @@ It is suitable for filtering, sorting and changing the display range or order of
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | activeKey | Active `Item` key | `string \| null` | - |
-| arrow | Custom arrow | `React.ReactNode` | - |
+| arrowIcon | Custom arrow icon | `React.ReactNode` | - |
 | closeOnClickAway | Whether to automatically hide after clicking outside area | `boolean` | `false` |
 | closeOnMaskClick | Whether to automatically close after clicking on the mask | `boolean` | `true` |
 | defaultActiveKey | The default active `Item` key | `string \| null` | `null` |
@@ -36,7 +36,7 @@ It is suitable for filtering, sorting and changing the display range or order of
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| arrow | Custom arrow | `React.ReactNode` | - |
+| arrowIcon | Custom arrow icon | `React.ReactNode` | - |
 | destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | forceRender | Whether to render the content even if it is not active | `boolean` | `false` |
 | highlight | Highlight | `boolean` | `false` |

@@ -1,13 +1,14 @@
-import React, { useMemo } from 'react'
-import type { FC, ReactNode } from 'react'
-import classNames from 'classnames'
 import { CheckOutline, CloseOutline } from 'antd-mobile-icons'
-import Mask from '../mask'
-import type { MaskProps } from '../mask'
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React, { useMemo } from 'react'
+import { GetContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
-import { GetContainer } from '../../utils/render-to-container'
 import AutoCenter from '../auto-center'
+import { useConfig } from '../config-provider'
+import type { MaskProps } from '../mask'
+import Mask from '../mask'
 import SpinLoading from '../spin-loading'
 
 const classPrefix = `adm-toast`
@@ -31,20 +32,23 @@ const defaultProps = {
   stopPropagation: ['click'],
 }
 
-export const InternalToast: FC<ToastProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const { maskClickable, content, icon, position } = props
+export const InternalToast: FC<ToastProps> = props => {
+  const { toast: componentConfig = {} } = useConfig()
+  const mergedProps = mergeProps(defaultProps, componentConfig, props)
+  const { maskClickable, content, icon, position } = mergedProps
 
   const iconElement = useMemo(() => {
     if (icon === null || icon === undefined) return null
     switch (icon) {
       case 'success':
-        return <CheckOutline className={`${classPrefix}-icon-success`} />
+        return componentConfig?.successIcon || <CheckOutline />
       case 'fail':
-        return <CloseOutline className={`${classPrefix}-icon-fail`} />
+        return componentConfig?.errorIcon || <CloseOutline />
       case 'loading':
         return (
-          <SpinLoading color='white' className={`${classPrefix}-loading`} />
+          componentConfig?.loadingIcon || (
+            <SpinLoading color='white' style={{ '--size': '48px' }} />
+          )
         )
       default:
         return icon
@@ -64,18 +68,18 @@ export const InternalToast: FC<ToastProps> = p => {
 
   return (
     <Mask
-      visible={props.visible}
+      visible={mergedProps.visible}
       destroyOnClose
       opacity={0}
       disableBodyScroll={!maskClickable}
-      getContainer={props.getContainer}
-      afterClose={props.afterClose}
+      getContainer={mergedProps.getContainer}
+      afterClose={mergedProps.afterClose}
       style={{
         pointerEvents: maskClickable ? 'none' : 'auto',
-        ...props.maskStyle,
+        ...mergedProps.maskStyle,
       }}
-      className={classNames(`${classPrefix}-mask`, props.maskClassName)}
-      stopPropagation={props.stopPropagation}
+      className={classNames(`${classPrefix}-mask`, mergedProps.maskClassName)}
+      stopPropagation={mergedProps.stopPropagation}
     >
       <div className={classNames(`${classPrefix}-wrap`)}>
         <div

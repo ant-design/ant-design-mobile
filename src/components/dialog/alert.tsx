@@ -1,8 +1,8 @@
-import { show } from './show'
-import { DialogProps } from './index'
-import { mergeProps } from '../../utils/with-default-props'
 import type { ReactNode } from 'react'
+import { mergeProps } from '../../utils/with-default-props'
 import { getDefaultConfig } from '../config-provider'
+import { DialogProps } from './index'
+import { show } from './show'
 
 export type DialogAlertProps = Omit<
   DialogProps,
@@ -12,24 +12,24 @@ export type DialogAlertProps = Omit<
   onConfirm?: () => void | Promise<void>
 }
 
-export function alert(p: DialogAlertProps) {
+export function alert(props: DialogAlertProps) {
   const defaultProps = {
     confirmText: getDefaultConfig().locale.Dialog.ok,
   }
-  const props = mergeProps(defaultProps, p)
+  const mergedProps = mergeProps(defaultProps, props)
   return new Promise<void>(resolve => {
     show({
-      ...props,
+      ...mergedProps,
       closeOnAction: true,
       actions: [
         {
           key: 'confirm',
-          text: props.confirmText,
+          text: mergedProps.confirmText,
         },
       ],
-      onAction: props.onConfirm,
+      onAction: mergedProps.onConfirm,
       onClose: () => {
-        props.onClose?.()
+        mergedProps.onClose?.()
         resolve()
       },
     })

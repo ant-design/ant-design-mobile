@@ -1,15 +1,15 @@
 import classNames from 'classnames'
-import React from 'react'
 import type { ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import Space from '../space'
-import Grid, { GridProps } from '../grid'
-import { usePropsValue } from '../../utils/use-props-value'
-import { CheckMark } from './check-mark'
-import { useConfig } from '../config-provider'
+import React from 'react'
+import type { BaseOptionType, FieldNamesType } from '../../hooks'
 import { useFieldNames } from '../../hooks'
-import type { FieldNamesType, BaseOptionType } from '../../hooks'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import Grid, { GridProps } from '../grid'
+import Space from '../space'
+import { CheckMark } from './check-mark'
 
 const classPrefix = `adm-selector`
 
@@ -52,30 +52,34 @@ const defaultProps = {
   showCheckMark: true,
 }
 
-export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
-  const props = mergeProps(defaultProps, p)
-  const [labelName, valueName, , disabledName] = useFieldNames(props.fieldNames)
+export const Selector = <V extends SelectorValue>(props: SelectorProps<V>) => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const [labelName, valueName, , disabledName] = useFieldNames(
+    mergedProps.fieldNames
+  )
   const [value, setValue] = usePropsValue({
-    value: props.value,
-    defaultValue: props.defaultValue,
+    value: mergedProps.value,
+    defaultValue: mergedProps.defaultValue,
     onChange: val => {
       const extend = {
         get items() {
-          return props.options.filter(option => val.includes(option[valueName]))
+          return mergedProps.options.filter(option =>
+            val.includes(option[valueName])
+          )
         },
       }
-      props.onChange?.(val, extend)
+      mergedProps.onChange?.(val, extend)
     },
   })
 
   const { locale } = useConfig()
 
-  const items = props.options.map(option => {
+  const items = mergedProps.options.map(option => {
     const active = (value || []).includes(option[valueName])
-    const disabled = option[disabledName] || props.disabled
+    const disabled = option[disabledName] || mergedProps.disabled
     const itemCls = classNames(`${classPrefix}-item`, {
-      [`${classPrefix}-item-active`]: active && !props.multiple,
-      [`${classPrefix}-item-multiple-active`]: active && props.multiple,
+      [`${classPrefix}-item-active`]: active && !mergedProps.multiple,
+      [`${classPrefix}-item-multiple-active`]: active && mergedProps.multiple,
       [`${classPrefix}-item-disabled`]: disabled,
     })
 
@@ -87,7 +91,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
           if (disabled) {
             return
           }
-          if (props.multiple) {
+          if (mergedProps.multiple) {
             const val = active
               ? value.filter(v => v !== option[valueName])
               : [...value, option[valueName]]
@@ -99,7 +103,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
         }}
         role='option'
         aria-selected={
-          (active && !props.multiple) || (active && props.multiple)
+          (active && !mergedProps.multiple) || (active && mergedProps.multiple)
         }
       >
         {option[labelName]}
@@ -108,7 +112,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
             {option.description}
           </div>
         )}
-        {active && props.showCheckMark && (
+        {active && mergedProps.showCheckMark && (
           <div className={`${classPrefix}-check-mark-wrapper`}>
             <CheckMark />
           </div>
@@ -118,14 +122,14 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   })
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classPrefix}
       role='listbox'
       aria-label={locale.Selector.name}
     >
-      {props.columns ? (
-        <Grid columns={props.columns}>{items}</Grid>
+      {mergedProps.columns ? (
+        <Grid columns={mergedProps.columns}>{items}</Grid>
       ) : (
         <Space wrap>{items}</Space>
       )}

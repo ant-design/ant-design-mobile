@@ -1,15 +1,15 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import classNames from 'classnames'
 import type {
-  ReactNode,
   ButtonHTMLAttributes,
   DetailedHTMLProps,
   MouseEventHandler,
+  ReactNode,
 } from 'react'
-import classNames from 'classnames'
-import DotLoading from '../dot-loading'
-import { mergeProps } from '../../utils/with-default-props'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { isPromise } from '../../utils/validate'
+import { mergeProps } from '../../utils/with-default-props'
+import DotLoading from '../dot-loading'
 
 const classPrefix = `adm-button`
 
@@ -61,12 +61,13 @@ const defaultProps: ButtonProps = {
   size: 'middle',
 }
 
-export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
-  const props = mergeProps(defaultProps, p)
+export const Button = forwardRef<ButtonRef, ButtonProps>((props, ref) => {
+  const mergedProps = mergeProps(defaultProps, props)
   const [innerLoading, setInnerLoading] = useState(false)
   const nativeButtonRef = useRef<HTMLButtonElement>(null)
-  const loading = props.loading === 'auto' ? innerLoading : props.loading
-  const disabled = props.disabled || loading
+  const loading =
+    mergedProps.loading === 'auto' ? innerLoading : mergedProps.loading
+  const disabled = mergedProps.disabled || loading
 
   useImperativeHandle(ref, () => ({
     get nativeElement() {
@@ -75,9 +76,9 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
   }))
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = async e => {
-    if (!props.onClick) return
+    if (!mergedProps.onClick) return
 
-    const promise = props.onClick(e)
+    const promise = mergedProps.onClick(e)
 
     if (isPromise(promise)) {
       try {
@@ -92,39 +93,39 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <button
       ref={nativeButtonRef}
-      type={props.type}
+      type={mergedProps.type}
       onClick={handleClick}
       className={classNames(
         classPrefix,
         {
-          [`${classPrefix}-${props.color}`]: props.color,
-          [`${classPrefix}-block`]: props.block,
+          [`${classPrefix}-${mergedProps.color}`]: mergedProps.color,
+          [`${classPrefix}-block`]: mergedProps.block,
           [`${classPrefix}-disabled`]: disabled,
-          [`${classPrefix}-fill-outline`]: props.fill === 'outline',
-          [`${classPrefix}-fill-none`]: props.fill === 'none',
-          [`${classPrefix}-mini`]: props.size === 'mini',
-          [`${classPrefix}-small`]: props.size === 'small',
-          [`${classPrefix}-large`]: props.size === 'large',
+          [`${classPrefix}-fill-outline`]: mergedProps.fill === 'outline',
+          [`${classPrefix}-fill-none`]: mergedProps.fill === 'none',
+          [`${classPrefix}-mini`]: mergedProps.size === 'mini',
+          [`${classPrefix}-small`]: mergedProps.size === 'small',
+          [`${classPrefix}-large`]: mergedProps.size === 'large',
           [`${classPrefix}-loading`]: loading,
         },
-        `${classPrefix}-shape-${props.shape}`
+        `${classPrefix}-shape-${mergedProps.shape}`
       )}
       disabled={disabled}
-      onMouseDown={props.onMouseDown}
-      onMouseUp={props.onMouseUp}
-      onTouchStart={props.onTouchStart}
-      onTouchEnd={props.onTouchEnd}
+      onMouseDown={mergedProps.onMouseDown}
+      onMouseUp={mergedProps.onMouseUp}
+      onTouchStart={mergedProps.onTouchStart}
+      onTouchEnd={mergedProps.onTouchEnd}
     >
       {loading ? (
         <div className={`${classPrefix}-loading-wrapper`}>
-          {props.loadingIcon}
-          {props.loadingText}
+          {mergedProps.loadingIcon}
+          {mergedProps.loadingText}
         </div>
       ) : (
-        <span>{props.children}</span>
+        <span>{mergedProps.children}</span>
       )}
     </button>
   )

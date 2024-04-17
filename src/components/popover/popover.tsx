@@ -1,40 +1,40 @@
+import {
+  arrow,
+  autoUpdate,
+  computePosition,
+  flip,
+  hide,
+  limitShift,
+  offset,
+  shift,
+} from '@floating-ui/dom'
+import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
+import classNames from 'classnames'
+import type { ReactElement, ReactNode } from 'react'
 import React, {
   forwardRef,
+  useEffect,
   useImperativeHandle,
   useRef,
   useState,
-  useEffect,
 } from 'react'
-import type { ReactNode, ReactElement } from 'react'
-import classNames from 'classnames'
+import { convertPx } from '../../utils/convert-px'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import {
+  GetContainer,
+  renderToContainer,
+} from '../../utils/render-to-container'
+import { useShouldRender } from '../../utils/should-render'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
 import { Arrow } from './arrow'
-import {
-  GetContainer,
-  renderToContainer,
-} from '../../utils/render-to-container'
-import {
-  arrow,
-  computePosition,
-  flip,
-  offset,
-  autoUpdate,
-  hide,
-  shift,
-  limitShift,
-} from '@floating-ui/dom'
-import { Wrapper } from './wrapper'
-import { useShouldRender } from '../../utils/should-render'
-import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
 import { DeprecatedPlacement, Placement } from './index'
 import { normalizePlacement } from './normalize-placement'
-import { convertPx } from '../../utils/convert-px'
+import { Wrapper } from './wrapper'
 
 const classPrefix = `adm-popover`
 
@@ -66,14 +66,14 @@ const defaultProps = {
   mode: 'light',
 }
 
-export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
-  const props = mergeProps(defaultProps, p)
-  const placement = normalizePlacement(props.placement)
+export const Popover = forwardRef<PopoverRef, PopoverProps>((props, ref) => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const placement = normalizePlacement(mergedProps.placement)
 
   const [visible, setVisible] = usePropsValue<boolean>({
-    value: props.visible,
-    defaultValue: props.defaultVisible,
-    onChange: props.onVisibleChange,
+    value: mergedProps.visible,
+    defaultValue: mergedProps.defaultVisible,
+    onChange: mergedProps.onVisibleChange,
   })
 
   useImperativeHandle(
@@ -91,20 +91,26 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   const arrowRef = useRef<HTMLDivElement>(null)
 
   const floating = withStopPropagation(
-    props.stopPropagation,
+    mergedProps.stopPropagation,
     withNativeProps(
-      props,
+      mergedProps,
       <div
-        className={classNames(classPrefix, `${classPrefix}-${props.mode}`, {
-          [`${classPrefix}-hidden`]: !visible,
-        })}
+        className={classNames(
+          classPrefix,
+          `${classPrefix}-${mergedProps.mode}`,
+          {
+            [`${classPrefix}-hidden`]: !visible,
+          }
+        )}
         ref={floatingRef}
       >
         <div className={`${classPrefix}-arrow`} ref={arrowRef}>
           <Arrow className={`${classPrefix}-arrow-icon`} />
         </div>
         <div className={`${classPrefix}-inner`}>
-          <div className={`${classPrefix}-inner-content`}>{props.content}</div>
+          <div className={`${classPrefix}-inner-content`}>
+            {mergedProps.content}
+          </div>
         </div>
       </div>
     )
@@ -174,7 +180,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
 
   useEffect(() => {
     if (!targetElement) return
-    if (!props.trigger) return
+    if (!mergedProps.trigger) return
 
     function handleClick() {
       setVisible(v => !v)
@@ -183,7 +189,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     return () => {
       targetElement.removeEventListener('click', handleClick)
     }
-  }, [targetElement, props.trigger])
+  }, [targetElement, mergedProps.trigger])
 
   useEffect(() => {
     const floatingElement = floatingRef.current
@@ -195,19 +201,23 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
 
   useClickAway(
     () => {
-      if (!props.trigger) return
+      if (!mergedProps.trigger) return
       setVisible(false)
     },
     [() => targetRef.current?.element, floatingRef],
     ['click', 'touchmove']
   )
 
-  const shouldRender = useShouldRender(visible, false, props.destroyOnHide)
+  const shouldRender = useShouldRender(
+    visible,
+    false,
+    mergedProps.destroyOnHide
+  )
 
   return (
     <>
-      <Wrapper ref={targetRef}>{props.children}</Wrapper>
-      {shouldRender && renderToContainer(props.getContainer, floating)}
+      <Wrapper ref={targetRef}>{mergedProps.children}</Wrapper>
+      {shouldRender && renderToContainer(mergedProps.getContainer, floating)}
     </>
   )
 })

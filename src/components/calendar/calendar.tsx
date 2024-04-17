@@ -1,28 +1,28 @@
+import { useUpdateEffect } from 'ahooks'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import isoWeek from 'dayjs/plugin/isoWeek'
 import React, {
-  forwardRef,
   ReactNode,
-  useState,
+  forwardRef,
+  useEffect,
   useImperativeHandle,
   useMemo,
-  useEffect,
+  useState,
 } from 'react'
+import { devWarning } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import dayjs from 'dayjs'
-import classNames from 'classnames'
+import { replaceMessage } from '../../utils/replace-message'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import { ArrowLeft } from './arrow-left'
 import { ArrowLeftDouble } from './arrow-left-double'
-import { useConfig } from '../config-provider'
-import isoWeek from 'dayjs/plugin/isoWeek'
-import { useUpdateEffect } from 'ahooks'
-import { usePropsValue } from '../../utils/use-props-value'
-import { replaceMessage } from '../../utils/replace-message'
-import { devWarning } from '../../utils/dev-log'
 import {
-  convertValueToRange,
-  convertPageToDayjs,
   DateRange,
   Page,
+  convertPageToDayjs,
+  convertValueToRange,
 } from './convert'
 
 dayjs.extend(isoWeek)
@@ -81,27 +81,30 @@ const defaultProps = {
   nextYearButton: <ArrowLeftDouble />,
 }
 
-export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
+export const Calendar = forwardRef<CalendarRef, CalendarProps>((props, ref) => {
   const today = dayjs()
-  const props = mergeProps(defaultProps, p)
+  const mergedProps = mergeProps(defaultProps, props)
   const { locale } = useConfig()
   const markItems = [...locale.Calendar.markItems]
-  if (props.weekStartsOn === 'Sunday') {
+  if (mergedProps.weekStartsOn === 'Sunday') {
     const item = markItems.pop()
     if (item) markItems.unshift(item)
   }
 
   const [dateRange, setDateRange] = usePropsValue<DateRange>({
     value:
-      props.value === undefined
+      mergedProps.value === undefined
         ? undefined
-        : convertValueToRange(props.selectionMode, props.value),
-    defaultValue: convertValueToRange(props.selectionMode, props.defaultValue),
+        : convertValueToRange(mergedProps.selectionMode, mergedProps.value),
+    defaultValue: convertValueToRange(
+      mergedProps.selectionMode,
+      mergedProps.defaultValue
+    ),
     onChange: v => {
-      if (props.selectionMode === 'single') {
-        props.onChange?.(v ? v[0] : null)
-      } else if (props.selectionMode === 'range') {
-        props.onChange?.(v)
+      if (mergedProps.selectionMode === 'single') {
+        mergedProps.onChange?.(v ? v[0] : null)
+      } else if (mergedProps.selectionMode === 'range') {
+        mergedProps.onChange?.(v)
       }
     },
   })
@@ -113,7 +116,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   )
 
   useUpdateEffect(() => {
-    props.onPageChange?.(current.year(), current.month() + 1)
+    mergedProps.onPageChange?.(current.year(), current.month() + 1)
   }, [current])
 
   useImperativeHandle(ref, () => ({
@@ -140,14 +143,14 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     type: 'month' | 'year'
   ) => {
     const nxtCurrent = current[action](num, type)
-    if (action === 'subtract' && props.minPage) {
-      const minPage = convertPageToDayjs(props.minPage)
+    if (action === 'subtract' && mergedProps.minPage) {
+      const minPage = convertPageToDayjs(mergedProps.minPage)
       if (nxtCurrent.isBefore(minPage, type)) {
         return
       }
     }
-    if (action === 'add' && props.maxPage) {
-      const maxPage = convertPageToDayjs(props.maxPage)
+    if (action === 'add' && mergedProps.maxPage) {
+      const maxPage = convertPageToDayjs(mergedProps.maxPage)
       if (nxtCurrent.isAfter(maxPage, type)) {
         return
       }
@@ -163,7 +166,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           handlePageChange('subtract', 1, 'year')
         }}
       >
-        {props.prevYearButton}
+        {mergedProps.prevYearButton}
       </a>
       <a
         className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
@@ -171,7 +174,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           handlePageChange('subtract', 1, 'month')
         }}
       >
-        {props.prevMonthButton}
+        {mergedProps.prevMonthButton}
       </a>
       <div className={`${classPrefix}-title`}>
         {replaceMessage(locale.Calendar.yearAndMonth, {
@@ -189,7 +192,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           handlePageChange('add', 1, 'month')
         }}
       >
-        {props.nextMonthButton}
+        {mergedProps.nextMonthButton}
       </a>
       <a
         className={classNames(
@@ -201,18 +204,24 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           handlePageChange('add', 1, 'year')
         }}
       >
-        {props.nextYearButton}
+        {mergedProps.nextYearButton}
       </a>
     </div>
   )
 
-  const maxDay = useMemo(() => props.max && dayjs(props.max), [props.max])
-  const minDay = useMemo(() => props.min && dayjs(props.min), [props.min])
+  const maxDay = useMemo(
+    () => mergedProps.max && dayjs(mergedProps.max),
+    [mergedProps.max]
+  )
+  const minDay = useMemo(
+    () => mergedProps.min && dayjs(mergedProps.min),
+    [mergedProps.min]
+  )
 
   function renderCells() {
     const cells: ReactNode[] = []
     let iterator = current.subtract(current.isoWeekday(), 'day')
-    if (props.weekStartsOn === 'Monday') {
+    if (mergedProps.weekStartsOn === 'Monday') {
       iterator = iterator.add(1, 'day')
     }
     while (cells.length < 6 * 7) {
@@ -240,8 +249,8 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         }
       }
       const inThisMonth = d.month() === current.month()
-      const disabled = props.shouldDisableDate
-        ? props.shouldDisableDate(d.toDate())
+      const disabled = mergedProps.shouldDisableDate
+        ? mergedProps.shouldDisableDate(d.toDate())
         : (maxDay && d.isAfter(maxDay, 'day')) ||
           (minDay && d.isBefore(minDay, 'day'))
       cells.push(
@@ -260,25 +269,25 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
             }
           )}
           onClick={() => {
-            if (!props.selectionMode) return
+            if (!mergedProps.selectionMode) return
             if (disabled) return
             const date = d.toDate()
             if (!inThisMonth) {
               setCurrent(d.clone().date(1))
             }
             function shouldClear() {
-              if (!props.allowClear) return false
+              if (!mergedProps.allowClear) return false
               if (!dateRange) return false
               const [begin, end] = dateRange
               return d.isSame(begin, 'date') && d.isSame(end, 'day')
             }
-            if (props.selectionMode === 'single') {
-              if (props.allowClear && shouldClear()) {
+            if (mergedProps.selectionMode === 'single') {
+              if (mergedProps.allowClear && shouldClear()) {
                 setDateRange(null)
                 return
               }
               setDateRange([date, date])
-            } else if (props.selectionMode === 'range') {
+            } else if (mergedProps.selectionMode === 'range') {
               if (!dateRange) {
                 setDateRange([date, date])
                 setIntermediate(true)
@@ -301,10 +310,12 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           }}
         >
           <div className={`${classPrefix}-cell-top`}>
-            {props.renderDate ? props.renderDate(d.toDate()) : d.date()}
+            {mergedProps.renderDate
+              ? mergedProps.renderDate(d.toDate())
+              : d.date()}
           </div>
           <div className={`${classPrefix}-cell-bottom`}>
-            {props.renderLabel?.(d.toDate())}
+            {mergedProps.renderLabel?.(d.toDate())}
           </div>
         </div>
       )
@@ -335,7 +346,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>
       {header}
       {mark}

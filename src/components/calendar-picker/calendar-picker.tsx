@@ -1,16 +1,16 @@
+import classNames from 'classnames'
 import React, { forwardRef, useRef } from 'react'
 import { withNativeProps } from '../../utils/native-props'
-import classNames from 'classnames'
-import Button from '../button'
-import Divider from '../divider'
-import Popup from '../popup'
 import { type GetContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
-import { useConfig } from '../config-provider'
+import Button from '../button'
 import CalendarPickerView, {
   CalendarPickerViewProps,
   CalendarPickerViewRef,
 } from '../calendar-picker-view'
+import { useConfig } from '../config-provider'
+import Divider from '../divider'
+import Popup from '../popup'
 
 const classPrefix = 'adm-calendar-picker'
 
@@ -53,8 +53,8 @@ const defaultProps = {
 export const CalendarPicker = forwardRef<
   CalendarPickerRef,
   CalendarPickerProps
->((p, ref) => {
-  const props = mergeProps(defaultProps, p)
+>((props, ref) => {
+  const mergedProps = mergeProps(defaultProps, props)
   const { locale } = useConfig()
   const calendarRef = (ref ??
     useRef<CalendarPickerRef>(null)) as React.RefObject<CalendarPickerRef>
@@ -72,7 +72,7 @@ export const CalendarPicker = forwardRef<
     onMaskClick,
     getContainer,
     ...calendarViewProps
-  } = props
+  } = mergedProps
 
   const footer = (
     <div className={`${classPrefix}-footer`}>
@@ -83,10 +83,10 @@ export const CalendarPicker = forwardRef<
           onClick={() => {
             const dateRange = calendarRef.current?.getDateRange() ?? null
 
-            if (props.selectionMode === 'single') {
-              props.onConfirm?.(dateRange ? dateRange[0] : null)
-            } else if (props.selectionMode === 'range') {
-              props.onConfirm?.(dateRange)
+            if (mergedProps.selectionMode === 'single') {
+              mergedProps.onConfirm?.(dateRange ? dateRange[0] : null)
+            } else if (mergedProps.selectionMode === 'range') {
+              mergedProps.onConfirm?.(dateRange)
             }
             onClose?.()
           }}
@@ -98,7 +98,7 @@ export const CalendarPicker = forwardRef<
   )
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>
       <Popup
         visible={visible}

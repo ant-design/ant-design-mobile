@@ -1,12 +1,12 @@
 import classNames from 'classnames'
-import React, { useState } from 'react'
 import type { FC, ReactNode } from 'react'
+import React, { useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { mergeProps } from '../../utils/with-default-props'
-import { SpinIcon } from './spin-icon'
-import { useConfig } from '../config-provider'
 import { isPromise } from '../../utils/validate'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import { SpinIcon } from './spin-icon'
 
 const classPrefix = `adm-switch`
 
@@ -26,27 +26,27 @@ const defaultProps = {
   defaultChecked: false,
 }
 
-export const Switch: FC<SwitchProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const disabled = props.disabled || props.loading || false
+export const Switch: FC<SwitchProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const disabled = mergedProps.disabled || mergedProps.loading || false
   const [changing, setChanging] = useState(false)
   const { locale } = useConfig()
 
   const [checked, setChecked] = usePropsValue({
-    value: props.checked,
-    defaultValue: props.defaultChecked,
-    onChange: props.onChange,
+    value: mergedProps.checked,
+    defaultValue: mergedProps.defaultChecked,
+    onChange: mergedProps.onChange,
   })
 
   async function onClick() {
-    if (disabled || props.loading || changing) {
+    if (disabled || mergedProps.loading || changing) {
       return
     }
     const nextChecked = !checked
-    if (props.beforeChange) {
+    if (mergedProps.beforeChange) {
       setChanging(true)
       try {
-        await props.beforeChange(nextChecked)
+        await mergedProps.beforeChange(nextChecked)
         setChanging(false)
       } catch (e) {
         setChanging(false)
@@ -67,7 +67,7 @@ export const Switch: FC<SwitchProps> = p => {
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       onClick={onClick}
       className={classNames(classPrefix, {
@@ -81,12 +81,12 @@ export const Switch: FC<SwitchProps> = p => {
     >
       <div className={`${classPrefix}-checkbox`}>
         <div className={`${classPrefix}-handle`}>
-          {(props.loading || changing) && (
+          {(mergedProps.loading || changing) && (
             <SpinIcon className={`${classPrefix}-spin-icon`} />
           )}
         </div>
         <div className={`${classPrefix}-inner`}>
-          {checked ? props.checkedText : props.uncheckedText}
+          {checked ? mergedProps.checkedText : mergedProps.uncheckedText}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
-import type { ReactNode } from 'react'
 import classNames from 'classnames'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -33,8 +33,8 @@ export type ListRef = {
   nativeElement: HTMLDivElement | null
 }
 
-export const List = forwardRef<ListRef, ListProps>((p, ref) => {
-  const props = mergeProps(defaultProps, p)
+export const List = forwardRef<ListRef, ListProps>((props, ref) => {
+  const mergedProps = mergeProps(defaultProps, props)
   const nativeElementRef = useRef<HTMLDivElement>(null)
 
   useImperativeHandle(ref, () => ({
@@ -44,16 +44,18 @@ export const List = forwardRef<ListRef, ListProps>((p, ref) => {
   }))
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
-      className={classNames(classPrefix, `${classPrefix}-${props.mode}`)}
+      className={classNames(classPrefix, `${classPrefix}-${mergedProps.mode}`)}
       ref={nativeElementRef}
     >
-      {props.header && (
-        <div className={`${classPrefix}-header`}>{props.header}</div>
+      {mergedProps.header && (
+        <div className={`${classPrefix}-header`}>{mergedProps.header}</div>
       )}
       <div className={`${classPrefix}-body`}>
-        <div className={`${classPrefix}-body-inner`}>{props.children}</div>
+        <div className={`${classPrefix}-body-inner`}>
+          {mergedProps.children}
+        </div>
       </div>
     </div>
   )

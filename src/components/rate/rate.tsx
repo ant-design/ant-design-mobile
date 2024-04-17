@@ -1,12 +1,12 @@
-import React, { useRef } from 'react'
-import type { FC, ReactNode } from 'react'
-import classNames from 'classnames'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import { usePropsValue } from '../../utils/use-props-value'
-import { Star } from './star'
 import { useDrag } from '@use-gesture/react'
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React, { useRef } from 'react'
 import { bound } from '../../utils/bound'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { Star } from './star'
 
 const classPrefix = `adm-rate`
 
@@ -35,12 +35,12 @@ const defaultProps = {
   allowClear: true,
 }
 
-export const Rate: FC<RateProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const [value, setValue] = usePropsValue(props)
+export const Rate: FC<RateProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const [value, setValue] = usePropsValue(mergedProps)
 
   const containerRef = useRef<HTMLDivElement>(null)
-  const starList = Array(props.count).fill(null)
+  const starList = Array(mergedProps.count).fill(null)
 
   function renderStar(v: number, half: boolean) {
     return (
@@ -48,20 +48,20 @@ export const Rate: FC<RateProps> = p => {
         className={classNames(`${classPrefix}-star`, {
           [`${classPrefix}-star-active`]: value >= v,
           [`${classPrefix}-star-half`]: half,
-          [`${classPrefix}-star-readonly`]: props.readOnly,
+          [`${classPrefix}-star-readonly`]: mergedProps.readOnly,
         })}
         role='radio'
         aria-checked={value >= v}
         aria-label={'' + v}
       >
-        {props.character}
+        {mergedProps.character}
       </div>
     )
   }
 
   const bind = useDrag(
     state => {
-      if (props.readOnly) return
+      if (mergedProps.readOnly) return
       const {
         xy: [clientX],
         tap,
@@ -69,16 +69,16 @@ export const Rate: FC<RateProps> = p => {
       const container = containerRef.current
       if (!container) return
       const rect = container.getBoundingClientRect()
-      const rawValue = ((clientX - rect.left) / rect.width) * props.count
+      const rawValue = ((clientX - rect.left) / rect.width) * mergedProps.count
 
-      const ceiledValue = props.allowHalf
+      const ceiledValue = mergedProps.allowHalf
         ? Math.ceil(rawValue * 2) / 2
         : Math.ceil(rawValue)
 
-      const boundValue = bound(ceiledValue, 0, props.count)
+      const boundValue = bound(ceiledValue, 0, mergedProps.count)
 
       if (tap) {
-        if (props.allowClear && boundValue === value) {
+        if (mergedProps.allowClear && boundValue === value) {
           setValue(0)
           return
         }
@@ -95,19 +95,19 @@ export const Rate: FC<RateProps> = p => {
     }
   )
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(classPrefix, {
-        [`${classPrefix}-half`]: props.allowHalf,
+        [`${classPrefix}-half`]: mergedProps.allowHalf,
       })}
       role='radiogroup'
-      aria-readonly={props.readOnly}
+      aria-readonly={mergedProps.readOnly}
       ref={containerRef}
       {...bind()}
     >
       {starList.map((_, i) => (
         <div key={i} className={classNames(`${classPrefix}-box`)}>
-          {props.allowHalf && renderStar(i + 0.5, true)}
+          {mergedProps.allowHalf && renderStar(i + 0.5, true)}
           {renderStar(i + 1, false)}
         </div>
       ))}

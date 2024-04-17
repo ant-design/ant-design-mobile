@@ -1,9 +1,9 @@
-import React from 'react'
+import classNames from 'classnames'
 import type { FC, ReactNode } from 'react'
+import React from 'react'
+import { isNodeWithContent } from '../../utils/is-node-with-content'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
-import { isNodeWithContent } from '../../utils/is-node-with-content'
 
 const classPrefix = `adm-progress-bar`
 
@@ -21,28 +21,30 @@ const defaultProps = {
   text: false,
 }
 
-export const ProgressBar: FC<ProgressBarProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const ProgressBar: FC<ProgressBarProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const fillStyle = {
-    width: `${props.percent}%`,
+    width: `${mergedProps.percent}%`,
   }
 
   const textElement = (function () {
-    if (props.text === true) {
-      return `${props.percent}%`
+    if (mergedProps.text === true) {
+      return `${mergedProps.percent}%`
     }
-    if (typeof props.text === 'function') {
-      return (props.text as (percent: number) => ReactNode)(props.percent)
+    if (typeof mergedProps.text === 'function') {
+      return (mergedProps.text as (percent: number) => ReactNode)(
+        mergedProps.percent
+      )
     }
-    return props.text
+    return mergedProps.text
   })()
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(
         classPrefix,
-        props.rounded && `${classPrefix}-rounded`
+        mergedProps.rounded && `${classPrefix}-rounded`
       )}
     >
       <div className={`${classPrefix}-trail`}>

@@ -1,18 +1,18 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
-import type { ReactElement } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import type { NumberKeyboardProps } from '../number-keyboard'
 import classNames from 'classnames'
+import type { ReactElement } from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react'
 import { bound } from '../../utils/bound'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import type { NumberKeyboardProps } from '../number-keyboard'
 
 export type PasscodeInputProps = {
   value?: string
@@ -52,33 +52,33 @@ const defaultProps = {
 }
 
 export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
-  (p: PasscodeInputProps, ref) => {
-    const props = mergeProps(defaultProps, p)
+  (props: PasscodeInputProps, ref) => {
+    const mergedProps = mergeProps(defaultProps, props)
     // 防止 length 值不合法
     const cellLength =
-      props.length > 0 && props.length < Infinity
-        ? Math.floor(props.length)
+      mergedProps.length > 0 && mergedProps.length < Infinity
+        ? Math.floor(mergedProps.length)
         : defaultProps.length
     const { locale } = useConfig()
 
     const [focused, setFocused] = useState(false)
-    const [value, setValue] = usePropsValue(props)
+    const [value, setValue] = usePropsValue(mergedProps)
 
     const rootRef = useRef<HTMLDivElement>(null)
     const nativeInputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
       if (value.length >= cellLength) {
-        props.onFill?.(value)
+        mergedProps.onFill?.(value)
       }
     }, [value, cellLength])
 
     const onFocus = () => {
-      if (!props.keyboard) {
+      if (!mergedProps.keyboard) {
         nativeInputRef.current?.focus()
       }
       setFocused(true)
-      props.onFocus?.()
+      mergedProps.onFocus?.()
     }
 
     useEffect(() => {
@@ -97,7 +97,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
 
     const onBlur = () => {
       setFocused(false)
-      props.onBlur?.()
+      mergedProps.onBlur?.()
     }
 
     useImperativeHandle(ref, () => ({
@@ -120,13 +120,13 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
           <div
             className={classNames(`${classPrefix}-cell`, {
               [`${classPrefix}-cell-caret`]:
-                props.caret && caretIndex === i && focused,
+                mergedProps.caret && caretIndex === i && focused,
               [`${classPrefix}-cell-focused`]: focusedIndex === i && focused,
-              [`${classPrefix}-cell-dot`]: !props.plain && chars[i],
+              [`${classPrefix}-cell-dot`]: !mergedProps.plain && chars[i],
             })}
             key={i}
           >
-            {chars[i] && props.plain ? chars[i] : ''}
+            {chars[i] && mergedProps.plain ? chars[i] : ''}
           </div>
         )
       }
@@ -135,14 +135,14 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
 
     const cls = classNames(classPrefix, {
       [`${classPrefix}-focused`]: focused,
-      [`${classPrefix}-error`]: props.error,
-      [`${classPrefix}-seperated`]: props.seperated,
+      [`${classPrefix}-error`]: mergedProps.error,
+      [`${classPrefix}-seperated`]: mergedProps.seperated,
     })
 
     return (
       <>
         {withNativeProps(
-          props,
+          mergedProps,
           <div
             ref={rootRef}
             tabIndex={0}
@@ -163,18 +163,18 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
               pattern='[0-9]*'
               inputMode='numeric'
               onChange={e => {
-                setValue(e.target.value.slice(0, props.length))
+                setValue(e.target.value.slice(0, mergedProps.length))
               }}
               aria-hidden
             />
           </div>
         )}
-        {props.keyboard &&
-          React.cloneElement(props.keyboard, {
+        {mergedProps.keyboard &&
+          React.cloneElement(mergedProps.keyboard, {
             visible: focused,
             onInput: v => {
               if (value.length < cellLength) {
-                setValue((value + v).slice(0, props.length))
+                setValue((value + v).slice(0, mergedProps.length))
               }
             },
             onDelete: () => {

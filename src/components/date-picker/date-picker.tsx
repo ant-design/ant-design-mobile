@@ -1,28 +1,28 @@
-import React, { forwardRef, useCallback, useMemo } from 'react'
-import type { ReactNode } from 'react'
 import { useMemoizedFn } from 'ahooks'
-import Picker from '../picker'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useCallback, useMemo } from 'react'
+import { bound } from '../../utils/bound'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import type { RenderLabel } from '../date-picker-view/date-picker-view'
+import useRenderLabel from '../date-picker-view/useRenderLabel'
 import type {
+  PickerActions,
+  PickerColumn,
   PickerProps,
   PickerRef,
-  PickerActions,
   PickerValue,
-  PickerColumn,
 } from '../picker'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import { usePropsValue } from '../../utils/use-props-value'
+import Picker from '../picker'
+import type { DatePickerFilter, Precision } from './date-picker-utils'
 import {
   convertDateToStringArray,
   convertStringArrayToDate,
   generateDatePickerColumns,
 } from './date-picker-utils'
-import type { Precision, DatePickerFilter } from './date-picker-utils'
-import { bound } from '../../utils/bound'
-import useRenderLabel from '../date-picker-view/useRenderLabel'
-import type { RenderLabel } from '../date-picker-view/date-picker-view'
-import { TILL_NOW } from './util'
 import type { PickerDate } from './util'
+import { TILL_NOW } from './util'
 
 export type DatePickerRef = PickerRef
 
@@ -70,16 +70,16 @@ const defaultProps = {
 }
 
 export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
-  (p, ref) => {
-    const props = mergeProps(defaultProps, p)
-    const { renderLabel } = props
+  (props, ref) => {
+    const mergedProps = mergeProps(defaultProps, props)
+    const { renderLabel } = mergedProps
 
     const [value, setValue] = usePropsValue<PickerDate | null>({
-      value: props.value,
-      defaultValue: props.defaultValue,
+      value: mergedProps.value,
+      defaultValue: mergedProps.defaultValue,
       onChange: v => {
         if (v === null) return
-        props.onConfirm?.(v)
+        mergedProps.onConfirm?.(v)
       },
     })
 
@@ -95,65 +95,75 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
       }
 
       date = new Date(
-        bound(date.getTime(), props.min.getTime(), props.max.getTime())
+        bound(
+          date.getTime(),
+          mergedProps.min.getTime(),
+          mergedProps.max.getTime()
+        )
       )
-      return convertDateToStringArray(date, props.precision)
-    }, [value, props.precision, props.min, props.max])
+      return convertDateToStringArray(date, mergedProps.precision)
+    }, [value, mergedProps.precision, mergedProps.min, mergedProps.max])
 
     const onConfirm = useCallback(
       (val: PickerValue[]) => {
-        const date = convertStringArrayToDate(val, props.precision)
+        const date = convertStringArrayToDate(val, mergedProps.precision)
         setValue(date, true)
       },
-      [setValue, props.precision]
+      [setValue, mergedProps.precision]
     )
 
     const onSelect = useMemoizedFn((val: PickerValue[]) => {
-      const date = convertStringArrayToDate(val, props.precision)
-      props.onSelect?.(date)
+      const date = convertStringArrayToDate(val, mergedProps.precision)
+      mergedProps.onSelect?.(date)
     })
 
     const columns = useCallback<(value: PickerValue[]) => PickerColumn[]>(
       selected =>
         generateDatePickerColumns(
           selected as string[],
-          props.min,
-          props.max,
-          props.precision,
+          mergedProps.min,
+          mergedProps.max,
+          mergedProps.precision,
           mergedRenderLabel,
-          props.filter,
-          props.tillNow
+          mergedProps.filter,
+          mergedProps.tillNow
         ),
-      [props.min, props.max, props.precision, mergedRenderLabel, props.tillNow]
+      [
+        mergedProps.min,
+        mergedProps.max,
+        mergedProps.precision,
+        mergedRenderLabel,
+        mergedProps.tillNow,
+      ]
     )
 
     return withNativeProps(
-      props,
+      mergedProps,
       <Picker
         ref={ref}
         columns={columns}
         value={pickerValue}
-        onCancel={props.onCancel}
-        onClose={props.onClose}
-        closeOnMaskClick={props.closeOnMaskClick}
-        visible={props.visible}
-        confirmText={props.confirmText}
-        cancelText={props.cancelText}
+        onCancel={mergedProps.onCancel}
+        onClose={mergedProps.onClose}
+        closeOnMaskClick={mergedProps.closeOnMaskClick}
+        visible={mergedProps.visible}
+        confirmText={mergedProps.confirmText}
+        cancelText={mergedProps.cancelText}
         onConfirm={onConfirm}
         onSelect={onSelect}
-        getContainer={props.getContainer}
-        loading={props.loading}
-        loadingContent={props.loadingContent}
-        afterShow={props.afterShow}
-        afterClose={props.afterClose}
-        onClick={props.onClick}
-        title={props.title}
-        stopPropagation={props.stopPropagation}
-        mouseWheel={props.mouseWheel}
-        destroyOnClose={props.destroyOnClose}
-        forceRender={props.forceRender}
+        getContainer={mergedProps.getContainer}
+        loading={mergedProps.loading}
+        loadingContent={mergedProps.loadingContent}
+        afterShow={mergedProps.afterShow}
+        afterClose={mergedProps.afterClose}
+        onClick={mergedProps.onClick}
+        title={mergedProps.title}
+        stopPropagation={mergedProps.stopPropagation}
+        mouseWheel={mergedProps.mouseWheel}
+        destroyOnClose={mergedProps.destroyOnClose}
+        forceRender={mergedProps.forceRender}
       >
-        {(_, actions) => props.children?.(value, actions)}
+        {(_, actions) => mergedProps.children?.(value, actions)}
       </Picker>
     )
   }

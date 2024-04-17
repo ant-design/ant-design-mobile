@@ -1,6 +1,6 @@
 import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
 import type { FC } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -29,8 +29,8 @@ const defaultProps = {
   fullPage: true,
 }
 
-export const WaterMark: FC<WaterMarkProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const WaterMark: FC<WaterMarkProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const {
     zIndex,
     gapX = 24,
@@ -47,7 +47,7 @@ export const WaterMark: FC<WaterMarkProps> = p => {
     fontColor = 'rgba(0,0,0,.15)',
     fontSize = 14,
     fontFamily = 'sans-serif',
-  } = props
+  } = mergedProps
 
   const [base64Url, setBase64Url] = useState('')
 
@@ -124,10 +124,10 @@ export const WaterMark: FC<WaterMarkProps> = p => {
   ])
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(classPrefix, {
-        [`${classPrefix}-full-page`]: props.fullPage,
+        [`${classPrefix}-full-page`]: mergedProps.fullPage,
       })}
       style={{
         zIndex,

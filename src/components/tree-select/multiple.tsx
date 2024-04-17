@@ -1,15 +1,15 @@
 import classNames from 'classnames'
-import React, { useEffect, useMemo } from 'react'
 import type { FC } from 'react'
+import React, { useEffect, useMemo } from 'react'
+import { TreeSelectOption } from '.'
+import type { FieldNamesType } from '../../hooks'
+import { useFieldNames } from '../../hooks'
+import { devWarning } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import Checkbox from '../checkbox'
-import { TreeSelectOption } from '.'
-import { usePropsValue } from '../../utils/use-props-value'
-import { devWarning } from '../../utils/dev-log'
-import { useFieldNames } from '../../hooks'
-import type { FieldNamesType } from '../../hooks'
 
 const classPrefix = `adm-tree-select-multiple`
 
@@ -28,8 +28,8 @@ export type MultipleProps = {
   onExpand?: (expandedKeys: string[], nodes: TreeSelectOption[]) => void
 } & NativeProps
 
-export const Multiple: FC<MultipleProps> = p => {
-  const props = mergeProps(
+export const Multiple: FC<MultipleProps> = props => {
+  const mergedProps = mergeProps(
     {
       options: [],
       fieldNames: {},
@@ -37,23 +37,25 @@ export const Multiple: FC<MultipleProps> = p => {
       defaultExpandKeys: [],
       defaultValue: [],
     },
-    p
+    props
   )
   useEffect(() => {
     devWarning('TreeSelect', 'TreeSelect.Multiple has been deprecated.')
   }, [])
-  const [labelName, valueName, childrenName] = useFieldNames(props.fieldNames)
+  const [labelName, valueName, childrenName] = useFieldNames(
+    mergedProps.fieldNames
+  )
 
   // 打开的 keys
   const [expandKeys, setExpandKeys] = usePropsValue({
-    value: props.expandKeys,
-    defaultValue: props.defaultExpandKeys,
+    value: mergedProps.expandKeys,
+    defaultValue: mergedProps.defaultExpandKeys,
   })
 
   // 选中的 value（聚合后）
   const [value, setValue] = usePropsValue({
-    value: props.value,
-    defaultValue: props.defaultValue,
+    value: mergedProps.value,
+    defaultValue: mergedProps.defaultValue,
   })
 
   // 获取目标所有叶子节点 key 集合
@@ -74,7 +76,7 @@ export const Multiple: FC<MultipleProps> = p => {
   }
 
   const [deep, optionsMap, optionsParentMap] = useMemo(() => {
-    const deep = getTreeDeep(props.options, childrenName)
+    const deep = getTreeDeep(mergedProps.options, childrenName)
 
     const optionsMap = new Map<string, TreeSelectOption>()
     const optionsParentMap = new Map<string, TreeSelectOption | undefined>()
@@ -92,9 +94,9 @@ export const Multiple: FC<MultipleProps> = p => {
       })
     }
 
-    traverse(undefined, props.options)
+    traverse(undefined, mergedProps.options)
     return [deep, optionsMap, optionsParentMap]
-  }, [props.options])
+  }, [mergedProps.options])
 
   // 将聚合的 value 拆分开，获得叶子节点的 value 集合
   const allSelectedLeafKeys = useMemo(() => {
@@ -158,7 +160,7 @@ export const Multiple: FC<MultipleProps> = p => {
     const groupOptions = groupKeys.map(i => optionsMap.get(i)!)
 
     setValue(groupKeys)
-    props.onChange?.(groupKeys, groupOptions)
+    mergedProps.onChange?.(groupKeys, groupOptions)
   }
 
   const onItemSelect = (option: TreeSelectOption) => {
@@ -172,7 +174,7 @@ export const Multiple: FC<MultipleProps> = p => {
 
     const keys = parentNodes.map(i => i[valueName])
     setExpandKeys(keys)
-    props.onExpand?.(keys, parentNodes)
+    mergedProps.onExpand?.(keys, parentNodes)
   }
 
   // 渲染全选节点
@@ -180,7 +182,7 @@ export const Multiple: FC<MultipleProps> = p => {
     columnOptions: TreeSelectOption[],
     index: number
   ) => {
-    const text = props.selectAllText?.[index]
+    const text = mergedProps.selectAllText?.[index]
     if (!text) {
       return
     }
@@ -215,7 +217,7 @@ export const Multiple: FC<MultipleProps> = p => {
     columnOptions: TreeSelectOption[],
     index: number
   ) => {
-    const text = props.selectAllText?.[index]
+    const text = mergedProps.selectAllText?.[index]
     if (!text) {
       return
     }
@@ -354,7 +356,7 @@ export const Multiple: FC<MultipleProps> = p => {
         >
           {renderItems(
             i === 0
-              ? props.options
+              ? mergedProps.options
               : optionsMap.get(expandKeys[i - 1])?.[childrenName],
             i
           )}
@@ -366,7 +368,7 @@ export const Multiple: FC<MultipleProps> = p => {
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>{renderColumns()}</div>
   )
 }

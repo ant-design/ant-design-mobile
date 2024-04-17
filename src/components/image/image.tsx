@@ -1,13 +1,13 @@
-import { mergeProps } from '../../utils/with-default-props'
-import React, { useState, useRef, useEffect } from 'react'
 import type { ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import React, { useEffect, useRef, useState } from 'react'
 import { staged } from 'staged-components'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { toCSSLength } from '../../utils/to-css-length'
-import { LazyDetector } from './lazy-detector'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
-import { ImageIcon } from './image-icon'
+import { mergeProps } from '../../utils/with-default-props'
 import { BrokenImageIcon } from './broken-image-icon'
+import { ImageIcon } from './image-icon'
+import { LazyDetector } from './lazy-detector'
 
 const classPrefix = `adm-image`
 
@@ -54,8 +54,8 @@ const defaultProps = {
   draggable: false,
 }
 
-export const Image = staged<ImageProps>(p => {
-  const props = mergeProps(defaultProps, p)
+export const Image = staged<ImageProps>(props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
@@ -63,13 +63,13 @@ export const Image = staged<ImageProps>(p => {
   const ref = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
 
-  let src: string | undefined = props.src
-  let srcSet: string | undefined = props.srcSet
+  let src: string | undefined = mergedProps.src
+  let srcSet: string | undefined = mergedProps.srcSet
 
-  const [initialized, setInitialized] = useState(!props.lazy)
+  const [initialized, setInitialized] = useState(!mergedProps.lazy)
 
-  src = initialized ? props.src : undefined
-  srcSet = initialized ? props.srcSet : undefined
+  src = initialized ? mergedProps.src : undefined
+  srcSet = initialized ? mergedProps.srcSet : undefined
 
   useIsomorphicUpdateLayoutEffect(() => {
     setLoaded(false)
@@ -85,64 +85,64 @@ export const Image = staged<ImageProps>(p => {
 
   function renderInner() {
     if (failed) {
-      return <>{props.fallback}</>
+      return <>{mergedProps.fallback}</>
     }
     const img = (
       <img
         ref={imgRef}
-        id={props.id}
+        id={mergedProps.id}
         className={`${classPrefix}-img`}
         src={src}
-        alt={props.alt}
-        onClick={props.onClick}
+        alt={mergedProps.alt}
+        onClick={mergedProps.onClick}
         onLoad={e => {
           setLoaded(true)
-          props.onLoad?.(e)
+          mergedProps.onLoad?.(e)
         }}
         onError={e => {
           setFailed(true)
-          props.onError?.(e)
+          mergedProps.onError?.(e)
         }}
         style={{
-          objectFit: props.fit,
+          objectFit: mergedProps.fit,
           display: loaded ? 'block' : 'none',
         }}
-        crossOrigin={props.crossOrigin}
-        decoding={props.decoding}
-        loading={props.loading}
-        referrerPolicy={props.referrerPolicy}
-        sizes={props.sizes}
+        crossOrigin={mergedProps.crossOrigin}
+        decoding={mergedProps.decoding}
+        loading={mergedProps.loading}
+        referrerPolicy={mergedProps.referrerPolicy}
+        sizes={mergedProps.sizes}
         srcSet={srcSet}
-        useMap={props.useMap}
-        draggable={props.draggable}
+        useMap={mergedProps.useMap}
+        draggable={mergedProps.draggable}
       />
     )
     return (
       <>
-        {!loaded && props.placeholder}
+        {!loaded && mergedProps.placeholder}
         {img}
       </>
     )
   }
 
   const style: ImageProps['style'] = {}
-  if (props.width) {
-    style['--width'] = toCSSLength(props.width)
-    style['width'] = toCSSLength(props.width)
+  if (mergedProps.width) {
+    style['--width'] = toCSSLength(mergedProps.width)
+    style['width'] = toCSSLength(mergedProps.width)
   }
-  if (props.height) {
-    style['--height'] = toCSSLength(props.height)
-    style['height'] = toCSSLength(props.height)
+  if (mergedProps.height) {
+    style['--height'] = toCSSLength(mergedProps.height)
+    style['height'] = toCSSLength(mergedProps.height)
   }
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       ref={ref}
       className={classPrefix}
       style={style}
-      onClick={props.onContainerClick}
+      onClick={mergedProps.onContainerClick}
     >
-      {props.lazy && !initialized && (
+      {mergedProps.lazy && !initialized && (
         <LazyDetector
           onActive={() => {
             setInitialized(true)

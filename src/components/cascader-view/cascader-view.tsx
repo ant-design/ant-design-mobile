@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useMemo } from 'react'
-import type { FC, ReactNode } from 'react'
-import classNames from 'classnames'
-import Tabs from '../tabs'
-import CheckList, { CheckListValue } from '../check-list'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import { usePropsValue } from '../../utils/use-props-value'
-import { useCascaderValueExtend } from './use-cascader-value-extend'
-import { useConfig } from '../config-provider'
-import { optionSkeleton } from './option-skeleton'
-import Skeleton from '../skeleton'
 import { useUpdateEffect } from 'ahooks'
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import type { BaseOptionType, FieldNamesType } from '../../hooks'
 import { useFieldNames } from '../../hooks'
-import type { FieldNamesType, BaseOptionType } from '../../hooks'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import CheckList, { CheckListValue } from '../check-list'
+import { useConfig } from '../config-provider'
+import Skeleton from '../skeleton'
+import Tabs from '../tabs'
+import { optionSkeleton } from './option-skeleton'
+import { useCascaderValueExtend } from './use-cascader-value-extend'
 
 const classPrefix = `adm-cascader-view`
 
@@ -46,22 +46,22 @@ const defaultProps = {
   defaultValue: [],
 }
 
-export const CascaderView: FC<CascaderViewProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const CascaderView: FC<CascaderViewProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   const { locale } = useConfig()
   const [labelName, valueName, childrenName, disabledName] = useFieldNames(
-    props.fieldNames
+    mergedProps.fieldNames
   )
-  const generateValueExtend = useCascaderValueExtend(props.options, {
+  const generateValueExtend = useCascaderValueExtend(mergedProps.options, {
     valueName,
     childrenName,
   })
 
   const [value, setValue] = usePropsValue({
-    ...props,
+    ...mergedProps,
     onChange: val => {
-      props.onChange?.(val, generateValueExtend(val))
+      mergedProps.onChange?.(val, generateValueExtend(val))
     },
   })
   const [tabActiveIndex, setTabActiveIndex] = useState(0)
@@ -72,7 +72,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
       options: CascaderOption[]
     }[] = []
 
-    let currentOptions = props.options
+    let currentOptions = mergedProps.options
     let reachedEnd = false
     for (const v of value) {
       const target = currentOptions.find(option => option[valueName] === v)
@@ -93,10 +93,10 @@ export const CascaderView: FC<CascaderViewProps> = p => {
       })
     }
     return ret
-  }, [value, props.options])
+  }, [value, mergedProps.options])
 
   useUpdateEffect(() => {
-    props.onTabsChange?.(tabActiveIndex)
+    mergedProps.onTabsChange?.(tabActiveIndex)
   }, [tabActiveIndex])
   useEffect(() => {
     setTabActiveIndex(levels.length - 1)
@@ -117,12 +117,12 @@ export const CascaderView: FC<CascaderViewProps> = p => {
   }
 
   const whetherLoading = <T extends unknown[]>(options: T) =>
-    props.loading || options === optionSkeleton
+    mergedProps.loading || options === optionSkeleton
 
-  const placeholder = props.placeholder || locale.Cascader.placeholder
+  const placeholder = mergedProps.placeholder || locale.Cascader.placeholder
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>
       <Tabs
         activeKey={tabActiveIndex.toString()}
@@ -143,8 +143,8 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                   {selected
                     ? selected[labelName]
                     : typeof placeholder === 'function'
-                    ? placeholder(index)
-                    : placeholder}
+                      ? placeholder(index)
+                      : placeholder}
                 </div>
               }
               forceRender
@@ -175,7 +175,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                     onChange={selectValue =>
                       onItemSelect(selectValue[0], index)
                     }
-                    activeIcon={props.activeIcon}
+                    activeIcon={mergedProps.activeIcon}
                   >
                     {level.options.map(option => {
                       const active = value[index] === option[valueName]

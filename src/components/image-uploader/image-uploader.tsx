@@ -1,22 +1,22 @@
-import React, { forwardRef, useRef, useState, useImperativeHandle } from 'react'
-import type {
-  ReactNode,
-  InputHTMLAttributes,
-  CSSProperties,
-  ReactElement,
-} from 'react'
+import { useIsomorphicLayoutEffect, useSize, useUnmount } from 'ahooks'
 import { AddOutline, CloseOutline } from 'antd-mobile-icons'
-import { mergeProps } from '../../utils/with-default-props'
-import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
-import PreviewItem from './preview-item'
-import { usePropsValue } from '../../utils/use-props-value'
-import { useIsomorphicLayoutEffect, useUnmount, useSize } from 'ahooks'
-import Space from '../space'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import type {
+  CSSProperties,
+  InputHTMLAttributes,
+  ReactElement,
+  ReactNode,
+} from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { measureCSSLength } from '../../utils/measure-css-length'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
-import type { ImageProps } from '../image'
 import Grid, { GridProps } from '../grid'
+import type { ImageProps } from '../image'
+import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
+import Space from '../space'
+import PreviewItem from './preview-item'
 
 export type TaskStatus = 'pending' | 'fail' | 'success'
 
@@ -90,11 +90,11 @@ const defaultProps = {
 }
 
 export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
-  (p, ref) => {
+  (props, ref) => {
     const { locale } = useConfig()
-    const props = mergeProps(defaultProps, p)
-    const { columns } = props
-    const [value, setValue] = usePropsValue(props)
+    const mergedProps = mergeProps(defaultProps, props)
+    const { columns } = mergedProps
+    const [value, setValue] = usePropsValue(mergedProps)
 
     const [tasks, setTasks] = useState<Task[]>([])
 
@@ -133,17 +133,17 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
     }, [value])
 
     useIsomorphicLayoutEffect(() => {
-      props.onUploadQueueChange?.(
+      mergedProps.onUploadQueueChange?.(
         tasks.map(item => ({ id: item.id, status: item.status }))
       )
     }, [tasks])
 
     const idCountRef = useRef(0)
 
-    const { maxCount, onPreview, renderItem } = props
+    const { maxCount, onPreview, renderItem } = mergedProps
 
     async function processFile(file: File, fileList: File[]) {
-      const { beforeUpload } = props
+      const { beforeUpload } = mergedProps
 
       let transformedFile: File | null | undefined = file
 
@@ -153,7 +153,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
     }
 
     function getFinalTasks(tasks: Task[]) {
-      return props.showFailed
+      return mergedProps.showFailed
         ? tasks
         : tasks.filter(task => task.status !== 'fail')
     }
@@ -165,7 +165,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
       let files = [].slice.call(rawFiles) as File[]
       e.target.value = '' // HACK: fix the same file doesn't trigger onChange
 
-      if (props.beforeUpload) {
+      if (mergedProps.beforeUpload) {
         const postFiles = files.map(file => processFile(file, files))
 
         await Promise.all(postFiles).then(filesList => {
@@ -181,7 +181,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
         const exceed = value.length + files.length - maxCount
         if (exceed > 0) {
           files = files.slice(0, files.length - exceed)
-          props.onCountExceed?.(exceed)
+          mergedProps.onCountExceed?.(exceed)
         }
       }
 
@@ -191,7 +191,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
             id: idCountRef.current++,
             status: 'pending',
             file,
-          } as Task)
+          }) as Task
       )
 
       setTasks(prev => [...getFinalTasks(prev), ...newTasks])
@@ -199,7 +199,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
       await Promise.all(
         newTasks.map(async (currentTask, index) => {
           try {
-            const result = await props.upload(currentTask.file)
+            const result = await mergedProps.upload(currentTask.file)
             newVal[index] = result
             setTasks(prev => {
               return prev.map(task => {
@@ -251,7 +251,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
     const finalTasks = getFinalTasks(tasks)
 
     const showUpload =
-      props.showUpload &&
+      mergedProps.showUpload &&
       (maxCount === 0 || value.length + finalTasks.length < maxCount)
 
     const renderImages = () => {
@@ -260,17 +260,17 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
           <PreviewItem
             key={fileItem.key ?? index}
             url={fileItem.thumbnailUrl ?? fileItem.url}
-            deletable={props.deletable}
-            deleteIcon={props.deleteIcon}
-            imageFit={props.imageFit}
+            deletable={mergedProps.deletable}
+            deleteIcon={mergedProps.deleteIcon}
+            imageFit={mergedProps.imageFit}
             onClick={() => {
-              if (props.preview) {
+              if (mergedProps.preview) {
                 previewImage(index)
               }
               onPreview && onPreview(index, fileItem)
             }}
             onDelete={async () => {
-              const canDelete = await props.onDelete?.(fileItem)
+              const canDelete = await mergedProps.onDelete?.(fileItem)
               if (canDelete === false) return
               setValue(value.filter((x, i) => i !== index))
             }}
@@ -284,7 +284,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
       <>
         {renderImages()}
         {tasks.map(task => {
-          if (!props.showFailed && task.status === 'fail') {
+          if (!mergedProps.showFailed && task.status === 'fail') {
             return null
           }
           return (
@@ -292,9 +292,9 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
               key={task.id}
               file={task.file}
               deletable={task.status !== 'pending'}
-              deleteIcon={props.deleteIcon}
+              deleteIcon={mergedProps.deleteIcon}
               status={task.status}
-              imageFit={props.imageFit}
+              imageFit={mergedProps.imageFit}
               onDelete={() => {
                 setTasks(tasks.filter(x => x.id !== task.id))
               }}
@@ -305,7 +305,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
           className={`${classPrefix}-upload-button-wrap`}
           style={showUpload ? undefined : { display: 'none' }}
         >
-          {props.children || (
+          {mergedProps.children || (
             <span
               className={`${classPrefix}-cell ${classPrefix}-upload-button`}
               role='button'
@@ -316,12 +316,12 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
               </span>
             </span>
           )}
-          {!props.disableUpload && (
+          {!mergedProps.disableUpload && (
             <input
               ref={inputRef}
-              capture={props.capture}
-              accept={props.accept}
-              multiple={props.multiple}
+              capture={mergedProps.capture}
+              accept={mergedProps.accept}
+              multiple={mergedProps.multiple}
               type='file'
               className={`${classPrefix}-input`}
               onChange={onChange}
@@ -339,7 +339,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
     }))
 
     return withNativeProps(
-      props,
+      mergedProps,
       <div className={classPrefix} ref={containerRef}>
         {columns ? (
           <Grid

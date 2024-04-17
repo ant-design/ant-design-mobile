@@ -1,6 +1,6 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 
@@ -17,19 +17,19 @@ const defaultProps = {
   direction: 'horizontal',
 }
 
-export const Divider: FC<DividerProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const Divider: FC<DividerProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(
         classPrefix,
-        `${classPrefix}-${props.direction}`,
-        `${classPrefix}-${props.contentPosition}`
+        `${classPrefix}-${mergedProps.direction}`,
+        `${classPrefix}-${mergedProps.contentPosition}`
       )}
     >
-      {props.children && (
-        <div className={`${classPrefix}-content`}>{props.children}</div>
+      {mergedProps.children && (
+        <div className={`${classPrefix}-content`}>{mergedProps.children}</div>
       )}
     </div>
   )

@@ -1,22 +1,22 @@
-import React, { useCallback, useMemo } from 'react'
 import type { FC, ReactNode } from 'react'
-import PickerView from '../picker-view'
-import type { PickerValue, PickerViewProps } from '../picker-view'
+import React, { useCallback, useMemo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import type {
+  DatePickerFilter,
+  Precision,
+} from '../date-picker/date-picker-utils'
 import {
-  generateDatePickerColumns,
   convertDateToStringArray,
   convertStringArrayToDate,
+  generateDatePickerColumns,
 } from '../date-picker/date-picker-utils'
-import type {
-  Precision,
-  DatePickerFilter,
-} from '../date-picker/date-picker-utils'
-import useRenderLabel from './useRenderLabel'
-import { TILL_NOW } from '../date-picker/util'
 import type { PickerDate } from '../date-picker/util'
+import { TILL_NOW } from '../date-picker/util'
+import type { PickerValue, PickerViewProps } from '../picker-view'
+import PickerView from '../picker-view'
+import useRenderLabel from './useRenderLabel'
 
 export type RenderLabel = (type: Precision | 'now', data: number) => ReactNode
 
@@ -43,13 +43,13 @@ const defaultProps = {
   precision: 'day',
 }
 
-export const DatePickerView: FC<DatePickerViewProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const { renderLabel } = props
+export const DatePickerView: FC<DatePickerViewProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const { renderLabel } = mergedProps
 
   const [value, setValue] = usePropsValue<PickerDate | null>({
-    value: props.value,
-    defaultValue: props.defaultValue ?? null,
+    value: mergedProps.value,
+    defaultValue: mergedProps.defaultValue ?? null,
   })
 
   const mergedRenderLabel = useRenderLabel(renderLabel)
@@ -59,38 +59,38 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
       return [TILL_NOW, null, null]
     }
 
-    return convertDateToStringArray(value, props.precision)
-  }, [value, props.precision])
+    return convertDateToStringArray(value, mergedProps.precision)
+  }, [value, mergedProps.precision])
 
   const onChange = useCallback(
     (val: PickerValue[]) => {
-      const date = convertStringArrayToDate(val, props.precision)
+      const date = convertStringArrayToDate(val, mergedProps.precision)
       if (date) {
         setValue(date)
-        props.onChange?.(date)
+        mergedProps.onChange?.(date)
       }
     },
-    [props.onChange, props.precision]
+    [mergedProps.onChange, mergedProps.precision]
   )
 
   return withNativeProps(
-    props,
+    mergedProps,
     <PickerView
       columns={selected =>
         generateDatePickerColumns(
           selected as string[],
-          props.min,
-          props.max,
-          props.precision,
+          mergedProps.min,
+          mergedProps.max,
+          mergedProps.precision,
           mergedRenderLabel,
-          props.filter,
-          props.tillNow
+          mergedProps.filter,
+          mergedProps.tillNow
         )
       }
-      loading={props.loading}
-      loadingContent={props.loadingContent}
+      loading={mergedProps.loading}
+      loadingContent={mergedProps.loadingContent}
       value={pickerValue}
-      mouseWheel={props.mouseWheel}
+      mouseWheel={mergedProps.mouseWheel}
       onChange={onChange}
     />
   )

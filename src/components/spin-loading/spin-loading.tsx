@@ -1,8 +1,8 @@
+import { animated, useSpring } from '@react-spring/web'
 import React, { memo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import { useSpring, animated } from '@react-spring/web'
 import { useMotionReduced } from '../../utils/reduce-and-restore-motion'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-spin-loading'
 
@@ -22,8 +22,8 @@ const defaultProps = {
 
 const circumference = 15 * 3.14159265358979 * 2
 
-export const SpinLoading = memo<SpinLoadingProps>(p => {
-  const props = mergeProps(defaultProps, p)
+export const SpinLoading = memo<SpinLoadingProps>(props => {
+  const mergedProps = mergeProps(defaultProps, props)
   const motionReduced = useMotionReduced()
   const { percent } = useSpring({
     cancel: motionReduced,
@@ -42,12 +42,12 @@ export const SpinLoading = memo<SpinLoadingProps>(p => {
   })
 
   return withNativeProps(
-    props,
+    mergedProps,
     <animated.div
       className={classPrefix}
       style={
         {
-          '--color': colorRecord[props.color] ?? props.color,
+          '--color': colorRecord[mergedProps.color] ?? mergedProps.color,
           '--percent': percent,
         } as any
       }

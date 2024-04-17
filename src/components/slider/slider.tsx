@@ -1,15 +1,15 @@
-import React, { useMemo, useRef } from 'react'
-import type { FC, ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import classNames from 'classnames'
-import Ticks from './ticks'
-import Marks, { SliderMarks } from './marks'
 import getMiniDecimal, { toFixed } from '@rc-component/mini-decimal'
-import Thumb from './thumb'
-import { mergeProps } from '../../utils/with-default-props'
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React, { useMemo, useRef } from 'react'
+import { devWarning } from '../../utils/dev-log'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { nearest } from '../../utils/nearest'
 import { usePropsValue } from '../../utils/use-props-value'
-import { devWarning } from '../../utils/dev-log'
+import { mergeProps } from '../../utils/with-default-props'
+import Marks, { SliderMarks } from './marks'
+import Thumb from './thumb'
+import Ticks from './ticks'
 
 const classPrefix = `adm-slider`
 
@@ -43,15 +43,15 @@ const defaultProps = {
   residentPopover: false,
 }
 
-export const Slider: FC<SliderProps> = p => {
-  const props = mergeProps(defaultProps, p)
-  const { min, max, disabled, marks, ticks, step, icon } = props
+export const Slider: FC<SliderProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
+  const { min, max, disabled, marks, ticks, step, icon } = mergedProps
 
   function sortValue(val: [number, number]): [number, number] {
     return val.sort((a, b) => a - b)
   }
   function convertValue(value: SliderValue): [number, number] {
-    return (props.range ? value : [props.min, value]) as any
+    return (mergedProps.range ? value : [mergedProps.min, value]) as any
   }
   function alignValue(value: number, decimalLen: number) {
     const decimal = getMiniDecimal(value)
@@ -66,7 +66,7 @@ export const Slider: FC<SliderProps> = p => {
       getDecimalLen(value[0]),
       getDecimalLen(value[1])
     )
-    return props.range
+    return mergedProps.range
       ? (value.map(v => alignValue(v, mergedDecimalLen)) as [number, number])
       : alignValue(value[1], mergedDecimalLen)
   }
@@ -76,21 +76,22 @@ export const Slider: FC<SliderProps> = p => {
   }
 
   function onAfterChange(value: [number, number]) {
-    props.onAfterChange?.(reverseValue(value))
+    mergedProps.onAfterChange?.(reverseValue(value))
   }
 
-  let propsValue: SliderValue | undefined = props.value
-  if (props.range && typeof props.value === 'number') {
+  let propsValue: SliderValue | undefined = mergedProps.value
+  if (mergedProps.range && typeof mergedProps.value === 'number') {
     devWarning(
       'Slider',
       'When `range` prop is enabled, the `value` prop should be an array, like: [0, 0]'
     )
-    propsValue = [0, props.value]
+    propsValue = [0, mergedProps.value]
   }
   const [rawValue, setRawValue] = usePropsValue<SliderValue>({
     value: propsValue,
-    defaultValue: props.defaultValue ?? (props.range ? [min, min] : min),
-    onChange: props.onChange,
+    defaultValue:
+      mergedProps.defaultValue ?? (mergedProps.range ? [min, min] : min),
+    onChange: mergedProps.onChange,
   })
 
   const sliderValue = sortValue(convertValue(rawValue))
@@ -160,7 +161,7 @@ export const Slider: FC<SliderProps> = p => {
 
     const targetValue = getValueByPosition(position)
     let nextSliderValue: [number, number]
-    if (props.range) {
+    if (mergedProps.range) {
       // 移动的滑块采用就近原则
       if (
         Math.abs(targetValue - sliderValue[0]) >
@@ -171,7 +172,7 @@ export const Slider: FC<SliderProps> = p => {
         nextSliderValue = [targetValue, sliderValue[1]]
       }
     } else {
-      nextSliderValue = [props.min, targetValue]
+      nextSliderValue = [mergedProps.min, targetValue]
     }
     setSliderValue(nextSliderValue)
     onAfterChange(nextSliderValue)
@@ -189,8 +190,8 @@ export const Slider: FC<SliderProps> = p => {
         disabled={disabled}
         trackRef={trackRef}
         icon={icon}
-        popover={props.popover}
-        residentPopover={props.residentPopover}
+        popover={mergedProps.popover}
+        residentPopover={mergedProps.residentPopover}
         onDrag={(position, first, last) => {
           if (first) {
             dragLockRef.current += 1
@@ -209,13 +210,13 @@ export const Slider: FC<SliderProps> = p => {
             }, 100)
           }
         }}
-        aria-label={props['aria-label']}
+        aria-label={mergedProps['aria-label']}
       />
     )
   }
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(classPrefix, {
         [`${classPrefix}-disabled`]: disabled,
@@ -234,7 +235,7 @@ export const Slider: FC<SliderProps> = p => {
               left: fillStart,
             }}
           />
-          {props.ticks && (
+          {mergedProps.ticks && (
             <Ticks
               points={pointList}
               min={min}
@@ -243,7 +244,7 @@ export const Slider: FC<SliderProps> = p => {
               upperBound={sliderValue[1]}
             />
           )}
-          {props.range && renderThumb(0)}
+          {mergedProps.range && renderThumb(0)}
           {renderThumb(1)}
         </div>
       </div>

@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { getScrollParent } from '../../utils/get-scroll-parent'
-import { supportsPassive } from '../../utils/supports-passive'
+import type { FC, ReactNode } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { convertPx } from '../../utils/convert-px'
+import { getScrollParent } from '../../utils/get-scroll-parent'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
-import { useConfig } from '../config-provider'
 import { sleep } from '../../utils/sleep'
+import { supportsPassive } from '../../utils/supports-passive'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-pull-to-refresh`
 
@@ -38,9 +38,9 @@ export const defaultProps = {
   onRefresh: () => {},
 }
 
-export const PullToRefresh: FC<PullToRefreshProps> = p => {
+export const PullToRefresh: FC<PullToRefreshProps> = props => {
   const { locale } = useConfig()
-  const props = mergeProps(
+  const mergedProps = mergeProps(
     defaultProps,
     {
       refreshingText: `${locale.common.loading}...`,
@@ -48,10 +48,10 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       canReleaseText: locale.PullToRefresh.canRelease,
       completeText: locale.PullToRefresh.complete,
     },
-    p
+    props
   )
-  const headHeight = props.headHeight ?? convertPx(40)
-  const threshold = props.threshold ?? convertPx(60)
+  const headHeight = mergedProps.headHeight ?? convertPx(40)
+  const threshold = mergedProps.threshold ?? convertPx(60)
 
   const [status, setStatus] = useState<PullStatus>('pulling')
 
@@ -92,14 +92,14 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
     api.start({ height: headHeight })
     setStatus('refreshing')
     try {
-      await props.onRefresh()
+      await mergedProps.onRefresh()
       setStatus('complete')
     } catch (e) {
       reset()
       throw e
     }
-    if (props.completeDelay > 0) {
-      await sleep(props.completeDelay)
+    if (mergedProps.completeDelay > 0) {
+      await sleep(mergedProps.completeDelay)
     }
     reset()
   }
@@ -161,20 +161,20 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       pointer: { touch: true },
       axis: 'y',
       target: elementRef,
-      enabled: !props.disabled,
+      enabled: !mergedProps.disabled,
       eventOptions: supportsPassive ? { passive: false } : undefined,
     }
   )
 
   const renderStatusText = () => {
-    if (props.renderText) {
-      return props.renderText?.(status)
+    if (mergedProps.renderText) {
+      return mergedProps.renderText?.(status)
     }
 
-    if (status === 'pulling') return props.pullingText
-    if (status === 'canRelease') return props.canReleaseText
-    if (status === 'refreshing') return props.refreshingText
-    if (status === 'complete') return props.completeText
+    if (status === 'pulling') return mergedProps.pullingText
+    if (status === 'canRelease') return mergedProps.canReleaseText
+    if (status === 'refreshing') return mergedProps.refreshingText
+    if (status === 'complete') return mergedProps.completeText
   }
 
   return (
@@ -187,7 +187,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
           {renderStatusText()}
         </div>
       </animated.div>
-      <div className={`${classPrefix}-content`}>{props.children}</div>
+      <div className={`${classPrefix}-content`}>{mergedProps.children}</div>
     </animated.div>
   )
 }

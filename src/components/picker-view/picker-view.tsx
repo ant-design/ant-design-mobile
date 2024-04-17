@@ -1,13 +1,13 @@
-import React, { memo, useCallback, useEffect, useState } from 'react'
-import type { ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { Wheel } from './wheel'
-import { useColumnsExtend } from './columns-extend'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
+import type { ReactNode } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { PickerProps } from '../picker'
 import { defaultRenderLabel } from '../picker/picker-utils'
 import SpinLoading from '../spin-loading'
+import { useColumnsExtend } from './columns-extend'
+import { Wheel } from './wheel'
 
 const classPrefix = `adm-picker-view`
 
@@ -48,39 +48,41 @@ const defaultProps = {
   ),
 }
 
-export const PickerView = memo<PickerViewProps>(p => {
-  const props = mergeProps(defaultProps, p)
+export const PickerView = memo<PickerViewProps>(props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   const [innerValue, setInnerValue] = useState<PickerValue[]>(
-    props.value === undefined ? props.defaultValue : props.value
+    mergedProps.value === undefined
+      ? mergedProps.defaultValue
+      : mergedProps.value
   )
 
   // Sync `value` to `innerValue`
   useEffect(() => {
-    if (props.value === undefined) return // Uncontrolled mode
-    if (props.value === innerValue) return
-    setInnerValue(props.value)
-  }, [props.value])
+    if (mergedProps.value === undefined) return // Uncontrolled mode
+    if (mergedProps.value === innerValue) return
+    setInnerValue(mergedProps.value)
+  }, [mergedProps.value])
 
   useEffect(() => {
-    if (props.value === innerValue) return
+    if (mergedProps.value === innerValue) return
     const timeout = window.setTimeout(() => {
-      if (props.value !== undefined && props.value !== innerValue) {
-        setInnerValue(props.value)
+      if (mergedProps.value !== undefined && mergedProps.value !== innerValue) {
+        setInnerValue(mergedProps.value)
       }
     }, 1000)
     return () => {
       window.clearTimeout(timeout)
     }
-  }, [props.value, innerValue])
+  }, [mergedProps.value, innerValue])
 
-  const extend = useColumnsExtend(props.columns, innerValue)
+  const extend = useColumnsExtend(mergedProps.columns, innerValue)
   const columns = extend.columns
 
   useDebounceEffect(
     () => {
-      if (props.value === innerValue) return
-      props.onChange?.(innerValue, extend)
+      if (mergedProps.value === innerValue) return
+      mergedProps.onChange?.(innerValue, extend)
     },
     [innerValue],
     {
@@ -99,10 +101,10 @@ export const PickerView = memo<PickerViewProps>(p => {
   }, [])
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={`${classPrefix}`}>
-      {props.loading ? (
-        props.loadingContent
+      {mergedProps.loading ? (
+        mergedProps.loadingContent
       ) : (
         <>
           {columns.map((column, index) => (
@@ -112,8 +114,8 @@ export const PickerView = memo<PickerViewProps>(p => {
               column={column}
               value={innerValue[index]}
               onSelect={handleSelect}
-              renderLabel={props.renderLabel}
-              mouseWheel={props.mouseWheel}
+              renderLabel={mergedProps.renderLabel}
+              mouseWheel={mergedProps.mouseWheel}
             />
           ))}
           <div className={`${classPrefix}-mask`}>

@@ -1,14 +1,14 @@
-import React, { forwardRef, useRef, useState, useImperativeHandle } from 'react'
-import type { ReactNode, ReactElement } from 'react'
-import classNames from 'classnames'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useThrottleFn } from 'ahooks'
-import { mergeProps } from '../../utils/with-default-props'
-import { Sidebar } from './sidebar'
+import classNames from 'classnames'
+import type { ReactElement, ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { convertPx } from '../../utils/convert-px'
-import { Panel } from './panel'
 import { devWarning } from '../../utils/dev-log'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { traverseReactNode } from '../../utils/traverse-react-node'
+import { mergeProps } from '../../utils/with-default-props'
+import { Panel } from './panel'
+import { Sidebar } from './sidebar'
 
 const classPrefix = `adm-index-bar`
 
@@ -26,8 +26,8 @@ const defaultProps = {
   sticky: true,
 }
 
-export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
-  const props = mergeProps(defaultProps, p)
+export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((props, ref) => {
+  const mergedProps = mergeProps(defaultProps, props)
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
 
@@ -37,7 +37,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   }[] = []
   const panels: ReactElement[] = []
 
-  traverseReactNode(props.children, child => {
+  traverseReactNode(mergedProps.children, child => {
     if (!React.isValidElement(child)) return
     if (child.type !== Panel) {
       devWarning(
@@ -86,7 +86,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
       if (panelIndex === index) {
         body.scrollTop = panel.offsetTop
         setActiveIndex(index)
-        activeIndex !== index && props.onIndexChange?.(index)
+        activeIndex !== index && mergedProps.onIndexChange?.(index)
         return
       }
     }
@@ -106,7 +106,7 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
         if (!panelIndex) continue
         if (panel.offsetTop + panel.clientHeight - titleHeight > scrollTop) {
           setActiveIndex(panelIndex)
-          activeIndex !== panelIndex && props.onIndexChange?.(panelIndex)
+          activeIndex !== panelIndex && mergedProps.onIndexChange?.(panelIndex)
           return
         }
       }
@@ -115,10 +115,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   )
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
       className={classNames(`${classPrefix}`, {
-        [`${classPrefix}-sticky`]: props.sticky,
+        [`${classPrefix}-sticky`]: mergedProps.sticky,
       })}
     >
       <Sidebar

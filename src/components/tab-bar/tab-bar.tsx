@@ -1,12 +1,12 @@
-import React, { isValidElement } from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React, { isValidElement } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { traverseReactNode } from '../../utils/traverse-react-node'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import Badge, { BadgeProps } from '../badge'
 import SafeArea from '../safe-area'
-import { usePropsValue } from '../../utils/use-props-value'
-import { traverseReactNode } from '../../utils/traverse-react-node'
 
 export type TabBarItemProps = {
   icon?: ReactNode | ((active: boolean) => ReactNode)
@@ -33,14 +33,14 @@ const defaultProps = {
   safeArea: false,
 }
 
-export const TabBar: FC<TabBarProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const TabBar: FC<TabBarProps> = props => {
+  const mergedProps = mergeProps(defaultProps, props)
 
   let firstActiveKey: string | null = null
 
   const items: ReactElement<TabBarItemProps>[] = []
 
-  traverseReactNode(props.children, (child, index) => {
+  traverseReactNode(mergedProps.children, (child, index) => {
     if (!isValidElement<TabBarItemProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
@@ -51,16 +51,16 @@ export const TabBar: FC<TabBarProps> = p => {
   })
 
   const [activeKey, setActiveKey] = usePropsValue({
-    value: props.activeKey,
-    defaultValue: props.defaultActiveKey ?? firstActiveKey,
+    value: mergedProps.activeKey,
+    defaultValue: mergedProps.defaultActiveKey ?? firstActiveKey,
     onChange: v => {
       if (v === null) return
-      props.onChange?.(v)
+      mergedProps.onChange?.(v)
     },
   })
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>
       <div className={`${classPrefix}-wrap`}>
         {items.map(item => {
@@ -130,7 +130,7 @@ export const TabBar: FC<TabBarProps> = p => {
         })}
       </div>
 
-      {props.safeArea && <SafeArea position='bottom' />}
+      {mergedProps.safeArea && <SafeArea position='bottom' />}
     </div>
   )
 }

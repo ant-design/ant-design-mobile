@@ -17,7 +17,7 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | activeKey | 激活的 `Item` `key` | `string \| null` | - |
-| arrow | 自定义 arrow | `React.ReactNode` | - |
+| arrowIcon | 自定义箭头图标 | `React.ReactNode` | - |
 | closeOnClickAway | 是否在点击外部区域后自动隐藏 | `boolean` | `false` |
 | closeOnMaskClick | 是否在点击遮罩后自动隐藏 | `boolean` | `true` |
 | defaultActiveKey | 默认激活的 `Item` `key` | `string \| null` | `null` |
@@ -36,7 +36,7 @@
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| arrow | 自定义 arrow | `React.ReactNode` | - |
+| arrowIcon | 自定义箭头图标 | `React.ReactNode` | - |
 | destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean` | `false` |
 | highlight | 高亮 | `boolean` | `false` |

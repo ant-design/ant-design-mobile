@@ -1,20 +1,20 @@
-import React, { useRef, useState } from 'react'
-import type { FC, PropsWithChildren } from 'react'
-import { renderToContainer } from '../../utils/render-to-container'
-import Mask from '../mask'
-import { withStopPropagation } from '../../utils/with-stop-propagation'
-import { mergeProps } from '../../utils/with-default-props'
-import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { animated, useSpring } from '@react-spring/web'
-import { useInnerVisible } from '../../utils/use-inner-visible'
+import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import classNames from 'classnames'
+import type { FC, PropsWithChildren } from 'react'
+import React, { useRef, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { renderToContainer } from '../../utils/render-to-container'
 import { ShouldRender } from '../../utils/should-render'
+import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useLockScroll } from '../../utils/use-lock-scroll'
-import { CloseOutline } from 'antd-mobile-icons'
+import { mergeProps } from '../../utils/with-default-props'
+import { withStopPropagation } from '../../utils/with-stop-propagation'
+import { useConfig } from '../config-provider'
+import Mask from '../mask'
 import {
-  defaultPopupBaseProps,
   PopupBaseProps,
+  defaultPopupBaseProps,
 } from '../popup/popup-base-props'
 
 const classPrefix = 'adm-center-popup'
@@ -37,13 +37,14 @@ const defaultProps = {
   getContainer: null,
 }
 
-export const CenterPopup: FC<CenterPopupProps> = p => {
-  const props = mergeProps(defaultProps, p)
+export const CenterPopup: FC<CenterPopupProps> = props => {
+  const { popup: componentConfig = {} } = useConfig()
+  const mergedProps = mergeProps(defaultProps, componentConfig, props)
 
   const unmountedRef = useUnmountedRef()
   const style = useSpring({
-    scale: props.visible ? 1 : 0.8,
-    opacity: props.visible ? 1 : 0,
+    scale: mergedProps.visible ? 1 : 0.8,
+    opacity: mergedProps.visible ? 1 : 0,
     config: {
       mass: 1.2,
       tension: 200,
@@ -52,40 +53,40 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
     },
     onRest: () => {
       if (unmountedRef.current) return
-      setActive(props.visible)
-      if (props.visible) {
-        props.afterShow?.()
+      setActive(mergedProps.visible)
+      if (mergedProps.visible) {
+        mergedProps.afterShow?.()
       } else {
-        props.afterClose?.()
+        mergedProps.afterClose?.()
       }
     },
   })
 
-  const [active, setActive] = useState(props.visible)
+  const [active, setActive] = useState(mergedProps.visible)
   useIsomorphicLayoutEffect(() => {
-    if (props.visible) {
+    if (mergedProps.visible) {
       setActive(true)
     }
-  }, [props.visible])
+  }, [mergedProps.visible])
 
   const ref = useRef<HTMLDivElement>(null)
-  useLockScroll(ref, props.disableBodyScroll && active)
+  useLockScroll(ref, mergedProps.disableBodyScroll && active)
 
-  const maskVisible = useInnerVisible(active && props.visible)
+  const maskVisible = useInnerVisible(active && mergedProps.visible)
 
   const body = (
     <div
-      className={classNames(`${classPrefix}-body`, props.bodyClassName)}
-      style={props.bodyStyle}
+      className={classNames(`${classPrefix}-body`, mergedProps.bodyClassName)}
+      style={mergedProps.bodyStyle}
     >
-      {props.children}
+      {mergedProps.children}
     </div>
   )
 
   const node = withStopPropagation(
-    props.stopPropagation,
+    mergedProps.stopPropagation,
     withNativeProps(
-      props,
+      mergedProps,
       <div
         className={classPrefix}
         style={{
@@ -93,27 +94,30 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
           pointerEvents: active ? undefined : 'none',
         }}
       >
-        {props.mask && (
+        {mergedProps.mask && (
           <Mask
             visible={maskVisible}
-            forceRender={props.forceRender}
-            destroyOnClose={props.destroyOnClose}
+            forceRender={mergedProps.forceRender}
+            destroyOnClose={mergedProps.destroyOnClose}
             onMaskClick={e => {
-              props.onMaskClick?.(e)
-              if (props.closeOnMaskClick) {
-                props.onClose?.()
+              mergedProps.onMaskClick?.(e)
+              if (mergedProps.closeOnMaskClick) {
+                mergedProps.onClose?.()
               }
             }}
-            style={props.maskStyle}
-            className={classNames(`${classPrefix}-mask`, props.maskClassName)}
+            style={mergedProps.maskStyle}
+            className={classNames(
+              `${classPrefix}-mask`,
+              mergedProps.maskClassName
+            )}
             disableBodyScroll={false}
-            stopPropagation={props.stopPropagation}
+            stopPropagation={mergedProps.stopPropagation}
           />
         )}
         <div
           className={`${classPrefix}-wrap`}
-          role={props.role}
-          aria-label={props['aria-label']}
+          role={mergedProps.role}
+          aria-label={mergedProps['aria-label']}
         >
           <animated.div
             style={{
@@ -124,17 +128,17 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
             }}
             ref={ref}
           >
-            {props.showCloseButton && (
+            {mergedProps.showCloseButton && (
               <a
                 className={classNames(
                   `${classPrefix}-close`,
                   'adm-plain-anchor'
                 )}
                 onClick={() => {
-                  props.onClose?.()
+                  mergedProps.onClose?.()
                 }}
               >
-                <CloseOutline />
+                {mergedProps.closeIcon}
               </a>
             )}
             {body}
@@ -147,10 +151,10 @@ export const CenterPopup: FC<CenterPopupProps> = p => {
   return (
     <ShouldRender
       active={active}
-      forceRender={props.forceRender}
-      destroyOnClose={props.destroyOnClose}
+      forceRender={mergedProps.forceRender}
+      destroyOnClose={mergedProps.destroyOnClose}
     >
-      {renderToContainer(props.getContainer, node)}
+      {renderToContainer(mergedProps.getContainer, node)}
     </ShouldRender>
   )
 }

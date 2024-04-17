@@ -1,13 +1,13 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
-import type { ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { useSpring, animated } from '@react-spring/web'
-import { supportsPassive } from '../../utils/supports-passive'
-import { nearest } from '../../utils/nearest'
-import { mergeProps } from '../../utils/with-default-props'
-import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useMemoizedFn } from 'ahooks'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { nearest } from '../../utils/nearest'
+import { supportsPassive } from '../../utils/supports-passive'
+import { useLockScroll } from '../../utils/use-lock-scroll'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-floating-panel'
 
@@ -32,9 +32,9 @@ const defaultProps = {
 }
 
 export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
-  (p, ref) => {
-    const props = mergeProps(defaultProps, p)
-    const { anchors } = props
+  (props, ref) => {
+    const mergedProps = mergeProps(defaultProps, props)
+    const { anchors } = mergedProps
     const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
     const possibles = anchors.map(x => -x)
@@ -50,7 +50,9 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       bottom: possibles[0],
     }
 
-    const onHeightChange = useMemoizedFn(props.onHeightChange ?? (() => {}))
+    const onHeightChange = useMemoizedFn(
+      mergedProps.onHeightChange ?? (() => {})
+    )
 
     const [{ y }, api] = useSpring(() => ({
       y: bounds.bottom,
@@ -69,7 +71,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
           if (header === target || header?.contains(target)) {
             pullingRef.current = true
           } else {
-            if (!props.handleDraggingOfContent) return
+            if (!mergedProps.handleDraggingOfContent) return
             const reachedTop = y.goal <= bounds.top
             const content = contentRef.current
             if (!content) return
@@ -131,7 +133,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     useLockScroll(elementRef, true)
 
     return withNativeProps(
-      props,
+      mergedProps,
       <animated.div
         ref={elementRef}
         className={classPrefix}
@@ -150,7 +152,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
           <div className={`${classPrefix}-bar`} />
         </div>
         <div className={`${classPrefix}-content`} ref={contentRef}>
-          {props.children}
+          {mergedProps.children}
         </div>
       </animated.div>
     )
