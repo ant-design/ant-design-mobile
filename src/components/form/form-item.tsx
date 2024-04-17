@@ -220,7 +220,7 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
       disabled={disabled}
       onClick={props.onClick}
       clickable={props.clickable}
-      arrowIcon={arrow || arrowIcon}
+      arrowIcon={arrowIcon || arrow}
     >
       <div
         className={classNames(
@@ -243,6 +243,7 @@ export const FormItem: FC<FormItemProps> = props => {
     // FormItem 相关
     label,
     help,
+    helpIcon,
     extra,
     hasFeedback,
     name,
@@ -264,6 +265,7 @@ export const FormItem: FC<FormItemProps> = props => {
     dependencies,
     clickable,
     arrow,
+    arrowIcon,
     ...fieldProps
   } = props
 
@@ -338,6 +340,7 @@ export const FormItem: FC<FormItemProps> = props => {
         label={label}
         extra={extra}
         help={help}
+        helpIcon={helpIcon}
         description={description}
         required={isRequired}
         disabled={disabled}
@@ -350,7 +353,7 @@ export const FormItem: FC<FormItemProps> = props => {
         layout={layout}
         childElementPosition={childElementPosition}
         clickable={clickable}
-        arrow={arrow}
+        arrowIcon={arrowIcon || arrow}
       >
         <NoStyleItemContext.Provider value={onSubMetaChange}>
           {baseChildren}
