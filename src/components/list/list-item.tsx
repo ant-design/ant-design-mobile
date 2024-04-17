@@ -4,8 +4,8 @@ import type { FC, ReactNode } from 'react'
 import React from 'react'
 import { isNodeWithContent } from '../../utils/is-node-with-content'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useConfig } from '../config-provider'
 import { mergeProp } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-list-item`
 
@@ -35,7 +35,7 @@ export const ListItem: FC<ListItemProps> = props => {
   const showArrow = arrow ?? arrowIcon ?? clickable
   const mergedArrowIcon = mergeProp(
     arrowIcon !== true ? arrowIcon : null,
-    arrow !== true ? arrowIcon : null,
+    arrow !== true ? arrow : null,
     componentConfig.arrowIcon
   )
 
