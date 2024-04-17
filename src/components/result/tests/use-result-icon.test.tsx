@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from 'testing'
-import Result from '..'
+import ConfigProvider from '../../config-provider'
 import { useResultIcon } from '../use-result-icon'
 
 const ResultIcon = (props: any) => {
@@ -8,9 +8,7 @@ const ResultIcon = (props: any) => {
   return <div>{icon}</div>
 }
 
-const classPrefix = `adm-result`
-
-describe('ResultIcon', () => {
+describe('useResultIcon', () => {
   test('renders with success status', () => {
     render(<ResultIcon status='success' />)
     expect(document.querySelector('.antd-mobile-icon')).toBeTruthy()
@@ -34,5 +32,13 @@ describe('ResultIcon', () => {
   test('renders with none status', () => {
     render(<ResultIcon />)
     expect(document.querySelector('.antd-mobile-icon')).toBeFalsy()
+  })
+  test('renders with context', () => {
+    render(
+      <ConfigProvider result={{ successIcon: 'foobar' }}>
+        <ResultIcon status='success' />
+      </ConfigProvider>
+    )
+    expect(screen.getByTestId('foobar')).toBeTruthy()
   })
 })
