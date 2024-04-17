@@ -1,19 +1,19 @@
+import { CloseCircleFill } from 'antd-mobile-icons'
+import classNames from 'classnames'
 import React, {
-  useState,
+  ReactNode,
   forwardRef,
   useImperativeHandle,
   useRef,
-  ReactNode,
+  useState,
 } from 'react'
-import { usePropsValue } from '../../utils/use-props-value'
-import { CloseCircleFill } from 'antd-mobile-icons'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
-import { useIsomorphicLayoutEffect } from 'ahooks'
 import { bound } from '../../utils/bound'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
 import { isIOS } from '../../utils/validate'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import useInputHandleKeyDown from './useInputHandleKeyDown'
 
 const classPrefix = `adm-input`
 
@@ -51,6 +51,7 @@ export type InputProps = Pick<
   | 'placeholder'
   | 'readOnly'
   | 'disabled'
+  | 'enterKeyHint'
 > & {
   value?: string
   defaultValue?: string
@@ -60,14 +61,6 @@ export type InputProps = Pick<
   onlyShowClearWhenFocus?: boolean
   onClear?: () => void
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void
-  enterKeyHint?:
-    | 'enter'
-    | 'done'
-    | 'go'
-    | 'next'
-    | 'previous'
-    | 'search'
-    | 'send'
   min?: number
   max?: number
 } & NativeProps<
@@ -96,6 +89,13 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
   const compositionStartRef = useRef(false)
   const nativeInputRef = useRef<HTMLInputElement>(null)
 
+  const handleKeydown = useInputHandleKeyDown({
+    onEnterPress: props.onEnterPress,
+    onKeyDown: props.onKeyDown,
+    nativeInputRef,
+    enterKeyHint: props.enterKeyHint,
+  })
+
   useImperativeHandle(ref, () => ({
     clear: () => {
       setValue('')
@@ -110,21 +110,6 @@ export const Input = forwardRef<InputRef, InputProps>((p, ref) => {
       return nativeInputRef.current
     },
   }))
-
-  const handleKeydown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (props.onEnterPress && (e.code === 'Enter' || e.keyCode === 13)) {
-      props.onEnterPress(e)
-    }
-    props.onKeyDown?.(e)
-  }
-
-  useIsomorphicLayoutEffect(() => {
-    if (!props.enterKeyHint) return
-    nativeInputRef.current?.setAttribute('enterkeyhint', props.enterKeyHint)
-    return () => {
-      nativeInputRef.current?.removeAttribute('enterkeyhint')
-    }
-  }, [props.enterKeyHint])
 
   function checkValue() {
     let nextValue = value
