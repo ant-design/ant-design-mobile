@@ -39,6 +39,6 @@ describe('useResultIcon', () => {
         <ResultIcon status='success' />
       </ConfigProvider>
     )
-    expect(screen.getByTestId('foobar')).toBeTruthy()
+    expect(screen.getByText('foobar')).toBeTruthy()
   })
 })
