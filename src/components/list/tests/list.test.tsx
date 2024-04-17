@@ -1,6 +1,7 @@
 import React, { createRef } from 'react'
 import { render, screen, testA11y } from 'testing'
 import List from '..'
+import ConfigProvider from '../../config-provider'
 import { ListRef } from '../list'
 
 describe('list', () => {
@@ -52,6 +53,18 @@ describe('list', () => {
         </List>
       )
       expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider list={{ arrowIcon: 'little' }}>
+          <List>
+            <List.Item clickable />
+          </List>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('little')).toBeVisible()
     })
   })
 })
