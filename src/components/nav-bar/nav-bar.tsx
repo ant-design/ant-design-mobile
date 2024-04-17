@@ -38,11 +38,9 @@ export const NavBar: FC<NavBarProps> = props => {
           <div className={`${classPrefix}-back`} onClick={mergedProps.onBack}>
             {(backIcon || backArrow) && (
               <span className={`${classPrefix}-back-arrow`}>
-                {backIcon === true || backArrow === true ? (
-                  <LeftOutline />
-                ) : (
-                  backIcon || backArrow
-                )}
+                {backIcon === true || backArrow === true
+                  ? componentConfig.backIcon || <LeftOutline />
+                  : backIcon || backArrow}
               </span>
             )}
             <span aria-hidden='true'>{back}</span>
