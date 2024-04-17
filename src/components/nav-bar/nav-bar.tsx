@@ -25,17 +25,17 @@ const defaultProps = {
   backIcon: true,
 }
 
-export const NavBar: FC<NavBarProps> = p => {
+export const NavBar: FC<NavBarProps> = props => {
   const { navBar: componentConfig = {} } = useConfig()
-  const props = mergeProps(defaultProps, componentConfig, p)
-  const { back, backIcon, backArrow } = props
+  const mergedProps = mergeProps(defaultProps, componentConfig, props)
+  const { back, backIcon, backArrow } = mergedProps
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classNames(classPrefix)}>
       <div className={`${classPrefix}-left`} role='button'>
         {back !== null && (
-          <div className={`${classPrefix}-back`} onClick={props.onBack}>
+          <div className={`${classPrefix}-back`} onClick={mergedProps.onBack}>
             {(backIcon || backArrow) && (
               <span className={`${classPrefix}-back-arrow`}>
                 {backIcon === true || backArrow === true ? (
@@ -48,10 +48,10 @@ export const NavBar: FC<NavBarProps> = p => {
             <span aria-hidden='true'>{back}</span>
           </div>
         )}
-        {props.left}
+        {mergedProps.left}
       </div>
-      <div className={`${classPrefix}-title`}>{props.children}</div>
-      <div className={`${classPrefix}-right`}>{props.right}</div>
+      <div className={`${classPrefix}-title`}>{mergedProps.children}</div>
+      <div className={`${classPrefix}-right`}>{mergedProps.right}</div>
     </div>
   )
 }

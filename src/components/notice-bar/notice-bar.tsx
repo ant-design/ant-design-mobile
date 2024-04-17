@@ -52,22 +52,22 @@ const defaultProps = {
   wrap: false,
 }
 
-export const NoticeBar = memo<NoticeBarProps>(p => {
+export const NoticeBar = memo<NoticeBarProps>(props => {
   const { noticeBar: componentConfig = {} } = useConfig()
-  const props = mergeProps(defaultProps, componentConfig, p)
+  const mergedProps = mergeProps(defaultProps, componentConfig, props)
 
   const containerRef = useRef<HTMLSpanElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
 
   const [visible, setVisible] = useState(true)
 
-  const speed = props.speed
+  const speed = mergedProps.speed
 
   const delayLockRef = useRef(true)
   const animatingRef = useRef(false)
 
   function start() {
-    if (delayLockRef.current || props.wrap) return
+    if (delayLockRef.current || mergedProps.wrap) return
 
     const container = containerRef.current
     const text = textRef.current
@@ -100,7 +100,7 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
   useTimeout(() => {
     delayLockRef.current = false
     start()
-  }, props.delay)
+  }, mergedProps.delay)
 
   useResizeEffect(() => {
     start()
@@ -121,15 +121,19 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
   if (!visible) return null
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div
-      className={classNames(classPrefix, `${classPrefix}-${props.color}`, {
-        [`${classPrefix}-wrap`]: props.wrap,
-      })}
-      onClick={props.onClick}
+      className={classNames(
+        classPrefix,
+        `${classPrefix}-${mergedProps.color}`,
+        {
+          [`${classPrefix}-wrap`]: mergedProps.wrap,
+        }
+      )}
+      onClick={mergedProps.onClick}
     >
-      {props.icon && (
-        <span className={`${classPrefix}-left`}>{props.icon}</span>
+      {mergedProps.icon && (
+        <span className={`${classPrefix}-left`}>{mergedProps.icon}</span>
       )}
       <span ref={containerRef} className={`${classPrefix}-content`}>
         <span
@@ -140,21 +144,21 @@ export const NoticeBar = memo<NoticeBarProps>(p => {
           ref={textRef}
           className={`${classPrefix}-content-inner`}
         >
-          {props.content}
+          {mergedProps.content}
         </span>
       </span>
-      {(props.closeable || props.extra) && (
+      {(mergedProps.closeable || mergedProps.extra) && (
         <span className={`${classPrefix}-right`}>
-          {props.extra}
-          {props.closeable && (
+          {mergedProps.extra}
+          {mergedProps.closeable && (
             <div
               className={`${classPrefix}-close`}
               onClick={() => {
                 setVisible(false)
-                props.onClose?.()
+                mergedProps.onClose?.()
               }}
             >
-              {props.closeIcon}
+              {mergedProps.closeIcon}
             </div>
           )}
         </span>

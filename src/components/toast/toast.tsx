@@ -32,10 +32,10 @@ const defaultProps = {
   stopPropagation: ['click'],
 }
 
-export const InternalToast: FC<ToastProps> = p => {
+export const InternalToast: FC<ToastProps> = props => {
   const { toast: componentConfig = {} } = useConfig()
-  const props = mergeProps(defaultProps, componentConfig, p)
-  const { maskClickable, content, icon, position } = props
+  const mergedProps = mergeProps(defaultProps, componentConfig, props)
+  const { maskClickable, content, icon, position } = mergedProps
 
   const iconElement = useMemo(() => {
     if (icon === null || icon === undefined) return null
@@ -68,18 +68,18 @@ export const InternalToast: FC<ToastProps> = p => {
 
   return (
     <Mask
-      visible={props.visible}
+      visible={mergedProps.visible}
       destroyOnClose
       opacity={0}
       disableBodyScroll={!maskClickable}
-      getContainer={props.getContainer}
-      afterClose={props.afterClose}
+      getContainer={mergedProps.getContainer}
+      afterClose={mergedProps.afterClose}
       style={{
         pointerEvents: maskClickable ? 'none' : 'auto',
-        ...props.maskStyle,
+        ...mergedProps.maskStyle,
       }}
-      className={classNames(`${classPrefix}-mask`, props.maskClassName)}
-      stopPropagation={props.stopPropagation}
+      className={classNames(`${classPrefix}-mask`, mergedProps.maskClassName)}
+      stopPropagation={mergedProps.stopPropagation}
     >
       <div className={classNames(`${classPrefix}-wrap`)}>
         <div

@@ -1,3 +1,7 @@
+import { useIsomorphicLayoutEffect } from 'ahooks'
+import { CloseCircleFill } from 'antd-mobile-icons'
+import classNames from 'classnames'
+import type { ReactElement } from 'react'
 import React, {
   forwardRef,
   useEffect,
@@ -5,16 +9,12 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import type { ReactElement } from 'react'
-import type { InputProps } from '../input'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import { NumberKeyboardProps } from '../number-keyboard'
 import { usePropsValue } from '../../utils/use-props-value'
-import classNames from 'classnames'
-import { CloseCircleFill } from 'antd-mobile-icons'
-import { useIsomorphicLayoutEffect } from 'ahooks'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import type { InputProps } from '../input'
+import { NumberKeyboardProps } from '../number-keyboard'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -50,10 +50,10 @@ export type VirtualInputRef = {
 }
 
 export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
-  (p, ref) => {
+  (props, ref) => {
     const { locale, input: componentConfig = {} } = useConfig()
-    const props = mergeProps(defaultProps, componentConfig, p)
-    const [value, setValue] = usePropsValue(props)
+    const mergedProps = mergeProps(defaultProps, componentConfig, props)
+    const [value, setValue] = usePropsValue(mergedProps)
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
     const [hasFocus, setHasFocus] = useState(false)
@@ -89,15 +89,15 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     function onFocus() {
       setHasFocus(true)
-      props.onFocus?.()
+      mergedProps.onFocus?.()
     }
 
     function onBlur() {
       setHasFocus(false)
-      props.onBlur?.()
+      mergedProps.onBlur?.()
     }
 
-    const keyboard = props.keyboard
+    const keyboard = mergedProps.keyboard
     const keyboardElement =
       keyboard &&
       React.cloneElement(keyboard, {
@@ -127,46 +127,46 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       } as NumberKeyboardProps)
 
     return withNativeProps(
-      props,
+      mergedProps,
       <div
         ref={rootRef}
         className={classNames(classPrefix, {
-          [`${classPrefix}-disabled`]: props.disabled,
+          [`${classPrefix}-disabled`]: mergedProps.disabled,
         })}
-        tabIndex={props.disabled ? undefined : 0}
+        tabIndex={mergedProps.disabled ? undefined : 0}
         role='textbox'
         onFocus={onFocus}
         onBlur={onBlur}
-        onClick={props.onClick}
+        onClick={mergedProps.onClick}
       >
         <div
           className={`${classPrefix}-content`}
           ref={contentRef}
-          aria-disabled={props.disabled}
-          aria-label={props.placeholder}
+          aria-disabled={mergedProps.disabled}
+          aria-label={mergedProps.placeholder}
         >
           {value}
           <div className={`${classPrefix}-caret-container`}>
             {hasFocus && <div className={`${classPrefix}-caret`} />}
           </div>
         </div>
-        {props.clearable && !!value && hasFocus && (
+        {mergedProps.clearable && !!value && hasFocus && (
           <div
             className={`${classPrefix}-clear`}
             onClick={e => {
               e.stopPropagation()
               setValue('')
-              props.onClear?.()
+              mergedProps.onClear?.()
             }}
             role='button'
             aria-label={locale.Input.clear}
           >
-            {props.clearIcon}
+            {mergedProps.clearIcon}
           </div>
         )}
         {[undefined, null, ''].includes(value) && (
           <div className={`${classPrefix}-placeholder`}>
-            {props.placeholder}
+            {mergedProps.placeholder}
           </div>
         )}
         {keyboardElement}
