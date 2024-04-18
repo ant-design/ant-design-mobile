@@ -17,13 +17,17 @@ export function mergeProps(...items: any[]) {
 
 /**
  * Merge props and return the first non-undefined value.
+ * The later has higher priority. e.g. (10, 1, 5) => 5 wins.
  * This is useful with legacy props that have been deprecated.
  */
-export function mergeProp<T>(...propList: T[]): T | undefined {
-  for (let i = 0; i < propList.length; i++) {
+export function mergeProp<T, DefaultT extends T>(
+  defaultProp: DefaultT,
+  ...propList: T[]
+): T | undefined {
+  for (let i = propList.length - 1; i >= 0; i -= 1) {
     if (propList[i] !== undefined) {
       return propList[i]
     }
   }
-  return undefined
+  return defaultProp
 }

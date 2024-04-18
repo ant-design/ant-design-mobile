@@ -101,10 +101,10 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
           },
           active: child.key === value,
           arrowIcon: mergeProp(
-            child.props.arrowIcon,
-            child.props.arrow,
+            mergedProps.arrow,
             mergedProps.arrowIcon,
-            mergedProps.arrow
+            child.props.arrow,
+            child.props.arrowIcon
           ),
         }
         items.push(child)
