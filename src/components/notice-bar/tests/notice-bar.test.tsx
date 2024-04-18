@@ -115,7 +115,7 @@ describe('NoticeBar', () => {
       expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
     })
 
-    it('custom', () => {
+    it('props', () => {
       render(<NoticeBar content='foobar' closeable closeIcon='bamboo' />)
       expect(screen.getByText('bamboo')).toBeVisible()
     })
@@ -128,6 +128,16 @@ describe('NoticeBar', () => {
       )
 
       expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider noticeBar={{ closeIcon: 'little' }}>
+          <NoticeBar content='foobar' closeable closeIcon='bamboo' />
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
 })
