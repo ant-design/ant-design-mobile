@@ -58,7 +58,7 @@ describe('Popup', () => {
       expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
     })
 
-    it('custom', () => {
+    it('props', () => {
       render(
         <Popup visible showCloseButton closeIcon='bamboo'>
           foobar
@@ -77,6 +77,18 @@ describe('Popup', () => {
       )
 
       expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider popup={{ closeIcon: 'little' }}>
+          <Popup visible showCloseButton closeIcon='bamboo'>
+            foobar
+          </Popup>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
 })
