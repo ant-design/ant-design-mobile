@@ -15,7 +15,7 @@ describe('NavBar', () => {
       expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
     })
 
-    it('custom', () => {
+    it('props', () => {
       render(<NavBar backIcon='bamboo'>Title</NavBar>)
       expect(screen.getByText('bamboo')).toBeVisible()
     })
@@ -28,6 +28,16 @@ describe('NavBar', () => {
       )
 
       expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider navBar={{ backIcon: 'little' }}>
+          <NavBar backIcon='bamboo'>Title</NavBar>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
 })
