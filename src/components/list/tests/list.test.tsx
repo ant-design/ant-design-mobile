@@ -66,5 +66,17 @@ describe('list', () => {
 
       expect(screen.getByText('little')).toBeVisible()
     })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider list={{ arrowIcon: 'little' }}>
+          <List>
+            <List.Item clickable arrowIcon='bamboo' />
+          </List>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
   })
 })
