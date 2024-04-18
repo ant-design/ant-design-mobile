@@ -20,7 +20,7 @@ export function mergeProps(...items: any[]) {
  * The later has higher priority. e.g. (10, 1, 5) => 5 wins.
  * This is useful with legacy props that have been deprecated.
  */
-export function mergeProp<T, DefaultT extends T>(
+export function mergeProp<T, DefaultT extends T = T>(
   defaultProp: DefaultT,
   ...propList: T[]
 ): T | undefined {
