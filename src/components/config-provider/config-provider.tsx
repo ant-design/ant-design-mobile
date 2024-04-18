@@ -42,11 +42,6 @@ type Config = {
   searchBar?: {
     searchIcon?: ReactNode
   }
-  toast?: {
-    successIcon?: ReactNode
-    errorIcon?: ReactNode
-    loadingIcon?: ReactNode
-  }
 }
 
 export const defaultConfigRef: {

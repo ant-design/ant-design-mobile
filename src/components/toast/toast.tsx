@@ -6,7 +6,6 @@ import { GetContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
 import AutoCenter from '../auto-center'
-import { useConfig } from '../config-provider'
 import type { MaskProps } from '../mask'
 import Mask from '../mask'
 import SpinLoading from '../spin-loading'
@@ -33,23 +32,18 @@ const defaultProps = {
 }
 
 export const InternalToast: FC<ToastProps> = props => {
-  const { toast: componentConfig = {} } = useConfig()
-  const mergedProps = mergeProps(defaultProps, componentConfig, props)
+  const mergedProps = mergeProps(defaultProps, props)
   const { maskClickable, content, icon, position } = mergedProps
 
   const iconElement = useMemo(() => {
     if (icon === null || icon === undefined) return null
     switch (icon) {
       case 'success':
-        return componentConfig?.successIcon || <CheckOutline />
+        return <CheckOutline />
       case 'fail':
-        return componentConfig?.errorIcon || <CloseOutline />
+        return <CloseOutline />
       case 'loading':
-        return (
-          componentConfig?.loadingIcon || (
-            <SpinLoading color='white' style={{ '--size': '48px' }} />
-          )
-        )
+        return <SpinLoading color='white' style={{ '--size': '48px' }} />
       default:
         return icon
     }
