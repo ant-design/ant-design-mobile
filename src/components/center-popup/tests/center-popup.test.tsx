@@ -18,7 +18,7 @@ describe('center-popup', () => {
       expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
     })
 
-    it('custom', () => {
+    it('props', () => {
       render(
         <CenterPopup visible showCloseButton closeIcon='bamboo'>
           foobar
@@ -37,6 +37,18 @@ describe('center-popup', () => {
       )
 
       expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider popup={{ closeIcon: 'little' }}>
+          <CenterPopup visible showCloseButton closeIcon='bamboo'>
+            foobar
+          </CenterPopup>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
 })
