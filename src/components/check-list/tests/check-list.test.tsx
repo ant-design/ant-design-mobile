@@ -87,7 +87,7 @@ describe('CheckList', () => {
       expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
     })
 
-    it('custom', () => {
+    it('props', () => {
       render(
         <CheckList defaultValue={['B']} activeIcon='bamboo'>
           <CheckList.Item value='A'>A</CheckList.Item>
@@ -108,6 +108,19 @@ describe('CheckList', () => {
       )
 
       expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider checkList={{ activeIcon: 'little' }}>
+          <CheckList defaultValue={['B']} activeIcon='bamboo'>
+            <CheckList.Item value='A'>A</CheckList.Item>
+            <CheckList.Item value='B'>B</CheckList.Item>
+          </CheckList>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
 })
