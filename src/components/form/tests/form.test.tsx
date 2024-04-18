@@ -368,7 +368,7 @@ describe('Form', () => {
       expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
     })
 
-    it('custom', () => {
+    it('props', () => {
       render(
         <Form>
           <Form.Item
@@ -396,6 +396,25 @@ describe('Form', () => {
       )
 
       expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider form={{ helpIcon: 'little' }}>
+          <Form>
+            <Form.Item
+              name='name'
+              label='name'
+              help='hello world'
+              helpIcon='bamboo'
+            >
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
 
@@ -439,6 +458,18 @@ describe('Form', () => {
       )
 
       expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider list={{ arrowIcon: 'little' }}>
+          <Form>
+            <Form.Item clickable arrowIcon='bamboo' />
+          </Form>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
 })
