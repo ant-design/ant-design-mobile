@@ -1,9 +1,9 @@
 import { animated, useSpring } from '@react-spring/web'
 import { useMount } from 'ahooks'
+import { DownOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import type { FC, ReactElement, ReactNode } from 'react'
 import React, { isValidElement, useRef } from 'react'
-import { DownOutline } from 'antd-mobile-icons'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
 import { traverseReactNode } from '../../utils/traverse-react-node'
@@ -211,11 +211,11 @@ export const Collapse: FC<CollapseProps> = props => {
           }
 
           const arrow = mergeProp(
-            panel.props.arrowIcon,
-            panel.props.arrow,
-            mergedProps.arrowIcon,
+            <DownOutline />,
             mergedProps.arrow,
-            <DownOutline />
+            mergedProps.arrowIcon,
+            panel.props.arrow,
+            panel.props.arrowIcon
           )
 
           const arrowIcon =
