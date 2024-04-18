@@ -221,7 +221,7 @@ describe('Input', () => {
       expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
     })
 
-    it('custom', () => {
+    it('props', () => {
       render(<Input value='foobar' clearable clearIcon='bamboo' />)
 
       act(() => {
@@ -243,6 +243,20 @@ describe('Input', () => {
       })
 
       expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider input={{ clearIcon: 'little' }}>
+          <Input value='foobar' clearable clearIcon='bamboo' />
+        </ConfigProvider>
+      )
+
+      act(() => {
+        document.querySelector('input')?.focus()
+      })
+
+      expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
 })
