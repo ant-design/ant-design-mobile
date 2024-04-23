@@ -28,10 +28,8 @@ export type DropdownItemProps = {
 
 const Item: FC<DropdownItemProps> = props => {
   const { dropdown: componentConfig = {} } = useConfig()
-  const { active, arrowIcon, arrow, highlight, onClick, title } = mergeProps(
-    componentConfig,
-    props
-  )
+  const mergedProps = mergeProps(componentConfig, props)
+  const { active, highlight, onClick, title } = mergedProps
   const cls = classNames(classPrefix, {
     [`${classPrefix}-active`]: active,
     [`${classPrefix}-highlight`]: highlight ?? active,
@@ -41,8 +39,8 @@ const Item: FC<DropdownItemProps> = props => {
   const mergedArrowIcon = mergeProp(
     <DownFill />,
     contextArrowIcon,
-    arrow,
-    arrowIcon
+    mergedProps.arrow,
+    mergedProps.arrowIcon
   )
 
   return withNativeProps(

@@ -86,8 +86,8 @@ type FormItemLayoutProps = Pick<
   | 'layout'
   | 'extra'
   | 'clickable'
-  | 'arrowIcon'
   | 'arrow'
+  | 'arrowIcon'
   | 'description'
   | 'childElementPosition'
 > & {
@@ -97,10 +97,6 @@ type FormItemLayoutProps = Pick<
   warnings: string[]
   children: ReactNode
 } & NativeProps
-
-const defaultProps = {
-  helpIcon: <QuestionCircleOutline />,
-}
 
 const FormItemLayout: FC<FormItemLayoutProps> = props => {
   const { locale, form: componentConfig = {} } = useConfig()
@@ -115,10 +111,10 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
     children,
     htmlFor,
     hidden,
-    arrowIcon,
     arrow,
+    arrowIcon,
     childElementPosition = 'normal',
-  } = mergeProps(defaultProps, componentConfig, props)
+  } = mergeProps(componentConfig, props)
 
   const context = useContext(FormContext)
 
@@ -172,7 +168,7 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
               e.preventDefault()
             }}
           >
-            {helpIcon}
+            {helpIcon || <QuestionCircleOutline />}
           </span>
         </Popover>
       )}
@@ -353,7 +349,8 @@ export const FormItem: FC<FormItemProps> = props => {
         layout={layout}
         childElementPosition={childElementPosition}
         clickable={clickable}
-        arrowIcon={arrowIcon || arrow}
+        arrow={arrow}
+        arrowIcon={arrowIcon}
       >
         <NoStyleItemContext.Provider value={onSubMetaChange}>
           {baseChildren}
