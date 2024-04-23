@@ -17,10 +17,11 @@ import React, {
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { mergeProp, mergeProps } from '../../utils/with-default-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import Popup, { PopupProps } from '../popup'
 import { defaultPopupBaseProps } from '../popup/popup-base-props'
+import { IconContext } from './context'
 import Item, { ItemChildrenWrap } from './item'
 
 const classPrefix = `adm-dropdown`
@@ -100,12 +101,6 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
             child.props.onClick?.(event)
           },
           active: child.key === value,
-          arrowIcon: mergeProp(
-            mergedProps.arrow,
-            mergedProps.arrowIcon,
-            child.props.arrow,
-            child.props.arrowIcon
-          ),
         }
         items.push(child)
         if (child.props.forceRender) popupForceRender = true
@@ -133,9 +128,13 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
         })}
         ref={containerRef}
       >
-        <div className={`${classPrefix}-nav`} ref={navRef}>
-          {navs}
-        </div>
+        <IconContext.Provider
+          value={mergedProps.arrowIcon || mergedProps.arrow}
+        >
+          <div className={`${classPrefix}-nav`} ref={navRef}>
+            {navs}
+          </div>
+        </IconContext.Provider>
         <Popup
           visible={!!value}
           position='top'

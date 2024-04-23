@@ -4,8 +4,9 @@ import type { FC, ReactNode } from 'react'
 import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
-import { mergeProps } from '../../utils/with-default-props'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import { IconContext } from './context'
 
 const classPrefix = `adm-dropdown-item`
 
@@ -25,14 +26,9 @@ export type DropdownItemProps = {
   children?: ReactNode
 } & NativeProps
 
-const defaultProps = {
-  arrowIcon: <DownFill />,
-}
-
 const Item: FC<DropdownItemProps> = props => {
   const { dropdown: componentConfig = {} } = useConfig()
-  const { active, arrowIcon, highlight, onClick, title } = mergeProps(
-    defaultProps,
+  const { active, arrowIcon, arrow, highlight, onClick, title } = mergeProps(
     componentConfig,
     props
   )
@@ -40,6 +36,14 @@ const Item: FC<DropdownItemProps> = props => {
     [`${classPrefix}-active`]: active,
     [`${classPrefix}-highlight`]: highlight ?? active,
   })
+
+  const contextArrowIcon = React.useContext(IconContext)
+  const mergedArrowIcon = mergeProp(
+    <DownFill />,
+    contextArrowIcon,
+    arrow,
+    arrowIcon
+  )
 
   return withNativeProps(
     props,
@@ -51,7 +55,7 @@ const Item: FC<DropdownItemProps> = props => {
             [`${classPrefix}-title-arrow-active`]: active,
           })}
         >
-          {arrowIcon}
+          {mergedArrowIcon}
         </span>
       </div>
     </div>
