@@ -15,8 +15,22 @@ describe('NavBar', () => {
       expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
     })
 
+    it('legacy', () => {
+      const { baseElement } = render(<NavBar backArrow>Title</NavBar>)
+      expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
+    })
+
     it('props', () => {
       render(<NavBar backIcon='bamboo'>Title</NavBar>)
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('props override legacy props', () => {
+      render(
+        <NavBar backArrow='little' backIcon='bamboo'>
+          Title
+        </NavBar>
+      )
       expect(screen.getByText('bamboo')).toBeVisible()
     })
 
