@@ -17,7 +17,7 @@ import React, {
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { mergeProps } from '../../utils/with-default-props'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import Popup, { PopupProps } from '../popup'
 import { defaultPopupBaseProps } from '../popup/popup-base-props'
@@ -55,6 +55,11 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
   (props, ref) => {
     const { dropdown: componentConfig = {} } = useConfig()
     const mergedProps = mergeProps(defaultProps, componentConfig, props)
+    const arrowIcon = mergeProp(
+      componentConfig.arrowIcon,
+      props.arrow,
+      props.arrowIcon
+    )
     const [value, setValue] = usePropsValue({
       value: mergedProps.activeKey,
       defaultValue: mergedProps.defaultActiveKey,
@@ -128,9 +133,7 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
         })}
         ref={containerRef}
       >
-        <IconContext.Provider
-          value={mergedProps.arrowIcon || mergedProps.arrow}
-        >
+        <IconContext.Provider value={arrowIcon}>
           <div className={`${classPrefix}-nav`} ref={navRef}>
             {navs}
           </div>
