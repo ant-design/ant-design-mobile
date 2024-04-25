@@ -2,11 +2,11 @@ import { useTimeout } from 'ahooks'
 import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import type { ReactNode } from 'react'
-import React, { cloneElement, memo, useRef, useState } from 'react'
+import React, { memo, useRef, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
-import { mergeProps } from '../../utils/with-default-props'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-notice-bar`
@@ -55,6 +55,11 @@ const defaultProps = {
 export const NoticeBar = memo<NoticeBarProps>(props => {
   const { noticeBar: componentConfig = {} } = useConfig()
   const mergedProps = mergeProps(defaultProps, componentConfig, props)
+  const closeIcon = mergeProp(
+    <CloseOutline className={`${classPrefix}-close-icon`} />,
+    componentConfig.closeIcon,
+    props.closeIcon
+  )
 
   const containerRef = useRef<HTMLSpanElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
@@ -158,9 +163,7 @@ export const NoticeBar = memo<NoticeBarProps>(props => {
                 mergedProps.onClose?.()
               }}
             >
-              {cloneElement(mergedProps.closeIcon, {
-                className: `${classPrefix}-close-icon`,
-              })}
+              {closeIcon}
             </div>
           )}
         </span>
