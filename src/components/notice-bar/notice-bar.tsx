@@ -2,7 +2,7 @@ import { useTimeout } from 'ahooks'
 import { CloseOutline, SoundOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import type { ReactNode } from 'react'
-import React, { memo, useRef, useState } from 'react'
+import React, { cloneElement, memo, useRef, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useMutationEffect } from '../../utils/use-mutation-effect'
 import { useResizeEffect } from '../../utils/use-resize-effect'
@@ -158,7 +158,9 @@ export const NoticeBar = memo<NoticeBarProps>(props => {
                 mergedProps.onClose?.()
               }}
             >
-              {mergedProps.closeIcon}
+              {cloneElement(mergedProps.closeIcon, {
+                className: `${classPrefix}-close-icon`,
+              })}
             </div>
           )}
         </span>
