@@ -1,10 +1,10 @@
-import React, { useMemo, useRef, useState } from 'react'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 import type { FC, ReactNode } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import runes from 'runes2'
-import { mergeProps } from '../../utils/with-default-props'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
-import { useIsomorphicLayoutEffect } from 'ahooks'
+import { mergeProps } from '../../utils/with-default-props'
 import {
   PropagationEvent,
   withStopPropagation,
@@ -14,6 +14,8 @@ const classPrefix = `adm-ellipsis`
 
 export type EllipsisProps = {
   content: string
+  contentPrefixNode?: ReactNode
+  contentPrefixNodeFontSize?: number
   direction?: 'start' | 'end' | 'middle'
   rows?: number
   expandText?: ReactNode
@@ -28,6 +30,8 @@ const defaultProps = {
   rows: 1,
   expandText: '',
   content: '',
+  contentPrefixNode: '',
+  contentPrefixNodeFontSize: 0,
   collapseText: '',
   stopPropagationForActionButtons: [],
   onContentClick: () => {},
@@ -44,10 +48,12 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   const rootRef = useRef<HTMLDivElement>(null)
   const expandElRef = useRef<HTMLAnchorElement>(null)
   const collapseElRef = useRef<HTMLAnchorElement>(null)
+  const contentPrefixNodeRef = useRef<HTMLSpanElement>(null)
 
   const [ellipsised, setEllipsised] = useState<EllipsisedValue>({})
   const [expanded, setExpanded] = useState(props.defaultExpanded)
   const [exceeded, setExceeded] = useState(false)
+  const [leftOffset, setLeftOffset] = useState(0)
 
   const chars = useMemo(() => runes(props.content), [props.content])
   function getSubString(start: number, end: number) {
@@ -108,7 +114,11 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         if (right - left <= 1) {
           if (props.direction === 'end') {
             return {
-              leading: getSubString(0, left) + '...',
+              leading:
+                getSubString(
+                  0,
+                  props.contentPrefixNode ? left - leftOffset : left
+                ) + '...',
             }
           } else {
             return {
@@ -184,9 +194,20 @@ export const Ellipsis: FC<EllipsisProps> = p => {
 
   useResizeEffect(calcEllipsised, rootRef)
   useIsomorphicLayoutEffect(() => {
+    if (contentPrefixNodeRef.current) {
+      setLeftOffset(
+        Math.round(
+          contentPrefixNodeRef.current.offsetWidth /
+            (props.contentPrefixNodeFontSize ||
+              parseInt(getComputedStyle(contentPrefixNodeRef.current).fontSize))
+        )
+      )
+    }
     calcEllipsised()
   }, [
     props.content,
+    props.contentPrefixNode,
+    props.contentPrefixNodeFontSize,
     props.direction,
     props.rows,
     props.expandText,
@@ -240,6 +261,15 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     )
   }
 
+  const renderContentPrefixNode = () => {
+    if (!props.contentPrefixNode) return null
+    return (
+      <span className={`${classPrefix}-prefix`} ref={contentPrefixNodeRef}>
+        {props.contentPrefixNode}
+      </span>
+    )
+  }
+
   return withNativeProps(
     props,
     <div
@@ -251,6 +281,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         }
       }}
     >
+      {renderContentPrefixNode()}
       {renderContent()}
     </div>
   )

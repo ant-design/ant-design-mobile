@@ -20,6 +20,8 @@
 | --- | --- | --- | --- |
 | collapseText | 收起操作的文案 | `React.ReactNode` | `''` |
 | content | 文本内容 | `string` | - |
+| contentPrefixNode | 文本内容开头插入的自定义节点 | `React.ReactNode` | `''` |
+| contentPrefixNodeFontSize | 文本内容开头插入的自定义节点的字体大小 | `number` | `0` |
 | direction | 省略位置 | `'start' \| 'end' \| 'middle'` | `'end'` |
 | expandText | 展开操作的文案 | `React.ReactNode` | `''` |
 | onContentClick | 点击文本内容时触发 | `(e: React.MouseEvent) => void` | - |

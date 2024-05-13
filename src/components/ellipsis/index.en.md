@@ -20,6 +20,8 @@ When the display space is not enough, hide some content and replace it with "...
 | --- | --- | --- | --- |
 | collapseText | Collapse operation text | `React.ReactNode` | `''` |
 | content | The text content | `string` | - |
+| contentPrefixNode | Custom node inserted at the beginning of the text content | `React.ReactNode` | `''` |
+| contentPrefixNodeFontSize | The font size of the custom node inserted at the beginning of the text content | `React.ReactNode` | `0` |
 | direction | Position omitted | `'start' \| 'end' \| 'middle'` | `'end'` |
 | expandText | Expand operation text | `React.ReactNode` | `''` |
 | onContentClick | Trigger when clicked text content | `(e: React.MouseEvent) => void` | - |
