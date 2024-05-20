@@ -1,15 +1,15 @@
-import React, { isValidElement, useRef } from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import List from '../list'
+import { animated, useSpring } from '@react-spring/web'
+import { useMount } from 'ahooks'
 import { DownOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
-import { useSpring, animated } from '@react-spring/web'
-import { usePropsValue } from '../../utils/use-props-value'
-import { useMount } from 'ahooks'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React, { isValidElement, useRef } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
-import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 import { traverseReactNode } from '../../utils/traverse-react-node'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { usePropsValue } from '../../utils/use-props-value'
+import List from '../list'
 
 const classPrefix = `adm-collapse`
 
@@ -65,18 +65,28 @@ const CollapsePanelContent: FC<{
   useIsomorphicUpdateLayoutEffect(() => {
     const inner = innerRef.current
     if (!inner) return
+    let observer: MutationObserver | null = null
+    const handleMutations = () => {
+      api.start({ height: inner.offsetHeight })
+      if (observer) {
+        observer.disconnect()
+      }
+      observer = new MutationObserver(handleMutations)
+      observer.observe(innerRef.current as HTMLDivElement, {
+        childList: true,
+        subtree: true,
+      })
+    }
     if (visible) {
-      api.start({
-        height: inner.offsetHeight,
-      })
+      handleMutations()
     } else {
-      api.start({
-        height: inner.offsetHeight,
-        immediate: true,
-      })
-      api.start({
-        height: 0,
-      })
+      api.start({ height: inner.offsetHeight, immediate: true })
+      api.start({ height: 0 })
+    }
+    return () => {
+      if (observer) {
+        observer.disconnect()
+      }
     }
   }, [visible])
 
