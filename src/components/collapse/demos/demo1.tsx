@@ -1,41 +1,21 @@
+import { Collapse, Ellipsis } from 'antd-mobile'
 import React from 'react'
-import { Collapse } from 'antd-mobile'
-import { DemoBlock, lorem } from 'demos'
 
-export default () => {
+const content = `这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本`
+
+// 初次展开Collapse.Panel时，会有空白处
+export default function App() {
   return (
-    <>
-      <DemoBlock title='基础用法' padding='0'>
-        <Collapse defaultActiveKey={['1']}>
-          <Collapse.Panel key='1' title='第一项'>
-            {mockContents[0]}
-          </Collapse.Panel>
-          <Collapse.Panel key='2' title='第二项'>
-            {mockContents[1]}
-          </Collapse.Panel>
-          <Collapse.Panel key='3' title='第三项'>
-            {mockContents[2]}
-          </Collapse.Panel>
-        </Collapse>
-      </DemoBlock>
-
-      <DemoBlock title='手风琴模式' padding='0'>
-        <Collapse accordion>
-          <Collapse.Panel key='1' title='第一项'>
-            手风琴模式只能同时展开一个
-          </Collapse.Panel>
-          <Collapse.Panel key='2' title='第二项'>
-            手风琴模式只能同时展开一个
-          </Collapse.Panel>
-          <Collapse.Panel key='3' title='第三项'>
-            手风琴模式只能同时展开一个
-          </Collapse.Panel>
-        </Collapse>
-      </DemoBlock>
-    </>
+    <Collapse bordered={false}>
+      <Collapse.Panel title='panel' key='1'>
+        <Ellipsis
+          direction='end'
+          rows={3}
+          expandText='展开'
+          collapseText='收起'
+          content={content}
+        />
+      </Collapse.Panel>
+    </Collapse>
   )
 }
-
-const mockContents = Array(5)
-  .fill(null)
-  .map(() => lorem.generateParagraphs(1))
