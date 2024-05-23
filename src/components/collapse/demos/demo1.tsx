@@ -1,6 +1,6 @@
-import React from 'react'
 import { Collapse } from 'antd-mobile'
 import { DemoBlock, lorem } from 'demos'
+import React from 'react'
 
 export default () => {
   return (
