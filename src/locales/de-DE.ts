@@ -17,19 +17,11 @@ const deDE = mergeLocale(base, {
     'start': 'Starten',
     'end': 'Beenden',
     'today': 'Heute',
-    'markItems': [
-      'Montag',
-      'Dienstag',
-      'Mittwoch',
-      'Donnerstag',
-      'Freitag',
-      'Samstag',
-      'Tag',
-    ],
+    'markItems': ['I', 'II', 'III', 'IV', 'V', 'Sechs', 'Tag'],
     'yearAndMonth': '${year}Jahr${month}Monat',
   },
   'Cascader': { 'placeholder': 'Bitte auswählen' },
-  'Dialog': { 'ok': 'OK' },
+  'Dialog': { 'ok': 'Ich weiß.' },
   'DatePicker': { 'tillNow': 'Bis heute' },
   'ErrorBlock': {
     'default': {
@@ -108,7 +100,7 @@ const deDE = mergeLocale(base, {
   },
   'Input': { 'clear': 'Löschen' },
   'Mask': { 'name': 'Hintergrundmaske' },
-  'Modal': { 'ok': 'OK' },
+  'Modal': { 'ok': 'Ich weiß.' },
   'PasscodeInput': { 'name': 'Passwort-Eingabefeld' },
   'PullToRefresh': {
     'pulling': 'Nach unten zum Aktualisieren ziehen',

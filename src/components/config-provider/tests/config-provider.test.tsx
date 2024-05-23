@@ -21,6 +21,7 @@ import faIR from '../../../locales/fa-IR'
 import frFR from '../../../locales/fr-FR'
 import huHU from '../../../locales/hu-HU'
 import idID from '../../../locales/id-ID'
+import inID from '../../../locales/in-ID'
 import itIT from '../../../locales/it-IT'
 import jaJP from '../../../locales/ja-JP'
 import kkKZ from '../../../locales/kk-KZ'
@@ -62,6 +63,7 @@ const locales = [
   arSA,
   ptBR,
   viVN,
+  inID,
 ]
 
 describe('ConfigProvider', () => {

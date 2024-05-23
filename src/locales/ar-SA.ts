@@ -21,7 +21,7 @@ const arSA = mergeLocale(base, {
     'yearAndMonth': '${year} سنة ${month} شهر',
   },
   'Cascader': { 'placeholder': 'اختر من فضلك' },
-  'Dialog': { 'ok': 'عرفت' },
+  'Dialog': { 'ok': 'فهمت' },
   'DatePicker': { 'tillNow': 'إلى اليوم' },
   'ErrorBlock': {
     'default': {
@@ -95,7 +95,7 @@ const arSA = mergeLocale(base, {
   },
   'Input': { 'clear': 'إزالة' },
   'Mask': { 'name': 'قناع الخلفية' },
-  'Modal': { 'ok': 'عرفت' },
+  'Modal': { 'ok': 'فهمت' },
   'PasscodeInput': { 'name': 'مربع إدخال كلمة المرور' },
   'PullToRefresh': {
     'pulling': 'اسحب إلى الأسفل للتحديث',

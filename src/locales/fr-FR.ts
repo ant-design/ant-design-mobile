@@ -6,7 +6,7 @@ const typeTemplate = '${label}Pas un valide${type}'
 const frFR = mergeLocale(base, {
   locale: 'fr-FR',
   common: {
-    confirm: 'Valider',
+    confirm: 'Activer',
     cancel: 'Annuler',
     loading: 'Chargement',
   },

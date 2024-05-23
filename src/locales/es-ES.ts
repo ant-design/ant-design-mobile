@@ -18,7 +18,7 @@ const esES = mergeLocale(base, {
     placeholder: 'Seleccionando',
   },
   Dialog: {
-    ok: 'OK',
+    ok: 'Entendido',
   },
   ErrorBlock: {
     default: {
@@ -96,7 +96,7 @@ const esES = mergeLocale(base, {
     name: 'Máscara',
   },
   Modal: {
-    ok: 'OK',
+    ok: 'Entendido',
   },
   PullToRefresh: {
     pulling: 'Desplácese hacia abajo para refrescar',
