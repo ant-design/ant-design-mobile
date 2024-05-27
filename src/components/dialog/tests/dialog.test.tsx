@@ -120,51 +120,44 @@ describe('Dialog', () => {
     expect(fn).toBeCalled()
   })
 
-  test('wait for confirm to complete', async () => {
-    jest.useFakeTimers()
+  describe('wait for confirm to complete', () => {
+    function testFn(button: string, result: boolean) {
+      test(`wait for confirm to complete (${String(result)})`, async () => {
+        jest.useFakeTimers()
 
-    const fn = jest.fn()
-    const Confirm = () => (
-      <button
-        onClick={async () => {
-          const res = await Dialog.confirm({
-            content: 'content',
-          })
-          fn(res)
-        }}
-      >
-        btn
-      </button>
-    )
+        const fn = jest.fn()
+        const Confirm = () => (
+          <button
+            onClick={async () => {
+              const res = await Dialog.confirm({
+                content: 'content',
+              })
+              fn(res)
+            }}
+          >
+            btn
+          </button>
+        )
 
-    render(<Confirm />)
+        render(<Confirm />)
 
-    // First click to open
-    const btn = screen.getByRole('button', { name: 'btn' })
-    fireEvent.click(btn)
-    await waitFakeTimers()
+        // First click to open
+        const btn = screen.getByRole('button', { name: 'btn' })
+        fireEvent.click(btn)
+        await waitFakeTimers()
 
-    // Click confirm
-    fireEvent.click(screen.getByRole('button', { name: '确定' }))
-    expect(fn).not.toHaveBeenCalled()
-    await waitFakeTimers()
-    expect(fn).toHaveBeenCalledWith(true)
+        // Click confirm
+        fireEvent.click(screen.getByRole('button', { name: button }))
+        expect(fn).not.toHaveBeenCalled()
+        await waitFakeTimers()
+        expect(fn).toHaveBeenCalledWith(result)
 
-    // Clean up
-    await waitFakeTimers()
-    fn.mockRestore()
+        jest.useRealTimers()
+      })
+    }
 
-    // Second click
-    fireEvent.click(btn)
-    await waitFakeTimers()
-
-    // Click cancel
-    fireEvent.click(screen.getByRole('button', { name: '取消' }))
-    expect(fn).not.toHaveBeenCalled()
-    await waitFakeTimers()
-    expect(fn).toHaveBeenCalledWith(false)
-
-    jest.useRealTimers()
+    testFn('确定', true)
+    testFn('取消', false)
   })
 
   test('custom actions', async () => {
