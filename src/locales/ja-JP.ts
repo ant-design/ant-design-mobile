@@ -18,7 +18,7 @@ const jaJP = mergeLocale(base, {
     placeholder: '選択下さい',
   },
   Dialog: {
-    ok: 'わかりました',
+    ok: '了解',
   },
   ErrorBlock: {
     default: {
@@ -105,7 +105,7 @@ const jaJP = mergeLocale(base, {
     name: 'マスク',
   },
   Modal: {
-    ok: 'わかりました',
+    ok: '了解',
   },
   PasscodeInput: {
     name: 'パスコード入力',
