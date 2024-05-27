@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 
+import { act } from '@testing-library/react'
 import React from 'react'
 import {
-  render,
-  testA11y,
   fireEvent,
+  render,
+  screen,
+  testA11y,
+  waitFakeTimers,
   waitFor,
   waitForElementToBeRemoved,
-  screen,
-  waitFakeTimers,
 } from 'testing'
 import Dialog, { DialogAlertProps } from '..'
-import { act } from '@testing-library/react'
 
 const classPrefix = `adm-dialog`
 
@@ -121,6 +121,8 @@ describe('Dialog', () => {
   })
 
   test('wait for confirm to complete', async () => {
+    jest.useFakeTimers()
+
     const fn = jest.fn()
     const Confirm = () => (
       <button
@@ -136,22 +138,33 @@ describe('Dialog', () => {
     )
 
     render(<Confirm />)
+
+    // First click to open
     const btn = screen.getByRole('button', { name: 'btn' })
     fireEvent.click(btn)
-    const dialog = screen.getByRole('dialog')
-    fireEvent.click(screen.getByRole('button', { name: '确定' }))
-    await act(async () => {
-      await Promise.resolve()
-    })
-    expect(fn.mock.calls[0][0]).toBe(true)
-    await waitForElementToBeRemoved(dialog)
+    await waitFakeTimers()
 
+    // Click confirm
+    fireEvent.click(screen.getByRole('button', { name: '确定' }))
+    expect(fn).not.toHaveBeenCalled()
+    await waitFakeTimers()
+    expect(fn).toHaveBeenCalledWith(true)
+
+    // Clean up
+    await waitFakeTimers()
+    fn.mockRestore()
+
+    // Second click
     fireEvent.click(btn)
+    await waitFakeTimers()
+
+    // Click cancel
     fireEvent.click(screen.getByRole('button', { name: '取消' }))
-    await act(async () => {
-      await Promise.resolve()
-    })
-    expect(fn.mock.calls[1][0]).toBe(false)
+    expect(fn).not.toHaveBeenCalled()
+    await waitFakeTimers()
+    expect(fn).toHaveBeenCalledWith(false)
+
+    jest.useRealTimers()
   })
 
   test('custom actions', async () => {
