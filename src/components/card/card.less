@@ -2,17 +2,18 @@
 
 .@{class-prefix-card} {
   background: var(--adm-color-background);
-  border-radius: 8px;
-  padding: 0 12px;
+  border-radius: var(--adm-card-border-radius, 8px);
+  padding: 0 var(--adm-card-padding-inline, 12px);
   &-header {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 12px 0;
+    padding: var(--adm-card-header-padding-block, 12px) 0;
     &:not(:last-child) {
-      border-bottom: solid 0.5px var(--adm-color-border);
+      border-bottom: solid var(--adm-card-header-border-width, 0.5px)
+        var(--adm-card-header-border-color, var(--adm-color-border));
     }
     &-title {
       font-size: var(--adm-font-size-7);
@@ -21,6 +22,6 @@
     }
   }
   &-body {
-    padding: 12px 0;
+    padding: var(--adm-card-body-padding-block, 12px) 0;
   }
 }
