@@ -17,6 +17,7 @@ It is applicable to the notification of information in the current page, which i
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | closeable | Whether it can be closed | `boolean` | `false` |
+| closeIcon | Custom close button icon | `ReactNode` | `<CloseOutline />` |
 | color | The type of the NoticeBar | `'default' \| 'alert' \| 'error' \| 'info'` | `'default'` |
 | content | The content of the NoticeBar | `React.ReactNode` | - |
 | delay | Delay to start scrolling, unit `ms` | `number` | `2000` |

@@ -1,9 +1,11 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { RightOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { isNodeWithContent } from '../../utils/is-node-with-content'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProp } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-list-item`
 
@@ -14,16 +16,28 @@ export type ListItemProps = {
   prefix?: ReactNode
   extra?: ReactNode
   clickable?: boolean
-  arrow?: boolean | ReactNode
+  arrowIcon?: boolean | ReactNode
   disabled?: boolean
   onClick?: (e: React.MouseEvent<HTMLElement>) => void
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
+  arrow?: boolean | ReactNode
 } & NativeProps<
   '--prefix-width' | '--align-items' | '--active-background-color'
 >
 
 export const ListItem: FC<ListItemProps> = props => {
+  const { arrow, arrowIcon } = props
+  const { list: componentConfig = {} } = useConfig()
   const clickable = props.clickable ?? !!props.onClick
-  const arrow = props.arrow === undefined ? clickable : props.arrow
+
+  const showArrow = arrow ?? arrowIcon ?? clickable
+  const mergedArrowIcon = mergeProp<React.ReactNode>(
+    componentConfig.arrowIcon,
+    arrow !== true ? arrow : null,
+    arrowIcon !== true ? arrowIcon : null
+  )
 
   const content = (
     <div className={`${classPrefix}-content`}>
@@ -44,9 +58,9 @@ export const ListItem: FC<ListItemProps> = props => {
       {isNodeWithContent(props.extra) && (
         <div className={`${classPrefix}-content-extra`}>{props.extra}</div>
       )}
-      {isNodeWithContent(arrow) && (
+      {showArrow && (
         <div className={`${classPrefix}-content-arrow`}>
-          {arrow === true ? <RightOutline /> : arrow}
+          {mergedArrowIcon || <RightOutline />}
         </div>
       )}
     </div>

@@ -93,6 +93,7 @@ const validateMessages = {
 | getValueProps | 为子元素添加额外的属性 | `(value) => any` | - |
 | hasFeedback | 是否展示错误反馈 | `boolean` | `true` |
 | help | 提示文本 | `ReactNode` | - |
+| helpIcon | 提示图标 | `ReactNode` | `<QuestionCircleOutline />` |
 | hidden | 是否隐藏整个字段 | `boolean` | `false` |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | `any` | - |
 | label | 标签名 | `ReactNode` | - |

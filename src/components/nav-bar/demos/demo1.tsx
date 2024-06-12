@@ -1,7 +1,7 @@
-import React from 'react'
 import { NavBar, Space, Toast } from 'antd-mobile'
+import { CloseOutline, MoreOutline, SearchOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
-import { SearchOutline, MoreOutline, CloseOutline } from 'antd-mobile-icons'
+import React from 'react'
 
 import './demo1.less'
 
@@ -34,13 +34,13 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='返回按钮不显示图标' padding='0'>
-        <NavBar back='返回' onBack={back} backArrow={false}>
+        <NavBar back='返回' onBack={back} backIcon={false}>
           标题
         </NavBar>
       </DemoBlock>
 
       <DemoBlock title='自定义返回按钮图标' padding='0'>
-        <NavBar back='返回' backArrow={<CloseOutline />} onBack={back}>
+        <NavBar back='返回' backIcon={<CloseOutline />} onBack={back}>
           标题
         </NavBar>
       </DemoBlock>

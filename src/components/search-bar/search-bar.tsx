@@ -1,13 +1,13 @@
-import React, { useState, useRef, forwardRef, useImperativeHandle } from 'react'
-import type { ReactNode } from 'react'
-import classNames from 'classnames'
-import Input, { InputRef, InputProps } from '../input'
-import Button from '../button'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 import { SearchOutline } from 'antd-mobile-icons'
+import classNames from 'classnames'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
+import Button from '../button'
 import { useConfig } from '../config-provider'
+import Input, { InputProps, InputRef } from '../input'
 
 const classPrefix = `adm-search-bar`
 
@@ -25,6 +25,10 @@ export type SearchBarProps = Pick<
   onlyShowClearWhenFocus?: boolean
   showCancelButton?: boolean | ((focus: boolean, value: string) => boolean)
   cancelText?: string
+  searchIcon?: ReactNode
+  /**
+   * @deprecated use `searchIcon` instead
+   */
   icon?: ReactNode
   clearOnCancel?: boolean
   onSearch?: (val: string) => void
@@ -44,116 +48,124 @@ const defaultProps = {
   showCancelButton: false as NonNullable<SearchBarProps['showCancelButton']>,
   defaultValue: '',
   clearOnCancel: true,
-  icon: <SearchOutline />,
 }
 
-export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>((p, ref) => {
-  const { locale } = useConfig()
-  const props = mergeProps(
-    defaultProps,
-    {
-      cancelText: locale.common.cancel,
-    },
-    p
-  )
-  const [value, setValue] = usePropsValue(props)
-  const [hasFocus, setHasFocus] = useState(false)
-  const inputRef = useRef<InputRef>(null)
-  const composingRef = useRef(false)
+export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>(
+  (props, ref) => {
+    const { locale, searchBar: componentConfig = {} } = useConfig()
+    const mergedProps = mergeProps(
+      defaultProps,
+      componentConfig,
+      {
+        cancelText: locale.common.cancel,
+      },
+      props
+    )
+    const searchIcon = mergeProp(
+      <SearchOutline />,
+      componentConfig.searchIcon,
+      props.icon,
+      props.searchIcon
+    )
+    const [value, setValue] = usePropsValue(mergedProps)
+    const [hasFocus, setHasFocus] = useState(false)
+    const inputRef = useRef<InputRef>(null)
+    const composingRef = useRef(false)
 
-  useImperativeHandle(ref, () => ({
-    clear: () => inputRef.current?.clear(),
-    focus: () => inputRef.current?.focus(),
-    blur: () => inputRef.current?.blur(),
-    get nativeElement() {
-      return inputRef.current?.nativeElement ?? null
-    },
-  }))
+    useImperativeHandle(ref, () => ({
+      clear: () => inputRef.current?.clear(),
+      focus: () => inputRef.current?.focus(),
+      blur: () => inputRef.current?.blur(),
+      get nativeElement() {
+        return inputRef.current?.nativeElement ?? null
+      },
+    }))
 
-  const renderCancelButton = () => {
-    let isShowCancel: boolean
+    const renderCancelButton = () => {
+      let isShowCancel: boolean
 
-    if (typeof props.showCancelButton === 'function') {
-      isShowCancel = props.showCancelButton(hasFocus, value)
-    } else {
-      isShowCancel = props.showCancelButton && hasFocus
+      if (typeof mergedProps.showCancelButton === 'function') {
+        isShowCancel = mergedProps.showCancelButton(hasFocus, value)
+      } else {
+        isShowCancel = mergedProps.showCancelButton && hasFocus
+      }
+
+      return (
+        isShowCancel && (
+          <div className={`${classPrefix}-suffix`}>
+            <Button
+              fill='none'
+              className={`${classPrefix}-cancel-button`}
+              onClick={() => {
+                if (mergedProps.clearOnCancel) {
+                  inputRef.current?.clear()
+                }
+                inputRef.current?.blur()
+                mergedProps.onCancel?.()
+              }}
+              onMouseDown={e => {
+                e.preventDefault()
+              }}
+            >
+              {mergedProps.cancelText}
+            </Button>
+          </div>
+        )
+      )
     }
 
-    return (
-      isShowCancel && (
-        <div className={`${classPrefix}-suffix`}>
-          <Button
-            fill='none'
-            className={`${classPrefix}-cancel-button`}
-            onClick={() => {
-              if (props.clearOnCancel) {
-                inputRef.current?.clear()
+    return withNativeProps(
+      mergedProps,
+      <div
+        className={classNames(classPrefix, {
+          [`${classPrefix}-active`]: hasFocus,
+        })}
+      >
+        <div className={`${classPrefix}-input-box`}>
+          {searchIcon && (
+            <div className={`${classPrefix}-input-box-icon`}>{searchIcon}</div>
+          )}
+          <Input
+            ref={inputRef}
+            className={classNames(`${classPrefix}-input`, {
+              [`${classPrefix}-input-without-icon`]: !searchIcon,
+            })}
+            value={value}
+            onChange={setValue}
+            maxLength={mergedProps.maxLength}
+            placeholder={mergedProps.placeholder}
+            clearable={mergedProps.clearable}
+            onlyShowClearWhenFocus={mergedProps.onlyShowClearWhenFocus}
+            onFocus={e => {
+              setHasFocus(true)
+              mergedProps.onFocus?.(e)
+            }}
+            onBlur={e => {
+              setHasFocus(false)
+              mergedProps.onBlur?.(e)
+            }}
+            onClear={mergedProps.onClear}
+            type='search'
+            enterKeyHint='search'
+            onEnterPress={() => {
+              if (!composingRef.current) {
+                inputRef.current?.blur()
+                mergedProps.onSearch?.(value)
               }
-              inputRef.current?.blur()
-              props.onCancel?.()
             }}
-            onMouseDown={e => {
-              e.preventDefault()
+            aria-label={locale.SearchBar.name}
+            onCompositionStart={e => {
+              composingRef.current = true
+              mergedProps.onCompositionStart?.(e)
             }}
-          >
-            {props.cancelText}
-          </Button>
+            onCompositionEnd={e => {
+              composingRef.current = false
+              mergedProps.onCompositionEnd?.(e)
+            }}
+          />
         </div>
-      )
+        {renderCancelButton()}
+      </div>
     )
   }
-
-  return withNativeProps(
-    props,
-    <div
-      className={classNames(classPrefix, {
-        [`${classPrefix}-active`]: hasFocus,
-      })}
-    >
-      <div className={`${classPrefix}-input-box`}>
-        {props.icon && (
-          <div className={`${classPrefix}-input-box-icon`}>{props.icon}</div>
-        )}
-        <Input
-          ref={inputRef}
-          className={classNames(`${classPrefix}-input`, {
-            [`${classPrefix}-input-without-icon`]: !props.icon,
-          })}
-          value={value}
-          onChange={setValue}
-          maxLength={props.maxLength}
-          placeholder={props.placeholder}
-          clearable={props.clearable}
-          onlyShowClearWhenFocus={props.onlyShowClearWhenFocus}
-          onFocus={e => {
-            setHasFocus(true)
-            props.onFocus?.(e)
-          }}
-          onBlur={e => {
-            setHasFocus(false)
-            props.onBlur?.(e)
-          }}
-          onClear={props.onClear}
-          type='search'
-          enterKeyHint='search'
-          onEnterPress={() => {
-            if (!composingRef.current) {
-              inputRef.current?.blur()
-              props.onSearch?.(value)
-            }
-          }}
-          aria-label={locale.SearchBar.name}
-          onCompositionStart={e => {
-            composingRef.current = true
-            props.onCompositionStart?.(e)
-          }}
-          onCompositionEnd={e => {
-            composingRef.current = false
-            props.onCompositionEnd?.(e)
-          }}
-        />
-      </div>
-      {renderCancelButton()}
-    </div>
-  )
-})
+)

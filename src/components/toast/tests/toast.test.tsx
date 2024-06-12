@@ -60,20 +60,18 @@ describe('Toast', () => {
     fireEvent.click(getByText('success'))
     await waitForContentShow('content success')
     expect(
-      document.querySelectorAll(`.${classPrefix}-icon-success`)[0]
+      document.getElementById('CheckOutline-CheckOutline')
     ).toBeInTheDocument()
 
     fireEvent.click(getByText('fail'))
     await waitForContentShow('content fail')
     expect(
-      document.querySelectorAll(`.${classPrefix}-icon-fail`)[0]
+      document.getElementById('CloseOutline-CloseOutline')
     ).toBeInTheDocument()
 
     fireEvent.click(getByText('loading'))
     await waitForContentShow('content loading')
-    expect(
-      document.querySelectorAll(`.${classPrefix}-loading`)[0]
-    ).toBeInTheDocument()
+    expect(document.querySelector('.adm-spin-loading')).toBeInTheDocument()
   })
 
   test('custom icon', async () => {

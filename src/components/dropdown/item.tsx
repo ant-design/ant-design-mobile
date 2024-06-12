@@ -1,9 +1,12 @@
+import { DownFill } from 'antd-mobile-icons'
 import classNames from 'classnames'
-import React from 'react'
 import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
-import { DownFill } from 'antd-mobile-icons'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import { IconContext } from './context'
 
 const classPrefix = `adm-dropdown-item`
 
@@ -15,27 +18,42 @@ export type DropdownItemProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  arrowIcon?: ReactNode
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
   arrow?: ReactNode
   children?: ReactNode
 } & NativeProps
 
 const Item: FC<DropdownItemProps> = props => {
+  const { dropdown: componentConfig = {} } = useConfig()
+  const mergedProps = mergeProps(componentConfig, props)
+  const { active, highlight, onClick, title } = mergedProps
   const cls = classNames(classPrefix, {
-    [`${classPrefix}-active`]: props.active,
-    [`${classPrefix}-highlight`]: props.highlight ?? props.active,
+    [`${classPrefix}-active`]: active,
+    [`${classPrefix}-highlight`]: highlight ?? active,
   })
+
+  const contextArrowIcon = React.useContext(IconContext)
+  const mergedArrowIcon = mergeProp(
+    <DownFill />,
+    contextArrowIcon,
+    mergedProps.arrow,
+    mergedProps.arrowIcon
+  )
 
   return withNativeProps(
     props,
-    <div className={cls} onClick={props.onClick}>
+    <div className={cls} onClick={onClick}>
       <div className={`${classPrefix}-title`}>
-        <span className={`${classPrefix}-title-text`}>{props.title}</span>
+        <span className={`${classPrefix}-title-text`}>{title}</span>
         <span
           className={classNames(`${classPrefix}-title-arrow`, {
-            [`${classPrefix}-title-arrow-active`]: props.active,
+            [`${classPrefix}-title-arrow-active`]: active,
           })}
         >
-          {props.arrow === undefined ? <DownFill /> : props.arrow}
+          {mergedArrowIcon}
         </span>
       </div>
     </div>

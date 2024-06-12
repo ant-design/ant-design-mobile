@@ -10,6 +10,8 @@ import { traverseReactNode } from '../../utils/traverse-react-node'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
 import { observe } from '../../utils/use-mutation-effect'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import List from '../list'
 
 const classPrefix = `adm-collapse`
@@ -21,8 +23,12 @@ export type CollapsePanelProps = {
   forceRender?: boolean
   destroyOnClose?: boolean
   onClick?: (event: React.MouseEvent<Element, MouseEvent>) => void
-  arrow?: ReactNode | ((active: boolean) => ReactNode)
+  arrowIcon?: ReactNode | ((active: boolean) => ReactNode)
   children?: ReactNode
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
+  arrow?: ReactNode | ((active: boolean) => ReactNode)
 } & NativeProps
 
 export const CollapsePanel: FC<CollapsePanelProps> = () => {
@@ -121,6 +127,10 @@ type ValueProps<T> = {
   activeKey?: T
   defaultActiveKey?: T
   onChange?: (activeKey: T) => void
+  arrowIcon?: ReactNode | ((active: boolean) => ReactNode)
+  /**
+   * @deprecated use `arrowIcon` instead
+   */
   arrow?: ReactNode | ((active: boolean) => ReactNode)
 }
 
@@ -136,8 +146,10 @@ export type CollapseProps = (
 } & NativeProps
 
 export const Collapse: FC<CollapseProps> = props => {
+  const { collapse: componentConfig = {} } = useConfig()
+  const mergedProps = mergeProps(componentConfig, props)
   const panels: ReactElement<CollapsePanelProps>[] = []
-  traverseReactNode(props.children, child => {
+  traverseReactNode(mergedProps.children, child => {
     if (!isValidElement<CollapsePanelProps>(child)) return
     const key = child.key
     if (typeof key !== 'string') return
@@ -146,11 +158,11 @@ export const Collapse: FC<CollapseProps> = props => {
   })
 
   const handlePropsValue = () => {
-    if (!props.accordion) {
+    if (!mergedProps.accordion) {
       return {
-        value: props.activeKey,
-        defaultValue: props.defaultActiveKey ?? [],
-        onChange: props.onChange,
+        value: mergedProps.activeKey,
+        defaultValue: mergedProps.defaultActiveKey ?? [],
+        onChange: mergedProps.onChange,
       }
     }
 
@@ -162,20 +174,22 @@ export const Collapse: FC<CollapseProps> = props => {
       value: [],
       defaultValue: [],
       onChange: v => {
-        props.onChange?.(v[0] ?? null)
+        mergedProps.onChange?.(v[0] ?? null)
       },
     }
 
-    if (props.activeKey === undefined) {
+    if (mergedProps.activeKey === undefined) {
       initValue.value = undefined
-    } else if (props.activeKey !== null) {
-      initValue.value = [props.activeKey]
+    } else if (mergedProps.activeKey !== null) {
+      initValue.value = [mergedProps.activeKey]
     }
 
     if (
-      ![null, undefined].includes(props.defaultActiveKey as null | undefined)
+      ![null, undefined].includes(
+        mergedProps.defaultActiveKey as null | undefined
+      )
     ) {
-      initValue.defaultValue = [props.defaultActiveKey as string]
+      initValue.defaultValue = [mergedProps.defaultActiveKey as string]
     }
 
     return initValue
@@ -187,14 +201,14 @@ export const Collapse: FC<CollapseProps> = props => {
     activeKey === null ? [] : Array.isArray(activeKey) ? activeKey : [activeKey]
 
   return withNativeProps(
-    props,
+    mergedProps,
     <div className={classPrefix}>
       <List>
         {panels.map(panel => {
           const key = panel.key as string
           const active = activeKeyList.includes(key)
           function handleClick(event: React.MouseEvent<Element, MouseEvent>) {
-            if (props.accordion) {
+            if (mergedProps.accordion) {
               if (active) {
                 setActiveKey([])
               } else {
@@ -211,15 +225,16 @@ export const Collapse: FC<CollapseProps> = props => {
             panel.props.onClick?.(event)
           }
 
-          const renderArrow = () => {
-            let arrow: CollapseProps['arrow'] = <DownOutline />
-            if (props.arrow !== undefined) {
-              arrow = props.arrow
-            }
-            if (panel.props.arrow !== undefined) {
-              arrow = panel.props.arrow
-            }
-            return typeof arrow === 'function' ? (
+          const arrow = mergeProp(
+            <DownOutline />,
+            mergedProps.arrow,
+            mergedProps.arrowIcon,
+            panel.props.arrow,
+            panel.props.arrowIcon
+          )
+
+          const arrowIcon =
+            typeof arrow === 'function' ? (
               arrow(active)
             ) : (
               <div
@@ -230,7 +245,6 @@ export const Collapse: FC<CollapseProps> = props => {
                 {arrow}
               </div>
             )
-          }
 
           return (
             <React.Fragment key={key}>
@@ -240,7 +254,7 @@ export const Collapse: FC<CollapseProps> = props => {
                   className={`${classPrefix}-panel-header`}
                   onClick={handleClick}
                   disabled={panel.props.disabled}
-                  arrow={renderArrow()}
+                  arrowIcon={arrowIcon}
                 >
                   {panel.props.title}
                 </List.Item>

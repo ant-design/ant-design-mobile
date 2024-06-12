@@ -1,6 +1,7 @@
 import React, { createRef } from 'react'
-import { render, fireEvent, act, userEvent, waitFor, screen } from 'testing'
+import { act, fireEvent, render, screen, userEvent, waitFor } from 'testing'
 import Input from '..'
+import ConfigProvider from '../../config-provider'
 import { InputRef } from '../input'
 
 jest.mock('../../../utils/validate', () => ({
@@ -207,5 +208,55 @@ describe('Input', () => {
     })
 
     expect(input.value).toBe('012')
+  })
+
+  describe('clearIcon', () => {
+    it('default', () => {
+      const { baseElement } = render(<Input value='foobar' clearable />)
+
+      act(() => {
+        document.querySelector('input')?.focus()
+      })
+
+      expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
+    })
+
+    it('props', () => {
+      render(<Input value='foobar' clearable clearIcon='bamboo' />)
+
+      act(() => {
+        document.querySelector('input')?.focus()
+      })
+
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider input={{ clearIcon: 'little' }}>
+          <Input value='foobar' clearable />
+        </ConfigProvider>
+      )
+
+      act(() => {
+        document.querySelector('input')?.focus()
+      })
+
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider input={{ clearIcon: 'little' }}>
+          <Input value='foobar' clearable clearIcon='bamboo' />
+        </ConfigProvider>
+      )
+
+      act(() => {
+        document.querySelector('input')?.focus()
+      })
+
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
   })
 })

@@ -1,20 +1,21 @@
-import React, { useContext, useCallback, useState, useRef } from 'react'
-import type { FC, ReactNode, MutableRefObject } from 'react'
+import { QuestionCircleOutline } from 'antd-mobile-icons'
 import classNames from 'classnames'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { Field, FormInstance } from 'rc-field-form'
-import FieldContext from 'rc-field-form/lib/FieldContext'
 import type { FieldProps } from 'rc-field-form/lib/Field'
-import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
-import type { FormLayout } from './index'
+import FieldContext from 'rc-field-form/lib/FieldContext'
+import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface'
+import type { FC, MutableRefObject, ReactNode } from 'react'
+import React, { useCallback, useContext, useRef, useState } from 'react'
 import { devWarning } from '../../utils/dev-log'
-import { FormContext, NoStyleItemContext } from './context'
-import { toArray, isSafeSetRefComponent } from './utils'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { undefinedFallback } from '../../utils/undefined-fallback'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import List, { ListItemProps } from '../list'
 import Popover from '../popover'
-import { QuestionCircleOutline } from 'antd-mobile-icons'
-import { useConfig } from '../config-provider'
-import { undefinedFallback } from '../../utils/undefined-fallback'
+import { FormContext, NoStyleItemContext } from './context'
+import type { FormLayout } from './index'
+import { isSafeSetRefComponent, toArray } from './utils'
 
 const NAME_SPLIT = '__SPLIT__'
 
@@ -44,10 +45,11 @@ export type FormItemProps = Pick<
 > &
   Pick<
     ListItemProps,
-    'style' | 'extra' | 'clickable' | 'arrow' | 'description'
+    'style' | 'extra' | 'clickable' | 'arrow' | 'arrowIcon' | 'description'
   > & {
     label?: ReactNode
     help?: ReactNode
+    helpIcon?: ReactNode
     hasFeedback?: boolean
     required?: boolean
     noStyle?: boolean
@@ -79,11 +81,13 @@ type FormItemLayoutProps = Pick<
   | 'disabled'
   | 'label'
   | 'help'
+  | 'helpIcon'
   | 'hidden'
   | 'layout'
   | 'extra'
   | 'clickable'
   | 'arrow'
+  | 'arrowIcon'
   | 'description'
   | 'childElementPosition'
 > & {
@@ -95,22 +99,24 @@ type FormItemLayoutProps = Pick<
 } & NativeProps
 
 const FormItemLayout: FC<FormItemLayoutProps> = props => {
+  const { locale, form: componentConfig = {} } = useConfig()
+
   const {
     style,
     extra,
     label,
     help,
+    helpIcon,
     required,
     children,
     htmlFor,
     hidden,
     arrow,
+    arrowIcon,
     childElementPosition = 'normal',
-  } = props
+  } = mergeProps(componentConfig, props)
 
   const context = useContext(FormContext)
-
-  const { locale } = useConfig()
 
   const hasFeedback =
     props.hasFeedback !== undefined ? props.hasFeedback : context.hasFeedback
@@ -162,7 +168,7 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
               e.preventDefault()
             }}
           >
-            <QuestionCircleOutline />
+            {helpIcon || <QuestionCircleOutline />}
           </span>
         </Popover>
       )}
@@ -210,7 +216,7 @@ const FormItemLayout: FC<FormItemLayoutProps> = props => {
       disabled={disabled}
       onClick={props.onClick}
       clickable={props.clickable}
-      arrow={arrow}
+      arrowIcon={arrowIcon || arrow}
     >
       <div
         className={classNames(
@@ -233,6 +239,7 @@ export const FormItem: FC<FormItemProps> = props => {
     // FormItem 相关
     label,
     help,
+    helpIcon,
     extra,
     hasFeedback,
     name,
@@ -254,6 +261,7 @@ export const FormItem: FC<FormItemProps> = props => {
     dependencies,
     clickable,
     arrow,
+    arrowIcon,
     ...fieldProps
   } = props
 
@@ -328,6 +336,7 @@ export const FormItem: FC<FormItemProps> = props => {
         label={label}
         extra={extra}
         help={help}
+        helpIcon={helpIcon}
         description={description}
         required={isRequired}
         disabled={disabled}
@@ -341,6 +350,7 @@ export const FormItem: FC<FormItemProps> = props => {
         childElementPosition={childElementPosition}
         clickable={clickable}
         arrow={arrow}
+        arrowIcon={arrowIcon}
       >
         <NoStyleItemContext.Provider value={onSubMetaChange}>
           {baseChildren}

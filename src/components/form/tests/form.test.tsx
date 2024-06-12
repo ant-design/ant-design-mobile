@@ -1,9 +1,10 @@
 import React from 'react'
-import { fireEvent, render, waitFor } from 'testing'
+import { fireEvent, render, screen, waitFor } from 'testing'
 import Form from '..'
-import Input from '../../input'
 import Button from '../../button'
 import Checkbox from '../../checkbox'
+import ConfigProvider from '../../config-provider'
+import Input from '../../input'
 
 const classPrefix = `adm-form`
 
@@ -353,5 +354,122 @@ describe('Form', () => {
     expect(onClick).toHaveBeenCalled()
 
     jest.useRealTimers()
+  })
+
+  describe('helpIcon', () => {
+    it('default', () => {
+      const { baseElement } = render(
+        <Form>
+          <Form.Item name='name' label='name' help='hello world'>
+            <Input />
+          </Form.Item>
+        </Form>
+      )
+      expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
+    })
+
+    it('props', () => {
+      render(
+        <Form>
+          <Form.Item
+            name='name'
+            label='name'
+            help='hello world'
+            helpIcon='bamboo'
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      )
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider form={{ helpIcon: 'little' }}>
+          <Form>
+            <Form.Item name='name' label='name' help='hello world'>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider form={{ helpIcon: 'little' }}>
+          <Form>
+            <Form.Item
+              name='name'
+              label='name'
+              help='hello world'
+              helpIcon='bamboo'
+            >
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+  })
+
+  describe('arrow', () => {
+    it('legacy default', () => {
+      const { baseElement } = render(
+        <Form>
+          <Form.Item arrow />
+        </Form>
+      )
+      expect(
+        baseElement.querySelector('.adm-list-item-content-arrow')
+      ).toBeTruthy()
+    })
+
+    it('legacy custom', () => {
+      render(
+        <Form>
+          <Form.Item arrow='little' />
+        </Form>
+      )
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('arrowIcon', () => {
+      render(
+        <Form>
+          <Form.Item arrow='little' arrowIcon='bamboo' />
+        </Form>
+      )
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider list={{ arrowIcon: 'little' }}>
+          <Form>
+            <Form.Item clickable />
+          </Form>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider list={{ arrowIcon: 'little' }}>
+          <Form>
+            <Form.Item clickable arrowIcon='bamboo' />
+          </Form>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
   })
 })

@@ -1,14 +1,15 @@
 import React, { createRef } from 'react'
 import {
-  render,
-  testA11y,
-  fireEvent,
-  screen,
-  waitForElementToBeRemoved,
-  userEvent,
   act,
+  fireEvent,
+  render,
+  screen,
+  testA11y,
+  userEvent,
+  waitForElementToBeRemoved,
 } from 'testing'
 import SearchBar, { SearchBarRef } from '..'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-search-bar`
 
@@ -98,5 +99,47 @@ describe('adm-search-bar', () => {
     })
     expect(input).not.toHaveFocus()
     expect(onBlur).toBeCalled()
+  })
+
+  describe('searchIcon', () => {
+    it('default', () => {
+      const { baseElement } = render(<SearchBar />)
+      expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
+    })
+
+    it('legacy', () => {
+      render(<SearchBar icon='little' />)
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props', () => {
+      render(<SearchBar searchIcon='bamboo' />)
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('props override legacy props', () => {
+      render(<SearchBar icon='little' searchIcon='bamboo' />)
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider searchBar={{ searchIcon: 'little' }}>
+          <SearchBar />
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider searchBar={{ searchIcon: 'little' }}>
+          <SearchBar searchIcon='bamboo' />
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
   })
 })

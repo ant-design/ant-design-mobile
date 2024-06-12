@@ -1,6 +1,7 @@
 import React from 'react'
-import { render, testA11y, fireEvent, sleep } from 'testing'
+import { fireEvent, render, screen, sleep, testA11y } from 'testing'
 import NoticeBar from '..'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-notice-bar`
 
@@ -30,7 +31,7 @@ describe('NoticeBar', () => {
     )
 
     const el = getByTestId('notice')
-    const iconEl = el.querySelectorAll(`.${classPrefix}-close-icon`)[0]
+    const iconEl = el.querySelectorAll(`.${classPrefix}-close`)[0]
     expect(iconEl).toBeVisible()
 
     fireEvent.click(iconEl)
@@ -106,5 +107,37 @@ describe('NoticeBar', () => {
     fireEvent.click(noticeBar)
 
     expect(handleClick).toHaveBeenCalled()
+  })
+
+  describe('closeIcon', () => {
+    it('default', () => {
+      const { baseElement } = render(<NoticeBar content='foobar' closeable />)
+      expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
+    })
+
+    it('props', () => {
+      render(<NoticeBar content='foobar' closeable closeIcon='bamboo' />)
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider noticeBar={{ closeIcon: 'little' }}>
+          <NoticeBar content='foobar' closeable />
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider noticeBar={{ closeIcon: 'little' }}>
+          <NoticeBar content='foobar' closeable closeIcon='bamboo' />
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
   })
 })

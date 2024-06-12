@@ -107,4 +107,47 @@ describe('Dropdown', () => {
     fireEvent.click(screen.getByText('sorter'))
     expect(screen.getByText('click2'))
   })
+
+  describe('arrow', () => {
+    it('Dropdown - arrow', () => {
+      render(
+        <Dropdown arrow='little'>
+          <Dropdown.Item title='sorter' key='sorter' />
+        </Dropdown>
+      )
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('Dropdown - arrowIcon', () => {
+      render(
+        <Dropdown arrowIcon='bamboo' arrow='little'>
+          <Dropdown.Item title='sorter' key='sorter' />
+        </Dropdown>
+      )
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('Dropdown.Item - arrow', () => {
+      render(
+        <Dropdown arrowIcon='ignore' arrow='ignore'>
+          <Dropdown.Item title='sorter' key='sorter' arrow='little' />
+        </Dropdown>
+      )
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('Dropdown.Item - arrowIcon', () => {
+      render(
+        <Dropdown arrowIcon='ignore' arrow='ignore'>
+          <Dropdown.Item
+            title='sorter'
+            key='sorter'
+            arrow='little'
+            arrowIcon='bamboo'
+          />
+        </Dropdown>
+      )
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+  })
 })

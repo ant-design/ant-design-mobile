@@ -24,6 +24,7 @@
 | bodyStyle | 内容区域样式 | `React.CSSProperties` | - |
 | className | 容器类名 | `string` | - |
 | closeOnMaskClick | 点击背景蒙层后是否关闭 | `boolean` | `false` |
+| closeIcon | 自定义关闭按钮图标 | `ReactNode` | `<CloseOutline/>` |
 | destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
 | forceRender | 强制渲染内容 | `boolean` | `false` |
 | getContainer | 指定挂载的 `HTML` 节点，默认为 `body`，如果为 `null` 的话，会渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `() => document.body` |
