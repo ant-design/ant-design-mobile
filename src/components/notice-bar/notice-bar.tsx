@@ -48,7 +48,6 @@ const defaultProps = {
   delay: 2000,
   speed: 50,
   icon: <SoundOutline />,
-  closeIcon: <CloseOutline />,
   wrap: false,
 }
 
