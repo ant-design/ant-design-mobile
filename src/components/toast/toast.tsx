@@ -31,19 +31,21 @@ const defaultProps = {
   stopPropagation: ['click'],
 }
 
-export const InternalToast: FC<ToastProps> = props => {
-  const mergedProps = mergeProps(defaultProps, props)
-  const { maskClickable, content, icon, position } = mergedProps
+export const InternalToast: FC<ToastProps> = p => {
+  const props = mergeProps(defaultProps, p)
+  const { maskClickable, content, icon, position } = props
 
   const iconElement = useMemo(() => {
     if (icon === null || icon === undefined) return null
     switch (icon) {
       case 'success':
-        return <CheckOutline />
+        return <CheckOutline className={`${classPrefix}-icon-success`} />
       case 'fail':
-        return <CloseOutline />
+        return <CloseOutline className={`${classPrefix}-icon-fail`} />
       case 'loading':
-        return <SpinLoading color='white' style={{ '--size': '48px' }} />
+        return (
+          <SpinLoading color='white' className={`${classPrefix}-loading`} />
+        )
       default:
         return icon
     }
@@ -62,18 +64,18 @@ export const InternalToast: FC<ToastProps> = props => {
 
   return (
     <Mask
-      visible={mergedProps.visible}
+      visible={props.visible}
       destroyOnClose
       opacity={0}
       disableBodyScroll={!maskClickable}
-      getContainer={mergedProps.getContainer}
-      afterClose={mergedProps.afterClose}
+      getContainer={props.getContainer}
+      afterClose={props.afterClose}
       style={{
         pointerEvents: maskClickable ? 'none' : 'auto',
-        ...mergedProps.maskStyle,
+        ...props.maskStyle,
       }}
-      className={classNames(`${classPrefix}-mask`, mergedProps.maskClassName)}
-      stopPropagation={mergedProps.stopPropagation}
+      className={classNames(`${classPrefix}-mask`, props.maskClassName)}
+      stopPropagation={props.stopPropagation}
     >
       <div className={classNames(`${classPrefix}-wrap`)}>
         <div
