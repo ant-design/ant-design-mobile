@@ -11,7 +11,7 @@ import React, {
 } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { mergeProps } from '../../utils/with-default-props'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import type { InputProps } from '../input'
 import { NumberKeyboardProps } from '../number-keyboard'
@@ -41,7 +41,6 @@ export type VirtualInputProps = {
 
 const defaultProps = {
   defaultValue: '',
-  clearIcon: <CloseCircleFill />,
 }
 
 export type VirtualInputRef = {
@@ -57,6 +56,12 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
     const [hasFocus, setHasFocus] = useState(false)
+
+    const clearIcon = mergeProp(
+      <CloseCircleFill />,
+      componentConfig.clearIcon,
+      props.clearIcon
+    )
 
     function scrollToEnd() {
       const root = rootRef.current
@@ -161,7 +166,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             role='button'
             aria-label={locale.Input.clear}
           >
-            {mergedProps.clearIcon}
+            {clearIcon}
           </div>
         )}
         {[undefined, null, ''].includes(value) && (
