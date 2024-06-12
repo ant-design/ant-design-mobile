@@ -173,6 +173,7 @@ export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         max={mergedProps.max}
         min={mergedProps.min}
         autoComplete={mergedProps.autoComplete}
+        enterKeyHint={mergedProps.enterKeyHint}
         autoFocus={mergedProps.autoFocus}
         pattern={mergedProps.pattern}
         inputMode={mergedProps.inputMode}

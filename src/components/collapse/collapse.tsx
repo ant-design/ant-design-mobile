@@ -8,6 +8,7 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useShouldRender } from '../../utils/should-render'
 import { traverseReactNode } from '../../utils/traverse-react-node'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { observe } from '../../utils/use-mutation-effect'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
@@ -71,18 +72,32 @@ const CollapsePanelContent: FC<{
   useIsomorphicUpdateLayoutEffect(() => {
     const inner = innerRef.current
     if (!inner) return
+
     if (visible) {
-      api.start({
-        height: inner.offsetHeight,
-      })
+      let lastMotionId = 0
+      let cancelObserve: VoidFunction = () => {}
+
+      const handleMotion = () => {
+        lastMotionId += 1
+        const motionId = lastMotionId
+
+        api.start({ height: inner.offsetHeight })[0].then(() => {
+          if (motionId === lastMotionId) {
+            cancelObserve()
+          }
+        })
+      }
+
+      cancelObserve = observe(
+        inner,
+        { childList: true, subtree: true },
+        handleMotion
+      )
+      handleMotion()
+      return cancelObserve
     } else {
-      api.start({
-        height: inner.offsetHeight,
-        immediate: true,
-      })
-      api.start({
-        height: 0,
-      })
+      api.start({ height: inner.offsetHeight, immediate: true })
+      api.start({ height: 0 })
     }
   }, [visible])
 

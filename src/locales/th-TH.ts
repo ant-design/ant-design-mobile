@@ -32,7 +32,7 @@ const thTH = mergeLocale(base, {
     placeholder: 'เลือก',
   },
   Dialog: {
-    ok: 'โอเค',
+    ok: 'ฉันรู้แล้ว',
   },
   DatePicker: {
     tillNow: 'จนถึงตอนนี้',
@@ -122,7 +122,7 @@ const thTH = mergeLocale(base, {
     name: 'มาสก์',
   },
   Modal: {
-    ok: 'ตกลง',
+    ok: 'ฉันรู้แล้ว',
   },
   PasscodeInput: {
     name: 'ป้อนรหัสผ่าน',
