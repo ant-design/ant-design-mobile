@@ -174,6 +174,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
         key={key}
         className={className}
         onTouchStart={() => {
+          stopContinueClear()
+
           if (key === 'BACKSPACE') {
             startContinueClear()
           }
