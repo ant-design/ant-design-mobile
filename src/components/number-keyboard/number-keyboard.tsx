@@ -1,14 +1,14 @@
-import React, { useRef, useMemo } from 'react'
-import type { FC, TouchEvent, MouseEvent } from 'react'
-import classNames from 'classnames'
-import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
-import { mergeProps } from '../../utils/with-default-props'
-import { shuffle } from '../../utils/shuffle'
-import Popup, { PopupProps } from '../popup'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import SafeArea from '../safe-area'
 import { useMemoizedFn } from 'ahooks'
+import { DownOutline, TextDeletionOutline } from 'antd-mobile-icons'
+import classNames from 'classnames'
+import type { FC, MouseEvent, TouchEvent } from 'react'
+import React, { useMemo, useRef } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { shuffle } from '../../utils/shuffle'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import Popup, { PopupProps } from '../popup'
+import SafeArea from '../safe-area'
 
 const classPrefix = 'adm-number-keyboard'
 
@@ -88,13 +88,13 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     props.onDelete?.()
   })
 
-  const onBackspacePressStart = () => {
+  const startContinueClear = () => {
     timeoutRef.current = window.setTimeout(() => {
       onDelete()
       intervalRef.current = window.setInterval(onDelete, 150)
     }, 700)
   }
-  const onBackspacePressEnd = () => {
+  const stopContinueClear = () => {
     clearTimeout(timeoutRef.current)
     clearInterval(intervalRef.current)
   }
@@ -174,14 +174,16 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
         key={key}
         className={className}
         onTouchStart={() => {
+          stopContinueClear()
+
           if (key === 'BACKSPACE') {
-            onBackspacePressStart()
+            startContinueClear()
           }
         }}
         onTouchEnd={e => {
           onKeyPress(e, key)
           if (key === 'BACKSPACE') {
-            onBackspacePressEnd()
+            stopContinueClear()
           }
         }}
         {...ariaProps}
@@ -226,11 +228,11 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                 <div
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-bs`}
                   onTouchStart={() => {
-                    onBackspacePressStart()
+                    startContinueClear()
                   }}
                   onTouchEnd={e => {
                     onKeyPress(e, 'BACKSPACE')
-                    onBackspacePressEnd()
+                    stopContinueClear()
                   }}
                   onContextMenu={e => {
                     // Long press should not trigger native context menu
