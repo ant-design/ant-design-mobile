@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { fireEvent, render, testA11y, screen, waitFor } from 'testing'
+import { fireEvent, render, screen, testA11y, waitFor } from 'testing'
 import NumberKeyboard from '..'
 
 const classPrefix = 'adm-number-keyboard'
@@ -10,7 +10,17 @@ function mockClick(el: HTMLElement) {
 }
 
 describe('NumberKeyboard', () => {
+  beforeEach(() => {
+    jest.useFakeTimers()
+  })
+
+  afterEach(() => {
+    jest.clearAllTimers()
+    jest.useRealTimers()
+  })
+
   test('a11y', async () => {
+    jest.useRealTimers()
     await testA11y(<NumberKeyboard visible />)
   })
 
