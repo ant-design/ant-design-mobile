@@ -170,4 +170,34 @@ describe('NumberKeyboard', () => {
     expect(right).toBeInTheDocument()
     expect(screen.getByTitle('0')).not.toHaveClass(`${classPrefix}-key-mid`)
   })
+
+  test('long press backspace and release', () => {
+    const onDelete = jest.fn()
+    const { container } = render(<NumberKeyboard visible onDelete={onDelete} />)
+
+    // Fire touchstart event
+    fireEvent.touchStart(
+      document.body.querySelector(
+        '.adm-number-keyboard-key-sign'
+      ) as HTMLDivElement,
+      { touches: [{}] }
+    )
+    onDelete.mockReset()
+
+    jest.advanceTimersByTime(10000)
+    expect(onDelete).toHaveBeenCalled()
+    onDelete.mockReset()
+
+    // We do not fire touchend event to mock ISO missing touchend event
+    // Press other key
+    fireEvent.touchStart(
+      document.body.querySelector(
+        '.adm-number-keyboard-key-number'
+      ) as HTMLDivElement,
+      { touches: [{}] }
+    )
+
+    jest.advanceTimersByTime(10000)
+    expect(onDelete).not.toHaveBeenCalled()
+  })
 })
