@@ -1,7 +1,8 @@
-import React from 'react'
-import { render, testA11y, fireEvent } from 'testing'
-import CalendarPicker from '..'
 import MockDate from 'mockdate'
+import { spyElementPrototype } from 'rc-util/lib/test/domHook'
+import React from 'react'
+import { act, fireEvent, render, testA11y } from 'testing'
+import CalendarPicker, { CalendarPickerRef } from '..'
 
 const classPrefix = `adm-calendar-picker-view`
 
@@ -13,7 +14,16 @@ const maxDate: Date = new Date('2023-05-31')
 const singleDate: Date = new Date('2023-05-03')
 
 describe('Calendar', () => {
+  beforeEach(() => {
+    jest.useFakeTimers()
+  })
+
+  afterEach(() => {
+    jest.useRealTimers()
+  })
+
   test('a11y', async () => {
+    jest.useRealTimers()
     await testA11y(<CalendarPicker />)
   })
 
@@ -35,5 +45,26 @@ describe('Calendar', () => {
     fireEvent.click(dateEl)
     expect(dateEl.parentElement).toHaveClass(`${classPrefix}-cell-selected`)
     expect(fn).toBeCalled()
+  })
+
+  test('jumpTo should trigger scroll', () => {
+    const ref = React.createRef<CalendarPickerRef>()
+    render(<CalendarPicker visible ref={ref} />)
+
+    const spyScrollIntoView = jest.fn()
+    const spyHTMLElement = spyElementPrototype(
+      HTMLElement,
+      'scrollIntoView',
+      spyScrollIntoView
+    )
+
+    // Trigger scroll
+    ref.current!.jumpToToday()
+    act(() => {
+      jest.runAllTimers()
+    })
+    expect(spyScrollIntoView).toBeCalled()
+
+    spyHTMLElement.mockRestore()
   })
 })
