@@ -1,7 +1,7 @@
 import MockDate from 'mockdate'
 import { spyElementPrototype } from 'rc-util/lib/test/domHook'
-import React, { act } from 'react'
-import { fireEvent, render, testA11y } from 'testing'
+import React from 'react'
+import { act, fireEvent, render, testA11y } from 'testing'
 import CalendarPicker, { CalendarPickerRef } from '..'
 
 const classPrefix = `adm-calendar-picker-view`
