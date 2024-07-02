@@ -16,8 +16,10 @@ describe('NavBar', () => {
     })
 
     it('legacy', () => {
-      const { baseElement } = render(<NavBar backArrow>Title</NavBar>)
-      expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
+      const { baseElement } = render(
+        <NavBar backArrow={<span className='bamboo' />}>Title</NavBar>
+      )
+      expect(baseElement.querySelector('.bamboo')).toBeTruthy()
     })
 
     it('props', () => {
@@ -35,23 +37,23 @@ describe('NavBar', () => {
     })
 
     it('context', () => {
-      render(
-        <ConfigProvider navBar={{ backIcon: 'little' }}>
+      const { baseElement } = render(
+        <ConfigProvider navBar={{ backIcon: <span className='little' /> }}>
           <NavBar backIcon>Title</NavBar>
         </ConfigProvider>
       )
 
-      expect(screen.getByText('little')).toBeVisible()
+      expect(baseElement.querySelector('.little')).toBeTruthy()
     })
 
     it('props override context', () => {
-      render(
-        <ConfigProvider navBar={{ backIcon: 'little' }}>
-          <NavBar backIcon='bamboo'>Title</NavBar>
+      const { baseElement } = render(
+        <ConfigProvider navBar={{ backIcon: <span className='little' /> }}>
+          <NavBar backIcon={<span className='bamboo' />}>Title</NavBar>
         </ConfigProvider>
       )
 
-      expect(screen.getByText('bamboo')).toBeVisible()
+      expect(baseElement.querySelector('.bamboo')).toBeTruthy()
     })
   })
 })

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import type { FC, ReactNode } from 'react'
 import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
+import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 
 const classPrefix = `adm-nav-bar`
@@ -21,14 +21,21 @@ export type NavBarProps = {
   children?: ReactNode
 } & NativeProps<'--height' | '--border-bottom'>
 
-const defaultProps = {
-  backIcon: true,
-}
+const defaultBackIcon = <LeftOutline />
 
 export const NavBar: FC<NavBarProps> = props => {
   const { navBar: componentConfig = {} } = useConfig()
-  const mergedProps = mergeProps(defaultProps, componentConfig, props)
+  const mergedProps = mergeProps(componentConfig, props)
   const { back, backIcon, backArrow } = mergedProps
+
+  const mergedDefaultBackIcon = componentConfig.backIcon || defaultBackIcon
+
+  const mergedBackIcon = mergeProp<ReactNode>(
+    defaultBackIcon,
+    componentConfig.backIcon,
+    backArrow === true ? mergedDefaultBackIcon : backArrow,
+    backIcon === true ? mergedDefaultBackIcon : backIcon
+  )
 
   return withNativeProps(
     mergedProps,
@@ -36,11 +43,9 @@ export const NavBar: FC<NavBarProps> = props => {
       <div className={`${classPrefix}-left`} role='button'>
         {back !== null && (
           <div className={`${classPrefix}-back`} onClick={mergedProps.onBack}>
-            {(backIcon || backArrow) && (
+            {mergedBackIcon && (
               <span className={`${classPrefix}-back-arrow`}>
-                {backIcon === true || backArrow === true
-                  ? componentConfig.backIcon || <LeftOutline />
-                  : backIcon || backArrow}
+                {mergedBackIcon}
               </span>
             )}
             <span aria-hidden='true'>{back}</span>
