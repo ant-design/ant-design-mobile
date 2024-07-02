@@ -5422,7 +5422,9 @@ exports[`ConfigProvider should display the text as da-DK 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -5906,7 +5908,9 @@ exports[`ConfigProvider should display the text as da-DK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -6382,7 +6386,9 @@ exports[`ConfigProvider should display the text as da-DK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -6879,7 +6885,9 @@ exports[`ConfigProvider should display the text as da-DK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -7349,7 +7357,9 @@ exports[`ConfigProvider should display the text as da-DK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -7840,7 +7850,9 @@ exports[`ConfigProvider should display the text as da-DK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -8319,7 +8331,9 @@ exports[`ConfigProvider should display the text as da-DK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -14710,7 +14724,9 @@ exports[`ConfigProvider should display the text as en 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -15194,7 +15210,9 @@ exports[`ConfigProvider should display the text as en 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -15670,7 +15688,9 @@ exports[`ConfigProvider should display the text as en 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -16167,7 +16187,9 @@ exports[`ConfigProvider should display the text as en 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -16637,7 +16659,9 @@ exports[`ConfigProvider should display the text as en 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -17128,7 +17152,9 @@ exports[`ConfigProvider should display the text as en 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -17607,7 +17633,9 @@ exports[`ConfigProvider should display the text as en 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -19354,7 +19382,9 @@ exports[`ConfigProvider should display the text as es 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -19838,7 +19868,9 @@ exports[`ConfigProvider should display the text as es 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -20314,7 +20346,9 @@ exports[`ConfigProvider should display the text as es 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -20811,7 +20845,9 @@ exports[`ConfigProvider should display the text as es 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -21281,7 +21317,9 @@ exports[`ConfigProvider should display the text as es 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -21772,7 +21810,9 @@ exports[`ConfigProvider should display the text as es 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -22251,7 +22291,9 @@ exports[`ConfigProvider should display the text as es 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -23998,7 +24040,9 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -24482,7 +24526,9 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -24958,7 +25004,9 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -25455,7 +25503,9 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -25925,7 +25975,9 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -26416,7 +26468,9 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -26895,7 +26949,9 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -28642,7 +28698,9 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -29126,7 +29184,9 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -29602,7 +29662,9 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -30099,7 +30161,9 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -30569,7 +30633,9 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -31060,7 +31126,9 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -31539,7 +31607,9 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -37930,7 +38000,9 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -38414,7 +38486,9 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -38890,7 +38964,9 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -39387,7 +39463,9 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -39857,7 +39935,9 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -40348,7 +40428,9 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -40827,7 +40909,9 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -47218,7 +47302,9 @@ exports[`ConfigProvider should display the text as it-IT 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -47702,7 +47788,9 @@ exports[`ConfigProvider should display the text as it-IT 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -48178,7 +48266,9 @@ exports[`ConfigProvider should display the text as it-IT 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -48675,7 +48765,9 @@ exports[`ConfigProvider should display the text as it-IT 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -49145,7 +49237,9 @@ exports[`ConfigProvider should display the text as it-IT 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -49636,7 +49730,9 @@ exports[`ConfigProvider should display the text as it-IT 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -50115,7 +50211,9 @@ exports[`ConfigProvider should display the text as it-IT 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -51862,7 +51960,9 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -52346,7 +52446,9 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -52822,7 +52924,9 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -53319,7 +53423,9 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -53789,7 +53895,9 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -54280,7 +54388,9 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -54759,7 +54869,9 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -56506,7 +56618,9 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -56990,7 +57104,9 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -57466,7 +57582,9 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -57963,7 +58081,9 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -58433,7 +58553,9 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -58924,7 +59046,9 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -59403,7 +59527,9 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -61150,7 +61276,9 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -61634,7 +61762,9 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -62110,7 +62240,9 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -62607,7 +62739,9 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -63077,7 +63211,9 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -63568,7 +63704,9 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -64047,7 +64185,9 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -70438,7 +70578,9 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -70922,7 +71064,9 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -71398,7 +71542,9 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -71895,7 +72041,9 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -72365,7 +72513,9 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -72856,7 +73006,9 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -73335,7 +73487,9 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -75082,7 +75236,9 @@ exports[`ConfigProvider should display the text as nl-NL 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -75566,7 +75722,9 @@ exports[`ConfigProvider should display the text as nl-NL 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -76042,7 +76200,9 @@ exports[`ConfigProvider should display the text as nl-NL 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -76539,7 +76699,9 @@ exports[`ConfigProvider should display the text as nl-NL 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -77009,7 +77171,9 @@ exports[`ConfigProvider should display the text as nl-NL 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -77500,7 +77664,9 @@ exports[`ConfigProvider should display the text as nl-NL 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -77979,7 +78145,9 @@ exports[`ConfigProvider should display the text as nl-NL 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -84370,7 +84538,9 @@ exports[`ConfigProvider should display the text as ru 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -84854,7 +85024,9 @@ exports[`ConfigProvider should display the text as ru 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -85330,7 +85502,9 @@ exports[`ConfigProvider should display the text as ru 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -85827,7 +86001,9 @@ exports[`ConfigProvider should display the text as ru 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -86297,7 +86473,9 @@ exports[`ConfigProvider should display the text as ru 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -86788,7 +86966,9 @@ exports[`ConfigProvider should display the text as ru 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -87267,7 +87447,9 @@ exports[`ConfigProvider should display the text as ru 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -93658,7 +93840,9 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -94142,7 +94326,9 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -94618,7 +94804,9 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -95115,7 +95303,9 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -95585,7 +95775,9 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -96076,7 +96268,9 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -96555,7 +96749,9 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -102946,7 +103142,9 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -103430,7 +103628,9 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -103906,7 +104106,9 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -104403,7 +104605,9 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -104873,7 +105077,9 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -105364,7 +105570,9 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -105843,7 +106051,9 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -107590,7 +107800,9 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -108074,7 +108286,9 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -108550,7 +108764,9 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -109047,7 +109263,9 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -109517,7 +109735,9 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -110008,7 +110228,9 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -110487,7 +110709,9 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -112234,7 +112458,9 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
     <div
       class="adm-calendar-picker-view-body"
     >
-      <div>
+      <div
+        data-date="2022-03"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -112718,7 +112944,9 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-04"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -113194,7 +113422,9 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-05"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -113691,7 +113921,9 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-06"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -114161,7 +114393,9 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-07"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -114652,7 +114886,9 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-08"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >
@@ -115131,7 +115367,9 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        data-date="2022-09"
+      >
         <div
           class="adm-calendar-picker-view-title"
         >

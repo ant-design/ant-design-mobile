@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react'
+import React, { forwardRef, useEffect, useRef } from 'react'
 import { withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
 import Button from '../button'
@@ -11,6 +11,7 @@ import CalendarPickerView, {
   CalendarPickerViewProps,
   CalendarPickerViewRef,
 } from '../calendar-picker-view'
+import dayjs from 'dayjs'
 
 const classPrefix = 'adm-calendar-picker'
 
@@ -73,6 +74,21 @@ export const CalendarPicker = forwardRef<
     getContainer,
     ...calendarViewProps
   } = props
+
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        const dateRange = calendarRef.current?.getDateRange() ?? null
+        if (dateRange && dateRange[0]) {
+          const curr = dayjs(dateRange[0])
+          calendarRef.current?.scrollTo({
+            year: curr.year(),
+            month: curr.month() + 1,
+          })
+        }
+      }, 0)
+    }
+  }, [visible])
 
   const footer = (
     <div className={`${classPrefix}-footer`}>
