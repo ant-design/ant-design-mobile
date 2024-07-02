@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
 import { CalendarPicker, List } from 'antd-mobile'
+import React, { useState } from 'react'
 
 const min = new Date()
 min.setDate(5)
+min.setMonth(min.getMonth() - 1)
+
 const max = new Date()
 max.setDate(20)
+max.setMonth(max.getMonth() + 1)
+
+const now = new Date()
 
 export default () => {
   const [visible1, setVisible1] = useState(false)
   const [visible2, setVisible2] = useState(false)
   const [visible3, setVisible3] = useState(false)
   const [visible4, setVisible4] = useState(false)
+  const [visible5, setVisible5] = useState(false)
 
   return (
     <List header='基础配置'>
@@ -58,14 +64,30 @@ export default () => {
           setVisible4(true)
         }}
       >
-        限制日期范围
+        限制日期范围（单选）
+        <CalendarPicker
+          min={min}
+          max={max}
+          defaultValue={now}
+          selectionMode='single'
+          visible={visible4}
+          onClose={() => setVisible4(false)}
+          onMaskClick={() => setVisible4(false)}
+        />
+      </List.Item>
+      <List.Item
+        onClick={() => {
+          setVisible5(true)
+        }}
+      >
+        限制日期范围（多选）
         <CalendarPicker
           min={min}
           max={max}
           selectionMode='range'
-          visible={visible4}
-          onClose={() => setVisible4(false)}
-          onMaskClick={() => setVisible4(false)}
+          visible={visible5}
+          onClose={() => setVisible5(false)}
+          onMaskClick={() => setVisible5(false)}
         />
       </List.Item>
     </List>

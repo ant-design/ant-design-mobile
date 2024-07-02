@@ -1,16 +1,17 @@
+import classNames from 'classnames'
 import React, { forwardRef, useRef } from 'react'
 import { withNativeProps } from '../../utils/native-props'
-import classNames from 'classnames'
-import Button from '../button'
-import Divider from '../divider'
-import Popup from '../popup'
 import { type GetContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
-import { useConfig } from '../config-provider'
+import Button from '../button'
 import CalendarPickerView, {
   CalendarPickerViewProps,
   CalendarPickerViewRef,
 } from '../calendar-picker-view'
+import { Context } from '../calendar-picker-view/calendar-picker-view'
+import { useConfig } from '../config-provider'
+import Divider from '../divider'
+import Popup from '../popup'
 
 const classPrefix = 'adm-calendar-picker'
 
@@ -74,6 +75,8 @@ export const CalendarPicker = forwardRef<
     ...calendarViewProps
   } = props
 
+  const viewContext = React.useMemo(() => ({ visible: !!visible }), [visible])
+
   const footer = (
     <div className={`${classPrefix}-footer`}>
       <Divider />
@@ -122,7 +125,9 @@ export const CalendarPicker = forwardRef<
         }}
         getContainer={getContainer}
       >
-        <CalendarPickerView ref={calendarRef} {...calendarViewProps} />
+        <Context.Provider value={viewContext}>
+          <CalendarPickerView ref={calendarRef} {...calendarViewProps} />
+        </Context.Provider>
         {footer}
       </Popup>
     </div>
