@@ -1,6 +1,5 @@
 import type { Dayjs } from 'dayjs'
 import { useEvent } from 'rc-util'
-// import isVisible from 'rc-util/lib/Dom/isVisible';
 import { useEffect, useRef } from 'react'
 
 export default function useSyncScroll(

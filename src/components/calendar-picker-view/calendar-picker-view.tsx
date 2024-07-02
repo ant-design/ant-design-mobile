@@ -21,7 +21,7 @@ import {
   convertPageToDayjs,
   convertValueToRange,
 } from './convert'
-import useSyncScroll from './tests/useSyncScroll'
+import useSyncScroll from './useSyncScroll'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isSameOrBefore)
