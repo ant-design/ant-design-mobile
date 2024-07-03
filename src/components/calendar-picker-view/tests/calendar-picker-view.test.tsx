@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
-import { render, testA11y, fireEvent } from 'testing'
-import CalendarPickerView, { CalendarPickerViewRef } from '..'
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
+import React, { useRef } from 'react'
+import { fireEvent, render, testA11y } from 'testing'
+import CalendarPickerView, { CalendarPickerViewRef } from '..'
 
 const classPrefix = `adm-calendar-picker-view`
 
@@ -159,5 +159,18 @@ describe('Calendar', () => {
       />
     )
     expect(document.getElementsByClassName('custom-cell').length).toBe(31)
+  })
+
+  test('not fill empty cells if unnecessary', () => {
+    const { container } = render(
+      <CalendarPickerView
+        min={new Date('2024-09-01')}
+        max={new Date('2024-09-30')}
+      />
+    )
+
+    expect(
+      container.querySelectorAll('.adm-calendar-picker-view-cell')
+    ).toHaveLength(30)
   })
 })
