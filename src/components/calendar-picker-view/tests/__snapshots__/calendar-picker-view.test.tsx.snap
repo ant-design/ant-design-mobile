@@ -6458,27 +6458,6 @@ exports[`Calendar jump to a day 2`] = `
         >
           <div
             class="adm-calendar-picker-view-cell"
-          />
-          <div
-            class="adm-calendar-picker-view-cell"
-          />
-          <div
-            class="adm-calendar-picker-view-cell"
-          />
-          <div
-            class="adm-calendar-picker-view-cell"
-          />
-          <div
-            class="adm-calendar-picker-view-cell"
-          />
-          <div
-            class="adm-calendar-picker-view-cell"
-          />
-          <div
-            class="adm-calendar-picker-view-cell"
-          />
-          <div
-            class="adm-calendar-picker-view-cell"
           >
             <div
               class="adm-calendar-picker-view-cell-top"

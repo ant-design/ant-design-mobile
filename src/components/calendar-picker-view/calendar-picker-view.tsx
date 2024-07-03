@@ -179,6 +179,20 @@ export const CalendarPickerView = forwardRef<
 
       const yearMonth = `${year}-${month}`
 
+      // 获取需要预先填充的空格，如果是 7 天则不需要填充
+      const presetEmptyCellCount =
+        props.weekStartsOn === 'Monday'
+          ? monthIterator.date(1).isoWeekday() - 1
+          : monthIterator.date(1).isoWeekday()
+      const presetEmptyCells =
+        presetEmptyCellCount == 7
+          ? null
+          : Array(presetEmptyCellCount)
+              .fill(null)
+              .map((_, index) => (
+                <div key={index} className={`${classPrefix}-cell`}></div>
+              ))
+
       cells.push(
         <div key={yearMonth} data-year-month={yearMonth}>
           <div className={`${classPrefix}-title`}>
@@ -191,15 +205,7 @@ export const CalendarPickerView = forwardRef<
           </div>
           <div className={`${classPrefix}-cells`}>
             {/* 空格填充 */}
-            {Array(
-              props.weekStartsOn === 'Monday'
-                ? monthIterator.date(1).isoWeekday() - 1
-                : monthIterator.date(1).isoWeekday()
-            )
-              .fill(null)
-              .map((_, index) => (
-                <div key={index} className={`${classPrefix}-cell`}></div>
-              ))}
+            {presetEmptyCells}
             {/* 遍历每月 */}
             {Array(monthIterator.daysInMonth())
               .fill(null)
