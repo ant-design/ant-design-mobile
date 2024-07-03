@@ -16,8 +16,7 @@ export default () => {
   const [visible2, setVisible2] = useState(false)
   const [visible3, setVisible3] = useState(false)
 
-  // const singleDate: Date = new Date('2023-06-03')
-  const singleDate: Date = new Date('2024-09-01')
+  const singleDate: Date = new Date('2023-06-03')
 
   return (
     <List header='日期选择'>
@@ -33,8 +32,6 @@ export default () => {
           defaultValue={singleDate}
           onClose={() => setVisible1(false)}
           onMaskClick={() => setVisible1(false)}
-          min={new Date('2024-09-01')}
-          max={new Date('2024-09-30')}
         />
       </List.Item>
       <List.Item
