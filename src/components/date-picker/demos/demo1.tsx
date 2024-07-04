@@ -198,6 +198,47 @@ function DayOfWeekDemo() {
   )
 }
 
+// 季度选择器
+function QuarterDemo() {
+  const [visible, setVisible] = useState(false)
+
+  const labelRenderer = useCallback((type: string, data: number) => {
+    switch (type) {
+      case 'year':
+        return data + '年'
+      case 'quarter':
+        return data + '季度'
+      default:
+        return data
+    }
+  }, [])
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        选择
+      </Button>
+      <DatePicker
+        visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+        defaultValue={now}
+        onConfirm={val => {
+          Toast.show(val.toDateString())
+        }}
+        onSelect={val => console.log(val)}
+        renderLabel={labelRenderer}
+        precision='quarter'
+      />
+    </>
+  )
+}
+
 // 基础用法
 function TillNowDemo() {
   const [value, setValue] = useState(() => new Date())
@@ -250,6 +291,10 @@ export default () => {
 
       <DemoBlock title='周选择器'>
         <DayOfWeekDemo />
+      </DemoBlock>
+
+      <DemoBlock title='季度选择器'>
+        <QuarterDemo />
       </DemoBlock>
 
       <DemoBlock title='至今'>

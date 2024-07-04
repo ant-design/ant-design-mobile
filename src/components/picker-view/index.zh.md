@@ -83,7 +83,7 @@ type PickerDate = Date & {
 | min | 最小值 | `PickerDate` | 十年前 |
 | mouseWheel | 是否允许通过鼠标滚轮进行选择 | `boolean` | `false` |
 | onChange | 选项改变时触发 | `(value: PickerDate) => void` | - |
-| precision | 精度 | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
+| precision | 精度 | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day' \| 'quarter'` | `'day'` |
 | renderLabel | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode` | - |
 | value | 选中项 | `PickerDate` | - |
 | loading | 是否处于加载状态 | `boolean` | `false` |
