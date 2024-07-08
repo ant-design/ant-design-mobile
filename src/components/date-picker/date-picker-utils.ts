@@ -1,12 +1,14 @@
-import type { DatePrecision } from './date-picker-date-utils'
-import type { WeekPrecision } from './date-picker-week-utils'
-import * as dateUtils from './date-picker-date-utils'
-import * as weekUtils from './date-picker-week-utils'
 import { RenderLabel } from '../date-picker-view/date-picker-view'
-import { TILL_NOW } from './util'
+import type { DatePrecision } from './date-picker-date-utils'
+import * as dateUtils from './date-picker-date-utils'
+import type { QuarterPrecision } from './date-picker-quarter-utils'
+import * as quarterUtils from './date-picker-quarter-utils'
+import type { WeekPrecision } from './date-picker-week-utils'
+import * as weekUtils from './date-picker-week-utils'
 import type { PickerDate } from './util'
+import { TILL_NOW } from './util'
 
-export type Precision = DatePrecision | WeekPrecision
+export type Precision = DatePrecision | WeekPrecision | QuarterPrecision
 
 export type DatePickerFilter = Partial<
   Record<
@@ -35,6 +37,8 @@ export const convertDateToStringArray = (
 ) => {
   if (precision.includes('week')) {
     return weekUtils.convertDateToStringArray(date)
+  } else if (precision.includes('quarter')) {
+    return quarterUtils.convertDateToStringArray(date)
   } else {
     const datePrecision = precision as DatePrecision
     const stringArray = dateUtils.convertDateToStringArray(date)
@@ -43,7 +47,7 @@ export const convertDateToStringArray = (
 }
 
 export const convertStringArrayToDate = <
-  T extends string | number | null | undefined
+  T extends string | number | null | undefined,
 >(
   value: T[],
   precision: Precision
@@ -57,6 +61,8 @@ export const convertStringArrayToDate = <
 
   if (precision.includes('week')) {
     return weekUtils.convertStringArrayToDate(value)
+  } else if (precision.includes('quarter')) {
+    return quarterUtils.convertStringArrayToDate(value)
   } else {
     return dateUtils.convertStringArrayToDate(value)
   }
@@ -77,6 +83,15 @@ export const generateDatePickerColumns = (
       min,
       max,
       precision as WeekPrecision,
+      renderLabel,
+      filter
+    )
+  } else if (precision.startsWith('quarter')) {
+    return quarterUtils.generateDatePickerColumns(
+      selected,
+      min,
+      max,
+      precision as QuarterPrecision,
       renderLabel,
       filter
     )

@@ -43,6 +43,15 @@ export default () => {
         />
       </DemoBlock>
 
+      <DemoBlock title='季度选择器' padding='0'>
+        <DatePickerView
+          onChange={val => console.log('onChange', val)}
+          precision='quarter'
+          defaultValue={now}
+          renderLabel={quarterLabelRenderer}
+        />
+      </DemoBlock>
+
       <DemoBlock title='过滤可供选择的时间' padding='0'>
         <DatePickerView
           defaultValue={now}
@@ -91,6 +100,17 @@ const weekdayLabelRenderer = (type: string, data: number) => {
       return data + '周'
     case 'week-day':
       return weekdayToZh(data)
+    default:
+      return data
+  }
+}
+
+const quarterLabelRenderer = (type: string, data: number) => {
+  switch (type) {
+    case 'year':
+      return data + '年'
+    case 'quarter':
+      return data + '季度'
     default:
       return data
   }
