@@ -20,6 +20,15 @@ export default () => {
           filter={weekFilter}
         />
       </DemoBlock>
+
+      <DemoBlock title='季度选择器过滤' padding='0'>
+        <DatePickerView
+          onChange={val => console.log('onChange', val)}
+          precision='quarter'
+          defaultValue={now}
+          filter={quarterFilter}
+        />
+      </DemoBlock>
     </>
   )
 }
@@ -65,6 +74,17 @@ const weekFilter: DatePickerFilter = {
   'week-day': val => {
     // 去除所有周一和周末
     if (val === 1 || val > 5) {
+      return false
+    }
+    return true
+  },
+}
+
+const quarterFilter: DatePickerFilter = {
+  year: val => val > new Date().getFullYear() - 3,
+  quarter: val => {
+    // 去除每年的1季度和3季度
+    if (val === 1 || val === 3) {
       return false
     }
     return true

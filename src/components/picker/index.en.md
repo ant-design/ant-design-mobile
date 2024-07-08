@@ -162,7 +162,7 @@ type PickerDate = Date & {
 | mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
 | onConfirm | Triggered when confirming | `(value: PickerDate) => void` | - |
 | onSelect | Triggered when the options are changed | `(value: PickerDate) => void` | - |
-| precision | Precision | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day'` | `'day'` |
+| precision | Precision | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day' \| 'quarter'` | `'day'` |
 | renderLabel | The function to custom rendering the label shown on a column. `type` means any value in `precision` or `now`, `data` means the default number | `(type: Precision \| 'now', data: number) => ReactNode` | - |
 | tillNow | Show till now in list | `boolean` | - | 5.27.0 |
 | value | Selected value | `PickerDate` | - |

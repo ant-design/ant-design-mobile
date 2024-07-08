@@ -132,6 +132,29 @@ describe('DatePicker', () => {
     expect(fn.mock.calls[0][0]).toEqual(today.toDateString())
   })
 
+  test('precision quarter', async () => {
+    const today = new Date()
+    const fn = jest.fn()
+    const { getByText } = render(
+      <DatePicker
+        visible
+        precision='quarter'
+        value={now}
+        onConfirm={val => {
+          fn(val.toDateString())
+        }}
+      />
+    )
+
+    expect(
+      document.body.querySelectorAll(`.${classPrefix}-view-column`).length
+    ).toBe(2)
+    await waitFor(() => {
+      fireEvent.click(getByText('确定'))
+    })
+    expect(fn.mock.calls[0][0]).toEqual(today.toDateString())
+  })
+
   test('test imperative call', async () => {
     const today = new Date()
     const fn = jest.fn()
