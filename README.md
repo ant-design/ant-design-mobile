@@ -21,7 +21,7 @@
 </div>
 
 ```bash
-$ npm install --save antd-mobile
+$ npm install antd-mobile
 # or
 $ yarn add antd-mobile
 # or
