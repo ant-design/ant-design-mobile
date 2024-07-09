@@ -21,7 +21,7 @@
 </div>
 
 ```bash
-$ npm install --save antd-mobile
+$ npm install antd-mobile
 # or
 $ yarn add antd-mobile
 # or
@@ -39,7 +39,7 @@ You can also play with antd-mobile just in browser with [Codesandbox](https://co
 
 If you found bugs or would like to request some new features, please consider opening an [issue](https://github.com/ant-design/ant-design-mobile/issues/new).
 
-If you have some question about how to use ant-mobile, you can start a [discussion thread](https://github.com/ant-design/ant-design-mobile/discussions).
+If you have some questions about how to use ant-mobile, you can start a [discussion thread](https://github.com/ant-design/ant-design-mobile/discussions).
 
 ---
 
