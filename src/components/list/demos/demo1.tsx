@@ -4,6 +4,7 @@ import {
   UnorderedListOutline,
   PayCircleOutline,
   SetOutline,
+  ArrowsAltOutline,
 } from 'antd-mobile-icons'
 
 export default () => {
@@ -45,6 +46,25 @@ export default () => {
           账单
         </List.Item>
         <List.Item disabled prefix={<PayCircleOutline />}>
+          总资产
+        </List.Item>
+      </List>
+
+      <List header='自定义箭头'>
+        <List.Item
+          prefix={<UnorderedListOutline />}
+          description='不显示箭头'
+          arrowIcon={false}
+          onClick={() => {}}
+        >
+          账单
+        </List.Item>
+        <List.Item
+          prefix={<PayCircleOutline />}
+          description='自定义箭头'
+          arrowIcon={<ArrowsAltOutline />}
+          onClick={() => {}}
+        >
           总资产
         </List.Item>
       </List>
