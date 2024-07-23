@@ -41,7 +41,7 @@ export type CalendarPickerViewRef = {
 }
 
 export type CalendarPickerViewProps = {
-  title?: React.ReactNode | boolean
+  title?: React.ReactNode | false
   confirmText?: string
   weekStartsOn?: 'Monday' | 'Sunday'
   renderTop?: (date: Date) => React.ReactNode
