@@ -117,7 +117,7 @@ export const CalendarPickerView = forwardRef<
     dayjs(dateRange ? dateRange[0] : today).date(1)
   )
 
-  const isDisplayHeader = useMemo(() => props.title !== false, [props.title])
+  const showHeader = props.title !== false
 
   // =============================== Scroll ===============================
   const context = useContext(Context)
@@ -358,7 +358,7 @@ export const CalendarPickerView = forwardRef<
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      {isDisplayHeader && header}
+      {showHeader && header}
       {mark}
       {body}
     </div>
