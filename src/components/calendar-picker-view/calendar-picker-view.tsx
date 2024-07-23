@@ -41,7 +41,7 @@ export type CalendarPickerViewRef = {
 }
 
 export type CalendarPickerViewProps = {
-  title?: React.ReactNode
+  title?: React.ReactNode | false
   confirmText?: string
   weekStartsOn?: 'Monday' | 'Sunday'
   renderTop?: (date: Date) => React.ReactNode
@@ -116,6 +116,8 @@ export const CalendarPickerView = forwardRef<
   const [current, setCurrent] = useState(() =>
     dayjs(dateRange ? dateRange[0] : today).date(1)
   )
+
+  const showHeader = props.title !== false
 
   // =============================== Scroll ===============================
   const context = useContext(Context)
@@ -356,7 +358,7 @@ export const CalendarPickerView = forwardRef<
   return withNativeProps(
     props,
     <div className={classPrefix}>
-      {header}
+      {showHeader && header}
       {mark}
       {body}
     </div>
