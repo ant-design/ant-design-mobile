@@ -169,8 +169,6 @@ describe('Calendar', () => {
       />
     )
 
-    expect(
-      container.querySelectorAll('.adm-calendar-picker-view-cell')
-    ).toHaveLength(30)
+    expect(container.querySelectorAll(`.${classPrefix}-cell`)).toHaveLength(30)
   })
 })
