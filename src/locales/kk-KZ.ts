@@ -11,8 +11,8 @@ const kkKZ = mergeLocale(base, {
     loading: 'Жүктелуде',
   },
   Calendar: {
-    markItems: ['Дү', 'Се', 'Сә', 'Бе', 'Жұ', 'Се', 'Же'],
-    yearAndMonth: '${year}жыл${month}-ші ай',
+    markItems: ['Дс', 'Сс', 'Ср', 'Бс', 'Жм', 'Сб', 'Жс'],
+    yearAndMonth: '${year} жыл ${month} ай',
   },
   Cascader: {
     placeholder: 'Таңдаңыз',
@@ -31,11 +31,11 @@ const kkKZ = mergeLocale(base, {
     },
     disconnected: {
       title: 'Желі бос емес',
-      description: 'Қалпына кетіру үшін түртіңіз',
+      description: 'Бетті жаңартып көріңіз',
     },
     empty: {
       title: 'Сізге қажетті нәрсе табылмады',
-      description: 'Басқа нәрсені іздеп көріңіз',
+      description: 'Басқаша іздеп көріңіз',
     },
   },
   Form: {
@@ -105,8 +105,8 @@ const kkKZ = mergeLocale(base, {
     ok: 'Мен түсіндім',
   },
   PullToRefresh: {
-    pulling: 'Төмен тартып жаңарту',
-    canRelease: 'Босатып бірден жаңарту',
+    pulling: 'Жаңарту үшін тартыңыз',
+    canRelease: 'Жаңарту үшін жіберіңіз',
     complete: 'Сәтті жаңартылды',
   },
   Switch: {
