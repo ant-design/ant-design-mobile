@@ -1,12 +1,13 @@
-import React from 'react'
-import type { FC, ReactNode, CSSProperties } from 'react'
 import classNames from 'classnames'
+import type { CSSProperties, FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-card`
 
 export type CardProps = {
   title?: ReactNode
+  icon?: ReactNode
   extra?: ReactNode
   headerStyle?: CSSProperties
   headerClassName?: string
@@ -29,8 +30,13 @@ export const Card: FC<CardProps> = props => {
         style={props.headerStyle}
         onClick={props.onHeaderClick}
       >
+        {props.icon && (
+          <div className={`${classPrefix}-header-icon`}>{props.icon}</div>
+        )}
         <div className={`${classPrefix}-header-title`}>{props.title}</div>
-        {props.extra}
+        {props.extra && (
+          <div className={`${classPrefix}-header-extra`}>{props.extra}</div>
+        )}
       </div>
     )
   }
