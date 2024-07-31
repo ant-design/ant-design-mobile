@@ -4626,7 +4626,7 @@ exports[`ConfigProvider should display the text as ar-SA 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="تحميل"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -9263,7 +9263,7 @@ exports[`ConfigProvider should display the text as da-DK 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Upload"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -13900,7 +13900,7 @@ exports[`ConfigProvider should display the text as de-DE 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Hochladen"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -18537,7 +18537,7 @@ exports[`ConfigProvider should display the text as en 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Upload"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -23174,7 +23174,7 @@ exports[`ConfigProvider should display the text as es 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Upload"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -27811,7 +27811,7 @@ exports[`ConfigProvider should display the text as fa-IR 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Upload"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -32448,7 +32448,7 @@ exports[`ConfigProvider should display the text as fr-FR 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Télécharger"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -37085,7 +37085,7 @@ exports[`ConfigProvider should display the text as hu 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Feltöltés"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -41722,7 +41722,7 @@ exports[`ConfigProvider should display the text as id-ID 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="diunggah"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -46359,7 +46359,7 @@ exports[`ConfigProvider should display the text as in-ID 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="diunggah"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -50996,7 +50996,7 @@ exports[`ConfigProvider should display the text as it-IT 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Carica"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -55633,7 +55633,7 @@ exports[`ConfigProvider should display the text as ja-JP 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="アップロード"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -60270,7 +60270,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Жүктеу"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -64907,7 +64907,7 @@ exports[`ConfigProvider should display the text as ko-KR 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="업로드"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -69544,7 +69544,7 @@ exports[`ConfigProvider should display the text as ms-MY 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="memuat naik"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -74181,7 +74181,7 @@ exports[`ConfigProvider should display the text as nb-NO 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Last opp"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -78818,7 +78818,7 @@ exports[`ConfigProvider should display the text as nl-NL 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Uploaden"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -83455,7 +83455,7 @@ exports[`ConfigProvider should display the text as pt-BR 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Carregar"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -88092,7 +88092,7 @@ exports[`ConfigProvider should display the text as ru 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Выгрузить"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -92729,7 +92729,7 @@ exports[`ConfigProvider should display the text as th-TH 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="อัปโหลด"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -97366,7 +97366,7 @@ exports[`ConfigProvider should display the text as tr-TR 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Yükle"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -102003,7 +102003,7 @@ exports[`ConfigProvider should display the text as vi-VN 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Tải lên"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -106640,7 +106640,7 @@ exports[`ConfigProvider should display the text as zh-CH 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="上传"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -111277,7 +111277,7 @@ exports[`ConfigProvider should display the text as zh-HK 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Upload"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -115914,7 +115914,7 @@ exports[`ConfigProvider should display the text as zh-TW 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-label="adm-image-uploader-input"
+            aria-label="Upload"
             class="adm-image-uploader-input"
             type="file"
           />

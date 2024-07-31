@@ -318,7 +318,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
           )}
           {!props.disableUpload && (
             <input
-              aria-label={`${classPrefix}-input`}
+              aria-label={locale.ImageUploader.upload}
               ref={inputRef}
               capture={props.capture}
               accept={props.accept}
