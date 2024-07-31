@@ -191,7 +191,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
             id: idCountRef.current++,
             status: 'pending',
             file,
-          } as Task)
+          }) as Task
       )
 
       setTasks(prev => [...getFinalTasks(prev), ...newTasks])
@@ -318,6 +318,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
           )}
           {!props.disableUpload && (
             <input
+              aria-label={locale.ImageUploader.upload}
               ref={inputRef}
               capture={props.capture}
               accept={props.accept}
@@ -325,7 +326,6 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
               type='file'
               className={`${classPrefix}-input`}
               onChange={onChange}
-              aria-hidden
             />
           )}
         </div>

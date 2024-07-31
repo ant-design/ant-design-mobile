@@ -136,7 +136,7 @@ exports[`ImageUploader \`preview\` & \`onPreview\` prop 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-hidden="true"
+            aria-label="上传"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -239,7 +239,7 @@ exports[`ImageUploader custom upload button 1`] = `
           </div>
           <input
             accept="image/*"
-            aria-hidden="true"
+            aria-label="上传"
             class="adm-image-uploader-input"
             type="file"
           />
@@ -445,7 +445,7 @@ exports[`ImageUploader upload status 1`] = `
           </span>
           <input
             accept="image/*"
-            aria-hidden="true"
+            aria-label="上传"
             class="adm-image-uploader-input"
             type="file"
           />
