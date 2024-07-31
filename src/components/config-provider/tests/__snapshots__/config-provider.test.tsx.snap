@@ -55736,7 +55736,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
       <div
         class="adm-calendar-title"
       >
-        2022жыл3-ші ай
+        2022 жыл 3 ай
       </div>
       <a
         class="adm-calendar-arrow-button adm-calendar-arrow-button-right adm-calendar-arrow-button-right-month"
@@ -55826,37 +55826,37 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
       <div
         class="adm-calendar-mark-cell"
       >
-        Же
+        Жс
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Дү
+        Дс
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Се
+        Сс
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Сә
+        Ср
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Бе
+        Бс
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Жұ
+        Жм
       </div>
       <div
         class="adm-calendar-mark-cell"
       >
-        Се
+        Сб
       </div>
     </div>
     <div
@@ -56386,37 +56386,37 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
       <div
         class="adm-calendar-picker-view-mark-cell"
       >
-        Же
+        Жс
       </div>
       <div
         class="adm-calendar-picker-view-mark-cell"
       >
-        Дү
+        Дс
       </div>
       <div
         class="adm-calendar-picker-view-mark-cell"
       >
-        Се
+        Сс
       </div>
       <div
         class="adm-calendar-picker-view-mark-cell"
       >
-        Сә
+        Ср
       </div>
       <div
         class="adm-calendar-picker-view-mark-cell"
       >
-        Бе
+        Бс
       </div>
       <div
         class="adm-calendar-picker-view-mark-cell"
       >
-        Жұ
+        Жм
       </div>
       <div
         class="adm-calendar-picker-view-mark-cell"
       >
-        Се
+        Сб
       </div>
     </div>
     <div
@@ -56428,7 +56428,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         <div
           class="adm-calendar-picker-view-title"
         >
-          2022жыл3-ші ай
+          2022 жыл 3 ай
         </div>
         <div
           class="adm-calendar-picker-view-cells"
@@ -56914,7 +56914,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         <div
           class="adm-calendar-picker-view-title"
         >
-          2022жыл4-ші ай
+          2022 жыл 4 ай
         </div>
         <div
           class="adm-calendar-picker-view-cells"
@@ -57392,7 +57392,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         <div
           class="adm-calendar-picker-view-title"
         >
-          2022жыл5-ші ай
+          2022 жыл 5 ай
         </div>
         <div
           class="adm-calendar-picker-view-cells"
@@ -57870,7 +57870,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         <div
           class="adm-calendar-picker-view-title"
         >
-          2022жыл6-ші ай
+          2022 жыл 6 ай
         </div>
         <div
           class="adm-calendar-picker-view-cells"
@@ -58342,7 +58342,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         <div
           class="adm-calendar-picker-view-title"
         >
-          2022жыл7-ші ай
+          2022 жыл 7 ай
         </div>
         <div
           class="adm-calendar-picker-view-cells"
@@ -58835,7 +58835,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         <div
           class="adm-calendar-picker-view-title"
         >
-          2022жыл8-ші ай
+          2022 жыл 8 ай
         </div>
         <div
           class="adm-calendar-picker-view-cells"
@@ -59316,7 +59316,7 @@ exports[`ConfigProvider should display the text as kk-KZ 1`] = `
         <div
           class="adm-calendar-picker-view-title"
         >
-          2022жыл9-ші ай
+          2022 жыл 9 ай
         </div>
         <div
           class="adm-calendar-picker-view-cells"
