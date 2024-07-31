@@ -215,7 +215,7 @@ export const Tabs: FC<TabsProps> = p => {
 
   useIsomorphicUpdateLayoutEffect(() => {
     animate()
-  }, [activeKey, isRTL])
+  }, [activeKey, isRTL, props.activeLineMode])
 
   useResizeEffect(() => {
     animate(!x.isAnimating)
