@@ -1,7 +1,7 @@
-import React from 'react'
-import { Card, Toast, Button } from 'antd-mobile'
-import { DemoBlock } from 'demos'
+import { Button, Card, Toast } from 'antd-mobile'
 import { AntOutline, RightOutline } from 'antd-mobile-icons'
+import { DemoBlock } from 'demos'
+import React from 'react'
 
 import styles from './demo1.less'
 
@@ -35,12 +35,8 @@ export default () => {
 
       <DemoBlock title='自定义卡片内容' background='gray'>
         <Card
-          title={
-            <div style={{ fontWeight: 'normal' }}>
-              <AntOutline style={{ marginRight: '4px', color: '#1677ff' }} />
-              卡片标题
-            </div>
-          }
+          icon={<AntOutline style={{ color: '#1677ff' }} />}
+          title={<div style={{ fontWeight: 'normal' }}>卡片标题</div>}
           extra={<RightOutline />}
           onBodyClick={onBodyClick}
           onHeaderClick={onHeaderClick}
