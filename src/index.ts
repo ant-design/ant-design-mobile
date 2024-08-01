@@ -4,6 +4,8 @@ export { setDefaultConfig } from './components/config-provider'
 
 export { default as ActionSheet } from './components/action-sheet'
 export type { ActionSheetProps } from './components/action-sheet'
+export { default as Alert } from './components/alert'
+export type { AlertProps } from './components/alert'
 export { default as AutoCenter } from './components/auto-center'
 export type { AutoCenterProps } from './components/auto-center'
 export { default as Avatar } from './components/avatar'
@@ -26,15 +28,15 @@ export type {
 } from './components/calendar-picker-view'
 export { default as CapsuleTabs } from './components/capsule-tabs'
 export type {
-  CapsuleTabsProps,
   CapsuleTabProps,
+  CapsuleTabsProps,
 } from './components/capsule-tabs'
 export { default as Card } from './components/card'
 export type { CardProps } from './components/card'
 export { default as CascadePicker } from './components/cascade-picker'
 export type {
-  CascadePickerProps,
   CascadePickerOption,
+  CascadePickerProps,
   CascadePickerRef,
 } from './components/cascade-picker'
 export { default as CascadePickerView } from './components/cascade-picker-view'
@@ -43,25 +45,28 @@ export { default as Cascader } from './components/cascader'
 export type { CascaderProps, CascaderRef } from './components/cascader'
 export { default as CascaderView } from './components/cascader-view'
 export type {
-  CascaderViewProps,
   CascaderOption,
+  CascaderViewProps,
 } from './components/cascader-view'
 export { default as CenterPopup } from './components/center-popup'
 export type { CenterPopupProps } from './components/center-popup'
 export { default as CheckList } from './components/check-list'
 export type {
-  CheckListProps,
   CheckListItemProps,
+  CheckListProps,
 } from './components/check-list'
 export { default as Checkbox } from './components/checkbox'
 export type {
-  CheckboxProps,
   CheckboxGroupProps,
+  CheckboxProps,
   CheckboxRef,
 } from './components/checkbox'
 export { default as Collapse } from './components/collapse'
-export type { CollapseProps, CollapsePanelProps } from './components/collapse'
-export { default as ConfigProvider, useConfig } from './components/config-provider'
+export type { CollapsePanelProps, CollapseProps } from './components/collapse'
+export {
+  default as ConfigProvider,
+  useConfig,
+} from './components/config-provider'
 export type { ConfigProviderProps } from './components/config-provider'
 export { default as DatePicker } from './components/date-picker'
 export type { DatePickerProps, DatePickerRef } from './components/date-picker'
@@ -69,10 +74,10 @@ export { default as DatePickerView } from './components/date-picker-view'
 export type { DatePickerViewProps } from './components/date-picker-view'
 export { default as Dialog } from './components/dialog'
 export type {
-  DialogProps,
-  DialogShowProps,
   DialogAlertProps,
   DialogConfirmProps,
+  DialogProps,
+  DialogShowProps,
 } from './components/dialog'
 export { default as Divider } from './components/divider'
 export type { DividerProps } from './components/divider'
@@ -80,15 +85,18 @@ export { default as DotLoading } from './components/dot-loading'
 export type { DotLoadingProps } from './components/dot-loading'
 export { default as Dropdown } from './components/dropdown'
 export type {
-  DropdownProps,
   DropdownItemProps,
+  DropdownProps,
   DropdownRef,
 } from './components/dropdown'
 export { default as Ellipsis } from './components/ellipsis'
 export type { EllipsisProps } from './components/ellipsis'
 export { default as Empty } from './components/empty'
 export type { EmptyProps } from './components/empty'
-export { default as ErrorBlock } from './components/error-block'
+export {
+  default as ErrorBlock,
+  createErrorBlock,
+} from './components/error-block'
 export type {
   ErrorBlockProps,
   ErrorBlockStatus,
@@ -100,16 +108,18 @@ export type {
   FloatingPanelProps,
   FloatingPanelRef,
 } from './components/floating-panel'
+export { default as Footer } from './components/footer'
+export type { FooterProps } from './components/footer'
 export { default as Form } from './components/form'
-export type { FormProps, FormItemProps } from './components/form'
+export type { FormItemProps, FormProps } from './components/form'
 export { default as Grid } from './components/grid'
-export type { GridProps, GridItemProps } from './components/grid'
+export type { GridItemProps, GridProps } from './components/grid'
 export { default as Image } from './components/image'
 export type { ImageProps } from './components/image'
 export { default as ImageUploader } from './components/image-uploader'
 export type {
-  ImageUploaderProps,
   ImageUploadItem,
+  ImageUploaderProps,
   ImageUploaderRef,
 } from './components/image-uploader'
 export { default as ImageViewer } from './components/image-viewer'
@@ -120,8 +130,8 @@ export type {
 } from './components/image-viewer'
 export { default as IndexBar } from './components/index-bar'
 export type {
-  IndexBarProps,
   IndexBarPanelProps,
+  IndexBarProps,
   IndexBarRef,
 } from './components/index-bar'
 export { default as InfiniteScroll } from './components/infinite-scroll'
@@ -129,19 +139,19 @@ export type { InfiniteScrollProps } from './components/infinite-scroll'
 export { default as Input } from './components/input'
 export type { InputProps, InputRef } from './components/input'
 export { default as JumboTabs } from './components/jumbo-tabs'
-export type { JumboTabsProps, JumboTabProps } from './components/jumbo-tabs'
+export type { JumboTabProps, JumboTabsProps } from './components/jumbo-tabs'
 export { default as List } from './components/list'
-export type { ListProps, ListItemProps, ListRef } from './components/list'
+export type { ListItemProps, ListProps, ListRef } from './components/list'
 export { default as Loading } from './components/loading'
 export type { LoadingProps } from './components/loading'
 export { default as Mask } from './components/mask'
 export type { MaskProps } from './components/mask'
 export { default as Modal } from './components/modal'
 export type {
-  ModalProps,
-  ModalShowProps,
   ModalAlertProps,
   ModalConfirmProps,
+  ModalProps,
+  ModalShowProps,
 } from './components/modal'
 export { default as NavBar } from './components/nav-bar'
 export type { NavBarProps } from './components/nav-bar'
@@ -162,8 +172,8 @@ export { default as PickerView } from './components/picker-view'
 export type { PickerViewProps } from './components/picker-view'
 export { default as Popover } from './components/popover'
 export type {
-  PopoverProps,
   PopoverMenuProps,
+  PopoverProps,
   PopoverRef,
 } from './components/popover'
 export { default as Popup } from './components/popup'
@@ -175,7 +185,7 @@ export type { ProgressCircleProps } from './components/progress-circle'
 export { default as PullToRefresh } from './components/pull-to-refresh'
 export type { PullToRefreshProps } from './components/pull-to-refresh'
 export { default as Radio } from './components/radio'
-export type { RadioProps, RadioGroupProps } from './components/radio'
+export type { RadioGroupProps, RadioProps } from './components/radio'
 export { default as Rate } from './components/rate'
 export type { RateProps } from './components/rate'
 export { default as Result } from './components/result'
@@ -189,9 +199,9 @@ export type { ScrollMaskProps } from './components/scroll-mask'
 export { default as SearchBar } from './components/search-bar'
 export type { SearchBarProps, SearchBarRef } from './components/search-bar'
 export { default as Selector } from './components/selector'
-export type { SelectorProps, SelectorOption } from './components/selector'
+export type { SelectorOption, SelectorProps } from './components/selector'
 export { default as SideBar } from './components/side-bar'
-export type { SideBarProps, SideBarItemProps } from './components/side-bar'
+export type { SideBarItemProps, SideBarProps } from './components/side-bar'
 export { default as Skeleton } from './components/skeleton'
 export type { SkeletonProps, SkeletonTitleProps } from './components/skeleton'
 export { default as Slider } from './components/slider'
@@ -203,7 +213,7 @@ export type { SpinLoadingProps } from './components/spin-loading'
 export { default as Stepper } from './components/stepper'
 export type { StepperProps, StepperRef } from './components/stepper'
 export { default as Steps } from './components/steps'
-export type { StepsProps, StepProps } from './components/steps'
+export type { StepProps, StepsProps } from './components/steps'
 export { default as SwipeAction } from './components/swipe-action'
 export type {
   SwipeActionProps,
@@ -214,9 +224,9 @@ export type { SwiperProps, SwiperRef } from './components/swiper'
 export { default as Switch } from './components/switch'
 export type { SwitchProps } from './components/switch'
 export { default as TabBar } from './components/tab-bar'
-export type { TabBarProps, TabBarItemProps } from './components/tab-bar'
+export type { TabBarItemProps, TabBarProps } from './components/tab-bar'
 export { default as Tabs } from './components/tabs'
-export type { TabsProps, TabProps } from './components/tabs'
+export type { TabProps, TabsProps } from './components/tabs'
 export { default as Tag } from './components/tag'
 export type { TagProps } from './components/tag'
 export { default as TextArea } from './components/text-area'
@@ -225,8 +235,8 @@ export { default as Toast } from './components/toast'
 export type { ToastShowProps } from './components/toast'
 export { default as TreeSelect } from './components/tree-select'
 export type {
-  TreeSelectProps,
   TreeSelectOption,
+  TreeSelectProps,
 } from './components/tree-select'
 export { default as VirtualInput } from './components/virtual-input'
 export type {
@@ -235,8 +245,5 @@ export type {
 } from './components/virtual-input'
 export { default as WaterMark } from './components/water-mark'
 export type { WaterMarkProps } from './components/water-mark'
-export { default as Footer } from './components/footer'
-export type { FooterProps } from './components/footer'
-export { createErrorBlock } from './components/error-block'
 
 export { reduceMotion, restoreMotion } from './utils/reduce-and-restore-motion'

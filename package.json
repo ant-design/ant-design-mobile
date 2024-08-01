@@ -41,7 +41,7 @@
     "pub:dev": "npm publish ./lib --tag dev",
     "size-limit": "size-limit",
     "size-limit:ci": "size-limit --json",
-    "start": "dumi dev",
+    "start": "HOST=localhost dumi dev",
     "test": "jest",
     "test-with-coverage": "jest --coverage"
   },

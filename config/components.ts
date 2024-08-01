@@ -53,6 +53,7 @@ export const components = {
   ],
   feedback: [
     '/components/action-sheet',
+    '/components/alert',
     '/components/dialog',
     '/components/empty',
     '/components/error-block',
