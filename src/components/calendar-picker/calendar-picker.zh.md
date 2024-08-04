@@ -41,7 +41,7 @@
 | renderBottom | 日期底部信息的渲染函数 | `(date: Date) => ReactNode \| null \| undefined` | - |
 | selectionMode | 选择模式，不设置的话表示不支持选择 | `'single' \| 'range'` | - |
 | shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean` | - |
-| title | 日期选择器的标题 | `React.ReactNode` | `日期选择` |
+| title | 日期选择器的标题 | `React.ReactNode \| false` | `日期选择` |
 | value | 选择的日期 | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null` | - |
 | weekStartsOn | 每周以周几作为第一天 | `'Monday' \| 'Sunday'` | `'Sunday'` |
 | renderDate | 自定义日期渲染 | `(date: Date) => ReactNode` | - | 5.28.0 |

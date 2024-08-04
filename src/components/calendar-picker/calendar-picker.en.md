@@ -42,7 +42,7 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | renderBottom | The bottom information of date render function. | `(date: Date) => ReactNode \| null \| undefined` | - |
 | selectionMode | The selection mode. Disable selection when this prop is not set. | `'single' \| 'range'` | - |
 | shouldDisableDate | Set whether the date is disable selection. The min and max Settings are ignored | `(date: Date) => boolean` | - |
-| title | The title of calendar | `React.ReactNode` | `Date selection` |
+| title | The title of calendar | `React.ReactNode \| false` | `Date selection` |
 | value | The selected date or date range. | `Date \| null` when selection mode is "single". `[Date, Date] \| null` when selection mode is "range" | - |
 | weekStartsOn | Week starts on which day. | `'Monday' \| 'Sunday'` | `'Sunday'` |
 | renderDate | Custom date rendering. | `(date: Date) => ReactNode` | - | 5.28.0 |
