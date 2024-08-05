@@ -47,13 +47,11 @@ interface InternalSegmentedProps
 
 export type SegmentedProps = InternalSegmentedProps &
   NativeProps<
-    | '--font-size'
-    | '--color'
-    | '--placeholder-color'
-    | '--disabled-color'
-    | '--text-align'
-    | '--caret-width'
-    | '--caret-color'
+    | '--background'
+    | '--segment-color'
+    | '--segment-selected-background'
+    | '--segment-selected-color'
+    | '--segment-disabled-color'
   >
 
 const classPrefix = `adm-segmented`
