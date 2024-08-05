@@ -22,9 +22,7 @@ exports[`adm-segmented render label with ReactNode 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -32,23 +30,25 @@ exports[`adm-segmented render label with ReactNode 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="Daily"
       >
         Daily
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
       >
         <div
           id="weekly"
@@ -58,16 +58,16 @@ exports[`adm-segmented render label with ReactNode 1`] = `
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
       >
         <div
           class="little"
@@ -90,9 +90,7 @@ exports[`adm-segmented render segmented ok 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -100,39 +98,41 @@ exports[`adm-segmented render segmented ok 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="Daily"
       >
         Daily
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Weekly"
       >
         Weekly
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Monthly"
       >
         Monthly
@@ -152,9 +152,7 @@ exports[`adm-segmented render segmented with \`block\` 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -162,39 +160,41 @@ exports[`adm-segmented render segmented with \`block\` 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="Daily"
       >
         Daily
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Weekly"
       >
         Weekly
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Monthly"
       >
         Monthly
@@ -214,9 +214,7 @@ exports[`adm-segmented render segmented with mixed options 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -224,39 +222,41 @@ exports[`adm-segmented render segmented with mixed options 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="Daily"
       >
         Daily
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Weekly"
       >
         Weekly
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Monthly"
       >
         Monthly
@@ -276,9 +276,7 @@ exports[`adm-segmented render segmented with numeric options 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -286,71 +284,73 @@ exports[`adm-segmented render segmented with numeric options 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="1"
       >
         1
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="2"
       >
         2
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="3"
       >
         3
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="4"
       >
         4
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="5"
       >
         5
@@ -370,9 +370,7 @@ exports[`adm-segmented render segmented with options null/undefined 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected adm-segmented-item-disabled"
-      role="option"
     >
       <input
         checked=""
@@ -381,13 +379,13 @@ exports[`adm-segmented render segmented with options null/undefined 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
       />
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item adm-segmented-item-disabled"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
@@ -395,13 +393,13 @@ exports[`adm-segmented render segmented with options null/undefined 1`] = `
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
       />
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item adm-segmented-item-disabled"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
@@ -409,7 +407,9 @@ exports[`adm-segmented render segmented with options null/undefined 1`] = `
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title=""
       />
     </label>
@@ -427,9 +427,7 @@ exports[`adm-segmented render segmented with options: disabled 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -437,16 +435,16 @@ exports[`adm-segmented render segmented with options: disabled 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="Daily"
       >
         Daily
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item adm-segmented-item-disabled"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
@@ -454,23 +452,25 @@ exports[`adm-segmented render segmented with options: disabled 1`] = `
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Weekly"
       >
         Weekly
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Monthly"
       >
         Monthly
@@ -490,9 +490,7 @@ exports[`adm-segmented render segmented with string options 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -500,39 +498,41 @@ exports[`adm-segmented render segmented with string options 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="Daily"
       >
         Daily
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Weekly"
       >
         Weekly
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Monthly"
       >
         Monthly
@@ -552,9 +552,7 @@ exports[`adm-segmented render segmented with thumb 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -562,39 +560,41 @@ exports[`adm-segmented render segmented with thumb 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="Map"
       >
         Map
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Transit"
       >
         Transit
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Satellite"
       >
         Satellite
@@ -614,9 +614,7 @@ exports[`adm-segmented render segmented: disabled 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected adm-segmented-item-disabled"
-      role="option"
     >
       <input
         checked=""
@@ -625,16 +623,16 @@ exports[`adm-segmented render segmented: disabled 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
         title="Daily"
       >
         Daily
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item adm-segmented-item-disabled"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
@@ -642,16 +640,16 @@ exports[`adm-segmented render segmented: disabled 1`] = `
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Weekly"
       >
         Weekly
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item adm-segmented-item-disabled"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
@@ -659,7 +657,9 @@ exports[`adm-segmented render segmented: disabled 1`] = `
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
         title="Monthly"
       >
         Monthly
@@ -679,9 +679,7 @@ exports[`adm-segmented render with icons 1`] = `
     class="adm-segmented-group"
   >
     <label
-      aria-selected="true"
       class="adm-segmented-item adm-segmented-item-selected"
-      role="option"
     >
       <input
         checked=""
@@ -689,7 +687,9 @@ exports[`adm-segmented render with icons 1`] = `
         type="radio"
       />
       <div
+        aria-selected="true"
         class="adm-segmented-item-label"
+        role="option"
       >
         <span
           class="adm-segmented-item-icon"
@@ -735,16 +735,16 @@ exports[`adm-segmented render with icons 1`] = `
       </div>
     </label>
     <label
-      aria-selected="false"
       class="adm-segmented-item"
-      role="option"
     >
       <input
         class="adm-segmented-item-input"
         type="radio"
       />
       <div
+        aria-selected="false"
         class="adm-segmented-item-label"
+        role="option"
       >
         <span
           class="adm-segmented-item-icon"
