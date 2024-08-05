@@ -29,14 +29,6 @@ describe('adm-segmented', () => {
     )
   })
 
-  beforeAll(() => {
-    jest.useFakeTimers()
-  })
-
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
   test('render empty segmented', () => {
     const { asFragment } = render(<Segmented options={[]} />)
     expect(asFragment().firstChild).toMatchSnapshot()
