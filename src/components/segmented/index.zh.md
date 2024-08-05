@@ -38,8 +38,8 @@
 
 | 属性 | 说明 | 默认值 |
 | --- | --- | --- |
-| --background-color | 背景色 | `var(--adm-color-fill-content)` |
-| --segment-selected-bg | 被选中分段的背景色 | `var(--adm-color-background)` |
+| --background | 背景色 | `var(--adm-color-fill-content)` |
+| --segment-selected-background | 被选中分段的背景色 | `var(--adm-color-background)` |
 | --segment-color | 分段项的文本颜色 | `var(--adm-color-text-secondary)` |
 | --segment-selected-color | 被选中分段项的文本颜色 | `var(--adm-color-text)` |
 | --segment-disabled-color | 禁用分段项的文本颜色 | `var(--adm-color-weak)` |

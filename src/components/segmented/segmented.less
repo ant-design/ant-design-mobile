@@ -1,8 +1,8 @@
 @class-prefix-segmented: ~'adm-segmented';
 
 .@{class-prefix-segmented} {
-  --background-color: var(--adm-color-fill-content);
-  --segment-selected-bg: var(--adm-color-background);
+  --background: var(--adm-color-fill-content);
+  --segment-selected-background: var(--adm-color-background);
   --segment-color: var(--adm-color-text-secondary);
   --segment-selected-color: var(--adm-color-text);
   --segment-disabled-color: var(--adm-color-weak);
@@ -11,7 +11,7 @@
   display: inline-block;
   padding: 2px;
   color: var(--segment-color);
-  background-color: var(--background-color);
+  background-color: var(--background);
   border-radius: 2px;
   transition: all 0.3s var(--transition-time-function);
 
@@ -100,7 +100,7 @@
 }
 
 .segmented-item-selected {
-  background-color: var(--segment-selected-bg);
+  background-color: var(--segment-selected-background);
   border-radius: 2px;
   box-shadow: 0 2px 8px -2px fade(#000, 5%), 0 1px 4px -1px fade(#000, 7%),
     0 0 1px 0 fade(#000, 8%);
