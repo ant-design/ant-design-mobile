@@ -3,7 +3,7 @@
 exports[`NoticeBar long content 1`] = `
 <div>
   <div
-    class="adm-notice-bar adm-notice-bar-default"
+    class="adm-notice-bar adm-notice-bar-default adm-notice-bar-rectangular"
   >
     <span
       class="adm-notice-bar-left"

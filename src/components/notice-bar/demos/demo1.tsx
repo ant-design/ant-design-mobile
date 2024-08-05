@@ -1,7 +1,7 @@
-import React from 'react'
 import { NoticeBar, Space } from 'antd-mobile'
+import { CloseCircleOutline, CompassOutline } from 'antd-mobile-icons'
 import { DemoBlock, lorem } from 'demos'
-import { CompassOutline, CloseCircleOutline } from 'antd-mobile-icons'
+import React from 'react'
 
 const demoLongText = lorem.generateWords(20)
 
@@ -11,6 +11,7 @@ export default () => {
       <DemoBlock title='通告栏语义' padding='0' background='transparent'>
         <Space block direction='vertical'>
           <NoticeBar content='默认' color='default' />
+          <NoticeBar content='成功' color='success' />
           <NoticeBar content='警告' color='alert' />
           <NoticeBar content='错误' color='error' />
           <NoticeBar content='信息' color='info' />
@@ -50,6 +51,22 @@ export default () => {
             content={'自定义右侧功能区'}
             color='alert'
           />
+          <div style={{ paddingInline: 12 }}>
+            <NoticeBar
+              color='info'
+              shape='neutral'
+              bordered
+              content={'圆角+全边框'}
+            />
+          </div>
+          <div style={{ paddingInline: 12 }}>
+            <NoticeBar
+              color='success'
+              shape='rounded'
+              bordered={false}
+              content={'圆形+无边框'}
+            />
+          </div>
         </Space>
       </DemoBlock>
     </>
