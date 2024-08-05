@@ -13,7 +13,7 @@ const classPrefix = `adm-notice-bar`
 
 export type NoticeBarProps = {
   /** The type of the NoticeBar */
-  color?: 'default' | 'alert' | 'error' | 'info'
+  color?: 'default' | 'alert' | 'error' | 'success' | 'info'
   /** TDelay to start scrolling, unit ms */
   delay?: number
   /** Scroll speed, unit px/s */
@@ -34,6 +34,10 @@ export type NoticeBarProps = {
   icon?: ReactNode
   /** Whether to display multiple lines */
   wrap?: boolean
+  /** Block shape */
+  shape?: 'rectangular' | 'neutral' | 'rounded'
+  /** Border visibility */
+  bordered?: 'block' | boolean
 } & NativeProps<
   | '--background-color'
   | '--border-color'
@@ -49,6 +53,8 @@ const defaultProps = {
   speed: 50,
   icon: <SoundOutline />,
   wrap: false,
+  shape: 'rectangular',
+  bordered: 'block' as 'block' | boolean,
 }
 
 export const NoticeBar = memo<NoticeBarProps>(props => {
@@ -130,8 +136,11 @@ export const NoticeBar = memo<NoticeBarProps>(props => {
       className={classNames(
         classPrefix,
         `${classPrefix}-${mergedProps.color}`,
+        `${classPrefix}-${mergedProps.shape}`,
         {
           [`${classPrefix}-wrap`]: mergedProps.wrap,
+          [`${classPrefix}-bordered`]: mergedProps.bordered === true,
+          [`${classPrefix}-without-border`]: mergedProps.bordered === false,
         }
       )}
       onClick={mergedProps.onClick}
