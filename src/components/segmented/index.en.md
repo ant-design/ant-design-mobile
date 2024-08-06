@@ -1,6 +1,6 @@
 # Segmented
 
-This component is available since `antd-mobile@5.34.0`.
+This component is available since `antd-mobile@5.38.0`.
 
 ## When To Use
 
