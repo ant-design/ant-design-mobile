@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
-import Main from './components/Main'
 import Footer from './components/Footer'
-import 'antd/dist/antd.css'
+import Main from './components/Main'
 import styles from './home-page.less'
 
 export default () => {

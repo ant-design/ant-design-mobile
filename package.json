@@ -112,7 +112,6 @@
     "@typescript-eslint/parser": "^5.59.0",
     "@umijs/types": "^3.5.40",
     "@use-gesture/core": "10.2.20",
-    "antd": "^4.24.9",
     "autoprefixer": "^9.8.8",
     "babel-loader": "^8.3.0",
     "css-loader": "^6.7.3",

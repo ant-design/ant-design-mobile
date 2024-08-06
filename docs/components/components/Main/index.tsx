@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { Button, Card } from 'antd'
-import Lottie from 'react-lottie'
-import { useSize } from 'ahooks'
 import { RightOutlined } from '@ant-design/icons'
+import { useSize } from 'ahooks'
+import { Button, Card } from 'antd-mobile'
+import React, { useEffect, useRef, useState } from 'react'
+import Lottie from 'react-lottie'
+import { useTrans } from '../../../hooks/useTrans'
 import MainSection from './MainSection'
 import {
-  productIntroduce,
-  productIntroduceEn,
+  getGuides,
+  getProductDesignValuesBackgroundImage,
   getProductResource,
+  getRecommends,
   productDesignValues,
   productDesignValuesEn,
-  getProductDesignValuesBackgroundImage,
-  getGuides,
-  getRecommends,
+  productIntroduce,
+  productIntroduceEn,
   users,
 } from './config'
 import styles from './index.local.less'
-import { useTrans } from '../../../hooks/useTrans'
 
 export default () => {
   const [isWidthScreen, setIsWidthScreen] = useState(true)

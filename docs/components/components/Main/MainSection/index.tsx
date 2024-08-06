@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { Button } from 'antd'
+import { Button } from 'antd-mobile'
+import React, { useEffect, useState } from 'react'
 import Lottie from 'react-lottie'
-import styles from './index.local.less'
 import { useTrans } from '../../../../hooks/useTrans'
+import styles from './index.local.less'
 
 export default (props: { isWidthScreen: boolean }) => {
   const [startFireAnimation, setStartFireAnimation] = useState(false)
@@ -36,14 +36,16 @@ export default (props: { isWidthScreen: boolean }) => {
         </div>
         <div className={styles.mainSectionButtonAction}>
           <Button
-            shape='round'
+            color='primary'
+            shape='rounded'
             className={styles.buttonLeft}
             href={trans('/guide/quick-start', '/zh/guide/quick-start')}
           >
             {trans('Get Start', '开始使用')}
           </Button>
           <Button
-            shape='round'
+            color='primary'
+            shape='rounded'
             className={styles.buttonRight}
             href={trans('/components', '/zh/components')}
           >
