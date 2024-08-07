@@ -27,12 +27,13 @@ Useful for switching between different pages.
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| badge | Badge，the same as [Badge](/components/badge) `content` prop | `React.ReactNode \| typeof Badge.dot` | - |
-| icon | Icon | `ReactNode \| ((active: boolean) => ReactNode)` | - |
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| badge | Badge，the same as [Badge](/components/badge) `content` prop | `React.ReactNode \| typeof Badge.dot` | - |  |
+| icon | Icon | `ReactNode \| ((active: boolean) => ReactNode)` | - |  |
 | key | Corresponding to `activeKey` | `string` | - |
-| title | Title | `ReactNode \| ((active: boolean) => ReactNode)` | - |
+| title | Title | `ReactNode \| ((active: boolean) => ReactNode)` | - |  |
+| onClick | Callback when click item | `() => void` | - | 5.38.0 |
 
 ## FAQ
 

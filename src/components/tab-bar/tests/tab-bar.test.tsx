@@ -127,4 +127,20 @@ describe('TabBar', () => {
 
     expect(container).toMatchSnapshot()
   })
+
+  test('item onClick should be called', () => {
+    const onClickFn = jest.fn()
+
+    render(
+      <TabBar>
+        <TabBar.Item key='home' />
+        <TabBar.Item key='icon' onClick={onClickFn} />
+        <TabBar.Item />
+      </TabBar>
+    )
+
+    fireEvent.click(document.querySelectorAll(`.adm-tab-bar-item`)[1])
+
+    expect(onClickFn).toBeCalled()
+  })
 })
