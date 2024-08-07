@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Badge, TabBar, Toast } from 'antd-mobile'
+import { Badge, TabBar } from 'antd-mobile'
 import { DemoBlock } from 'demos'
 import {
   AppOutline,
