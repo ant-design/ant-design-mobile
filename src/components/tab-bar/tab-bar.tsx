@@ -12,7 +12,7 @@ export type TabBarItemProps = {
   icon?: ReactNode | ((active: boolean) => ReactNode)
   title?: ReactNode | ((active: boolean) => ReactNode)
   badge?: BadgeProps['content']
-  onClick?: (key: string) => void
+  onClick?: () => void
 } & NativeProps
 
 /* istanbul ignore next */
@@ -122,7 +122,7 @@ export const TabBar: FC<TabBarProps> = p => {
                 if (key === undefined || key === null) return
 
                 setActiveKey(key.toString())
-                item.props.onClick?.(key as string)
+                item.props.onClick?.()
               }}
               className={classNames(`${classPrefix}-item`, {
                 [`${classPrefix}-item-active`]: active,
