@@ -33,6 +33,7 @@ Useful for switching between different pages.
 | icon | Icon | `ReactNode \| ((active: boolean) => ReactNode)` | - |
 | key | Corresponding to `activeKey` | `string` | - |
 | title | Title | `ReactNode \| ((active: boolean) => ReactNode)` | - |
+| onClick | Callback when click item | `(key: string) => void` | - |
 
 ## FAQ
 

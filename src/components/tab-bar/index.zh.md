@@ -33,6 +33,7 @@
 | icon | 图标 | `ReactNode \| ((active: boolean) => ReactNode)` | - |
 | key | 对应 `activeKey` | `string` | - |
 | title | 标题 | `ReactNode \| ((active: boolean) => ReactNode)` | - |
+| onClick | 点击事件的回调 | `(key: string) => void` | - |
 
 ## FAQ
 
