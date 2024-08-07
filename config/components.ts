@@ -27,6 +27,7 @@ export const components = {
     '/components/infinite-scroll',
     '/components/list',
     '/components/page-indicator',
+    '/components/segmented',
     '/components/steps',
     '/components/swiper',
     '/components/tag',

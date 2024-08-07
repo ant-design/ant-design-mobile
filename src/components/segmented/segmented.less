@@ -1,0 +1,119 @@
+@class-prefix-segmented: ~'adm-segmented';
+
+.@{class-prefix-segmented} {
+  --segmented-background: var(--adm-color-fill-content);
+  --segmented-item-color: var(--adm-color-text-secondary);
+  --segmented-item-selected-background: var(--adm-color-background);
+  --segmented-item-selected-color: var(--adm-color-text);
+  --segmented-item-disabled-color: var(--adm-color-weak);
+  --transition-time-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  display: inline-block;
+  padding: 2px;
+  color: var(--segmented-item-color);
+  background-color: var(--segmented-background);
+  border-radius: 2px;
+  transition: all 0.3s var(--transition-time-function);
+
+  &-group {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-items: flex-start;
+    width: 100%;
+  }
+
+  // block styles
+  &&-block {
+    display: flex;
+  }
+
+  &&-block &-item {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // item styles
+  &-item {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s var(--transition-time-function);
+
+    &-selected {
+      .segmented-item-selected();
+      color: var(--segmented-item-selected-color);
+    }
+
+    &-label {
+      min-height: 10px;
+      padding: 0 11px;
+      line-height: 28px;
+      .segmented-text-ellipsis();
+    }
+
+    // syntactic sugar to add `icon` for Segmented Item
+    &-icon + * {
+      margin-left: 6px;
+    }
+
+    &-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  // disabled styles
+  &-item-disabled {
+    .segmented-disabled-item();
+  }
+
+  // thumb styles
+  &-thumb {
+    .segmented-item-selected();
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    padding: 4px 0;
+  }
+
+  // transition effect when `appear-active`
+  &-thumb-motion-appear-active {
+    transition:
+      transform 0.3s var(--transition-time-function),
+      width 0.3s var(--transition-time-function);
+    will-change: transform, width;
+  }
+}
+
+/* ---- mixins part starts ---- */
+.segmented-disabled-item {
+  color: var(--segmented-item-disabled-color);
+  cursor: not-allowed;
+}
+
+.segmented-item-selected {
+  background-color: var(--segmented-item-selected-background);
+  border-radius: 2px;
+  box-shadow:
+    0 2px 8px -2px fade(#000, 5%),
+    0 1px 4px -1px fade(#000, 7%),
+    0 0 1px 0 fade(#000, 8%);
+}
+
+.segmented-text-ellipsis {
+  overflow: hidden;
+  // handle text ellipsis
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}
+/* ---- mixins part ends ---- */
