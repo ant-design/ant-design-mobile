@@ -1,0 +1,48 @@
+@class-prefix-segmented: ~'adm-segmented';
+
+.@{class-prefix-segmented} {
+  color: #666;
+  background-color: #f5f5f5;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  &-item {
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &-selected {
+      .segmented-item-selected();
+      color: #333;
+    }
+  }
+
+  // disabled styles
+  &-item-disabled {
+    .segmented-disabled-item();
+  }
+
+  // thumb styles
+  &-thumb {
+    .segmented-item-selected();
+  }
+
+  // transition effect when `appear-active`
+  &-thumb-motion-appear-active {
+    transition:
+      transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+}
+
+/* ---- mixins part starts ---- */
+.segmented-disabled-item {
+  color: #999;
+}
+
+.segmented-item-selected {
+  background-color: #fff;
+  box-shadow:
+    0 2px 8px -2px fade(#000, 5%),
+    0 1px 4px -1px fade(#000, 7%),
+    0 0 1px 0 fade(#000, 8%);
+}
+
+/* ---- mixins part ends ---- */
