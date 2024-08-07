@@ -1,17 +1,17 @@
 @class-prefix-segmented: ~'adm-segmented';
 
 .@{class-prefix-segmented} {
-  --background: var(--adm-color-fill-content);
-  --segment-color: var(--adm-color-text-secondary);
-  --segment-selected-background: var(--adm-color-background);
-  --segment-selected-color: var(--adm-color-text);
-  --segment-disabled-color: var(--adm-color-weak);
+  --segmented-background: var(--adm-color-fill-content);
+  --segmented-item-color: var(--adm-color-text-secondary);
+  --segmented-item-selected-background: var(--adm-color-background);
+  --segmented-item-selected-color: var(--adm-color-text);
+  --segmented-item-disabled-color: var(--adm-color-weak);
   --transition-time-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 
   display: inline-block;
   padding: 2px;
-  color: var(--segment-color);
-  background-color: var(--background);
+  color: var(--segmented-item-color);
+  background-color: var(--segmented-background);
   border-radius: 2px;
   transition: all 0.3s var(--transition-time-function);
 
@@ -42,7 +42,7 @@
 
     &-selected {
       .segmented-item-selected();
-      color: var(--segment-selected-color);
+      color: var(--segmented-item-selected-color);
     }
 
     &-label {
@@ -87,7 +87,8 @@
 
   // transition effect when `appear-active`
   &-thumb-motion-appear-active {
-    transition: transform 0.3s var(--transition-time-function),
+    transition:
+      transform 0.3s var(--transition-time-function),
       width 0.3s var(--transition-time-function);
     will-change: transform, width;
   }
@@ -95,14 +96,16 @@
 
 /* ---- mixins part starts ---- */
 .segmented-disabled-item {
-  color: var(--segment-disabled-color);
+  color: var(--segmented-item-disabled-color);
   cursor: not-allowed;
 }
 
 .segmented-item-selected {
-  background-color: var(--segment-selected-background);
+  background-color: var(--segmented-item-selected-background);
   border-radius: 2px;
-  box-shadow: 0 2px 8px -2px fade(#000, 5%), 0 1px 4px -1px fade(#000, 7%),
+  box-shadow:
+    0 2px 8px -2px fade(#000, 5%),
+    0 1px 4px -1px fade(#000, 7%),
     0 0 1px 0 fade(#000, 8%);
 }
 

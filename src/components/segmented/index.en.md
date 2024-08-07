@@ -40,8 +40,8 @@ This component is available since `antd-mobile@5.38.0`.
 | --- | --- | --- |
 | Name | Description | Default |
 | ------------------- | ---------------------- | ----------------------- |
-| --background | Background color | `var(--adm-color-fill-content)` |
-| --segment-color | Text color of segment item | `var(--adm-color-text-secondary)` |
-| --segment-selected-background | Background color of selected segment | `var(--adm-color-background)` |
-| --segment-selected-color | Text color of selected segment item | `var(--adm-color-text)` |
-| --segment-disabled-color | Text color of disabled segment item | `var(--adm-color-weak)` |
+| --segmented-background | Background color | `var(--adm-color-fill-content)` |
+| --segmented-item-color | Text color of segment item | `var(--adm-color-text-secondary)` |
+| --segmented-item-selected-background | Background color of selected segment | `var(--adm-color-background)` |
+| --segmented-item-selected-color | Text color of selected segment item | `var(--adm-color-text)` |
+| --segmented-item-disabled-color | Text color of disabled segment item | `var(--adm-color-weak)` |
