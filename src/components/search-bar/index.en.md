@@ -34,7 +34,7 @@ Narrow down the information pool to get targeted information quickly and easily.
 | showCancelButton | Whether to display the cancel button on the right side of the search input | `boolean \| ((focus: boolean, value: string) => boolean)` | `false` |
 | value | Input value | `string` | - |
 
-In addition, the following native attributes are supported: `onCompositionStart` `onCompositionEnd`
+In addition, the following native attributes are supported: `onCompositionStart` `onCompositionEnd` `autoFocus`
 
 ### CSS Variables
 
