@@ -137,8 +137,8 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>(
             })}
             value={value}
             onChange={setValue}
-            autoFocus={mergedProps.autoFocus}
             maxLength={mergedProps.maxLength}
+            autoFocus={mergedProps.autoFocus}
             placeholder={mergedProps.placeholder}
             clearable={mergedProps.clearable}
             onlyShowClearWhenFocus={mergedProps.onlyShowClearWhenFocus}
