@@ -13,7 +13,7 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='获取焦点后显示取消按钮'>
-        <SearchBar placeholder='请输入内容' showCancelButton />
+        <SearchBar placeholder='请输入内容' showCancelButton autoFocus />
       </DemoBlock>
 
       <DemoBlock title='取消按钮长显'>

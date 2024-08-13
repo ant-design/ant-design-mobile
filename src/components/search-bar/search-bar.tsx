@@ -15,7 +15,12 @@ export type SearchBarRef = InputRef
 
 export type SearchBarProps = Pick<
   InputProps,
-  'onFocus' | 'onBlur' | 'onClear' | 'onCompositionStart' | 'onCompositionEnd'
+  | 'onFocus'
+  | 'onBlur'
+  | 'onClear'
+  | 'onCompositionStart'
+  | 'onCompositionEnd'
+  | 'autoFocus'
 > & {
   value?: string
   defaultValue?: string
@@ -133,6 +138,7 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>(
             value={value}
             onChange={setValue}
             maxLength={mergedProps.maxLength}
+            autoFocus={mergedProps.autoFocus}
             placeholder={mergedProps.placeholder}
             clearable={mergedProps.clearable}
             onlyShowClearWhenFocus={mergedProps.onlyShowClearWhenFocus}

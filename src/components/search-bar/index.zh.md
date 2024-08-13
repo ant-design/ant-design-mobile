@@ -34,7 +34,7 @@
 | showCancelButton | 是否在搜索框右侧显示取消按钮 | `boolean \| ((focus: boolean, value: string) => boolean)` | `false` |
 | value | 输入值 | `string` | - |
 
-此外还支持以下原生属性：`onCompositionStart` `onCompositionEnd`
+此外还支持以下原生属性：`onCompositionStart` `onCompositionEnd` `autoFocus`
 
 ### CSS 变量
 
