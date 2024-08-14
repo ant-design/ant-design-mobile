@@ -165,9 +165,7 @@ export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           checkValue()
           mergedProps.onBlur?.(e)
         }}
-        onPaste={e =>{
-          mergedProps.onPaste?.(e)
-        }}
+        onPaste={mergedProps.onPaste}
         id={mergedProps.id}
         placeholder={mergedProps.placeholder}
         disabled={mergedProps.disabled}
