@@ -39,6 +39,7 @@ export type InputProps = Pick<
   | 'name'
   | 'onFocus'
   | 'onBlur'
+  | 'onpaste'
   | 'autoCapitalize'
   | 'autoCorrect'
   | 'onKeyDown'
@@ -163,6 +164,9 @@ export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           setHasFocus(false)
           checkValue()
           mergedProps.onBlur?.(e)
+        }}
+        onpaste={e =>{
+          mergedProps.onpaste?.(e)
         }}
         id={mergedProps.id}
         placeholder={mergedProps.placeholder}
