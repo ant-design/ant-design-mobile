@@ -31,7 +31,7 @@ Useful for switching between different pages.
 | --- | --- | --- | --- | --- |
 | badge | Badge，the same as [Badge](/components/badge) `content` prop | `React.ReactNode \| typeof Badge.dot` | - |  |
 | icon | Icon | `ReactNode \| ((active: boolean) => ReactNode)` | - |  |
-| key | Corresponding to `activeKey` | `string` | - |
+| key | Corresponding to `activeKey` | `string` | - |  |
 | title | Title | `ReactNode \| ((active: boolean) => ReactNode)` | - |  |
 | onClick | Callback when click item | `() => void` | - | 5.38.0 |
 
