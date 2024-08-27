@@ -13,12 +13,14 @@ import Picker from '../../picker'
 import SearchBar from '../../search-bar'
 
 import arSA from '../../../locales/ar-SA'
+import cnrME from '../../../locales/cnr-ME'
 import daDK from '../../../locales/da-DK'
 import deDE from '../../../locales/de-DE'
 import enUS from '../../../locales/en-US'
 import esES from '../../../locales/es-ES'
 import faIR from '../../../locales/fa-IR'
 import frFR from '../../../locales/fr-FR'
+import hrHR from '../../../locales/hr-HR'
 import huHU from '../../../locales/hu-HU'
 import idID from '../../../locales/id-ID'
 import inID from '../../../locales/in-ID'
@@ -31,6 +33,7 @@ import nbNO from '../../../locales/nb-NO'
 import nlNL from '../../../locales/nl-NL'
 import ptBR from '../../../locales/pt-BR'
 import ruRU from '../../../locales/ru-RU'
+import srRS from '../../../locales/sr-RS'
 import thTH from '../../../locales/th-TH'
 import trTR from '../../../locales/tr-TR'
 import viVN from '../../../locales/vi-VN'
@@ -64,6 +67,9 @@ const locales = [
   ptBR,
   viVN,
   inID,
+  hrHR,
+  srRS,
+  cnrME,
 ]
 
 describe('ConfigProvider', () => {
