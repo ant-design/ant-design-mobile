@@ -1,5 +1,5 @@
-import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 import type { ReactElement } from 'react'
+import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { renderToBody } from './render-to-body'
 
 type ImperativeProps = {
@@ -13,6 +13,7 @@ type TargetElement = ReactElement<ImperativeProps>
 export type ImperativeHandler = {
   close: () => void
   replace: (element: TargetElement) => void
+  isRendered?: () => boolean
 }
 
 export function renderImperatively(element: TargetElement) {
@@ -60,6 +61,8 @@ export function renderImperatively(element: TargetElement) {
       if (!wrapperRef.current) {
         // it means the wrapper is not mounted yet, call `unmount` directly
         unmount()
+        // call `afterClose` to make sure the callback is called
+        element.props.afterClose?.()
       } else {
         wrapperRef.current?.close()
       }
@@ -67,5 +70,6 @@ export function renderImperatively(element: TargetElement) {
     replace: element => {
       wrapperRef.current?.replace(element)
     },
+    isRendered: () => !!wrapperRef.current,
   } as ImperativeHandler
 }

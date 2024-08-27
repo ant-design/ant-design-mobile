@@ -1,11 +1,11 @@
 import React, { useRef } from 'react'
 import {
-  render,
+  act,
   fireEvent,
+  render,
+  screen,
   waitFor,
   waitForElementToBeRemoved,
-  act,
-  screen,
 } from 'testing'
 import Toast, { ToastHandler } from '..'
 
@@ -242,6 +242,28 @@ describe('Toast', () => {
             duration: 0,
           })
           Toast.clear()
+          Toast.show({
+            content: 'content2',
+            duration: 0,
+          })
+        }}
+      >
+        btn
+      </button>
+    )
+    fireEvent.click(getByText('btn'))
+    await waitForContentShow('content2')
+    expect(document.querySelectorAll(`.${classPrefix}-main`).length)
+  })
+
+  test('multiple toasts should show last one', async () => {
+    const { getByText } = render(
+      <button
+        onClick={() => {
+          Toast.show({
+            content: 'content',
+            duration: 0,
+          })
           Toast.show({
             content: 'content2',
             duration: 0,
