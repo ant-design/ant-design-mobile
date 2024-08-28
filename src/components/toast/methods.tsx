@@ -1,10 +1,10 @@
 import React from 'react'
-import { InternalToast, ToastProps } from './toast'
-import { mergeProps } from '../../utils/with-default-props'
 import {
   ImperativeHandler,
   renderImperatively,
 } from '../../utils/render-imperatively'
+import { mergeProps } from '../../utils/with-default-props'
+import { InternalToast, ToastProps } from './toast'
 
 let currentHandler: ImperativeHandler | null = null
 let currentTimeout: number | null = null
@@ -42,7 +42,12 @@ export function show(p: ToastShowProps | string) {
     />
   )
   if (currentHandler) {
-    currentHandler.replace(element)
+    if (currentHandler.isRendered?.()) {
+      currentHandler.replace(element)
+    } else {
+      currentHandler.close()
+      currentHandler = renderImperatively(element)
+    }
   } else {
     currentHandler = renderImperatively(element)
   }
