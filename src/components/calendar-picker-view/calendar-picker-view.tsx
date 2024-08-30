@@ -44,9 +44,9 @@ export type CalendarPickerViewProps = {
   title?: React.ReactNode | false
   confirmText?: string
   weekStartsOn?: 'Monday' | 'Sunday'
-  renderTop?: (date: Date) => React.ReactNode
+  renderTop?: ((date: Date) => React.ReactNode) | false
   renderDate?: (date: Date) => React.ReactNode
-  renderBottom?: (date: Date) => React.ReactNode
+  renderBottom?: ((date: Date) => React.ReactNode) | false
   allowClear?: boolean
   max?: Date
   min?: Date
@@ -118,6 +118,8 @@ export const CalendarPickerView = forwardRef<
   )
 
   const showHeader = props.title !== false
+  const showTop = props.renderTop !== false
+  const showBottom = props.renderBottom !== false
 
   // =============================== Scroll ===============================
   const context = useContext(Context)
@@ -243,6 +245,8 @@ export const CalendarPickerView = forwardRef<
                     (minDay && d.isBefore(minDay, 'day'))
 
                 const renderTop = () => {
+                  if (props.renderTop === false) return
+
                   const top = props.renderTop?.(d.toDate())
 
                   if (top) {
@@ -263,6 +267,13 @@ export const CalendarPickerView = forwardRef<
                     return locale.Calendar.today
                   }
                 }
+
+                const renderBottom = () => {
+                  if (props.renderBottom === false) return
+
+                  return props.renderBottom?.(d.toDate())
+                }
+
                 return (
                   <div
                     key={d.valueOf()}
@@ -316,17 +327,21 @@ export const CalendarPickerView = forwardRef<
                       }
                     }}
                   >
-                    <div className={`${classPrefix}-cell-top`}>
-                      {renderTop()}
-                    </div>
+                    {showTop && (
+                      <div className={`${classPrefix}-cell-top`}>
+                        {renderTop()}
+                      </div>
+                    )}
                     <div className={`${classPrefix}-cell-date`}>
                       {props.renderDate
                         ? props.renderDate(d.toDate())
                         : d.date()}
                     </div>
-                    <div className={`${classPrefix}-cell-bottom`}>
-                      {props.renderBottom?.(d.toDate())}
-                    </div>
+                    {showBottom && (
+                      <div className={`${classPrefix}-cell-bottom`}>
+                        {renderBottom()}
+                      </div>
+                    )}
                   </div>
                 )
               })}
