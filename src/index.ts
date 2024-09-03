@@ -61,7 +61,10 @@ export type {
 } from './components/checkbox'
 export { default as Collapse } from './components/collapse'
 export type { CollapseProps, CollapsePanelProps } from './components/collapse'
-export { default as ConfigProvider, useConfig } from './components/config-provider'
+export {
+  default as ConfigProvider,
+  useConfig,
+} from './components/config-provider'
 export type { ConfigProviderProps } from './components/config-provider'
 export { default as DatePicker } from './components/date-picker'
 export type { DatePickerProps, DatePickerRef } from './components/date-picker'
@@ -168,6 +171,8 @@ export type {
 } from './components/popover'
 export { default as Popup } from './components/popup'
 export type { PopupProps } from './components/popup'
+export { default as PortalProvider } from './components/portal-provider'
+export type { PortalProviderProps } from './components/portal-provider'
 export { default as ProgressBar } from './components/progress-bar'
 export type { ProgressBarProps } from './components/progress-bar'
 export { default as ProgressCircle } from './components/progress-circle'
