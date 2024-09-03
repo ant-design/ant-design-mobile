@@ -12,6 +12,7 @@ export type { ModalShowProps, ModalShowHandler } from './show'
 export type { ModalAlertProps } from './alert'
 export type { ModalConfirmProps } from './confirm'
 
+export { useModal } from './use-modal'
 export default attachPropertiesToComponent(Modal, {
   show,
   alert,

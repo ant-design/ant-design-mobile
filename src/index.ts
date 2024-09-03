@@ -139,7 +139,7 @@ export { default as Loading } from './components/loading'
 export type { LoadingProps } from './components/loading'
 export { default as Mask } from './components/mask'
 export type { MaskProps } from './components/mask'
-export { default as Modal } from './components/modal'
+export { default as Modal, useModal } from './components/modal'
 export type {
   ModalProps,
   ModalShowProps,
