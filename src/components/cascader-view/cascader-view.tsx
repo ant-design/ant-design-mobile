@@ -13,6 +13,7 @@ import Skeleton from '../skeleton'
 import { useUpdateEffect } from 'ahooks'
 import { useFieldNames } from '../../hooks'
 import type { FieldNamesType, BaseOptionType } from '../../hooks'
+import { cloneDeep } from 'lodash'
 
 const classPrefix = `adm-cascader-view`
 
@@ -32,14 +33,16 @@ export type CascaderValueExtend = {
 
 export type CascaderViewProps = {
   options: CascaderOption[]
-  value?: CascaderValue[]
-  defaultValue?: CascaderValue[]
-  onChange?: (value: CascaderValue[], extend: CascaderValueExtend) => void
+  value?: CascaderValue[] | any
+  defaultValue?: CascaderValue[] | any
+  onChange?: (value: CascaderValue[] | any, extend: CascaderValueExtend) => void
   placeholder?: string | ((index: number) => string)
   onTabsChange?: (index: number) => void
   activeIcon?: ReactNode
   loading?: boolean
+  multiple?: boolean
   fieldNames?: FieldNamesType
+  activeIconSetPath?: boolean
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -48,7 +51,6 @@ const defaultProps = {
 
 export const CascaderView: FC<CascaderViewProps> = p => {
   const props = mergeProps(defaultProps, p)
-
   const { locale } = useConfig()
   const [labelName, valueName, childrenName, disabledName] = useFieldNames(
     props.fieldNames
@@ -57,49 +59,94 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     valueName,
     childrenName,
   })
-
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
-      props.onChange?.(val, generateValueExtend(val))
+      if (props.multiple) {
+        props.onChange?.(val, {} as any)
+      } else {
+        props.onChange?.(val, generateValueExtend(val as string[]))
+      }
     },
   })
   const [tabActiveIndex, setTabActiveIndex] = useState(0)
 
   const levels = useMemo(() => {
-    const ret: {
-      selected: CascaderOption | undefined
-      options: CascaderOption[]
-    }[] = []
+    if (props.multiple) {
+      const ret: {
+        selected: CascaderOption | undefined
+        options: CascaderOption[]
+      }[] = []
 
-    let currentOptions = props.options
-    let reachedEnd = false
-    for (const v of value) {
-      const target = currentOptions.find(option => option[valueName] === v)
-      ret.push({
-        selected: target,
-        options: currentOptions,
-      })
-      if (!target || !target[childrenName]) {
-        reachedEnd = true
-        break
+      let currentOptions = props.options
+      let reachedEnd = false
+
+      for (const v of value) {
+        let target
+        ;(v as string[]).forEach(e => {
+          const temp = currentOptions.find(option =>
+            e.includes(option[valueName])
+          )
+          if (temp) {
+            target = temp
+          }
+        })
+        ret.push({
+          selected: target,
+          options: currentOptions,
+        })
+        if (!target || !target[childrenName]) {
+          reachedEnd = true
+          break
+        }
+        currentOptions = target[childrenName]
       }
-      currentOptions = target[childrenName]
+      if (!reachedEnd) {
+        ret.push({
+          selected: undefined,
+          options: currentOptions,
+        })
+      }
+      return ret
+    } else {
+      const ret: {
+        selected: CascaderOption | undefined
+        options: CascaderOption[]
+      }[] = []
+
+      let currentOptions = props.options
+      let reachedEnd = false
+      for (const v of value) {
+        const target = currentOptions.find(option => option[valueName] === v)
+        ret.push({
+          selected: target,
+          options: currentOptions,
+        })
+        if (!target || !target[childrenName]) {
+          reachedEnd = true
+          break
+        }
+        currentOptions = target[childrenName]
+      }
+      if (!reachedEnd) {
+        ret.push({
+          selected: undefined,
+          options: currentOptions,
+        })
+      }
+      return ret
     }
-    if (!reachedEnd) {
-      ret.push({
-        selected: undefined,
-        options: currentOptions,
-      })
-    }
-    return ret
   }, [value, props.options])
 
   useUpdateEffect(() => {
-    props.onTabsChange?.(tabActiveIndex)
+    if (!props.multiple) {
+      props.onTabsChange?.(tabActiveIndex)
+    }
   }, [tabActiveIndex])
   useEffect(() => {
-    setTabActiveIndex(levels.length - 1)
+    if (!props.multiple) {
+      setTabActiveIndex(levels.length - 1)
+    }
   }, [value])
   useEffect(() => {
     const max = levels.length - 1
@@ -108,12 +155,37 @@ export const CascaderView: FC<CascaderViewProps> = p => {
     }
   }, [tabActiveIndex, levels])
 
-  const onItemSelect = (selectValue: CascaderValue, depth: number) => {
+  const onItemSelect = (
+    selectValue: CascaderValue | CascaderValue[],
+    depth: number
+  ) => {
     const next = value.slice(0, depth)
     if (selectValue !== undefined) {
       next[depth] = selectValue
     }
-    setValue(next)
+    if (props.multiple) {
+      const cloneValue = cloneDeep(value)
+      cloneValue[depth] = next[depth]
+      setValue(cloneValue)
+    } else {
+      setValue(next)
+    }
+  }
+
+  const setPath = (selectValue: string, depth: number) => {
+    const currentPath = cloneDeep(value)
+    if (selectValue !== undefined) {
+      if (!currentPath[depth]) {
+        currentPath[depth] = []
+      }
+      currentPath[depth] = (currentPath[depth] as string[]).filter(
+        (item: string) => {
+          return item !== selectValue
+        }
+      )
+      currentPath[depth].push(selectValue)
+    }
+    setValue(currentPath)
   }
 
   const whetherLoading = <T extends unknown[]>(options: T) =>
@@ -143,8 +215,8 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                   {selected
                     ? selected[labelName]
                     : typeof placeholder === 'function'
-                    ? placeholder(index)
-                    : placeholder}
+                      ? placeholder(index)
+                      : placeholder}
                 </div>
               }
               forceRender
@@ -171,14 +243,31 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                   </div>
                 ) : (
                   <CheckList
-                    value={[value[index]]}
-                    onChange={selectValue =>
-                      onItemSelect(selectValue[0], index)
-                    }
+                    value={props.multiple ? value[index] : [value[index]]}
+                    onChange={selectValue => {
+                      if (props.multiple) {
+                        onItemSelect(selectValue, index)
+                      } else {
+                        onItemSelect(selectValue[0], index)
+                      }
+                    }}
+                    multiple={props.multiple}
+                    activeSetPathMiddleware={{
+                      index,
+                      activeIconSetPath: props.activeIconSetPath,
+                      setPath,
+                    }}
                     activeIcon={props.activeIcon}
                   >
                     {level.options.map(option => {
-                      const active = value[index] === option[valueName]
+                      let active
+                      if (props.multiple) {
+                        active = (value[index] as Array<any>)?.includes(
+                          option[valueName]
+                        )
+                      } else {
+                        active = value[index] === option[valueName]
+                      }
                       return (
                         <CheckList.Item
                           value={option[valueName]}
