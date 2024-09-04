@@ -62,75 +62,111 @@ export const CascaderView: FC<CascaderViewProps> = p => {
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
-      props.onChange?.(val, props.multiple ? generateValueExtend(val as string[]) : {});
+      props.onChange?.(
+        val,
+        props.multiple ? generateValueExtend(val as string[]) : {}
+      )
     },
   })
   const [tabActiveIndex, setTabActiveIndex] = useState(0)
 
+  const extractLevelsForMultiple = (
+    value: any[],
+    options: CascaderOption[],
+    valueName: string,
+    childrenName: string
+  ) => {
+    const ret: {
+      selected: CascaderOption | undefined
+      options: CascaderOption[]
+    }[] = []
+
+    let currentOptions = options
+    let reachedEnd = false
+
+    for (const v of value) {
+      let target: CascaderOption | undefined
+      ;(v as string[]).forEach(e => {
+        const temp = currentOptions.find(option =>
+          e.includes(option[valueName])
+        )
+        if (temp) {
+          target = temp
+        }
+      })
+      ret.push({
+        selected: target,
+        options: currentOptions,
+      })
+      if (!target || !target[childrenName]) {
+        reachedEnd = true
+        break
+      }
+      currentOptions = target[childrenName]
+    }
+
+    if (!reachedEnd) {
+      ret.push({
+        selected: undefined,
+        options: currentOptions,
+      })
+    }
+
+    return ret
+  }
+
+  const extractLevelsForSingle = (
+    value: any[],
+    options: CascaderOption[],
+    valueName: string,
+    childrenName: string
+  ) => {
+    const ret: {
+      selected: CascaderOption | undefined
+      options: CascaderOption[]
+    }[] = []
+
+    let currentOptions = options
+    let reachedEnd = false
+
+    for (const v of value) {
+      const target = currentOptions.find(option => option[valueName] === v)
+      ret.push({
+        selected: target,
+        options: currentOptions,
+      })
+      if (!target || !target[childrenName]) {
+        reachedEnd = true
+        break
+      }
+      currentOptions = target[childrenName]
+    }
+
+    if (!reachedEnd) {
+      ret.push({
+        selected: undefined,
+        options: currentOptions,
+      })
+    }
+
+    return ret
+  }
+
   const levels = useMemo(() => {
     if (props.multiple) {
-      const ret: {
-        selected: CascaderOption | undefined
-        options: CascaderOption[]
-      }[] = []
-
-      let currentOptions = props.options
-      let reachedEnd = false
-
-      for (const v of value) {
-        let target
-        ;(v as string[]).forEach(e => {
-          const temp = currentOptions.find(option =>
-            e.includes(option[valueName])
-          )
-          if (temp) {
-            target = temp
-          }
-        })
-        ret.push({
-          selected: target,
-          options: currentOptions,
-        })
-        if (!target || !target[childrenName]) {
-          reachedEnd = true
-          break
-        }
-        currentOptions = target[childrenName]
-      }
-      if (!reachedEnd) {
-        ret.push({
-          selected: undefined,
-          options: currentOptions,
-        })
-      }
-      return ret
+      return extractLevelsForMultiple(
+        value,
+        props.options,
+        valueName,
+        childrenName
+      )
     } else {
-      const ret: {
-        selected: CascaderOption | undefined
-        options: CascaderOption[]
-      }[] = []
-
-      let currentOptions = props.options
-      let reachedEnd = false
-      for (const v of value) {
-        const target = currentOptions.find(option => option[valueName] === v)
-        ret.push({
-          selected: target,
-          options: currentOptions,
-        })
-        if (!target || !target[childrenName]) {
-          reachedEnd = true
-          break
-        }
-        currentOptions = target[childrenName]
-      }
-      if (!reachedEnd) {
-        ret.push({
-          selected: undefined,
-          options: currentOptions,
-        })
-      }
-      return ret
+      return extractLevelsForSingle(
+        value,
+        props.options,
+        valueName,
+        childrenName
+      )
     }
   }, [value, props.options])
 
