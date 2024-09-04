@@ -62,11 +62,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
   const [value, setValue] = usePropsValue({
     ...props,
     onChange: val => {
-      if (props.multiple) {
-        props.onChange?.(val, {} as any)
-      } else {
-        props.onChange?.(val, generateValueExtend(val as string[]))
-      }
+      props.onChange?.(val, props.multiple ? generateValueExtend(val as string[]) : {});
     },
   })
   const [tabActiveIndex, setTabActiveIndex] = useState(0)
