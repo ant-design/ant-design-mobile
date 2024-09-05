@@ -37,7 +37,7 @@ export const useModal = () => {
    */
   const confirm = useMemoizedFn((p: ModalConfirmProps) => {
     const defaultProps = {
-      confirmText: getDefaultConfig().locale.Modal.ok,
+      confirmText: getDefaultConfig().locale.common.confirm,
       cancelText: getDefaultConfig().locale.common.cancel,
     }
     const props = mergeProps(defaultProps, p)
