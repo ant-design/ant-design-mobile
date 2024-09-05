@@ -12,7 +12,7 @@ import React from 'react'
 export default () => {
   return (
     <>
-      <DemoBlock title='中文'>
+      <DemoBlock title='English'>
         <ConfigProvider locale={enUS}>
           {/* should be wrapped with `<PortalProvider />` */}
           <PortalProvider>
