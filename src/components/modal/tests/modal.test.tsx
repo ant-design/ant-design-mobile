@@ -515,4 +515,43 @@ describe('Modal', () => {
       await promise
     })
   })
+
+  test('close all modals when `clear` is called', async () => {
+    const onClose = jest.fn()
+
+    const Demo = () => {
+      const { show, clear } = useModal()
+
+      const actions = [
+        {
+          key: 'clear',
+          text: 'clear',
+          onClick: clear,
+        },
+      ]
+
+      return (
+        <button
+          onClick={() => {
+            show({
+              content: 'content',
+              onClose,
+              actions,
+            })
+          }}
+        >
+          btn
+        </button>
+      )
+    }
+
+    render(<UseModalApp element={<Demo />} />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'btn' }))
+    const modal = $$(`.${classPrefix}`)[0]
+
+    fireEvent.click(screen.getByRole('button', { name: 'clear' }))
+    expect(onClose).toBeCalled()
+    await waitForElementToBeRemoved(modal)
+  })
 })
