@@ -14,7 +14,7 @@ export default () => {
     <>
       <DemoBlock title='English'>
         <ConfigProvider locale={enUS}>
-          {/* should be wrapped with `<PortalProvider />` */}
+          {/* to make sure that `<PortalProvider />` is wrapped inner `<ConfigProvider />` so that `<ComponentWantsToUseModal />` can access context from `<ConfigProvider />` */}
           <PortalProvider>
             <ComponentWantsToUseModal />
           </PortalProvider>
