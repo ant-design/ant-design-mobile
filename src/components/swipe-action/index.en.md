@@ -8,7 +8,7 @@ Swipe to reveal hidden function menus.
 
 ## Demos
 
-<code src="./demos/demo1.tsx"></code>
+`<code src="./demos/demo1.tsx"></code>`
 
 ## SwipeAction
 
@@ -23,6 +23,7 @@ Swipe to reveal hidden function menus.
 | onAction | Triggered when operation button is clicked | `(action: Action, e: React.MouseEvent) => void` | - |
 | stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `[]` |
 | onActionsReveal | Triggered when the operation button appears completely | `(side: 'left' \| 'right') => void` | - |
+| onActionsClose | Triggered when the slider is closed | `() => void` | - |
 
 ### Action
 
