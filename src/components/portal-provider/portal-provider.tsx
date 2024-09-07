@@ -30,6 +30,9 @@ interface WrapperProps {
   unmount: () => void
 }
 
+/**
+ * @description refer to `src/utils/render-imperatively`
+ */
 const Wrapper = React.forwardRef<ImperativeHandler, WrapperProps>(
   ({ element, unmount }, ref) => {
     const [visible, setVisible] = useState(false)

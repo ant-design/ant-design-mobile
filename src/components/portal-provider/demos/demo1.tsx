@@ -1,9 +1,12 @@
 import {
   Button,
   ConfigProvider,
+  Modal,
+  Popup,
   PortalProvider,
   Space,
   useModal,
+  usePortal,
 } from 'antd-mobile'
 import enUS from 'antd-mobile/es/locales/en-US'
 import { DemoBlock } from 'demos'
@@ -14,13 +17,44 @@ export default () => {
     <>
       <DemoBlock title='English'>
         <ConfigProvider locale={enUS}>
-          {/* to make sure that `<PortalProvider />` is wrapped inner `<ConfigProvider />` so that `<ComponentWantsToUseModal />` can access context from `<ConfigProvider />` */}
+          {/* to make sure that `<PortalProvider />` is wrapped inner `<ConfigProvider />` so that its children can access context from `<ConfigProvider />` */}
           <PortalProvider>
+            <ComponentWantsToUsePortal />
             <ComponentWantsToUseModal />
           </PortalProvider>
         </ConfigProvider>
       </DemoBlock>
     </>
+  )
+}
+
+const ComponentWantsToUsePortal = () => {
+  const { renderModalInPortal } = usePortal()
+  return (
+    <Space direction='vertical'>
+      <Button
+        block
+        shape='rounded'
+        color='primary'
+        size='large'
+        onClick={() => {
+          renderModalInPortal(<Modal />)
+        }}
+      >
+        render modal
+      </Button>
+      <Button
+        block
+        shape='rounded'
+        color='primary'
+        size='large'
+        onClick={() => {
+          renderModalInPortal(<Popup />)
+        }}
+      >
+        render popup
+      </Button>
+    </Space>
   )
 }
 

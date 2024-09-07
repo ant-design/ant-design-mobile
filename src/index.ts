@@ -171,7 +171,10 @@ export type {
 } from './components/popover'
 export { default as Popup } from './components/popup'
 export type { PopupProps } from './components/popup'
-export { default as PortalProvider } from './components/portal-provider'
+export {
+  default as PortalProvider,
+  usePortal,
+} from './components/portal-provider'
 export type { PortalProviderProps } from './components/portal-provider'
 export { default as ProgressBar } from './components/progress-bar'
 export type { ProgressBarProps } from './components/progress-bar'
