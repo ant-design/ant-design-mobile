@@ -33,7 +33,7 @@ exports[`ActionSheet basic usage 1`] = `
     </div>
     <div
       class="adm-popup-body adm-popup-body-position-bottom"
-      style="pointer-events: unset; transform: translate(0, 0%);"
+      style="transform: translate(0, 0%);"
     >
       <div
         class="adm-action-sheet"
