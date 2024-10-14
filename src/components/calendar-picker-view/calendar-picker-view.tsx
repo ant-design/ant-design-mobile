@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import dayjs from 'dayjs'
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import isoWeek from 'dayjs/plugin/isoWeek'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import type { ReactNode } from 'react'
 import React, {
   forwardRef,
@@ -16,10 +16,10 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import {
-  DateRange,
-  Page,
   convertPageToDayjs,
   convertValueToRange,
+  DateRange,
+  Page,
 } from './convert'
 import useSyncScroll from './useSyncScroll'
 
@@ -103,6 +103,10 @@ export const CalendarPickerView = forwardRef<
         : convertValueToRange(props.selectionMode, props.value),
     defaultValue: convertValueToRange(props.selectionMode, props.defaultValue),
     onChange: v => {
+      if (v) {
+        setCurrent(dayjs(v[0]).date(1))
+      }
+
       if (props.selectionMode === 'single') {
         props.onChange?.(v ? v[0] : null)
       } else if (props.selectionMode === 'range') {
@@ -124,13 +128,15 @@ export const CalendarPickerView = forwardRef<
   const scrollTo = useSyncScroll(current, context.visible, bodyRef)
 
   // ============================== Boundary ==============================
+  // 记录默认的 current，防止后续 current 更新影响到下面的 minDay 和 maxDay 的计算
+  const defaultMin = useMemo(() => current, [])
   const maxDay = useMemo(
-    () => (props.max ? dayjs(props.max) : current.add(6, 'month')),
-    [props.max, current]
+    () => (props.max ? dayjs(props.max) : defaultMin.add(6, 'month')),
+    [props.max, defaultMin]
   )
   const minDay = useMemo(
-    () => (props.min ? dayjs(props.min) : current),
-    [props.min, current]
+    () => (props.min ? dayjs(props.min) : defaultMin),
+    [props.min, defaultMin]
   )
 
   // ================================ Refs ================================
@@ -138,6 +144,7 @@ export const CalendarPickerView = forwardRef<
     jumpTo: pageOrPageGenerator => {
       let page: Page
       if (typeof pageOrPageGenerator === 'function') {
+        console.log('cccc: ', current)
         page = pageOrPageGenerator({
           year: current.year(),
           month: current.month() + 1,
