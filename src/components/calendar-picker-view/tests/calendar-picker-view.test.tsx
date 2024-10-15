@@ -82,7 +82,12 @@ describe('Calendar', () => {
           >
             jumpToToday
           </button>
-          <CalendarPickerView selectionMode='single' ref={ref} />
+          <CalendarPickerView
+            selectionMode='single'
+            min={new Date(2020, 11)}
+            max={new Date(2021, 2)}
+            ref={ref}
+          />
         </>
       )
     }

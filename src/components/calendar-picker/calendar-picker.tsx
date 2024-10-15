@@ -55,7 +55,11 @@ export const CalendarPicker = forwardRef<
   CalendarPickerRef,
   CalendarPickerProps
 >((p, ref) => {
-  const props = mergeProps(defaultProps, p)
+  const props = mergeProps<typeof defaultProps, CalendarPickerProps>(
+    defaultProps,
+    p
+  )
+
   const { locale } = useConfig()
   const calendarRef = (ref ??
     useRef<CalendarPickerRef>(null)) as React.RefObject<CalendarPickerRef>
