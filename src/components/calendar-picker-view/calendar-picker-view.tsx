@@ -2,10 +2,11 @@ import classNames from 'classnames'
 import dayjs from 'dayjs'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
-import type { ReactNode } from 'react'
 import React, {
   forwardRef,
+  ReactNode,
   useContext,
+  useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
@@ -129,10 +130,25 @@ export const CalendarPickerView = forwardRef<
 
   // ============================== Boundary ==============================
   // 记录默认的 current，防止后续 current 更新影响到下面的 minDay 和 maxDay 的计算
-  const defaultMin = useMemo(() => current, [])
+  const [defaultMin, setDefaultMin] = useState(current)
+  const [defaultMax, setDefaultMax] = useState(current.add(6, 'month'))
+
+  useEffect(() => {
+    if (dateRange) {
+      const [startDate, endDate] = dateRange
+      if (!props.min && startDate && dayjs(startDate).isBefore(defaultMin)) {
+        setDefaultMin(dayjs(startDate).date(1))
+      }
+
+      if (!props.max && endDate && dayjs(endDate).isAfter(defaultMax)) {
+        setDefaultMax(dayjs(endDate).endOf('month'))
+      }
+    }
+  }, [dateRange])
+
   const maxDay = useMemo(
-    () => (props.max ? dayjs(props.max) : defaultMin.add(6, 'month')),
-    [props.max, defaultMin]
+    () => (props.max ? dayjs(props.max) : defaultMax),
+    [props.max, defaultMax]
   )
   const minDay = useMemo(
     () => (props.min ? dayjs(props.min) : defaultMin),
