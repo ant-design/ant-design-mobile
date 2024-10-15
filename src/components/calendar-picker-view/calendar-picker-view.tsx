@@ -129,7 +129,7 @@ export const CalendarPickerView = forwardRef<
   const scrollTo = useSyncScroll(current, context.visible, bodyRef)
 
   // ============================== Boundary ==============================
-  // 记录默认的 current，防止后续 current 更新影响到下面的 minDay 和 maxDay 的计算
+  // 记录默认的 min 和 max，并在外部的值超出边界时自动扩充
   const [defaultMin, setDefaultMin] = useState(current)
   const [defaultMax, setDefaultMax] = useState(current.add(6, 'month'))
 
