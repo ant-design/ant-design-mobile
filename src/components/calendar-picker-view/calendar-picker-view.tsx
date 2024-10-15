@@ -131,7 +131,7 @@ export const CalendarPickerView = forwardRef<
   // ============================== Boundary ==============================
   // 记录默认的 min 和 max，并在外部的值超出边界时自动扩充
   const [defaultMin, setDefaultMin] = useState(current)
-  const [defaultMax, setDefaultMax] = useState(current.add(6, 'month'))
+  const [defaultMax, setDefaultMax] = useState(() => current.add(6, 'month'))
 
   useEffect(() => {
     if (dateRange) {
