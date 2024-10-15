@@ -144,7 +144,6 @@ export const CalendarPickerView = forwardRef<
     jumpTo: pageOrPageGenerator => {
       let page: Page
       if (typeof pageOrPageGenerator === 'function') {
-        console.log('cccc: ', current)
         page = pageOrPageGenerator({
           year: current.year(),
           month: current.month() + 1,
