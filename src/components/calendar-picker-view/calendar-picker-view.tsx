@@ -104,10 +104,6 @@ export const CalendarPickerView = forwardRef<
         : convertValueToRange(props.selectionMode, props.value),
     defaultValue: convertValueToRange(props.selectionMode, props.defaultValue),
     onChange: v => {
-      if (v) {
-        setCurrent(dayjs(v[0]).date(1))
-      }
-
       if (props.selectionMode === 'single') {
         props.onChange?.(v ? v[0] : null)
       } else if (props.selectionMode === 'range') {
@@ -121,6 +117,14 @@ export const CalendarPickerView = forwardRef<
   const [current, setCurrent] = useState(() =>
     dayjs(dateRange ? dateRange[0] : today).date(1)
   )
+
+  const onDateChange = (v: DateRange) => {
+    if (v) {
+      setCurrent(dayjs(v[0]).date(1))
+    }
+
+    setDateRange(v)
+  }
 
   const showHeader = props.title !== false
 
@@ -310,29 +314,29 @@ export const CalendarPickerView = forwardRef<
                       }
                       if (props.selectionMode === 'single') {
                         if (props.allowClear && shouldClear()) {
-                          setDateRange(null)
+                          onDateChange(null)
                           return
                         }
-                        setDateRange([date, date])
+                        onDateChange([date, date])
                       } else if (props.selectionMode === 'range') {
                         if (!dateRange) {
-                          setDateRange([date, date])
+                          onDateChange([date, date])
                           setIntermediate(true)
                           return
                         }
                         if (shouldClear()) {
-                          setDateRange(null)
+                          onDateChange(null)
                           setIntermediate(false)
                           return
                         }
                         if (intermediate) {
                           const another = dateRange[0]
-                          setDateRange(
+                          onDateChange(
                             another > date ? [date, another] : [another, date]
                           )
                           setIntermediate(false)
                         } else {
-                          setDateRange([date, date])
+                          onDateChange([date, date])
                           setIntermediate(true)
                         }
                       }
