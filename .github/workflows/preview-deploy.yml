@@ -12,7 +12,7 @@ jobs:
     if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'
     steps:
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v4
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: pr
@@ -20,7 +20,7 @@ jobs:
         id: pr
         run: echo "::set-output name=id::$(<pr-id.txt)"
       - name: download dist artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v4
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           workflow_conclusion: success
@@ -51,7 +51,7 @@ jobs:
           rm -rf dist/
       - name: The job failed
         if: ${{ failure() }}
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ steps.pr.outputs.id }}
           body: |
@@ -62,7 +62,7 @@ jobs:
     if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'failure'
     steps:
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v4
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: pr
@@ -70,7 +70,7 @@ jobs:
         id: pr
         run: echo "::set-output name=id::$(<pr-id.txt)"
       - name: The job failed
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ steps.pr.outputs.id }}
           body: |

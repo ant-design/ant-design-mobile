@@ -9,12 +9,12 @@ jobs:
 
     steps:
       - name: Check
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '16'
 
@@ -31,7 +31,7 @@ jobs:
           echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
 
       - name: Setup pnpm cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -49,7 +49,7 @@ jobs:
           zip -r dist.zip dist
 
       - name: Upload dist artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist.zip
@@ -61,7 +61,7 @@ jobs:
 
       - name: Upload PR number
         if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: pr
           path: ./pr-id.txt
