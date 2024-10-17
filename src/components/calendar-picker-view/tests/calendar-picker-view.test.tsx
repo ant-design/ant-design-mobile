@@ -82,7 +82,12 @@ describe('Calendar', () => {
           >
             jumpToToday
           </button>
-          <CalendarPickerView selectionMode='single' ref={ref} />
+          <CalendarPickerView
+            selectionMode='single'
+            min={new Date(2020, 11)}
+            max={new Date(2021, 2)}
+            ref={ref}
+          />
         </>
       )
     }
@@ -176,5 +181,31 @@ describe('Calendar', () => {
     )
 
     expect(container.querySelectorAll(`.${classPrefix}-cell`)).toHaveLength(30)
+  })
+
+  test('auto expand month list', () => {
+    const { container, rerender } = render(
+      <CalendarPickerView value={new Date(2024, 9, 1)} selectionMode='single' />
+    )
+
+    const body = container.querySelector(`.${classPrefix}-body`)
+    // 默认渲染 2024-10 到 2025-4 七个月
+    expect(body?.childNodes.length).toBe(7)
+
+    rerender(
+      <CalendarPickerView value={new Date(2024, 8, 1)} selectionMode='single' />
+    )
+
+    expect(
+      container.querySelector('[data-year-month="2024-9"]')
+    ).toBeInTheDocument()
+
+    rerender(
+      <CalendarPickerView value={new Date(2025, 7, 1)} selectionMode='single' />
+    )
+
+    expect(
+      container.querySelector('[data-year-month="2025-8"]')
+    ).toBeInTheDocument()
   })
 })

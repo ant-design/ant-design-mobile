@@ -1,11 +1,12 @@
 import classNames from 'classnames'
 import dayjs from 'dayjs'
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import isoWeek from 'dayjs/plugin/isoWeek'
-import type { ReactNode } from 'react'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
 import React, {
   forwardRef,
+  ReactNode,
   useContext,
+  useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
@@ -16,10 +17,10 @@ import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import {
-  DateRange,
-  Page,
   convertPageToDayjs,
   convertValueToRange,
+  DateRange,
+  Page,
 } from './convert'
 import useSyncScroll from './useSyncScroll'
 
@@ -117,6 +118,14 @@ export const CalendarPickerView = forwardRef<
     dayjs(dateRange ? dateRange[0] : today).date(1)
   )
 
+  const onDateChange = (v: DateRange) => {
+    if (v) {
+      setCurrent(dayjs(v[0]).date(1))
+    }
+
+    setDateRange(v)
+  }
+
   const showHeader = props.title !== false
 
   // =============================== Scroll ===============================
@@ -124,13 +133,30 @@ export const CalendarPickerView = forwardRef<
   const scrollTo = useSyncScroll(current, context.visible, bodyRef)
 
   // ============================== Boundary ==============================
+  // 记录默认的 min 和 max，并在外部的值超出边界时自动扩充
+  const [defaultMin, setDefaultMin] = useState(current)
+  const [defaultMax, setDefaultMax] = useState(() => current.add(6, 'month'))
+
+  useEffect(() => {
+    if (dateRange) {
+      const [startDate, endDate] = dateRange
+      if (!props.min && startDate && dayjs(startDate).isBefore(defaultMin)) {
+        setDefaultMin(dayjs(startDate).date(1))
+      }
+
+      if (!props.max && endDate && dayjs(endDate).isAfter(defaultMax)) {
+        setDefaultMax(dayjs(endDate).endOf('month'))
+      }
+    }
+  }, [dateRange])
+
   const maxDay = useMemo(
-    () => (props.max ? dayjs(props.max) : current.add(6, 'month')),
-    [props.max, current]
+    () => (props.max ? dayjs(props.max) : defaultMax),
+    [props.max, defaultMax]
   )
   const minDay = useMemo(
-    () => (props.min ? dayjs(props.min) : current),
-    [props.min, current]
+    () => (props.min ? dayjs(props.min) : defaultMin),
+    [props.min, defaultMin]
   )
 
   // ================================ Refs ================================
@@ -288,29 +314,29 @@ export const CalendarPickerView = forwardRef<
                       }
                       if (props.selectionMode === 'single') {
                         if (props.allowClear && shouldClear()) {
-                          setDateRange(null)
+                          onDateChange(null)
                           return
                         }
-                        setDateRange([date, date])
+                        onDateChange([date, date])
                       } else if (props.selectionMode === 'range') {
                         if (!dateRange) {
-                          setDateRange([date, date])
+                          onDateChange([date, date])
                           setIntermediate(true)
                           return
                         }
                         if (shouldClear()) {
-                          setDateRange(null)
+                          onDateChange(null)
                           setIntermediate(false)
                           return
                         }
                         if (intermediate) {
                           const another = dateRange[0]
-                          setDateRange(
+                          onDateChange(
                             another > date ? [date, another] : [another, date]
                           )
                           setIntermediate(false)
                         } else {
-                          setDateRange([date, date])
+                          onDateChange([date, date])
                           setIntermediate(true)
                         }
                       }

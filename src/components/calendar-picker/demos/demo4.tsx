@@ -1,5 +1,8 @@
-import React, { useState, useRef } from 'react'
-import { CalendarPicker, List, CalendarPickerRef } from 'antd-mobile'
+import { CalendarPicker, CalendarPickerRef, List } from 'antd-mobile'
+import React, { useRef, useState } from 'react'
+
+const minDate = new Date(2024, 8, 1)
+const maxDate = new Date(2029, 10, 1)
 
 export default () => {
   const ref1 = useRef<CalendarPickerRef>(null)
@@ -38,6 +41,8 @@ export default () => {
         跳转到 3 年后
         <CalendarPicker
           ref={ref2}
+          min={minDate}
+          max={maxDate}
           visible={visible2}
           onClose={() => setVisible2(false)}
           onMaskClick={() => setVisible2(false)}

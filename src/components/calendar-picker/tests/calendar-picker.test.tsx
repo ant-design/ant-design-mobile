@@ -10,7 +10,7 @@ const classPrefix = `adm-calendar-picker-view`
 MockDate.set(new Date('2023-05-22'))
 
 const mixDate: Date = new Date('2023-05-01')
-const maxDate: Date = new Date('2023-05-31')
+const maxDate: Date = new Date('2023-06-31')
 const singleDate: Date = new Date('2023-05-03')
 
 describe('Calendar', () => {
@@ -40,11 +40,39 @@ describe('Calendar', () => {
       />
     )
 
+    const spyScrollIntoView = jest.fn()
+    const spyHTMLElement = spyElementPrototype(
+      HTMLElement,
+      'scrollIntoView',
+      spyScrollIntoView
+    )
+
+    act(() => {
+      jest.runAllTimers()
+    })
+
+    expect(spyScrollIntoView.mock.instances[0]).toHaveAttribute(
+      'data-year-month',
+      '2023-5'
+    )
+
     expect(container).toMatchSnapshot()
-    const dateEl = getAllByText(15)[0]
+    const dateEl = getAllByText(15)[1]
     fireEvent.click(dateEl)
     expect(dateEl.parentElement).toHaveClass(`${classPrefix}-cell-selected`)
     expect(fn).toBeCalled()
+
+    act(() => {
+      jest.runAllTimers()
+    })
+
+    /* 选择后 current 更新，滚动到 2023-6 */
+    expect(spyScrollIntoView.mock.instances[1]).toHaveAttribute(
+      'data-year-month',
+      '2023-6'
+    )
+
+    spyHTMLElement.mockRestore()
   })
 
   test('jumpTo should trigger scroll', () => {

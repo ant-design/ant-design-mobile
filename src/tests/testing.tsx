@@ -6,7 +6,7 @@ import {
   RenderOptions,
   RenderResult,
 } from '@testing-library/react'
-import { toHaveNoViolations, axe } from 'jest-axe'
+import { axe, toHaveNoViolations } from 'jest-axe'
 import * as React from 'react'
 
 expect.extend(toHaveNoViolations)
@@ -68,13 +68,17 @@ export interface TestOptions extends Omit<RenderOptions, 'wrapper'> {
 export const customRender = (
   ui: UI,
   { wrapper: Wrapper = AllTheProviders, ...options }: TestOptions = {}
-): RenderResult => render(<Wrapper>{ui}</Wrapper>, options)
+): RenderResult => {
+  const renderResult = render(<Wrapper>{ui}</Wrapper>, options)
+  return {
+    ...renderResult,
+    rerender: ui => renderResult.rerender(<Wrapper>{ui}</Wrapper>),
+  }
+}
 
 // re-export everything
 export * from '@testing-library/react'
-
 export { default as userEvent } from '@testing-library/user-event'
-
 // override render method
 export { customRender as render }
 
