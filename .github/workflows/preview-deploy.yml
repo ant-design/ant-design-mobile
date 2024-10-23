@@ -1,3 +1,5 @@
+# Each PR will build preview site that help to check code is work as expect.
+
 name: Preview Deploy
 
 on:
@@ -6,72 +8,119 @@ on:
     types:
       - completed
 
-jobs:
-  success:
-    runs-on: ubuntu-latest
-    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'
-    steps:
-      - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v4
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: pr
-      - name: save PR id
-        id: pr
-        run: echo "::set-output name=id::$(<pr-id.txt)"
-      - name: download dist artifact
-        uses: dawidd6/action-download-artifact@v4
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          workflow_conclusion: success
-          name: dist
-      - run: |
-          unzip dist.zip
-      - name: upload to surge
-        id: deploy
-        run: |
-          export DEPLOY_DOMAIN=https://antd-mobile-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
-          npx surge --project ./dist --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
-      - name: find comment
-        uses: peter-evans/find-comment@v2
-        id: fc
-        with:
-          issue-number: ${{ steps.pr.outputs.id }}
-          comment-author: 'github-actions[bot]'
-          body-includes: PR preview
-      - name: create comment
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          issue-number: ${{ steps.pr.outputs.id }}
-          edit-mode: replace
-          body: |
-            PR preview has been successfully built and deployed to https://antd-mobile-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
-      - run: |
-          rm -rf dist/
-      - name: The job failed
-        if: ${{ failure() }}
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          issue-number: ${{ steps.pr.outputs.id }}
-          body: |
-            Deploy PR preview failed.
+permissions:
+  contents: read
 
-  failed:
+jobs:
+  upstream-workflow-summary:
+    name: upstream workflow summary
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'failure'
+    if: github.event.workflow_run.event == 'pull_request'
+    outputs:
+      jobs: ${{ steps.prep-summary.outputs.result }}
+      build-success: ${{ steps.prep-summary.outputs.build-success }}
+      build-failure: ${{ steps.prep-summary.outputs.build-failure }}
     steps:
+      - name: summary jobs status
+        uses: actions/github-script@v7
+        id: prep-summary
+        with:
+          script: |
+            const response = await github.rest.actions.listJobsForWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: ${{ github.event.workflow_run.id }},
+            });
+
+            // { [name]: [conclusion] }, e.g. { 'build preview': 'success' }
+            const jobs = (response.data?.jobs ?? []).reduce((acc, job) => {
+              if(job?.status === 'completed' && 'name' in job && 'conclusion' in job) {
+                acc[job.name] = job.conclusion;
+              }
+              return acc;
+            }, {});
+
+            const total = Object.keys(jobs).length;
+            if(total === 0) core.setFailed('no jobs found');
+
+            // the name here must be the same as `jobs.xxx.{name}` in preview-build.yml
+            // set output
+            core.setOutput('build-success', jobs['build preview'] === 'success');
+            core.setOutput('build-failure', jobs['build preview'] === 'failure');
+            return jobs;
+
+  deploy-preview:
+    name: deploy preview
+    permissions:
+      actions: read # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
+    runs-on: ubuntu-latest
+    needs: upstream-workflow-summary
+    if: github.event.workflow_run.event == 'pull_request'
+    steps:
+      # We need get PR id first
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v4
+        uses: dawidd6/action-download-artifact@v6
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
           name: pr
+
+      # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "::set-output name=id::$(<pr-id.txt)"
-      - name: The job failed
-        uses: peter-evans/create-or-update-comment@v2
+        run: |
+          pr_id=$(<pr-id.txt)
+          if ! [[ "$pr_id" =~ ^[0-9]+$ ]]; then
+            echo "Error: pr-id.txt does not contain a valid numeric PR id. Please check."
+            exit 1
+          fi
+          echo "id=$pr_id" >> $GITHUB_OUTPUT
+
+      # Download site artifact
+      - name: download site artifact
+        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
+        uses: dawidd6/action-download-artifact@v6
         with:
-          issue-number: ${{ steps.pr.outputs.id }}
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: dist
+
+      - name: upload surge service
+        id: deploy
+        continue-on-error: true
+        env:
+          PR_ID: ${{ steps.pr.outputs.id }}
+        run: |
+          export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design-mobile.surge.sh
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: success comment
+        uses: actions-cool/maintain-one-comment@v3
+        if: ${{ steps.deploy.outcome == 'success' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            Deploy PR preview failed.
+            [<img width="300" alt="Preview is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design-mobile.surge.sh)
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: <!-- AUTO_PREVIEW_HOOK -->
+          number: ${{ steps.pr.outputs.id }}
+
+      - name: failed comment
+        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.deploy.outcome == 'failure' || failure() }}
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            [<img width="300" alt="Preview failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design-mobile.surge.sh)
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: <!-- AUTO_PREVIEW_HOOK -->
+          number: ${{ steps.pr.outputs.id }}
+
+      - name: Check surge deploy result and exit if failed
+        run: |
+            if [ "${{ steps.deploy.outcome }}" != "success" ]; then
+              echo "Surge Deploy failed."
+              exit 1
+            fi
