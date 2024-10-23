@@ -85,7 +85,7 @@ jobs:
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
-          name: site
+          name: dist
 
       - name: upload surge service
         id: deploy
@@ -102,7 +102,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            [<img width="300" alt="Preview is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
+            [<img width="300" alt="Preview is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design-mobile.surge.sh)
             <!-- AUTO_PREVIEW_HOOK -->
           body-include: <!-- AUTO_PREVIEW_HOOK -->
           number: ${{ steps.pr.outputs.id }}
@@ -113,7 +113,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            [<img width="300" alt="Preview failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
+            [<img width="300" alt="Preview failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design-mobile.surge.sh)
             <!-- AUTO_PREVIEW_HOOK -->
           body-include: <!-- AUTO_PREVIEW_HOOK -->
           number: ${{ steps.pr.outputs.id }}
