@@ -40,13 +40,15 @@ export type CalendarPickerViewRef = {
   getDateRange: () => DateRange
 }
 
+export type CalendarPickerViewColumRender = (date: Date) => ReactNode
+
 export type CalendarPickerViewProps = {
   title?: React.ReactNode | false
   confirmText?: string
   weekStartsOn?: 'Monday' | 'Sunday'
-  renderTop?: ((date: Date) => React.ReactNode) | false
-  renderDate?: (date: Date) => React.ReactNode
-  renderBottom?: ((date: Date) => React.ReactNode) | false
+  renderTop?: CalendarPickerViewColumRender | false
+  renderDate?: CalendarPickerViewColumRender
+  renderBottom?: CalendarPickerViewColumRender | false
   allowClear?: boolean
   max?: Date
   min?: Date
@@ -245,9 +247,9 @@ export const CalendarPickerView = forwardRef<
                     (minDay && d.isBefore(minDay, 'day'))
 
                 const renderTop = () => {
-                  if (props.renderTop === false) return
-
-                  const top = props.renderTop?.(d.toDate())
+                  const top = (
+                    props.renderTop as CalendarPickerViewColumRender
+                  )?.(d.toDate())
 
                   if (top) {
                     return top
@@ -269,9 +271,9 @@ export const CalendarPickerView = forwardRef<
                 }
 
                 const renderBottom = () => {
-                  if (props.renderBottom === false) return
-
-                  return props.renderBottom?.(d.toDate())
+                  return (
+                    props.renderBottom as CalendarPickerViewColumRender
+                  )?.(d.toDate())
                 }
 
                 return (
