@@ -23,7 +23,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
-
       - uses: oven-sh/setup-bun@v2
       - run: bun install
       - name: build site
@@ -32,7 +31,7 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
       - run: |
-        zip -r dist.zip dist
+          zip -r dist.zip dist
       - name: upload site artifact
         uses: actions/upload-artifact@v4
         with:
@@ -43,7 +42,6 @@ jobs:
       - name: Save PR number
         if: ${{ always() }}
         run: echo ${{ github.event.number }} > ./pr-id.txt
-
       - name: Upload PR number
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
