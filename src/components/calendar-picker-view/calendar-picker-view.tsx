@@ -1,10 +1,9 @@
 import classNames from 'classnames'
 import dayjs from 'dayjs'
-import isoWeek from 'dayjs/plugin/isoWeek'
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+import isoWeek from 'dayjs/plugin/isoWeek'
 import React, {
   forwardRef,
-  ReactNode,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -12,15 +11,17 @@ import React, {
   useRef,
   useState,
 } from 'react'
+import AutoSizer from 'react-virtualized-auto-sizer'
+import { FixedSizeList as List } from 'react-window'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import {
-  convertPageToDayjs,
-  convertValueToRange,
   DateRange,
   Page,
+  convertPageToDayjs,
+  convertValueToRange,
 } from './convert'
 import useSyncScroll from './useSyncScroll'
 
@@ -80,6 +81,11 @@ const defaultProps = {
   allowClear: true,
   usePopup: true,
   selectionMode: 'single',
+}
+
+type RowProps = {
+  index: number
+  style: React.CSSProperties
 }
 
 export const CalendarPickerView = forwardRef<
@@ -193,12 +199,28 @@ export const CalendarPickerView = forwardRef<
   )
 
   function renderBody() {
-    const cells: ReactNode[] = []
-    let monthIterator = minDay
-    // 遍历月份
+    const totalMonths = Math.ceil(maxDay.diff(minDay, 'months', true))
+    // default 每个月的高度是 344px
+    const monthHeight = 344
+    const cells: {
+      year: number
+      month: number
+      daysInMonth: number
+      monthIterator: dayjs.Dayjs
+    }[] = []
+    let monthIterator = minDay.clone()
+
     while (monthIterator.isSameOrBefore(maxDay, 'month')) {
       const year = monthIterator.year()
       const month = monthIterator.month() + 1
+      const daysInMonth = monthIterator.daysInMonth()
+
+      cells.push({ year, month, daysInMonth, monthIterator })
+      monthIterator = monthIterator.add(1, 'month')
+    }
+
+    const Row = ({ index, style }: RowProps) => {
+      const { year, month, daysInMonth, monthIterator } = cells[index]
 
       const renderMap = {
         year,
@@ -212,17 +234,16 @@ export const CalendarPickerView = forwardRef<
         props.weekStartsOn === 'Monday'
           ? monthIterator.date(1).isoWeekday() - 1
           : monthIterator.date(1).isoWeekday()
+
       const presetEmptyCells =
         presetEmptyCellCount == 7
           ? null
-          : Array(presetEmptyCellCount)
-              .fill(null)
-              .map((_, index) => (
-                <div key={index} className={`${classPrefix}-cell`}></div>
-              ))
+          : Array.from({ length: presetEmptyCellCount }).map((_, index) => (
+              <div key={index} className={`${classPrefix}-cell`}></div>
+            ))
 
-      cells.push(
-        <div key={yearMonth} data-year-month={yearMonth}>
+      return (
+        <div style={style} key={yearMonth} data-year-month={yearMonth}>
           <div className={`${classPrefix}-title`}>
             {locale.Calendar.yearAndMonth?.replace(
               /\${(.*?)}/g,
@@ -235,135 +256,141 @@ export const CalendarPickerView = forwardRef<
             {/* 空格填充 */}
             {presetEmptyCells}
             {/* 遍历每月 */}
-            {Array(monthIterator.daysInMonth())
-              .fill(null)
-              .map((_, index) => {
-                const d = monthIterator.date(index + 1)
-                let isSelect = false
-                let isBegin = false
-                let isEnd = false
-                let isSelectRowBegin = false
-                let isSelectRowEnd = false
-                if (dateRange) {
-                  const [begin, end] = dateRange
-                  isBegin = d.isSame(begin, 'day')
-                  isEnd = d.isSame(end, 'day')
-                  isSelect =
-                    isBegin ||
-                    isEnd ||
-                    (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
-                  if (isSelect) {
-                    isSelectRowBegin =
-                      (cells.length % 7 === 0 ||
-                        d.isSame(d.startOf('month'), 'day')) &&
-                      !isBegin
-                    isSelectRowEnd =
-                      (cells.length % 7 === 6 ||
-                        d.isSame(d.endOf('month'), 'day')) &&
-                      !isEnd
+            {Array.from({ length: daysInMonth }).map((_, index) => {
+              const d = monthIterator.date(index + 1)
+              let isSelect = false
+              let isBegin = false
+              let isEnd = false
+              let isSelectRowBegin = false
+              let isSelectRowEnd = false
+              if (dateRange) {
+                const [begin, end] = dateRange
+                isBegin = d.isSame(begin, 'day')
+                isEnd = d.isSame(end, 'day')
+                isSelect =
+                  isBegin ||
+                  isEnd ||
+                  (d.isAfter(begin, 'day') && d.isBefore(end, 'day'))
+                if (isSelect) {
+                  isSelectRowBegin =
+                    (cells.length % 7 === 0 ||
+                      d.isSame(d.startOf('month'), 'day')) &&
+                    !isBegin
+                  isSelectRowEnd =
+                    (cells.length % 7 === 6 ||
+                      d.isSame(d.endOf('month'), 'day')) &&
+                    !isEnd
+                }
+              }
+              const disabled = props.shouldDisableDate
+                ? props.shouldDisableDate(d.toDate())
+                : (maxDay && d.isAfter(maxDay, 'day')) ||
+                  (minDay && d.isBefore(minDay, 'day'))
+
+              const renderTop = () => {
+                const top = props.renderTop?.(d.toDate())
+
+                if (top) {
+                  return top
+                }
+
+                if (props.selectionMode === 'range') {
+                  if (isBegin) {
+                    return locale.Calendar.start
+                  }
+
+                  if (isEnd) {
+                    return locale.Calendar.end
                   }
                 }
-                const disabled = props.shouldDisableDate
-                  ? props.shouldDisableDate(d.toDate())
-                  : (maxDay && d.isAfter(maxDay, 'day')) ||
-                    (minDay && d.isBefore(minDay, 'day'))
 
-                const renderTop = () => {
-                  const top = props.renderTop?.(d.toDate())
-
-                  if (top) {
-                    return top
-                  }
-
-                  if (props.selectionMode === 'range') {
-                    if (isBegin) {
-                      return locale.Calendar.start
-                    }
-
-                    if (isEnd) {
-                      return locale.Calendar.end
-                    }
-                  }
-
-                  if (d.isSame(today, 'day') && !isSelect) {
-                    return locale.Calendar.today
-                  }
+                if (d.isSame(today, 'day') && !isSelect) {
+                  return locale.Calendar.today
                 }
-                return (
-                  <div
-                    key={d.valueOf()}
-                    className={classNames(`${classPrefix}-cell`, {
-                      [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
-                      [`${classPrefix}-cell-selected`]: isSelect,
-                      [`${classPrefix}-cell-selected-begin`]: isBegin,
-                      [`${classPrefix}-cell-selected-end`]: isEnd,
-                      [`${classPrefix}-cell-selected-row-begin`]:
-                        isSelectRowBegin,
-                      [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
-                      [`${classPrefix}-cell-disabled`]: !!disabled,
-                    })}
-                    onClick={() => {
-                      if (!props.selectionMode) return
-                      if (disabled) return
-                      const date = d.toDate()
-                      function shouldClear() {
-                        if (!props.allowClear) return false
-                        if (!dateRange) return false
-                        const [begin, end] = dateRange
-                        return d.isSame(begin, 'date') && d.isSame(end, 'day')
+              }
+              return (
+                <div
+                  key={d.valueOf()}
+                  className={classNames(`${classPrefix}-cell`, {
+                    [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
+                    [`${classPrefix}-cell-selected`]: isSelect,
+                    [`${classPrefix}-cell-selected-begin`]: isBegin,
+                    [`${classPrefix}-cell-selected-end`]: isEnd,
+                    [`${classPrefix}-cell-selected-row-begin`]:
+                      isSelectRowBegin,
+                    [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
+                    [`${classPrefix}-cell-disabled`]: !!disabled,
+                  })}
+                  onClick={() => {
+                    if (!props.selectionMode) return
+                    if (disabled) return
+                    const date = d.toDate()
+                    function shouldClear() {
+                      if (!props.allowClear) return false
+                      if (!dateRange) return false
+                      const [begin, end] = dateRange
+                      return d.isSame(begin, 'date') && d.isSame(end, 'day')
+                    }
+                    if (props.selectionMode === 'single') {
+                      if (props.allowClear && shouldClear()) {
+                        onDateChange(null)
+                        return
                       }
-                      if (props.selectionMode === 'single') {
-                        if (props.allowClear && shouldClear()) {
-                          onDateChange(null)
-                          return
-                        }
+                      onDateChange([date, date])
+                    } else if (props.selectionMode === 'range') {
+                      if (!dateRange) {
                         onDateChange([date, date])
-                      } else if (props.selectionMode === 'range') {
-                        if (!dateRange) {
-                          onDateChange([date, date])
-                          setIntermediate(true)
-                          return
-                        }
-                        if (shouldClear()) {
-                          onDateChange(null)
-                          setIntermediate(false)
-                          return
-                        }
-                        if (intermediate) {
-                          const another = dateRange[0]
-                          onDateChange(
-                            another > date ? [date, another] : [another, date]
-                          )
-                          setIntermediate(false)
-                        } else {
-                          onDateChange([date, date])
-                          setIntermediate(true)
-                        }
+                        setIntermediate(true)
+                        return
                       }
-                    }}
-                  >
-                    <div className={`${classPrefix}-cell-top`}>
-                      {renderTop()}
-                    </div>
-                    <div className={`${classPrefix}-cell-date`}>
-                      {props.renderDate
-                        ? props.renderDate(d.toDate())
-                        : d.date()}
-                    </div>
-                    <div className={`${classPrefix}-cell-bottom`}>
-                      {props.renderBottom?.(d.toDate())}
-                    </div>
+                      if (shouldClear()) {
+                        onDateChange(null)
+                        setIntermediate(false)
+                        return
+                      }
+                      if (intermediate) {
+                        const another = dateRange[0]
+                        onDateChange(
+                          another > date ? [date, another] : [another, date]
+                        )
+                        setIntermediate(false)
+                      } else {
+                        onDateChange([date, date])
+                        setIntermediate(true)
+                      }
+                    }
+                  }}
+                >
+                  <div className={`${classPrefix}-cell-top`}>{renderTop()}</div>
+                  <div className={`${classPrefix}-cell-date`}>
+                    {props.renderDate ? props.renderDate(d.toDate()) : d.date()}
                   </div>
-                )
-              })}
+                  <div className={`${classPrefix}-cell-bottom`}>
+                    {props.renderBottom?.(d.toDate())}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       )
-
-      monthIterator = monthIterator.add(1, 'month')
     }
 
-    return cells
+    return (
+      <AutoSizer>
+        {({ height, width }) => (
+          <List
+            height={height}
+            itemCount={totalMonths}
+            itemSize={monthHeight}
+            width={width}
+            className={`${classPrefix}-no-scrollbar`}
+          >
+            {Row}
+          </List>
+        )}
+      </AutoSizer>
+    )
   }
   const body = (
     <div className={`${classPrefix}-body`} ref={bodyRef}>
