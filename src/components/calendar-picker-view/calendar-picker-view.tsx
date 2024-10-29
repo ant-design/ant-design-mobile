@@ -270,6 +270,8 @@ export const CalendarPickerView = forwardRef<
                   if (d.isSame(today, 'day') && !isSelect) {
                     return contentWrapper(locale.Calendar.today)
                   }
+
+                  return contentWrapper(null)
                 }
 
                 const renderBottom = () => {
