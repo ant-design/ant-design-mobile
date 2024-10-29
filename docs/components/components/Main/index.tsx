@@ -4,6 +4,7 @@ import { Button, Card } from 'antd-mobile'
 import React, { useEffect, useRef, useState } from 'react'
 import Lottie from 'react-lottie'
 import { useTrans } from '../../../hooks/useTrans'
+import { openUrl } from '../../../utils'
 import MainSection from './MainSection'
 import {
   getGuides,
@@ -99,10 +100,12 @@ export default () => {
                   </div>
                   <Button
                     className={styles.productResourceCardButton}
-                    type='primary'
-                    shape='round'
-                    target={resource.target}
-                    href={resource.buttonLink}
+                    onClick={() =>
+                      openUrl({
+                        href: resource.buttonLink,
+                        target: resource.target,
+                      })
+                    }
                   >
                     {resource.buttonText}
                   </Button>
