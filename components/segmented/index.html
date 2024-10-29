@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta
+      name="keywords"
+      content="antd-mobile, ant design mobile, React mobile components"
+    />
+    <meta
+      name="description"
+      content="Essential UI blocks for building mobile web apps."
+    />
+    <meta
+      name="google-site-verification"
+      content="2saDOufpfJI4y1cqfxvuviYg8bfo4gLmiEtSnt2oh50"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://gw.alipayobjects.com/zos/bmw-prod/69a27fcc-ce52-4f27-83f1-c44541e9b65d.svg"
+    />
+    <script>
+      window.routerBase = "/";
+    </script>
+    <script>
+      //! umi version: 3.5.41
+    </script>
+    <script>
+      !(function () {
+        var e =
+            navigator.cookieEnabled && void 0 !== window.localStorage
+              ? localStorage.getItem("dumi:prefers-color")
+              : "auto",
+          o = window.matchMedia("(prefers-color-scheme: dark)").matches,
+          t = ["light", "dark", "auto"];
+        document.documentElement.setAttribute(
+          "data-prefers-color",
+          e === t[2] ? (o ? t[1] : t[0]) : t.indexOf(e) > -1 ? e : t[0]
+        );
+      })();
+    </script>
+    <script>
+      (function () {
+        var cache = localStorage.getItem("dumi:prefers-color");
+        var isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var enums = ["light", "dark", "auto"];
+
+        document.documentElement.setAttribute(
+          "data-prefers-color-scheme",
+          cache === enums[2]
+            ? isDark
+              ? enums[1]
+              : enums[0]
+            : enums.indexOf(cache) > -1
+            ? cache
+            : enums[0]
+        );
+      })();
+    </script>
+    <title>Segmented - Ant Design Mobile</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      if (location.pathname.startsWith("/~demos/")) {
+        document.documentElement.setAttribute("data-is-demo", "true");
+      }
+    </script>
+    <script>
+      if (!location.port) {
+        // Enable Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "UA-72788897-2");
+      }
+    </script>
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-2"
+      async="true"
+    ></script>
+    <script src="/umi.ff9c3023.js"></script>
+  </body>
+</html>
