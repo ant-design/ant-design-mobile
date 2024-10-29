@@ -1,7 +1,7 @@
-import { useResizeEffect } from 'antd-mobile/src/utils/use-resize-effect'
 import type { FC, ReactNode } from 'react'
 import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
 import {
   PropagationEvent,
