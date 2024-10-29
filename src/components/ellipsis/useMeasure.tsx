@@ -11,6 +11,13 @@ const enum MEASURE_STATUS {
 
 const ELLIPSIS_TEXT = '...'
 
+const measureStyle: React.CSSProperties = {
+  visibility: 'hidden',
+  whiteSpace: 'inherit',
+  lineHeight: 'inherit',
+  fontSize: 'inherit',
+}
+
 export default function useMeasure(
   containerRef: React.RefObject<HTMLDivElement>,
   content: string,
@@ -34,7 +41,7 @@ export default function useMeasure(
   )
 
   // ============================ Refs ============================
-  const rowMeasureRef = React.useRef<HTMLDivElement>(null)
+  const singleRowMeasureRef = React.useRef<HTMLDivElement>(null)
   const fullMeasureRef = React.useRef<HTMLDivElement>(null)
   const midMeasureRef = React.useRef<HTMLDivElement>(null)
 
@@ -56,8 +63,10 @@ export default function useMeasure(
   // Measure element height
   React.useLayoutEffect(() => {
     if (status === MEASURE_STATUS.PREPARE) {
-      const rowMeasureHeight = rowMeasureRef.current?.offsetHeight || 0
       const fullMeasureHeight = fullMeasureRef.current?.offsetHeight || 0
+      const singleRowMeasureHeight =
+        singleRowMeasureRef.current?.offsetHeight || 0
+      const rowMeasureHeight = singleRowMeasureHeight * rows
 
       if (fullMeasureHeight <= rowMeasureHeight) {
         setStatus(MEASURE_STATUS.STABLE_NO_ELLIPSIS)
@@ -146,12 +155,7 @@ export default function useMeasure(
       {/******************* Measure Prepare *******************/}
       {/* Origin full content */}
       {status === MEASURE_STATUS.PREPARE && (
-        <div
-          key='full'
-          aria-hidden
-          ref={fullMeasureRef}
-          style={{ visibility: 'hidden' }}
-        >
+        <div key='full' aria-hidden ref={fullMeasureRef} style={measureStyle}>
           {content}
           {expandNode}
         </div>
@@ -162,12 +166,10 @@ export default function useMeasure(
         <div
           key='stable'
           aria-hidden
-          ref={rowMeasureRef}
-          style={{ visibility: 'hidden' }}
+          ref={singleRowMeasureRef}
+          style={measureStyle}
         >
-          {Array.from({ length: rows }).map((_, index) => (
-            <div key={index}>{'\u00A0'}</div>
-          ))}
+          {'\u00A0'}
         </div>
       )}
 
@@ -177,7 +179,7 @@ export default function useMeasure(
           key='walking-mid'
           aria-hidden
           ref={midMeasureRef}
-          style={{ visibility: 'hidden' }}
+          style={measureStyle}
         >
           {renderContent(midIndex)}
         </div>
