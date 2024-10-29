@@ -41,13 +41,15 @@ export type CalendarPickerViewRef = {
   getDateRange: () => DateRange
 }
 
+export type CalendarPickerViewColumRender = (date: Date) => ReactNode
+
 export type CalendarPickerViewProps = {
   title?: React.ReactNode | false
   confirmText?: string
   weekStartsOn?: 'Monday' | 'Sunday'
-  renderTop?: (date: Date) => React.ReactNode
-  renderDate?: (date: Date) => React.ReactNode
-  renderBottom?: (date: Date) => React.ReactNode
+  renderTop?: CalendarPickerViewColumRender | false
+  renderDate?: CalendarPickerViewColumRender
+  renderBottom?: CalendarPickerViewColumRender | false
   allowClear?: boolean
   max?: Date
   min?: Date
@@ -269,26 +271,45 @@ export const CalendarPickerView = forwardRef<
                     (minDay && d.isBefore(minDay, 'day'))
 
                 const renderTop = () => {
+                  if (props.renderTop === false) return null
+
+                  const contentWrapper = (content: ReactNode) => (
+                    <div className={`${classPrefix}-cell-top`}>{content}</div>
+                  )
+
                   const top = props.renderTop?.(d.toDate())
 
                   if (top) {
-                    return top
+                    return contentWrapper(top)
                   }
 
                   if (props.selectionMode === 'range') {
                     if (isBegin) {
-                      return locale.Calendar.start
+                      return contentWrapper(locale.Calendar.start)
                     }
 
                     if (isEnd) {
-                      return locale.Calendar.end
+                      return contentWrapper(locale.Calendar.end)
                     }
                   }
 
                   if (d.isSame(today, 'day') && !isSelect) {
-                    return locale.Calendar.today
+                    return contentWrapper(locale.Calendar.today)
                   }
+
+                  return contentWrapper(null)
                 }
+
+                const renderBottom = () => {
+                  if (props.renderBottom === false) return null
+
+                  return (
+                    <div className={`${classPrefix}-cell-bottom`}>
+                      {props.renderBottom?.(d.toDate())}
+                    </div>
+                  )
+                }
+
                 return (
                   <div
                     key={d.valueOf()}
@@ -342,17 +363,13 @@ export const CalendarPickerView = forwardRef<
                       }
                     }}
                   >
-                    <div className={`${classPrefix}-cell-top`}>
-                      {renderTop()}
-                    </div>
+                    {renderTop()}
                     <div className={`${classPrefix}-cell-date`}>
                       {props.renderDate
                         ? props.renderDate(d.toDate())
                         : d.date()}
                     </div>
-                    <div className={`${classPrefix}-cell-bottom`}>
-                      {props.renderBottom?.(d.toDate())}
-                    </div>
+                    {renderBottom()}
                   </div>
                 )
               })}
