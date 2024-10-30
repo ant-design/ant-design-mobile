@@ -172,6 +172,18 @@ describe('Calendar', () => {
     expect(document.querySelector(`.${classPrefix}-header`)).toBeNull()
   })
 
+  test('renderTop hidden', () => {
+    render(<CalendarPickerView renderTop={false} />)
+
+    expect(document.querySelector(`.${classPrefix}-cell-top`)).toBeNull()
+  })
+
+  test('renderBottom hidden', () => {
+    render(<CalendarPickerView renderBottom={false} />)
+
+    expect(document.querySelector(`.${classPrefix}-cell-bottom`)).toBeNull()
+  })
+
   test('not fill empty cells if unnecessary', () => {
     const { container } = render(
       <CalendarPickerView

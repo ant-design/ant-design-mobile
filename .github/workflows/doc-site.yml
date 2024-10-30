@@ -44,13 +44,14 @@ jobs:
         run: |
           pnpm run build-doc
 
-      - name: Deploy to Surge
-        uses: dswistowski/surge-sh-action@v1
-        with:
-          domain: 'antd-mobile.surge.sh'
-          project: './dist'
-          login: ${{ secrets.SURGE_LOGIN }}
-          token: ${{ secrets.SURGE_TOKEN }}
+      # Note: We miss the url permission for surge.sh, so we can't use it now.
+      # - name: Deploy to Surge
+      #   uses: dswistowski/surge-sh-action@v1
+      #   with:
+      #     domain: 'antd-mobile.surge.sh'
+      #     project: './dist'
+      #     login: ${{ secrets.SURGE_LOGIN }}
+      #     token: ${{ secrets.SURGE_TOKEN }}
 
       - name: Deploy to Surge (with SHA)
         uses: dswistowski/surge-sh-action@v1
