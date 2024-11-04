@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import * as ReactDOM from 'react-dom'
-import { type Root, createRoot as createClientRoot } from 'react-dom/client'
+import { type Root } from 'react-dom/client'
 
 // 移植自rc-util: https://github.com/react-component/util/blob/master/src/React/render.ts
 
@@ -21,9 +21,10 @@ const { version, render: reactRender, unmountComponentAtNode } = fullClone
 let createRoot: CreateRoot
 try {
   const mainVersion = Number((version || '').split('.')[0])
-  const createReactRoot = createClientRoot || fullClone.createRoot
-  if (mainVersion >= 18 && createReactRoot) {
-    createRoot = createReactRoot
+  if (mainVersion >= 18) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const { createRoot: createRootV18 } = require('react-dom/client')
+    createRoot = createRootV18 || fullClone.createRoot
   }
 } catch (e) {
   // Do nothing;
