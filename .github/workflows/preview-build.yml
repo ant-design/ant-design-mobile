@@ -30,11 +30,13 @@ jobs:
         run: bun run build-doc
         env:
           NODE_OPTIONS: --max_old_space_size=4096
+      - run: |
+          zip -r dist.zip dist
       - name: upload site artifact
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: dist/
+          path: dist.zip
           retention-days: 5
       # Upload PR id for next workflow use
       - name: Save PR number
