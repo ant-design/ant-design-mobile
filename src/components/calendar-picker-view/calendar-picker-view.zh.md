@@ -21,8 +21,8 @@ CalendarPickerView 是 [CalendarPicker](/zh/components/calendar-picker) 的内�
 | max | 可选择范围的最大值 | `Date` | - |
 | min | 可选择范围的最小值 | `Date` | - |
 | onChange | 选择日期变化时触发 | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | - |
-| renderTop | 日期顶部信息的渲染函数 | `(date: Date) => ReactNode \| null \| undefined` | - |
-| renderBottom | 日期底部信息的渲染函数 | `(date: Date) => ReactNode \| null \| undefined` | - |
+| renderTop | 日期顶部信息的渲染函数 | `((date: Date) => ReactNode \| null \| undefined) \| false` | - | `false`: 5.38.0 |
+| renderBottom | 日期底部信息的渲染函数 | `((date: Date) => ReactNode \| null \| undefined) \| false` | - | `false`: 5.38.0 |
 | selectionMode | 选择模式，不设置的话表示不支持选择 | `'single' \| 'range'` | - |
 | shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean` | - |
 | title | 日期选择器的标题 | `React.ReactNode` | `日期选择` |

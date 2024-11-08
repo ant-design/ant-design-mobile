@@ -21,8 +21,8 @@ Only the simplest content area is shown here, and other more usages can be consu
 | max | Maximum value of a selectable range. | `Date` | - |
 | min | Minimum value of a selectable range. | `Date` | - | - |
 | onChange | Trigger when selected date changes. | `(val: Date \| null) => void` when selection mode is "single". `(val: [Date, Date] \| null) => void` when selection mode is "range". | - |
-| renderTop | The top information of date render function. | `(date: Date) => ReactNode \| null \| undefined` | - |
-| renderBottom | The bottom information of date render function. | `(date: Date) => ReactNode \| null \| undefined` | - |
+| renderTop | The top information of date render function. | `((date: Date) => ReactNode \| null \| undefined) \| false` | - | `false`: 5.38.0 |
+| renderBottom | The bottom information of date render function. | `((date: Date) => ReactNode \| null \| undefined) \| false` | - | `false`: 5.38.0 |
 | selectionMode | The selection mode. Disable selection when this prop is not set. | `'single' \| 'range'` | - |
 | shouldDisableDate | Set whether the date is disable selection. The min and max Settings are ignored | `(date: Date) => boolean` | - |
 | title | The title of calendar | `React.ReactNode` | `Date selection` |
