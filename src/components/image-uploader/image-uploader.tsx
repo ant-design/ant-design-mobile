@@ -225,10 +225,10 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
                 return task
               })
             })
-            throw e
+            console.error(e)
           }
         })
-      ).catch(error => console.error(error))
+      )
       setValue(prev => prev.concat(newVal))
     }
 
