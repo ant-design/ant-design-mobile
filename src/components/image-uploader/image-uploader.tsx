@@ -196,7 +196,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
 
       setTasks(prev => [...getFinalTasks(prev), ...newTasks])
       const newVal: ImageUploadItem[] = []
-      await Promise.allSettled(
+      await Promise.all(
         newTasks.map(async (currentTask, index) => {
           try {
             const result = await props.upload(currentTask.file)
