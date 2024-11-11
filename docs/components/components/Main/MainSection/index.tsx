@@ -1,8 +1,8 @@
 import { Button } from 'antd-mobile'
+import { Link } from 'dumi'
 import React, { useEffect, useState } from 'react'
 import Lottie from 'react-lottie'
 import { useTrans } from '../../../../hooks/useTrans'
-import { openUrl } from '../../../../utils'
 import styles from './index.local.less'
 
 export default (props: { isWidthScreen: boolean }) => {
@@ -36,30 +36,24 @@ export default (props: { isWidthScreen: boolean }) => {
           )}
         </div>
         <div className={styles.mainSectionButtonAction}>
-          <Button
-            color='primary'
-            shape='rounded'
-            className={styles.buttonLeft}
-            onClick={() =>
-              openUrl({
-                href: trans('/guide/quick-start', '/zh/guide/quick-start'),
-              })
-            }
-          >
-            {trans('Get Start', '开始使用')}
-          </Button>
-          <Button
-            color='primary'
-            shape='rounded'
-            className={styles.buttonRight}
-            onClick={() =>
-              openUrl({
-                href: trans('/components', '/zh/components'),
-              })
-            }
-          >
-            {trans('Preview Online', '在线体验')}
-          </Button>
+          <Link to={trans('/guide/quick-start', '/zh/guide/quick-start')}>
+            <Button
+              color='primary'
+              shape='rounded'
+              className={styles.buttonLeft}
+            >
+              {trans('Get Start', '开始使用')}
+            </Button>
+          </Link>
+          <Link to={trans('/components', '/zh/components')}>
+            <Button
+              color='primary'
+              shape='rounded'
+              className={styles.buttonRight}
+            >
+              {trans('Preview Online', '在线体验')}
+            </Button>
+          </Link>
         </div>
       </div>
       <div className={styles.imageContainer}>
