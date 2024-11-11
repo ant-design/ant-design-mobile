@@ -1,31 +1,32 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
-import type { ReactElement } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import type { NumberKeyboardProps } from '../number-keyboard'
 import classNames from 'classnames'
+import type { ReactElement } from 'react'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react'
 import { bound } from '../../utils/bound'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
+import type { NumberKeyboardProps } from '../number-keyboard'
 
 export type PasscodeInputProps = {
   value?: string
   defaultValue?: string
-  onChange?: (val: string) => void
   length?: number
   plain?: boolean
   error?: boolean
   caret?: boolean
   seperated?: boolean
+  keyboard?: ReactElement<NumberKeyboardProps>
+  inputMode?: 'numeric' | 'text'
   onBlur?: () => void
   onFocus?: () => void
-  keyboard?: ReactElement<NumberKeyboardProps>
+  onChange?: (val: string) => void
   onFill?: (val: string) => void
 } & NativeProps<
   | '--cell-gap'
@@ -49,6 +50,7 @@ const defaultProps = {
   error: false,
   seperated: false,
   caret: true,
+  inputMode: 'numeric',
 }
 
 export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
@@ -161,7 +163,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
               value={value}
               type='text'
               pattern='[0-9]*'
-              inputMode='numeric'
+              inputMode={props.inputMode}
               onChange={e => {
                 setValue(e.target.value.slice(0, props.length))
               }}
