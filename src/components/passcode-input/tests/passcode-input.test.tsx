@@ -1,7 +1,7 @@
-import React, { createRef } from 'react'
-import { render, screen, fireEvent, userEvent, act } from 'testing'
-import PasscodeInput, { PasscodeInputRef } from '..'
 import { NumberKeyboard } from 'antd-mobile'
+import React, { createRef } from 'react'
+import { act, fireEvent, render, screen, userEvent } from 'testing'
+import PasscodeInput, { PasscodeInputRef } from '..'
 
 const classPrefix = 'adm-passcode-input'
 const cellClassPrefix = 'adm-passcode-input-cell'
@@ -119,5 +119,15 @@ describe('PasscodeInput', () => {
       ref.current?.blur()
     })
     expect(input).not.toHaveClass(`${classPrefix}-focused`)
+  })
+
+  test('inputMode', () => {
+    const { container } = render(<PasscodeInput />)
+    const input = container.querySelector('input')
+    expect(input).toHaveAttribute('inputMode', 'numeric')
+
+    const { container: container2 } = render(<PasscodeInput inputMode='text' />)
+    const input2 = container2.querySelector('input')
+    expect(input2).toHaveAttribute('inputMode', 'text')
   })
 })
