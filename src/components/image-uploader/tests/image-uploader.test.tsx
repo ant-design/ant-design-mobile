@@ -396,6 +396,19 @@ describe('ImageUploader', () => {
   })
 
   test('get all upload url', async () => {
+    function mockUploadWithFailure(failOnCount: number) {
+      let count = 0
+      return async () => {
+        count++
+        if (count === failOnCount) {
+          throw new Error('Fail to upload')
+        }
+        return {
+          url: 'count: ' + count,
+        }
+      }
+    }
+
     const fn = jest.fn()
     const mockUpload = mockUploadWithFailure(2)
 
@@ -412,18 +425,5 @@ describe('ImageUploader', () => {
     })
 
     expect(fn.mock.lastCall[0].length).toBe(4)
-
-    function mockUploadWithFailure(failOnCount: number) {
-      let count = 0
-      return async () => {
-        count++
-        if (count === failOnCount) {
-          throw new Error('Fail to upload')
-        }
-        return {
-          url: 'count: ' + count,
-        }
-      }
-    }
   })
 })
