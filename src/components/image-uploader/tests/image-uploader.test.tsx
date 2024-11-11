@@ -1,14 +1,14 @@
 import React, { createRef, forwardRef, useState } from 'react'
 import {
-  render,
-  testA11y,
-  fireEvent,
-  waitFor,
-  userEvent,
-  sleep,
-  screen,
-  cleanup,
   act,
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  sleep,
+  testA11y,
+  userEvent,
+  waitFor,
   waitForElementToBeRemoved,
 } from 'testing'
 import ImageUploader, { ImageUploadItem, ImageUploaderRef } from '..'
@@ -33,6 +33,19 @@ async function mockUpload(file: File, time: number = 500) {
 export async function mockUploadFail() {
   await sleep(300)
   throw new Error('Fail to upload')
+}
+
+export function mockUploadWithFailure(failOnCount: number) {
+  let count = 0
+  return async () => {
+    count++
+    if (count === failOnCount) {
+      throw new Error('Fail to upload')
+    }
+    return {
+      url: 'count: ' + count,
+    }
+  }
 }
 
 const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
@@ -65,19 +78,24 @@ describe('ImageUploader', () => {
   })
 
   const App = forwardRef<ImageUploaderRef, any>((props, ref) => {
+    const { onChange: propsOnChange, ...restProps } = props
     const [fileList, setFileList] = useState<ImageUploadItem[]>([
       {
         url: demoSrc,
       },
     ])
+    const onChange = (newFileList: ImageUploadItem[]) => {
+      setFileList(newFileList)
+      propsOnChange?.(newFileList)
+    }
 
     return (
       <ImageUploader
         ref={ref}
         value={fileList}
-        onChange={setFileList}
+        onChange={onChange}
         upload={mockUpload}
-        {...props}
+        {...restProps}
       />
     )
   })
@@ -388,5 +406,24 @@ describe('ImageUploader', () => {
     render(<App ref={ref} />)
     expect(ref.current).toBeDefined()
     expect(ref.current?.nativeElement).toBeDefined()
+  })
+
+  test('get all upload url', async () => {
+    const fn = jest.fn()
+    const mockUpload = mockUploadWithFailure(2)
+
+    render(<App multiple upload={mockUpload} onChange={fn} />)
+
+    mockInputFile([
+      new File(['one'], 'one.png', { type: 'image/png' }),
+      new File(['two'], 'two.png', { type: 'image/png' }),
+      new File(['three'], 'three.png', { type: 'image/png' }),
+    ])
+
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    expect(fn.mock.lastCall[0].length).toBe(4)
   })
 })
