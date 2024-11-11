@@ -424,6 +424,6 @@ describe('ImageUploader', () => {
       jest.runAllTimers()
     })
 
-    expect(fn.mock.lastCall[0].length).toBe(4)
+    expect(fn.mock.lastCall[0].length).toBe(3)
   })
 })

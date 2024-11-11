@@ -229,7 +229,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
           }
         })
       )
-      setValue(prev => prev.concat(newVal))
+      setValue(prev => prev.concat(newVal).filter(Boolean))
     }
 
     const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)
