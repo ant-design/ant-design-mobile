@@ -35,19 +35,6 @@ export async function mockUploadFail() {
   throw new Error('Fail to upload')
 }
 
-export function mockUploadWithFailure(failOnCount: number) {
-  let count = 0
-  return async () => {
-    count++
-    if (count === failOnCount) {
-      throw new Error('Fail to upload')
-    }
-    return {
-      url: 'count: ' + count,
-    }
-  }
-}
-
 const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime })
 
 function mockInputFile(file: File | File[] = mockImg) {
@@ -425,5 +412,18 @@ describe('ImageUploader', () => {
     })
 
     expect(fn.mock.lastCall[0].length).toBe(4)
+
+    function mockUploadWithFailure(failOnCount: number) {
+      let count = 0
+      return async () => {
+        count++
+        if (count === failOnCount) {
+          throw new Error('Fail to upload')
+        }
+        return {
+          url: 'count: ' + count,
+        }
+      }
+    }
   })
 })
