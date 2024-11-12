@@ -1,22 +1,22 @@
-import React, { forwardRef, useRef, useState, useImperativeHandle } from 'react'
-import type {
-  ReactNode,
-  InputHTMLAttributes,
-  CSSProperties,
-  ReactElement,
-} from 'react'
+import { useIsomorphicLayoutEffect, useSize, useUnmount } from 'ahooks'
 import { AddOutline, CloseOutline } from 'antd-mobile-icons'
-import { mergeProps } from '../../utils/with-default-props'
-import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
-import PreviewItem from './preview-item'
-import { usePropsValue } from '../../utils/use-props-value'
-import { useIsomorphicLayoutEffect, useUnmount, useSize } from 'ahooks'
-import Space from '../space'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import type {
+  CSSProperties,
+  InputHTMLAttributes,
+  ReactElement,
+  ReactNode,
+} from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { measureCSSLength } from '../../utils/measure-css-length'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
-import type { ImageProps } from '../image'
 import Grid, { GridProps } from '../grid'
+import type { ImageProps } from '../image'
+import ImageViewer, { ImageViewerShowHandler } from '../image-viewer'
+import Space from '../space'
+import PreviewItem from './preview-item'
 
 export type TaskStatus = 'pending' | 'fail' | 'success'
 
@@ -225,11 +225,11 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
                 return task
               })
             })
-            throw e
+            console.error(e)
           }
         })
-      ).catch(error => console.error(error))
-      setValue(prev => prev.concat(newVal))
+      )
+      setValue(prev => prev.concat(newVal).filter(Boolean))
     }
 
     const imageViewerHandlerRef = useRef<ImageViewerShowHandler | null>(null)

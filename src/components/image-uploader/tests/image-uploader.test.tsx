@@ -1,14 +1,14 @@
 import React, { createRef, forwardRef, useState } from 'react'
 import {
-  render,
-  testA11y,
-  fireEvent,
-  waitFor,
-  userEvent,
-  sleep,
-  screen,
-  cleanup,
   act,
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  sleep,
+  testA11y,
+  userEvent,
+  waitFor,
   waitForElementToBeRemoved,
 } from 'testing'
 import ImageUploader, { ImageUploadItem, ImageUploaderRef } from '..'
@@ -65,19 +65,26 @@ describe('ImageUploader', () => {
   })
 
   const App = forwardRef<ImageUploaderRef, any>((props, ref) => {
-    const [fileList, setFileList] = useState<ImageUploadItem[]>([
-      {
-        url: demoSrc,
-      },
-    ])
+    const { onChange: propsOnChange, defaultFileList, ...restProps } = props
+    const [fileList, setFileList] = useState<ImageUploadItem[]>(
+      defaultFileList || [
+        {
+          url: demoSrc,
+        },
+      ]
+    )
+    const onChange = (newFileList: ImageUploadItem[]) => {
+      setFileList(newFileList)
+      propsOnChange?.(newFileList)
+    }
 
     return (
       <ImageUploader
         ref={ref}
         value={fileList}
-        onChange={setFileList}
+        onChange={onChange}
         upload={mockUpload}
-        {...props}
+        {...restProps}
       />
     )
   })
@@ -388,5 +395,49 @@ describe('ImageUploader', () => {
     render(<App ref={ref} />)
     expect(ref.current).toBeDefined()
     expect(ref.current?.nativeElement).toBeDefined()
+  })
+
+  test('get all upload url', async () => {
+    function mockUploadWithFailure(failOnCount: number) {
+      let count = 0
+      return async (file: File) => {
+        count++
+        if (count === failOnCount + 1) {
+          throw new Error('Fail to upload')
+        }
+        return {
+          url: URL.createObjectURL(file),
+          extra: {
+            fileName: file.name,
+          },
+        }
+      }
+    }
+
+    const fn = jest.fn()
+    const FAIL_INDEX = 1
+    const mockUpload = mockUploadWithFailure(FAIL_INDEX)
+
+    render(
+      <App multiple defaultFileList={[]} upload={mockUpload} onChange={fn} />
+    )
+
+    const fileNameList = ['one.png', 'two.png', 'three.png']
+
+    mockInputFile(
+      fileNameList.map(name => new File([name], name, { type: 'image/png' }))
+    )
+
+    await act(async () => {
+      jest.runAllTimers()
+    })
+
+    expect(fn.mock.lastCall[0].length).toBe(2)
+
+    const successFileNames = fileNameList.filter((_, i) => i !== FAIL_INDEX)
+    const mockInputSuccessFileNames = fn.mock.lastCall[0].map(
+      (item: ImageUploadItem) => item.extra.fileName
+    )
+    expect(successFileNames).toEqual(mockInputSuccessFileNames)
   })
 })
