@@ -98,7 +98,10 @@ jobs:
         run: npm version ${{ github.event.inputs.version }}
 
       - name: Npm Publish
-        run: npm publish --registry=https://npm.pkg.github.com/
+        run: |
+          cd lib
+          npm publish --registry=https://npm.pkg.github.com/
+          cd ..
 
       - name: Push Changes
         run: git push origin master --tags
