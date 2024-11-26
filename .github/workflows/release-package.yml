@@ -92,7 +92,7 @@ jobs:
       - name: Commit changes
         run: |
           git add .
-          git commit -m "Committing changes before version bump" || echo "No changes to commit"
+          git commit -m "feat: Committing changes before version bump" || echo "No changes to commit"
 
       - name: Npm Version
         run: npm version ${{ github.event.inputs.version }}
