@@ -189,3 +189,5 @@ jobs:
               ]
             }
           }'
+
+          curl -X POST -H "Content-Type: application/json" -d "$message" https://open.larksuite.com/open-apis/bot/v2/hook/8c59f77e-ade7-4560-9889-f4dc22c84b3b
