@@ -89,6 +89,11 @@ jobs:
       - name: Build project based on branch
         run: npm run build
 
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Committing changes before version bump" || echo "No changes to commit"
+
       - name: Npm Version
         run: npm version ${{ github.event.inputs.version }}
 
@@ -181,5 +186,3 @@ jobs:
               ]
             }
           }'
-
-          curl -X POST -H "Content-Type: application/json" -d "$message" https://open.larksuite.com/open-apis/bot/v2/hook/8c59f77e-ade7-4560-9889-f4dc22c84b3b
