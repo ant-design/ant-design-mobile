@@ -1,3 +1,8 @@
+import { animated, useSpring, type SpringConfig } from '@react-spring/web'
+import { useDrag } from '@use-gesture/react'
+import { useGetState, useIsomorphicLayoutEffect } from 'ahooks'
+import classNames from 'classnames'
+import type { CSSProperties, ReactElement, ReactNode } from 'react'
 import React, {
   forwardRef,
   useEffect,
@@ -6,20 +11,15 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import type { ReactNode, CSSProperties, ReactElement } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
-import { SwiperItem } from './swiper-item'
-import { devWarning } from '../../utils/dev-log'
-import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from '@use-gesture/react'
-import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
-import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { useIsomorphicLayoutEffect, useGetState } from 'ahooks'
+import { devWarning } from '../../utils/dev-log'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useRefState } from '../../utils/use-ref-state'
+import { mergeProps } from '../../utils/with-default-props'
 import { mergeFuncProps } from '../../utils/with-func-props'
+import PageIndicator, { PageIndicatorProps } from '../page-indicator'
+import { SwiperItem } from './swiper-item'
 
 const classPrefix = `adm-swiper`
 
@@ -64,6 +64,7 @@ export type SwiperProps = {
    * renderProps is only work when `total` used
    */
   children?: ReactElement | ReactElement[] | ((index: number) => ReactElement)
+  springConfig?: SpringConfig
 } & NativeProps<'--height' | '--width' | '--border-radius' | '--track-padding'>
 
 const defaultProps = {
@@ -78,6 +79,10 @@ const defaultProps = {
   stuckAtBoundary: true,
   rubberband: true,
   stopPropagation: [] as PropagationEvent[],
+  springConfig: {
+    tension: 200,
+    friction: 30,
+  },
 }
 
 let currentUid: undefined | {}
@@ -86,7 +91,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
   staged<SwiperProps, SwiperRef>((p, ref) => {
     const props = mergeProps(defaultProps, p)
 
-    const { direction, total, children, indicator } = props
+    const { direction, total, children, indicator, springConfig } = props
 
     const [uid] = useState({})
     const timeoutRef = useRef<number | null>(null)
@@ -164,7 +169,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       const [{ position }, api] = useSpring(
         () => ({
           position: boundIndex(current) * 100,
-          config: { tension: 200, friction: 30 },
+          config: springConfig, // { tension: 200, friction: 30 }
           onRest: () => {
             if (draggingRef.current) return
             if (!loop) return
