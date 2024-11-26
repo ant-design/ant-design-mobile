@@ -176,7 +176,7 @@
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "@goshgame:registry": "https://npm.pkg.github.com"
   },
   "GravityCDN": "./umd/antd-mobile.js",
   "size-limit": [

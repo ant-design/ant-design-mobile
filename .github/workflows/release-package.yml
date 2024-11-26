@@ -1,0 +1,180 @@
+name: Release Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release'
+        required: true
+        type: choice
+        options:
+          - prerelease
+          - prepatch
+          - preminor
+          - premajor
+          - patch
+          - minor
+          - major
+
+env:
+  BRANCH_TEST: refs/heads/test
+  BRANCH_MAIN: refs/heads/master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Init Git Config
+        run: |
+          git config user.name "Github Action"
+          git config user.email "action@github.com"
+
+      - name: Log Context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: |
+          echo "Job Env: $JOB_CONTEXT"
+          echo "Github Env: $GITHUB_CONTEXT"
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: |
+          echo "##[set-output name=BRANCH;]$(echo ${GITHUB_REF#refs/heads/})"
+
+      - name: Get Commit Information
+        id: read-commit
+        run: |
+          echo "Last commit SHA: $(git rev-parse HEAD)"
+          echo "Last commit message: $(git log -1 --pretty=format:%s)"
+          echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "commit_msg=$(git log -1 --pretty=format:%s)" >> $GITHUB_OUTPUT
+
+      - name: Cache node modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'hit'
+        run: npm install
+
+      - name: Check Eslint
+        run: npm run lint
+
+      - name: Build project based on branch
+        run: npm run build
+
+      - name: Npm Version
+        run: npm version ${{ github.event.inputs.version }}
+
+      - name: Npm Publish
+        run: npm publish
+
+      - name: Push Changes
+        run: git push origin master --tags
+
+      - name: Get Npm Version
+        id: get_version
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+
+      - name: Send Lark Notification
+        if: always()
+        run: |
+          color="green"
+          if [[ ${{ job.status }} = "failure" ]]; then
+            color="red"
+          fi
+
+          message='{
+            "msg_type": "interactive",
+            "card": {
+              "header": {
+                "title": {
+                  "content": "发布状态：${{ job.status }}",
+                  "tag": "plain_text"
+                },
+                "template": "'$color'"
+              },
+              "elements": [
+                {
+                  "tag": "div",
+                  "text": {
+                    "content": "项目: ${{ github.repository }}",
+                    "tag": "lark_md"
+                  }
+                },
+                {
+                  "tag": "div",
+                  "text": {
+                    "content": "NPM 包已发布，版本号为: v${{ env.VERSION }}",
+                    "tag": "lark_md"
+                  }
+                },
+                {
+                  "tag": "div",
+                  "text": {
+                    "content": "分支: ${{ steps.extract_branch.outputs.BRANCH }}",
+                    "tag": "lark_md"
+                  }
+                },
+                {
+                  "tag": "div",
+                  "text": {
+                    "content": "提交信息: ${{ steps.read-commit.outputs.commit_msg }}",
+                    "tag": "lark_md"
+                  }
+                },
+                {
+                  "tag": "div",
+                  "text": {
+                    "content": "Commit ID: ${{ steps.read-commit.outputs.commit_sha }}",
+                    "tag": "lark_md"
+                  }
+                },
+                {
+                  "tag": "div",
+                  "text": {
+                    "content": "提交人: ${{ github.event.pull_request.user.login || github.actor }}",
+                    "tag": "lark_md"
+                  }
+                },
+                {
+                  "actions": [
+                    {
+                      "tag": "button",
+                      "text": {
+                        "content": "查看部署详情",
+                        "tag": "lark_md"
+                      },
+                      "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+                      "type": "default",
+                      "value": {}
+                    }
+                  ],
+                  "tag": "action"
+                }
+              ]
+            }
+          }'
+
+          curl -X POST -H "Content-Type: application/json" -d "$message" https://open.larksuite.com/open-apis/bot/v2/hook/8c59f77e-ade7-4560-9889-f4dc22c84b3b
