@@ -38,6 +38,11 @@ jobs:
           node-version: 22
           registry-url: https://npm.pkg.github.com/
 
+      - name: Authenticate to GitHub Packages
+        run: |
+          echo "@goshgame:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+
       - name: Init Git Config
         run: |
           git config user.name "Github Action"
@@ -88,7 +93,7 @@ jobs:
         run: npm version ${{ github.event.inputs.version }}
 
       - name: Npm Publish
-        run: npm publish
+        run: npm publish --registry=https://npm.pkg.github.com/
 
       - name: Push Changes
         run: git push origin master --tags
