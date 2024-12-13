@@ -66,7 +66,7 @@ export default function useMeasure(
       const fullMeasureHeight = fullMeasureRef.current?.offsetHeight || 0
       const singleRowMeasureHeight =
         singleRowMeasureRef.current?.offsetHeight || 0
-      const rowMeasureHeight = singleRowMeasureHeight * rows
+      const rowMeasureHeight = singleRowMeasureHeight * (rows + 0.5)
 
       if (fullMeasureHeight <= rowMeasureHeight) {
         setStatus(MEASURE_STATUS.STABLE_NO_ELLIPSIS)
