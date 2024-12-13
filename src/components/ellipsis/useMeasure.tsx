@@ -47,12 +47,6 @@ export default function useMeasure(
 
   const startMeasure = useEvent(() => {
     setStatus(MEASURE_STATUS.PREPARE)
-    setWalkingIndexes([
-      0,
-      direction === 'middle'
-        ? Math.ceil(contentChars.length / 2)
-        : contentChars.length,
-    ])
   })
 
   // Initialize
@@ -72,6 +66,12 @@ export default function useMeasure(
         setStatus(MEASURE_STATUS.STABLE_NO_ELLIPSIS)
       } else {
         setMaxHeight(rowMeasureHeight)
+        setWalkingIndexes([
+          0,
+          direction === 'middle'
+            ? Math.ceil(contentChars.length / 2)
+            : contentChars.length,
+        ])
         setStatus(MEASURE_STATUS.MEASURE_WALKING)
       }
     }
