@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react'
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
+import ConfigProvider, { getDefaultConfig } from '../components/config-provider'
 import { renderToBody } from './render-to-body'
 
 type ImperativeProps = {
@@ -55,7 +56,11 @@ export function renderImperatively(element: TargetElement) {
     })
   })
   const wrapperRef = React.createRef<ImperativeHandler>()
-  const unmount = renderToBody(<Wrapper ref={wrapperRef} />)
+  const unmount = renderToBody(
+    <ConfigProvider {...getDefaultConfig()}>
+      <Wrapper ref={wrapperRef} />
+    </ConfigProvider>
+  )
   return {
     close: async () => {
       if (!wrapperRef.current) {

@@ -6,6 +6,7 @@ import { GetContainer } from '../../utils/render-to-container'
 import { mergeProps } from '../../utils/with-default-props'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
 import AutoCenter from '../auto-center'
+import { useConfig } from '../config-provider'
 import type { MaskProps } from '../mask'
 import Mask from '../mask'
 import SpinLoading from '../spin-loading'
@@ -34,17 +35,28 @@ const defaultProps = {
 export const InternalToast: FC<ToastProps> = p => {
   const props = mergeProps(defaultProps, p)
   const { maskClickable, content, icon, position } = props
+  const { toast: componentConfig = {} } = useConfig()
 
   const iconElement = useMemo(() => {
     if (icon === null || icon === undefined) return null
     switch (icon) {
       case 'success':
-        return <CheckOutline className={`${classPrefix}-icon-success`} />
+        return (
+          componentConfig.successIcon ?? (
+            <CheckOutline className={`${classPrefix}-icon-success`} />
+          )
+        )
       case 'fail':
-        return <CloseOutline className={`${classPrefix}-icon-fail`} />
+        return (
+          componentConfig.failIcon ?? (
+            <CloseOutline className={`${classPrefix}-icon-fail`} />
+          )
+        )
       case 'loading':
         return (
-          <SpinLoading color='white' className={`${classPrefix}-loading`} />
+          componentConfig.loadingIcon ?? (
+            <SpinLoading color='white' className={`${classPrefix}-loading`} />
+          )
         )
       default:
         return icon
