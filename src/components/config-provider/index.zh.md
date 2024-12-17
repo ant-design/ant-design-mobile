@@ -30,7 +30,7 @@
 | noticeBar | NoticeBar 配置 | `{ icon?: ReactNode, closeIcon?: ReactNode }` | - |
 | popup | Popup 配置 | `{ closeIcon?: ReactNode }` | - |
 | result | Result 配置 | `{ successIcon?: ReactNode, errorIcon?: ReactNode, infoIcon?: ReactNode, waitingIcon?: ReactNode, warningIcon?: ReactNode }` | - |
-| searchBar | SearchBar 配置 | `{ icon?: ReactNode }` | - |
+| searchBar | SearchBar 配置 | `{ searchIcon?: ReactNode }` | - |
 | toast | Toast 配置 | `{ successIcon?: ReactNode, failIcon?: ReactNode, loadingIcon?: ReactNode }` | - |
 
 [zh-CN]: https://github.com/ant-design/ant-design-mobile/blob/master/src/locales/zh-CN.ts
