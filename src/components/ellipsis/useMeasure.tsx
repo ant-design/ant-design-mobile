@@ -46,6 +46,12 @@ export default function useMeasure(
   const midMeasureRef = React.useRef<HTMLDivElement>(null)
 
   const startMeasure = useEvent(() => {
+    setWalkingIndexes([
+      0,
+      direction === 'middle'
+        ? Math.ceil(contentChars.length / 2)
+        : contentChars.length,
+    ])
     setStatus(MEASURE_STATUS.PREPARE)
   })
 
@@ -66,12 +72,6 @@ export default function useMeasure(
         setStatus(MEASURE_STATUS.STABLE_NO_ELLIPSIS)
       } else {
         setMaxHeight(rowMeasureHeight)
-        setWalkingIndexes([
-          0,
-          direction === 'middle'
-            ? Math.ceil(contentChars.length / 2)
-            : contentChars.length,
-        ])
         setStatus(MEASURE_STATUS.MEASURE_WALKING)
       }
     }
