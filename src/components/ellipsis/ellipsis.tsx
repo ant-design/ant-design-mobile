@@ -1,5 +1,5 @@
-import type { FC, ReactNode } from 'react'
-import React from 'react'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { mergeProps } from '../../utils/with-default-props'
@@ -19,6 +19,7 @@ export type EllipsisProps = {
   collapseText?: ReactNode
   stopPropagationForActionButtons?: PropagationEvent[]
   onContentClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onExpand?: (expanded: boolean) => void
   defaultExpanded?: boolean
 } & NativeProps
 
@@ -33,7 +34,11 @@ const defaultProps = {
   defaultExpanded: false,
 }
 
-export const Ellipsis: FC<EllipsisProps> = p => {
+export type EllipsisRef = {
+  expand: (expanded: boolean) => void
+}
+
+export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
 
   const {
@@ -45,6 +50,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
     stopPropagationForActionButtons,
     onContentClick,
     defaultExpanded,
+    onExpand,
   } = props
 
   // ============================ Refs ============================
@@ -53,11 +59,22 @@ export const Ellipsis: FC<EllipsisProps> = p => {
   // ========================== Expanded ==========================
   const [expanded, setExpanded] = React.useState(defaultExpanded)
 
+  useImperativeHandle(
+    ref,
+    () => ({
+      expand: (isExpanded: boolean) => {
+        setExpanded(isExpanded)
+      },
+    }),
+    []
+  )
+
   const expandNode = expandText
     ? withStopPropagation(
         stopPropagationForActionButtons,
         <a
           onClick={() => {
+            onExpand && onExpand(true)
             setExpanded(true)
           }}
         >
@@ -71,6 +88,7 @@ export const Ellipsis: FC<EllipsisProps> = p => {
         stopPropagationForActionButtons,
         <a
           onClick={() => {
+            onExpand && onExpand(false)
             setExpanded(false)
           }}
         >
@@ -107,4 +125,4 @@ export const Ellipsis: FC<EllipsisProps> = p => {
       {measureNodes}
     </div>
   )
-}
+})
