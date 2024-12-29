@@ -1,25 +1,29 @@
-import type { ReactElement, ReactNode } from 'react'
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
-
-interface WrapperProps {
-  children?: ReactNode
-}
+import React, { ReactElement, useImperativeHandle, useRef } from 'react'
 
 export interface WrapperRef {
-  element: Element | null
+  element: Element
 }
 
-export const Wrapper = forwardRef<WrapperRef, WrapperProps>(
+export const Wrapper = React.forwardRef<WrapperRef, { children: ReactElement }>(
   ({ children }, ref) => {
-    const elementRef = useRef<HTMLElement>(null)
+    const childRef = useRef<any>(null)
 
     useImperativeHandle(ref, () => ({
-      element: elementRef.current,
+      element: childRef.current,
     }))
 
-    const child = React.Children.only(children) as ReactElement<any, any>
-    return React.cloneElement(child, {
-      ref: elementRef,
-    })
+    return (
+      <>
+        <span
+          style={{ display: 'none' }}
+          ref={el => {
+            if (el) {
+              childRef.current = el.nextElementSibling
+            }
+          }}
+        />
+        {React.Children.only(children)}
+      </>
+    )
   }
 )
