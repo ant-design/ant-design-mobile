@@ -34,7 +34,7 @@ import {
 import { Arrow } from './arrow'
 import { DeprecatedPlacement, Placement } from './index'
 import { normalizePlacement } from './normalize-placement'
-import { Wrapper } from './wrapper'
+import { Wrapper, WrapperRef } from './wrapper'
 
 const classPrefix = `adm-popover`
 
@@ -86,7 +86,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     [visible]
   )
 
-  const targetRef = useRef<Wrapper>(null)
+  const wrapperRef = useRef<WrapperRef>(null)
   const floatingRef = useRef<HTMLDivElement>(null)
   const arrowRef = useRef<HTMLDivElement>(null)
 
@@ -113,7 +113,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   const [targetElement, setTargetElement] = useState<Element | null>(null)
 
   async function update() {
-    const target = targetRef.current?.element ?? null
+    const target = wrapperRef.current?.element ?? null
     const floating = floatingRef.current
     const arrowElement = arrowRef.current
     setTargetElement(target)
@@ -198,7 +198,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       if (!props.trigger) return
       setVisible(false)
     },
-    [() => targetRef.current?.element, floatingRef],
+    [() => wrapperRef.current?.element, floatingRef],
     ['click', 'touchmove']
   )
 
@@ -206,7 +206,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
 
   return (
     <>
-      <Wrapper ref={targetRef}>{props.children}</Wrapper>
+      <Wrapper ref={wrapperRef}>{props.children}</Wrapper>
       {shouldRender && renderToContainer(props.getContainer, floating)}
     </>
   )

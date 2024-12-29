@@ -1,29 +1,25 @@
-import React from 'react'
-import type { ReactNode } from 'react'
-import { findDOMNode } from 'react-dom'
+import type { ReactElement, ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 
-export class Wrapper extends React.Component<
-  {
-    children?: ReactNode
-  },
-  {}
-> {
-  element: Element | null = null
-  componentDidMount() {
-    this.componentDidUpdate()
-  }
-
-  componentDidUpdate() {
-    // eslint-disable-next-line
-    const node = findDOMNode(this)
-    if (node instanceof Element) {
-      this.element = node
-    } else {
-      this.element = null
-    }
-  }
-
-  render() {
-    return React.Children.only(this.props.children)
-  }
+interface WrapperProps {
+  children?: ReactNode
 }
+
+export interface WrapperRef {
+  element: Element | null
+}
+
+export const Wrapper = forwardRef<WrapperRef, WrapperProps>(
+  ({ children }, ref) => {
+    const elementRef = useRef<HTMLElement>(null)
+
+    useImperativeHandle(ref, () => ({
+      element: elementRef.current,
+    }))
+
+    const child = React.Children.only(children) as ReactElement<any, any>
+    return React.cloneElement(child, {
+      ref: elementRef,
+    })
+  }
+)
