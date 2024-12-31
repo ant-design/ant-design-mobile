@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react'
 import dayjs from 'dayjs'
+import isLeapYear from 'dayjs/plugin/isLeapYear'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
-import isLeapYear from 'dayjs/plugin/isLeapYear'
+import type { ReactNode } from 'react'
 import { PickerColumn } from '../picker'
 import type { DatePickerFilter } from './date-picker-utils'
 
@@ -123,13 +123,12 @@ export function convertDateToStringArray(
 }
 
 export function convertStringArrayToDate<
-  T extends string | number | null | undefined
+  T extends string | number | null | undefined,
 >(value: T[]): Date {
   const yearString = value[0] ?? '1900'
   const weekString = value[1] ?? '1'
   const weekdayString = value[2] ?? '1'
-  const day = dayjs()
-    .year(parseInt(yearString as string))
+  const day = dayjs(`${parseInt(yearString as string)}-01-01`)
     .isoWeek(parseInt(weekString as string))
     .isoWeekday(parseInt(weekdayString as string))
     .hour(0)
