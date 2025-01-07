@@ -14,15 +14,16 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| closeOnAction | 是否在点击操作按钮时自动归位 | `boolean` | `true` |
-| closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean` | `true` |
-| leftActions | 左侧的操作按钮列表 | `Action[]` | `[]` |
-| rightActions | 右侧的操作按钮列表 | `Action[]` | `[]` |
-| onAction | 点击操作按钮时触发 | `(action: Action, e: React.MouseEvent) => void` | - |
-| stopPropagation | 阻止某些事件的冒泡 | `PropagationEven[]` | `[]` |
-| onActionsReveal | 按钮完全出现时触发 | `(side: 'left' \| 'right') => void` | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| closeOnAction | 是否在点击操作按钮时自动归位 | `boolean` | `true` |  |
+| closeOnTouchOutside | 是否在点击其他区域时自动归位 | `boolean` | `true` |  |
+| leftActions | 左侧的操作按钮列表 | `Action[]` | `[]` |  |
+| rightActions | 右侧的操作按钮列表 | `Action[]` | `[]` |  |
+| onAction | 点击操作按钮时触发 | `(action: Action, e: React.MouseEvent) => void` | - |  |
+| stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `[]` |  |
+| onActionsReveal | 按钮完全出现时触发 | `(side: 'left' \| 'right') => void` | - |  |
+| onClose | 滑动条归位时触发 | `() => void` | - | 5.39.0 |
 
 ### Action
 
