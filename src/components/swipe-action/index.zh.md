@@ -8,7 +8,7 @@
 
 ## 示例
 
-<code src="./demos/demo1.tsx"></code>
+`<code src="./demos/demo1.tsx"></code>`
 
 ## SwipeAction
 
@@ -23,6 +23,7 @@
 | onAction | 点击操作按钮时触发 | `(action: Action, e: React.MouseEvent) => void` | - |
 | stopPropagation | 阻止某些事件的冒泡 | `PropagationEven[]` | `[]` |
 | onActionsReveal | 按钮完全出现时触发 | `(side: 'left' \| 'right') => void` | - |
+| onActionsClose | 滑块关闭时触发 | `() => void` | - |
 
 ### Action
 

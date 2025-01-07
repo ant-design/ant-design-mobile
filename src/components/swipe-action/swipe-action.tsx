@@ -50,6 +50,7 @@ export type SwipeActionProps = {
   children: ReactNode
   stopPropagation?: PropagationEvent[]
   onActionsReveal?: (side: SideType) => void
+  onActionsClose?: () => void
 } & NativeProps<'--background'>
 
 const defaultProps = {
@@ -155,6 +156,7 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
         x: 0,
       })
       forceCancelDrag()
+      p?.onActionsClose?.()
     }
 
     useImperativeHandle(ref, () => ({
