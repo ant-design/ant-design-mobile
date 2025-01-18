@@ -42,7 +42,7 @@ export default (props: { isWidthScreen: boolean }) => {
               shape='rounded'
               className={styles.buttonLeft}
             >
-              {trans('Get Start', '开始使用')}
+              {trans('Get Started', '开始使用')}
             </Button>
           </Link>
           <Link to={trans('/components', '/zh/components')}>
