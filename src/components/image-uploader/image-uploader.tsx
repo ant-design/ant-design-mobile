@@ -56,7 +56,7 @@ export type ImageUploaderProps = {
     file: File,
     files: File[]
   ) => Promise<File | null> | File | null
-  upload: (file: File) => Promise<ImageUploadItem>
+  upload?: (file: File) => Promise<ImageUploadItem>
   onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
   preview?: boolean
   showFailed?: boolean
@@ -199,7 +199,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
       await Promise.all(
         newTasks.map(async (currentTask, index) => {
           try {
-            const result = await props.upload(currentTask.file)
+            const result = await props.upload!(currentTask.file)
             newVal[index] = result
             setTasks(prev => {
               return prev.map(task => {
