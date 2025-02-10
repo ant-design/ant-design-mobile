@@ -21,6 +21,7 @@
 | maxZoom | 最大缩放比例 | `number \| 'auto'` | `3` |
 | onClose | 关闭时触发 | `() => void` | - |
 | renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |
+| imageRender | 自定义渲染内容 | `() => ReactNode` | - |
 | visible | 是否显示 | `boolean` | `false` |
 
 ## ImageViewer.Multi

@@ -1,21 +1,21 @@
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
 import React, {
   forwardRef,
+  useCallback,
   useImperativeHandle,
   useRef,
   useState,
-  useCallback,
 } from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import {
   GetContainer,
   renderToContainer,
 } from '../../utils/render-to-container'
+import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
 import SafeArea from '../safe-area'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
-import classNames from 'classnames'
 
 const classPrefix = `adm-image-viewer`
 
@@ -27,6 +27,8 @@ export type ImageViewerProps = {
   onClose?: () => void
   afterClose?: () => void
   renderFooter?: (image: string) => ReactNode
+  imageRender?: () => ReactNode
+
   classNames?: {
     mask?: string
     body?: string
@@ -63,6 +65,14 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
             onTap={props.onClose}
             maxZoom={props.maxZoom}
           />
+        )}
+        {!props.image && (
+          <div
+            className={`${classPrefix}-image-render`}
+            onClick={props.onClose}
+          >
+            {props.imageRender?.()}
+          </div>
         )}
       </div>
       {props.image && (

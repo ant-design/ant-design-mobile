@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { ImageViewer, Button } from 'antd-mobile'
+import { Button, ImageViewer } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { demoImage, demoImages } from './images'
+import React, { useState } from 'react'
 import styles from './demo1.less'
+import { demoImage, demoImages } from './images'
 
 // 单张图片预览
 const Single = () => {
@@ -95,6 +95,38 @@ const ViewWithFooter = () => {
   )
 }
 
+const ViewImageRender = () => {
+  const [visible, setVisible] = useState(false)
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示内容
+      </Button>
+      <ImageViewer
+        visible={visible}
+        onClose={() => {
+          setVisible(false)
+        }}
+        imageRender={() => (
+          <div className={styles['image-render']}>
+            <video
+              muted
+              width='100%'
+              controls
+              src='https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ'
+            />
+          </div>
+        )}
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -133,6 +165,10 @@ export default () => {
 
       <DemoBlock title='自定义底部额外内容'>
         <ViewWithFooter />
+      </DemoBlock>
+
+      <DemoBlock title='自定义预览内容'>
+        <ViewImageRender />
       </DemoBlock>
     </>
   )
