@@ -17,7 +17,7 @@
 | afterClose | 完全关闭后触发 | `() => void` | - |
 | classNames | 语义化 class | `{ mask?:string,body?:string }` | - | 5.33.1 |
 | getContainer | 指定挂载的 HTML 节点，默认为 `null` 渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `null` |
-| image | 图片资源的 `url`或自定义内容 | `ReactNode` | - |
+| image | 图片资源的 `url` | `string` | - |
 | maxZoom | 最大缩放比例 | `number \| 'auto'` | `3` |
 | onClose | 关闭时触发 | `() => void` | - |
 | renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |
@@ -29,7 +29,7 @@
 | --- | --- | --- | --- | --- |
 | classNames | 语义化 class | `{ mask?:string,body?:string }` | - | 5.33.1 |
 | defaultIndex | 默认显示第几张图片 | `number` | `0` |
-| images | 图片资源的 `url`或自定义内容 | `ReactNode[]` | - |
+| images | 图片资源的 url 列表 | `string[]` | - |
 | onIndexChange | 切换图片时触发 | `(index: number) => void` | - |
 | renderFooter | 渲染底部额外内容 | `(image: string, index: number) => ReactNode` | - |
 

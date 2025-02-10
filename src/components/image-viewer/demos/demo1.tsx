@@ -1,8 +1,8 @@
-import { Button, ImageViewer } from 'antd-mobile'
+import React, { useState } from 'react'
+import { ImageViewer, Button } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import React, { ReactNode, useState } from 'react'
-import styles from './demo1.less'
 import { demoImage, demoImages } from './images'
+import styles from './demo1.less'
 
 // 单张图片预览
 const Single = () => {
@@ -58,7 +58,7 @@ const Multi = () => {
 const ViewWithFooter = () => {
   const [visible, setVisible] = useState(false)
 
-  const renderFooter = (image: ReactNode, index: number) => {
+  const renderFooter = (image: string, index: number) => {
     return (
       <div className={styles.footer}>
         <div
@@ -67,7 +67,7 @@ const ViewWithFooter = () => {
             console.log('Loading...')
           }}
         >
-          {`查看${typeof image === 'string' ? '原图' : '自定义内容'}${index + 1}`}
+          查看原图{index + 1}
         </div>
       </div>
     )
@@ -90,40 +90,6 @@ const ViewWithFooter = () => {
           setVisible(false)
         }}
         renderFooter={renderFooter}
-      />
-    </>
-  )
-}
-
-const ImageViewerRender = () => {
-  const [visible, setVisible] = useState(false)
-
-  return (
-    <>
-      <Button
-        onClick={() => {
-          setVisible(true)
-        }}
-      >
-        显示内容
-      </Button>
-      <ImageViewer
-        visible={visible}
-        onClose={() => {
-          setVisible(false)
-        }}
-        image={
-          <div
-            style={{ height: '100%', display: 'flex', alignItems: 'center' }}
-          >
-            <video
-              muted
-              width='100%'
-              controls
-              src='https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ'
-            />
-          </div>
-        }
       />
     </>
   )
@@ -167,9 +133,6 @@ export default () => {
 
       <DemoBlock title='自定义底部额外内容'>
         <ViewWithFooter />
-      </DemoBlock>
-      <DemoBlock title='自定义预览内容'>
-        <ImageViewerRender />
       </DemoBlock>
     </>
   )

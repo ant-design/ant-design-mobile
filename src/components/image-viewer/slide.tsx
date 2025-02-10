@@ -1,17 +1,17 @@
-import { animated, useSpring } from '@react-spring/web'
-import { useSize } from 'ahooks'
-import type { FC, MutableRefObject, ReactNode } from 'react'
 import React, { useRef } from 'react'
+import type { FC, MutableRefObject } from 'react'
+import { useSpring, animated } from '@react-spring/web'
+import { useSize } from 'ahooks'
+import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 import { bound } from '../../utils/bound'
 import type { Matrix } from '../../utils/matrix'
 import * as mat from '../../utils/matrix'
-import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
-import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 
 const classPrefix = `adm-image-viewer`
 
 type Props = {
-  image: ReactNode
+  image: string
   maxZoom: number | 'auto'
   onTap?: () => void
   onZoomChange?: (zoom: number) => void
@@ -304,16 +304,12 @@ export const Slide: FC<Props> = props => {
             matrix,
           }}
         >
-          {typeof props.image === 'string' ? (
-            <img
-              ref={imgRef}
-              src={props.image as string}
-              draggable={false}
-              alt={props.image as string}
-            />
-          ) : (
-            props.image
-          )}
+          <img
+            ref={imgRef}
+            src={props.image}
+            draggable={false}
+            alt={props.image}
+          />
         </animated.div>
       </div>
     </div>
