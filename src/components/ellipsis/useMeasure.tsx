@@ -1,5 +1,6 @@
 import { useEvent } from 'rc-util'
 import React from 'react'
+import { unstable_batchedUpdates } from 'react-dom'
 import runes from 'runes2'
 
 const enum MEASURE_STATUS {
@@ -46,13 +47,16 @@ export default function useMeasure(
   const midMeasureRef = React.useRef<HTMLDivElement>(null)
 
   const startMeasure = useEvent(() => {
-    setWalkingIndexes([
-      0,
-      direction === 'middle'
-        ? Math.ceil(contentChars.length / 2)
-        : contentChars.length,
-    ])
-    setStatus(MEASURE_STATUS.PREPARE)
+    // 使用react-dom render挂载的App, requestAnimationFrame触发回调时状态更新不同步
+    unstable_batchedUpdates(() => {
+      setStatus(MEASURE_STATUS.PREPARE)
+      setWalkingIndexes([
+        0,
+        direction === 'middle'
+          ? Math.ceil(contentChars.length / 2)
+          : contentChars.length,
+      ])
+    })
   })
 
   // Initialize
