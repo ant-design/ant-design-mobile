@@ -1,14 +1,19 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
+import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { useSpring, animated } from '@react-spring/web'
-import { Slide } from './slide'
-import { convertPx } from '../../utils/convert-px'
+import React, {
+  ReactNode,
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import { bound } from '../../utils/bound'
+import { convertPx } from '../../utils/convert-px'
+import { Slide } from './slide'
 
 const classPrefix = `adm-image-viewer`
 
 export type SlidesType = {
-  images: string[]
+  images: ReactNode[]
   onTap?: () => void
   maxZoom: number
   defaultIndex: number

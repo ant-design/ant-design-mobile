@@ -1,32 +1,32 @@
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
 import React, {
   forwardRef,
+  useCallback,
   useImperativeHandle,
   useRef,
   useState,
-  useCallback,
 } from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import {
   GetContainer,
   renderToContainer,
 } from '../../utils/render-to-container'
+import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
 import SafeArea from '../safe-area'
 import { Slide } from './slide'
 import { Slides, SlidesRef } from './slides'
-import classNames from 'classnames'
 
 const classPrefix = `adm-image-viewer`
 
 export type ImageViewerProps = {
-  image?: string
+  image?: ReactNode
   maxZoom?: number | 'auto'
   getContainer?: GetContainer
   visible?: boolean
   onClose?: () => void
   afterClose?: () => void
-  renderFooter?: (image: string) => ReactNode
+  renderFooter?: (image: ReactNode) => ReactNode
   classNames?: {
     mask?: string
     body?: string
@@ -57,13 +57,11 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
           props?.classNames?.body
         )}
       >
-        {props.image && (
-          <Slide
-            image={props.image}
-            onTap={props.onClose}
-            maxZoom={props.maxZoom}
-          />
-        )}
+        <Slide
+          image={props.image}
+          onTap={props.onClose}
+          maxZoom={props.maxZoom}
+        />
       </div>
       {props.image && (
         <div className={`${classPrefix}-footer`}>
@@ -82,10 +80,13 @@ export type MultiImageViewerProps = Omit<
   ImageViewerProps,
   'image' | 'renderFooter'
 > & {
-  images?: string[]
+  images?: (string | ReactNode)[]
   defaultIndex?: number
   onIndexChange?: (index: number) => void
-  renderFooter?: (image: string, index: number) => ReactNode
+  renderFooter?: (
+    image: string | ReactNode | undefined,
+    index: number
+  ) => ReactNode
 }
 
 const multiDefaultProps = {
