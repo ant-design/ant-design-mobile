@@ -21,6 +21,7 @@ You need to click on the picture to view the details and use it with the thumbna
 | maxZoom | The maximum zoom ratio | `number \| 'auto'` | `3` |
 | onClose | Triggered when it is closed | `() => void` | - |
 | renderFooter | Render extra content on footer | `(image: string) => ReactNode` | - |
+| imageRender | Custom rendering content | `() => ReactNode` | - |
 | visible | Whether to show or hide | `boolean` | `false` |
 
 ## ImageViewer.Multi
