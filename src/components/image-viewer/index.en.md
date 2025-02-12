@@ -35,6 +35,7 @@ On the basis of `ImageViewer`, the following props have been added:
 | images | Url list of image resources | `string[]` | - |
 | onIndexChange | Triggered when the picture is switched | `(index: number) => void` | - |
 | renderFooter | Render extra content on footer | `(image: string, index: number) => ReactNode` | - |
+| imageRender | Custom rendering content | `(image: string, index: number) => ReactNode` | - |
 
 At the same time, the `image` prop is removed.
 

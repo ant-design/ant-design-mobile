@@ -127,6 +127,34 @@ const ViewImageRender = () => {
   )
 }
 
+// 多张图片预览
+const MultiViewImageRender = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示图片
+      </Button>
+      <ImageViewer.Multi
+        images={demoImages}
+        visible={visible}
+        imageRender={(image?: string, index?: number) => {
+          if (index === 1)
+            return <div className={styles['custom-render']}>自定义渲染内容</div>
+        }}
+        defaultIndex={1}
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -167,8 +195,11 @@ export default () => {
         <ViewWithFooter />
       </DemoBlock>
 
-      <DemoBlock title='自定义预览内容'>
+      <DemoBlock title='自定义预览内容单张'>
         <ViewImageRender />
+      </DemoBlock>
+      <DemoBlock title='自定义预览内容多张'>
+        <MultiViewImageRender />
       </DemoBlock>
     </>
   )

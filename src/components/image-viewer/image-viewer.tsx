@@ -28,7 +28,6 @@ export type ImageViewerProps = {
   afterClose?: () => void
   renderFooter?: (image: string) => ReactNode
   imageRender?: () => ReactNode
-
   classNames?: {
     mask?: string
     body?: string
@@ -59,20 +58,13 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
           props?.classNames?.body
         )}
       >
-        {props.image && (
+        {(props.image || typeof props.imageRender === 'function') && (
           <Slide
             image={props.image}
             onTap={props.onClose}
             maxZoom={props.maxZoom}
+            imageRender={props.imageRender}
           />
-        )}
-        {!props.image && (
-          <div
-            className={`${classPrefix}-image-render`}
-            onClick={props.onClose}
-          >
-            {props.imageRender?.()}
-          </div>
         )}
       </div>
       {props.image && (
@@ -90,12 +82,13 @@ export type MultiImageViewerRef = SlidesRef
 
 export type MultiImageViewerProps = Omit<
   ImageViewerProps,
-  'image' | 'renderFooter'
+  'image' | 'renderFooter' | 'imageRender'
 > & {
   images?: string[]
   defaultIndex?: number
   onIndexChange?: (index: number) => void
   renderFooter?: (image: string, index: number) => ReactNode
+  imageRender?: (image: string, index: number) => ReactNode
 }
 
 const multiDefaultProps = {
@@ -150,6 +143,7 @@ export const MultiImageViewer = forwardRef<
             images={props.images}
             onTap={props.onClose}
             maxZoom={props.maxZoom}
+            imageRender={props.imageRender}
           />
         )}
       </div>

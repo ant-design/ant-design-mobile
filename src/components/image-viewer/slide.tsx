@@ -1,25 +1,27 @@
-import React, { useRef } from 'react'
-import type { FC, MutableRefObject } from 'react'
-import { useSpring, animated } from '@react-spring/web'
+import { animated, useSpring } from '@react-spring/web'
 import { useSize } from 'ahooks'
-import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
-import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
+import type { FC, MutableRefObject, ReactNode } from 'react'
+import React, { useRef } from 'react'
 import { bound } from '../../utils/bound'
 import type { Matrix } from '../../utils/matrix'
 import * as mat from '../../utils/matrix'
+import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
+import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 
 const classPrefix = `adm-image-viewer`
 
 type Props = {
-  image: string
+  image?: string
   maxZoom: number | 'auto'
   onTap?: () => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
+  imageRender?: (image?: string, index?: number) => ReactNode
+  index?: number
 }
 
 export const Slide: FC<Props> = props => {
-  const { dragLockRef, maxZoom } = props
+  const { dragLockRef, maxZoom, imageRender, index } = props
   const initialMartix = useRef<boolean[]>([])
   const controlRef = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
@@ -295,6 +297,9 @@ export const Slide: FC<Props> = props => {
     }
   )
 
+  const customRendering =
+    typeof imageRender === 'function' && imageRender?.(props.image, index)
+
   return (
     <div className={`${classPrefix}-slide`}>
       <div className={`${classPrefix}-control`} ref={controlRef}>
@@ -304,12 +309,16 @@ export const Slide: FC<Props> = props => {
             matrix,
           }}
         >
-          <img
-            ref={imgRef}
-            src={props.image}
-            draggable={false}
-            alt={props.image}
-          />
+          {customRendering ? (
+            customRendering
+          ) : (
+            <img
+              ref={imgRef}
+              src={props.image}
+              draggable={false}
+              alt={props.image}
+            />
+          )}
         </animated.div>
       </div>
     </div>
