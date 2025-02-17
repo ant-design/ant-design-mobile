@@ -1,13 +1,14 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
-import type { ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { useSpring, animated } from '@react-spring/web'
-import { supportsPassive } from '../../utils/supports-passive'
-import { nearest } from '../../utils/nearest'
-import { mergeProps } from '../../utils/with-default-props'
-import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useMemoizedFn } from 'ahooks'
+import classNames from 'classnames'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { nearest } from '../../utils/nearest'
+import { supportsPassive } from '../../utils/supports-passive'
+import { useLockScroll } from '../../utils/use-lock-scroll'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-floating-panel'
 
@@ -25,6 +26,7 @@ export type FloatingPanelProps = {
   children: ReactNode
   onHeightChange?: (height: number, animating: boolean) => void
   handleDraggingOfContent?: boolean
+  position?: 'bottom' | 'top'
 } & NativeProps<'--border-radius' | '--z-index' | '--header-height'>
 
 const defaultProps = {
@@ -34,10 +36,10 @@ const defaultProps = {
 export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
   (p, ref) => {
     const props = mergeProps(defaultProps, p)
-    const { anchors } = props
+    const { anchors, position = 'bottom' } = props
     const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
-    const possibles = anchors.map(x => -x)
+    const possibles = position === 'bottom' ? anchors.map(x => -x) : anchors
 
     const elementRef = useRef<HTMLDivElement>(null)
     const headerRef = useRef<HTMLDivElement>(null)
@@ -45,15 +47,17 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const [pulling, setPulling] = useState(false)
     const pullingRef = useRef(false)
 
+    const fristPossible = possibles[0]
+    const lastPossible = possibles[possibles.length - 1]
     const bounds = {
-      top: possibles[possibles.length - 1],
-      bottom: possibles[0],
+      top: position === 'bottom' ? lastPossible : fristPossible,
+      bottom: position === 'bottom' ? fristPossible : lastPossible,
     }
 
     const onHeightChange = useMemoizedFn(props.onHeightChange ?? (() => {}))
 
     const [{ y }, api] = useSpring(() => ({
-      y: bounds.bottom,
+      y: position === 'bottom' ? bounds.bottom : bounds.top,
       config: { tension: 300 },
       onChange: result => {
         onHeightChange(-result.value.y, y.isAnimating)
@@ -134,10 +138,18 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       props,
       <animated.div
         ref={elementRef}
-        className={classPrefix}
+        className={classNames(classPrefix, `${classPrefix}-${position}`)}
         style={{
           height: Math.round(maxHeight),
-          translateY: y.to(y => `calc(100% + (${Math.round(y)}px))`),
+          translateY: y.to(y => {
+            if (position === 'bottom') {
+              return `calc(100% + (${Math.round(y)}px))`
+            }
+            if (position === 'top') {
+              return `calc(-100% + (${Math.round(y)}px))`
+            }
+            return y
+          }),
         }}
       >
         <div
@@ -146,12 +158,19 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
             display: pulling ? 'block' : 'none',
           }}
         />
-        <div className={`${classPrefix}-header`} ref={headerRef}>
-          <div className={`${classPrefix}-bar`} />
-        </div>
+        {position === 'bottom' && (
+          <div className={`${classPrefix}-header`} ref={headerRef}>
+            <div className={`${classPrefix}-bar`} />
+          </div>
+        )}
         <div className={`${classPrefix}-content`} ref={contentRef}>
           {props.children}
         </div>
+        {position === 'top' && (
+          <div className={`${classPrefix}-header`} ref={headerRef}>
+            <div className={`${classPrefix}-bar`} />
+          </div>
+        )}
       </animated.div>
     )
   }
