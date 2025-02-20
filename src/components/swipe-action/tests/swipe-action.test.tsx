@@ -1,14 +1,14 @@
+import { Dialog } from 'antd-mobile'
 import React, { useRef } from 'react'
 import {
+  fireEvent,
+  mockDrag,
   render,
   testA11y,
-  fireEvent,
-  waitFor,
   userEvent,
-  mockDrag,
+  waitFor,
 } from 'testing'
 import SwipeAction, { Action, SwipeActionProps, SwipeActionRef } from '..'
-import { Dialog } from 'antd-mobile'
 
 const classPrefix = `adm-swipe-action`
 const width = 80
@@ -275,5 +275,19 @@ describe('SwipeAction', () => {
       expect(onActionsReveal).toBeCalledTimes(1)
       expect(onActionsReveal).toBeCalledWith('left')
     })
+  })
+
+  test('onClose should be called when the swipe action is closed', async () => {
+    const onClose = jest.fn()
+    const { getByTestId, getByText } = render(<App onClose={onClose} />)
+
+    swipe(getByTestId('swipe'), [
+      {
+        clientX: 150,
+      },
+    ])
+
+    await userEvent.click(getByText('pin'))
+    await waitFor(() => expect(onClose).toBeCalledTimes(1))
   })
 })

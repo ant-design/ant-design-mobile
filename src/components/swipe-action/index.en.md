@@ -14,15 +14,16 @@ Swipe to reveal hidden function menus.
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| closeOnAction | Whether to return to the position automatically when the operation button is clicked | `boolean` | `true` |
-| closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked | `boolean` | `true` |
-| leftActions | List of operation buttons on the left | `Action[]` | `[]` |
-| rightActions | List of operation buttons on the right | `Action[]` | `[]` |
-| onAction | Triggered when operation button is clicked | `(action: Action, e: React.MouseEvent) => void` | - |
-| stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `[]` |
-| onActionsReveal | Triggered when the operation button appears completely | `(side: 'left' \| 'right') => void` | - |
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| closeOnAction | Whether to return to the position automatically when the operation button is clicked | `boolean` | `true` |  |
+| closeOnTouchOutside | Whether to return to the position automatically when other areas is clicked | `boolean` | `true` |  |
+| leftActions | List of operation buttons on the left | `Action[]` | `[]` |  |
+| rightActions | List of operation buttons on the right | `Action[]` | `[]` |  |
+| onAction | Triggered when operation button is clicked | `(action: Action, e: React.MouseEvent) => void` | - |  |
+| stopPropagation | Stop the propagation of some events. | `PropagationEvent[]` | `[]` |  |
+| onActionsReveal | Triggered when the operation button appears completely | `(side: 'left' \| 'right') => void` | - |  |
+| onClose | Triggered when the slide bar returns to the position | `() => void` | - | 5.39.0 |
 
 ### Action
 

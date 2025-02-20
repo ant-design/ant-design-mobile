@@ -1,17 +1,18 @@
+import dayjs from 'dayjs'
+import * as React from 'react'
 import {
-  render,
-  testA11y,
+  act,
   fireEvent,
-  waitFor,
+  render,
   screen,
   sleep,
-  act,
+  testA11y,
+  waitFor,
   waitForElementToBeRemoved,
 } from 'testing'
-import * as React from 'react'
 import DatePicker from '../'
-import dayjs from 'dayjs'
 import Button from '../../button'
+import { convertStringArrayToDate } from '../date-picker-week-utils'
 
 const classPrefix = `adm-picker`
 
@@ -204,5 +205,17 @@ describe('DatePicker', () => {
     const res = fn.mock.calls[0][0]
     expect(res.toDateString()).toEqual(now.toDateString())
     expect(res.tillNow).toBeTruthy()
+  })
+
+  test('convertStringArrayToDate of week should correct', () => {
+    // jest mock today is `2024-12-30`
+    jest.useFakeTimers({
+      now: new Date('2024-12-30'),
+    })
+
+    const date = convertStringArrayToDate(['2024', '1', '1'])
+    expect(date.getFullYear()).toBe(2024)
+    expect(date.getMonth()).toBe(0)
+    expect(date.getDate()).toBe(1)
   })
 })
