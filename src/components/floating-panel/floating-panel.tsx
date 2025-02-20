@@ -134,6 +134,12 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
 
     useLockScroll(elementRef, true)
 
+    const HeaderNode: ReactNode = (
+      <div className={`${classPrefix}-header`} ref={headerRef}>
+        <div className={`${classPrefix}-bar`} />
+      </div>
+    )
+
     return withNativeProps(
       props,
       <animated.div
@@ -158,19 +164,11 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
             display: pulling ? 'block' : 'none',
           }}
         />
-        {position === 'bottom' && (
-          <div className={`${classPrefix}-header`} ref={headerRef}>
-            <div className={`${classPrefix}-bar`} />
-          </div>
-        )}
+        {position === 'bottom' && HeaderNode}
         <div className={`${classPrefix}-content`} ref={contentRef}>
           {props.children}
         </div>
-        {position === 'top' && (
-          <div className={`${classPrefix}-header`} ref={headerRef}>
-            <div className={`${classPrefix}-bar`} />
-          </div>
-        )}
+        {position === 'top' && HeaderNode}
       </animated.div>
     )
   }
