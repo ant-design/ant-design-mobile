@@ -26,7 +26,7 @@ export type FloatingPanelProps = {
   children: ReactNode
   onHeightChange?: (height: number, animating: boolean) => void
   handleDraggingOfContent?: boolean
-  position?: 'bottom' | 'top'
+  placement?: 'bottom' | 'top'
 } & NativeProps<'--border-radius' | '--z-index' | '--header-height'>
 
 const defaultProps = {
@@ -36,10 +36,10 @@ const defaultProps = {
 export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
   (p, ref) => {
     const props = mergeProps(defaultProps, p)
-    const { anchors, position = 'bottom' } = props
+    const { anchors, placement = 'bottom' } = props
     const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
-    const possibles = position === 'bottom' ? anchors.map(x => -x) : anchors
+    const possibles = placement === 'bottom' ? anchors.map(x => -x) : anchors
 
     const elementRef = useRef<HTMLDivElement>(null)
     const headerRef = useRef<HTMLDivElement>(null)
@@ -50,14 +50,14 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const fristPossible = possibles[0]
     const lastPossible = possibles[possibles.length - 1]
     const bounds = {
-      top: position === 'bottom' ? lastPossible : fristPossible,
-      bottom: position === 'bottom' ? fristPossible : lastPossible,
+      top: placement === 'bottom' ? lastPossible : fristPossible,
+      bottom: placement === 'bottom' ? fristPossible : lastPossible,
     }
 
     const onHeightChange = useMemoizedFn(props.onHeightChange ?? (() => {}))
 
     const [{ y }, api] = useSpring(() => ({
-      y: position === 'bottom' ? bounds.bottom : bounds.top,
+      y: placement === 'bottom' ? bounds.bottom : bounds.top,
       config: { tension: 300 },
       onChange: result => {
         onHeightChange(-result.value.y, y.isAnimating)
@@ -144,14 +144,14 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
       props,
       <animated.div
         ref={elementRef}
-        className={classNames(classPrefix, `${classPrefix}-${position}`)}
+        className={classNames(classPrefix, `${classPrefix}-${placement}`)}
         style={{
           height: Math.round(maxHeight),
           translateY: y.to(y => {
-            if (position === 'bottom') {
+            if (placement === 'bottom') {
               return `calc(100% + (${Math.round(y)}px))`
             }
-            if (position === 'top') {
+            if (placement === 'top') {
               return `calc(-100% + (${Math.round(y)}px))`
             }
             return y
@@ -164,11 +164,11 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
             display: pulling ? 'block' : 'none',
           }}
         />
-        {position === 'bottom' && HeaderNode}
+        {placement === 'bottom' && HeaderNode}
         <div className={`${classPrefix}-content`} ref={contentRef}>
           {props.children}
         </div>
-        {position === 'top' && HeaderNode}
+        {placement === 'top' && HeaderNode}
       </animated.div>
     )
   }

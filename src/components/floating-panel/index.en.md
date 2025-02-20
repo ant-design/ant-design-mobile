@@ -23,7 +23,7 @@ Users can freely and flexibly slide up and down to browse the content, which is 
 | anchors | What height can be dragged to, the unit is `px` | `number[]` | - |
 | handleDraggingOfContent | Whether to handle the drag event of the panel content area. If disabled, only the head area can be dragged | `boolean` | `true` |
 | onHeightChange | Triggered when the height changes, the `animating` parameter indicates whether it is in the process of animation | `(height: number, animating: boolean) => void` |  |
-| position | Specify the direction in which the panel appears. | `'bottom' \| 'top'` | `'bottom'` |
+| placement | Specify the direction in which the panel appears. | `'bottom' \| 'top'` | `'bottom'` |
 
 ### Ref
 
