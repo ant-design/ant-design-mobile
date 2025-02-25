@@ -115,8 +115,8 @@ const ViewImageRender = () => {
       <ImageViewer.Multi
         images={demoViewImages}
         visible={visible}
-        imageRender={(image, index) => {
-          if (index === 0)
+        imageRender={(image, info) => {
+          if (info.index === 0)
             return (
               <div className={styles['image-render']}>
                 <video muted width='100%' controls src={image} />

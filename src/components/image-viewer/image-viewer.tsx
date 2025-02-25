@@ -88,7 +88,7 @@ export type MultiImageViewerProps = Omit<
   defaultIndex?: number
   onIndexChange?: (index: number) => void
   renderFooter?: (image: string, index: number) => ReactNode
-  imageRender?: (image: string, index: number) => ReactNode
+  imageRender?: (image: string, { index }: { index: number }) => ReactNode
 }
 
 const multiDefaultProps = {

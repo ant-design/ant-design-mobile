@@ -33,7 +33,7 @@
 | images | 图片资源的 url 列表 | `string[]` | - |
 | onIndexChange | 切换图片时触发 | `(index: number) => void` | - |
 | renderFooter | 渲染底部额外内容 | `(image: string, index: number) => ReactNode` | - |
-| imageRender | 自定义渲染内容 | `(image: string, index: number) => ReactNode` | - |
+| imageRender | 自定义渲染内容 | `(image: string, { index }: { index: number }) => ReactNode` | - |
 
 其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
 

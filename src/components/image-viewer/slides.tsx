@@ -18,7 +18,7 @@ export type SlidesType = {
   maxZoom: number
   defaultIndex: number
   onIndexChange?: (index: number) => void
-  imageRender?: (image: string, index: number) => ReactNode
+  imageRender?: (image: string, { index }: { index: number }) => ReactNode
 }
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
