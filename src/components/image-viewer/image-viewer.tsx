@@ -27,7 +27,7 @@ export type ImageViewerProps = {
   onClose?: () => void
   afterClose?: () => void
   renderFooter?: (image: string) => ReactNode
-  imageRender?: (image?: string) => ReactNode
+  imageRender?: (image: string) => ReactNode
   classNames?: {
     mask?: string
     body?: string

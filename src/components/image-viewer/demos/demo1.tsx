@@ -4,6 +4,11 @@ import React, { useState } from 'react'
 import styles from './demo1.less'
 import { demoImage, demoImages } from './images'
 
+const demoViewImages = [
+  'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ',
+  'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80',
+]
+
 // 单张图片预览
 const Single = () => {
   const [visible, setVisible] = useState(false)
@@ -95,40 +100,8 @@ const ViewWithFooter = () => {
   )
 }
 
+// 自定义预览内容
 const ViewImageRender = () => {
-  const [visible, setVisible] = useState(false)
-
-  return (
-    <>
-      <Button
-        onClick={() => {
-          setVisible(true)
-        }}
-      >
-        显示内容
-      </Button>
-      <ImageViewer
-        visible={visible}
-        onClose={() => {
-          setVisible(false)
-        }}
-        imageRender={() => (
-          <div className={styles['image-render']}>
-            <video
-              muted
-              width='100%'
-              controls
-              src='https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ'
-            />
-          </div>
-        )}
-      />
-    </>
-  )
-}
-
-// 多张图片预览
-const MultiViewImageRender = () => {
   const [visible, setVisible] = useState(false)
   return (
     <>
@@ -140,13 +113,17 @@ const MultiViewImageRender = () => {
         显示图片
       </Button>
       <ImageViewer.Multi
-        images={demoImages}
+        images={demoViewImages}
         visible={visible}
-        imageRender={(image?: string, index?: number) => {
-          if (index === 1)
-            return <div className={styles['custom-render']}>自定义渲染内容</div>
+        imageRender={(image, index) => {
+          if (index === 0)
+            return (
+              <div className={styles['image-render']}>
+                <video muted width='100%' controls src={image} />
+              </div>
+            )
         }}
-        defaultIndex={1}
+        defaultIndex={0}
         onClose={() => {
           setVisible(false)
         }}
@@ -195,11 +172,8 @@ export default () => {
         <ViewWithFooter />
       </DemoBlock>
 
-      <DemoBlock title='自定义预览内容单张'>
+      <DemoBlock title='自定义预览内容'>
         <ViewImageRender />
-      </DemoBlock>
-      <DemoBlock title='自定义预览内容多张'>
-        <MultiViewImageRender />
       </DemoBlock>
     </>
   )
