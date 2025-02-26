@@ -11,7 +11,7 @@ import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
 const classPrefix = `adm-image-viewer`
 
 type Props = {
-  image?: string
+  image: string
   maxZoom: number | 'auto'
   onTap?: () => void
   onZoomChange?: (zoom: number) => void
@@ -299,7 +299,7 @@ export const Slide: FC<Props> = props => {
 
   const customRendering =
     typeof imageRender === 'function' &&
-    imageRender?.(props.image as string, { index } as { index: number })
+    imageRender(props.image, { index } as { index: number })
 
   return (
     <div className={`${classPrefix}-slide`}>

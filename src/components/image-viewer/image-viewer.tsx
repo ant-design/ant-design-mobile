@@ -20,14 +20,14 @@ import { Slides, SlidesRef } from './slides'
 const classPrefix = `adm-image-viewer`
 
 export type ImageViewerProps = {
-  image?: string
+  image: string
   maxZoom?: number | 'auto'
   getContainer?: GetContainer
   visible?: boolean
   onClose?: () => void
   afterClose?: () => void
   renderFooter?: (image: string) => ReactNode
-  imageRender?: (image: string) => ReactNode
+  imageRender?: (image: string, { index }: { index: number }) => ReactNode
   classNames?: {
     mask?: string
     body?: string
