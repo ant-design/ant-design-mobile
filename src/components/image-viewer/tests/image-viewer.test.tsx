@@ -170,7 +170,6 @@ describe('ImageViewer.Multi', () => {
     })
     await waitFor(() => expect(img).not.toBeVisible())
   })
-
   test('slide and slide with pinched should be work', async () => {
     Object.defineProperty(window, 'innerWidth', {
       value: 300,
@@ -239,23 +238,14 @@ describe('ImageViewer.Multi', () => {
         <ImageViewer.Multi
           images={demoViewImages}
           visible
-          imageRender={(image, info) => {
-            if (info.index === 0)
-              return (
-                <video
-                  data-testid='videoId'
-                  muted
-                  width='100%'
-                  controls
-                  src={image}
-                />
-              )
-          }}
+          imageRender={(image, info) => (
+            <div className={`customize-preview-node-${info.index}`} />
+          )}
         />
       )
     }
     render(<App />)
-    expect(screen.getByTestId('videoId')).toBeInTheDocument()
+    expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
   })
 })
 
