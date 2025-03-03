@@ -39,7 +39,8 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const { anchors, placement = 'bottom' } = props
     const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
-    const possibles = placement === 'bottom' ? anchors.map(x => -x) : anchors
+    const isBottomPlacement = placement !== 'top'
+    const possibles = isBottomPlacement ? anchors.map(x => -x) : anchors
 
     const elementRef = useRef<HTMLDivElement>(null)
     const headerRef = useRef<HTMLDivElement>(null)
@@ -50,14 +51,14 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const fristPossible = possibles[0]
     const lastPossible = possibles[possibles.length - 1]
     const bounds = {
-      top: placement === 'bottom' ? lastPossible : fristPossible,
-      bottom: placement === 'bottom' ? fristPossible : lastPossible,
+      top: isBottomPlacement ? lastPossible : fristPossible,
+      bottom: isBottomPlacement ? fristPossible : lastPossible,
     }
 
     const onHeightChange = useMemoizedFn(props.onHeightChange ?? (() => {}))
 
     const [{ y }, api] = useSpring(() => ({
-      y: placement === 'bottom' ? bounds.bottom : bounds.top,
+      y: isBottomPlacement ? bounds.bottom : bounds.top,
       config: { tension: 300 },
       onChange: result => {
         onHeightChange(-result.value.y, y.isAnimating)
@@ -148,7 +149,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         style={{
           height: Math.round(maxHeight),
           translateY: y.to(y => {
-            if (placement === 'bottom') {
+            if (isBottomPlacement) {
               return `calc(100% + (${Math.round(y)}px))`
             }
             if (placement === 'top') {
@@ -164,7 +165,7 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
             display: pulling ? 'block' : 'none',
           }}
         />
-        {placement === 'bottom' && HeaderNode}
+        {isBottomPlacement && HeaderNode}
         <div className={`${classPrefix}-content`} ref={contentRef}>
           {props.children}
         </div>
