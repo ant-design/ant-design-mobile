@@ -48,11 +48,9 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const [pulling, setPulling] = useState(false)
     const pullingRef = useRef(false)
 
-    const fristPossible = possibles[0]
-    const lastPossible = possibles[possibles.length - 1]
     const bounds = {
-      top: isBottomPlacement ? lastPossible : fristPossible,
-      bottom: isBottomPlacement ? fristPossible : lastPossible,
+      top: Math.min(...possibles),
+      bottom: Math.max(...possibles),
     }
 
     const onHeightChange = useMemoizedFn(props.onHeightChange ?? (() => {}))
