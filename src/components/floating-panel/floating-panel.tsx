@@ -1,13 +1,14 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
-import type { ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { useSpring, animated } from '@react-spring/web'
-import { supportsPassive } from '../../utils/supports-passive'
-import { nearest } from '../../utils/nearest'
-import { mergeProps } from '../../utils/with-default-props'
-import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useMemoizedFn } from 'ahooks'
+import classNames from 'classnames'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { nearest } from '../../utils/nearest'
+import { supportsPassive } from '../../utils/supports-passive'
+import { useLockScroll } from '../../utils/use-lock-scroll'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-floating-panel'
 
@@ -25,6 +26,7 @@ export type FloatingPanelProps = {
   children: ReactNode
   onHeightChange?: (height: number, animating: boolean) => void
   handleDraggingOfContent?: boolean
+  placement?: 'bottom' | 'top'
 } & NativeProps<'--border-radius' | '--z-index' | '--header-height'>
 
 const defaultProps = {
@@ -34,10 +36,11 @@ const defaultProps = {
 export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
   (p, ref) => {
     const props = mergeProps(defaultProps, p)
-    const { anchors } = props
+    const { anchors, placement = 'bottom' } = props
     const maxHeight = anchors[anchors.length - 1] ?? window.innerHeight
 
-    const possibles = anchors.map(x => -x)
+    const isBottomPlacement = placement !== 'top'
+    const possibles = isBottomPlacement ? anchors.map(x => -x) : anchors
 
     const elementRef = useRef<HTMLDivElement>(null)
     const headerRef = useRef<HTMLDivElement>(null)
@@ -46,14 +49,14 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
     const pullingRef = useRef(false)
 
     const bounds = {
-      top: possibles[possibles.length - 1],
-      bottom: possibles[0],
+      top: Math.min(...possibles),
+      bottom: Math.max(...possibles),
     }
 
     const onHeightChange = useMemoizedFn(props.onHeightChange ?? (() => {}))
 
     const [{ y }, api] = useSpring(() => ({
-      y: bounds.bottom,
+      y: isBottomPlacement ? bounds.bottom : bounds.top,
       config: { tension: 300 },
       onChange: result => {
         onHeightChange(-result.value.y, y.isAnimating)
@@ -130,14 +133,28 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
 
     useLockScroll(elementRef, true)
 
+    const HeaderNode: ReactNode = (
+      <div className={`${classPrefix}-header`} ref={headerRef}>
+        <div className={`${classPrefix}-bar`} />
+      </div>
+    )
+
     return withNativeProps(
       props,
       <animated.div
         ref={elementRef}
-        className={classPrefix}
+        className={classNames(classPrefix, `${classPrefix}-${placement}`)}
         style={{
           height: Math.round(maxHeight),
-          translateY: y.to(y => `calc(100% + (${Math.round(y)}px))`),
+          translateY: y.to(y => {
+            if (isBottomPlacement) {
+              return `calc(100% + (${Math.round(y)}px))`
+            }
+            if (placement === 'top') {
+              return `calc(-100% + (${Math.round(y)}px))`
+            }
+            return y
+          }),
         }}
       >
         <div
@@ -146,12 +163,11 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
             display: pulling ? 'block' : 'none',
           }}
         />
-        <div className={`${classPrefix}-header`} ref={headerRef}>
-          <div className={`${classPrefix}-bar`} />
-        </div>
+        {isBottomPlacement && HeaderNode}
         <div className={`${classPrefix}-content`} ref={contentRef}>
           {props.children}
         </div>
+        {placement === 'top' && HeaderNode}
       </animated.div>
     )
   }

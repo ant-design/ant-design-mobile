@@ -14,15 +14,18 @@
 
 <code src="./demos/demo2.tsx"></code>
 
+<code src="./demos/demo4.tsx"></code>
+
 ## FloatingPanel
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| anchors | 可拖拽至哪些高度，单位为 `px` | `number[]` | - |
-| handleDraggingOfContent | 是否会处理面板内容区域的拖拽事件，禁用后则只能拖拽头部区域 | `boolean` | `true` |
-| onHeightChange | 当高度变化时触发，`animating` 参数表示是否处于动画过程中 | `(height: number, animating: boolean) => void` |  |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| anchors | 可拖拽至哪些高度，单位为 `px` | `number[]` | - |  |
+| handleDraggingOfContent | 是否会处理面板内容区域的拖拽事件，禁用后则只能拖拽头部区域 | `boolean` | `true` |  |
+| onHeightChange | 当高度变化时触发，`animating` 参数表示是否处于动画过程中 | `(height: number, animating: boolean) => void` |  |  |
+| placement | 指定面板出现的方向 | `'bottom' \| 'top'` | `'bottom'` | 5.39.0 |
 
 ### Ref
 
