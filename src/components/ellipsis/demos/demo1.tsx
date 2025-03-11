@@ -1,6 +1,4 @@
-import { Ellipsis, Space } from 'antd-mobile'
-import { DownOutline, UpOutline } from 'antd-mobile-icons'
-import { DemoBlock } from 'demos'
+import { Ellipsis } from 'antd-mobile'
 import React from 'react'
 
 const content =
@@ -9,7 +7,15 @@ const content =
 export default () => {
   return (
     <>
-      <DemoBlock title='尾部省略'>
+      <div style={{ width: '10em' }}>
+        <Ellipsis
+          rows={2}
+          content={
+            '这是一段超长文本一段这是一段超长文本一段这是一段超长文本一段'
+          }
+        />
+      </div>
+      {/* <DemoBlock title='尾部省略'>
         <Ellipsis direction='end' content={content} />
       </DemoBlock>
 
@@ -78,7 +84,7 @@ export default () => {
             </>
           }
         />
-      </DemoBlock>
+      </DemoBlock> */}
     </>
   )
 }

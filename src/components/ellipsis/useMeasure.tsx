@@ -47,7 +47,7 @@ export default function useMeasure(
   const midMeasureRef = React.useRef<HTMLDivElement>(null)
 
   const startMeasure = useEvent(() => {
-    // 使用react-dom render挂载的App, requestAnimationFrame触发回调时状态更新不同步
+    // use batch update to avoid async update trigger 2 render
     unstable_batchedUpdates(() => {
       setStatus(MEASURE_STATUS.PREPARE)
       setWalkingIndexes([
