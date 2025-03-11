@@ -12,6 +12,11 @@ const ruRU = mergeLocale(base, {
     close: 'Закрыть',
   },
   Calendar: {
+    title: 'Выбор даты',
+    confirm: 'Подтвердить',
+    start: 'начало',
+    end: 'конец',
+    today: 'сегодня',
     markItems: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
     yearAndMonth: '${year}/${month}',
   },
@@ -116,9 +121,9 @@ const ruRU = mergeLocale(base, {
     name: 'Ввод пароля',
   },
   PullToRefresh: {
-    pulling: 'Прокрутите вниз, чтобы обновления',
+    pulling: 'Прокрутите вниз, чтобы обновить',
     canRelease: 'Отпустите, чтобы немедленно обновить',
-    complete: 'Обновление успешно',
+    complete: 'Обновлено успешно',
   },
   SearchBar: {
     name: 'Панель поиска',
