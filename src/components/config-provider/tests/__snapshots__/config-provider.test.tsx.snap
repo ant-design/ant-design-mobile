@@ -93473,7 +93473,7 @@ exports[`ConfigProvider should display the text as ru 1`] = `
       <div
         class="adm-calendar-picker-view-title"
       >
-        Date selection
+        Выбор даты
       </div>
     </div>
     <div
@@ -93856,7 +93856,7 @@ exports[`ConfigProvider should display the text as ru 1`] = `
             <div
               class="adm-calendar-picker-view-cell-top"
             >
-              today
+              сегодня
             </div>
             <div
               class="adm-calendar-picker-view-cell-date"
