@@ -20,7 +20,9 @@
   }
   &-horizontal {
     flex-direction: row;
-    margin-right: calc(var(--gap-horizontal) * -1);
+    &:not(:empty) {
+      margin-right: calc(var(--gap-horizontal) * -1);
+    }
     > .@{class-prefix-space}-item {
       margin-right: var(--gap-horizontal);
     }
