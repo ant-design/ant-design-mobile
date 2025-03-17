@@ -34,7 +34,7 @@ export type NumberKeyboardProps = {
   | 'forceRender'
   | 'stopPropagation'
 > &
-  NativeProps
+  NativeProps<'--adm-safe-area-multiple'>
 
 const defaultProps = {
   defaultVisible: false,
