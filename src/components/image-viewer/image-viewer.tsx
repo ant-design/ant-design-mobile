@@ -89,6 +89,7 @@ export type MultiImageViewerProps = Omit<
   onIndexChange?: (index: number) => void
   renderFooter?: (image: string, index: number) => ReactNode
   imageRender?: (image: string, { index }: { index: number }) => ReactNode
+  dir?: 'ltr' | 'rtl' | 'auto'
 }
 
 const multiDefaultProps = {
@@ -137,6 +138,7 @@ export const MultiImageViewer = forwardRef<
       >
         {props.images && (
           <Slides
+            dir={props.dir || 'auto'}
             ref={slidesRef}
             defaultIndex={index}
             onIndexChange={onSlideChange}
