@@ -62,7 +62,7 @@ import { Button } from 'antd-mobile'
 
 欢迎加入我们的钉钉交流群：
 
-<img src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8gmTR49Nr8UAAAAAAAAAAAAADrJ8AQ/original" alt="ding-group" width="300" />
+<img src="https://mdn.alipayobjects.com/huamei_pdkywj/afts/img/A*nC08QYnlP68AAAAAAAAAAAAAesHxAQ/original" alt="ding-group" width="300" />
 
 或者也可以加入我们的 Discord 讨论组：
 
