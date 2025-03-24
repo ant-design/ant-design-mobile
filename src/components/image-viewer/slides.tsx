@@ -10,7 +10,7 @@ import React, {
 import { bound } from '../../utils/bound'
 import { convertPx } from '../../utils/convert-px'
 import { Slide } from './slide'
-import { isRtl } from 'antd-mobile/src/utils/get-is-rtl'
+import { isRtl } from '../../utils/get-is-rtl'
 
 const classPrefix = `adm-image-viewer`
 export type SlidesType = {
