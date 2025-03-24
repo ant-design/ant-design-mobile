@@ -60,7 +60,7 @@ If you don't want to configure your environment locally, you can also try it dir
 
 ## Discussion Groups
 
-- [DingDing](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8gmTR49Nr8UAAAAAAAAAAAAADrJ8AQ/original)
+- [DingDing](https://mdn.alipayobjects.com/huamei_pdkywj/afts/img/A*nC08QYnlP68AAAAAAAAAAAAAesHxAQ/original)
 - [Discord](https://discord.gg/jmNvw4WFYn)
 
 ## Contributing
