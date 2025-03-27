@@ -142,7 +142,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         getContainer: null,
       } as NumberKeyboardProps)
 
-    const changeCaretPosition = (index: number) => e => {
+    const changeCaretPosition = (index: number) => (e: React.MouseEvent) => {
       e.stopPropagation()
       setCaretPosition(index + 1)
     }
@@ -170,29 +170,25 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           {value
             .split('')
             .slice(0, caretPosition)
-            .map((i, index) => {
-              return (
-                <span key={index} onClick={changeCaretPosition(index)}>
-                  {i}
-                </span>
-              )
-            })}
+            .map((i: string, index: number) => (
+              <span key={index} onClick={changeCaretPosition(index)}>
+                {i}
+              </span>
+            ))}
           <div className={`${classPrefix}-caret-container`}>
             {hasFocus && <div className={`${classPrefix}-caret`} />}
           </div>
           {value
             .split('')
             .slice(caretPosition)
-            .map((i, index) => {
-              return (
-                <span
-                  key={index}
-                  onClick={changeCaretPosition(index + caretPosition)}
-                >
-                  {i}
-                </span>
-              )
-            })}
+            .map((i: string, index: number) => (
+              <span
+                key={index}
+                onClick={changeCaretPosition(index + caretPosition)}
+              >
+                {i}
+              </span>
+            ))}
         </div>
         {mergedProps.clearable && !!value && hasFocus && (
           <div
