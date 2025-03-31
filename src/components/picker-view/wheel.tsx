@@ -25,6 +25,7 @@ type Props = {
   onSelect: (value: PickerValue, index: number) => void
   renderLabel: (item: PickerColumnItem) => ReactNode
   mouseWheel: boolean
+  wheelResistance: boolean
 }
 
 export const Wheel = memo<Props>(
@@ -160,13 +161,17 @@ export const Wheel = memo<Props>(
         draggingRef.current = false
 
         const speed = velocity * whellDir * 50
-        const position = scrollY + distance * whellDir + speed
+        const position =
+          scrollY +
+          (distance / (props.wheelResistance ? 4 : 1)) * whellDir +
+          speed
         const boundNum = bound(position, min, max)
         const targetIndex = -Math.round(boundNum / itemHeight.current)
 
         scrollSelect(targetIndex)
       } else {
-        const position = scrollY + distance * whellDir
+        const position =
+          scrollY + (distance / (props.wheelResistance ? 4 : 1)) * whellDir
 
         api.start({
           y: rubberbandIfOutOfBounds(
@@ -306,6 +311,7 @@ export const Wheel = memo<Props>(
     if (prev.onSelect !== next.onSelect) return false
     if (prev.renderLabel !== next.renderLabel) return false
     if (prev.mouseWheel !== next.mouseWheel) return false
+    if (prev.wheelResistance !== next.wheelResistance) return false
     if (!isEqual(prev.column, next.column)) return false
 
     return true
