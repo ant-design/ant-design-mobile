@@ -56,7 +56,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
     const [hasFocus, setHasFocus] = useState(false)
-    const [caretPosition, setCaretPosition] = useState(0)
+    const [caretPosition, setCaretPosition] = useState(value.length) // 光标位置，从 0 开始，如值是 2 则表示光标在顺序下标为 2 的数字之前
 
     const clearIcon = mergeProp(
       <CloseCircleFill />,
@@ -113,7 +113,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             v +
             value.substring(caretPosition)
           setValue(newValue)
-          setCaretPosition(caretPosition + 1)
+          setCaretPosition((c: number) => c + 1)
           keyboard.props.onInput?.(v)
         },
         onDelete: () => {
@@ -142,10 +142,14 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         getContainer: null,
       } as NumberKeyboardProps)
 
+    // 每个字符点击后，将光标置于其之后
+    // 点击容器时，将光标置于最后
     const changeCaretPosition = (index: number) => (e: React.MouseEvent) => {
       e.stopPropagation()
       setCaretPosition(index + 1)
     }
+
+    const chars = (value + '').split('')
 
     return withNativeProps(
       mergedProps,
@@ -165,30 +169,24 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           ref={contentRef}
           aria-disabled={mergedProps.disabled}
           aria-label={mergedProps.placeholder}
-          onClick={changeCaretPosition(value.length)}
+          onClick={changeCaretPosition(value.length - 1)}
         >
-          {value
-            .split('')
-            .slice(0, caretPosition)
-            .map((i: string, index: number) => (
-              <span key={index} onClick={changeCaretPosition(index)}>
-                {i}
-              </span>
-            ))}
+          {chars.slice(0, caretPosition).map((i: string, index: number) => (
+            <span key={index} onClick={changeCaretPosition(index)}>
+              {i}
+            </span>
+          ))}
           <div className={`${classPrefix}-caret-container`}>
             {hasFocus && <div className={`${classPrefix}-caret`} />}
           </div>
-          {value
-            .split('')
-            .slice(caretPosition)
-            .map((i: string, index: number) => (
-              <span
-                key={index}
-                onClick={changeCaretPosition(index + caretPosition)}
-              >
-                {i}
-              </span>
-            ))}
+          {chars.slice(caretPosition).map((i: string, index: number) => (
+            <span
+              key={index}
+              onClick={changeCaretPosition(index + caretPosition)}
+            >
+              {i}
+            </span>
+          ))}
         </div>
         {mergedProps.clearable && !!value && hasFocus && (
           <div

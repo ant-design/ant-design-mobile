@@ -1,9 +1,34 @@
 import React, { createRef } from 'react'
-import { render, fireEvent, act, screen, waitFor } from 'testing'
+import { act, fireEvent, render, screen, waitFor } from 'testing'
 import NumberKeyboard from '../../number-keyboard'
 import { VirtualInput, VirtualInputRef } from '../virtual-input'
 
 const classPrefix = 'adm-virtual-input'
+
+function getSiblingElements(element: Element | null) {
+  const prevElements = [],
+    nextElements = []
+  let current = element?.nextElementSibling
+  while (current) {
+    nextElements.push(current)
+    current = current?.nextElementSibling
+  }
+  current = element?.previousElementSibling
+  while (current) {
+    prevElements.push(current)
+    current = current?.previousElementSibling
+  }
+  prevElements.reverse()
+  return {
+    prevElements,
+    nextElements,
+  }
+}
+
+function getCaretPosition(element: Element | null) {
+  const { prevElements } = getSiblingElements(element)
+  return prevElements.length
+}
 
 describe('VirtualInput', () => {
   test('ref should be defined', async () => {
@@ -112,5 +137,152 @@ describe('VirtualInput', () => {
   test('placeholder should not be shown when value is `0`', () => {
     render(<VirtualInput value={0 as any} placeholder='placeholder' />)
     expect(screen.queryByText('placeholder')).toBeNull()
+  })
+
+  test('Controlled VirtualInput caret position should changed by click', async () => {
+    const KeyBoardClassPrefix = 'adm-number-keyboard'
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('1234')
+      return (
+        <VirtualInput
+          data-testid='virtualInput'
+          clearable
+          value={value}
+          onChange={setValue}
+          keyboard={<NumberKeyboard confirmText='确定' />}
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByTestId('virtualInput')
+    fireEvent.focus(input)
+
+    await waitFor(() => {
+      expect(
+        document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+      ).toBeVisible()
+    })
+
+    // click '5' by keyboard，content should be '12345'
+    fireEvent.touchEnd(screen.getByText('5'))
+    expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
+      '12345'
+    )
+    const caretContainer = input.querySelector(
+      `.${classPrefix}-caret-container`
+    )
+
+    if (caretContainer != null) {
+      expect(getCaretPosition(caretContainer)).toBe(5)
+
+      // click '3' in inputbox, caret position should be 3
+      const { prevElements } = getSiblingElements(caretContainer)
+      if (prevElements[2]) {
+        fireEvent.click(prevElements[2])
+      }
+      await waitFor(() => {
+        expect(
+          document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+        ).toBeVisible()
+      })
+      expect(getCaretPosition(caretContainer)).toBe(3)
+
+      // click '9' by keyboard, content should be '123945', caret position should be 4
+      fireEvent.touchEnd(screen.getByText('9'))
+      await waitFor(() => {
+        expect(
+          document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+        ).toBeVisible()
+      })
+      expect(
+        document.querySelector(`.${classPrefix}-content`)
+      ).toHaveTextContent('123945')
+      expect(getCaretPosition(caretContainer)).toBe(4)
+
+      // click delete by keyboard, content should be '12345', caret position should be 3
+      fireEvent.touchEnd(screen.getByTitle('清除'))
+      await waitFor(() => {
+        expect(
+          document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+        ).toBeVisible()
+      })
+      expect(
+        document.querySelector(`.${classPrefix}-content`)
+      ).toHaveTextContent('12345')
+      expect(getCaretPosition(caretContainer)).toBe(3)
+    }
+  })
+
+  test('caret position should changed by click', async () => {
+    const KeyBoardClassPrefix = 'adm-number-keyboard'
+    const Wrapper = () => {
+      return (
+        <VirtualInput
+          data-testid='virtualInput'
+          clearable
+          keyboard={<NumberKeyboard confirmText='确定' />}
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByTestId('virtualInput')
+    fireEvent.focus(input)
+
+    await waitFor(() => {
+      expect(
+        document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+      ).toBeVisible()
+    })
+
+    // click '1', '2', '3' by keyboard，content should be '123'
+    fireEvent.touchEnd(screen.getByText('1'))
+    fireEvent.touchEnd(screen.getByText('2'))
+    fireEvent.touchEnd(screen.getByText('3'))
+    expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
+      '123'
+    )
+    const caretContainer = input.querySelector(
+      `.${classPrefix}-caret-container`
+    )
+
+    if (caretContainer != null) {
+      expect(getCaretPosition(caretContainer)).toBe(3)
+
+      // click '1' in inputbox, caret position should be 1
+      const { prevElements } = getSiblingElements(caretContainer)
+      if (prevElements[0]) {
+        fireEvent.click(prevElements[0])
+      }
+      await waitFor(() => {
+        expect(
+          document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+        ).toBeVisible()
+      })
+      expect(getCaretPosition(caretContainer)).toBe(1)
+
+      // click '9' by keyboard, content should be '1923', caret position should be 2
+      fireEvent.touchEnd(screen.getByText('9'))
+      await waitFor(() => {
+        expect(
+          document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+        ).toBeVisible()
+      })
+      expect(
+        document.querySelector(`.${classPrefix}-content`)
+      ).toHaveTextContent('1923')
+      expect(getCaretPosition(caretContainer)).toBe(2)
+
+      // click delete by keyboard, content should be '123', caret position should be 1
+      fireEvent.touchEnd(screen.getByTitle('清除'))
+      await waitFor(() => {
+        expect(
+          document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+        ).toBeVisible()
+      })
+      expect(
+        document.querySelector(`.${classPrefix}-content`)
+      ).toHaveTextContent('123')
+      expect(getCaretPosition(caretContainer)).toBe(1)
+    }
   })
 })
