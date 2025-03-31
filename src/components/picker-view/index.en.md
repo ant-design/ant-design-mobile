@@ -17,6 +17,7 @@ PickerView is the content area of [Picker](/components/picker/#picker).
 | columns | Options to configure each column | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | - |
 | defaultValue | Default selected options | `PickerValue[]` | `[]` |
 | mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
+| wheelResistance | Enable increased resistance to scrolling when selecting through mouse wheel | `boolean` | `true` |
 | onChange | Triggered when the options are changed | `(value: PickerValue[], extend: PickerValueExtend) => void` | - |
 | renderLabel | The function to custom rendering the label shown on a column | `(item: PickerColumnItem) => ReactNode` | `(item) => item.label` |
 | value | Selected options | `PickerValue[]` | - |
@@ -82,6 +83,7 @@ type PickerDate = Date & {
 | max | Max value | `PickerDate` | ten years later |
 | min | Minimum value | `PickerDate` | ten years ago |
 | mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
+| wheelResistance | Enable increased resistance to scrolling when selecting through mouse wheel | `boolean` | `true` |
 | onChange | Triggered when the options are changed | `(value: PickerDate) => void` | - |
 | precision | Precision | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day' \| 'quarter'` | `'day'` |
 | renderLabel | The function to custom rendering the label shown on a column. `type` means any value in `precision`, `data` means the default number | `(type: string, data: number) => ReactNode` | - |

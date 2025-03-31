@@ -46,6 +46,7 @@ type PickerValueExtend = {
 | destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | forceRender | Render content forcely | `boolean` | `false` |
 | mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
+| wheelResistance | Enable increased resistance to scrolling when selecting through mouse wheel | `boolean` | `true` |
 | onCancel | Triggered when cancelling | `() => void` | - |
 | onClose | Triggered when confirming or cancelling | `() => void` | - |
 | onConfirm | Triggered when confirming | `(value: PickerValue[], extend: PickerValueExtend) => void` | - |
@@ -160,6 +161,7 @@ type PickerDate = Date & {
 | max | Max value | `PickerDate` | ten years later |
 | min | Minimum value | `PickerDate` | ten years ago |
 | mouseWheel | Whether to allow interact with mouse wheel | `boolean` | `false` |
+| wheelResistance | Enable increased resistance to scrolling when selecting through mouse wheel | `boolean` | `true` |
 | onConfirm | Triggered when confirming | `(value: PickerDate) => void` | - |
 | onSelect | Triggered when the options are changed | `(value: PickerDate) => void` | - |
 | precision | Precision | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day' \| 'quarter'` | `'day'` |

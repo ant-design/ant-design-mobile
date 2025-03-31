@@ -17,7 +17,7 @@ PickerView 是 [Picker](/zh/components/picker/#picker) 的内容区域。
 | columns | 配置每一列的选项 | `PickerColumn[] \| ((value: PickerValue[]) => PickerColumn[])` | - |
 | defaultValue | 默认选中项 | `PickerValue[]` | `[]` |
 | mouseWheel | 是否允许通过鼠标滚轮进行选择 | `boolean` | `false` |
-| resistance | 通过鼠标滚轮进行选择时有段落感（mouseWheel 为 true 时生效） | `boolean` | `true` |
+| wheelResistance | 启用通过鼠标滚轮进行选择时，增强滚动的段落感 | `boolean` | `true` |
 | onChange | 选项改变时触发 | `(value: PickerValue[], extend: PickerValueExtend) => void` | - |
 | renderLabel | 自定义渲染每列展示的内容 | `(item: PickerColumnItem) => ReactNode` | `(item) => item.label` |
 | value | 选中项 | `PickerValue[]` | - |
@@ -83,7 +83,7 @@ type PickerDate = Date & {
 | max | 最大值 | `PickerDate` | 十年后 |
 | min | 最小值 | `PickerDate` | 十年前 |
 | mouseWheel | 是否允许通过鼠标滚轮进行选择 | `boolean` | `false` |
-| resistance | 通过鼠标滚轮进行选择时有段落感（mouseWheel 为 true 时生效） | `boolean` | `true` |
+| wheelResistance | 启用通过鼠标滚轮进行选择时，增强滚动的段落感 | `boolean` | `true` |
 | onChange | 选项改变时触发 | `(value: PickerDate) => void` | - |
 | precision | 精度 | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day' \| 'quarter'` | `'day'` |
 | renderLabel | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值，`data` 参数为默认渲染的数字 | `(type: string, data: number) => ReactNode` | - |

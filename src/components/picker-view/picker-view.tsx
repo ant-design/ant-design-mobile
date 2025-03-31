@@ -31,7 +31,7 @@ export type PickerViewProps = {
   value?: PickerValue[]
   defaultValue?: PickerValue[]
   mouseWheel?: boolean
-  resistance?: boolean
+  wheelResistance?: boolean
   loading?: boolean
   loadingContent?: ReactNode
   onChange?: (value: PickerValue[], extend: PickerValueExtend) => void
@@ -42,7 +42,7 @@ const defaultProps = {
   defaultValue: [],
   renderLabel: defaultRenderLabel,
   mouseWheel: false,
-  resistance: true,
+  wheelResistance: true,
   loadingContent: (
     <div className={`${classPrefix}-loading-content`}>
       <SpinLoading />
@@ -116,7 +116,7 @@ export const PickerView = memo<PickerViewProps>(p => {
               onSelect={handleSelect}
               renderLabel={props.renderLabel}
               mouseWheel={props.mouseWheel}
-              resistance={props.resistance}
+              wheelResistance={props.wheelResistance}
             />
           ))}
           <div className={`${classPrefix}-mask`}>

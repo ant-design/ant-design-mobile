@@ -44,7 +44,7 @@ export type DatePickerProps = Pick<
   | 'stopPropagation'
   | 'style'
   | 'mouseWheel'
-  | 'resistance'
+  | 'wheelResistance'
   | 'forceRender'
   | 'destroyOnClose'
 > & {
@@ -151,7 +151,7 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
         title={props.title}
         stopPropagation={props.stopPropagation}
         mouseWheel={props.mouseWheel}
-        resistance={props.resistance}
+        wheelResistance={props.wheelResistance}
         destroyOnClose={props.destroyOnClose}
         forceRender={props.forceRender}
       >
