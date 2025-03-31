@@ -57,6 +57,7 @@ export type PickerProps = {
   ) => ReactNode
   renderLabel?: (item: PickerColumnItem) => ReactNode
   mouseWheel?: boolean
+  resistance?: boolean
   popupClassName?: string
   popupStyle?: CSSProperties
 } & Pick<
@@ -188,6 +189,7 @@ export const Picker = memo(
             renderLabel={props.renderLabel}
             value={innerValue}
             mouseWheel={props.mouseWheel}
+            resistance={props.resistance}
             onChange={onChange}
           />
         </div>

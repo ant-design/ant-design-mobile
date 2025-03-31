@@ -22,7 +22,7 @@ export type RenderLabel = (type: Precision | 'now', data: number) => ReactNode
 
 export type DatePickerViewProps = Pick<
   PickerViewProps,
-  'style' | 'mouseWheel' | 'loading' | 'loadingContent'
+  'style' | 'mouseWheel' | 'resistance' | 'loading' | 'loadingContent'
 > & {
   value?: PickerDate
   defaultValue?: PickerDate
@@ -91,6 +91,7 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
       loadingContent={props.loadingContent}
       value={pickerValue}
       mouseWheel={props.mouseWheel}
+      resistance={props.resistance}
       onChange={onChange}
     />
   )
