@@ -175,10 +175,33 @@ describe('VirtualInput', () => {
     if (caretContainer != null) {
       expect(getCaretPosition(caretContainer)).toBe(5)
 
-      // click '3' in inputbox, caret position should be 3
+      // click '3' right side in inputbox, caret position should be 3
       const { prevElements } = getSiblingElements(caretContainer)
       if (prevElements[2]) {
-        fireEvent.click(prevElements[2])
+        const e = new MouseEvent('click', {
+          bubbles: true,
+          cancelable: true,
+        })
+        Object.defineProperties(e, {
+          clientX: { value: 118 },
+        })
+
+        const rect = {
+          top: 0,
+          right: 200,
+          bottom: 20,
+          left: 100,
+          x: 100,
+          y: 0,
+          width: 20,
+          height: 20,
+          toJSON: () => {},
+        }
+        jest
+          .spyOn(prevElements[2], 'getBoundingClientRect')
+          .mockReturnValue(rect)
+
+        prevElements[2].dispatchEvent(e)
       }
       await waitFor(() => {
         expect(
@@ -248,19 +271,42 @@ describe('VirtualInput', () => {
     if (caretContainer != null) {
       expect(getCaretPosition(caretContainer)).toBe(3)
 
-      // click '1' in inputbox, caret position should be 1
+      // click '1' left side in inputbox, caret position should be 0
       const { prevElements } = getSiblingElements(caretContainer)
       if (prevElements[0]) {
-        fireEvent.click(prevElements[0])
+        const e = new MouseEvent('click', {
+          bubbles: true,
+          cancelable: true,
+        })
+        Object.defineProperties(e, {
+          clientX: { value: 102 },
+        })
+
+        const rect = {
+          top: 0,
+          right: 200,
+          bottom: 20,
+          left: 100,
+          x: 100,
+          y: 0,
+          width: 20,
+          height: 20,
+          toJSON: () => {},
+        }
+        jest
+          .spyOn(prevElements[0], 'getBoundingClientRect')
+          .mockReturnValue(rect)
+
+        prevElements[0].dispatchEvent(e)
       }
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
         ).toBeVisible()
       })
-      expect(getCaretPosition(caretContainer)).toBe(1)
+      expect(getCaretPosition(caretContainer)).toBe(0)
 
-      // click '9' by keyboard, content should be '1923', caret position should be 2
+      // click '9' by keyboard, content should be '9123', caret position should be 1
       fireEvent.touchEnd(screen.getByText('9'))
       await waitFor(() => {
         expect(
@@ -269,8 +315,8 @@ describe('VirtualInput', () => {
       })
       expect(
         document.querySelector(`.${classPrefix}-content`)
-      ).toHaveTextContent('1923')
-      expect(getCaretPosition(caretContainer)).toBe(2)
+      ).toHaveTextContent('9123')
+      expect(getCaretPosition(caretContainer)).toBe(1)
 
       // click delete by keyboard, content should be '123', caret position should be 1
       fireEvent.touchEnd(screen.getByTitle('清除'))
@@ -282,7 +328,7 @@ describe('VirtualInput', () => {
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('123')
-      expect(getCaretPosition(caretContainer)).toBe(1)
+      expect(getCaretPosition(caretContainer)).toBe(0)
     }
   })
 })
