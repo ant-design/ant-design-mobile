@@ -157,8 +157,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           // 点击区域是否偏右
           const isRight = clickX > midX
 
-          console.log(isRight, clickX, midX, rect)
-
           setCaretPosition(isRight ? index + 1 : index)
         }
       }
