@@ -329,6 +329,15 @@ describe('VirtualInput', () => {
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('123')
       expect(getCaretPosition(caretContainer)).toBe(0)
+
+      // click input box, caret position should be 3
+      fireEvent.click(document.querySelector(`.${classPrefix}-content`) as any)
+      await waitFor(() => {
+        expect(
+          document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+        ).toBeVisible()
+      })
+      expect(getCaretPosition(caretContainer)).toBe(3)
     }
   })
 })

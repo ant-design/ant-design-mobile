@@ -142,24 +142,23 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         getContainer: null,
       } as NumberKeyboardProps)
 
-    const changeCaretPosition =
-      (index: number, isParent?: boolean) => (e: React.MouseEvent) => {
-        e.stopPropagation()
+    // 点击输入框时，将光标置于最后
+    const setCaretPositionToEnd = () => {
+      setCaretPosition(value.length)
+    }
 
-        if (isParent) {
-          // 点击输入框时，将光标置于最后
-          setCaretPosition(index + 1)
-        } else {
-          // 点击单个字符时，根据点击位置置于字符前或后
-          const rect = (e.target as HTMLElement).getBoundingClientRect()
-          const midX = rect.left + rect.width / 2
-          const clickX = e.clientX
-          // 点击区域是否偏右
-          const isRight = clickX > midX
+    // 点击单个字符时，根据点击位置置于字符前或后
+    const changeCaretPosition = (index: number) => (e: React.MouseEvent) => {
+      e.stopPropagation()
 
-          setCaretPosition(isRight ? index + 1 : index)
-        }
-      }
+      const rect = (e.target as HTMLElement).getBoundingClientRect()
+      const midX = rect.left + rect.width / 2
+      const clickX = e.clientX
+      // 点击区域是否偏右
+      const isRight = clickX > midX
+
+      setCaretPosition(isRight ? index + 1 : index)
+    }
 
     const chars = (value + '').split('')
 
@@ -181,7 +180,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           ref={contentRef}
           aria-disabled={mergedProps.disabled}
           aria-label={mergedProps.placeholder}
-          onClick={changeCaretPosition(value.length - 1, true)}
+          onClick={setCaretPositionToEnd}
         >
           {chars.slice(0, caretPosition).map((i: string, index: number) => (
             <span key={index} onClick={changeCaretPosition(index)}>
