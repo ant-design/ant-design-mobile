@@ -35,7 +35,7 @@ export type ButtonProps = {
   children?: ReactNode
 } & Pick<
   NativeButtonProps,
-  'onMouseDown' | 'onMouseUp' | 'onTouchStart' | 'onTouchEnd' | 'id'
+  'onMouseDown' | 'onMouseUp' | 'onTouchStart' | 'onTouchEnd' | 'id' | 'form'
 > &
   NativeProps<
     | '--text-color'
@@ -96,6 +96,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
     <button
       ref={nativeButtonRef}
       type={props.type}
+      form={props.form}
       onClick={handleClick}
       className={classNames(
         classPrefix,

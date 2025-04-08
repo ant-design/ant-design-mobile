@@ -30,7 +30,7 @@ Marks or encapsulates a group of operation commands, responds to user click beha
 | size | The size of the button. | `'mini' \| 'small' \| 'middle' \| 'large'` | `'middle'` |
 | type | The `type` prop of native `button` element. | `'submit' \| 'reset' \| 'button'` | `'button'` |
 
-In addition, the following properties of the native `button` element are supported: `onMouseDown` `onMouseUp` `onTouchStart` `onTouchEnd`.
+In addition, the following properties of the native `button` element are supported: `onMouseDown` `onMouseUp` `onTouchStart` `onTouchEnd` `form`.
 
 ### CSS Variables
 
