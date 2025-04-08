@@ -56,6 +56,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
     const [hasFocus, setHasFocus] = useState(false)
+    const [caretPosition, setCaretPosition] = useState(value.length) // 光标位置，从 0 开始，如值是 2 则表示光标在顺序下标为 2 的数字之前
 
     const clearIcon = mergeProp(
       <CloseCircleFill />,
@@ -107,11 +108,21 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       keyboard &&
       React.cloneElement(keyboard, {
         onInput: v => {
-          setValue(value + v)
+          const newValue =
+            value.substring(0, caretPosition) +
+            v +
+            value.substring(caretPosition)
+          setValue(newValue)
+          setCaretPosition((c: number) => c + 1)
           keyboard.props.onInput?.(v)
         },
         onDelete: () => {
-          setValue(value.slice(0, -1))
+          if (caretPosition === 0) return
+          const newValue =
+            value.substring(0, caretPosition - 1) +
+            value.substring(caretPosition)
+          setValue(newValue)
+          setCaretPosition(caretPosition - 1)
           keyboard.props.onDelete?.()
         },
         visible: hasFocus,
@@ -131,6 +142,26 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         getContainer: null,
       } as NumberKeyboardProps)
 
+    // 点击输入框时，将光标置于最后
+    const setCaretPositionToEnd = () => {
+      setCaretPosition(value.length)
+    }
+
+    // 点击单个字符时，根据点击位置置于字符前或后
+    const changeCaretPosition = (index: number) => (e: React.MouseEvent) => {
+      e.stopPropagation()
+
+      const rect = (e.target as HTMLElement).getBoundingClientRect()
+      const midX = rect.left + rect.width / 2
+      const clickX = e.clientX
+      // 点击区域是否偏右
+      const isRight = clickX > midX
+
+      setCaretPosition(isRight ? index + 1 : index)
+    }
+
+    const chars = (value + '').split('')
+
     return withNativeProps(
       mergedProps,
       <div
@@ -149,11 +180,24 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           ref={contentRef}
           aria-disabled={mergedProps.disabled}
           aria-label={mergedProps.placeholder}
+          onClick={setCaretPositionToEnd}
         >
-          {value}
+          {chars.slice(0, caretPosition).map((i: string, index: number) => (
+            <span key={index} onClick={changeCaretPosition(index)}>
+              {i}
+            </span>
+          ))}
           <div className={`${classPrefix}-caret-container`}>
             {hasFocus && <div className={`${classPrefix}-caret`} />}
           </div>
+          {chars.slice(caretPosition).map((i: string, index: number) => (
+            <span
+              key={index}
+              onClick={changeCaretPosition(index + caretPosition)}
+            >
+              {i}
+            </span>
+          ))}
         </div>
         {mergedProps.clearable && !!value && hasFocus && (
           <div
@@ -161,6 +205,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             onClick={e => {
               e.stopPropagation()
               setValue('')
+              setCaretPosition(0)
               mergedProps.onClear?.()
             }}
             role='button'
