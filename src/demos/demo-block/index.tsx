@@ -1,5 +1,5 @@
-import React from 'react'
 import type { FC, ReactNode } from 'react'
+import React from 'react'
 import styles from './index.less'
 
 interface Props {
@@ -9,24 +9,24 @@ interface Props {
   children?: ReactNode
 }
 
-export const DemoBlock: FC<Props> = props => {
+export const DemoBlock: FC<Props> = ({
+  title,
+  padding = '12px 12px',
+  background = 'var(--adm-color-background)',
+  children,
+}) => {
   return (
     <div className={styles.demoBlock}>
-      <div className={styles.title}>{props.title}</div>
+      <div className={styles.title}>{title}</div>
       <div
         className={styles.main}
         style={{
-          padding: props.padding,
-          background: props.background,
+          padding,
+          background,
         }}
       >
-        {props.children}
+        {children}
       </div>
     </div>
   )
-}
-
-DemoBlock.defaultProps = {
-  padding: '12px 12px',
-  background: 'var(--adm-color-background)',
 }
