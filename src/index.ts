@@ -242,3 +242,6 @@ export type { FooterProps } from './components/footer'
 export { createErrorBlock } from './components/error-block'
 
 export { reduceMotion, restoreMotion } from './utils/reduce-and-restore-motion'
+
+// compatible
+export { unstableSetRender } from './utils/unstable-render'
