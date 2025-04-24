@@ -17,7 +17,7 @@ const defaultReactRender: RenderType = (node, container) => {
 
     warningOnce(
       majorVersion < 19 || fullKeys.includes('createRoot'),
-      `[Compatible] antd-mobile v5 support React is 16 ~ 18. see https://github.com/ant-design/ant-design-mobile/pull/6860 for compatible.`
+      `[Compatible] antd-mobile v5 support React is 16 ~ 18. see https://mobile.ant.design/guide/v5-for-19 for compatible.`
     )
   }
 
