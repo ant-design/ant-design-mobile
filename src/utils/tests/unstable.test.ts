@@ -25,8 +25,10 @@ describe('unstable', () => {
 
   it('unstableSetRender', async () => {
     if (ReactDOM.version.startsWith('19')) {
+      const mock = jest.fn()
       unstableSetRender((node, container) => {
         const root = (ReactDOM as any).createRoot(container)
+        mock()
         root.render(node)
         return async () => {
           root.unmount()
@@ -37,6 +39,7 @@ describe('unstable', () => {
 
       await waitFakeTimer19()
 
+      expect(mock).toBeCalledTimes(1)
       expect(screen.getByRole('dialog')).toBeTruthy()
     }
   })
