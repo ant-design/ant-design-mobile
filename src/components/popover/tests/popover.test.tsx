@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { render, cleanup, fireEvent } from 'testing'
+import { fireEvent, render } from 'testing'
 import Popover from '..'
 import Button from '../../button'
 
 describe('Popover', () => {
   test('Touch outside to move should close Popover', () => {
-    const { container } = render(
+    render(
       <Popover content='Bamboo' trigger='click' defaultVisible>
         <Button />
       </Popover>

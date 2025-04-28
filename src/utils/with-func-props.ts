@@ -4,7 +4,7 @@ type Merge<T, P> = {
 
 export function mergeFuncProps<
   T extends Record<string, any>,
-  P extends Record<string, any>
+  P extends Record<string, any>,
 >(p1: T, p2: P): Merge<T, P> {
   const p1Keys = Object.keys(p1)
   const p2Keys = Object.keys(p2)

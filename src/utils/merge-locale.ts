@@ -13,7 +13,7 @@ export function mergeLocale<T extends object, P extends object>(
     }
     const result: any = {}
     for (const key in a) {
-      if (a.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(a, key)) {
         result[key] = merge(a[key], b[key])
       }
     }

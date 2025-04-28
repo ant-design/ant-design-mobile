@@ -7,7 +7,7 @@ import SpinLoading from '../spin-loading'
 import { useConfig } from '../config-provider'
 import type { ImageProps } from '../image'
 
-type Props = {
+interface Props {
   onClick?: () => void
   onDelete?: () => void
   deletable: boolean

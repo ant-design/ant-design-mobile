@@ -14,21 +14,21 @@ CalendarPickerView 是 [CalendarPicker](/zh/components/calendar-picker) 的内�
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowClear | 是否允许再次点击后清除 | `boolean` | `true` |
-| defaultValue | 默认选择的日期 | 同 `value` 属性 | - |
-| max | 可选择范围的最大值 | `Date` | - |
-| min | 可选择范围的最小值 | `Date` | - |
-| onChange | 选择日期变化时触发 | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | - |
-| renderTop | 日期顶部信息的渲染函数 | `((date: Date) => ReactNode \| null \| undefined) \| false` | - | `false`: 5.38.0 |
-| renderBottom | 日期底部信息的渲染函数 | `((date: Date) => ReactNode \| null \| undefined) \| false` | - | `false`: 5.38.0 |
-| selectionMode | 选择模式，不设置的话表示不支持选择 | `'single' \| 'range'` | - |
-| shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean` | - |
-| title | 日期选择器的标题 | `React.ReactNode` | `日期选择` |
-| value | 选择的日期 | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null` | - |
-| weekStartsOn | 每周以周几作为第一天 | `'Monday' \| 'Sunday'` | `'Sunday'` |
-| renderDate | 自定义日期渲染 | `(date: Date) => ReactNode` | - | 5.28.0 |
+| 属性              | 说明                                           | 类型                                                                                           | 默认值     | 版本            |
+| ----------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- | --------------- |
+| allowClear        | 是否允许再次点击后清除                         | `boolean`                                                                                      | `true`     |
+| defaultValue      | 默认选择的日期                                 | 同 `value` 属性                                                                                | -          |
+| max               | 可选择范围的最大值                             | `Date`                                                                                         | -          |
+| min               | 可选择范围的最小值                             | `Date`                                                                                         | -          |
+| onChange          | 选择日期变化时触发                             | 单选模式下为 `(val: Date \| null) => void`，多选模式下为 `(val: [Date, Date] \| null) => void` | -          |
+| renderTop         | 日期顶部信息的渲染函数                         | `((date: Date) => ReactNode \| null \| undefined) \| false`                                    | -          | `false`: 5.38.0 |
+| renderBottom      | 日期底部信息的渲染函数                         | `((date: Date) => ReactNode \| null \| undefined) \| false`                                    | -          | `false`: 5.38.0 |
+| selectionMode     | 选择模式，不设置的话表示不支持选择             | `'single' \| 'range'`                                                                          | -          |
+| shouldDisableDate | 判断日期是否可选，使用后会忽略 min 和 max 设置 | `(date: Date) => boolean`                                                                      | -          |
+| title             | 日期选择器的标题                               | `React.ReactNode`                                                                              | `日期选择` |
+| value             | 选择的日期                                     | 单选模式下为 `Date \| null`，多选模式下为 `[Date, Date] \| null`                               | -          |
+| weekStartsOn      | 每周以周几作为第一天                           | `'Monday' \| 'Sunday'`                                                                         | `'Sunday'` |
+| renderDate        | 自定义日期渲染                                 | `(date: Date) => ReactNode`                                                                    | -          | 5.28.0          |
 
 ### CSS 变量
 
@@ -36,11 +36,11 @@ CalendarPickerView 是 [CalendarPicker](/zh/components/calendar-picker) 的内�
 
 ### Ref
 
-| 属性 | 说明 | 类型 |
-| --- | --- | --- |
-| jumpTo | 跳转至指定日期的区间 | `(page: Page \| ((page: Page) => Page)) => void` |
-| jumpToToday | 跳转至今日 | `() => void` |
-| getDateRange | 获取日期 | `[Date, Date]` |
+| 属性         | 说明                 | 类型                                             |
+| ------------ | -------------------- | ------------------------------------------------ |
+| jumpTo       | 跳转至指定日期的区间 | `(page: Page \| ((page: Page) => Page)) => void` |
+| jumpToToday  | 跳转至今日           | `() => void`                                     |
+| getDateRange | 获取日期             | `[Date, Date]`                                   |
 
 ```ts
 type Page = { month: number; year: number }

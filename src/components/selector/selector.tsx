@@ -23,13 +23,13 @@ export type SelectorOption<V> = {
 } & BaseOptionType
 
 export type SelectorProps<V> = {
-  options: SelectorOption<V>[]
+  options: Array<SelectorOption<V>>
   columns?: GridProps['columns']
   multiple?: boolean
   disabled?: boolean
   defaultValue?: V[]
   value?: V[]
-  onChange?: (v: V[], extend: { items: SelectorOption<V>[] }) => void
+  onChange?: (v: V[], extend: { items: Array<SelectorOption<V>> }) => void
   showCheckMark?: boolean
   fieldNames?: FieldNamesType
 } & NativeProps<

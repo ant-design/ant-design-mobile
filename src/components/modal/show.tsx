@@ -7,7 +7,7 @@ export type ModalShowProps = Omit<
   'visible' | 'destroyOnClose' | 'forceRender'
 >
 
-export type ModalShowHandler = {
+export interface ModalShowHandler {
   close: () => void
 }
 

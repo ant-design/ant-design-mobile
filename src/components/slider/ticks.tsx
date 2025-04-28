@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 const classPrefix = `adm-slider`
 
-type TicksProps = {
+interface TicksProps {
   points: number[]
   max: number
   min: number

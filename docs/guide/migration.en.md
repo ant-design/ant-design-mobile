@@ -21,9 +21,9 @@ $ pnpm add antd-mobile-v2
 And then, replace everything that uses `antd-mobile` with `antd-mobile-v2`. For example:
 
 ```jsx
-import {Button} from 'antd-mobile'
+import { Button } from 'antd-mobile'
 // ⬇️
-import {Button} from 'antd-mobile-v2'
+import { Button } from 'antd-mobile-v2'
 ```
 
 Next, remove the old `antd-mobile` dependency. And try to run/test/build your project. Check if everything is working fine.
@@ -31,7 +31,7 @@ Next, remove the old `antd-mobile` dependency. And try to run/test/build your pr
 If you find that the component styles of v2 are lost at this time, you can manually import the style file in the entry file:
 
 ```js
-import 'antd-mobile-v2/dist/antd-mobile.less';  // or 'antd-mobile-v2/dist/antd-mobile.css'
+import 'antd-mobile-v2/dist/antd-mobile.less' // or 'antd-mobile-v2/dist/antd-mobile.css'
 ```
 
 Finally, reinstall the `antd-mobile` package as v5:

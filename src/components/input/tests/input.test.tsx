@@ -5,7 +5,7 @@ import ConfigProvider from '../../config-provider'
 import { InputRef } from '../input'
 
 jest.mock('../../../utils/validate', () => ({
-  isIOS: function () {
+  isIOS() {
     return true
   },
 }))

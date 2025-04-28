@@ -25,8 +25,8 @@ export type CascaderOption = {
   children?: CascaderOption[]
 } & BaseOptionType
 
-export type CascaderValueExtend = {
-  items: (CascaderOption | null)[]
+export interface CascaderValueExtend {
+  items: Array<CascaderOption | null>
   isLeaf: boolean
 }
 
@@ -67,10 +67,10 @@ export const CascaderView: FC<CascaderViewProps> = p => {
   const [tabActiveIndex, setTabActiveIndex] = useState(0)
 
   const levels = useMemo(() => {
-    const ret: {
+    const ret: Array<{
       selected: CascaderOption | undefined
       options: CascaderOption[]
-    }[] = []
+    }> = []
 
     let currentOptions = props.options
     let reachedEnd = false
@@ -134,7 +134,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
         className={`${classPrefix}-tabs`}
       >
         {levels.map((level, index) => {
-          const selected = level.selected
+          const { selected } = level
           return (
             <Tabs.Tab
               key={index.toString()}
@@ -143,8 +143,8 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                   {selected
                     ? selected[labelName]
                     : typeof placeholder === 'function'
-                    ? placeholder(index)
-                    : placeholder}
+                      ? placeholder(index)
+                      : placeholder}
                 </div>
               }
               forceRender

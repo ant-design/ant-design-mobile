@@ -1,12 +1,12 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
-import type { ReactNode } from 'react'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import runes from 'runes2'
+import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
+import { devError } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
-import { devError } from '../../utils/dev-log'
-import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
 
 const classPrefix = 'adm-text-area'
 
@@ -29,11 +29,16 @@ export type TextAreaProps = Pick<
 > & {
   onChange?: (val: string) => void
   value?: string
+
   defaultValue?: string
   placeholder?: string
+
   rows?: number
+
   maxLength?: number
+
   showCount?: boolean | ((length: number, maxLength?: number) => ReactNode)
+
   autoSize?:
     | boolean
     | {
@@ -59,7 +64,7 @@ export type TextAreaProps = Pick<
     | '--count-text-align'
   >
 
-export type TextAreaRef = {
+export interface TextAreaRef {
   clear: () => void
   focus: () => void
   blur: () => void
@@ -148,12 +153,12 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
         <div className={`${classPrefix}-count`}>
           {maxLength === undefined
             ? valueLength
-            : valueLength + '/' + maxLength}
+            : `${valueLength}/${maxLength}`}
         </div>
       )
     }
 
-    let rows = props.rows
+    let { rows } = props
     if (typeof autoSize === 'object') {
       if (autoSize.maxRows && rows > autoSize.maxRows) {
         rows = autoSize.maxRows

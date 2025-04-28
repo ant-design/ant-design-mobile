@@ -22,7 +22,7 @@ type NativeInputProps = React.DetailedHTMLProps<
   HTMLInputElement
 >
 
-type AriaProps = {
+interface AriaProps {
   // These props currently are only used internally. They are not exported to users:
   role?: string
 }
@@ -75,7 +75,7 @@ const defaultProps = {
   onlyShowClearWhenFocus: true,
 }
 
-export type InputRef = {
+export interface InputRef {
   clear: () => void
   focus: () => void
   blur: () => void

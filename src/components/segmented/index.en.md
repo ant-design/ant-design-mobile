@@ -15,14 +15,14 @@ This component is available since `antd-mobile@5.38.0`.
 
 ### Props
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| block | Option to fit width to its parent\'s width | boolean | false |
-| defaultValue | Default selected value | string \| number |  |
-| disabled | Disable all segments | boolean | false |
-| onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |
-| options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |
-| value | Currently selected value | string \| number |  |
+| Property     | Description                                                    | Type                                           | Default |
+| ------------ | -------------------------------------------------------------- | ---------------------------------------------- | ------- |
+| block        | Option to fit width to its parent\'s width                     | boolean                                        | false   |
+| defaultValue | Default selected value                                         | string \| number                               |         |
+| disabled     | Disable all segments                                           | boolean                                        | false   |
+| onChange     | The callback function that is triggered when the state changes | function(value: string \| number)              |         |
+| options      | Set children optional                                          | string\[] \| number\[] \| SegmentedItemType\[] | []      |
+| value        | Currently selected value                                       | string \| number                               |         |
 
 ### SegmentedItemType
 
@@ -36,12 +36,12 @@ This component is available since `antd-mobile@5.38.0`.
 
 ### CSS Variables
 
-| Name | Description | Default |
-| --- | --- | --- |
-| Name | Description | Default |
-| ------------------- | ---------------------- | ----------------------- |
-| --segmented-background | Background color | `var(--adm-color-fill-content)` |
-| --segmented-item-color | Text color of segment item | `var(--adm-color-text-secondary)` |
-| --segmented-item-selected-background | Background color of selected segment | `var(--adm-color-background)` |
-| --segmented-item-selected-color | Text color of selected segment item | `var(--adm-color-text)` |
-| --segmented-item-disabled-color | Text color of disabled segment item | `var(--adm-color-weak)` |
+| Name                                 | Description                          | Default                           |
+| ------------------------------------ | ------------------------------------ | --------------------------------- |
+| Name                                 | Description                          | Default                           |
+| -------------------                  | ----------------------               | -----------------------           |
+| --segmented-background               | Background color                     | `var(--adm-color-fill-content)`   |
+| --segmented-item-color               | Text color of segment item           | `var(--adm-color-text-secondary)` |
+| --segmented-item-selected-background | Background color of selected segment | `var(--adm-color-background)`     |
+| --segmented-item-selected-color      | Text color of selected segment item  | `var(--adm-color-text)`           |
+| --segmented-item-disabled-color      | Text color of disabled segment item  | `var(--adm-color-weak)`           |

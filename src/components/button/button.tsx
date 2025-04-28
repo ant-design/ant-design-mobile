@@ -46,7 +46,7 @@ export type ButtonProps = {
     | '--border-color'
   >
 
-export type ButtonRef = {
+export interface ButtonRef {
   nativeElement: HTMLButtonElement | null
 }
 

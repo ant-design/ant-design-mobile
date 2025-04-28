@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { render, fireEvent, sleep, screen, act } from 'testing'
-import PullToRefresh, { PullToRefreshProps, PullStatus } from '..'
 import { List } from 'antd-mobile'
+import React, { useState } from 'react'
+import { act, fireEvent, render, screen, sleep } from 'testing'
+import PullToRefresh, { PullStatus, PullToRefreshProps } from '..'
 
 const classPrefix = `adm-pull-to-refresh`
 
@@ -39,7 +39,7 @@ describe('PullToRefresh', () => {
     Object.setPrototypeOf(window, Window.prototype)
     getBoundingClientRectMock.mockReturnValue({
       height: 10,
-    } as DOMRect)
+    } as any)
   })
 
   afterAll(() => {

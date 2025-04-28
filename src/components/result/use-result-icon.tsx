@@ -8,7 +8,7 @@ import {
 } from 'antd-mobile-icons'
 import { useConfig } from '../config-provider'
 
-export type ResultIconProps = {}
+export interface ResultIconProps {}
 
 export const useResultIcon = (
   status?: 'success' | 'error' | 'info' | 'waiting' | 'warning'

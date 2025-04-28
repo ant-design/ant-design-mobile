@@ -17,19 +17,19 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| locale | 本地化文案 | `Locale` | [zh-CN] |
-| checkList | CheckList 配置 | `{ activeIcon?: ReactNode }` | - |
-| collapse | Collapse 配置 | `{ arrowIcon?: ReactNode \| ((active: boolean) => ReactNode) }` | - |
-| dropdown | Dropdown 配置 | `{ arrowIcon?: ReactNode }` | - |
-| form | Form 配置 | `{ helpIcon?: ReactNode }` | - |
-| input | Input 配置 | `{ clearIcon?: ReactNode }` | - |
-| list | List 配置 | `{ arrowIcon?: ReactNode }` | - |
-| navBar | NavBar 配置 | `{ backIcon?: ReactNode }` | - |
-| noticeBar | NoticeBar 配置 | `{ icon?: ReactNode, closeIcon?: ReactNode }` | - |
-| popup | Popup 配置 | `{ closeIcon?: ReactNode }` | - |
-| result | Result 配置 | `{ successIcon?: ReactNode, errorIcon?: ReactNode, infoIcon?: ReactNode, waitingIcon?: ReactNode, warningIcon?: ReactNode }` | - |
-| searchBar | SearchBar 配置 | `{ searchIcon?: ReactNode }` | - |
+| 属性      | 说明           | 类型                                                                                                                         | 默认值  |
+| --------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------- |
+| locale    | 本地化文案     | `Locale`                                                                                                                     | [zh-CN] |
+| checkList | CheckList 配置 | `{ activeIcon?: ReactNode }`                                                                                                 | -       |
+| collapse  | Collapse 配置  | `{ arrowIcon?: ReactNode \| ((active: boolean) => ReactNode) }`                                                              | -       |
+| dropdown  | Dropdown 配置  | `{ arrowIcon?: ReactNode }`                                                                                                  | -       |
+| form      | Form 配置      | `{ helpIcon?: ReactNode }`                                                                                                   | -       |
+| input     | Input 配置     | `{ clearIcon?: ReactNode }`                                                                                                  | -       |
+| list      | List 配置      | `{ arrowIcon?: ReactNode }`                                                                                                  | -       |
+| navBar    | NavBar 配置    | `{ backIcon?: ReactNode }`                                                                                                   | -       |
+| noticeBar | NoticeBar 配置 | `{ icon?: ReactNode, closeIcon?: ReactNode }`                                                                                | -       |
+| popup     | Popup 配置     | `{ closeIcon?: ReactNode }`                                                                                                  | -       |
+| result    | Result 配置    | `{ successIcon?: ReactNode, errorIcon?: ReactNode, infoIcon?: ReactNode, waitingIcon?: ReactNode, warningIcon?: ReactNode }` | -       |
+| searchBar | SearchBar 配置 | `{ searchIcon?: ReactNode }`                                                                                                 | -       |
 
 [zh-CN]: https://github.com/ant-design/ant-design-mobile/blob/master/src/locales/zh-CN.ts

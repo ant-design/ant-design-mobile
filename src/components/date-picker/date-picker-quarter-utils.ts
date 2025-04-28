@@ -40,14 +40,14 @@ export function generateDatePickerColumns(
   const generateColumn = (
     from: number,
     to: number,
-    precision: QuarterPrecision
+    precision_: QuarterPrecision
   ) => {
     let column: number[] = []
     for (let i = from; i <= to; i++) {
       column.push(i)
     }
-    const prefix = selected.slice(0, precisionRankRecord[precision])
-    const currentFilter = filter?.[precision]
+    const prefix = selected.slice(0, precisionRankRecord[precision_])
+    const currentFilter = filter?.[precision_]
     if (currentFilter && typeof currentFilter === 'function') {
       column = column.filter(i =>
         currentFilter(i, {

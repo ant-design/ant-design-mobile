@@ -34,7 +34,7 @@ const defaultProps = {
   indeterminate: false,
 }
 
-export type CheckboxRef = {
+export interface CheckboxRef {
   check: () => void
   uncheck: () => void
   toggle: () => void
@@ -50,7 +50,7 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
     defaultValue: props.defaultChecked,
     onChange: props.onChange,
   }) as [boolean, (v: boolean) => void]
-  let disabled = props.disabled
+  let { disabled } = props
 
   const { value } = props
   if (groupContext && value !== undefined) {

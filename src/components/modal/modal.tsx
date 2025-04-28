@@ -121,6 +121,6 @@ export const Modal: FC<ModalProps> = p => {
   )
 }
 
-function cls(name: string = '') {
-  return 'adm-modal' + (name && '-') + name
+function cls(name = '') {
+  return `adm-modal${name && '-'}${name}`
 }

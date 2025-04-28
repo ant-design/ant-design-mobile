@@ -32,26 +32,26 @@ type CascaderValueExtend = {
 }
 ```
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| activeIcon | The icon displayed when selected | `ReactNode` | - |
-| cancelText | Text of the cancel button | `ReactNode` | `'取消'` |
-| children | Render function of the selected options | `(items: CascaderOption[], actions: CascaderActions) => ReactNode` | - |
-| confirmText | Text of the ok button | `ReactNode` | `'确定'` |
-| defaultValue | Default selected options | `CascaderValue[]` | `[]` |
-| destroyOnClose | Destroy `dom` when not visible | `boolean` | `true` |
-| forceRender | Render content forcely | `boolean` | `false` |
-| onCancel | Triggered when cancelling | `() => void` | - |
-| onClose | Triggered when confirming or cancelling | `() => void` | - |
-| onConfirm | Triggered when confirming | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | - |
-| onSelect | Triggered when the selected options are changed | `(value: CascaderValue[], extend: CascaderValueExtend) => void` | - |
-| onTabsChange | Callback when switching panel | `(index: number) => void` | - |
-| options | Data of the cascade options | `CascaderOption[]` | - |
-| placeholder | Hint text | `string` | `'请选择'` |
-| title | Title | `ReactNode` | - |
-| value | Selected options | `CascaderValue[]` | - |
-| visible | Whether to show or hide the Picker | `boolean` | `false` |
-| loading | Open the skeleton screen | `boolean` | `false` |
+| Name           | Description                                     | Type                                                               | Default    |
+| -------------- | ----------------------------------------------- | ------------------------------------------------------------------ | ---------- |
+| activeIcon     | The icon displayed when selected                | `ReactNode`                                                        | -          |
+| cancelText     | Text of the cancel button                       | `ReactNode`                                                        | `'取消'`   |
+| children       | Render function of the selected options         | `(items: CascaderOption[], actions: CascaderActions) => ReactNode` | -          |
+| confirmText    | Text of the ok button                           | `ReactNode`                                                        | `'确定'`   |
+| defaultValue   | Default selected options                        | `CascaderValue[]`                                                  | `[]`       |
+| destroyOnClose | Destroy `dom` when not visible                  | `boolean`                                                          | `true`     |
+| forceRender    | Render content forcely                          | `boolean`                                                          | `false`    |
+| onCancel       | Triggered when cancelling                       | `() => void`                                                       | -          |
+| onClose        | Triggered when confirming or cancelling         | `() => void`                                                       | -          |
+| onConfirm      | Triggered when confirming                       | `(value: CascaderValue[], extend: CascaderValueExtend) => void`    | -          |
+| onSelect       | Triggered when the selected options are changed | `(value: CascaderValue[], extend: CascaderValueExtend) => void`    | -          |
+| onTabsChange   | Callback when switching panel                   | `(index: number) => void`                                          | -          |
+| options        | Data of the cascade options                     | `CascaderOption[]`                                                 | -          |
+| placeholder    | Hint text                                       | `string`                                                           | `'请选择'` |
+| title          | Title                                           | `ReactNode`                                                        | -          |
+| value          | Selected options                                | `CascaderValue[]`                                                  | -          |
+| visible        | Whether to show or hide the Picker              | `boolean`                                                          | `false`    |
+| loading        | Open the skeleton screen                        | `boolean`                                                          | `false`    |
 
 Please pay attention to the `children` property of `CascaderOption`. If the `children` of an `option` is `[]`, then when the user selects this `option`, the Cascader component will automatically jump to the next level, even if There are currently no options at this level (because Cascader has no way to determine whether this empty array will become an array with content in subsequent updates). Therefore, please make sure that the `children` property of the last level option (aka "leaf node") does not exist or has the value `undefined`, so that the Cascader component can correctly recognize it.
 

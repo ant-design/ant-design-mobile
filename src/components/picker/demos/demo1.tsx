@@ -6,7 +6,7 @@ import { basicColumns } from './columns-data'
 // 基础用法
 function BasicDemo() {
   const [visible, setVisible] = useState(false)
-  const [value, setValue] = useState<(string | null)[]>(['M'])
+  const [value, setValue] = useState<Array<string | null>>(['M'])
   return (
     <>
       <Button
@@ -32,7 +32,7 @@ function BasicDemo() {
 }
 
 function ActionsDemo() {
-  const [value, setValue] = useState<(string | null)[]>(['M'])
+  const [value, setValue] = useState<Array<string | null>>(['M'])
   return (
     <Picker
       columns={basicColumns}
@@ -48,7 +48,7 @@ function ActionsDemo() {
 
 // 渲染所选值
 function RenderChildrenDemo() {
-  const [value, setValue] = useState<(string | null)[]>([])
+  const [value, setValue] = useState<Array<string | null>>([])
   return (
     <Picker
       columns={basicColumns}

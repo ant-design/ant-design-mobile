@@ -22,7 +22,7 @@ describe('stepper', () => {
         />
       )
     }
-    render(<Element></Element>)
+    render(<Element />)
     const plusButton = screen.getByRole('button', { name: '增加' })
 
     // plus
@@ -200,7 +200,7 @@ describe('stepper', () => {
         })
       }, [])
 
-      return <Stepper digits={digits} defaultValue={1.23}></Stepper>
+      return <Stepper digits={digits} defaultValue={1.23} />
     }
     render(<Demo />)
     const input = screen.getByRole('spinbutton') as HTMLInputElement

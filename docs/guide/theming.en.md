@@ -38,9 +38,11 @@ import { Button } from 'antd-mobile'
 
 export default () => {
   return (
-    <div style={{
-      ['--adm-color-primary']: '#a062d4',
-    }}>
+    <div
+      style={{
+        ['--adm-color-primary']: '#a062d4',
+      }}
+    >
       <Button color='primary'>Purple</Button>
     </div>
   )
@@ -67,9 +69,10 @@ The following are the global CSS variables currently provided by antd-mobile:
 
   --adm-font-size-main: var(--adm-font-size-5);
 
-  --adm-font-family: -apple-system, blinkmacsystemfont, 'Helvetica Neue',
-  helvetica, segoe ui, arial, roboto, 'PingFang SC', 'miui',
-  'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+  --adm-font-family:
+    -apple-system, blinkmacsystemfont, 'Helvetica Neue', helvetica, segoe ui,
+    arial, roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
 }
 ```
 

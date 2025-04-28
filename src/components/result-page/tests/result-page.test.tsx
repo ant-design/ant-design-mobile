@@ -32,13 +32,17 @@ describe('ResultPage', () => {
     )
     expect(screen.getByText('title')).toBeInTheDocument()
     expect(screen.getByText('desc')).toBeInTheDocument()
-    expect(document.querySelector(`.${classPrefix}-detail`)).not.toBeInTheDocument()
+    expect(
+      document.querySelector(`.${classPrefix}-detail`)
+    ).not.toBeInTheDocument()
   })
 
   test('renders with no footer', () => {
     render(<ResultPage status='success' title='title' description='desc' />)
     expect(screen.getByText('title')).toBeInTheDocument()
     expect(screen.getByText('desc')).toBeInTheDocument()
-    expect(document.querySelector(`.${classPrefix}-footer`)).not.toBeInTheDocument()
+    expect(
+      document.querySelector(`.${classPrefix}-footer`)
+    ).not.toBeInTheDocument()
   })
 })

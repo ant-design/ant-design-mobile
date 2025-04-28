@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { render, testA11y, fireEvent, waitFor, cleanup, sleep } from 'testing'
-import ActionSheet, { Action } from '../'
-import Button from '../../button'
+import { cleanup, fireEvent, render, testA11y, waitFor } from 'testing'
 import type { ActionSheetProps, ActionSheetShowHandler } from '..'
+import ActionSheet, { Action } from '../'
 import {
   reduceMotion,
   restoreMotion,
 } from '../../../utils/reduce-and-restore-motion'
+import Button from '../../button'
 
 const classPrefix = `adm-action-sheet`
 
@@ -35,7 +35,7 @@ afterEach(cleanup)
 
 describe('ActionSheet', () => {
   test('a11y', async () => {
-    await testA11y(<ActionSheet visible={true} actions={actions} />)
+    await testA11y(<ActionSheet visible actions={actions} />)
   })
 
   test('basic usage', async () => {
@@ -155,7 +155,6 @@ describe('ActionSheet', () => {
   })
 
   test('should close after clicking the option', async () => {
-    const onClose = jest.fn()
     const { getByText, baseElement } = render(<App closeOnAction />)
 
     fireEvent.click(getByText('button'))
@@ -191,7 +190,7 @@ describe('ActionSheet', () => {
       {
         text: '删除',
         key: 'delete',
-        onClick: onClick,
+        onClick,
       },
     ]
 

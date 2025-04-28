@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y, fireEvent, waitFor, screen } from 'testing'
+import { fireEvent, render, screen } from 'testing'
 import Footer from '..'
 
 const classPrefix = `adm-footer`
@@ -13,7 +13,7 @@ describe('Footer', () => {
   })
 
   test('renders with custom label', () => {
-    render(<Footer label={<div className='custom-label'></div>} />)
+    render(<Footer label={<div className='custom-label' />} />)
     expect(document.querySelector('.custom-label')).toBeInTheDocument()
   })
 

@@ -6,7 +6,7 @@ import { CascadePickerOption } from 'antd-mobile/es/components/cascade-picker'
 export function AsyncDemo() {
   async function mockApi(key: string) {
     await sleep(1000)
-    return [key + '1', key + '2', key + '3']
+    return [`${key}1`, `${key}2`, `${key}3`]
   }
   const [options, setOptions] = useState<CascadePickerOption[]>([
     {

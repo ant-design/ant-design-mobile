@@ -95,9 +95,9 @@ describe('Toast', () => {
   test('position', async () => {
     const positions = ['top', 'bottom', 'center'] as const
     const obj = {
-      'top': '20%',
-      'bottom': '80%',
-      'center': '50%',
+      top: '20%',
+      bottom: '80%',
+      center: '50%',
     }
     const items = positions.map(position => (
       <button

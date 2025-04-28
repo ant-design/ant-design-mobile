@@ -1,23 +1,23 @@
 import React, { createRef, useState } from 'react'
 import {
-  render,
+  act,
   fireEvent,
-  waitFor,
+  render,
   screen,
   sleep,
-  act,
+  waitFor,
   waitForElementToBeRemoved,
 } from 'testing'
-import { basicColumns } from '../demos/columns-data'
-import Picker, { PickerRef, PickerColumnItem, PickerColumn } from '..'
+import Picker, { PickerRef } from '..'
 import Button from '../../button'
+import { basicColumns } from '../demos/columns-data'
 
 describe('Picker', () => {
   test('renderLabel works', async () => {
     const { baseElement } = render(
       <Picker
         columns={basicColumns}
-        visible={true}
+        visible
         renderLabel={item => {
           return item.value
         }}

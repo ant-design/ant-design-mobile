@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import { Image, InfiniteScroll, List } from 'antd-mobile'
 import type { CSSProperties } from 'react'
-import { List, Image, InfiniteScroll } from 'antd-mobile'
+import React, { useState } from 'react'
 import {
-  List as VirtualizedList,
   AutoSizer,
+  List as VirtualizedList,
   WindowScroller,
 } from 'react-virtualized'
 import { mockRequest } from './mock-request'
 
-type Item = {
+interface Item {
   avatar: string
   name: string
   description: string
@@ -39,8 +39,8 @@ export default () => {
     key: string
     style: CSSProperties
   }) {
-    const item = data[index]
-    if (!item) return
+    const item_ = data[index]
+    if (!item_) return
 
     return (
       <List.Item
@@ -48,16 +48,16 @@ export default () => {
         style={style}
         prefix={
           <Image
-            src={item.avatar}
+            src={item_.avatar}
             style={{ borderRadius: 20 }}
             fit='cover'
             width={40}
             height={40}
           />
         }
-        description={item.description}
+        description={item_.description}
       >
-        {item.name} {index}
+        {item_.name} {index}
       </List.Item>
     )
   }

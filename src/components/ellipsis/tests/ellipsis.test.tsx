@@ -136,17 +136,17 @@ describe('Ellipsis', () => {
 
   test('non-integer line height', () => {
     const rows = 2
-    const lineHeight = '16.4px'
+    const lineHeight_ = '16.4px'
 
     const { getByTestId } = render(
       <React.Fragment>
         <Ellipsis
           rows={rows}
-          style={{ lineHeight }}
+          style={{ lineHeight: lineHeight_ }}
           content={content}
           data-testid='ellipsis'
         />
-        <div style={{ lineHeight }} data-testid='maxheight'>
+        <div style={{ lineHeight: lineHeight_ }} data-testid='maxheight'>
           {content}
         </div>
       </React.Fragment>
@@ -154,7 +154,7 @@ describe('Ellipsis', () => {
 
     const { offsetHeight } = getByTestId('ellipsis') || {}
     const { offsetHeight: maxheight } = getByTestId('maxheight') || {}
-    const rowsHeight = Math.round(parseFloat(lineHeight) * rows)
+    const rowsHeight = Math.round(parseFloat(lineHeight_) * rows)
     const expectHeight = Math.min(rowsHeight, maxheight)
 
     expect(offsetHeight).toBe(expectHeight)

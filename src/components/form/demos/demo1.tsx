@@ -53,7 +53,7 @@ export default () => {
         <Form.Item
           name='delivery'
           label='送货上门'
-          valuePropName="checked"
+          valuePropName='checked'
           childElementPosition='right'
         >
           <Switch />

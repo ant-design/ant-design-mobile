@@ -48,7 +48,8 @@
         height: @s-btn;
         border-radius: 50%;
         background-color: #fd6458;
-        box-shadow: (@s-btn + @s-btn-gap) 0 0 #ffbf2b,
+        box-shadow:
+          (@s-btn + @s-btn-gap) 0 0 #ffbf2b,
           (@s-btn + @s-btn-gap) * 2 0 0 #24cc3d;
       }
     }
@@ -162,7 +163,9 @@
       cursor: pointer;
       opacity: 0.6;
       outline: none;
-      transition: opacity 0.2s, background 0.2s;
+      transition:
+        opacity 0.2s,
+        background 0.2s;
 
       [data-prefers-color='dark'] & {
         opacity: 1;
@@ -321,7 +324,9 @@
     position: absolute;
     height: 2px;
     background: @c-primary;
-    transition: left 0.2s, width 0.2s;
+    transition:
+      left 0.2s,
+      width 0.2s;
     pointer-events: none;
 
     [data-prefers-color='dark'] & {

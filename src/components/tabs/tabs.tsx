@@ -1,17 +1,17 @@
-import React, { isValidElement, useRef } from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
+import { animated, useSpring } from '@react-spring/web'
+import { useIsomorphicLayoutEffect, useThrottleFn } from 'ahooks'
 import classNames from 'classnames'
-import { useSpring, animated } from '@react-spring/web'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { usePropsValue } from '../../utils/use-props-value'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React, { isValidElement, useRef } from 'react'
 import { bound } from '../../utils/bound'
-import { useThrottleFn, useIsomorphicLayoutEffect } from 'ahooks'
-import { useMutationEffect } from '../../utils/use-mutation-effect'
-import { useResizeEffect } from '../../utils/use-resize-effect'
-import { mergeProps } from '../../utils/with-default-props'
-import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
 import { traverseReactNode } from '../../utils/traverse-react-node'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { useMutationEffect } from '../../utils/use-mutation-effect'
+import { usePropsValue } from '../../utils/use-props-value'
+import { useResizeEffect } from '../../utils/use-resize-effect'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tabs`
 
@@ -64,14 +64,14 @@ export const Tabs: FC<TabsProps> = p => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<TabProps>[] = []
+  const panes: Array<ReactElement<TabProps>> = []
 
   const isRTL = props.direction === 'rtl'
 
   traverseReactNode(props.children, (child, index) => {
     if (!isValidElement<TabProps>(child)) return
 
-    const key = child.key
+    const { key } = child
     if (typeof key !== 'string') return
     if (index === 0) {
       firstActiveKey = key
@@ -145,16 +145,16 @@ export const Tabs: FC<TabsProps> = p => {
 
     const activeLineWidth = activeLine.offsetWidth
 
-    let x = 0
-    let width = 0
+    let x_ = 0
+    let width_ = 0
     if (props.activeLineMode === 'auto') {
-      x = activeTabLeft
-      width = activeTabWidth
+      x_ = activeTabLeft
+      width_ = activeTabWidth
     } else if (props.activeLineMode === 'full') {
-      x = activeTabWrapperLeft
-      width = activeTabWrapperWidth
+      x_ = activeTabWrapperLeft
+      width_ = activeTabWrapperWidth
     } else {
-      x = activeTabLeft + (activeTabWidth - activeLineWidth) / 2
+      x_ = activeTabLeft + (activeTabWidth - activeLineWidth) / 2
     }
 
     if (isRTL) {
@@ -163,14 +163,14 @@ export const Tabs: FC<TabsProps> = p => {
        * https://github.com/Fog3211/reproduce-codesandbox/blob/f0a3396a114cc00e88a51a67d3be60a746519b30/assets/images/antd_mobile_tabs_rtl_x.jpg?raw=true
        */
       const w = ['auto', 'full'].includes(props.activeLineMode)
-        ? width
+        ? width_
         : activeLineWidth
-      x = -(containerWidth - x - w)
+      x_ = -(containerWidth - x_ - w)
     }
 
     inkApi.start({
-      x,
-      width,
+      x: x_,
+      width: width_,
       immediate,
     })
 
@@ -238,7 +238,7 @@ export const Tabs: FC<TabsProps> = p => {
       const container = tabListContainerRef.current
       if (!container) return
 
-      const scrollLeft = container.scrollLeft
+      const { scrollLeft: scrollLeft_ } = container
 
       let showLeftMask = false
       let showRightMask = false
@@ -250,13 +250,13 @@ export const Tabs: FC<TabsProps> = p => {
          * round(443.5) + 375 < 819
          */
         showLeftMask =
-          Math.round(-scrollLeft) + container.offsetWidth <
+          Math.round(-scrollLeft_) + container.offsetWidth <
           container.scrollWidth
-        showRightMask = scrollLeft < 0
+        showRightMask = scrollLeft_ < 0
       } else {
-        showLeftMask = scrollLeft > 0
+        showLeftMask = scrollLeft_ > 0
         showRightMask =
-          scrollLeft + container.offsetWidth < container.scrollWidth
+          scrollLeft_ + container.offsetWidth < container.scrollWidth
       }
 
       maskApi.start({

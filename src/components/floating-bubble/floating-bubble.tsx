@@ -7,7 +7,10 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 
 const classPrefix = `adm-floating-bubble`
 
-type Offset = { x: number; y: number }
+interface Offset {
+  x: number
+  y: number
+}
 
 export type FloatingBubbleProps = {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void

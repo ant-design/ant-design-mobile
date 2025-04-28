@@ -4,8 +4,8 @@ import { DemoBlock } from 'demos'
 import { defaultImage } from 'antd-mobile/es/components/error-block/images'
 
 const ErrorBlock = createErrorBlock({
-  'default': defaultImage,
-  'empty':
+  default: defaultImage,
+  empty:
     'https://gw.alipayobjects.com/zos/bmw-prod/7a2970f8-9247-4196-b3b3-2d0218c18b59.svg',
 })
 

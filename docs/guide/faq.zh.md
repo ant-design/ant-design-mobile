@@ -53,7 +53,7 @@ These dependencies were not found:
 在 `head` 中增加以下内容：
 
 ```html
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width" />
 ```
 
 或者增加以下全局样式：

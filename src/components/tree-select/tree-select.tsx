@@ -1,12 +1,12 @@
 import classNames from 'classnames'
-import React, { useMemo } from 'react'
 import type { FC } from 'react'
+import React, { useMemo } from 'react'
+import type { FieldNamesType } from '../../hooks'
+import { useFieldNames } from '../../hooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { getTreeDeep } from '../../utils/tree'
-import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import { useFieldNames } from '../../hooks'
-import type { FieldNamesType } from '../../hooks'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tree-select`
 
@@ -41,18 +41,18 @@ export const TreeSelect: FC<TreeSelectProps> = p => {
   })
 
   const [deep, optionsMap, optionsParentMap] = useMemo(() => {
-    const deep = getTreeDeep(props.options, childrenName)
+    const deep_ = getTreeDeep(props.options, childrenName)
 
-    const optionsMap = new Map<string, TreeSelectOption>()
-    const optionsParentMap = new Map<string, TreeSelectOption | undefined>()
+    const optionsMap_ = new Map<string, TreeSelectOption>()
+    const optionsParentMap_ = new Map<string, TreeSelectOption | undefined>()
 
     function traverse(
       current: TreeSelectOption | undefined,
       children: TreeSelectOption[]
     ) {
       children.forEach(item => {
-        optionsParentMap.set(item[valueName], current)
-        optionsMap.set(item[valueName], item)
+        optionsParentMap_.set(item[valueName], current)
+        optionsMap_.set(item[valueName], item)
         if (item[childrenName]) {
           traverse(item, item[childrenName])
         }
@@ -60,7 +60,7 @@ export const TreeSelect: FC<TreeSelectProps> = p => {
     }
     traverse(undefined, props.options)
 
-    return [deep, optionsMap, optionsParentMap]
+    return [deep_, optionsMap_, optionsParentMap_]
   }, [props.options])
 
   const onItemSelect = (node: TreeSelectOption) => {

@@ -15,7 +15,7 @@ export default () => {
     },
   ]
 
-  const Card = ResultPage.Card
+  const { Card } = ResultPage
 
   return (
     <ResultPage

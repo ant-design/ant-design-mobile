@@ -156,10 +156,7 @@ const Previewer: React.FC<IPreviewerProps> = oProps => {
               <Tabs.Tab
                 title={
                   filename === '_'
-                    ? `index.${getSourceType(
-                        filename,
-                        props.sources[filename]
-                      )}`
+                    ? `index.${getSourceType(filename, props.sources[filename])}`
                     : filename
                 }
                 key={filename}

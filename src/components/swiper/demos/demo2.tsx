@@ -48,9 +48,9 @@ export default () => {
         <Space direction='vertical' block>
           <Swiper
             indicator={(total, current) => (
-              <div className={styles.customIndicator}>
-                {`${current + 1} / ${total}`}
-              </div>
+              <div
+                className={styles.customIndicator}
+              >{`${current + 1} / ${total}`}</div>
             )}
           >
             {items}

@@ -22,7 +22,7 @@ import type { FieldNamesType } from '../../hooks'
 
 const classPrefix = `adm-cascader`
 
-export type CascaderActions = {
+export interface CascaderActions {
   open: () => void
   close: () => void
   toggle: () => void
@@ -44,7 +44,7 @@ export type CascaderProps = {
   cancelText?: ReactNode
   loading?: boolean
   children?: (
-    items: (CascaderOption | null)[],
+    items: Array<CascaderOption | null>,
     actions: CascaderActions
   ) => ReactNode
   onTabsChange?: (index: number) => void

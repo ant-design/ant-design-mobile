@@ -14,14 +14,14 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| align | 交叉轴对齐方式 | `'start' \| 'end' \| 'center' \| 'baseline'` | - |
-| block | 是否渲染为块级元素 | `boolean` | `false` |
-| direction | 间距方向 | `'vertical' \| 'horizontal'` | `'horizontal'` |
-| justify | 主轴对齐方式 | `'start' \| 'end' \| 'center' \| 'between' \| 'around' \| 'evenly' \| 'stretch'` | - |
-| onClick | 点击事件 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
-| wrap | 是否自动换行，仅在 `horizontal` 时有效 | `boolean` | `false` |
+| 属性      | 说明                                   | 类型                                                                             | 默认值         |
+| --------- | -------------------------------------- | -------------------------------------------------------------------------------- | -------------- |
+| align     | 交叉轴对齐方式                         | `'start' \| 'end' \| 'center' \| 'baseline'`                                     | -              |
+| block     | 是否渲染为块级元素                     | `boolean`                                                                        | `false`        |
+| direction | 间距方向                               | `'vertical' \| 'horizontal'`                                                     | `'horizontal'` |
+| justify   | 主轴对齐方式                           | `'start' \| 'end' \| 'center' \| 'between' \| 'around' \| 'evenly' \| 'stretch'` | -              |
+| onClick   | 点击事件                               | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void`                  | -              |
+| wrap      | 是否自动换行，仅在 `horizontal` 时有效 | `boolean`                                                                        | `false`        |
 
 ### CSS 变量
 

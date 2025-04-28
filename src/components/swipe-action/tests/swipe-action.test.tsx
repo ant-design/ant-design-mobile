@@ -27,7 +27,7 @@ const rightActions: Action[] = [
   },
 ]
 
-function swipe(el: Element, moveOptions: { clientX: number }[]) {
+function swipe(el: Element, moveOptions: Array<{ clientX: number }>) {
   mockDrag(el, [
     {
       clientX: 100,
@@ -62,7 +62,7 @@ describe('SwipeAction', () => {
 
   // Seems `react-spring` will block event handler. Just move this test case to the top
   test('manual return to the position', async () => {
-    const App = () => {
+    const App2 = () => {
       const ref = useRef<SwipeActionRef>(null)
 
       return (
@@ -89,7 +89,7 @@ describe('SwipeAction', () => {
         </SwipeAction>
       )
     }
-    const { getByTestId, getByText } = render(<App />)
+    const { getByTestId, getByText } = render(<App2 />)
     swipe(getByTestId('swipe'), [
       {
         clientX: 50,
@@ -140,7 +140,7 @@ describe('SwipeAction', () => {
   })
 
   test('ref.show', async () => {
-    const App = () => {
+    const App2 = () => {
       const ref = useRef<SwipeActionRef>(null)
       return (
         <>
@@ -156,7 +156,7 @@ describe('SwipeAction', () => {
         </>
       )
     }
-    const { getByText } = render(<App />)
+    const { getByText } = render(<App2 />)
 
     const track = document.querySelectorAll(`.${classPrefix}-track`)[0]
     fireEvent.click(getByText('left'))
@@ -171,7 +171,7 @@ describe('SwipeAction', () => {
   })
 
   test('content click should return to the position', async () => {
-    const { getByTestId, getByText } = render(<App />)
+    const { getByTestId } = render(<App />)
 
     swipe(getByTestId('swipe'), [
       {
@@ -224,7 +224,7 @@ describe('SwipeAction', () => {
 
   test('onActionsReveal should be called when the ref.show is called', async () => {
     const onActionsReveal = jest.fn()
-    const App = () => {
+    const App2 = () => {
       const ref = useRef<SwipeActionRef>(null)
       return (
         <>
@@ -239,7 +239,7 @@ describe('SwipeAction', () => {
         </>
       )
     }
-    const { getByText } = render(<App />)
+    const { getByText } = render(<App2 />)
 
     fireEvent.click(getByText('left'))
     await waitFor(() => {
@@ -250,7 +250,7 @@ describe('SwipeAction', () => {
 
   test('onActionsReveal should be called when the operation button is revealed', async () => {
     const onActionsReveal = jest.fn()
-    const App = () => {
+    const App2 = () => {
       return (
         <SwipeAction
           rightActions={rightActions}
@@ -263,7 +263,7 @@ describe('SwipeAction', () => {
       )
     }
 
-    const { getByTestId } = render(<App />)
+    const { getByTestId } = render(<App2 />)
 
     swipe(getByTestId('swipe'), [
       {

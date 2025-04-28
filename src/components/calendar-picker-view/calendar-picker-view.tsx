@@ -35,7 +35,7 @@ export const Context = React.createContext<{
   visible: false,
 })
 
-export type CalendarPickerViewRef = {
+export interface CalendarPickerViewRef {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
   getDateRange: () => DateRange
@@ -220,7 +220,7 @@ export const CalendarPickerView = forwardRef<
           : Array(presetEmptyCellCount)
               .fill(null)
               .map((_, index) => (
-                <div key={index} className={`${classPrefix}-cell`}></div>
+                <div key={index} className={`${classPrefix}-cell`} />
               ))
 
       cells.push(
@@ -239,6 +239,7 @@ export const CalendarPickerView = forwardRef<
             {/* 遍历每月 */}
             {Array(monthIterator.daysInMonth())
               .fill(null)
+              // eslint-disable-next-line no-loop-func
               .map((_, index) => {
                 const d = monthIterator.date(index + 1)
                 let isSelect = false

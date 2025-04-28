@@ -11,10 +11,10 @@ const imageRecord: Record<
   'default' | 'disconnected' | 'empty' | 'busy',
   ReactElement
 > = {
-  'default': defaultImage,
-  'disconnected': disconnectedImage,
-  'empty': emptyImage,
-  'busy': busyImage,
+  default: defaultImage,
+  disconnected: disconnectedImage,
+  empty: emptyImage,
+  busy: busyImage,
 }
 
 export const ErrorBlock = createErrorBlock(imageRecord)

@@ -1,33 +1,33 @@
-import React, {
-  useState,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-  memo,
-} from 'react'
-import type { ReactNode, CSSProperties } from 'react'
+import { useMemoizedFn } from 'ahooks'
 import classNames from 'classnames'
-import Popup, { PopupProps } from '../popup'
-import { mergeProps } from '../../utils/with-default-props'
+import type { CSSProperties, ReactNode } from 'react'
+import React, {
+  forwardRef,
+  memo,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import PickerView from '../picker-view'
+import {
+  generateColumnsExtend,
+  useColumnsExtend,
+} from '../picker-view/columns-extend'
+import Popup, { PopupProps } from '../popup'
+import SafeArea from '../safe-area'
 import {
   PickerColumn,
   PickerColumnItem,
   PickerValue,
   PickerValueExtend,
 } from './index'
-import PickerView from '../picker-view'
-import {
-  generateColumnsExtend,
-  useColumnsExtend,
-} from '../picker-view/columns-extend'
-import { useConfig } from '../config-provider'
-import { useMemoizedFn } from 'ahooks'
-import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
 
-export type PickerActions = {
+export interface PickerActions {
   open: () => void
   close: () => void
   toggle: () => void
@@ -52,7 +52,7 @@ export type PickerProps = {
   confirmText?: ReactNode
   cancelText?: ReactNode
   children?: (
-    items: (PickerColumnItem | null)[],
+    items: Array<PickerColumnItem | null>,
     actions: PickerActions
   ) => ReactNode
   renderLabel?: (item: PickerColumnItem) => ReactNode

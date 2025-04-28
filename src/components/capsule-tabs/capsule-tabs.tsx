@@ -35,11 +35,11 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<CapsuleTabProps>[] = []
+  const panes: Array<ReactElement<CapsuleTabProps>> = []
 
   traverseReactNode(props.children, (child, index) => {
     if (!isValidElement<CapsuleTabProps>(child)) return
-    const key = child.key
+    const { key } = child
     if (typeof key !== 'string') return
     if (index === 0) {
       firstActiveKey = key

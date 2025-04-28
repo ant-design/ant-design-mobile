@@ -39,11 +39,11 @@ export const TabBar: FC<TabBarProps> = p => {
 
   let firstActiveKey: string | null = null
 
-  const items: ReactElement<TabBarItemProps>[] = []
+  const items: Array<ReactElement<TabBarItemProps>> = []
 
   traverseReactNode(props.children, (child, index) => {
     if (!isValidElement<TabBarItemProps>(child)) return
-    const key = child.key
+    const { key } = child
     if (typeof key !== 'string') return
     if (index === 0) {
       firstActiveKey = key

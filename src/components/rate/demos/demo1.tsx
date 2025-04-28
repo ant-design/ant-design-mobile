@@ -21,7 +21,7 @@ export default () => {
       <DemoBlock title='清除'>
         <Space direction='vertical'>
           <Space align='center'>
-            <Rate defaultValue={3} allowClear={true} />
+            <Rate defaultValue={3} allowClear />
             <div>可清除</div>
           </Space>
           <Space align='center'>

@@ -156,7 +156,7 @@ export default function useMeasure(
 
   const allNodes = (
     <>
-      {/******************* Measure Prepare *******************/}
+      {/** ***************** Measure Prepare ****************** */}
       {/* Origin full content */}
       {status === MEASURE_STATUS.PREPARE && (
         <div key='full' aria-hidden ref={fullMeasureRef} style={measureStyle}>
@@ -177,7 +177,7 @@ export default function useMeasure(
         </div>
       )}
 
-      {/******************* Measure Walking *******************/}
+      {/** ***************** Measure Walking ****************** */}
       {status === MEASURE_STATUS.MEASURE_WALKING && (
         <div
           key='walking-mid'
@@ -189,7 +189,7 @@ export default function useMeasure(
         </div>
       )}
 
-      {/*********************** Display ***********************/}
+      {/** ********************* Display ********************** */}
       {/* Display content */}
       {finalContent}
     </>

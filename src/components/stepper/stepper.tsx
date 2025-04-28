@@ -1,32 +1,32 @@
-import classNames from 'classnames'
-import React, {
-  useEffect,
-  useState,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
-import { MinusOutline, AddOutline } from 'antd-mobile-icons'
-import { useMergedState } from 'rc-util'
 import getMiniDecimal, {
   toFixed,
   type DecimalClass,
 } from '@rc-component/mini-decimal'
+import { AddOutline, MinusOutline } from 'antd-mobile-icons'
+import classNames from 'classnames'
+import { useMergedState } from 'rc-util'
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import Input, { InputProps, InputRef } from '../input'
 import Button from '../button'
 import { useConfig } from '../config-provider'
+import Input, { InputProps, InputRef } from '../input'
 
 const classPrefix = `adm-stepper`
 
-type ValueProps<ValueType> = {
+interface ValueProps<ValueType> {
   allowEmpty: true
   value?: ValueType | null
   defaultValue?: ValueType | null
   onChange?: (value: ValueType | null) => void
 }
 
-type ValuePropsWithNull<ValueType> = {
+interface ValuePropsWithNull<ValueType> {
   allowEmpty?: false
   value?: ValueType
   defaultValue?: ValueType
@@ -128,15 +128,15 @@ export function InnerStepper<ValueType extends number | string>(
   }))
 
   // ========================== Parse / Format ==========================
-  const fixedValue = (value: ValueType): string => {
-    const fixedValue =
-      digits !== undefined ? toFixed(value.toString(), '.', digits) : value
+  const fixedValue = (val: ValueType): string => {
+    const fixedVal =
+      digits !== undefined ? toFixed(val.toString(), '.', digits) : val
 
-    return fixedValue.toString()
+    return fixedVal.toString()
   }
 
-  const getValueAsType = (value: DecimalClass) =>
-    (stringMode ? value.toString() : value.toNumber()) as ValueType
+  const getValueAsType = (val: DecimalClass) =>
+    (stringMode ? val.toString() : val.toNumber()) as ValueType
 
   const parseValue = (text: string): string | null => {
     if (text === '') return null
@@ -149,10 +149,10 @@ export function InnerStepper<ValueType extends number | string>(
     return decimal.isInvalidate() ? null : decimal.toString()
   }
 
-  const formatValue = (value: ValueType | null): string => {
-    if (value === null) return ''
+  const formatValue = (val: ValueType | null): string => {
+    if (val === null) return ''
 
-    return formatter ? formatter(value) : fixedValue(value)
+    return formatter ? formatter(val) : fixedValue(val)
   }
 
   // ======================== Value & InputValue ========================

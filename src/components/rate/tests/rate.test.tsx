@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y, fireEvent, screen, mockDrag } from 'testing'
+import { mockDrag, render, screen, testA11y } from 'testing'
 import Rate from '..'
 
 const classPrefix = `adm-rate`
@@ -14,7 +14,7 @@ describe('Rate', () => {
     getBoundingClientRectMock.mockReturnValue({
       left: 12,
       width: 155.9375,
-    } as DOMRect)
+    } as any)
   })
 
   test('a11y', async () => {

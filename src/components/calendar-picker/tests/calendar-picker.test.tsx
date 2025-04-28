@@ -31,7 +31,7 @@ describe('Calendar', () => {
     const fn = jest.fn()
     const { container, getAllByText } = render(
       <CalendarPicker
-        visible={true}
+        visible
         selectionMode='single'
         defaultValue={singleDate}
         min={mixDate}

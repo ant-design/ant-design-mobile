@@ -173,7 +173,7 @@ describe('NumberKeyboard', () => {
 
   test('long press backspace and release', () => {
     const onDelete = jest.fn()
-    const { container } = render(<NumberKeyboard visible onDelete={onDelete} />)
+    render(<NumberKeyboard visible onDelete={onDelete} />)
 
     // Fire touchstart event
     fireEvent.touchStart(

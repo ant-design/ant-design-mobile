@@ -48,12 +48,12 @@ jest.mock('../slide', () => {
 
 jest.mock('ahooks', () => {
   const origin = jest.requireActual('ahooks')
-  const { useState, useEffect } = jest.requireActual('react')
+  const { useState: useState_, useEffect } = jest.requireActual('react')
 
   return {
     ...origin,
     useSize: (target: React.RefObject<HTMLElement>) => {
-      const [, forceUpdate] = useState(0)
+      const [, forceUpdate] = useState_(0)
       useEffect(() => {
         forceUpdate((v: number) => v + 1)
       }, [target.current])
@@ -183,7 +183,7 @@ describe('ImageViewer.Multi', () => {
           defaultIndex={3}
           images={demoImages}
           onIndexChange={onIndexChange}
-        ></ImageViewer.Multi>
+        />
       )
     })
 
@@ -238,7 +238,7 @@ describe('ImageViewer.Multi', () => {
         <ImageViewer.Multi
           images={demoViewImages}
           visible
-          imageRender={(image, info) => (
+          imageRender={(img, info) => (
             <div className={`customize-preview-node-${info.index}`} />
           )}
         />
@@ -251,7 +251,7 @@ describe('ImageViewer.Multi', () => {
 
 describe('ImageViewer', () => {
   test('a11y', async () => {
-    await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
+    await testA11y(<ImageViewer image={demoImages[0]} visible />)
   })
 
   test('maxZoom support auto', async () => {

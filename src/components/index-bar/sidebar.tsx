@@ -4,11 +4,11 @@ import classNames from 'classnames'
 
 const classPrefix = `adm-index-bar`
 
-type SidebarProps = {
-  indexItems: {
+interface SidebarProps {
+  indexItems: Array<{
     index: string
     brief: ReactNode
-  }[]
+  }>
   activeIndex: string | null
   onActive: (index: string) => void
 }
@@ -41,7 +41,7 @@ export const Sidebar: FC<SidebarProps> = props => {
           clientY
         ) as HTMLElement
         if (!target) return
-        const index = target.dataset['index']
+        const { index } = target.dataset
         if (index) {
           props.onActive(index)
         }

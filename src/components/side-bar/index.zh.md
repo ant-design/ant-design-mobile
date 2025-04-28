@@ -20,11 +20,11 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| activeKey | 当前激活 `item` 的 `key` | `string \| null` | - |
-| defaultActiveKey | 初始化选中 `item` 的 `key`，如果没有设置 `activeKey` | `string \| null` | 第一个 `item` 的 `key` |
-| onChange | 切换面板的回调 | `(key: string) => void` | - |
+| 属性             | 说明                                                 | 类型                    | 默认值                 |
+| ---------------- | ---------------------------------------------------- | ----------------------- | ---------------------- |
+| activeKey        | 当前激活 `item` 的 `key`                             | `string \| null`        | -                      |
+| defaultActiveKey | 初始化选中 `item` 的 `key`，如果没有设置 `activeKey` | `string \| null`        | 第一个 `item` 的 `key` |
+| onChange         | 切换面板的回调                                       | `(key: string) => void` | -                      |
 
 ### CSS 变量
 

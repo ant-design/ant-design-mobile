@@ -12,7 +12,7 @@ describe('Popup', () => {
     const onClose = jest.fn()
     render(
       <Popup visible onClose={onClose} position='top' closeOnSwipe>
-        <div style={{ height: '400px', width: '400px' }}></div>
+        <div style={{ height: '400px', width: '400px' }} />
       </Popup>
     )
 
@@ -32,7 +32,7 @@ describe('Popup', () => {
     const onClose = jest.fn()
     render(
       <Popup visible onClose={onClose} position='bottom' closeOnSwipe>
-        <div style={{ height: '400px', width: '400px' }}></div>
+        <div style={{ height: '400px', width: '400px' }} />
       </Popup>
     )
 

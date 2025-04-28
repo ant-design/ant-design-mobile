@@ -30,7 +30,7 @@ export default () => {
 
       <DemoBlock title='允许清空'>
         <Stepper
-          allowEmpty={true}
+          allowEmpty
           min={10}
           max={20}
           onChange={value => {

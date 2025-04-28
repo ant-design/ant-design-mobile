@@ -52,7 +52,7 @@ export const Rate: FC<RateProps> = p => {
         })}
         role='radio'
         aria-checked={value >= v}
-        aria-label={'' + v}
+        aria-label={`${v}`}
       >
         {props.character}
       </div>

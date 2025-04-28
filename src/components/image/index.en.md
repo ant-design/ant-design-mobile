@@ -17,21 +17,21 @@ Previewable pictures.
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| alt | The description of the image | `string` | - |
-| draggable | Whether to allow users to drag the image | `boolean` | `false` |
-| fallback | Placeholder when failed to load | `ReactNode` | default placeholder |
-| fit | The fill mode of the image | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'` | `'fill'` |
-| height | The height of the image, if a number is passed in, the unit is `px` | `string \| number` | - |
-| lazy | Whether to load image lazily | `boolean` | `false` |
-| onClick | The image click event | `(event: React.MouseEvent<HTMLImageElement, Event>) => void` | - |
-| onContainerClick | The content click event | `(event: React.MouseEvent<HTMLDivElement, Event>) => void` | - |
-| onError | Callback when failed to load | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | - |
-| onLoad | Triggered when image loaded | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | - |
-| placeholder | Placeholder when loading | `ReactNode` | default placeholder |
-| src | The address of the image | `string` | - |
-| width | The width of the image, if a number is passed in, the unit is `px` | `string \| number` | - |
+| Name             | Description                                                         | Type                                                             | Default             |
+| ---------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------- |
+| alt              | The description of the image                                        | `string`                                                         | -                   |
+| draggable        | Whether to allow users to drag the image                            | `boolean`                                                        | `false`             |
+| fallback         | Placeholder when failed to load                                     | `ReactNode`                                                      | default placeholder |
+| fit              | The fill mode of the image                                          | `'contain' \| 'cover' \| 'fill' \| 'none' \| 'scale-down'`       | `'fill'`            |
+| height           | The height of the image, if a number is passed in, the unit is `px` | `string \| number`                                               | -                   |
+| lazy             | Whether to load image lazily                                        | `boolean`                                                        | `false`             |
+| onClick          | The image click event                                               | `(event: React.MouseEvent<HTMLImageElement, Event>) => void`     | -                   |
+| onContainerClick | The content click event                                             | `(event: React.MouseEvent<HTMLDivElement, Event>) => void`       | -                   |
+| onError          | Callback when failed to load                                        | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
+| onLoad           | Triggered when image loaded                                         | `(event: React.SyntheticEvent<HTMLImageElement, Event>) => void` | -                   |
+| placeholder      | Placeholder when loading                                            | `ReactNode`                                                      | default placeholder |
+| src              | The address of the image                                            | `string`                                                         | -                   |
+| width            | The width of the image, if a number is passed in, the unit is `px`  | `string \| number`                                               | -                   |
 
 In addition, the following HTML native attributes are also supported: `crossOrigin`、`decoding`、`loading`、`referrerPolicy`、`sizes`、`srcSet`、`useMap`
 

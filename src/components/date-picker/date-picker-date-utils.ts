@@ -1,11 +1,11 @@
 import dayjs from 'dayjs'
+import isLeapYear from 'dayjs/plugin/isLeapYear'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
-import isLeapYear from 'dayjs/plugin/isLeapYear'
+import { RenderLabel } from '../date-picker-view/date-picker-view'
 import { PickerColumn } from '../picker'
 import type { DatePickerFilter } from './date-picker-utils'
 import { TILL_NOW } from './util'
-import { RenderLabel } from '../date-picker-view/date-picker-view'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -78,14 +78,14 @@ export function generateDatePickerColumns(
   const generateColumn = (
     from: number,
     to: number,
-    precision: DatePrecision
+    precision_: DatePrecision
   ) => {
     let column: number[] = []
     for (let i = from; i <= to; i++) {
       column.push(i)
     }
-    const prefix = selected.slice(0, precisionRankRecord[precision])
-    const currentFilter = filter?.[precision]
+    const prefix = selected.slice(0, precisionRankRecord[precision_])
+    const currentFilter = filter?.[precision_]
     if (currentFilter && typeof currentFilter === 'function') {
       column = column.filter(i =>
         currentFilter(i, {
@@ -199,7 +199,7 @@ export function convertDateToStringArray(
 }
 
 export function convertStringArrayToDate<
-  T extends string | number | null | undefined
+  T extends string | number | null | undefined,
 >(value: T[]): Date {
   const yearString = value[0] ?? '1900'
   const monthString = value[1] ?? '1'

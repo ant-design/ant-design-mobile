@@ -38,11 +38,11 @@ export const JumboTabs: FC<JumboTabsProps> = props => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
-  const panes: ReactElement<JumboTabProps>[] = []
+  const panes: Array<ReactElement<JumboTabProps>> = []
 
   traverseReactNode(props.children, (child, index) => {
     if (!isValidElement<JumboTabProps>(child)) return
-    const key = child.key
+    const { key } = child
     if (typeof key !== 'string') return
 
     if (index === 0) {

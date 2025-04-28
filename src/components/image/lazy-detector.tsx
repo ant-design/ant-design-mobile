@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import type { FC } from 'react'
 import { useInViewport } from 'ahooks'
 
-type Props = {
+interface Props {
   onActive: () => void
 }
 

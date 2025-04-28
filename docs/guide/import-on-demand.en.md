@@ -20,9 +20,16 @@ Of course, if you think the above writing method is too cumbersome, you can also
 
 ```js
 module.exports = {
-  "plugins": [
-    ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es/components", "style": false}]
-  ]
+  plugins: [
+    [
+      'import',
+      {
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'es/components',
+        style: false,
+      },
+    ],
+  ],
 }
 ```
 

@@ -4,7 +4,7 @@ import { MaskProps } from '../mask'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
 import { CloseOutline } from 'antd-mobile-icons'
 
-export type PopupBaseProps = {
+export interface PopupBaseProps {
   afterClose?: () => void
   afterShow?: () => void
   bodyClassName?: string

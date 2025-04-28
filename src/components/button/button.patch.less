@@ -1,12 +1,12 @@
 @class-prefix-button: ~'adm-button';
 
 .adm-button {
-  color: #333333;
-  background-color: #ffffff;
+  color: #333;
+  background-color: #fff;
   font-size: 17px;
   border-width: 1px;
   border-style: solid;
-  border-color: #eeeeee;
+  border-color: #eee;
   border-radius: 4px;
 
   &::before {
@@ -18,7 +18,7 @@
   &-default {
     &.@{class-prefix-button}-fill-outline {
       background-color: transparent;
-      border-color: #333333;
+      border-color: #333;
     }
     &.@{class-prefix-button}-fill-none {
       background-color: transparent;
@@ -27,7 +27,7 @@
   }
 
   &:not(&-default) {
-    color: #ffffff;
+    color: #fff;
     &.@{class-prefix-button}-fill-outline {
       background-color: transparent;
     }

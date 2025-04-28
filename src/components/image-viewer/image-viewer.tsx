@@ -19,7 +19,7 @@ import { Slides, SlidesRef } from './slides'
 
 const classPrefix = `adm-image-viewer`
 
-export type ImageViewerProps = {
+export interface ImageViewerProps {
   image: string
   maxZoom?: number | 'auto'
   getContainer?: GetContainer
@@ -105,9 +105,9 @@ export const MultiImageViewer = forwardRef<
 
   const slidesRef = useRef<SlidesRef>(null)
   useImperativeHandle(ref, () => ({
-    swipeTo: (index: number, immediate?: boolean) => {
-      setIndex(index)
-      slidesRef.current?.swipeTo(index, immediate)
+    swipeTo: (i: number, immediate?: boolean) => {
+      setIndex(i)
+      slidesRef.current?.swipeTo(i, immediate)
     },
   }))
 

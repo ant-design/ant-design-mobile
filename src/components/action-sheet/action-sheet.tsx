@@ -9,7 +9,7 @@ import { renderImperatively } from '../../utils/render-imperatively'
 
 const classPrefix = `adm-action-sheet`
 
-export type Action = {
+export interface Action {
   key: string | number
   text: ReactNode
   disabled?: boolean
@@ -147,7 +147,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
   )
 }
 
-export type ActionSheetShowHandler = {
+export interface ActionSheetShowHandler {
   close: () => void
 }
 

@@ -123,7 +123,7 @@ const CollapsePanelContent: FC<{
   )
 }
 
-type ValueProps<T> = {
+interface ValueProps<T> {
   activeKey?: T
   defaultActiveKey?: T
   onChange?: (activeKey: T) => void
@@ -148,10 +148,10 @@ export type CollapseProps = (
 export const Collapse: FC<CollapseProps> = props => {
   const { collapse: componentConfig = {} } = useConfig()
   const mergedProps = mergeProps(componentConfig, props)
-  const panels: ReactElement<CollapsePanelProps>[] = []
+  const panels: Array<ReactElement<CollapsePanelProps>> = []
   traverseReactNode(mergedProps.children, child => {
     if (!isValidElement<CollapsePanelProps>(child)) return
-    const key = child.key
+    const { key } = child
     if (typeof key !== 'string') return
 
     panels.push(child)
@@ -214,12 +214,10 @@ export const Collapse: FC<CollapseProps> = props => {
               } else {
                 setActiveKey([key])
               }
+            } else if (active) {
+              setActiveKey(activeKeyList.filter(v => v !== key))
             } else {
-              if (active) {
-                setActiveKey(activeKeyList.filter(v => v !== key))
-              } else {
-                setActiveKey([...activeKeyList, key])
-              }
+              setActiveKey([...activeKeyList, key])
             }
 
             panel.props.onClick?.(event)

@@ -309,9 +309,9 @@ export const FormItem: FC<FormItemProps> = props => {
     const curErrors = meta?.errors ?? []
     const errors = Object.keys(subMetas).reduce(
       (subErrors: string[], key: string) => {
-        const errors = subMetas[key]?.errors ?? []
-        if (errors.length) {
-          subErrors = [...subErrors, ...errors]
+        const errors_ = subMetas[key]?.errors ?? []
+        if (errors_.length) {
+          subErrors = [...subErrors, ...errors_]
         }
         return subErrors
       },
@@ -320,9 +320,9 @@ export const FormItem: FC<FormItemProps> = props => {
     const curWarnings = meta?.warnings ?? []
     const warnings = Object.keys(subMetas).reduce(
       (subWarnings: string[], key: string) => {
-        const warnings = subMetas[key]?.warnings ?? []
-        if (warnings.length) {
-          subWarnings = [...subWarnings, ...warnings]
+        const warnings_ = subMetas[key]?.warnings ?? []
+        if (warnings_.length) {
+          subWarnings = [...subWarnings, ...warnings_]
         }
         return subWarnings
       },

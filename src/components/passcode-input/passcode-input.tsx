@@ -36,7 +36,7 @@ export type PasscodeInputProps = {
   | '--border-radius'
 >
 
-export type PasscodeInputRef = {
+export interface PasscodeInputRef {
   focus: () => void
   blur: () => void
 }

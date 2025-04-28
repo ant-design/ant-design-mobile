@@ -18,22 +18,22 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| clearable | 是否启用清除图标，点击清除图标后会清空输入框 | `boolean` | `false` |
-| clearIcon | 自定义清除图标 | `ReactNode` | `<CloseCircleFill />` |
-| defaultValue | 默认值 | `string` | - |
-| disabled | 是否禁用 | `boolean` | `false` |
-| id | `input` 元素的 `id`，常用来配合 `label` 使用 | `string` | - |
-| max | 最大值，仅在 `type` 为 `number` 时生效 | `number` | - |
-| min | 最小值，仅在 `type` 为 `number` 时生效 | `number` | - |
-| onChange | 输入框内容变化时触发 | `(value: string) => void` | - |
-| onClear | 点击清除按钮后触发 | `() => void` | - |
-| onEnterPress | 按下回车的回调 | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | - |
-| onlyShowClearWhenFocus | 如果 `true`，那么只有输入框聚焦时才会显示清除按钮；如果为 `false`，那么输入框失去焦点后依旧会显示清除按钮 | `boolean` | `true` |
-| placeholder | 提示文本 | `string` | - |
-| readOnly | 是否只读 | `boolean` | `false` |
-| value | 输入值 | `string` | - |
+| 属性                   | 说明                                                                                                      | 类型                                                 | 默认值                |
+| ---------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | --------------------- |
+| clearable              | 是否启用清除图标，点击清除图标后会清空输入框                                                              | `boolean`                                            | `false`               |
+| clearIcon              | 自定义清除图标                                                                                            | `ReactNode`                                          | `<CloseCircleFill />` |
+| defaultValue           | 默认值                                                                                                    | `string`                                             | -                     |
+| disabled               | 是否禁用                                                                                                  | `boolean`                                            | `false`               |
+| id                     | `input` 元素的 `id`，常用来配合 `label` 使用                                                              | `string`                                             | -                     |
+| max                    | 最大值，仅在 `type` 为 `number` 时生效                                                                    | `number`                                             | -                     |
+| min                    | 最小值，仅在 `type` 为 `number` 时生效                                                                    | `number`                                             | -                     |
+| onChange               | 输入框内容变化时触发                                                                                      | `(value: string) => void`                            | -                     |
+| onClear                | 点击清除按钮后触发                                                                                        | `() => void`                                         | -                     |
+| onEnterPress           | 按下回车的回调                                                                                            | `(e: React.KeyboardEvent<HTMLInputElement>) => void` | -                     |
+| onlyShowClearWhenFocus | 如果 `true`，那么只有输入框聚焦时才会显示清除按钮；如果为 `false`，那么输入框失去焦点后依旧会显示清除按钮 | `boolean`                                            | `true`                |
+| placeholder            | 提示文本                                                                                                  | `string`                                             | -                     |
+| readOnly               | 是否只读                                                                                                  | `boolean`                                            | `false`               |
+| value                  | 输入值                                                                                                    | `string`                                             | -                     |
 
 此外还支持以下原生属性：`maxLength` `minLength` `autoComplete` `autoFocus` `enterKeyHint` `pattern` `inputMode` `type` `onFocus` `onBlur` `autoCapitalize` `autoCorrect` `onKeyDown` `onKeyUp` `onCompositionStart` `onCompositionEnd` `onClick` `step`
 

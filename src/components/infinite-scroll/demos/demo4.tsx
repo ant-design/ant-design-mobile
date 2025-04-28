@@ -19,7 +19,7 @@ export default () => {
           <List.Item key={index}>{item}</List.Item>
         ))}
       </List>
-      <InfiniteScroll loadMore={loadMore} hasMore={true} />
+      <InfiniteScroll loadMore={loadMore} hasMore />
     </>
   )
 }

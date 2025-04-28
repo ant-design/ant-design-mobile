@@ -6,8 +6,8 @@ import { VirtualInput, VirtualInputRef } from '../virtual-input'
 const classPrefix = 'adm-virtual-input'
 
 function getSiblingElements(element: Element | null) {
-  const prevElements = [],
-    nextElements = []
+  const prevElements = []
+  const nextElements = []
   let current = element?.nextElementSibling
   while (current) {
     nextElements.push(current)

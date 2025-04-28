@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { render, fireEvent, waitFor, sleep } from 'testing'
+import { fireEvent, render, sleep, waitFor } from 'testing'
 import FloatingBubble from '..'
 
 const classPrefix = `adm-floating-bubble`
@@ -152,8 +152,8 @@ describe('FloatingBubble', () => {
       const [offset, setOffset] = useState({ x: -24, y: -24 })
       return (
         <FloatingBubble
-          onOffsetChange={offset => {
-            setOffset(offset)
+          onOffsetChange={offset_ => {
+            setOffset(offset_)
           }}
           offset={offset}
           axis='xy'

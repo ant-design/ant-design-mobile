@@ -4,11 +4,11 @@ import classNames from 'classnames'
 
 const classPrefix = `adm-slider-mark`
 
-export type SliderMarks = {
+export interface SliderMarks {
   [key: number]: ReactNode
 }
 
-type MarksProps = {
+interface MarksProps {
   marks: SliderMarks
   max: number
   min: number

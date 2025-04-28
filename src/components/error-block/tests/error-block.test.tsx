@@ -72,12 +72,12 @@ describe('ErrorBlock', () => {
       `.${classPrefix}-description-title`
     )
     expect(titleElement).toBeInTheDocument()
-    expect(titleElement?.textContent).toBe(title + '')
+    expect(titleElement?.textContent).toBe(`${title}`)
 
     const descElement = container.querySelector(
       `.${classPrefix}-description-subtitle`
     )
     expect(descElement).toBeInTheDocument()
-    expect(descElement?.textContent).toBe(description + '')
+    expect(descElement?.textContent).toBe(`${description}`)
   })
 })

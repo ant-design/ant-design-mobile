@@ -51,7 +51,7 @@ describe('Image', () => {
     const img = document.querySelectorAll(`.${classPrefix}-img`)[0]
     expect(img).not.toHaveAttribute('src')
 
-    const calls = mockIntersectionObserver.mock.calls
+    const { calls } = mockIntersectionObserver.mock
     const [onChange] = calls[calls.length - 1]
     act(() => {
       onChange([

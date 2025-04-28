@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { List, Input, Dialog, NumberKeyboard, Toast, Button } from 'antd-mobile'
+import { Button, Dialog, Input, List, NumberKeyboard, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import React, { useState } from 'react'
 
 export default () => {
   const [visible, setVisible] = useState<any>('')
@@ -23,8 +23,8 @@ export default () => {
     },
   }
 
-  const onInput = (value: string) => {
-    setValue(v => v + value)
+  const onInput = (val: string) => {
+    setValue(v => v + val)
   }
 
   const onDelete = () => {

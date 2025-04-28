@@ -63,8 +63,8 @@ export const Image = staged<ImageProps>(p => {
   const ref = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
 
-  let src: string | undefined = props.src
-  let srcSet: string | undefined = props.srcSet
+  let { src } = props
+  let { srcSet } = props
 
   const [initialized, setInitialized] = useState(!props.lazy)
 
@@ -128,11 +128,11 @@ export const Image = staged<ImageProps>(p => {
   const style: ImageProps['style'] = {}
   if (props.width) {
     style['--width'] = toCSSLength(props.width)
-    style['width'] = toCSSLength(props.width)
+    style.width = toCSSLength(props.width)
   }
   if (props.height) {
     style['--height'] = toCSSLength(props.height)
-    style['height'] = toCSSLength(props.height)
+    style.height = toCSSLength(props.height)
   }
   return withNativeProps(
     props,

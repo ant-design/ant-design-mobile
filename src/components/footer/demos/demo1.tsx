@@ -53,7 +53,7 @@ export default () => {
   return (
     <>
       <DemoBlock title='基础页脚'>
-        <Footer label='没有更多了'></Footer>
+        <Footer label='没有更多了' />
       </DemoBlock>
       <DemoBlock title='自定义 label'>
         <Footer
@@ -62,10 +62,10 @@ export default () => {
               <HandPayCircleOutline /> 蚂蚁财富
             </div>
           }
-        ></Footer>
+        />
       </DemoBlock>
       <DemoBlock title='带内容的页脚'>
-        <Footer content='@ 2004-2020 Alipay.com All rights reserved'></Footer>
+        <Footer content='@ 2004-2020 Alipay.com All rights reserved' />
       </DemoBlock>
       <DemoBlock title='带链接的页脚'>
         <Footer
@@ -75,16 +75,16 @@ export default () => {
               href: 'https://www.aliyun.com/',
             },
           ]}
-        ></Footer>
+        />
       </DemoBlock>
       <DemoBlock title='通过点击事件跳转'>
-        <Footer links={links} onLinkClick={onLinkClick}></Footer>
+        <Footer links={links} onLinkClick={onLinkClick} />
       </DemoBlock>
       <DemoBlock title='带标签的页脚'>
-        <Footer chips={chips}></Footer>
+        <Footer chips={chips} />
       </DemoBlock>
       <DemoBlock title='标签可点击'>
-        <Footer chips={chipsLinkData} onChipClick={onChipClick}></Footer>
+        <Footer chips={chipsLinkData} onChipClick={onChipClick} />
       </DemoBlock>
       <DemoBlock title='组合使用'>
         <Footer
@@ -92,7 +92,7 @@ export default () => {
           content='@ 2004-2020 Alipay.com All rights reserved'
           links={links}
           chips={chips}
-        ></Footer>
+        />
       </DemoBlock>
     </>
   )

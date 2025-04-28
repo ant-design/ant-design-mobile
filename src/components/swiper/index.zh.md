@@ -46,23 +46,23 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowTouchMove | 是否允许手势滑动 | `boolean` | `true` |
-| autoplay | 是否自动切换 | `boolean` | `false` | `reverse` |
-| autoplayInterval | 自动切换的间隔，单位为 `ms` | `number` | `3000` |
-| defaultIndex | 初始位置 | `number` | `0` |
-| direction | 方向，默认是水平方向 | `'horizontal' \| 'vertical'` | `'horizontal'` |
-| indicator | 自定义指示器 | `(total: number, current: number) => ReactNode` | - |
-| indicatorProps | 指示器的相关属性 | 支持 [PageIndicator](/zh/components/page-indicator) 的 `color` `style` `className` 属性 | - |
-| loop | 是否循环 | `boolean` | `false` |
-| onIndexChange | 切换时触发 | `(index: number) => void` | - |
-| rubberband | 是否在拖动超出内容区域时启用橡皮筋效果，仅在非 `loop` 模式下生效 | `boolean` | `true` |
-| slideSize | 滑块的宽度百分比 | `number` | `100` |
-| stuckAtBoundary | 是否在边界两边卡住，避免出现空白，仅在非 `loop` 模式且 `slideSize` < 100 时生效 | `boolean` | `true` |
-| trackOffset | 滑块轨道整体的偏移量百分比 | `number` | `0` |
-| total | 虚拟滚动时渲染总数，需要配合 renderProps 一同使用。（不支持 `loop`） | `number` | 5.34.0 |
-| stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `[]` | 5.28.0 |
+| 属性             | 说明                                                                            | 类型                                                                                    | 默认值         | 版本      |
+| ---------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------------- | --------- |
+| allowTouchMove   | 是否允许手势滑动                                                                | `boolean`                                                                               | `true`         |
+| autoplay         | 是否自动切换                                                                    | `boolean`                                                                               | `false`        | `reverse` |
+| autoplayInterval | 自动切换的间隔，单位为 `ms`                                                     | `number`                                                                                | `3000`         |
+| defaultIndex     | 初始位置                                                                        | `number`                                                                                | `0`            |
+| direction        | 方向，默认是水平方向                                                            | `'horizontal' \| 'vertical'`                                                            | `'horizontal'` |
+| indicator        | 自定义指示器                                                                    | `(total: number, current: number) => ReactNode`                                         | -              |
+| indicatorProps   | 指示器的相关属性                                                                | 支持 [PageIndicator](/zh/components/page-indicator) 的 `color` `style` `className` 属性 | -              |
+| loop             | 是否循环                                                                        | `boolean`                                                                               | `false`        |
+| onIndexChange    | 切换时触发                                                                      | `(index: number) => void`                                                               | -              |
+| rubberband       | 是否在拖动超出内容区域时启用橡皮筋效果，仅在非 `loop` 模式下生效                | `boolean`                                                                               | `true`         |
+| slideSize        | 滑块的宽度百分比                                                                | `number`                                                                                | `100`          |
+| stuckAtBoundary  | 是否在边界两边卡住，避免出现空白，仅在非 `loop` 模式且 `slideSize` < 100 时生效 | `boolean`                                                                               | `true`         |
+| trackOffset      | 滑块轨道整体的偏移量百分比                                                      | `number`                                                                                | `0`            |
+| total            | 虚拟滚动时渲染总数，需要配合 renderProps 一同使用。（不支持 `loop`）            | `number`                                                                                | 5.34.0         |
+| stopPropagation  | 阻止某些事件的冒泡                                                              | `PropagationEvent[]`                                                                    | `[]`           | 5.28.0    |
 
 ```ts
 type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
@@ -89,6 +89,6 @@ type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| onClick | 点击滑块时触发 | `(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
+| 属性    | 说明           | 类型                                                        | 默认值 |
+| ------- | -------------- | ----------------------------------------------------------- | ------ |
+| onClick | 点击滑块时触发 | `(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -      |

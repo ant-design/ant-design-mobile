@@ -2,7 +2,7 @@ import React, { FC, ReactNode, useContext } from 'react'
 import { Locale } from '../../locales/base'
 import zhCN from '../../locales/zh-CN'
 
-type Config = {
+interface Config {
   locale: Locale
   checkList?: {
     activeIcon?: ReactNode

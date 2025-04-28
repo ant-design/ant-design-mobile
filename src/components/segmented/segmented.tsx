@@ -40,7 +40,7 @@ export type SegmentedLabeledOption =
 
 interface InternalSegmentedProps
   extends Omit<RCSegmentedProps, 'size' | 'options'> {
-  options: (SegmentedRawOption | SegmentedLabeledOption)[]
+  options: Array<SegmentedRawOption | SegmentedLabeledOption>
   /** Option to fit width to its parent's width */
   block?: boolean
 }

@@ -44,10 +44,10 @@ const defaultProps = {
   defaultActiveKey: null,
   closeOnMaskClick: true,
   closeOnClickAway: false,
-  getContainer: defaultPopupBaseProps['getContainer'],
+  getContainer: defaultPopupBaseProps.getContainer,
 }
 
-export type DropdownRef = {
+export interface DropdownRef {
   close: () => void
 }
 
@@ -96,7 +96,7 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
     }
 
     let popupForceRender = false
-    const items: ReactElement<ComponentProps<typeof Item>>[] = []
+    const items: Array<ReactElement<ComponentProps<typeof Item>>> = []
     const navs = React.Children.map(mergedProps.children, child => {
       if (isValidElement<ComponentProps<typeof Item>>(child)) {
         const childProps = {
