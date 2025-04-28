@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import {
+  act,
   fireEvent,
   render,
-  testA11y,
-  waitFor,
   screen,
   sleep,
-  act,
+  testA11y,
+  waitFor,
 } from 'testing'
 import Switch from '..'
 
@@ -28,8 +28,8 @@ describe('Switch', () => {
       return (
         <Switch
           checked={checked}
-          onChange={checked => {
-            setChecked(checked)
+          onChange={checked_ => {
+            setChecked(checked_)
           }}
         />
       )

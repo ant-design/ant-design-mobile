@@ -20,7 +20,7 @@ export default () => {
     <>
       <DemoBlock title='items 动态变化'>
         <Space direction='vertical' block>
-          <Swiper loop={true}>{items.slice(0, count)}</Swiper>
+          <Swiper loop>{items.slice(0, count)}</Swiper>
           <Button
             onClick={() => {
               setCount(((count + 2) % 4) + 1)

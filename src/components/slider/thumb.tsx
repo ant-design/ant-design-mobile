@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react'
-import type { FC, RefObject, ReactNode } from 'react'
 import { useDrag } from '@use-gesture/react'
-import { ThumbIcon } from './thumb-icon'
-import Popover from '../popover'
-import { useConfig } from '../config-provider'
+import type { FC, ReactNode, RefObject } from 'react'
+import React, { useRef, useState } from 'react'
 import { NativeProps } from '../../utils/native-props'
+import { useConfig } from '../config-provider'
+import Popover from '../popover'
+import { ThumbIcon } from './thumb-icon'
 
 const classPrefix = `adm-slider`
 
@@ -57,12 +57,12 @@ const Thumb: FC<ThumbProps> = props => {
     typeof props.popover === 'function'
       ? props.popover
       : props.popover
-      ? (value: number) => value.toString()
-      : null
+        ? (val: number) => val.toString()
+        : null
 
   const thumbElement = (
     <div className={`${classPrefix}-thumb`}>
-      {icon ? icon : <ThumbIcon className={`${classPrefix}-thumb-icon`} />}
+      {icon || <ThumbIcon className={`${classPrefix}-thumb-icon`} />}
     </div>
   )
 

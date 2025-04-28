@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
-import { render, testA11y, fireEvent } from 'testing'
-import IndexBar, { IndexBarRef } from '..'
 import { List } from 'antd-mobile'
+import React, { useRef } from 'react'
+import { fireEvent, render, testA11y } from 'testing'
+import IndexBar, { IndexBarRef } from '..'
 
 const classPrefix = `adm-index-bar`
 
@@ -16,15 +16,14 @@ const groups = Array(26)
 function mockPxTester(px: number) {
   const tester = document.querySelectorAll('.adm-px-tester')
 
-  tester.forEach(
-    item =>
-      (item.getBoundingClientRect = jest.fn(
-        () =>
-          ({
-            height: px,
-          } as DOMRect)
-      ))
-  )
+  tester.forEach(item => {
+    item.getBoundingClientRect = jest.fn(
+      () =>
+        ({
+          height: px,
+        }) as any
+    )
+  })
 }
 
 describe('IndexBar', () => {
@@ -161,7 +160,7 @@ describe('IndexBar', () => {
   })
 
   test('ref.scrollTo', async () => {
-    const App = () => {
+    const App2 = () => {
       const ref = useRef<IndexBarRef>(null)
       return (
         <>
@@ -177,7 +176,7 @@ describe('IndexBar', () => {
         </>
       )
     }
-    const { getByText } = render(<App />)
+    const { getByText } = render(<App2 />)
     fireEvent.click(getByText('btn'))
     expect(getByText('B').parentElement).toHaveClass(
       `${classPrefix}-sidebar-item-active`

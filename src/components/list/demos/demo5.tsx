@@ -8,7 +8,7 @@ import {
 } from 'react-beautiful-dnd'
 import { users } from './users'
 
-type IUser = {
+interface IUser {
   id: string
   avatar: string
   name: string

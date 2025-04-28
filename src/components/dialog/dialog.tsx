@@ -1,12 +1,12 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { Action, DialogActionButton } from './dialog-action-button'
-import Image from '../image'
-import AutoCenter from '../auto-center'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import AutoCenter from '../auto-center'
 import CenterPopup, { CenterPopupProps } from '../center-popup'
+import Image from '../image'
+import { Action, DialogActionButton } from './dialog-action-button'
 
 export type DialogProps = Pick<
   CenterPopupProps,
@@ -27,7 +27,7 @@ export type DialogProps = Pick<
   header?: ReactNode
   title?: ReactNode
   content?: ReactNode
-  actions?: (Action | Action[])[]
+  actions?: Array<Action | Action[]>
   onAction?: (action: Action, index: number) => void | Promise<void>
   onClose?: () => void
   closeOnAction?: boolean
@@ -74,14 +74,14 @@ export const Dialog: FC<DialogProps> = p => {
           const actions = Array.isArray(row) ? row : [row]
           return (
             <div className={cls('action-row')} key={index}>
-              {actions.map((action, index) => (
+              {actions.map((action, i) => (
                 <DialogActionButton
                   key={action.key}
                   action={action}
                   onAction={async () => {
                     await Promise.all([
                       action.onClick?.(),
-                      props.onAction?.(action, index),
+                      props.onAction?.(action, i),
                     ])
                     if (props.closeOnAction) {
                       props.onClose?.()
@@ -131,6 +131,6 @@ export const Dialog: FC<DialogProps> = p => {
   )
 }
 
-function cls(name: string = '') {
-  return 'adm-dialog' + (name && '-') + name
+function cls(name = '') {
+  return `adm-dialog${name && '-'}${name}`
 }

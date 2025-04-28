@@ -13,18 +13,18 @@ const classPrefix = `adm-picker-view`
 
 export type PickerValue = string | number | null
 
-export type PickerValueExtend = {
+export interface PickerValueExtend {
   columns: PickerColumnItem[][]
-  items: (PickerColumnItem | null)[]
+  items: Array<PickerColumnItem | null>
 }
 
-export type PickerColumnItem = {
+export interface PickerColumnItem {
   label: ReactNode
   value: string | number
   key?: string | number
 }
 
-export type PickerColumn = (string | PickerColumnItem)[]
+export type PickerColumn = Array<string | PickerColumnItem>
 
 export type PickerViewProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
@@ -75,7 +75,7 @@ export const PickerView = memo<PickerViewProps>(p => {
   }, [props.value, innerValue])
 
   const extend = useColumnsExtend(props.columns, innerValue)
-  const columns = extend.columns
+  const { columns } = extend
 
   useDebounceEffect(
     () => {

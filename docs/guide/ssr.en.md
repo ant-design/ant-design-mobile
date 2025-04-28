@@ -23,13 +23,11 @@ $ bun add -D next-transpile-modules
 Then configure it in `next.config.js`:
 
 ```js
-const withTM = require('next-transpile-modules')([
-  'antd-mobile',
-]);
+const withTM = require('next-transpile-modules')(['antd-mobile'])
 
 module.exports = withTM({
   // other Next.js configuration in your project
-});
+})
 ```
 
 ### Next.js 13
@@ -40,9 +38,9 @@ Next.js 13 can automatically transpile and bundle dependencies from external dep
 // next.config.js
 const nextConfig = {
   transpilePackages: ['antd-mobile'],
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
 ```
 
 To use antd-mobile in `app` directory, add the `'use client'` directive at the top of the file.
@@ -79,17 +77,17 @@ Add `global.d.ts` file in project root dir.
 
 ```ts
 declare module 'antd-mobile' {
-  export * from 'antd-mobile/es';
+  export * from 'antd-mobile/es'
 }
 ```
 
 Import style file in `app/root.tsx`:
 
 ```ts
-import styles from "antd-mobile/bundle/style.css";
+import styles from 'antd-mobile/bundle/style.css'
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [{ rel: 'stylesheet', href: styles }]
 }
 ```
 

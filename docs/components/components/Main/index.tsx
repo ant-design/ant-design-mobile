@@ -111,9 +111,7 @@ export default () => {
             className={styles.productDesignValues}
             bordered={false}
             style={{
-              backgroundImage: `url(${getProductDesignValuesBackgroundImage(
-                isWidthScreen
-              )})`,
+              backgroundImage: `url(${getProductDesignValuesBackgroundImage(isWidthScreen)})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
             }}

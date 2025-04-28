@@ -24,7 +24,7 @@
 给 Button 组件加一个自定义的 `className`：
 
 ```jsx
-<Button className='my-button'/>
+<Button className='my-button' />
 ```
 
 然后在 CSS 文件中设置 CSS 变量
@@ -40,9 +40,11 @@
 直接通过组件的 `style` 属性，简单粗暴，适合小范围的调整：
 
 ```jsx
-<Button style={{
-  '--border-radius': '2px'
-}}/>
+<Button
+  style={{
+    '--border-radius': '2px',
+  }}
+/>
 ```
 
 ### 方法三：通过全局变量进行设置

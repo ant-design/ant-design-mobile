@@ -23,7 +23,7 @@ const mockImg = new File(['hello'], 'hello.png', { type: 'image/png' })
 function $$(cls: string) {
   return document.querySelectorAll(cls)
 }
-async function mockUpload(file: File, time: number = 500) {
+async function mockUpload(file: File, time = 500) {
   await sleep(time)
   return {
     url: URL.createObjectURL(file),
@@ -193,7 +193,7 @@ describe('ImageUploader', () => {
         url: currentFileName,
       }
     }
-    const { container } = render(
+    render(
       <App
         multiple
         upload={customMockUpload}
@@ -416,10 +416,10 @@ describe('ImageUploader', () => {
 
     const fn = jest.fn()
     const FAIL_INDEX = 1
-    const mockUpload = mockUploadWithFailure(FAIL_INDEX)
+    const mockUpload_ = mockUploadWithFailure(FAIL_INDEX)
 
     render(
-      <App multiple defaultFileList={[]} upload={mockUpload} onChange={fn} />
+      <App multiple defaultFileList={[]} upload={mockUpload_} onChange={fn} />
     )
 
     const fileNameList = ['one.png', 'two.png', 'three.png']

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from 'react'
 import {
   render,
@@ -40,7 +39,7 @@ describe('Modal', () => {
   )
 
   test('a11y', async () => {
-    await testA11y(<Modal visible={true} content='a11y' />)
+    await testA11y(<Modal visible content='a11y' />)
   })
 
   test('afterShow should be called', async () => {

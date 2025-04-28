@@ -7,7 +7,7 @@ import {
 } from './image-viewer'
 import { renderImperatively } from '../../utils/render-imperatively'
 
-export type ImageViewerShowHandler = {
+export interface ImageViewerShowHandler {
   close: () => void
 }
 

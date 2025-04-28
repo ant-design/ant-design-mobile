@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import type { FC } from 'react'
-import { Form, Input, Button, Picker, Space } from 'antd-mobile'
-import type { PickerValue } from 'antd-mobile/es/components/picker'
+import { Button, Form, Input, Picker, Space } from 'antd-mobile'
 import { DownOutline } from 'antd-mobile-icons'
+import type { PickerValue } from 'antd-mobile/es/components/picker'
+import type { FC } from 'react'
+import React, { useState } from 'react'
 
 interface MobileValue {
   preValue: string | number
@@ -72,12 +72,12 @@ const MobileField: FC<MobileFieldProps> = ({
     onChange?.({ ...value, ...changedValue })
   }
 
-  const onRealValueChange = (value: string) => {
-    triggerValue({ realValue: value })
+  const onRealValueChange = (val: string) => {
+    triggerValue({ realValue: val })
   }
 
-  const onPreValueChange = (value: PickerValue[]) => {
-    const v = value[0]
+  const onPreValueChange = (val: PickerValue[]) => {
+    const v = val[0]
     if (v === null) return
     triggerValue({ preValue: v })
   }

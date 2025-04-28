@@ -16,7 +16,7 @@ export default () => {
             return (
               <div
                 className={classNames('custom-cell', {
-                  ['custom-cell-selected']: dates.includes(d),
+                  'custom-cell-selected': dates.includes(d),
                 })}
               >
                 {d}

@@ -5,7 +5,7 @@ import { options } from './options-data'
 import { AsyncDemo } from './async-demo'
 
 export default () => {
-  const [value, setValue] = useState<(string | null)[]>(['浙江', '杭州'])
+  const [value, setValue] = useState<Array<string | null>>(['浙江', '杭州'])
 
   return (
     <>

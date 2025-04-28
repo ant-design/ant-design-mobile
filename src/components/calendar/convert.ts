@@ -1,6 +1,9 @@
 import dayjs from 'dayjs'
 export type DateRange = [Date, Date] | null
-export type Page = { month: number; year: number }
+export interface Page {
+  month: number
+  year: number
+}
 export function convertValueToRange(
   selectionMode: 'single' | 'range' | undefined,
   value: Date | [Date, Date] | null

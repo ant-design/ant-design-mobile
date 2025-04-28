@@ -11,7 +11,6 @@
     "source.fixAll.stylelint": "explicit",
     "source.organizeImports": "explicit"
   },
-  "editor.rulers": [80, 120],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "[javascript]": {
@@ -46,5 +45,6 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.rulers": [100]
 }

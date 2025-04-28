@@ -24,9 +24,9 @@ import { mergeFuncProps } from '../../utils/with-func-props'
 const classPrefix = `adm-swiper`
 
 const eventToPropRecord = {
-  'mousedown': 'onMouseDown',
-  'mousemove': 'onMouseMove',
-  'mouseup': 'onMouseUp',
+  mousedown: 'onMouseDown',
+  mousemove: 'onMouseMove',
+  mouseup: 'onMouseUp',
 } as const
 
 type ValuesToUnion<T, K extends keyof T = keyof T> = K extends keyof T
@@ -35,7 +35,7 @@ type ValuesToUnion<T, K extends keyof T = keyof T> = K extends keyof T
 
 type PropagationEvent = keyof typeof eventToPropRecord
 
-export type SwiperRef = {
+export interface SwiperRef {
   swipeTo: (index: number) => void
   swipeNext: () => void
   swipePrev: () => void
@@ -98,9 +98,8 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
     const { validChildren, count, renderChildren } = useMemo(() => {
       let count = 0
 
-      let renderChildren: ((index: number) => ReactElement) | undefined =
-        undefined
-      let validChildren: ReactElement[] | null | undefined = undefined
+      let renderChildren: ((index: number) => ReactElement) | undefined
+      let validChildren: ReactElement[] | null | undefined
 
       if (typeof children === 'function') {
         renderChildren = children
@@ -134,7 +133,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
     }
 
     return () => {
-      let loop = props.loop
+      let { loop } = props
       if (slideRatio * (mergedTotal - 1) < 1) {
         loop = false
       }

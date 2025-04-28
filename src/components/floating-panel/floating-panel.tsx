@@ -12,7 +12,7 @@ import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = 'adm-floating-panel'
 
-export type FloatingPanelRef = {
+export interface FloatingPanelRef {
   setHeight: (
     height: number,
     options?: {
@@ -146,14 +146,14 @@ export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
         className={classNames(classPrefix, `${classPrefix}-${placement}`)}
         style={{
           height: Math.round(maxHeight),
-          translateY: y.to(y => {
+          translateY: y.to(y_ => {
             if (isBottomPlacement) {
-              return `calc(100% + (${Math.round(y)}px))`
+              return `calc(100% + (${Math.round(y_)}px))`
             }
             if (placement === 'top') {
-              return `calc(-100% + (${Math.round(y)}px))`
+              return `calc(-100% + (${Math.round(y_)}px))`
             }
-            return y
+            return y_
           }),
         }}
       >

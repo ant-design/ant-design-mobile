@@ -64,7 +64,7 @@ const filter: DatePickerFilter = {
 
 const weekFilter: DatePickerFilter = {
   year: val => val > new Date().getFullYear() - 3,
-  'week': val => {
+  week: val => {
     // 去除每年的前10周
     if (val < 10) {
       return false

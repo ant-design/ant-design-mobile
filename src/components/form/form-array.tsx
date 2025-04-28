@@ -16,7 +16,7 @@ export interface FormArrayOperation {
 }
 
 export interface FormArrayProps {
-  name: string | number | (string | number)[]
+  name: string | number | Array<string | number>
   initialValue?: any[]
   renderHeader?: (
     field: FormArrayField,

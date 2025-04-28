@@ -29,7 +29,7 @@ const defaultProps = {
   mode: 'default',
 }
 
-export type ListRef = {
+export interface ListRef {
   nativeElement: HTMLDivElement | null
 }
 

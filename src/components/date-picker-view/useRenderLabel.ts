@@ -16,7 +16,7 @@ export default function useRenderLabel(renderLabel?: RenderLabel): RenderLabel {
         case 'minute':
         case 'second':
         case 'hour':
-          return ('0' + data.toString()).slice(-2)
+          return `0${data.toString()}`.slice(-2)
         case 'now':
           return locale.DatePicker.tillNow
         default:

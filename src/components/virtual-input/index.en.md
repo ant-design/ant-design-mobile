@@ -14,15 +14,15 @@ When you need to use it with the virtual keyboard.
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| clearable | Whether to enable the clear icon, the virtual input box will be cleared after clicking the clear icon | `boolean` | `false` |
-| onBlur | Triggered when element lose focus | `() => void` | - |
-| onClear | Trigger when clear button clicked | `() => void` | - |
-| onClick | Triggered when element get clicked | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
-| onFocus | Triggered when element get focus | `() => void` | - |
-| placeholder | The placeholder text | `string` | - |
-| value | The input value | `string` | `''` |
+| Name        | Description                                                                                           | Type                                            | Default |
+| ----------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------- |
+| clearable   | Whether to enable the clear icon, the virtual input box will be cleared after clicking the clear icon | `boolean`                                       | `false` |
+| onBlur      | Triggered when element lose focus                                                                     | `() => void`                                    | -       |
+| onClear     | Trigger when clear button clicked                                                                     | `() => void`                                    | -       |
+| onClick     | Triggered when element get clicked                                                                    | `(e: React.MouseEvent<HTMLDivElement>) => void` | -       |
+| onFocus     | Triggered when element get focus                                                                      | `() => void`                                    | -       |
+| placeholder | The placeholder text                                                                                  | `string`                                        | -       |
+| value       | The input value                                                                                       | `string`                                        | `''`    |
 
 Strictly speaking, VirtualInput is not a form field component. It just displays the data.
 
@@ -35,12 +35,12 @@ Strictly speaking, VirtualInput is not a form field component. It just displays 
 
 ### CSS Variables
 
-| Name | Description | Default | Global |
-| --- | --- | --- | --- |
-| --caret-color | The color of caret. | `var(--adm-color-primary)` | `--adm-virtual-input-caret-color` |
-| --caret-width | The width of caret. | `2px` | `--adm-virtual-input-caret-width` |
-| --color | Text color. | `var(--adm-color-text)` | - |
-| --disabled-color | Text color when disabled. | `var(--adm-color-weak)` | - |
-| --font-size | Text font size. | `17px` | - |
-| --placeholder-color | Placeholder text color. | `var(--adm-color-light)` | - |
-| --text-align | The alignment of text. | `left` | - |
+| Name                | Description               | Default                    | Global                            |
+| ------------------- | ------------------------- | -------------------------- | --------------------------------- |
+| --caret-color       | The color of caret.       | `var(--adm-color-primary)` | `--adm-virtual-input-caret-color` |
+| --caret-width       | The width of caret.       | `2px`                      | `--adm-virtual-input-caret-width` |
+| --color             | Text color.               | `var(--adm-color-text)`    | -                                 |
+| --disabled-color    | Text color when disabled. | `var(--adm-color-weak)`    | -                                 |
+| --font-size         | Text font size.           | `17px`                     | -                                 |
+| --placeholder-color | Placeholder text color.   | `var(--adm-color-light)`   | -                                 |
+| --text-align        | The alignment of text.    | `left`                     | -                                 |

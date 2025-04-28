@@ -26,7 +26,7 @@ export const Group: FC<CheckboxGroupProps> = p => {
     <CheckboxGroupContext.Provider
       // TODO: 性能优化
       value={{
-        value: value,
+        value,
         disabled: props.disabled,
         check: v => {
           setValue([...value, v])

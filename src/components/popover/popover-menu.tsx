@@ -11,7 +11,7 @@ import { Popover, PopoverProps, PopoverRef } from './popover'
 
 const classPrefix = `adm-popover-menu`
 
-export type Action = {
+export interface Action {
   text: ReactNode
   icon?: ReactNode
   disabled?: boolean
@@ -28,7 +28,7 @@ export type PopoverMenuProps = Omit<PopoverProps, 'content'> & {
 export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
   (props, ref) => {
     const innerRef = useRef<PopoverRef>(null)
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     useImperativeHandle(ref, () => innerRef.current!, [])
 
     const onClick = useCallback(
@@ -63,7 +63,9 @@ export const PopoverMenu = forwardRef<PopoverRef, PopoverMenuProps>(
                 className={classNames(
                   `${classPrefix}-item`,
                   'adm-plain-anchor',
-                  { [`${classPrefix}-item-disabled`]: action.disabled }
+                  {
+                    [`${classPrefix}-item-disabled`]: action.disabled,
+                  }
                 )}
                 onClick={() => {
                   if (action.disabled) return

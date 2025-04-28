@@ -53,7 +53,7 @@ Please refer to the [migration guide](/guide/migration).
 Add this into `head` element：
 
 ```html
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width" />
 ```
 
 Or add some global style:

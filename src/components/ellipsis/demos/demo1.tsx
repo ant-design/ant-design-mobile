@@ -45,7 +45,7 @@ export default () => {
       <DemoBlock title='默认展开'>
         <Ellipsis
           content={content}
-          defaultExpanded={true}
+          defaultExpanded
           expandText='展开'
           collapseText='收起'
         />

@@ -16,29 +16,33 @@ When the `hasMore` prop is `true`, the infinite scroll component will call the d
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| children | Rendering custom guide content | `React.ReactNode \| ((hasMore: boolean, failed: boolean, retry: () => void) => React.ReactNode)` | Default guidance tips |
-| hasMore | Whether there is more content or not | `boolean` | - |
-| loadMore | Callback to load more | `(isRetry: boolean) => Promise<void>` | - |
-| threshold | The threshold of the scroll bottoming distance that triggers the loading event, in pixels | `number` | `250` |
+| Name      | Description                                                                               | Type                                                                                             | Default               |
+| --------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | --------------------- |
+| children  | Rendering custom guide content                                                            | `React.ReactNode \| ((hasMore: boolean, failed: boolean, retry: () => void) => React.ReactNode)` | Default guidance tips |
+| hasMore   | Whether there is more content or not                                                      | `boolean`                                                                                        | -                     |
+| loadMore  | Callback to load more                                                                     | `(isRetry: boolean) => Promise<void>`                                                            | -                     |
+| threshold | The threshold of the scroll bottoming distance that triggers the loading event, in pixels | `number`                                                                                         | `250`                 |
 
 InfiniteScroll will automatically lock the `loadMore` function to avoid repeated requests, but the premise is that the `loadMore` function needs to return a correct Promise. The following are examples of correct and incorrect usage:
 
 ```js
-function loadMore() { // wrong
+function loadMore() {
+  // wrong
   doRequest()
 }
 
-async function loadMore() { // wrong
+async function loadMore() {
+  // wrong
   doRequest()
 }
 
-async function loadMore() { // ok
+async function loadMore() {
+  // ok
   await doRequest()
 }
 
-function loadMore() { // ok
+function loadMore() {
+  // ok
   return doRequest()
 }
 ```
@@ -81,7 +85,9 @@ But in some scenarios (for example, when used with the `Tabs` component), you ma
 
 ```tsx
 <Tabs>
-  <Tabs.Tab title='水果' key='fruits'>菠萝</Tabs.Tab>
+  <Tabs.Tab title='水果' key='fruits'>
+    菠萝
+  </Tabs.Tab>
   <Tabs.Tab title='蔬菜' key='vegetables' forceRender>
     <InfiniteScroll
       hasMore={true}

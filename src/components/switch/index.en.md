@@ -17,16 +17,16 @@ switch selector.
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| beforeChange（deprecated） | Execute before change （Deprecated, recommend using the `onChange` attribute.） | `(val: boolean) => Promise<void>` | - |
-| checked | Specify whether it is currently opened | `boolean` | `false` |
-| checkedText | Selected text | `ReactNode` | - |
-| defaultChecked | Whether to open initially | `boolean` | `false` |
-| disabled | Disabled status | `boolean` | `false` |
-| loading | Loading status | `boolean` | `false` |
-| onChange | The callback function when changing, when the Promise is returned, the loading status will be displayed automatically | `(val: boolean) => void \| Promise<void>` | - |
-| uncheckedText | Non-selected text | `ReactNode` | - |
+| Name                       | Description                                                                                                           | Type                                      | Default |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ------- |
+| beforeChange（deprecated） | Execute before change （Deprecated, recommend using the `onChange` attribute.）                                       | `(val: boolean) => Promise<void>`         | -       |
+| checked                    | Specify whether it is currently opened                                                                                | `boolean`                                 | `false` |
+| checkedText                | Selected text                                                                                                         | `ReactNode`                               | -       |
+| defaultChecked             | Whether to open initially                                                                                             | `boolean`                                 | `false` |
+| disabled                   | Disabled status                                                                                                       | `boolean`                                 | `false` |
+| loading                    | Loading status                                                                                                        | `boolean`                                 | `false` |
+| onChange                   | The callback function when changing, when the Promise is returned, the loading status will be displayed automatically | `(val: boolean) => void \| Promise<void>` | -       |
+| uncheckedText              | Non-selected text                                                                                                     | `ReactNode`                               | -       |
 
 ### CSS Variables
 
@@ -48,7 +48,7 @@ But when Promise fails, Switch will not eat the error, but will re-throw the err
 ```tsx
 async function onChange(val: boolean) {
   try {
-    await doSomething();
+    await doSomething()
   } catch (e) {
     // handle or ignore error
   }

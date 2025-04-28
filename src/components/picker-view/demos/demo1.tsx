@@ -32,7 +32,7 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='通过鼠标滚轮进行选择' padding='0'>
-        <PickerView columns={basicColumns} mouseWheel={true} />
+        <PickerView columns={basicColumns} mouseWheel />
       </DemoBlock>
     </>
   )

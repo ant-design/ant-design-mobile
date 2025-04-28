@@ -5,7 +5,7 @@ import { useColumnsFn } from './cascade-picker-utils'
 
 export type CascadePickerRef = PickerRef
 
-export type CascadePickerOption = {
+export interface CascadePickerOption {
   label: string
   value: string
   children?: CascadePickerOption[]

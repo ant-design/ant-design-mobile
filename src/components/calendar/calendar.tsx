@@ -29,7 +29,7 @@ dayjs.extend(isoWeek)
 
 const classPrefix = 'adm-calendar'
 
-export type CalendarRef = {
+export interface CalendarRef {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
 }

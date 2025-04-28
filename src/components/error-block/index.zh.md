@@ -18,22 +18,22 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| description | 描述 | `ReactNode` | - |
-| fullPage | 是否为整页异常 | `boolean` | `false` |
-| image | 图片 | `string \| ReactElement` | - |
-| status | 默认错误类型 | `'default' \| 'disconnected' \| 'empty' \| 'busy'` | `'default'` |
-| title | 标题 | `ReactNode` | - |
+| 属性        | 说明           | 类型                                               | 默认值      |
+| ----------- | -------------- | -------------------------------------------------- | ----------- |
+| description | 描述           | `ReactNode`                                        | -           |
+| fullPage    | 是否为整页异常 | `boolean`                                          | `false`     |
+| image       | 图片           | `string \| ReactElement`                           | -           |
+| status      | 默认错误类型   | `'default' \| 'disconnected' \| 'empty' \| 'busy'` | `'default'` |
+| title       | 标题           | `ReactNode`                                        | -           |
 
 ### CSS 变量
 
-| 属性 | 说明 | 默认值 | 全局变量 |
-| --- | --- | --- | --- |
-| --image-height | 图片的高度 | `100px` | `--adm-error-block-image-height` |
+| 属性                     | 说明                 | 默认值  | 全局变量                                   |
+| ------------------------ | -------------------- | ------- | ------------------------------------------ |
+| --image-height           | 图片的高度           | `100px` | `--adm-error-block-image-height`           |
 | --image-height-full-page | 整页模式下的图片高度 | `200px` | `--adm-error-block-image-height-full-page` |
-| --image-width | 图片的宽度 | `auto` | `--adm-error-block-image-width` |
-| --image-width-full-page | 整页模式下的图片宽度 | `auto` | `--adm-error-block-image-width-full-page` |
+| --image-width            | 图片的宽度           | `auto`  | `--adm-error-block-image-width`            |
+| --image-width-full-page  | 整页模式下的图片宽度 | `auto`  | `--adm-error-block-image-width-full-page`  |
 
 ## createErrorBlock
 
@@ -57,10 +57,10 @@ type ErrorBlockStatus = 'default' | 'disconnected' | 'empty' | 'busy'
 如果在你的应用中，ErrorBlock 只需要支持 `default` 这种状态，那么你可以这样创建一个只打包了 `default` 图片素材的轻量化的 ErrorBlock：
 
 ```jsx
-import {defaultImage} from 'antd-mobile/es/components/error-block/images'
+import { defaultImage } from 'antd-mobile/es/components/error-block/images'
 
 const ErrorBlock = createErrorBlock({
-  'default': defaultImage,
+  default: defaultImage,
 })
 ```
 
@@ -70,7 +70,8 @@ const ErrorBlock = createErrorBlock({
 
 ```jsx
 const ErrorBlock = createErrorBlock({
-  'empty': 'https://gw.alipayobjects.com/zos/bmw-prod/7a2970f8-9247-4196-b3b3-2d0218c18b59.svg',
+  empty:
+    'https://gw.alipayobjects.com/zos/bmw-prod/7a2970f8-9247-4196-b3b3-2d0218c18b59.svg',
 })
 ```
 

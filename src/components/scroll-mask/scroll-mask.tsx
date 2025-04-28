@@ -6,7 +6,7 @@ import { useThrottleFn } from 'ahooks'
 
 const classPrefix = `adm-scroll-mask`
 
-export type ScrollMaskProps = {
+export interface ScrollMaskProps {
   scrollTrackRef: RefObject<HTMLElement>
 }
 
@@ -28,7 +28,7 @@ export const ScrollMask: FC<ScrollMaskProps> = props => {
       const scrollEl = props.scrollTrackRef.current
       if (!scrollEl) return
 
-      const scrollLeft = scrollEl.scrollLeft
+      const { scrollLeft } = scrollEl
       const showLeftMask = scrollLeft > 0
       const showRightMask =
         scrollLeft + scrollEl.offsetWidth < scrollEl.scrollWidth

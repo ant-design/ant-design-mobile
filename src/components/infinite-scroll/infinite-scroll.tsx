@@ -1,9 +1,9 @@
-import { mergeProps } from '../../utils/with-default-props'
-import React, { useEffect, useRef, useState } from 'react'
-import type { FC, ReactNode } from 'react'
 import { useLockFn, useThrottleFn } from 'ahooks'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import type { FC, ReactNode } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { getScrollParent } from '../../utils/get-scroll-parent'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import DotLoading from '../dot-loading'
 
@@ -75,7 +75,9 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
         try {
           await doLoadMore(false)
           setFlag(nextFlag)
-        } catch (e) {}
+        } catch {
+          // skip
+        }
       }
     },
     {
@@ -108,7 +110,9 @@ export const InfiniteScroll: FC<InfiniteScrollProps> = p => {
     try {
       await doLoadMore(true)
       setFlag(nextFlagRef.current)
-    } catch (e) {}
+    } catch {
+      // skip
+    }
   }
 
   return withNativeProps(

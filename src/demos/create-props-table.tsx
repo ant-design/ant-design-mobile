@@ -1,6 +1,6 @@
 import React from 'react'
 
-type PropItem = {
+interface PropItem {
   description?: string
   type?: string
   default?: string

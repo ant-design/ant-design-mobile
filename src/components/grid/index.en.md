@@ -14,10 +14,10 @@ It is used as a function entry in pages with strong recommendation properties, s
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| columns | The number of columns | `number` | - |
-| gap | Spacing between grids | `number \| string \| [number \| string, number \| string]` | `0` |
+| Name    | Description           | Type                                                       | Default |
+| ------- | --------------------- | ---------------------------------------------------------- | ------- |
+| columns | The number of columns | `number`                                                   | -       |
+| gap     | Spacing between grids | `number \| string \| [number \| string, number \| string]` | `0`     |
 
 ### CSS Variables
 
@@ -31,10 +31,10 @@ It is used as a function entry in pages with strong recommendation properties, s
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| onClick | The click event. | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
-| span | Span | `number` | `1` |
+| Name    | Description      | Type                                                            | Default |
+| ------- | ---------------- | --------------------------------------------------------------- | ------- |
+| onClick | The click event. | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | -       |
+| span    | Span             | `number`                                                        | `1`     |
 
 ## FAQ
 

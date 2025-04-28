@@ -40,7 +40,7 @@ export const Radio: FC<RadioProps> = p => {
     defaultValue: props.defaultChecked,
     onChange: props.onChange,
   }) as [boolean, (v: boolean) => void]
-  let disabled = props.disabled
+  let { disabled } = props
 
   const { value } = props
   if (groupContext && value !== undefined) {

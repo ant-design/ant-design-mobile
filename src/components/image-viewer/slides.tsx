@@ -12,7 +12,7 @@ import { Slide } from './slide'
 
 const classPrefix = `adm-image-viewer`
 
-export type SlidesType = {
+export interface SlidesType {
   images: string[]
   onTap?: () => void
   maxZoom: number
@@ -20,7 +20,7 @@ export type SlidesType = {
   onIndexChange?: (index: number) => void
   imageRender?: (image: string, { index }: { index: number }) => ReactNode
 }
-export type SlidesRef = {
+export interface SlidesRef {
   swipeTo: (index: number, immediate?: boolean) => void
 }
 
@@ -71,7 +71,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
       }
     },
     {
-      transform: ([x, y]) => [-x, y],
+      transform: ([x_, y]) => [-x_, y],
       from: () => [x.get(), 0],
       bounds: () => ({
         left: 0,
@@ -93,7 +93,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
       </animated.div>
       <animated.div
         className={`${classPrefix}-slides-inner`}
-        style={{ x: x.to(x => -x) }}
+        style={{ x: x.to(x_ => -x_) }}
       >
         {props.images.map((image, index) => (
           <Slide
@@ -105,9 +105,9 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
             index={index}
             onZoomChange={zoom => {
               if (zoom !== 1) {
-                const index: number = Math.round(x.get() / slideWidth)
+                const i: number = Math.round(x.get() / slideWidth)
                 api.start({
-                  x: index * slideWidth,
+                  x: i * slideWidth,
                 })
               }
             }}

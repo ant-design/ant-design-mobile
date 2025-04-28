@@ -71,7 +71,7 @@ export const NoticeBar = memo<NoticeBarProps>(props => {
 
   const [visible, setVisible] = useState(true)
 
-  const speed = mergedProps.speed
+  const { speed } = mergedProps
 
   const delayLockRef = useRef(true)
   const animatingRef = useRef(false)

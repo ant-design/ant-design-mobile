@@ -21,16 +21,16 @@
 `unstableSetRender` 为底层注册方法，允许开发者修改 ReactDOM 的渲染方法。在你的应用入口处写入：
 
 ```js
-import { unstableSetRender } from 'antd-mobile'; // Support since version ^5.39.1
-import { createRoot } from 'react-dom/client';
+import { unstableSetRender } from 'antd-mobile' // Support since version ^5.39.1
+import { createRoot } from 'react-dom/client'
 
 unstableSetRender((node, container) => {
-  container._reactRoot ||= createRoot(container);
-  const root = container._reactRoot;
-  root.render(node);
+  container._reactRoot ||= createRoot(container)
+  const root = container._reactRoot
+  root.render(node)
   return async () => {
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    root.unmount();
-  };
-});
+    await new Promise(resolve => setTimeout(resolve, 0))
+    root.unmount()
+  }
+})
 ```

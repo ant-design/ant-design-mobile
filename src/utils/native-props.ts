@@ -1,6 +1,6 @@
-import React, { AriaAttributes } from 'react'
-import type { CSSProperties, ReactElement } from 'react'
 import classNames from 'classnames'
+import type { CSSProperties, ReactElement } from 'react'
+import React, { AriaAttributes } from 'react'
 
 export type NativeProps<S extends string = never> = {
   className?: string
@@ -28,7 +28,7 @@ export function withNativeProps<P extends NativeProps>(
     p.tabIndex = props.tabIndex
   }
   for (const key in props) {
-    if (!props.hasOwnProperty(key)) continue
+    if (!Object.prototype.hasOwnProperty.call(props, key)) continue
     if (key.startsWith('data-') || key.startsWith('aria-')) {
       p[key] = props[key]
     }

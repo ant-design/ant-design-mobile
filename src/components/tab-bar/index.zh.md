@@ -16,24 +16,24 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| activeKey | 当前激活 `item` 的 `key` | `string \| null` | - |
-| defaultActiveKey | 初始化选中 `item` 的 `key`，如果没有设置 `activeKey` | `string \| null` | 第一个 `TabBar.Item` 的 `key` |
-| onChange | 切换面板的回调 | `(key: string) => void` | - |
-| safeArea | 是否开启安全区适配 | `boolean` | `false` |
+| 属性             | 说明                                                 | 类型                    | 默认值                        |
+| ---------------- | ---------------------------------------------------- | ----------------------- | ----------------------------- |
+| activeKey        | 当前激活 `item` 的 `key`                             | `string \| null`        | -                             |
+| defaultActiveKey | 初始化选中 `item` 的 `key`，如果没有设置 `activeKey` | `string \| null`        | 第一个 `TabBar.Item` 的 `key` |
+| onChange         | 切换面板的回调                                       | `(key: string) => void` | -                             |
+| safeArea         | 是否开启安全区适配                                   | `boolean`               | `false`                       |
 
 ## TabBar.Item
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| badge | 徽标，同 [Badge](/zh/components/badge) 的 `content` 属性 | `React.ReactNode \| typeof Badge.dot` | - |  |
-| icon | 图标 | `ReactNode \| ((active: boolean) => ReactNode)` | - |  |
-| key | 对应 `activeKey` | `string` | - |  |
-| title | 标题 | `ReactNode \| ((active: boolean) => ReactNode)` | - |  |
-| onClick | 点击事件的回调 | `() => void` | - | 5.38.0 |
+| 属性    | 说明                                                     | 类型                                            | 默认值 | 版本   |
+| ------- | -------------------------------------------------------- | ----------------------------------------------- | ------ | ------ |
+| badge   | 徽标，同 [Badge](/zh/components/badge) 的 `content` 属性 | `React.ReactNode \| typeof Badge.dot`           | -      |        |
+| icon    | 图标                                                     | `ReactNode \| ((active: boolean) => ReactNode)` | -      |        |
+| key     | 对应 `activeKey`                                         | `string`                                        | -      |        |
+| title   | 标题                                                     | `ReactNode \| ((active: boolean) => ReactNode)` | -      |        |
+| onClick | 点击事件的回调                                           | `() => void`                                    | -      | 5.38.0 |
 
 ## FAQ
 

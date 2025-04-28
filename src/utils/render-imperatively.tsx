@@ -2,7 +2,7 @@ import type { ReactElement } from 'react'
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { renderToBody } from './render-to-body'
 
-type ImperativeProps = {
+interface ImperativeProps {
   visible?: boolean
   onClose?: () => void
   afterClose?: () => void
@@ -10,7 +10,7 @@ type ImperativeProps = {
 
 type TargetElement = ReactElement<ImperativeProps>
 
-export type ImperativeHandler = {
+export interface ImperativeHandler {
   close: () => void
   replace: (element: TargetElement) => void
   isRendered?: () => boolean
@@ -40,10 +40,10 @@ export function renderImperatively(element: TargetElement) {
     }
     useImperativeHandle(ref, () => ({
       close: onClose,
-      replace: element => {
+      replace: elem => {
         keyRef.current++
         elementToRender.props.afterClose?.()
-        setElementToRender(element)
+        setElementToRender(elem)
       },
     }))
     return React.cloneElement(elementToRender, {
@@ -67,8 +67,8 @@ export function renderImperatively(element: TargetElement) {
         wrapperRef.current?.close()
       }
     },
-    replace: element => {
-      wrapperRef.current?.replace(element)
+    replace: elem => {
+      wrapperRef.current?.replace(elem)
     },
     isRendered: () => !!wrapperRef.current,
   } as ImperativeHandler

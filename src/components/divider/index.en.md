@@ -15,7 +15,7 @@ A dividing line that separates content.
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| contentPosition | The position of the content. Only take effect when `direction` is `horizontal`. | `'center' \| 'left' \| 'right'` | `'center'` |
-| direction | The direction type of divider | `'horizontal' \| 'vertical'` | `'horizontal'` |
+| Name            | Description                                                                     | Type                            | Default        |
+| --------------- | ------------------------------------------------------------------------------- | ------------------------------- | -------------- |
+| contentPosition | The position of the content. Only take effect when `direction` is `horizontal`. | `'center' \| 'left' \| 'right'` | `'center'`     |
+| direction       | The direction type of divider                                                   | `'horizontal' \| 'vertical'`    | `'horizontal'` |

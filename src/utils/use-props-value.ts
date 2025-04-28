@@ -1,7 +1,7 @@
 import { SetStateAction, useRef } from 'react'
 import { useMemoizedFn, useUpdate } from 'ahooks'
 
-type Options<T> = {
+interface Options<T> {
   value?: T
   defaultValue: T
   onChange?: (v: T) => void
@@ -18,7 +18,7 @@ export function usePropsValue<T>(options: Options<T>) {
   }
 
   const setState = useMemoizedFn(
-    (v: SetStateAction<T>, forceTrigger: boolean = false) => {
+    (v: SetStateAction<T>, forceTrigger = false) => {
       // `forceTrigger` means trigger `onChange` even if `v` is the same as `stateRef.current`
       const nextValue =
         typeof v === 'function'

@@ -7,12 +7,12 @@ import Divider from '../divider'
 
 const classPrefix = `adm-footer`
 
-export type LinkItem = {
+export interface LinkItem {
   text: string
   href: string
 }
 
-export type ChipItem = {
+export interface ChipItem {
   text: ReactNode
   type?: 'plain' | 'link'
 }

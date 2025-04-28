@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'
-import { render, testA11y, fireEvent, screen, mockDrag } from 'testing'
-import Swiper, { SwiperRef } from '..'
 import { act } from '@testing-library/react'
+import React, { useRef, useState } from 'react'
+import { fireEvent, mockDrag, render, screen, testA11y } from 'testing'
+import Swiper, { SwiperRef } from '..'
 
 const classPrefix = `adm-swiper`
 
@@ -276,22 +276,22 @@ describe('Swiper', () => {
   })
 
   test('warning when the children is not `Swiper.Item` components`', () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
+    const warnSpy_ = jest.spyOn(console, 'warn').mockImplementation(() => {})
     render(
       <Swiper>
         <div />
       </Swiper>
     )
-    expect(warnSpy).toHaveBeenCalledWith(
+    expect(warnSpy_).toHaveBeenCalledWith(
       '[antd-mobile: Swiper] The children of `Swiper` must be `Swiper.Item` components.'
     )
   })
 
   test('warning when the children is empty', () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
+    const warnSpy_ = jest.spyOn(console, 'warn').mockImplementation(() => {})
 
-    render(<Swiper></Swiper>)
-    expect(warnSpy).toHaveBeenCalledWith(
+    render(<Swiper />)
+    expect(warnSpy_).toHaveBeenCalledWith(
       '[antd-mobile: Swiper] `Swiper` needs at least one child.'
     )
   })
@@ -299,12 +299,12 @@ describe('Swiper', () => {
   test('autoplay should be work when the length of item changes', () => {
     jest.useFakeTimers()
     const App = () => {
-      const [items, setItems] = useState(['1', '2'])
+      const [items_, setItems] = useState(['1', '2'])
 
       return (
         <>
           <Swiper autoplay>
-            {items.map(item => (
+            {items_.map(item => (
               <Swiper.Item key={item}>{item}</Swiper.Item>
             ))}
           </Swiper>

@@ -11,5 +11,7 @@ if (canUseDom) {
       },
     })
     window.addEventListener('test-passive', null as any, opts)
-  } catch (e) {}
+  } catch {
+    // skip
+  }
 }

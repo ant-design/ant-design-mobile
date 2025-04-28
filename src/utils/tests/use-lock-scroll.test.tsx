@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { render, fireEvent, createEvent, screen } from 'testing'
+import { createEvent, fireEvent, render, screen } from 'testing'
 import { useLockScroll } from '../use-lock-scroll'
 
 describe('useLockScroll', () => {
@@ -45,7 +45,7 @@ describe('useLockScroll', () => {
 
   test('use preventDefault when event listener is treated as as passive', () => {
     const handleTouch = jest.fn()
-    const TestComponent = () => {
+    const TestComponent2 = () => {
       const divRef = useRef<HTMLDivElement>(null)
 
       useLockScroll(divRef, true)
@@ -57,7 +57,7 @@ describe('useLockScroll', () => {
       )
     }
 
-    render(<TestComponent />)
+    render(<TestComponent2 />)
 
     const el = screen.getByText('div')
     const fn = jest.fn()
@@ -74,7 +74,7 @@ describe('useLockScroll', () => {
   })
 
   test('Scroll To Bottom', async () => {
-    const { getByTestId } = render(<TestComponent scrollParams={true} />)
+    const { getByTestId } = render(<TestComponent scrollParams />)
 
     const testEl = getByTestId('lock')
 
@@ -117,7 +117,7 @@ describe('useLockScroll', () => {
   })
 
   test('Scroll To Top', async () => {
-    const { getByTestId } = render(<TestComponent scrollParams={true} />)
+    const { getByTestId } = render(<TestComponent scrollParams />)
 
     const testEl = getByTestId('lock')
 

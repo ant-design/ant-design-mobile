@@ -14,7 +14,7 @@ describe('CascadePickerView', () => {
 
   test('controlled mode', async () => {
     const App = () => {
-      const [value, setValue] = useState<(string | number | null)[]>([
+      const [value, setValue] = useState<Array<string | number | null>>([
         '浙江',
         '杭州',
       ])

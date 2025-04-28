@@ -5,7 +5,7 @@ import { options } from '../demos/data'
 
 describe('Cascader', () => {
   test('a11y', async () => {
-    await testA11y(<Cascader options={options} visible={true} />)
+    await testA11y(<Cascader options={options} visible />)
   })
 
   test('basic usage', async () => {

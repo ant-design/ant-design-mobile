@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, testA11y, userEvent, screen, act } from 'testing'
+import { act, fireEvent, render, screen, testA11y, userEvent } from 'testing'
 import Radio from '../'
 
 const classPrefix = `adm-radio`
@@ -102,7 +102,7 @@ describe('Radio.Group', () => {
   })
 
   test('group disabled', () => {
-    const { container, getByText } = render(
+    render(
       <Radio.Group defaultValue={'orange'} disabled>
         <Radio value='apple'>苹果</Radio>
         <Radio value='orange' disabled>

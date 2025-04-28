@@ -23,41 +23,41 @@ High-performance form controls with built-in data field management. Including da
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| disabled | Whether it is disabled | `boolean` | `false` |
-| footer | The footer content. Commonly used for placing submit buttons. | `ReactNode` | - |
-| form | Form control instance created by `Form.useForm()`. Automatically created when not provided | `FormInstance` | - |
-| hasFeedback | Whether to show error feedback | `boolean` | `true` |
-| initialValues | Set value by Form initialization or reset | `object` | - |
-| layout | Layout mode | `'vertical' \| 'horizontal'` | `'vertical'` |
-| mode | Support two modes: default and card. | `'default' \| 'card'` | `'default'` |
-| name | Form name. Will be the prefix of Field `id` | `string` | - |
-| onFieldsChange | Trigger when field updated | `(changedFields, allFields) => void` | - |
-| onFinish | Trigger after submitting the form and verifying data successfully | `(values) => void` | - |
-| onFinishFailed | Trigger after submitting the form and verifying data failed | `({ values, errorFields, outOfDate }) => void` | - |
-| onValuesChange | Trigger when value updated | `(changedValues, allValues) => void` | - |
-| preserve | Keep field value even when field removed | `boolean` | `true` |
-| requiredMarkStyle | The style of required or optional mark | `'asterisk' \| 'text-required' \| 'text-optional \| 'none'` | `'asterisk'` |
-| validateMessages | Validation prompt template, description see below | `ValidateMessages` | - |
-| validateTrigger | Config field validate trigger | `string \| string[]` | `'onChange'` |
+| Name              | Description                                                                                | Type                                                        | Default      |
+| ----------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------- | ------------ |
+| disabled          | Whether it is disabled                                                                     | `boolean`                                                   | `false`      |
+| footer            | The footer content. Commonly used for placing submit buttons.                              | `ReactNode`                                                 | -            |
+| form              | Form control instance created by `Form.useForm()`. Automatically created when not provided | `FormInstance`                                              | -            |
+| hasFeedback       | Whether to show error feedback                                                             | `boolean`                                                   | `true`       |
+| initialValues     | Set value by Form initialization or reset                                                  | `object`                                                    | -            |
+| layout            | Layout mode                                                                                | `'vertical' \| 'horizontal'`                                | `'vertical'` |
+| mode              | Support two modes: default and card.                                                       | `'default' \| 'card'`                                       | `'default'`  |
+| name              | Form name. Will be the prefix of Field `id`                                                | `string`                                                    | -            |
+| onFieldsChange    | Trigger when field updated                                                                 | `(changedFields, allFields) => void`                        | -            |
+| onFinish          | Trigger after submitting the form and verifying data successfully                          | `(values) => void`                                          | -            |
+| onFinishFailed    | Trigger after submitting the form and verifying data failed                                | `({ values, errorFields, outOfDate }) => void`              | -            |
+| onValuesChange    | Trigger when value updated                                                                 | `(changedValues, allValues) => void`                        | -            |
+| preserve          | Keep field value even when field removed                                                   | `boolean`                                                   | `true`       |
+| requiredMarkStyle | The style of required or optional mark                                                     | `'asterisk' \| 'text-required' \| 'text-optional \| 'none'` | `'asterisk'` |
+| validateMessages  | Validation prompt template, description see below                                          | `ValidateMessages`                                          | -            |
+| validateTrigger   | Config field validate trigger                                                              | `string \| string[]`                                        | `'onChange'` |
 
 ### FormInstance
 
-| Name | Description | Type |
-| --- | --- | --- |
-| getFieldError | Get the error messages by the field name | `(name: NamePath) => string[]` |
-| getFieldValue | Get the value by the field name | `(name: NamePath) => any` |
-| getFieldsError | Get the error messages by the fields name. Return as an array | `(nameList?: NamePath[]) => FieldError[]` |
-| getFieldsValue | Get values by a set of field names. Return according to the corresponding structure. Default return mounted field value, but you can use `getFieldsValue(true)` to get all values | `(nameList?: NamePath[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any` |
-| isFieldTouched | Check if a field has been operated | `(name: NamePath) => boolean` |
-| isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | `(nameList?: NamePath[], allTouched?: boolean) => boolean` |
-| resetFields | Reset fields to `initialValues` `initialValues` | `(fields?: FieldData[]) => void` |
-| setFields | Set fields status | `(fields: FieldData[]) => void` |
-| setFieldValue | Set the value by the field name | `(name: NamePath, value: any) => void` |
-| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | `(values) => void` |
-| submit | Submit the form. It's same as click `submit` button | `() => void` |
-| validateFields | Validate fields | `(nameList?: NamePath[]) => Promise` |
+| Name            | Description                                                                                                                                                                       | Type                                                                                                        |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| getFieldError   | Get the error messages by the field name                                                                                                                                          | `(name: NamePath) => string[]`                                                                              |
+| getFieldValue   | Get the value by the field name                                                                                                                                                   | `(name: NamePath) => any`                                                                                   |
+| getFieldsError  | Get the error messages by the fields name. Return as an array                                                                                                                     | `(nameList?: NamePath[]) => FieldError[]`                                                                   |
+| getFieldsValue  | Get values by a set of field names. Return according to the corresponding structure. Default return mounted field value, but you can use `getFieldsValue(true)` to get all values | `(nameList?: NamePath[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any` |
+| isFieldTouched  | Check if a field has been operated                                                                                                                                                | `(name: NamePath) => boolean`                                                                               |
+| isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true`                                                                                    | `(nameList?: NamePath[], allTouched?: boolean) => boolean`                                                  |
+| resetFields     | Reset fields to `initialValues` `initialValues`                                                                                                                                   | `(fields?: FieldData[]) => void`                                                                            |
+| setFields       | Set fields status                                                                                                                                                                 | `(fields: FieldData[]) => void`                                                                             |
+| setFieldValue   | Set the value by the field name                                                                                                                                                   | `(name: NamePath, value: any) => void`                                                                      |
+| setFieldsValue  | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first)                                                                | `(values) => void`                                                                                          |
+| submit          | Submit the form. It's same as click `submit` button                                                                                                                               | `() => void`                                                                                                |
+| validateFields  | Validate fields                                                                                                                                                                   | `(nameList?: NamePath[]) => Promise`                                                                        |
 
 ### validateMessages
 
@@ -67,50 +67,50 @@ Form provides [default verification error messages](https://github.com/react-com
 const validateMessages = {
   required: "'${name}' is required!",
   // ...
-};
-<Form validateMessages={validateMessages} />;
+}
+;<Form validateMessages={validateMessages} />
 ```
 
 ### CSS Variables
 
-| Name | Description | Default |
-| --- | --- | --- |
-| --border-bottom | Border style of the form bottom | `solid 1px var(--adm-border-color)` |
-| --border-inner | Border style between form items | `solid 1px var(--adm-border-color)` |
-| --border-top | Border style of the form top | `solid 1px var(--adm-border-color)` |
-| --prefix-width | Label width of form items in horizontal layout | `6.8em` |
+| Name            | Description                                    | Default                             |
+| --------------- | ---------------------------------------------- | ----------------------------------- |
+| --border-bottom | Border style of the form bottom                | `solid 1px var(--adm-border-color)` |
+| --border-inner  | Border style between form items                | `solid 1px var(--adm-border-color)` |
+| --border-top    | Border style of the form top                   | `solid 1px var(--adm-border-color)` |
+| --prefix-width  | Label width of form items in horizontal layout | `6.8em`                             |
 
 ## Form.Item
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| childElementPosition <Experimental></Experimental> | Position of the widget. | `'normal' \| 'right'` | `'normal'` |
-| dependencies | Set the dependency field. See below | `NamePath[]` | - |
-| disabled | Whether it is disabled | `boolean` | The `disabled` of parent Form |
-| getValueFromEvent | Specify how to get value from event or other onChange arguments | `(..args: any[]) => any` | - |
-| getValueProps | Customize additional props with value. This prop will disable `valuePropName` | `(value) => any` | - |
-| hasFeedback | Whether to show error feedback | `boolean` | `true` |
-| help | Prompt text | `ReactNode` | - |
-| helpIcon | Prompt icon | `ReactNode` | `<QuestionCircleOutline />` |
-| hidden | Hide this field | `boolean` | `false` |
-| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict. | `any` | - |
-| label | Label name | `ReactNode` | - |
-| layout | Layout mode | `'vertical' \| 'horizontal'` | The `layout` of parent Form |
-| messageVariables | The default validate field info | `Record<string, string>` | - |
-| name | Field name, support array | `NamePath` | - |
-| normalize | Normalize value from component value before passing to Form instance. Do not support async | `(value, prevValue, prevValues) => any` | - |
-| noStyle | No styles, only use field management | `boolean` | `false` |
-| onClick | The click event of the list item. | `(e:React.MouseEvent, widgetRef: React.MutableRefObject<any>)` | - |
-| preserve | Keep field value even when field removed | `boolean` | `true` |
-| required | Whether it is required. Note that this property is only used to control the appearance and does not contain validation logic. | `boolean` | `false` (if `rules` is set, it would be judged according to `rules`) |
-| rules | Rules for field validation. | `Rule[]` | - |
-| shouldUpdate | Custom field update logic. See below | `boolean \| (prevValue, curValue) => boolean` | `false` |
-| trigger | When to collect the value of children node. | `string` | `onChange` |
-| validateFirst | Whether stop validate on first rule of error for this field. Will parallel validate when parallel cofigured | `boolean \| 'parallel'` | `false` |
-| validateTrigger | When to validate the value of children node | `string \| string[]` | `onChange` |
-| valuePropName | Props of children node, for example, the prop of Switch is 'checked'. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | `string` | `value` |
+| Name                                               | Description                                                                                                                                                                     | Type                                                           | Default                                                              |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------- |
+| childElementPosition <Experimental></Experimental> | Position of the widget.                                                                                                                                                         | `'normal' \| 'right'`                                          | `'normal'`                                                           |
+| dependencies                                       | Set the dependency field. See below                                                                                                                                             | `NamePath[]`                                                   | -                                                                    |
+| disabled                                           | Whether it is disabled                                                                                                                                                          | `boolean`                                                      | The `disabled` of parent Form                                        |
+| getValueFromEvent                                  | Specify how to get value from event or other onChange arguments                                                                                                                 | `(..args: any[]) => any`                                       | -                                                                    |
+| getValueProps                                      | Customize additional props with value. This prop will disable `valuePropName`                                                                                                   | `(value) => any`                                               | -                                                                    |
+| hasFeedback                                        | Whether to show error feedback                                                                                                                                                  | `boolean`                                                      | `true`                                                               |
+| help                                               | Prompt text                                                                                                                                                                     | `ReactNode`                                                    | -                                                                    |
+| helpIcon                                           | Prompt icon                                                                                                                                                                     | `ReactNode`                                                    | `<QuestionCircleOutline />`                                          |
+| hidden                                             | Hide this field                                                                                                                                                                 | `boolean`                                                      | `false`                                                              |
+| initialValue                                       | Config sub default value. Form `initialValues` get higher priority when conflict.                                                                                               | `any`                                                          | -                                                                    |
+| label                                              | Label name                                                                                                                                                                      | `ReactNode`                                                    | -                                                                    |
+| layout                                             | Layout mode                                                                                                                                                                     | `'vertical' \| 'horizontal'`                                   | The `layout` of parent Form                                          |
+| messageVariables                                   | The default validate field info                                                                                                                                                 | `Record<string, string>`                                       | -                                                                    |
+| name                                               | Field name, support array                                                                                                                                                       | `NamePath`                                                     | -                                                                    |
+| normalize                                          | Normalize value from component value before passing to Form instance. Do not support async                                                                                      | `(value, prevValue, prevValues) => any`                        | -                                                                    |
+| noStyle                                            | No styles, only use field management                                                                                                                                            | `boolean`                                                      | `false`                                                              |
+| onClick                                            | The click event of the list item.                                                                                                                                               | `(e:React.MouseEvent, widgetRef: React.MutableRefObject<any>)` | -                                                                    |
+| preserve                                           | Keep field value even when field removed                                                                                                                                        | `boolean`                                                      | `true`                                                               |
+| required                                           | Whether it is required. Note that this property is only used to control the appearance and does not contain validation logic.                                                   | `boolean`                                                      | `false` (if `rules` is set, it would be judged according to `rules`) |
+| rules                                              | Rules for field validation.                                                                                                                                                     | `Rule[]`                                                       | -                                                                    |
+| shouldUpdate                                       | Custom field update logic. See below                                                                                                                                            | `boolean \| (prevValue, curValue) => boolean`                  | `false`                                                              |
+| trigger                                            | When to collect the value of children node.                                                                                                                                     | `string`                                                       | `onChange`                                                           |
+| validateFirst                                      | Whether stop validate on first rule of error for this field. Will parallel validate when parallel cofigured                                                                     | `boolean \| 'parallel'`                                        | `false`                                                              |
+| validateTrigger                                    | When to validate the value of children node                                                                                                                                     | `string \| string[]`                                           | `onChange`                                                           |
+| valuePropName                                      | Props of children node, for example, the prop of Switch is 'checked'. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | `string`                                                       | `value`                                                              |
 
 The layout of Form.Item is based on List.Item. So it also supports these props of [List.Item](/components/list#listitem):
 
@@ -163,7 +163,9 @@ For example, the following code is wrong:
 <Form.Item name='foo'>
   <Input
     value={myInputValue} // Wrong: Value should not be manually controlled
-    onChange={(v) => { setMyInputValue(v) }} // Wrong: Although you can listen to the onChange event, you should not maintain your own state here
+    onChange={v => {
+      setMyInputValue(v)
+    }} // Wrong: Although you can listen to the onChange event, you should not maintain your own state here
   />
 </Form.Item>
 ```
@@ -183,7 +185,7 @@ When `shouldUpdate` is `true`, any Form update will cause the Form.Item to be re
 ```jsx
 <Form.Item shouldUpdate>
   {() => {
-    return <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>;
+    return <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>
   }}
 </Form.Item>
 ```
@@ -191,13 +193,17 @@ When `shouldUpdate` is `true`, any Form update will cause the Form.Item to be re
 When `shouldUpdate` is a function, it will be called by form values update. Providing original values and current value to compare. This is very helpful for rendering additional fields based on values:
 
 ```jsx
-<Form.Item shouldUpdate={(prevValues, curValues) => prevValues.additional !== curValues.additional}>
+<Form.Item
+  shouldUpdate={(prevValues, curValues) =>
+    prevValues.additional !== curValues.additional
+  }
+>
   {() => {
     return (
-      <Form.Item name="other">
+      <Form.Item name='other'>
         <Input />
       </Form.Item>
-    );
+    )
   }}
 </Form.Item>
 ```
@@ -208,7 +214,7 @@ You can modify the default verification information of Form.Item through `messag
 
 ```jsx
 <Form>
-  <Form.Item messageVariables={{ another: 'good' }} label="user">
+  <Form.Item messageVariables={{ another: 'good' }} label='user'>
     <Input />
   </Form.Item>
   <Form.Item messageVariables={{ label: 'good' }} label={<span>user</span>}>
@@ -232,18 +238,18 @@ You can use `Form.Header` to group form items.
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| children | Group header. If not passed, it will be rendered as a delimiter with no content. | `ReactNode` | - |
+| Name     | Description                                                                      | Type        | Default |
+| -------- | -------------------------------------------------------------------------------- | ----------- | ------- |
+| children | Group header. If not passed, it will be rendered as a delimiter with no content. | `ReactNode` | -       |
 
 ## Form.Subscribe
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| children | Render function. | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | - |
-| to | Same as the `dependencies` prop of Form.Item. | `NamePath[]` | - |
+| Name     | Description                                   | Type                                                                    | Default |
+| -------- | --------------------------------------------- | ----------------------------------------------------------------------- | ------- |
+| children | Render function.                              | `(changedValues: Record<string, any>, form: FormInstance) => ReactNode` | -       |
+| to       | Same as the `dependencies` prop of Form.Item. | `NamePath[]`                                                            | -       |
 
 ### useWatch
 
@@ -257,14 +263,14 @@ You can use `Form.Header` to group form items.
 
 Provides array management for fields.
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| children | Render function. | `(fields: FormArrayField[], operation: FormArrayOperation) => ReactElement[]` | - |
-| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict. | `any[]` | - |
-| name | Field name, support array. | `NamePath[]` | - |
-| onAdd | Custom add function. | `(operation: FormArrayOperation) => void` | - |
-| renderAdd | Render the content of add button. | `() => ReactNode` | - |
-| renderHeader | Render the header of each field. | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode` | - |
+| Name         | Description                                                                       | Type                                                                          | Default |
+| ------------ | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------- |
+| children     | Render function.                                                                  | `(fields: FormArrayField[], operation: FormArrayOperation) => ReactElement[]` | -       |
+| initialValue | Config sub default value. Form `initialValues` get higher priority when conflict. | `any[]`                                                                       | -       |
+| name         | Field name, support array.                                                        | `NamePath[]`                                                                  | -       |
+| onAdd        | Custom add function.                                                              | `(operation: FormArrayOperation) => void`                                     | -       |
+| renderAdd    | Render the content of add button.                                                 | `() => ReactNode`                                                             | -       |
+| renderHeader | Render the header of each field.                                                  | `(field: FormArrayField, operation: FormArrayOperation) => ReactNode`         | -       |
 
 ### FormArrayField
 
@@ -307,25 +313,25 @@ The operation functions for Form.Array.
 Rule supports a config object, or a function returning config object:
 
 ```tsx
-type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig)
 ```
 
-| Name | Description | Type |
-| --- | --- | --- |
-| defaultField | Validate rule for all array elements, valid when `type` is `array` | `rule` |
-| enum | Match enum value. You need to set `type` to `enum` to enable this | `any[]` |
-| len | Length of string, number, array | `number` |
-| max | `type` required: max length of `string`, `number`, `array` | `number` |
-| message | Error message. Will auto generate by [template](#validatemessages) if not provided | `string` |
-| min | `type` required: min length of `string`, `number`, `array` | `number` |
-| pattern | Regex pattern | `RegExp` |
-| required | Required field | `boolean` |
-| transform | Transform value to the rule before validation | `(value) => any` |
-| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | `string` |
-| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | `string \| string[]` |
-| validator | Customize validation rule. Accept Promise as return. See [example](#custom-field) | `(rule, value) => Promise` |
-| warningOnly | Warning only. Not block form submit | `boolean` |
-| whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | `boolean` |
+| Name            | Description                                                                                                                            | Type                       |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| defaultField    | Validate rule for all array elements, valid when `type` is `array`                                                                     | `rule`                     |
+| enum            | Match enum value. You need to set `type` to `enum` to enable this                                                                      | `any[]`                    |
+| len             | Length of string, number, array                                                                                                        | `number`                   |
+| max             | `type` required: max length of `string`, `number`, `array`                                                                             | `number`                   |
+| message         | Error message. Will auto generate by [template](#validatemessages) if not provided                                                     | `string`                   |
+| min             | `type` required: min length of `string`, `number`, `array`                                                                             | `number`                   |
+| pattern         | Regex pattern                                                                                                                          | `RegExp`                   |
+| required        | Required field                                                                                                                         | `boolean`                  |
+| transform       | Transform value to the rule before validation                                                                                          | `(value) => any`           |
+| type            | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/yiminghe/async-validator#type) | `string`                   |
+| validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item                                                      | `string \| string[]`       |
+| validator       | Customize validation rule. Accept Promise as return. See [example](#custom-field)                                                      | `(rule, value) => Promise` |
+| warningOnly     | Warning only. Not block form submit                                                                                                    | `boolean`                  |
+| whitespace      | Failed if only has whitespace, only work with `type: 'string'` rule                                                                    | `boolean`                  |
 
 ## FAQ
 
@@ -335,23 +341,16 @@ First, we can render the currently selected value through the `children` renderi
 
 ```jsx
 <DatePicker>
-  {value =>
-    value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
-  }
+  {value => (value ? dayjs(value).format('YYYY-MM-DD') : 'Please select')}
 </DatePicker>
 ```
 
 Next we need to deal with the show/hide state of the Picker, which is where the Picker component is the most different and confusing from other form components. If we put the Picker directly in the Form.Item, there is no way to show it to the user, no matter how clicked, it will not let Picker pops up:
 
 ```tsx
-<Form.Item
-  name='birthday'
-  label='Birthday'
->
+<Form.Item name='birthday' label='Birthday'>
   <DatePicker>
-    {value =>
-      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
-    }
+    {value => (value ? dayjs(value).format('YYYY-MM-DD') : 'Please select')}
   </DatePicker>
 </Form.Item>
 ```
@@ -376,9 +375,7 @@ const [visible, setVisible] = useState(false)
       setVisible(false)
     }}
   >
-    {value =>
-      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
-    }
+    {value => (value ? dayjs(value).format('YYYY-MM-DD') : 'Please select')}
   </DatePicker>
 </Form.Item>
 ```
@@ -396,9 +393,7 @@ So antd-mobile provides a convenient method, you can directly get the ref of the
   }}
 >
   <DatePicker>
-    {value =>
-      value ? dayjs(value).format('YYYY-MM-DD') : 'Please select'
-    }
+    {value => (value ? dayjs(value).format('YYYY-MM-DD') : 'Please select')}
   </DatePicker>
 </Form.Item>
 ```
@@ -409,7 +404,7 @@ Finally, don't forget that the Picker component's confirmation event is `onConfi
 <Form.Item
   name='birthday'
   label='Birthday'
-  trigger='onConfirm'  // ⬅️
+  trigger='onConfirm' // ⬅️
   onClick={(e, datePickerRef: RefObject<DatePickerRef>) => {
     datePickerRef.current?.open()
   }}

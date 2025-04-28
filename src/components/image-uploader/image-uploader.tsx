@@ -27,7 +27,7 @@ export interface ImageUploadItem {
   extra?: any
 }
 
-type Task = {
+interface Task {
   id: number
   url?: string
   file: File
@@ -57,7 +57,7 @@ export type ImageUploaderProps = {
     files: File[]
   ) => Promise<File | null> | File | null
   upload: (file: File) => Promise<ImageUploadItem>
-  onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | void
+  onDelete?: (item: ImageUploadItem) => boolean | Promise<boolean> | undefined
   preview?: boolean
   showFailed?: boolean
   imageFit?: ImageProps['fit']
@@ -109,7 +109,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
     useIsomorphicLayoutEffect(() => {
       const gapMeasure = gapMeasureRef.current
       if (columns && containerSize && gapMeasure) {
-        const width = containerSize.width
+        const { width } = containerSize
         const gap = measureCSSLength(
           window.getComputedStyle(gapMeasure).getPropertyValue('height')
         )
@@ -120,7 +120,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
     const style: CSSProperties & {
       '--cell-size': string
     } = {
-      '--cell-size': cellSize + 'px',
+      '--cell-size': `${cellSize}px`,
     }
 
     useIsomorphicLayoutEffect(() => {
@@ -152,10 +152,10 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
       return transformedFile
     }
 
-    function getFinalTasks(tasks: Task[]) {
+    function getFinalTasks(tasks_: Task[]) {
       return props.showFailed
-        ? tasks
-        : tasks.filter(task => task.status !== 'fail')
+        ? tasks_
+        : tasks_.filter(task => task.status !== 'fail')
     }
 
     async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -213,7 +213,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
                 return task
               })
             })
-          } catch (e) {
+          } catch (e2) {
             setTasks(prev => {
               return prev.map(task => {
                 if (task.id === currentTask.id) {
@@ -225,7 +225,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
                 return task
               })
             })
-            console.error(e)
+            console.error(e2)
           }
         })
       )

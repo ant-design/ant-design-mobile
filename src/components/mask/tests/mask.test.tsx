@@ -58,7 +58,7 @@ describe('Mask', () => {
     )
 
     expect(getByTestId('thick').style.background).toEqual(
-      `rgba(0, 0, 0, ${opacityRecord['thick']})`
+      `rgba(0, 0, 0, ${opacityRecord.thick})`
     )
     expect(getByTestId('1').style.background).toEqual(`rgba(0, 0, 0, 0.8)`)
   })
@@ -69,7 +69,7 @@ describe('Mask', () => {
     )
 
     expect(getByTestId('mask').style.background).toEqual(
-      `rgba(255, 255, 255, ${opacityRecord['default']})`
+      `rgba(255, 255, 255, ${opacityRecord.default})`
     )
   })
 

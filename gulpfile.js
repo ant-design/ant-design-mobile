@@ -12,8 +12,7 @@ const through = require('through2')
 const vite = require('vite')
 const rename = require('gulp-rename')
 const autoprefixer = require('autoprefixer')
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const tsconfig = require('./tsconfig.json')
 const packageJson = require('./package.json')
 const StatoscopeWebpackPlugin = require('@statoscope/webpack-plugin').default
@@ -72,7 +71,7 @@ function buildCJS() {
     .src(['lib/es/**/*.js'])
     .pipe(
       babel({
-        'plugins': ['@babel/plugin-transform-modules-commonjs'],
+        plugins: ['@babel/plugin-transform-modules-commonjs'],
       })
     )
     .pipe(gulp.dest('lib/cjs/'))
@@ -90,7 +89,7 @@ function buildES() {
     .pipe(tsProject)
     .pipe(
       babel({
-        'plugins': ['./babel-transform-less-to-css'],
+        plugins: ['./babel-transform-less-to-css'],
       })
     )
     .pipe(gulp.dest('lib/es/'))
@@ -101,7 +100,7 @@ function buildDeclaration() {
     ...tsconfig.compilerOptions,
     paths: {
       ...tsconfig.compilerOptions.paths,
-      'react': ['node_modules/@types/react'],
+      react: ['node_modules/@types/react'],
       'rc-field-form': ['node_modules/rc-field-form'],
       '@react-spring/web': ['node_modules/@react-spring/web'],
       '@use-gesture/react': ['node_modules/@use-gesture/react'],
@@ -120,7 +119,7 @@ function buildDeclaration() {
 }
 
 function getViteConfigForPackage({ env, formats, external }) {
-  const name = packageJson.name
+  const { name } = packageJson
   const isProd = env === 'production'
   return {
     root: process.cwd(),
@@ -145,7 +144,7 @@ function getViteConfigForPackage({ env, formats, external }) {
           dir: './lib/bundle',
           // exports: 'named',
           globals: {
-            'react': 'React',
+            react: 'React',
             'react-dom': 'ReactDOM',
           },
         },
@@ -221,15 +220,15 @@ function umdWebpack() {
                 use: {
                   loader: 'babel-loader',
                   options: {
-                    'presets': [
+                    presets: [
                       [
                         '@babel/preset-env',
                         {
-                          'loose': true,
-                          'modules': false,
-                          'targets': {
-                            'chrome': '49',
-                            'ios': '9',
+                          loose: true,
+                          modules: false,
+                          targets: {
+                            chrome: '49',
+                            ios: '9',
                           },
                         },
                       ],

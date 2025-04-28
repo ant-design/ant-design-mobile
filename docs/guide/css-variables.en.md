@@ -10,10 +10,10 @@ In the "CSS Variables" table of the component document, you can check which CSS 
 
 Taking the Input component as an example, we can find a table similar to the following on its documentation:
 
-| Name | Description | Default | Global |
-| --- | --- | --- | --- |
-| --border-radius | Border radius of the button. | `4px` | `--adm-button-border-radius` |
-| --border-width | Border width of the button. | `1px` | `--adm-button-border-width` |
+| Name            | Description                  | Default | Global                       |
+| --------------- | ---------------------------- | ------- | ---------------------------- |
+| --border-radius | Border radius of the button. | `4px`   | `--adm-button-border-radius` |
+| --border-width  | Border width of the button.  | `1px`   | `--adm-button-border-width`  |
 
 This means that it supports the `--border-radius` and `--border-width` variables.
 
@@ -24,7 +24,7 @@ Next, we need to set the value of the CSS variable. There are two ways:
 Add a custom `className` to the Button component:
 
 ```jsx
-<Button className='my-button'/>
+<Button className='my-button' />
 ```
 
 Then set CSS Variables in the CSS file
@@ -40,9 +40,11 @@ Then set CSS Variables in the CSS file
 Directly through the `style` property of the component, it is simple and rude, suitable for small-scale adjustments:
 
 ```jsx
-<Button style={{
-  '--border-radius': '2px'
-}}/>
+<Button
+  style={{
+    '--border-radius': '2px',
+  }}
+/>
 ```
 
 ### Method 3: Use the global variables

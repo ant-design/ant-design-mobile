@@ -18,29 +18,29 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| actions | 操作按钮列表，可以传入二级数组来实现同一行内并排多个按钮 | `(Action \| Action[])[]` | `[]` |
-| afterClose | `Dialog` 完全关闭后的回调 | `() => void` | - |
-| afterShow | 完全展示后触发 | `() => void` | - |
-| bodyClassName | `Dialog` 内容类名 | `string` | - |
-| bodyStyle | `Dialog` 内容样式 | `React.CSSProperties` | - |
-| closeOnAction | 点击操作按钮后后是否关闭 | `boolean` | `false` |
-| closeOnMaskClick | 是否支持点击遮罩关闭对话框 | `boolean` | `false` |
-| content | 对话框内容 | `React.ReactNode` | - |
-| destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `false` |
-| disableBodyScroll | 是否禁用 `body` 滚动 | `boolean` | `true` |
-| forceRender | 被隐藏时是否渲染 `DOM` 结构 | `boolean` | `false` |
-| getContainer | 自定义对话框的父容器 | `HTMLElement \| (() => HTMLElement) \| null` | `null` |
-| header | 顶部区域 | `React.ReactNode` | - |
-| image | 图片 `url` | `string` | - |
-| maskClassName | `Dialog` 遮罩类名 | `string` | - |
-| maskStyle | `Dialog` 遮罩样式 | `React.CSSProperties` | - |
-| onAction | 点击操作按钮时触发 | `(action: Action, index: number) => void \| Promise<void>` | - |
-| onClose | 关闭时触发 | `() => void` | - |
-| stopPropagation | 阻止某些事件的冒泡 | `PropagationEvent[]` | `['click']` |
-| title | 对话框标题 | `React.ReactNode` | - |
-| visible | 显示隐藏 | `boolean` | `false` |
+| 属性              | 说明                                                     | 类型                                                       | 默认值      |
+| ----------------- | -------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
+| actions           | 操作按钮列表，可以传入二级数组来实现同一行内并排多个按钮 | `(Action \| Action[])[]`                                   | `[]`        |
+| afterClose        | `Dialog` 完全关闭后的回调                                | `() => void`                                               | -           |
+| afterShow         | 完全展示后触发                                           | `() => void`                                               | -           |
+| bodyClassName     | `Dialog` 内容类名                                        | `string`                                                   | -           |
+| bodyStyle         | `Dialog` 内容样式                                        | `React.CSSProperties`                                      | -           |
+| closeOnAction     | 点击操作按钮后后是否关闭                                 | `boolean`                                                  | `false`     |
+| closeOnMaskClick  | 是否支持点击遮罩关闭对话框                               | `boolean`                                                  | `false`     |
+| content           | 对话框内容                                               | `React.ReactNode`                                          | -           |
+| destroyOnClose    | 不可见时是否销毁 `DOM` 结构                              | `boolean`                                                  | `false`     |
+| disableBodyScroll | 是否禁用 `body` 滚动                                     | `boolean`                                                  | `true`      |
+| forceRender       | 被隐藏时是否渲染 `DOM` 结构                              | `boolean`                                                  | `false`     |
+| getContainer      | 自定义对话框的父容器                                     | `HTMLElement \| (() => HTMLElement) \| null`               | `null`      |
+| header            | 顶部区域                                                 | `React.ReactNode`                                          | -           |
+| image             | 图片 `url`                                               | `string`                                                   | -           |
+| maskClassName     | `Dialog` 遮罩类名                                        | `string`                                                   | -           |
+| maskStyle         | `Dialog` 遮罩样式                                        | `React.CSSProperties`                                      | -           |
+| onAction          | 点击操作按钮时触发                                       | `(action: Action, index: number) => void \| Promise<void>` | -           |
+| onClose           | 关闭时触发                                               | `() => void`                                               | -           |
+| stopPropagation   | 阻止某些事件的冒泡                                       | `PropagationEvent[]`                                       | `['click']` |
+| title             | 对话框标题                                               | `React.ReactNode`                                          | -           |
+| visible           | 显示隐藏                                                 | `boolean`                                                  | `false`     |
 
 ### Action
 
@@ -83,10 +83,10 @@ const handler = Dialog.show(props)
 
 此外，它还额外支持以下属性：
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| confirmText | 确认按钮的内容 | `ReactNode` | `'我知道了'` |
-| onConfirm | 点击确认按钮时触发 | `() => void \| Promise<void>` | - |
+| 属性        | 说明               | 类型                          | 默认值       |
+| ----------- | ------------------ | ----------------------------- | ------------ |
+| confirmText | 确认按钮的内容     | `ReactNode`                   | `'我知道了'` |
+| onConfirm   | 点击确认按钮时触发 | `() => void \| Promise<void>` | -            |
 
 ### Dialog.confirm
 
@@ -105,28 +105,28 @@ const handler = Dialog.show(props)
 
 ```tsx
 export default function App() {
-  const [captcha, setCaptcha] = useState<string>("");
+  const [captcha, setCaptcha] = useState<string>('')
   const showCaptcha = () => {
     return Dialog.confirm({
-      title: "短信验证",
+      title: '短信验证',
       content: (
         <div>
           <Input
-            placeholder="请输入验证码"
+            placeholder='请输入验证码'
             value={captcha} // App 中 captcha 的更新是不会传递到 Dialog 中的
-            onChange={(v) => {
+            onChange={v => {
               setCaptcha(v)
             }}
           />
         </div>
-      )
-    });
-  };
+      ),
+    })
+  }
   return (
     <div>
       <Button onClick={showCaptcha}>Show</Button>
     </div>
-  );
+  )
 }
 ```
 

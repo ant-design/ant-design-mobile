@@ -32,11 +32,11 @@ export type SideBarProps = {
 export const SideBar: FC<SideBarProps> = props => {
   let firstActiveKey: string | null = null
 
-  const items: ReactElement<SideBarItemProps>[] = []
+  const items: Array<ReactElement<SideBarItemProps>> = []
 
   traverseReactNode(props.children, (child, index) => {
     if (!isValidElement<SideBarItemProps>(child)) return
-    const key = child.key
+    const { key } = child
     if (typeof key !== 'string') return
 
     if (index === 0) {

@@ -7,7 +7,7 @@ export type DialogShowProps = Omit<
   'visible' | 'destroyOnClose' | 'forceRender'
 >
 
-export type DialogShowHandler = {
+export interface DialogShowHandler {
   close: () => void
 }
 

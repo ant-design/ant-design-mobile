@@ -3,14 +3,14 @@
 .@{class-prefix-popover} {
   --z-index: var(--adm-popover-z-index, 1030);
 
-  --background: #ffffff;
+  --background: #fff;
   --arrow-size: 8px;
   --content-padding: 8px 12px;
 
   &&-dark {
     --background: rgba(0, 0, 0, 0.75);
-    --adm-color-text: #ffffff;
-    color: #ffffff;
+    --adm-color-text: #fff;
+    color: #fff;
     .adm-popover-inner {
       box-shadow: none;
     }
@@ -29,7 +29,7 @@
 
   &::after {
     position: absolute;
-    background: fade(#ffffff, 1%);
+    background: fade(#fff, 1%);
     content: '';
   }
   &-hidden {

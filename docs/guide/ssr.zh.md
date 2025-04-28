@@ -23,13 +23,11 @@ $ bun add -D next-transpile-modules
 然后在 `next.config.js` 中进行配置：
 
 ```js
-const withTM = require('next-transpile-modules')([
-  'antd-mobile',
-]);
+const withTM = require('next-transpile-modules')(['antd-mobile'])
 
 module.exports = withTM({
   // 你项目中其他的 Next.js 配置
-});
+})
 ```
 
 ### Next.js 13
@@ -40,9 +38,9 @@ Next.js 13 可以通过配置自动处理 `node_modules` 中的依赖，不再�
 // next.config.js
 const nextConfig = {
   transpilePackages: ['antd-mobile'],
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
 ```
 
 如果在 `app` 目录下使用 antd-mobile，需要在文件顶部添加 `'use client'` 指令。
@@ -79,17 +77,17 @@ import { Button } from 'antd-mobile'
 
 ```ts
 declare module 'antd-mobile' {
-  export * from 'antd-mobile/es';
+  export * from 'antd-mobile/es'
 }
 ```
 
 最后在 `app/root.tsx` 中引入样式文件:
 
 ```ts
-import styles from "antd-mobile/bundle/style.css";
+import styles from 'antd-mobile/bundle/style.css'
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [{ rel: 'stylesheet', href: styles }]
 }
 ```
 

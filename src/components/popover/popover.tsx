@@ -52,7 +52,7 @@ export type PopoverProps = {
   content: ReactNode
 } & NativeProps<'--z-index' | '--arrow-size'>
 
-export type PopoverRef = {
+export interface PopoverRef {
   show: () => void
   hide: () => void
   visible: boolean
@@ -114,16 +114,16 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
 
   async function update() {
     const target = targetRef.current?.element ?? null
-    const floating = floatingRef.current
+    const floating_ = floatingRef.current
     const arrowElement = arrowRef.current
     setTargetElement(target)
-    if (!target || !floating || !arrowElement) return
+    if (!target || !floating_ || !arrowElement) return
     const {
       x,
       y,
       placement: realPlacement,
       middlewareData,
-    } = await computePosition(target, floating, {
+    } = await computePosition(target, floating_, {
       placement,
       middleware: [
         offset(convertPx(12)),
@@ -140,7 +140,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
         }),
       ],
     })
-    Object.assign(floating.style, {
+    Object.assign(floating_.style, {
       left: `${x}px`,
       top: `${y}px`,
     })

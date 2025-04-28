@@ -21,7 +21,7 @@ const classPrefix = `adm-swipe-action`
 
 type SideType = 'left' | 'right'
 
-export type SwipeActionRef = {
+export interface SwipeActionRef {
   close: () => void
   show: (side?: SideType) => void
 }
@@ -34,7 +34,7 @@ type ActionColor =
   | 'warning'
   | 'danger'
 
-export type Action = {
+export interface Action {
   key: string | number
   text: ReactNode
   color?: ActionColor | string
@@ -49,6 +49,7 @@ export type SwipeActionProps = {
   closeOnAction?: boolean
   children: ReactNode
   stopPropagation?: PropagationEvent[]
+
   onActionsReveal?: (side: SideType) => void
   onClose?: () => void
 } & NativeProps<'--background'>
@@ -69,8 +70,8 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
 
     const leftRef = useRef<HTMLDivElement>(null)
     const rightRef = useRef<HTMLDivElement>(null)
-    function getWidth(ref: RefObject<HTMLDivElement>) {
-      const element = ref.current
+    function getWidth(ref_: RefObject<HTMLDivElement>) {
+      const element = ref_.current
       if (!element) return 0
       return element.offsetWidth
     }

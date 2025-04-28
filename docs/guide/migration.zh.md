@@ -21,9 +21,9 @@ $ pnpm add antd-mobile-v2
 然后把项目中所有对 `antd-mobile` 的引入都替换为 `antd-mobile-v2`，例如：
 
 ```jsx
-import {Button} from 'antd-mobile'
+import { Button } from 'antd-mobile'
 // ⬇️
-import {Button} from 'antd-mobile-v2'
+import { Button } from 'antd-mobile-v2'
 ```
 
 接下来，移除原有的 `antd-mobile` 依赖，运行（测试、构建）你的项目，确认一下是否一切是正常的。
@@ -31,7 +31,7 @@ import {Button} from 'antd-mobile-v2'
 如果此时你发现 v2 的组件样式丢失了，那么可以在入口文件中手动引入一下样式文件：
 
 ```js
-import 'antd-mobile-v2/dist/antd-mobile.less';  // or 'antd-mobile-v2/dist/antd-mobile.css'
+import 'antd-mobile-v2/dist/antd-mobile.less' // or 'antd-mobile-v2/dist/antd-mobile.css'
 ```
 
 最后，重新安装 `antd-mobile` 为 v5 版本：

@@ -72,7 +72,7 @@ export const customRender = (
   const renderResult = render(<Wrapper>{ui}</Wrapper>, options)
   return {
     ...renderResult,
-    rerender: ui => renderResult.rerender(<Wrapper>{ui}</Wrapper>),
+    rerender: ui_ => renderResult.rerender(<Wrapper>{ui_}</Wrapper>),
   }
 }
 

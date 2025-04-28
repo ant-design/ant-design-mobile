@@ -17,7 +17,7 @@ const defaultProps = {
   maskClickable: true,
 }
 
-export type ToastHandler = {
+export interface ToastHandler {
   close: () => void
 }
 

@@ -14,7 +14,7 @@ const classPrefix = `adm-pull-to-refresh`
 
 export type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 
-export type PullToRefreshProps = {
+export interface PullToRefreshProps {
   onRefresh?: () => Promise<any>
   pullingText?: ReactNode
   canReleaseText?: ReactNode
@@ -69,7 +69,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
 
   const pullingRef = useRef(false)
 
-  //防止下拉时抖动
+  // 防止下拉时抖动
   useEffect(() => {
     elementRef.current?.addEventListener('touchmove', () => {})
   }, [])
@@ -124,7 +124,7 @@ export const PullToRefresh: FC<PullToRefreshProps> = p => {
       const parsedY = Math.ceil(y)
 
       if (state.first && parsedY > 0) {
-        const target = state.event.target
+        const { target } = state.event
         if (!target || !(target instanceof Element)) return
         let scrollParent = getScrollParent(target)
         while (true) {

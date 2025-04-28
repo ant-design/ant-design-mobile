@@ -18,7 +18,7 @@ import classNames from 'classnames'
 
 const classPrefix = `adm-picker-view`
 
-type Props = {
+interface Props {
   index: number
   column: PickerColumnItem[]
   value: PickerValue
@@ -71,11 +71,9 @@ export const Wheel = memo<Props>(
         if (value !== null) {
           onSelect(null)
         }
-      } else {
-        if (!column.some(item => item.value === value)) {
-          const firstItem = column[0]
-          onSelect(firstItem.value)
-        }
+      } else if (!column.some(item => item.value === value)) {
+        const firstItem = column[0]
+        onSelect(firstItem.value)
       }
     }, [column, value])
 

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-export type FieldNamesType = {
+export interface FieldNamesType {
   label?: string
   value?: string
   disabled?: string

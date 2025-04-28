@@ -18,7 +18,7 @@ export type IndexBarProps = {
   children?: ReactNode
 } & NativeProps<'--sticky-offset-top'>
 
-export type IndexBarRef = {
+export interface IndexBarRef {
   scrollTo: (index: string) => void
 }
 
@@ -31,10 +31,10 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
   const titleHeight = convertPx(35)
   const bodyRef = useRef<HTMLDivElement>(null)
 
-  const indexItems: {
+  const indexItems: Array<{
     index: string
     brief: ReactNode
-  }[] = []
+  }> = []
   const panels: ReactElement[] = []
 
   traverseReactNode(props.children, child => {
@@ -78,11 +78,11 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
     const body = bodyRef.current
     if (!body) return
 
-    const children = body.children
+    const { children } = body
     for (let i = 0; i < children.length; i++) {
       const panel = children.item(i) as HTMLElement
       if (!panel) continue
-      const panelIndex = panel.dataset['index']
+      const panelIndex = panel.dataset.index
       if (panelIndex === index) {
         body.scrollTop = panel.offsetTop
         setActiveIndex(index)
@@ -96,13 +96,13 @@ export const IndexBar = forwardRef<IndexBarRef, IndexBarProps>((p, ref) => {
     () => {
       const body = bodyRef.current
       if (!body) return
-      const scrollTop = body.scrollTop
+      const { scrollTop } = body
 
       const elements = body.getElementsByClassName(`${classPrefix}-anchor`)
       for (let i = 0; i < elements.length; i++) {
         const panel = elements.item(i) as HTMLElement
         if (!panel) continue
-        const panelIndex = panel.dataset['index']
+        const panelIndex = panel.dataset.index
         if (!panelIndex) continue
         if (panel.offsetTop + panel.clientHeight - titleHeight > scrollTop) {
           setActiveIndex(panelIndex)

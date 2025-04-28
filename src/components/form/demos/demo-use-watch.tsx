@@ -1,7 +1,10 @@
 import React from 'react'
 import { Form, Input, Button, Radio, Space } from 'antd-mobile'
 
-type FieldType = { account?: string; loginMethod?: 'mobile' | 'email' }
+interface FieldType {
+  account?: string
+  loginMethod?: 'mobile' | 'email'
+}
 
 export default function () {
   const [form] = Form.useForm<FieldType>()

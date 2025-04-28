@@ -5,8 +5,8 @@ import { FileWrongOutline, SearchOutline } from 'antd-mobile-icons'
 import styles from './demo-4.less'
 
 const ErrorBlock = createErrorBlock({
-  'default': <FileWrongOutline className={styles.myErrorBlockIcon} />,
-  'empty': <SearchOutline className={styles.myErrorBlockIcon} />,
+  default: <FileWrongOutline className={styles.myErrorBlockIcon} />,
+  empty: <SearchOutline className={styles.myErrorBlockIcon} />,
 })
 
 export default () => {

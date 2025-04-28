@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    background: #ffffff;
+    background: #fff;
     padding: 12px 8px;
   }
 
@@ -20,17 +20,19 @@
 
   &-container {
     padding: 16px;
-    background: #ffffff;
+    background: #fff;
   }
 
   &-item {
     text-align: center;
     padding: 12px 12px;
     border-radius: 4px;
-    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    transition:
+      color 0.3s ease-in-out,
+      background-color 0.3s ease-in-out;
     &:hover {
       background-color: fade(#1677ff, 80%);
-      color: #ffffff;
+      color: #fff;
       cursor: pointer;
     }
   }

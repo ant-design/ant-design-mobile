@@ -16,29 +16,33 @@
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| children | 渲染自定义指引内容 | `React.ReactNode \| ((hasMore: boolean, failed: boolean, retry: () => void) => React.ReactNode)` | 默认的指引提示 |
-| hasMore | 是否还有更多内容 | `boolean` | - |
-| loadMore | 加载更多的回调函数 | `(isRetry: boolean) => Promise<void>` | - |
-| threshold | 触发加载事件的滚动触底距离阈值，单位为像素 | `number` | `250` |
+| 属性      | 说明                                       | 类型                                                                                             | 默认值         |
+| --------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------------- |
+| children  | 渲染自定义指引内容                         | `React.ReactNode \| ((hasMore: boolean, failed: boolean, retry: () => void) => React.ReactNode)` | 默认的指引提示 |
+| hasMore   | 是否还有更多内容                           | `boolean`                                                                                        | -              |
+| loadMore  | 加载更多的回调函数                         | `(isRetry: boolean) => Promise<void>`                                                            | -              |
+| threshold | 触发加载事件的滚动触底距离阈值，单位为像素 | `number`                                                                                         | `250`          |
 
 InfiniteScroll 会自动对 `loadMore` 函数加锁，避免重复的请求，但是前提是 `loadMore` 函数需要返回一个正确的 Promise，下面是正确和错误的用法示例：
 
 ```js
-function loadMore() { // 错误
+function loadMore() {
+  // 错误
   doRequest()
 }
 
-async function loadMore() { // 错误
+async function loadMore() {
+  // 错误
   doRequest()
 }
 
-async function loadMore() { // 正确
+async function loadMore() {
+  // 正确
   await doRequest()
 }
 
-function loadMore() { // 正确
+function loadMore() {
+  // 正确
   return doRequest()
 }
 ```
@@ -81,7 +85,9 @@ InfiniteScroll 本身已经包含了防止并发的重复请求的逻辑，所�
 
 ```tsx
 <Tabs>
-  <Tabs.Tab title='水果' key='fruits'>菠萝</Tabs.Tab>
+  <Tabs.Tab title='水果' key='fruits'>
+    菠萝
+  </Tabs.Tab>
   <Tabs.Tab title='蔬菜' key='vegetables' forceRender>
     <InfiniteScroll
       hasMore={true}

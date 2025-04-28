@@ -2,7 +2,7 @@ import React from 'react'
 import { FormLayout } from '.'
 import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface'
 
-export type FormContextType = {
+export interface FormContextType {
   name?: string
   hasFeedback: boolean
   layout: FormLayout

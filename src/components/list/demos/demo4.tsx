@@ -1,7 +1,7 @@
-import React from 'react'
+import { Image, List } from 'antd-mobile'
 import type { CSSProperties } from 'react'
-import { List, Image } from 'antd-mobile'
-import { List as VirtualizedList, AutoSizer } from 'react-virtualized'
+import React from 'react'
+import { AutoSizer, List as VirtualizedList } from 'react-virtualized'
 
 const rowCount = 1000
 
@@ -24,23 +24,23 @@ export default () => {
     key: string
     style: CSSProperties
   }) {
-    const item = data[index]
+    const item_ = data[index]
     return (
       <List.Item
         key={key}
         style={style}
         prefix={
           <Image
-            src={item.avatar}
+            src={item_.avatar}
             style={{ borderRadius: 20 }}
             fit='cover'
             width={40}
             height={40}
           />
         }
-        description={item.description}
+        description={item_.description}
       >
-        {item.name} {index}
+        {item_.name} {index}
       </List.Item>
     )
   }

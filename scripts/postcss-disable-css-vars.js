@@ -1,7 +1,7 @@
 import postcss from 'postcss'
 
-module.exports = postcss.plugin('postcss-disable-css-vars', (opts = {}) => {
-  return (root, result) => {
+module.exports = postcss.plugin('postcss-disable-css-vars', () => {
+  return root => {
     root.walkDecls(decl => {
       if (decl.source.input.file?.includes('/.dumi/theme/')) return
       // Transform each property declaration here

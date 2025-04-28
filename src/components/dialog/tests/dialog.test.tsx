@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-
 import { act } from '@testing-library/react'
 import React from 'react'
 import {
@@ -41,7 +39,7 @@ describe('Dialog', () => {
   )
 
   test('a11y', async () => {
-    await testA11y(<Dialog visible={true} content='a11y' aria-label='test' />)
+    await testA11y(<Dialog visible content='a11y' aria-label='test' />)
   })
 
   test('afterShow should be called', async () => {

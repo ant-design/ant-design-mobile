@@ -43,7 +43,7 @@ const defaultProps = {
   defaultValue: '',
 }
 
-export type VirtualInputRef = {
+export interface VirtualInputRef {
   focus: () => void
   blur: () => void
 }
@@ -103,7 +103,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       mergedProps.onBlur?.()
     }
 
-    const keyboard = mergedProps.keyboard
+    const { keyboard } = mergedProps
     const keyboardElement =
       keyboard &&
       React.cloneElement(keyboard, {
@@ -160,7 +160,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       setCaretPosition(isRight ? index + 1 : index)
     }
 
-    const chars = (value + '').split('')
+    const chars = `${value}`.split('')
 
     return withNativeProps(
       mergedProps,

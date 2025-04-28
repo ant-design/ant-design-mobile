@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { render, fireEvent, sleep, screen, act } from 'testing'
-import InfiniteScroll, { InfiniteScrollProps } from '..'
 import { List } from 'antd-mobile'
+import React, { useState } from 'react'
+import { act, fireEvent, render, screen, sleep } from 'testing'
+import InfiniteScroll, { InfiniteScrollProps } from '..'
 
 let count = 0
 const time = 1000
@@ -25,7 +25,7 @@ describe('InfiniteScroll', () => {
 
     getBoundingClientRectMock.mockReturnValue({
       top: 1000,
-    } as DOMRect)
+    } as any)
   })
 
   beforeAll(() => {
