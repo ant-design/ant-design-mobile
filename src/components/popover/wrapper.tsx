@@ -30,7 +30,7 @@ export const Wrapper = React.forwardRef<WrapperRef, React.PropsWithChildren>(
     return canUseRef ? (
       React.cloneElement(child, { ref: composedRef })
     ) : (
-      <LegacyWrapper ref={legacyWrapperRef}>{children}</LegacyWrapper>
+      <LegacyWrapper ref={legacyWrapperRef}>{child}</LegacyWrapper>
     )
   }
 )
@@ -52,6 +52,6 @@ class LegacyWrapper extends React.Component<React.PropsWithChildren, {}> {
   }
 
   render() {
-    return React.Children.only(this.props.children)
+    return this.props.children
   }
 }
