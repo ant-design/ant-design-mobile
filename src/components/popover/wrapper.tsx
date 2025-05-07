@@ -2,6 +2,27 @@ import findDOMNode, { getDOM } from 'rc-util/lib/Dom/findDOMNode'
 import { composeRef, getNodeRef, supportRef } from 'rc-util/lib/ref'
 import * as React from 'react'
 
+class LegacyWrapper extends React.Component<React.PropsWithChildren, {}> {
+  element: Element | null = null
+  componentDidMount() {
+    this.componentDidUpdate()
+  }
+
+  componentDidUpdate() {
+    // eslint-disable-next-line
+    const node = findDOMNode(this)
+    if (node instanceof Element) {
+      this.element = node
+    } else {
+      this.element = null
+    }
+  }
+
+  render() {
+    return this.props.children
+  }
+}
+
 export interface WrapperRef {
   element: HTMLElement
 }
@@ -34,24 +55,3 @@ export const Wrapper = React.forwardRef<WrapperRef, React.PropsWithChildren>(
     )
   }
 )
-
-class LegacyWrapper extends React.Component<React.PropsWithChildren, {}> {
-  element: Element | null = null
-  componentDidMount() {
-    this.componentDidUpdate()
-  }
-
-  componentDidUpdate() {
-    // eslint-disable-next-line
-    const node = findDOMNode(this)
-    if (node instanceof Element) {
-      this.element = node
-    } else {
-      this.element = null
-    }
-  }
-
-  render() {
-    return this.props.children
-  }
-}
