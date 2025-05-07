@@ -43,7 +43,7 @@
     "size-limit:ci": "size-limit --json",
     "start": "dumi dev",
     "test": "jest",
-    "install-react-19": "npm i --no-save --legacy-peer-deps react@19 react-dom@19",
+    "bun-install-react-19": "bun remove react react-dom && bun add --no-save react@19 react-dom@19",
     "test-with-coverage": "jest --coverage"
   },
   "lint-staged": {
