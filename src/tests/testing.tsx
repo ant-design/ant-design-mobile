@@ -129,6 +129,15 @@ export const waitFakeTimers = async () => {
   }
 }
 
+export async function waitFakeTimer19(advanceTime = 1000) {
+  await act(async () => {
+    await Promise.resolve()
+  })
+  await act(async () => {
+    jest.advanceTimersByTime(advanceTime)
+  })
+}
+
 export const mockDrag = async (el: Element, options: any[], time?: number) => {
   const [downOptions, ...moveOptions] = options
   fireEvent.mouseDown(el, {

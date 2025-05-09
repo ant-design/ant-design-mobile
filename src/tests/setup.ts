@@ -1,6 +1,9 @@
 import '@testing-library/jest-dom'
+import React from 'react'
 import { reduceMotion } from '../utils/reduce-and-restore-motion'
 import { mockGlobalStyles } from './mock-global-styles'
+
+console.log('Current React Version:', React.version)
 
 mockGlobalStyles()
 reduceMotion()

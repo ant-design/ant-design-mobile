@@ -34,7 +34,7 @@ import {
 import { Arrow } from './arrow'
 import { DeprecatedPlacement, Placement } from './index'
 import { normalizePlacement } from './normalize-placement'
-import { Wrapper } from './wrapper'
+import { Wrapper, type WrapperRef } from './wrapper'
 
 const classPrefix = `adm-popover`
 
@@ -86,7 +86,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     [visible]
   )
 
-  const targetRef = useRef<Wrapper>(null)
+  const targetRef = useRef<WrapperRef>(null)
   const floatingRef = useRef<HTMLDivElement>(null)
   const arrowRef = useRef<HTMLDivElement>(null)
 
