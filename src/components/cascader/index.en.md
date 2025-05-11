@@ -48,6 +48,8 @@ type CascaderValueExtend = {
 | onTabsChange | Callback when switching panel | `(index: number) => void` | - |
 | options | Data of the cascade options | `CascaderOption[]` | - |
 | placeholder | Hint text | `string` | `'请选择'` |
+| popupClassName | The custom class name of the popup | `string` | - |
+| popupStyle | The custom style of the popup | `React.CSSProperties` | - |
 | title | Title | `ReactNode` | - |
 | value | Selected options | `CascaderValue[]` | - |
 | visible | Whether to show or hide the Picker | `boolean` | `false` |

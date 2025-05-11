@@ -48,6 +48,8 @@ type CascaderValueExtend = {
 | onTabsChange | 切换面板的回调 | `(index: number) => void` | - |
 | options | 级联数据 | `CascaderOption[]` | - |
 | placeholder | 未选中时的提示文案 | `string` | `'请选择'` |
+| popupClassName | Popup 弹层容器的自定义类名 | `string` | - |
+| popupStyle | Popup 弹层容器的自定义样式 | `React.CSSProperties` | - |
 | title | 标题 | `ReactNode` | - |
 | value | 选中项 | `CascaderValue[]` | - |
 | visible | 是否显示级联选择 | `boolean` | `false` |
