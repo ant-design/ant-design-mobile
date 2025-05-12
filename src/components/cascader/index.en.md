@@ -37,6 +37,7 @@ type CascaderValueExtend = {
 | activeIcon | The icon displayed when selected | `ReactNode` | - |
 | cancelText | Text of the cancel button | `ReactNode` | `'取消'` |
 | children | Render function of the selected options | `(items: CascaderOption[], actions: CascaderActions) => ReactNode` | - |
+| classNames | Semantic structure class | `{ popup?: { root?: string; mask?: string; body?: string } }` | - |
 | confirmText | Text of the ok button | `ReactNode` | `'确定'` |
 | defaultValue | Default selected options | `CascaderValue[]` | `[]` |
 | destroyOnClose | Destroy `dom` when not visible | `boolean` | `true` |
@@ -48,8 +49,7 @@ type CascaderValueExtend = {
 | onTabsChange | Callback when switching panel | `(index: number) => void` | - |
 | options | Data of the cascade options | `CascaderOption[]` | - |
 | placeholder | Hint text | `string` | `'请选择'` |
-| popupClassName | The custom class name of the popup | `string` | - |
-| popupStyle | The custom style of the popup | `React.CSSProperties` | - |
+| styles | Semantic structure style | `{ popup?: { root?: React.CSSProperties; mask?: React.CSSProperties; body?: React.CSSProperties } }` | - |
 | title | Title | `ReactNode` | - |
 | value | Selected options | `CascaderValue[]` | - |
 | visible | Whether to show or hide the Picker | `boolean` | `false` |

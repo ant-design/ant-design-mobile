@@ -37,6 +37,7 @@ type CascaderValueExtend = {
 | activeIcon | 选中图标 | `ReactNode` | - |
 | cancelText | 取消按钮的文字 | `ReactNode` | `'取消'` |
 | children | 所选项的渲染函数 | `(items: CascaderOption[], actions: CascaderActions) => ReactNode` | - |
+| classNames | 语义化类名 | `{ popup?: { root?: string; mask?: string; body?: string } }` | - |
 | confirmText | 确定按钮的文字 | `ReactNode` | `'确定'` |
 | defaultValue | 默认选中项 | `CascaderValue[]` | `[]` |
 | destroyOnClose | 不可见时是否销毁 `DOM` 结构 | `boolean` | `true` |
@@ -48,8 +49,7 @@ type CascaderValueExtend = {
 | onTabsChange | 切换面板的回调 | `(index: number) => void` | - |
 | options | 级联数据 | `CascaderOption[]` | - |
 | placeholder | 未选中时的提示文案 | `string` | `'请选择'` |
-| popupClassName | Popup 弹层容器的自定义类名 | `string` | - |
-| popupStyle | Popup 弹层容器的自定义样式 | `React.CSSProperties` | - |
+| styles | 语义化样式 | `{ popup?: { root?: React.CSSProperties; mask?: React.CSSProperties; body?: React.CSSProperties } }` | - |
 | title | 标题 | `ReactNode` | - |
 | value | 选中项 | `CascaderValue[]` | - |
 | visible | 是否显示级联选择 | `boolean` | `false` |
