@@ -50,6 +50,20 @@ export type CascaderProps = {
   onTabsChange?: (index: number) => void
   activeIcon?: ReactNode
   fieldNames?: FieldNamesType
+  classNames?: {
+    popup?: {
+      root?: string
+      mask?: string
+      body?: string
+    }
+  }
+  styles?: {
+    popup?: {
+      root?: React.CSSProperties
+      mask?: React.CSSProperties
+      body?: React.CSSProperties
+    }
+  }
 } & Pick<
   PopupProps,
   | 'getContainer'
@@ -166,6 +180,12 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
 
   const popupElement = (
     <Popup
+      style={props.styles?.popup?.root}
+      bodyStyle={props.styles?.popup?.body}
+      maskStyle={props.styles?.popup?.mask}
+      className={props.classNames?.popup?.root}
+      bodyClassName={props.classNames?.popup?.body}
+      maskClassName={props.classNames?.popup?.mask}
       visible={visible}
       position='bottom'
       onMaskClick={() => {
