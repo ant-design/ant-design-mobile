@@ -176,16 +176,14 @@ describe('ImageViewer.Multi', () => {
     })
     const onIndexChange = jest.fn()
 
-    act(() => {
-      render(
-        <ImageViewer.Multi
-          visible
-          defaultIndex={3}
-          images={demoImages}
-          onIndexChange={onIndexChange}
-        ></ImageViewer.Multi>
-      )
-    })
+    const { getByText } = render(
+      <ImageViewer.Multi
+        visible
+        defaultIndex={3}
+        images={demoImages}
+        onIndexChange={onIndexChange}
+      />
+    )
 
     await getImages()
 
@@ -199,7 +197,7 @@ describe('ImageViewer.Multi', () => {
 
     const slides = document.querySelectorAll(`.${classPrefix}-control`)[3]
 
-    expect(screen.getByText('4 / 4')).toBeInTheDocument()
+    expect(getByText('4 / 4')).toBeInTheDocument()
 
     mockDrag(slides as HTMLElement, [
       {
@@ -212,9 +210,9 @@ describe('ImageViewer.Multi', () => {
         clientX: 300,
       },
     ])
+    expect(getByText('3 / 4')).toBeInTheDocument()
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(1))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(2))
-    expect(screen.getByText('3 / 4')).toBeInTheDocument()
 
     mockDrag(slides as HTMLElement, [
       {
@@ -228,9 +226,9 @@ describe('ImageViewer.Multi', () => {
       },
     ])
 
+    expect(screen.getByText('4 / 4')).toBeInTheDocument()
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(2))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(3))
-    expect(screen.getByText('4 / 4')).toBeInTheDocument()
   })
   test('rendering with imageRender', () => {
     function App() {
