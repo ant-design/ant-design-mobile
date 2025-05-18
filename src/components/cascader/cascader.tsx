@@ -93,6 +93,10 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
     },
     p
   )
+  const {
+    classNames: { popup: popupClassNames = {} } = {},
+    styles: { popup: popupStyles = {} } = {},
+  } = props
 
   const [visible, setVisible] = usePropsValue({
     value: props.visible,
@@ -180,12 +184,12 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
 
   const popupElement = (
     <Popup
-      style={props.styles?.popup?.root}
-      bodyStyle={props.styles?.popup?.body}
-      maskStyle={props.styles?.popup?.mask}
-      className={props.classNames?.popup?.root}
-      bodyClassName={props.classNames?.popup?.body}
-      maskClassName={props.classNames?.popup?.mask}
+      style={popupStyles.root}
+      bodyStyle={popupStyles.body}
+      maskStyle={popupStyles.mask}
+      className={popupClassNames.root}
+      bodyClassName={popupClassNames.body}
+      maskClassName={popupClassNames.mask}
       visible={visible}
       position='bottom'
       onMaskClick={() => {
