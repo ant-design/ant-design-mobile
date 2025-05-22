@@ -40,7 +40,7 @@ import viVN from '../../../locales/vi-VN'
 import zhCN from '../../../locales/zh-CN'
 import zhHK from '../../../locales/zh-HK'
 import zhTW from '../../../locales/zh-TW'
-
+import hiIN from '../../../locales/hi-IN'
 const locales = [
   zhCN,
   zhTW,
@@ -70,6 +70,7 @@ const locales = [
   hrHR,
   srRS,
   cnrME,
+  hiIN
 ]
 
 describe('ConfigProvider', () => {
