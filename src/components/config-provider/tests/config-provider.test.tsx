@@ -20,6 +20,7 @@ import enUS from '../../../locales/en-US'
 import esES from '../../../locales/es-ES'
 import faIR from '../../../locales/fa-IR'
 import frFR from '../../../locales/fr-FR'
+import hiIN from '../../../locales/hi-IN'
 import hrHR from '../../../locales/hr-HR'
 import huHU from '../../../locales/hu-HU'
 import idID from '../../../locales/id-ID'
@@ -70,6 +71,7 @@ const locales = [
   hrHR,
   srRS,
   cnrME,
+  hiIN,
 ]
 
 describe('ConfigProvider', () => {
