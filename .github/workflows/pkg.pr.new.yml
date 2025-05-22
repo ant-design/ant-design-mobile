@@ -40,4 +40,4 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - run: pnpmx pkg-pr-new publish './lib' --no-template
+      - run: pnpx pkg-pr-new publish './lib' --no-template
