@@ -43,7 +43,14 @@ If you have some questions about how to use ant-mobile, you can start a [discuss
 
 ---
 
+
+## 🤝 Contributing 
+
 Thanks to all the contributors of antd-mobile:
+
+<a href="https://openomy.app/github/ant-design/ant-design-mobile" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://www.openomy.app/svg?repo=ant-design/ant-design-mobile&chart=bubble&latestMonth=3" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+</a>
 
 <a href="https://github.com/ant-design/ant-design-mobile/graphs/contributors">
   <img src="https://opencollective.com/ant-design-mobile/contributors.svg?width=960&button=false" alt="contributors" />
