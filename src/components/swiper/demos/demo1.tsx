@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
-import { Button, Space, Swiper, Toast } from 'antd-mobile'
-import { DemoBlock, DemoDescription } from 'demos'
+import { Button, Space, Toast } from 'antd-mobile'
 import { SwiperRef } from 'antd-mobile/es/components/swiper'
+import { DemoBlock, DemoDescription } from 'demos'
+import React, { useRef } from 'react'
+import Swiper from '../index'
 
 import styles from './demo1.less'
 

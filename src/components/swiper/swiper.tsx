@@ -49,6 +49,7 @@ export type SwiperProps = {
   loop?: boolean
   direction?: 'horizontal' | 'vertical'
   onIndexChange?: (index: number) => void
+  onIndexChangeEnd?: (index: number) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   indicator?: false | ((total: number, current: number) => ReactNode)
   slideSize?: number
@@ -265,16 +266,26 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           ? modulus(roundedIndex, mergedTotal)
           : bound(roundedIndex, 0, mergedTotal - 1)
 
-        if (targetIndex !== getCurrent()) {
+        const currentIndex = getCurrent()
+        if (targetIndex !== currentIndex) {
           props.onIndexChange?.(targetIndex)
         }
 
         setCurrent(targetIndex)
 
-        api.start({
+        const animations = api.start({
           position: (loop ? roundedIndex : boundIndex(roundedIndex)) * 100,
           immediate,
         })
+
+        // 处理动画完成回调
+        if (animations.length > 0) {
+          Promise.all(animations).then(() => {
+            if (targetIndex !== currentIndex) {
+              props.onIndexChangeEnd?.(targetIndex)
+            }
+          })
+        }
       }
 
       function swipeNext() {
