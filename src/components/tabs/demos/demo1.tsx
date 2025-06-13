@@ -1,6 +1,7 @@
 import React from 'react'
-import { Tabs } from 'antd-mobile'
+// import { Tabs } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import Tabs from '../index'
 
 export default () => {
   return (
@@ -20,7 +21,7 @@ export default () => {
       </DemoBlock>
 
       <DemoBlock title='超长自动滚动' padding='0'>
-        <Tabs defaultActiveKey='1'>
+        <Tabs defaultActiveKey='3' disableAutoScrollIsomorphicLayout={true}>
           <Tabs.Tab title='Espresso' key='1'>
             1
           </Tabs.Tab>

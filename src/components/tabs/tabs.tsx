@@ -1,17 +1,17 @@
-import React, { isValidElement, useRef } from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
+import { animated, useSpring } from '@react-spring/web'
+import { useIsomorphicLayoutEffect, useThrottleFn } from 'ahooks'
 import classNames from 'classnames'
-import { useSpring, animated } from '@react-spring/web'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { usePropsValue } from '../../utils/use-props-value'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React, { isValidElement, useRef, useState } from 'react'
 import { bound } from '../../utils/bound'
-import { useThrottleFn, useIsomorphicLayoutEffect } from 'ahooks'
-import { useMutationEffect } from '../../utils/use-mutation-effect'
-import { useResizeEffect } from '../../utils/use-resize-effect'
-import { mergeProps } from '../../utils/with-default-props'
-import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
 import { traverseReactNode } from '../../utils/traverse-react-node'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { useMutationEffect } from '../../utils/use-mutation-effect'
+import { usePropsValue } from '../../utils/use-props-value'
+import { useResizeEffect } from '../../utils/use-resize-effect'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tabs`
 
@@ -41,6 +41,7 @@ export type TabsProps = {
    * Please lock the version if you want to use it.
    */
   autoScroll?: boolean
+  disableAutoScrollIsomorphicLayout?: boolean
 } & NativeProps<
   | '--fixed-active-line-width'
   | '--active-line-height'
@@ -64,6 +65,10 @@ export const Tabs: FC<TabsProps> = p => {
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
+  const [
+    disableAutoScrollIsomorphicLayout,
+    setDisableAutoScrollIsomorphicLayout,
+  ] = useState(props.disableAutoScrollIsomorphicLayout ?? false)
   const panes: ReactElement<TabProps>[] = []
 
   const isRTL = props.direction === 'rtl'
@@ -210,6 +215,9 @@ export const Tabs: FC<TabsProps> = p => {
   }
 
   useIsomorphicLayoutEffect(() => {
+    if (disableAutoScrollIsomorphicLayout) {
+      return
+    }
     animate(!x.isAnimating)
   }, [])
 
@@ -218,6 +226,10 @@ export const Tabs: FC<TabsProps> = p => {
   }, [activeKey, isRTL, props.activeLineMode])
 
   useResizeEffect(() => {
+    if (disableAutoScrollIsomorphicLayout) {
+      setDisableAutoScrollIsomorphicLayout(false)
+      return
+    }
     animate(!x.isAnimating)
   }, tabListContainerRef)
 
