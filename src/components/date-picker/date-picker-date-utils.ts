@@ -1,11 +1,11 @@
 import dayjs from 'dayjs'
+import isLeapYear from 'dayjs/plugin/isLeapYear'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
-import isLeapYear from 'dayjs/plugin/isLeapYear'
+import { RenderLabel } from '../date-picker-view/date-picker-view'
 import { PickerColumn } from '../picker'
 import type { DatePickerFilter } from './date-picker-utils'
 import { TILL_NOW } from './util'
-import { RenderLabel } from '../date-picker-view/date-picker-view'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -63,6 +63,7 @@ export function generateDatePickerColumns(
   const selectedDay = parseInt(selected[2])
   const selectedHour = parseInt(selected[3])
   const selectedMinute = parseInt(selected[4])
+  const selectedSecond = parseInt(selected[5])
 
   const isInMinYear = selectedYear === minYear
   const isInMaxYear = selectedYear === maxYear
@@ -105,7 +106,7 @@ export function generateDatePickerColumns(
     const years = generateColumn(lower, upper, 'year')
     ret.push(
       years.map(v => ({
-        label: renderLabel('year', v),
+        label: renderLabel('year', v, selectedYear),
         value: v.toString(),
       }))
     )
@@ -117,7 +118,7 @@ export function generateDatePickerColumns(
     const months = generateColumn(lower, upper, 'month')
     ret.push(
       months.map(v => ({
-        label: renderLabel('month', v),
+        label: renderLabel('month', v, selectedMonth),
         value: v.toString(),
       }))
     )
@@ -128,7 +129,7 @@ export function generateDatePickerColumns(
     const days = generateColumn(lower, upper, 'day')
     ret.push(
       days.map(v => ({
-        label: renderLabel('day', v),
+        label: renderLabel('day', v, selectedDay),
         value: v.toString(),
       }))
     )
@@ -139,7 +140,7 @@ export function generateDatePickerColumns(
     const hours = generateColumn(lower, upper, 'hour')
     ret.push(
       hours.map(v => ({
-        label: renderLabel('hour', v),
+        label: renderLabel('hour', v, selectedHour),
         value: v.toString(),
       }))
     )
@@ -150,7 +151,7 @@ export function generateDatePickerColumns(
     const minutes = generateColumn(lower, upper, 'minute')
     ret.push(
       minutes.map(v => ({
-        label: renderLabel('minute', v),
+        label: renderLabel('minute', v, selectedMinute),
         value: v.toString(),
       }))
     )
@@ -161,7 +162,7 @@ export function generateDatePickerColumns(
     const seconds = generateColumn(lower, upper, 'second')
     ret.push(
       seconds.map(v => ({
-        label: renderLabel('second', v),
+        label: renderLabel('second', v, selectedSecond),
         value: v.toString(),
       }))
     )
@@ -170,7 +171,7 @@ export function generateDatePickerColumns(
   // Till Now
   if (tillNow) {
     ret[0].push({
-      label: renderLabel('now', null!),
+      label: renderLabel('now', null!, null!),
       value: TILL_NOW,
     })
 
@@ -199,7 +200,7 @@ export function convertDateToStringArray(
 }
 
 export function convertStringArrayToDate<
-  T extends string | number | null | undefined
+  T extends string | number | null | undefined,
 >(value: T[]): Date {
   const yearString = value[0] ?? '1900'
   const monthString = value[1] ?? '1'

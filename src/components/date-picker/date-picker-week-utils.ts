@@ -23,7 +23,11 @@ export function generateDatePickerColumns(
   min: Date,
   max: Date,
   precision: WeekPrecision,
-  renderLabel: (type: WeekPrecision, data: number) => ReactNode,
+  renderLabel: (
+    type: WeekPrecision,
+    data: number,
+    selected: number
+  ) => ReactNode,
   filter: DatePickerFilter | undefined
 ) {
   const ret: PickerColumn[] = []
@@ -44,6 +48,7 @@ export function generateDatePickerColumns(
   const minWeekday = minDay.isoWeekday()
   const maxWeekday = maxDay.isoWeekday()
   const selectedWeek = parseInt(selected[1])
+  const selectedWeekday = parseInt(selected[2])
   const isInMinWeek = isInMinYear && selectedWeek === minWeek
   const isInMaxWeek = isInMaxYear && selectedWeek === maxWeek
   const selectedYearWeeks = dayjs(`${selectedYear}-01-01`).isoWeeksInYear()
@@ -78,7 +83,7 @@ export function generateDatePickerColumns(
     const years = generateColumn(lower, upper, 'year')
     ret.push(
       years.map(v => ({
-        label: renderLabel('year', v),
+        label: renderLabel('year', v, selectedYear),
         value: v.toString(),
       }))
     )
@@ -90,7 +95,7 @@ export function generateDatePickerColumns(
     const weeks = generateColumn(lower, upper, 'week')
     ret.push(
       weeks.map(v => ({
-        label: renderLabel('week', v),
+        label: renderLabel('week', v, selectedWeek),
         value: v.toString(),
       }))
     )
@@ -101,7 +106,7 @@ export function generateDatePickerColumns(
     const weeks = generateColumn(lower, upper, 'week-day')
     ret.push(
       weeks.map(v => ({
-        label: renderLabel('week-day', v),
+        label: renderLabel('week-day', v, selectedWeekday),
         value: v.toString(),
       }))
     )

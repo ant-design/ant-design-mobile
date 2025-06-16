@@ -18,7 +18,11 @@ export function generateDatePickerColumns(
   min: Date,
   max: Date,
   precision: QuarterPrecision,
-  renderLabel: (type: QuarterPrecision, data: number) => ReactNode,
+  renderLabel: (
+    type: QuarterPrecision,
+    data: number,
+    selected: number
+  ) => ReactNode,
   filter: DatePickerFilter | undefined
 ) {
   const ret: PickerColumn[] = []
@@ -36,6 +40,7 @@ export function generateDatePickerColumns(
   const maxDay = dayjs(max)
   const minQuarter = minDay.quarter()
   const maxQuarter = maxDay.quarter()
+  const selectedQuarter = parseInt(selected[1])
 
   const generateColumn = (
     from: number,
@@ -67,7 +72,7 @@ export function generateDatePickerColumns(
     const years = generateColumn(lower, upper, 'year')
     ret.push(
       years.map(v => ({
-        label: renderLabel('year', v),
+        label: renderLabel('year', v, selectedYear),
         value: v.toString(),
       }))
     )
@@ -79,7 +84,7 @@ export function generateDatePickerColumns(
     const quarters = generateColumn(lower, upper, 'quarter')
     ret.push(
       quarters.map(v => ({
-        label: renderLabel('quarter', v),
+        label: renderLabel('quarter', v, selectedQuarter),
         value: v.toString(),
       }))
     )
