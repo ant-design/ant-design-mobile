@@ -16,6 +16,7 @@ const srRS = mergeLocale(base, {
     confirm: 'Потврди',
     start: 'почетак',
     end: 'крај',
+    startAndEnd: 'почетак/крај',
     today: 'данас',
     markItems: ['Пон', 'Уто', 'Сре', 'Чет', 'Пет', 'Суб', 'Нед'],
     yearAndMonth: '${year}/${month}',
