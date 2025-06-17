@@ -106,7 +106,7 @@ export function generateDatePickerColumns(
     const years = generateColumn(lower, upper, 'year')
     ret.push(
       years.map(v => ({
-        label: renderLabel('year', v, selectedYear),
+        label: renderLabel('year', v, { selected: selectedYear === v }),
         value: v.toString(),
       }))
     )
@@ -118,7 +118,7 @@ export function generateDatePickerColumns(
     const months = generateColumn(lower, upper, 'month')
     ret.push(
       months.map(v => ({
-        label: renderLabel('month', v, selectedMonth),
+        label: renderLabel('month', v, { selected: selectedMonth === v }),
         value: v.toString(),
       }))
     )
@@ -129,7 +129,7 @@ export function generateDatePickerColumns(
     const days = generateColumn(lower, upper, 'day')
     ret.push(
       days.map(v => ({
-        label: renderLabel('day', v, selectedDay),
+        label: renderLabel('day', v, { selected: selectedDay === v }),
         value: v.toString(),
       }))
     )
@@ -140,7 +140,7 @@ export function generateDatePickerColumns(
     const hours = generateColumn(lower, upper, 'hour')
     ret.push(
       hours.map(v => ({
-        label: renderLabel('hour', v, selectedHour),
+        label: renderLabel('hour', v, { selected: selectedHour === v }),
         value: v.toString(),
       }))
     )
@@ -151,7 +151,7 @@ export function generateDatePickerColumns(
     const minutes = generateColumn(lower, upper, 'minute')
     ret.push(
       minutes.map(v => ({
-        label: renderLabel('minute', v, selectedMinute),
+        label: renderLabel('minute', v, { selected: selectedMinute === v }),
         value: v.toString(),
       }))
     )
@@ -162,7 +162,7 @@ export function generateDatePickerColumns(
     const seconds = generateColumn(lower, upper, 'second')
     ret.push(
       seconds.map(v => ({
-        label: renderLabel('second', v, selectedSecond),
+        label: renderLabel('second', v, { selected: selectedSecond === v }),
         value: v.toString(),
       }))
     )
@@ -171,7 +171,7 @@ export function generateDatePickerColumns(
   // Till Now
   if (tillNow) {
     ret[0].push({
-      label: renderLabel('now', null!, null!),
+      label: renderLabel('now', null!, { selected: selected[0] === TILL_NOW }),
       value: TILL_NOW,
     })
 

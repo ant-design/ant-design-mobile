@@ -21,7 +21,9 @@ export function generateDatePickerColumns(
   renderLabel: (
     type: QuarterPrecision,
     data: number,
-    selected: number
+    info: {
+      selected: boolean
+    }
   ) => ReactNode,
   filter: DatePickerFilter | undefined
 ) {
@@ -72,7 +74,7 @@ export function generateDatePickerColumns(
     const years = generateColumn(lower, upper, 'year')
     ret.push(
       years.map(v => ({
-        label: renderLabel('year', v, selectedYear),
+        label: renderLabel('year', v, { selected: selectedYear === v }),
         value: v.toString(),
       }))
     )
@@ -84,7 +86,7 @@ export function generateDatePickerColumns(
     const quarters = generateColumn(lower, upper, 'quarter')
     ret.push(
       quarters.map(v => ({
-        label: renderLabel('quarter', v, selectedQuarter),
+        label: renderLabel('quarter', v, { selected: selectedQuarter === v }),
         value: v.toString(),
       }))
     )

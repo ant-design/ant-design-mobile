@@ -21,7 +21,9 @@ import useRenderLabel from './useRenderLabel'
 export type RenderLabel = (
   type: Precision | 'now',
   data: number,
-  selected: number
+  info: {
+    selected: boolean
+  }
 ) => ReactNode
 
 export type DatePickerViewProps = Pick<

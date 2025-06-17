@@ -26,7 +26,9 @@ export function generateDatePickerColumns(
   renderLabel: (
     type: WeekPrecision,
     data: number,
-    selected: number
+    info: {
+      selected: boolean
+    }
   ) => ReactNode,
   filter: DatePickerFilter | undefined
 ) {
@@ -83,7 +85,7 @@ export function generateDatePickerColumns(
     const years = generateColumn(lower, upper, 'year')
     ret.push(
       years.map(v => ({
-        label: renderLabel('year', v, selectedYear),
+        label: renderLabel('year', v, { selected: selectedYear === v }),
         value: v.toString(),
       }))
     )
@@ -95,7 +97,7 @@ export function generateDatePickerColumns(
     const weeks = generateColumn(lower, upper, 'week')
     ret.push(
       weeks.map(v => ({
-        label: renderLabel('week', v, selectedWeek),
+        label: renderLabel('week', v, { selected: selectedWeek === v }),
         value: v.toString(),
       }))
     )
@@ -106,7 +108,7 @@ export function generateDatePickerColumns(
     const weeks = generateColumn(lower, upper, 'week-day')
     ret.push(
       weeks.map(v => ({
-        label: renderLabel('week-day', v, selectedWeekday),
+        label: renderLabel('week-day', v, { selected: selectedWeekday === v }),
         value: v.toString(),
       }))
     )
