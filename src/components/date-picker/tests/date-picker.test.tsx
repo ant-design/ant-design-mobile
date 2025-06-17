@@ -218,4 +218,26 @@ describe('DatePicker', () => {
     expect(date.getMonth()).toBe(0)
     expect(date.getDate()).toBe(1)
   })
+
+  test('renderLabel should be work', async () => {
+    const labelRenderer = (
+      type: string,
+      data: number,
+      info: { selected: boolean }
+    ) => {
+      if (info.selected) {
+        return `${type}-selected`
+      }
+      return data.toString()
+    }
+
+    render(<DatePicker visible renderLabel={labelRenderer} />)
+
+    const yearEl = await screen.findByText('year-selected')
+    expect(yearEl).toBeInTheDocument()
+    const monthEl = await screen.findByText('month-selected')
+    expect(monthEl).toBeInTheDocument()
+    const dayEl = await screen.findByText('day-selected')
+    expect(dayEl).toBeInTheDocument()
+  })
 })
