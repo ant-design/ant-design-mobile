@@ -220,8 +220,12 @@ describe('DatePicker', () => {
   })
 
   test('renderLabel should be work', async () => {
-    const labelRenderer = (type: string, data: number, selected: number) => {
-      if (data === selected) {
+    const labelRenderer = (
+      type: string,
+      data: number,
+      info: { selected: boolean }
+    ) => {
+      if (info.selected) {
         return `${type}-selected`
       }
       return data.toString()
