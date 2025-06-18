@@ -21,7 +21,7 @@ Therefore, you need to use a compatibility configuration to make antd-mobile wor
 `unstableSetRender` is a low-level registration method that allows developers to modify the rendering method of ReactDOM. Write the following code at the entry of your application:
 
 ```js
-import { unstableSetRender } from 'antd-mobile'; // Support since version ^5.39.1
+import { unstableSetRender } from 'antd-mobile'; // Support since version ^5.40.0
 import { createRoot } from 'react-dom/client';
 
 unstableSetRender((node, container) => {

@@ -165,7 +165,7 @@ type PickerDate = Date & {
 | onConfirm | 确认时触发 | `(value: PickerDate) => void` | - |
 | onSelect | 选项改变时触发 | `(value: PickerDate) => void` | - |
 | precision | 精度 | `'year' \| 'month' \| 'day' \| 'hour' \| 'minute' \| 'second' \| 'week' \| 'week-day' \| 'quarter'` | `'day'` |
-| renderLabel | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值或 `now`，`data` 参数为默认渲染的数字 | `(type: Precision \| 'now', data: number, info: { selected: boolean }) => ReactNode` | - |
+| renderLabel | 自定义渲染每列展示的内容。其中 `type` 参数为 `precision` 中的任意值或 `now`，`data` 参数为默认渲染的数字 | `(type: Precision \| 'now', data: number, info: { selected: boolean }) => ReactNode` | - | 5.40.0 |
 | tillNow | 是否展示“至今” | `boolean` | - | 5.27.0 |
 | value | 选中值 | `PickerDate` | - |
 
