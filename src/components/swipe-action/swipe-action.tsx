@@ -1,3 +1,6 @@
+import { animated, useSpring } from '@react-spring/web'
+import { useDrag } from '@use-gesture/react'
+import type { ReactNode } from 'react'
 import React, {
   forwardRef,
   RefObject,
@@ -5,17 +8,14 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react'
-import type { ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from '@use-gesture/react'
-import Button from '../button'
-import { nearest } from '../../utils/nearest'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { nearest } from '../../utils/nearest'
+import { mergeProps } from '../../utils/with-default-props'
 import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import Button from '../button'
 
 const classPrefix = `adm-swipe-action`
 
@@ -50,6 +50,7 @@ export type SwipeActionProps = {
   children: ReactNode
   stopPropagation?: PropagationEvent[]
   onActionsReveal?: (side: SideType) => void
+  onClose?: () => void
 } & NativeProps<'--background'>
 
 const defaultProps = {
@@ -150,11 +151,12 @@ export const SwipeAction = forwardRef<SwipeActionRef, SwipeActionProps>(
       }
     )
 
-    function close() {
+    const close = () => {
       api.start({
         x: 0,
       })
       forceCancelDrag()
+      props.onClose?.()
     }
 
     useImperativeHandle(ref, () => ({

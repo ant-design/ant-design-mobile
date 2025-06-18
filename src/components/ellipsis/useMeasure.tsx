@@ -1,5 +1,6 @@
 import { useEvent } from 'rc-util'
 import React from 'react'
+import { unstable_batchedUpdates } from 'react-dom'
 import runes from 'runes2'
 
 const enum MEASURE_STATUS {
@@ -46,13 +47,16 @@ export default function useMeasure(
   const midMeasureRef = React.useRef<HTMLDivElement>(null)
 
   const startMeasure = useEvent(() => {
-    setStatus(MEASURE_STATUS.PREPARE)
-    setWalkingIndexes([
-      0,
-      direction === 'middle'
-        ? Math.ceil(contentChars.length / 2)
-        : contentChars.length,
-    ])
+    // use batch update to avoid async update trigger 2 render
+    unstable_batchedUpdates(() => {
+      setStatus(MEASURE_STATUS.PREPARE)
+      setWalkingIndexes([
+        0,
+        direction === 'middle'
+          ? Math.ceil(contentChars.length / 2)
+          : contentChars.length,
+      ])
+    })
   })
 
   // Initialize
@@ -66,7 +70,7 @@ export default function useMeasure(
       const fullMeasureHeight = fullMeasureRef.current?.offsetHeight || 0
       const singleRowMeasureHeight =
         singleRowMeasureRef.current?.offsetHeight || 0
-      const rowMeasureHeight = singleRowMeasureHeight * rows
+      const rowMeasureHeight = singleRowMeasureHeight * (rows + 0.5)
 
       if (fullMeasureHeight <= rowMeasureHeight) {
         setStatus(MEASURE_STATUS.STABLE_NO_ELLIPSIS)

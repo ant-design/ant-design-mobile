@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
-import { ImageViewer, Button } from 'antd-mobile'
+import { Button, ImageViewer } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import { demoImage, demoImages } from './images'
+import React, { useState } from 'react'
 import styles from './demo1.less'
+import { demoImage, demoImages } from './images'
+
+const demoViewImages = [
+  'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ',
+  'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80',
+]
 
 // 单张图片预览
 const Single = () => {
@@ -95,6 +100,38 @@ const ViewWithFooter = () => {
   )
 }
 
+// 自定义预览内容
+const ViewImageRender = () => {
+  const [visible, setVisible] = useState(false)
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setVisible(true)
+        }}
+      >
+        显示图片
+      </Button>
+      <ImageViewer.Multi
+        images={demoViewImages}
+        visible={visible}
+        imageRender={(image, info) => {
+          if (info.index === 0)
+            return (
+              <div className={styles['image-render']}>
+                <video muted width='100%' controls src={image} />
+              </div>
+            )
+        }}
+        defaultIndex={0}
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
+    </>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -133,6 +170,10 @@ export default () => {
 
       <DemoBlock title='自定义底部额外内容'>
         <ViewWithFooter />
+      </DemoBlock>
+
+      <DemoBlock title='自定义预览内容'>
+        <ViewImageRender />
       </DemoBlock>
     </>
   )

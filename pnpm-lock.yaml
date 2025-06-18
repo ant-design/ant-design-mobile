@@ -49,8 +49,8 @@ dependencies:
     specifier: ~2.4.1
     version: 2.4.1(react-dom@18.2.0)(react@18.2.0)
   rc-util:
-    specifier: ^5.38.1
-    version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^5.44.4
+    version: 5.44.4(react-dom@18.2.0)(react@18.2.0)
   react-fast-compare:
     specifier: ^3.2.2
     version: 3.2.2
@@ -523,7 +523,7 @@ packages:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
       lodash: 4.17.21
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -4477,7 +4477,7 @@ packages:
       '@umijs/runtime': 3.5.41(react@16.14.0)
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
-      react-router-config: 5.1.1(react-router@5.2.0)(react@16.14.0)
+      react-router-config: 5.1.1(react@16.14.0)
     transitivePeerDependencies:
       - react-router
     dev: true
@@ -6155,7 +6155,7 @@ packages:
       minipass-pipeline: 1.2.4
       mkdirp: 1.0.4
       p-map: 4.0.0
-      promise-inflight: 1.0.1(bluebird@3.7.2)
+      promise-inflight: 1.0.1
       rimraf: 3.0.2
       ssri: 8.0.1
       tar: 6.2.0
@@ -9164,7 +9164,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
+    deprecated: Upgrade to fsevents v2 to mitigate potential security issues
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -15021,6 +15021,15 @@ packages:
     engines: {node: '>=0.4.0'}
     dev: true
 
+  /promise-inflight@1.0.1:
+    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dev: true
+
   /promise-inflight@1.0.1(bluebird@3.7.2):
     resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
     peerDependencies:
@@ -15279,7 +15288,7 @@ packages:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
       dom-align: 1.12.4
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resize-observer-polyfill: 1.5.1
@@ -15294,7 +15303,7 @@ packages:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
       rc-trigger: 5.3.4(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -15308,7 +15317,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.15
       async-validator: 4.2.5
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -15324,7 +15333,7 @@ packages:
       rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
       rc-overflow: 1.3.2(react-dom@18.2.0)(react@18.2.0)
       rc-trigger: 5.3.4(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       shallowequal: 1.1.0
@@ -15338,7 +15347,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -15351,7 +15360,7 @@ packages:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
       rc-resize-observer: 1.3.1(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -15364,7 +15373,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resize-observer-polyfill: 1.5.1
@@ -15379,7 +15388,7 @@ packages:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
       rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -15396,7 +15405,7 @@ packages:
       rc-dropdown: 4.0.1(react-dom@18.2.0)(react@18.2.0)
       rc-menu: 9.6.4(react-dom@18.2.0)(react@18.2.0)
       rc-resize-observer: 1.3.1(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -15411,7 +15420,7 @@ packages:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
       rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       rc-virtual-list: 3.10.8(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -15428,13 +15437,13 @@ packages:
       classnames: 2.3.2
       rc-align: 4.0.15(react-dom@18.2.0)(react@18.2.0)
       rc-motion: 2.9.0(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /rc-util@5.38.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-e4ZMs7q9XqwTuhIK7zBIVFltUtMSjphuPPQXHoHlzRzNdOwUxDejo0Zls5HYaJfRKNURcsS/ceKVULlhjBrxng==}
+  /rc-util@5.44.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-resueRJzmHG9Q6rI/DfK6Kdv9/Lfls05vzMs1Sk3M2P+3cJa+MakaZyWY8IPfehVuhPJFKrIY1IK4GqbiaiY5w==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -15454,7 +15463,7 @@ packages:
       '@babel/runtime': 7.22.15
       classnames: 2.3.2
       rc-resize-observer: 1.3.1(react-dom@18.2.0)(react@18.2.0)
-      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.44.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -15608,6 +15617,16 @@ packages:
       '@babel/runtime': 7.22.15
       react: 16.14.0
       react-router: 5.2.0(react@16.14.0)
+    dev: true
+
+  /react-router-config@5.1.1(react@16.14.0):
+    resolution: {integrity: sha512-DuanZjaD8mQp1ppHjgnnUnyOlqYXZVjnov/JzFhjLEwd3Z4dYjMSnqrEzzGThH47vpCOqPPwJM2FtthLeJ8Pbg==}
+    peerDependencies:
+      react: '>=15'
+      react-router: '>=5'
+    dependencies:
+      '@babel/runtime': 7.22.15
+      react: 16.14.0
     dev: true
 
   /react-router-config@5.1.1(react@18.2.0):

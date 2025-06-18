@@ -1,16 +1,16 @@
 import React, { useRef, useState } from 'react'
 import {
-  render,
-  testA11y,
-  fireEvent,
-  waitFor,
-  screen,
-  userEvent,
-  mockDrag,
   act,
+  fireEvent,
+  mockDrag,
+  render,
+  screen,
+  testA11y,
+  userEvent,
+  waitFor,
 } from 'testing'
-import ImageViewer, { MultiImageViewerRef } from '../index'
 import Button from '../../button'
+import ImageViewer, { MultiImageViewerRef } from '../index'
 import image from './image.json'
 const classPrefix = `adm-image-viewer`
 
@@ -19,6 +19,11 @@ const demoImages = [
   'https://images.unsplash.com/photo-1601128533718-374ffcca299b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3128&q=80',
   'https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3113&q=80',
   `data:image/avif;base64,${image.content}`,
+]
+
+const demoViewImages = [
+  'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ',
+  'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80',
 ]
 
 const G = global as any
@@ -165,23 +170,20 @@ describe('ImageViewer.Multi', () => {
     })
     await waitFor(() => expect(img).not.toBeVisible())
   })
-
   test('slide and slide with pinched should be work', async () => {
     Object.defineProperty(window, 'innerWidth', {
       value: 300,
     })
     const onIndexChange = jest.fn()
 
-    act(() => {
-      render(
-        <ImageViewer.Multi
-          visible
-          defaultIndex={3}
-          images={demoImages}
-          onIndexChange={onIndexChange}
-        ></ImageViewer.Multi>
-      )
-    })
+    const { getByText } = render(
+      <ImageViewer.Multi
+        visible
+        defaultIndex={3}
+        images={demoImages}
+        onIndexChange={onIndexChange}
+      />
+    )
 
     await getImages()
 
@@ -195,7 +197,7 @@ describe('ImageViewer.Multi', () => {
 
     const slides = document.querySelectorAll(`.${classPrefix}-control`)[3]
 
-    expect(screen.getByText('4 / 4')).toBeInTheDocument()
+    expect(getByText('4 / 4')).toBeInTheDocument()
 
     mockDrag(slides as HTMLElement, [
       {
@@ -208,9 +210,9 @@ describe('ImageViewer.Multi', () => {
         clientX: 300,
       },
     ])
+    expect(getByText('3 / 4')).toBeInTheDocument()
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(1))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(2))
-    expect(screen.getByText('3 / 4')).toBeInTheDocument()
 
     mockDrag(slides as HTMLElement, [
       {
@@ -224,9 +226,24 @@ describe('ImageViewer.Multi', () => {
       },
     ])
 
+    expect(screen.getByText('4 / 4')).toBeInTheDocument()
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(2))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(3))
-    expect(screen.getByText('4 / 4')).toBeInTheDocument()
+  })
+  test('rendering with imageRender', () => {
+    function App() {
+      return (
+        <ImageViewer.Multi
+          images={demoViewImages}
+          visible
+          imageRender={(image, info) => (
+            <div className={`customize-preview-node-${info.index}`} />
+          )}
+        />
+      )
+    }
+    render(<App />)
+    expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
   })
 })
 

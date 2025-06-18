@@ -5,7 +5,6 @@
 
   position: fixed;
   z-index: var(--z-index);
-  bottom: 0;
   left: 0;
   width: 100vw;
   display: flex;
@@ -24,7 +23,6 @@
     content: '';
     display: block;
     position: absolute;
-    bottom: -100vh;
     height: 100vh;
     width: 100vw;
     background: var(--adm-color-background);
@@ -52,5 +50,20 @@
     flex: 1;
     overflow-y: scroll;
     background: var(--adm-color-background);
+  }
+
+  // Position
+  &-top {
+    top: 0;
+    &::after {
+      top: -100vh;
+    }
+  }
+
+  &-bottom {
+    bottom: 0;
+    &::after {
+      bottom: -100vh;
+    }
   }
 }

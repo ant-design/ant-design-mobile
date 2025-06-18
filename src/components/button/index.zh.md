@@ -30,7 +30,7 @@
 | size | 大小 | `'mini' \| 'small' \| 'middle' \| 'large'` | `'middle'` |
 | type | 原生 `button` 元素的 `type` 属性 | `'submit' \| 'reset' \| 'button'` | `'button'` |
 
-此外，还支持原生 `button` 元素的以下属性：`onMouseDown` `onMouseUp` `onTouchStart` `onTouchEnd`。
+此外，还支持原生 `button` 元素的以下属性：`onMouseDown` `onMouseUp` `onTouchStart` `onTouchEnd` `form`。
 
 ### CSS 变量
 

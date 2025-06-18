@@ -6,9 +6,9 @@ export default function useRenderLabel(renderLabel?: RenderLabel): RenderLabel {
   const { locale } = useConfig()
 
   return useCallback(
-    (type, data) => {
+    (type, data, info) => {
       if (renderLabel) {
-        return renderLabel(type, data)
+        return renderLabel(type, data, info)
       }
 
       // Default render

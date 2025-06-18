@@ -1,13 +1,8 @@
-import React from 'react'
-import type { ReactNode } from 'react'
-import { findDOMNode } from 'react-dom'
+import findDOMNode, { getDOM } from 'rc-util/lib/Dom/findDOMNode'
+import { composeRef, getNodeRef, supportRef } from 'rc-util/lib/ref'
+import * as React from 'react'
 
-export class Wrapper extends React.Component<
-  {
-    children?: ReactNode
-  },
-  {}
-> {
+class LegacyWrapper extends React.Component<React.PropsWithChildren, {}> {
   element: Element | null = null
   componentDidMount() {
     this.componentDidUpdate()
@@ -24,6 +19,39 @@ export class Wrapper extends React.Component<
   }
 
   render() {
-    return React.Children.only(this.props.children)
+    return this.props.children
   }
 }
+
+export interface WrapperRef {
+  element: HTMLElement
+}
+
+export const Wrapper = React.forwardRef<WrapperRef, React.PropsWithChildren>(
+  ({ children }, ref) => {
+    const elementRef = React.useRef<Element>(null)
+    const legacyWrapperRef = React.createRef<LegacyWrapper>()
+
+    const child = React.Children.only(children) as React.ReactElement
+    const canUseRef = supportRef(children)
+
+    const getElement = () => {
+      if (canUseRef) {
+        return getDOM(elementRef.current)
+      }
+      return legacyWrapperRef.current?.element
+    }
+
+    React.useImperativeHandle(ref, () => ({
+      element: getElement() as HTMLElement,
+    }))
+
+    const composedRef = composeRef(elementRef, getNodeRef(child))
+
+    return canUseRef ? (
+      React.cloneElement(child, { ref: composedRef })
+    ) : (
+      <LegacyWrapper ref={legacyWrapperRef}>{child}</LegacyWrapper>
+    )
+  }
+)

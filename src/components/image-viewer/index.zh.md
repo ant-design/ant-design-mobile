@@ -14,24 +14,26 @@
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| afterClose | 完全关闭后触发 | `() => void` | - |
+| afterClose | 完全关闭后触发 | `() => void` | - |  |
 | classNames | 语义化 class | `{ mask?:string,body?:string }` | - | 5.33.1 |
-| getContainer | 指定挂载的 HTML 节点，默认为 `null` 渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `null` |
-| image | 图片资源的 `url` | `string` | - |
-| maxZoom | 最大缩放比例 | `number \| 'auto'` | `3` |
-| onClose | 关闭时触发 | `() => void` | - |
-| renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |
-| visible | 是否显示 | `boolean` | `false` |
+| getContainer | 指定挂载的 HTML 节点，默认为 `null` 渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `null` |  |
+| image | 图片资源的 `url` | `string` | - |  |
+| maxZoom | 最大缩放比例 | `number \| 'auto'` | `3` |  |
+| onClose | 关闭时触发 | `() => void` | - |  |
+| renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |  |
+| imageRender | 自定义渲染内容 | `(image: string, { index }: { index: number }) => ReactNode` | - | 5.39.0 |
+| visible | 是否显示 | `boolean` | `false` |  |
 
 ## ImageViewer.Multi
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | classNames | 语义化 class | `{ mask?:string,body?:string }` | - | 5.33.1 |
-| defaultIndex | 默认显示第几张图片 | `number` | `0` |
-| images | 图片资源的 url 列表 | `string[]` | - |
-| onIndexChange | 切换图片时触发 | `(index: number) => void` | - |
-| renderFooter | 渲染底部额外内容 | `(image: string, index: number) => ReactNode` | - |
+| defaultIndex | 默认显示第几张图片 | `number` | `0` |  |
+| images | 图片资源的 url 列表 | `string[]` | - |  |
+| onIndexChange | 切换图片时触发 | `(index: number) => void` | - |  |
+| renderFooter | 渲染底部额外内容 | `(image: string, index: number) => ReactNode` | - |  |
+| imageRender | 自定义渲染内容 | `(image: string, { index }: { index: number }) => ReactNode` | - |  |
 
 其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
 

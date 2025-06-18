@@ -66,6 +66,10 @@ export const menus = {
       title: 'Reduce Motion (Experimental)',
       path: '/guide/reduce-motion',
     },
+    {
+      title: 'React 19 Compatibility',
+      path: '/guide/v5-for-19',
+    },
   ],
   '/zh/guide': [
     {
@@ -119,6 +123,10 @@ export const menus = {
     {
       title: '减弱动效（试验性）',
       path: '/zh/guide/reduce-motion',
+    },
+    {
+      title: 'React 19 兼容',
+      path: '/zh/guide/v5-for-19',
     },
   ],
   '/components': [

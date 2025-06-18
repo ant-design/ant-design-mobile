@@ -1,24 +1,30 @@
-import React, { useCallback, useMemo } from 'react'
 import type { FC, ReactNode } from 'react'
-import PickerView from '../picker-view'
-import type { PickerValue, PickerViewProps } from '../picker-view'
+import React, { useCallback, useMemo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import type {
+  DatePickerFilter,
+  Precision,
+} from '../date-picker/date-picker-utils'
 import {
-  generateDatePickerColumns,
   convertDateToStringArray,
   convertStringArrayToDate,
+  generateDatePickerColumns,
 } from '../date-picker/date-picker-utils'
-import type {
-  Precision,
-  DatePickerFilter,
-} from '../date-picker/date-picker-utils'
-import useRenderLabel from './useRenderLabel'
-import { TILL_NOW } from '../date-picker/util'
 import type { PickerDate } from '../date-picker/util'
+import { TILL_NOW } from '../date-picker/util'
+import type { PickerValue, PickerViewProps } from '../picker-view'
+import PickerView from '../picker-view'
+import useRenderLabel from './useRenderLabel'
 
-export type RenderLabel = (type: Precision | 'now', data: number) => ReactNode
+export type RenderLabel = (
+  type: Precision | 'now',
+  data: number,
+  info: {
+    selected: boolean
+  }
+) => ReactNode
 
 export type DatePickerViewProps = Pick<
   PickerViewProps,
