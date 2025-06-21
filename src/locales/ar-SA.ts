@@ -16,6 +16,7 @@ const arSA = mergeLocale(base, {
     'confirm': 'تأكيد',
     'start': 'يبدأ',
     'end': 'ينهي',
+    'startAndEnd': 'يبدأ/ينهي',
     'today': 'اليوم',
     'markItems': ['واحد', 'اثنين', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'يوم'],
     'yearAndMonth': '${year} سنة ${month} شهر',

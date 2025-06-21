@@ -16,6 +16,7 @@ const thTH = mergeLocale(base, {
     confirm: 'ยืนยัน',
     start: 'เริ่ม',
     end: 'เสร็จ',
+    startAndEnd: 'เริ่ม/เสร็จ',
     today: 'วันนี้',
     markItems: [
       'วันจันทร์',

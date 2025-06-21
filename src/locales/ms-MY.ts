@@ -16,6 +16,7 @@ const msMY = mergeLocale(base, {
     'confirm': 'Ok',
     'start': 'Mula',
     'end': 'Tamat',
+    'startAndEnd': 'Mula/Tamat',
     'today': 'Hari ini',
     'markItems': ['Satu', 'Dua', 'Tiga', 'Empat', 'Lima', 'Enam', 'Hari'],
     'yearAndMonth': 'Tahun${year} bulan ${month}',

@@ -284,6 +284,10 @@ export const CalendarPickerView = forwardRef<
                   }
 
                   if (props.selectionMode === 'range') {
+                    if (isBegin && isEnd) {
+                      return contentWrapper(locale.Calendar.startAndEnd)
+                    }
+
                     if (isBegin) {
                       return contentWrapper(locale.Calendar.start)
                     }

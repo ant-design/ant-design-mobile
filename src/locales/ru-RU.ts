@@ -16,6 +16,7 @@ const ruRU = mergeLocale(base, {
     confirm: 'Подтвердить',
     start: 'начало',
     end: 'конец',
+    startAndEnd: 'начало/конец',
     today: 'сегодня',
     markItems: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
     yearAndMonth: '${year}/${month}',

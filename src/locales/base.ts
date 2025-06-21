@@ -13,6 +13,7 @@ export const base = {
     confirm: 'Confirm',
     start: 'start',
     end: 'end',
+    startAndEnd: 'start/end',
     today: 'today',
     markItems: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     yearAndMonth: '${year}/${month}',
