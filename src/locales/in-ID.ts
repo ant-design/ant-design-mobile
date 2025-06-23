@@ -16,6 +16,7 @@ const inID = mergeLocale(base, {
     confirm: 'OK',
     start: 'Mulai',
     end: 'Selesai',
+    startAndEnd: 'Mulai/Selesai',
     today: 'Hari Ini',
     markItems: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
     yearAndMonth: '${year} Tahun ${month} Bulan',

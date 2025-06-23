@@ -15,6 +15,7 @@ const zhCN: Locale = {
     confirm: '确认',
     start: '开始',
     end: '结束',
+    startAndEnd: '开始/结束',
     today: '今日',
     markItems: ['一', '二', '三', '四', '五', '六', '日'],
     yearAndMonth: '${year}年${month}月',

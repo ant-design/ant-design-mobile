@@ -16,6 +16,7 @@ const hrHR = mergeLocale(base, {
     confirm: 'Potvrdi',
     start: 'početak',
     end: 'kraj',
+    startAndEnd: 'početak/kraj',
     today: 'danas',
     markItems: ['Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub', 'Ned'],
     yearAndMonth: '${year}/${month}',

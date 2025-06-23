@@ -16,6 +16,7 @@ const viVN = mergeLocale(base, {
     'confirm': 'Xác nhận',
     'start': 'Bắt đầu',
     'end': 'Kết thúc',
+    'startAndEnd': 'Bắt đầu/Kết thúc',
     'today': 'Hôm nay',
     'markItems': ['Một', 'Hai', 'Ba', 'Bốn', 'Năm', 'Sáu', 'Ngày'],
     'yearAndMonth': 'Tháng ${month} năm ${year}',
