@@ -55,8 +55,21 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const [value, setValue] = usePropsValue(mergedProps)
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
+    const valueRef = useRef(mergedProps.value)
     const [hasFocus, setHasFocus] = useState(false)
     const [caretPosition, setCaretPosition] = useState(value.length) // 光标位置，从 0 开始，如值是 2 则表示光标在顺序下标为 2 的数字之前
+
+    useEffect(() => {
+      if (value !== valueRef.current) {
+        // 当前后长度有变化后， 根据变化规则向前/向后移动光标-
+        if (`${value}`.length < `${valueRef.current}`.length) {
+          setCaretPosition(caretPosition - 1)
+        } else if (`${value}`.length > `${valueRef.current}`.length) {
+          setCaretPosition((c: number) => c + 1)
+        }
+      }
+      valueRef.current = value
+    }, [value])
 
     const clearIcon = mergeProp(
       <CloseCircleFill />,
@@ -113,7 +126,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             v +
             value.substring(caretPosition)
           setValue(newValue)
-          setCaretPosition((c: number) => c + 1)
           keyboard.props.onInput?.(v)
         },
         onDelete: () => {
@@ -122,7 +134,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             value.substring(0, caretPosition - 1) +
             value.substring(caretPosition)
           setValue(newValue)
-          setCaretPosition(caretPosition - 1)
           keyboard.props.onDelete?.()
         },
         visible: hasFocus,
