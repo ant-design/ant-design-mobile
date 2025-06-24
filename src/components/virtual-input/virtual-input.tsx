@@ -60,10 +60,21 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const [caretPosition, setCaretPosition] = useState(value.length) // 光标位置，从 0 开始，如值是 2 则表示光标在顺序下标为 2 的数字之前
 
     useEffect(() => {
+      if (valueRef.current === undefined || valueRef.current === null) {
+        setCaretPosition(1)
+        valueRef.current = value
+        return
+      }
+      if (value === undefined || value === null) {
+        setCaretPosition(0)
+        valueRef.current = value
+        return
+      }
       if (value !== valueRef.current) {
+        console.log(valueRef.current, '------------> ', value)
         // 当前后长度有变化后， 根据变化规则向前/向后移动光标-
         if (`${value}`.length < `${valueRef.current}`.length) {
-          setCaretPosition(caretPosition - 1)
+          setCaretPosition((c: number) => c - 1)
         } else if (`${value}`.length > `${valueRef.current}`.length) {
           setCaretPosition((c: number) => c + 1)
         }
