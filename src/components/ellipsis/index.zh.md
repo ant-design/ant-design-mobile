@@ -26,6 +26,7 @@
 | rows | 展示几行 | `number` | `1` |
 | stopPropagationForActionButtons | 阻止展开操作，收起操作引发的事件冒泡 | `PropagationEvent[]` | `[]` |
 | defaultExpanded | 是否默认展开 | `boolean` | `false` |
+| onEllipsis | 展开或收起的回调 | `(ellipsis: boolean, e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void` | `''` |
 
 ## FAQ
 
