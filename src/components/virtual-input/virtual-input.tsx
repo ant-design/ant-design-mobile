@@ -110,16 +110,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       },
     }))
 
-    useEffect(() => {
-      console.log(previousValue, value, caretPosition)
-      if (caretPosition === 0 && value !== previousValue) {
-        // setCaretPosition(value.length);
-      }
-      // if (previousValue === '' && value !== previousValue && caretPosition === 0) {
-      //   setCaretPosition(value.length);
-      // }
-    }, [value])
-
     function onFocus() {
       setHasFocus(true)
       mergedProps.onFocus?.()
