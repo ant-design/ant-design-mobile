@@ -1,4 +1,4 @@
-import { useIsomorphicLayoutEffect } from 'ahooks'
+import { useIsomorphicLayoutEffect, usePrevious } from 'ahooks'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import type { ReactElement } from 'react'
@@ -53,10 +53,27 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const { locale, input: componentConfig = {} } = useConfig()
     const mergedProps = mergeProps(defaultProps, componentConfig, props)
     const [value, setValue] = usePropsValue(mergedProps)
+    const previousValue = usePrevious(value)
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
+    const keyboardDataRef = useRef<{
+      newValue?: string
+      mode?: 'input' | 'delete'
+    }>({})
     const [hasFocus, setHasFocus] = useState(false)
     const [caretPosition, setCaretPosition] = useState(value.length) // 光标位置，从 0 开始，如值是 2 则表示光标在顺序下标为 2 的数字之前
+
+    useEffect(() => {
+      if (value === keyboardDataRef.current.newValue) {
+        if (keyboardDataRef.current.mode === 'input') {
+          setCaretPosition(c => c + 1)
+        } else {
+          setCaretPosition(c => c - 1)
+        }
+      } else {
+        setCaretPosition(value.length)
+      }
+    }, [value])
 
     const clearIcon = mergeProp(
       <CloseCircleFill />,
@@ -93,6 +110,16 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       },
     }))
 
+    useEffect(() => {
+      console.log(previousValue, value, caretPosition)
+      if (caretPosition === 0 && value !== previousValue) {
+        // setCaretPosition(value.length);
+      }
+      // if (previousValue === '' && value !== previousValue && caretPosition === 0) {
+      //   setCaretPosition(value.length);
+      // }
+    }, [value])
+
     function onFocus() {
       setHasFocus(true)
       mergedProps.onFocus?.()
@@ -112,8 +139,11 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             value.substring(0, caretPosition) +
             v +
             value.substring(caretPosition)
+          // 临时记录，用于后续光标位置
+          keyboardDataRef.current = { newValue, mode: 'input' }
           setValue(newValue)
-          setCaretPosition((c: number) => c + 1)
+
+          // setCaretPosition((c: number) => c + 1)
           keyboard.props.onInput?.(v)
         },
         onDelete: () => {
@@ -121,8 +151,10 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           const newValue =
             value.substring(0, caretPosition - 1) +
             value.substring(caretPosition)
+          // 临时记录，用于后续光标位置
+          keyboardDataRef.current = { newValue, mode: 'delete' }
           setValue(newValue)
-          setCaretPosition(caretPosition - 1)
+          // setCaretPosition((c: number) => c - 1)
           keyboard.props.onDelete?.()
         },
         visible: hasFocus,

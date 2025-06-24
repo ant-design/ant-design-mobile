@@ -1,8 +1,12 @@
-import React from 'react'
 import { NumberKeyboard, VirtualInput } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import React, { useState } from 'react'
+
+const TWO_DIGIT_NUMBER_REGEX = /^(([1-9]\d{0,11})|0)(\.\d{0,2}?)?$/
 
 export default () => {
+  const [value, setValue] = useState('')
+
   return (
     <>
       <DemoBlock title='配合 NumberKeyboard 使用'>
@@ -41,6 +45,23 @@ export default () => {
           placeholder='请输入内容'
           keyboard={<NumberKeyboard />}
           style={{ '--caret-width': '1px', '--caret-color': '#666666' }}
+        />
+      </DemoBlock>
+
+      <DemoBlock title='只支持金额数字输入，配合 NumberKeyboard 使用'>
+        <VirtualInput
+          value={value || '0'}
+          onChange={v => {
+            if (v.startsWith('.')) {
+              v = '0' + v
+            }
+            v = v.replace(/^0+(\d)/, '$1')
+            if (TWO_DIGIT_NUMBER_REGEX.test(v) || !v) {
+              setValue(v)
+            }
+          }}
+          placeholder='请输入内容'
+          keyboard={<NumberKeyboard confirmText='确定' customKey={'.'} />}
         />
       </DemoBlock>
     </>
