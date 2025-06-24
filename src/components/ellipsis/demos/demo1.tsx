@@ -31,6 +31,9 @@ export default () => {
           content={content}
           expandText='展开'
           collapseText='收起'
+          onEllipsis={ellipsis => {
+            Toast.show(`${ellipsis ? '展开' : '收起'}了`)
+          }}
         />
       </DemoBlock>
 
