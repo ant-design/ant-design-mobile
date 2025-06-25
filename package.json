@@ -97,7 +97,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "14.2.1",
     "@types/big.js": "^6.1.6",
-    "@types/jest": "^28.1.8",
     "@types/jest-axe": "3.5.4",
     "@types/lodash": "^4.14.194",
     "@types/node": "^18.15.13",
