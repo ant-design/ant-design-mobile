@@ -57,9 +57,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install
       - name: install react 19
-        run: bun run bun-install-react-19
+        run: pnpm run pnpm-install-react-19
       - name: run tests
-        run: bun run test src/utils/tests/unstable.test.ts
+        run: pnpm run test src/utils/tests/unstable.test.ts

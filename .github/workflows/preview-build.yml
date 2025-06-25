@@ -23,11 +23,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install
       - name: build site
         id: site
-        run: bun run build-doc
+        run: pnpm run build-doc
         env:
           NODE_OPTIONS: --max_old_space_size=4096
       - run: |
