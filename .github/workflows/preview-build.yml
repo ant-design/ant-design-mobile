@@ -27,7 +27,7 @@ jobs:
         with:
           version: 7
           run_install: false
-      - run: pnpm install --ignore-peer-dependencies
+      - run: pnpm install --ignore-scripts --strict-peer-dependencies=false
       - name: build site
         id: site
         run: pnpm run build-doc

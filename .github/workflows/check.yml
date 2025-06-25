@@ -61,7 +61,7 @@ jobs:
         with:
           version: 7
           run_install: false
-      - run: pnpm install --ignore-peer-dependencies
+      - run: pnpm install --ignore-scripts --strict-peer-dependencies=false
       - name: install react 19
         run: pnpm run pnpm-install-react-19
       - name: run tests
