@@ -64,6 +64,8 @@ export default () => {
           keyboard={<NumberKeyboard confirmText='确定' customKey={'.'} />}
         />
       </DemoBlock>
+
+      <div style={{ height: '100vh' }}></div>
     </>
   )
 }
