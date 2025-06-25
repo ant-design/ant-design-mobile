@@ -43,7 +43,7 @@
     "size-limit:ci": "size-limit --json",
     "start": "dumi dev",
     "test": "jest",
-    "pnpm-install-react-19": "pnpm remove react react-dom && pnpm add --no-save react@19 react-dom@19",
+    "ci-install-react-19": "pnpm i react@19 react-dom@19",
     "test-with-coverage": "jest --coverage"
   },
   "lint-staged": {
