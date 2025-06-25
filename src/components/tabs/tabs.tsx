@@ -258,16 +258,28 @@ export const Tabs: FC<TabsProps> = p => {
     if (!container) return
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      e.preventDefault()
       const keys = Object.keys(keyToIndexRecord)
-      const currentIndex = keyToIndexRecord[activeKey!]
-      if (e.key === 'ArrowRight') {
-        e.preventDefault()
-        const nextKey = keys[(currentIndex + 1) % keys.length]
+      const currentIndex = keyToIndexRecord[activeKey as string]
+      const isRightKey = isRTL ? e.key === 'ArrowLeft' : e.key === 'ArrowRight'
+      const isLeftKey = isRTL ? e.key === 'ArrowRight' : e.key === 'ArrowLeft'
+
+      const findNextEnabledTab = (startIndex: number, direction: 1 | -1) => {
+        const length = keys.length
+        for (let i = 0; i < length; i++) {
+          const index = (startIndex + direction * (i + 1) + length) % length
+          const key = keys[index]
+          const pane = panes.find(p => p.key === key)
+          if (!pane?.props.disabled) return key
+        }
+        return keys[startIndex]
+      }
+      if (isRightKey) {
+        const nextKey = findNextEnabledTab(currentIndex, 1)
         setActiveKey(nextKey)
         tabRefs.current[nextKey]?.focus()
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault()
-        const prevKey = keys[(currentIndex - 1 + keys.length) % keys.length]
+      } else if (isLeftKey) {
+        const prevKey = findNextEnabledTab(currentIndex, -1)
         setActiveKey(prevKey)
         tabRefs.current[prevKey]?.focus()
       }
