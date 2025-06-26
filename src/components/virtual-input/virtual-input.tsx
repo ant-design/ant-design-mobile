@@ -63,10 +63,13 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       newValue?: string
       mode?: 'input' | 'delete'
     }>({}) // 临时记录虚拟键盘输入，在下次更新时用于判断光标位置如何调整
-    const touchDataRef = useRef<any>()
-    const charRef = useRef<any>()
-    const charWidthRef = useRef<any>()
-    const caretRef = useRef<any>()
+    const touchDataRef = useRef<{
+      startX: number
+      startCaretPosition: number
+    } | null>() // 记录上一次 touch 时的坐标位置
+    const charRef = useRef<HTMLElement>(null) // 第一个字符的 DOM
+    const charWidthRef = useRef<number>(0) // 单个字符宽度
+    const caretRef = useRef<HTMLDivElement>(null) // 光标的 DOM
     const [isCaretDragging, setIsCaretDragging] = useState<boolean>(false)
     const touchMoveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>()
 
@@ -209,7 +212,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         // 20px 阈值可调整
         touchDataRef.current = {
           startX: touch.clientX,
-          startCaret: caretPosition,
+          startCaretPosition: caretPosition,
         }
         setIsCaretDragging(true)
       } else {
@@ -225,11 +228,11 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
       const charWidth = charWidthRef.current
       const moveChars = Math.round(deltaX / charWidth)
-      let newCaret = touchDataRef.current.startCaret + moveChars
+      let newCaretPosition = touchDataRef.current.startCaretPosition + moveChars
 
       // 边界处理
-      newCaret = Math.max(0, Math.min(newCaret, value.length))
-      setCaretPosition(newCaret)
+      newCaretPosition = Math.max(0, Math.min(newCaretPosition, value.length))
+      setCaretPosition(newCaretPosition)
 
       // 防止 touchend 不触发
       if (touchMoveTimeoutRef.current) {
@@ -274,7 +277,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         >
           {chars.slice(0, caretPosition).map((i: string, index: number) => (
             <span
-              ref={index === 0 ? charRef : null}
+              ref={index === 0 ? charRef : undefined}
               key={index}
               onClick={changeCaretPosition(index)}
             >
