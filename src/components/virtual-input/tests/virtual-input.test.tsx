@@ -218,7 +218,7 @@ describe('VirtualInput', () => {
         <VirtualInput
           data-testid='virtualInput'
           clearable
-          adjustableCaret
+          allowCaretPositioning
           value={value}
           onChange={setValue}
           keyboard={<NumberKeyboard confirmText='确定' />}
@@ -286,7 +286,7 @@ describe('VirtualInput', () => {
         <VirtualInput
           data-testid='virtualInput'
           clearable
-          adjustableCaret
+          allowCaretPositioning
           keyboard={<NumberKeyboard confirmText='确定' />}
         />
       )
@@ -364,7 +364,7 @@ describe('VirtualInput', () => {
         <VirtualInput
           data-testid='virtualInput'
           clearable
-          adjustableCaret
+          allowCaretPositioning
           value={value || '0'}
           onChange={v => {
             if (v.startsWith('.')) {
@@ -497,7 +497,7 @@ describe('VirtualInput', () => {
         <VirtualInput
           data-testid='virtualInput'
           clearable
-          adjustableCaret
+          allowCaretPositioning
           value={value || '0'}
           onChange={v => {
             if (v.startsWith('.')) {

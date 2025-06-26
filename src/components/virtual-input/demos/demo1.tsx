@@ -12,7 +12,7 @@ export default () => {
       <DemoBlock title='配合 NumberKeyboard 使用'>
         <VirtualInput
           placeholder='请输入内容'
-          adjustableCaret
+          allowCaretPositioning
           keyboard={<NumberKeyboard confirmText='确定' customKey='.' />}
         />
       </DemoBlock>
@@ -21,7 +21,7 @@ export default () => {
         <VirtualInput
           placeholder='请输入内容'
           clearable
-          adjustableCaret
+          allowCaretPositioning
           keyboard={<NumberKeyboard />}
         />
       </DemoBlock>
@@ -60,7 +60,7 @@ export default () => {
       <DemoBlock title='只支持金额数字输入，配合 NumberKeyboard 使用'>
         <VirtualInput
           value={value || '0'}
-          adjustableCaret
+          allowCaretPositioning
           onChange={v => {
             if (v.startsWith('.')) {
               v = '0' + v

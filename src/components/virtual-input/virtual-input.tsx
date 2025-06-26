@@ -25,7 +25,7 @@ export type VirtualInputProps = {
   keyboard?: ReactElement<NumberKeyboardProps>
   clearable?: boolean
   onClear?: () => void
-  adjustableCaret?: boolean
+  allowCaretPositioning?: boolean
 } & Pick<
   InputProps,
   'value' | 'onChange' | 'placeholder' | 'disabled' | 'clearIcon'
@@ -42,7 +42,7 @@ export type VirtualInputProps = {
 
 const defaultProps = {
   defaultValue: '',
-  adjustableCaret: false,
+  allowCaretPositioning: false,
 }
 
 export type VirtualInputRef = {
@@ -186,7 +186,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     // 点击单个字符时，根据点击位置置于字符前或后
     const changeCaretPosition = (index: number) => (e: React.MouseEvent) => {
-      if (mergedProps.disabled || !mergedProps.adjustableCaret) return
+      if (mergedProps.disabled || !mergedProps.allowCaretPositioning) return
 
       e.stopPropagation()
       const rect = (e.target as HTMLElement).getBoundingClientRect()
@@ -200,7 +200,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     // 在光标附近 touchmove 时也可以调整光标位置
     const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-      if (mergedProps.disabled || !mergedProps.adjustableCaret) return
+      if (mergedProps.disabled || !mergedProps.allowCaretPositioning) return
       if (!caretRef.current) return
 
       const touch = e.touches[0]
@@ -220,7 +220,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     }
 
     const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-      if (!touchDataRef.current || !mergedProps.adjustableCaret) return
+      if (!touchDataRef.current || !mergedProps.allowCaretPositioning) return
 
       setIsCaretDragging(true)
 
