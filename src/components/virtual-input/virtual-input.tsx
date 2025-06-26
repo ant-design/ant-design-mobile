@@ -214,7 +214,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           startX: touch.clientX,
           startCaretPosition: caretPosition,
         }
-        setIsCaretDragging(true)
       } else {
         touchDataRef.current = null
       }
@@ -223,13 +222,14 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
       if (!touchDataRef.current || !mergedProps.adjustableCaret) return
 
+      setIsCaretDragging(true)
+
       const touch = e.touches[0]
       const deltaX = touch.clientX - touchDataRef.current.startX
 
       const charWidth = charWidthRef.current
       const moveChars = Math.round(deltaX / charWidth)
       let newCaretPosition = touchDataRef.current.startCaretPosition + moveChars
-
       // 边界处理
       newCaretPosition = Math.max(0, Math.min(newCaretPosition, value.length))
       setCaretPosition(newCaretPosition)
@@ -241,7 +241,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       touchMoveTimeoutRef.current = setTimeout(() => {
         setIsCaretDragging(false)
         touchMoveTimeoutRef.current = null
-      }, 200)
+      }, 500)
     }
 
     const handleTouchEnd = () => {
@@ -264,9 +264,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={mergedProps.onClick}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
         <div
           className={`${classPrefix}-content`}
@@ -274,6 +271,9 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           aria-disabled={mergedProps.disabled}
           aria-label={mergedProps.placeholder}
           onClick={setCaretPositionToEnd}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {chars.slice(0, caretPosition).map((i: string, index: number) => (
             <span

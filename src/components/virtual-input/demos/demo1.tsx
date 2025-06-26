@@ -13,7 +13,7 @@ export default () => {
         <VirtualInput
           placeholder='请输入内容'
           adjustableCaret
-          keyboard={<NumberKeyboard confirmText='确定' customKey={'.'} />}
+          keyboard={<NumberKeyboard confirmText='确定' customKey='.' />}
         />
       </DemoBlock>
 
@@ -29,7 +29,7 @@ export default () => {
       <DemoBlock title='光标位置不可调整'>
         <VirtualInput
           placeholder='请输入内容'
-          keyboard={<NumberKeyboard confirmText='确定' customKey={'.'} />}
+          keyboard={<NumberKeyboard confirmText='确定' customKey='.' />}
         />
       </DemoBlock>
 
@@ -71,7 +71,10 @@ export default () => {
             }
           }}
           placeholder='请输入内容'
-          keyboard={<NumberKeyboard confirmText='确定' customKey={'.'} />}
+          keyboard={<NumberKeyboard confirmText='确定' customKey='.' />}
+          style={{
+            '--font-size': '40px',
+          }}
         />
       </DemoBlock>
 
