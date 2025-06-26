@@ -23,6 +23,7 @@
 | onFocus | 获得焦点时触发 | `() => void` | - |
 | placeholder | 提示文本 | `string` | - |
 | value | 输入值 | `string` | `''` |
+| adjustableCaret | 是否允许调整光标位置 | `boolean` | `false` |
 
 严格意义上讲，VirtualInput 并不是一个表单类型的组件，它只是对数据进行展示。
 

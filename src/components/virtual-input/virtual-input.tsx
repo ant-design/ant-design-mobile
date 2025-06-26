@@ -25,6 +25,7 @@ export type VirtualInputProps = {
   keyboard?: ReactElement<NumberKeyboardProps>
   clearable?: boolean
   onClear?: () => void
+  adjustableCaret?: boolean
 } & Pick<
   InputProps,
   'value' | 'onChange' | 'placeholder' | 'disabled' | 'clearIcon'
@@ -41,6 +42,7 @@ export type VirtualInputProps = {
 
 const defaultProps = {
   defaultValue: '',
+  adjustableCaret: false,
 }
 
 export type VirtualInputRef = {
@@ -55,24 +57,18 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const [value, setValue] = usePropsValue(mergedProps)
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
+    const [hasFocus, setHasFocus] = useState(false)
+    const [caretPosition, setCaretPosition] = useState(value.length) // 光标位置，从 0 开始，如值是 2 则表示光标在顺序下标为 2 的数字之前
     const keyboardDataRef = useRef<{
       newValue?: string
       mode?: 'input' | 'delete'
-    }>({})
-    const [hasFocus, setHasFocus] = useState(false)
-    const [caretPosition, setCaretPosition] = useState(value.length) // 光标位置，从 0 开始，如值是 2 则表示光标在顺序下标为 2 的数字之前
-
-    useEffect(() => {
-      if (value === keyboardDataRef.current.newValue) {
-        if (keyboardDataRef.current.mode === 'input') {
-          setCaretPosition(c => c + 1)
-        } else {
-          setCaretPosition(c => c - 1)
-        }
-      } else {
-        setCaretPosition(value.length)
-      }
-    }, [value])
+    }>({}) // 临时记录虚拟键盘输入，在下次更新时用于判断光标位置如何调整
+    const touchDataRef = useRef<any>()
+    const charRef = useRef<any>()
+    const charWidthRef = useRef<any>()
+    const caretRef = useRef<any>()
+    const [isCaretDragging, setIsCaretDragging] = useState<boolean>(false)
+    const touchMoveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>()
 
     const clearIcon = mergeProp(
       <CloseCircleFill />,
@@ -90,6 +86,26 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       if (!content) return
       content.scrollLeft = content.clientWidth
     }
+
+    useEffect(() => {
+      // 记录单个字符的宽度，用于光标移动时的计算
+      if (charRef.current) {
+        charWidthRef.current = charRef.current.getBoundingClientRect().width
+      }
+    }, [value])
+
+    useEffect(() => {
+      // 经过外部受控逻辑后，再调整光标位置，如果受控逻辑改动了值则光标放到最后
+      if (value === keyboardDataRef.current.newValue) {
+        if (keyboardDataRef.current.mode === 'input') {
+          setCaretPosition(c => c + 1)
+        } else if (keyboardDataRef.current.mode === 'delete') {
+          setCaretPosition(c => c - 1)
+        }
+      } else {
+        setCaretPosition(value.length)
+      }
+    }, [value])
 
     useIsomorphicLayoutEffect(() => {
       scrollToEnd()
@@ -167,8 +183,9 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     // 点击单个字符时，根据点击位置置于字符前或后
     const changeCaretPosition = (index: number) => (e: React.MouseEvent) => {
-      e.stopPropagation()
+      if (mergedProps.disabled || !mergedProps.adjustableCaret) return
 
+      e.stopPropagation()
       const rect = (e.target as HTMLElement).getBoundingClientRect()
       const midX = rect.left + rect.width / 2
       const clickX = e.clientX
@@ -176,6 +193,57 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       const isRight = clickX > midX
 
       setCaretPosition(isRight ? index + 1 : index)
+    }
+
+    // 在光标附近 touchmove 时也可以调整光标位置
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+      if (mergedProps.disabled || !mergedProps.adjustableCaret) return
+      if (!caretRef.current) return
+
+      const touch = e.touches[0]
+      const caretRect = caretRef.current.getBoundingClientRect()
+      const distance = Math.abs(
+        touch.clientX - (caretRect.left + caretRect.width / 2)
+      )
+      if (distance < 20) {
+        // 20px 阈值可调整
+        touchDataRef.current = {
+          startX: touch.clientX,
+          startCaret: caretPosition,
+        }
+        setIsCaretDragging(true)
+      } else {
+        touchDataRef.current = null
+      }
+    }
+
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+      if (!touchDataRef.current || !mergedProps.adjustableCaret) return
+
+      const touch = e.touches[0]
+      const deltaX = touch.clientX - touchDataRef.current.startX
+
+      const charWidth = charWidthRef.current
+      const moveChars = Math.round(deltaX / charWidth)
+      let newCaret = touchDataRef.current.startCaret + moveChars
+
+      // 边界处理
+      newCaret = Math.max(0, Math.min(newCaret, value.length))
+      setCaretPosition(newCaret)
+
+      // 防止 touchend 不触发
+      if (touchMoveTimeoutRef.current) {
+        clearTimeout(touchMoveTimeoutRef.current)
+      }
+      touchMoveTimeoutRef.current = setTimeout(() => {
+        setIsCaretDragging(false)
+        touchMoveTimeoutRef.current = null
+      }, 200)
+    }
+
+    const handleTouchEnd = () => {
+      touchDataRef.current = null
+      setIsCaretDragging(false)
     }
 
     const chars = (value + '').split('')
@@ -186,12 +254,16 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         ref={rootRef}
         className={classNames(classPrefix, {
           [`${classPrefix}-disabled`]: mergedProps.disabled,
+          [`${classPrefix}-caret-dragging`]: isCaretDragging,
         })}
         tabIndex={mergedProps.disabled ? undefined : 0}
         role='textbox'
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={mergedProps.onClick}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <div
           className={`${classPrefix}-content`}
@@ -201,12 +273,18 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           onClick={setCaretPositionToEnd}
         >
           {chars.slice(0, caretPosition).map((i: string, index: number) => (
-            <span key={index} onClick={changeCaretPosition(index)}>
+            <span
+              ref={index === 0 ? charRef : null}
+              key={index}
+              onClick={changeCaretPosition(index)}
+            >
               {i}
             </span>
           ))}
           <div className={`${classPrefix}-caret-container`}>
-            {hasFocus && <div className={`${classPrefix}-caret`} />}
+            {hasFocus && (
+              <div ref={caretRef} className={`${classPrefix}-caret`} />
+            )}
           </div>
           {chars.slice(caretPosition).map((i: string, index: number) => (
             <span
@@ -223,7 +301,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             onClick={e => {
               e.stopPropagation()
               setValue('')
-              setCaretPosition(0)
               mergedProps.onClear?.()
             }}
             role='button'
