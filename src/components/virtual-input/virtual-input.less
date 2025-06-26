@@ -69,8 +69,7 @@
   }
   &:focus {
     outline: none;
-    .adm-virtual-input-caret {
-      display: block;
+    .@{class-prefix-virtual-input}-caret {
       animation-name: adm-caret-blink;
       animation-duration: 1s;
       animation-timing-function: linear;
@@ -79,6 +78,12 @@
   }
   &-disabled {
     color: var(--disabled-color);
+  }
+
+  &-caret-dragging {
+    .@{class-prefix-virtual-input}-caret {
+      animation: none !important;
+    }
   }
 }
 
