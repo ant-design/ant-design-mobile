@@ -103,6 +103,26 @@ describe('Ellipsis', () => {
     expect(ellipsis).toHaveTextContent('...')
   })
 
+  test('check onEllipsis should be work', () => {
+    const toggle = jest.fn()
+    const { getByText } = render(
+      <Ellipsis
+        content={content}
+        defaultExpanded
+        expandText='expand'
+        collapseText='collapse'
+        onEllipsis={ellipsis => {
+          toggle(ellipsis)
+        }}
+      />
+    )
+    fireEvent.click(getByText('collapse'))
+    expect(toggle).toBeCalledWith(false)
+
+    fireEvent.click(getByText('expand'))
+    expect(toggle).toBeCalledWith(true)
+  })
+
   test('content not exceeded', () => {
     const { getByTestId } = render(
       <Ellipsis content='abc' data-testid='ellipsis' />
