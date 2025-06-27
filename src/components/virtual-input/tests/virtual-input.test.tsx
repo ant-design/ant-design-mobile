@@ -65,7 +65,10 @@ function getCaretPosition(element: Element | null) {
   return prevElements.length
 }
 
-function makeTouchEvent(type: 'touchmove' | 'touchstart', clientX: number) {
+function makeTouchEvent(
+  type: 'touchmove' | 'touchstart' | 'touchend',
+  clientX: number
+) {
   const e = new TouchEvent(type, {
     bubbles: true,
     cancelable: true,
@@ -567,6 +570,22 @@ describe('VirtualInput', () => {
         targetElement.dispatchEvent(makeTouchEvent('touchmove', 60 - 32 + 18))
       })
       expect(getCaretPosition(caretContainer)).toBe(5) // 四舍 14/10 -> 1
+      // 测试光标闪烁动效，move 中不闪烁，touchend、move 停留超过 500ms 又闪烁
+      expect((targetElement.parentNode as Element).classList).toContain(
+        'adm-virtual-input-caret-dragging'
+      )
+      await act(() => {
+        targetElement.dispatchEvent(makeTouchEvent('touchend', 60))
+      })
+      expect((targetElement.parentNode as Element).classList).not.toContain(
+        'adm-virtual-input-caret-dragging'
+      )
+      await act(() => {
+        targetElement.dispatchEvent(makeTouchEvent('touchstart', 60 - 32 + 18))
+        targetElement.dispatchEvent(
+          makeTouchEvent('touchmove', 60 - 32 + 18 + 1)
+        )
+      })
       expect((targetElement.parentNode as Element).classList).toContain(
         'adm-virtual-input-caret-dragging'
       )
@@ -578,6 +597,7 @@ describe('VirtualInput', () => {
       )
 
       // 不在 caret 附近 touchstart 则 touchmove 不会改变光标位置
+      expect(getCaretPosition(caretContainer)).toBe(5)
       await act(() => {
         targetElement.dispatchEvent(makeTouchEvent('touchstart', 10))
         targetElement.dispatchEvent(makeTouchEvent('touchmove', 30))
