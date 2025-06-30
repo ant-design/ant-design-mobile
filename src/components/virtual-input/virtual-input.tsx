@@ -26,6 +26,7 @@ export type VirtualInputProps = {
   clearable?: boolean
   onClear?: () => void
   cursor?: 'static' | 'movable'
+  onCursorMove?: (position: number) => void
 } & Pick<
   InputProps,
   'value' | 'onChange' | 'placeholder' | 'disabled' | 'clearIcon'
@@ -181,7 +182,10 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     // 点击输入框时，将光标置于最后
     const setCaretPositionToEnd = () => {
-      setCaretPosition(value.length)
+      if (caretPosition !== value.length) {
+        setCaretPosition(value.length)
+        mergedProps.onCursorMove?.(value.length)
+      }
     }
 
     // 点击单个字符时，根据点击位置置于字符前或后
@@ -195,7 +199,9 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       // 点击区域是否偏右
       const isRight = clickX > midX
 
-      setCaretPosition(isRight ? index + 1 : index)
+      const newCaretPosition = isRight ? index + 1 : index
+      setCaretPosition(newCaretPosition)
+      mergedProps.onCursorMove?.(newCaretPosition)
     }
 
     // 在光标附近 touchmove 时也可以调整光标位置
@@ -233,6 +239,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       // 边界处理
       newCaretPosition = Math.max(0, Math.min(newCaretPosition, value.length))
       setCaretPosition(newCaretPosition)
+      mergedProps.onCursorMove?.(newCaretPosition)
 
       // 防止 touchend 不触发
       if (touchMoveTimeoutRef.current) {

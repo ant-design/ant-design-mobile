@@ -24,6 +24,7 @@
 | placeholder | 提示文本 | `string` | - |
 | value | 输入值 | `string` | `''` |
 | cursor | 是否允许调整光标位置，开启后可以通过点击输入框字符、或拖动光标来调整光标位置 | `'movable' \| 'static'` | `'static'` |
+| onCursorMove | 光标位置移动时触发 | `(position: number) => void` | - |
 
 严格意义上讲，VirtualInput 并不是一个表单类型的组件，它只是对数据进行展示。
 
