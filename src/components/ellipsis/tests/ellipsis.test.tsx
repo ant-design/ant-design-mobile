@@ -111,7 +111,7 @@ describe('Ellipsis', () => {
         defaultExpanded
         expandText='expand'
         collapseText='collapse'
-        onEllipsis={ellipsis => {
+        onExpand={ellipsis => {
           toggle(ellipsis)
         }}
       />

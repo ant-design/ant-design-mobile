@@ -26,7 +26,7 @@ When the display space is not enough, hide some content and replace it with "...
 | rows | The number to display lines | `number` | `1` |
 | stopPropagationForActionButtons | Prevent the event bubbling caused by the expand operation and the collapse operation | `PropagationEvent[]` | `[]` |
 | defaultExpanded | Whether to expand by default | `boolean` | `false` |
-| onEllipsis | Callback when expand or collapse | `(ellipsis: boolean, e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void` | `-` |
+| onExpand | Callback when expand or collapse | `(ellipsis: boolean, info: { event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void}` | - |
 
 ## FAQ
 
