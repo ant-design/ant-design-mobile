@@ -22,6 +22,7 @@
 | onClose | 关闭时触发 | `() => void` | - |  |
 | renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |  |
 | imageRender | 自定义渲染内容 | `(image: string, { index }: { index: number }) => ReactNode` | - | 5.39.0 |
+| partialCustomRender | 是否部分自定义渲染（`true`: 自定义但保留图片拖动，`false`: 完全自定义，不处理拖拽） | `boolean` | `true` |  |
 | visible | 是否显示 | `boolean` | `false` |  |
 
 ## ImageViewer.Multi
@@ -34,6 +35,7 @@
 | onIndexChange | 切换图片时触发 | `(index: number) => void` | - |  |
 | renderFooter | 渲染底部额外内容 | `(image: string, index: number) => ReactNode` | - |  |
 | imageRender | 自定义渲染内容 | `(image: string, { index }: { index: number }) => ReactNode` | - |  |
+| partialCustomRender | 是否部分自定义渲染（`true`: 自定义但保留图片拖动，`false`: 完全自定义，不处理拖拽） | `boolean` | `true` |  |
 
 其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
 

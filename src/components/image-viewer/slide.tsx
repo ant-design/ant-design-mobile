@@ -17,11 +17,13 @@ type Props = {
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
   imageRender?: (image: string, { index }: { index: number }) => ReactNode
+  partialCustomRender?: boolean
   index?: number
 }
 
 export const Slide: FC<Props> = props => {
-  const { dragLockRef, maxZoom, imageRender, index } = props
+  const { dragLockRef, maxZoom, imageRender, index, partialCustomRender } =
+    props
   const initialMartix = useRef<boolean[]>([])
   const controlRef = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
@@ -301,6 +303,32 @@ export const Slide: FC<Props> = props => {
     typeof imageRender === 'function' &&
     imageRender(props.image, { index } as { index: number })
 
+  const domRender = (dom: React.ReactElement): React.ReactElement => {
+    // 完全放开自定义render，不需要需要将ref应用到img上
+    if (!partialCustomRender) return dom
+
+    // 自定义但是保留图片拖动
+    let refApplied = false
+    function recursiveClone(element: React.ReactElement): React.ReactElement {
+      if (!React.isValidElement(element)) return element
+
+      if (['img', 'video'].includes(element.type) && !refApplied) {
+        refApplied = true
+        return React.cloneElement(element, { ref: imgRef })
+      }
+
+      const children = element?.props?.children
+      if (children) {
+        const newChildren = React.Children.map(children, child =>
+          React.isValidElement(child) ? recursiveClone(child) : child
+        )
+        return React.cloneElement(element, undefined, newChildren)
+      }
+      return element
+    }
+    return recursiveClone(dom)
+  }
+
   return (
     <div className={`${classPrefix}-slide`}>
       <div className={`${classPrefix}-control`} ref={controlRef}>
@@ -311,7 +339,7 @@ export const Slide: FC<Props> = props => {
           }}
         >
           {customRendering ? (
-            customRendering
+            domRender(customRendering)
           ) : (
             <img
               ref={imgRef}
