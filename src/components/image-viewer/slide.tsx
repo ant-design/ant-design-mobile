@@ -304,7 +304,7 @@ export const Slide: FC<Props> = props => {
     imageRender(props.image, { index } as { index: number })
 
   const domRender = (dom: React.ReactElement): React.ReactElement => {
-    // 完全放开自定义render，不需要需要将ref应用到img上
+    // 完全放开自定义 render，不需要需要将ref应用到img上
     if (!partialCustomRender) return dom
 
     // 自定义但是保留图片拖动
@@ -312,12 +312,17 @@ export const Slide: FC<Props> = props => {
     function recursiveClone(element: React.ReactElement): React.ReactElement {
       if (!React.isValidElement(element)) return element
 
-      if (['img', 'video'].includes(element.type) && !refApplied) {
+      if (
+        typeof element.type === 'string' &&
+        ['img', 'video'].includes(element.type) &&
+        !refApplied
+      ) {
         refApplied = true
-        return React.cloneElement(element, { ref: imgRef })
+        return React.cloneElement(element, { ref: imgRef } as any)
       }
 
-      const children = element?.props?.children
+      const children = (element.props as { children?: React.ReactNode })
+        ?.children
       if (children) {
         const newChildren = React.Children.map(children, child =>
           React.isValidElement(child) ? recursiveClone(child) : child
@@ -338,7 +343,7 @@ export const Slide: FC<Props> = props => {
             matrix,
           }}
         >
-          {customRendering ? (
+          {customRendering && React.isValidElement(customRendering) ? (
             domRender(customRendering)
           ) : (
             <img
