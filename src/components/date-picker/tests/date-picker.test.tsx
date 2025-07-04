@@ -207,16 +207,39 @@ describe('DatePicker', () => {
     expect(res.tillNow).toBeTruthy()
   })
 
-  test('convertStringArrayToDate of week should correct', () => {
-    // jest mock today is `2024-12-30`
-    jest.useFakeTimers({
-      now: new Date('2024-12-30'),
+  describe('convertStringArrayToDate of week should correct', () => {
+    it('2024-1-1 -> 2024-01-01', () => {
+      // jest mock today is `2024-12-30`
+      jest.useFakeTimers({
+        now: new Date('2024-12-30'),
+      })
+
+      const date = convertStringArrayToDate(['2024', '1', '1'])
+      expect(date.getFullYear()).toBe(2024)
+      expect(date.getMonth()).toBe(0)
+      expect(date.getDate()).toBe(1)
     })
 
-    const date = convertStringArrayToDate(['2024', '1', '1'])
-    expect(date.getFullYear()).toBe(2024)
-    expect(date.getMonth()).toBe(0)
-    expect(date.getDate()).toBe(1)
+    it('2023-1-1 -> 2023-01-02', () => {
+      const date = convertStringArrayToDate(['2023', '1', '1'])
+      expect(date.getFullYear()).toBe(2023)
+      expect(date.getMonth()).toBe(0)
+      expect(date.getDate()).toBe(2)
+    })
+
+    it('2020-1-1 -> 2019-12-30', () => {
+      const date = convertStringArrayToDate(['2020', '1', '1'])
+      expect(date.getFullYear()).toBe(2019)
+      expect(date.getMonth()).toBe(11)
+      expect(date.getDate()).toBe(30)
+    })
+
+    it('2023-27-1 -> 2023-07-03', () => {
+      const date = convertStringArrayToDate(['2023', '27', '1'])
+      expect(date.getFullYear()).toBe(2023)
+      expect(date.getMonth()).toBe(6)
+      expect(date.getDate()).toBe(3)
+    })
   })
 
   test('renderLabel should be work', async () => {
