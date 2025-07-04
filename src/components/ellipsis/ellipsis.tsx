@@ -21,7 +21,7 @@ export type EllipsisProps = {
   onContentClick?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   defaultExpanded?: boolean
   onExpand?: (
-    ellipsis: boolean,
+    expanded: boolean,
     info: {
       event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
     }
