@@ -22,7 +22,6 @@ You need to click on the picture to view the details and use it with the thumbna
 | onClose | Triggered when it is closed | `() => void` | - |  |
 | renderFooter | Render extra content on footer | `(image: string) => ReactNode` | - |  |
 | imageRender | Custom rendering content | `(image: string, { index }: { index: number }) => ReactNode` | - | 5.39.0 |
-| partialCustomRender | Whether to partially customize rendering (`true`: customize but keep image dragging, `false`: fully customize, do not handle dragging) | `boolean` | `true` |  |
 | visible | Whether to show or hide | `boolean` | `false` |  |
 
 ## ImageViewer.Multi
@@ -36,8 +35,7 @@ On the basis of `ImageViewer`, the following props have been added:
 | images | Url list of image resources | `string[]` | - |  |
 | onIndexChange | Triggered when the picture is switched | `(index: number) => void` | - |  |
 | renderFooter | Render extra content on footer | `(image: string, index: number) => ReactNode` | - |  |
-| imageRender | Custom rendering content | `(image: string, { index }: { index: number }) => ReactNode` | - |  |
-| partialCustomRender | Whether to partially customize rendering (`true`: customize but keep image dragging, `false`: fully customize, do not handle dragging) | `boolean` | `true` |  |
+| imageRender | Custom rendering content | `(image: string, { index }: { index: number }) => ReactNode,` | - |  |
 
 At the same time, the `image` prop is removed.
 

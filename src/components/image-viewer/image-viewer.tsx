@@ -28,7 +28,6 @@ export type ImageViewerProps = {
   afterClose?: () => void
   renderFooter?: (image: string) => ReactNode
   imageRender?: (image: string, { index }: { index: number }) => ReactNode
-  partialCustomRender?: boolean
   classNames?: {
     mask?: string
     body?: string
@@ -39,7 +38,6 @@ const defaultProps = {
   maxZoom: 3,
   getContainer: null,
   visible: false,
-  partialCustomRender: true, // 是否部分自定义渲染（true: 自定义但保留图片拖动，false: 完全自定义，不处理拖拽）
 }
 
 export const ImageViewer: FC<ImageViewerProps> = p => {
@@ -66,7 +64,6 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
             onTap={props.onClose}
             maxZoom={props.maxZoom}
             imageRender={props.imageRender}
-            partialCustomRender={props.partialCustomRender}
           />
         )}
       </div>
@@ -92,7 +89,6 @@ export type MultiImageViewerProps = Omit<
   onIndexChange?: (index: number) => void
   renderFooter?: (image: string, index: number) => ReactNode
   imageRender?: (image: string, { index }: { index: number }) => ReactNode
-  partialCustomRender?: boolean
 }
 
 const multiDefaultProps = {
@@ -148,7 +144,6 @@ export const MultiImageViewer = forwardRef<
             onTap={props.onClose}
             maxZoom={props.maxZoom}
             imageRender={props.imageRender}
-            partialCustomRender={props.partialCustomRender}
           />
         )}
       </div>

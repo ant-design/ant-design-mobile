@@ -19,7 +19,6 @@ export type SlidesType = {
   defaultIndex: number
   onIndexChange?: (index: number) => void
   imageRender?: (image: string, { index }: { index: number }) => ReactNode
-  partialCustomRender?: boolean
 }
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
@@ -103,7 +102,6 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
             onTap={props.onTap}
             maxZoom={props.maxZoom}
             imageRender={props.imageRender}
-            partialCustomRender={props.partialCustomRender}
             index={index}
             onZoomChange={zoom => {
               if (zoom !== 1) {

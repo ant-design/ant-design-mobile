@@ -17,13 +17,11 @@ type Props = {
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
   imageRender?: (image: string, { index }: { index: number }) => ReactNode
-  partialCustomRender?: boolean
   index?: number
 }
 
 export const Slide: FC<Props> = props => {
-  const { dragLockRef, maxZoom, imageRender, index, partialCustomRender } =
-    props
+  const { dragLockRef, maxZoom, imageRender, index } = props
   const initialMartix = useRef<boolean[]>([])
   const controlRef = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
@@ -304,10 +302,6 @@ export const Slide: FC<Props> = props => {
     imageRender(props.image, { index } as { index: number })
 
   const domRender = (dom: React.ReactElement): React.ReactElement => {
-    // 完全放开自定义 render，不需要需要将ref应用到img上
-    if (!partialCustomRender) return dom
-
-    // 自定义但是保留图片拖动
     let refApplied = false
     function recursiveClone(element: React.ReactElement): React.ReactElement {
       if (!React.isValidElement(element)) return element
@@ -318,7 +312,9 @@ export const Slide: FC<Props> = props => {
         !refApplied
       ) {
         refApplied = true
-        return React.cloneElement(element, { ref: imgRef } as any)
+        return React.cloneElement(element, {
+          ref: (element as any)?.ref || imgRef,
+        } as any)
       }
 
       const children = (element.props as { children?: React.ReactNode })
