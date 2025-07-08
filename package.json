@@ -43,7 +43,7 @@
     "size-limit:ci": "size-limit --json",
     "start": "dumi dev",
     "test": "jest",
-    "bun-install-react-19": "bun remove react react-dom && bun add --no-save react@19 react-dom@19",
+    "ci-install-react-19": "pnpm i react@19 react-dom@19",
     "test-with-coverage": "jest --coverage"
   },
   "lint-staged": {
@@ -173,8 +173,8 @@
     "webpack-stream": "^7.0.0"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
