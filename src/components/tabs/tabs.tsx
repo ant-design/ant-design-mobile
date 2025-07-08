@@ -337,7 +337,9 @@ export const Tabs: FC<TabsProps> = p => {
                   onClick={() => {
                     const { key } = pane
                     if (pane.props.disabled) return
-                    if (key === undefined || key === null) return
+                    if (key === undefined || key === null) {
+                      return
+                    }
                     setActiveKey(key.toString())
                   }}
                   className={classNames(`${classPrefix}-tab`, {
