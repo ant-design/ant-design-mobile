@@ -2,7 +2,7 @@ import { animated, useSpring } from '@react-spring/web'
 import { useIsomorphicLayoutEffect, useThrottleFn } from 'ahooks'
 import classNames from 'classnames'
 import type { FC, ReactElement, ReactNode } from 'react'
-import React, { isValidElement, useEffect, useRef } from 'react'
+import React, { isValidElement, useRef } from 'react'
 import { bound } from '../../utils/bound'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
@@ -253,41 +253,35 @@ export const Tabs: FC<TabsProps> = p => {
     updateMask(true)
   }, [])
 
-  useEffect(() => {
-    const container = tabListContainerRef.current
-    if (!container) return
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = Object.keys(keyToIndexRecord)
+    const currentIndex = keyToIndexRecord[activeKey as string]
+    const isRightKey = isRTL ? e.key === 'ArrowLeft' : e.key === 'ArrowRight'
+    const isLeftKey = isRTL ? e.key === 'ArrowRight' : e.key === 'ArrowLeft'
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      e.preventDefault()
-      const keys = Object.keys(keyToIndexRecord)
-      const currentIndex = keyToIndexRecord[activeKey as string]
-      const isRightKey = isRTL ? e.key === 'ArrowLeft' : e.key === 'ArrowRight'
-      const isLeftKey = isRTL ? e.key === 'ArrowRight' : e.key === 'ArrowLeft'
-
-      const findNextEnabledTab = (startIndex: number, direction: 1 | -1) => {
-        const length = keys.length
-        for (let i = 0; i < length; i++) {
-          const index = (startIndex + direction * (i + 1) + length) % length
-          const key = keys[index]
-          const pane = panes.find(p => p.key === key)
-          if (!pane?.props.disabled) return key
-        }
-        return keys[startIndex]
+    const findNextEnabledTab = (startIndex: number, direction: 1 | -1) => {
+      const length = keys.length
+      for (let i = 0; i < length; i++) {
+        const index = (startIndex + direction * (i + 1) + length) % length
+        const key = keys[index]
+        const pane = panes.find(p => p.key === key)
+        if (!pane?.props.disabled) return key
       }
-      if (isRightKey) {
-        const nextKey = findNextEnabledTab(currentIndex, 1)
-        setActiveKey(nextKey)
-        tabRefs.current[nextKey]?.focus()
-      } else if (isLeftKey) {
-        const prevKey = findNextEnabledTab(currentIndex, -1)
-        setActiveKey(prevKey)
-        tabRefs.current[prevKey]?.focus()
-      }
+      return keys[startIndex]
     }
 
-    container.addEventListener('keydown', handleKeyDown)
-    return () => container.removeEventListener('keydown', handleKeyDown)
-  }, [activeKey])
+    if (isRightKey) {
+      e.preventDefault()
+      const nextKey = findNextEnabledTab(currentIndex, 1)
+      setActiveKey(nextKey)
+      tabRefs.current[nextKey]?.focus()
+    } else if (isLeftKey) {
+      e.preventDefault()
+      const prevKey = findNextEnabledTab(currentIndex, -1)
+      setActiveKey(prevKey)
+      tabRefs.current[prevKey]?.focus()
+    }
+  }
 
   return withNativeProps(
     props,
@@ -312,6 +306,7 @@ export const Tabs: FC<TabsProps> = p => {
           ref={tabListContainerRef}
           scrollLeft={scrollLeft}
           onScroll={updateMask}
+          onKeyDown={handleKeyDown}
           role='tablist'
         >
           <animated.div
@@ -358,7 +353,9 @@ export const Tabs: FC<TabsProps> = p => {
         </animated.div>
       </div>
       {panes.map(pane => {
-        if (pane.props.children === undefined) return null
+        if (pane.props.children === undefined) {
+          return null
+        }
         const active = pane.key === activeKey
         return (
           <ShouldRender
