@@ -75,6 +75,7 @@ export const Image = staged<ImageProps>(p => {
   useIsomorphicUpdateLayoutEffect(() => {
     setLoaded(false)
     setFailed(false)
+    setAfterEffect(true)
   }, [src])
 
   useEffect(() => {
@@ -82,8 +83,6 @@ export const Image = staged<ImageProps>(p => {
     if (imgRef.current?.complete) {
       setLoaded(true)
     }
-    // for snapshot hydration
-    setAfterEffect(true)
   }, [])
 
   function renderInner() {
@@ -122,7 +121,12 @@ export const Image = staged<ImageProps>(p => {
     )
     return (
       <>
-        {!loaded && afterEffect && props.placeholder}
+        {props.placeholder && (
+          // for snapshot hydration
+          <div style={loaded ? { display: 'none' } : { height: 'inherit' }}>
+            {props.placeholder}
+          </div>
+        )}
         {img}
       </>
     )
