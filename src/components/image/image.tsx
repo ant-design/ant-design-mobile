@@ -59,6 +59,7 @@ export const Image = staged<ImageProps>(p => {
 
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
+  const [afterEffect, setAfterEffect] = useState(false)
 
   const ref = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
@@ -81,6 +82,8 @@ export const Image = staged<ImageProps>(p => {
     if (imgRef.current?.complete) {
       setLoaded(true)
     }
+    // for snapshot hydration
+    setAfterEffect(true)
   }, [])
 
   function renderInner() {
@@ -119,7 +122,7 @@ export const Image = staged<ImageProps>(p => {
     )
     return (
       <>
-        {!loaded && props.placeholder}
+        {!loaded && afterEffect && props.placeholder}
         {img}
       </>
     )
