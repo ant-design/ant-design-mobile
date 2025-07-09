@@ -59,7 +59,6 @@ export const Image = staged<ImageProps>(p => {
 
   const [loaded, setLoaded] = useState(false)
   const [failed, setFailed] = useState(false)
-  const [afterEffect, setAfterEffect] = useState(false)
 
   const ref = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
@@ -75,7 +74,6 @@ export const Image = staged<ImageProps>(p => {
   useIsomorphicUpdateLayoutEffect(() => {
     setLoaded(false)
     setFailed(false)
-    setAfterEffect(true)
   }, [src])
 
   useEffect(() => {
