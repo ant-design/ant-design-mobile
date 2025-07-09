@@ -123,7 +123,10 @@ export const Image = staged<ImageProps>(p => {
       <>
         {props.placeholder && (
           // for snapshot hydration
-          <div style={loaded ? { display: 'none' } : { height: 'inherit' }}>
+          <div
+            style={loaded ? { display: 'none' } : { height: 'inherit' }}
+            suppressHydrationWarning
+          >
             {props.placeholder}
           </div>
         )}
