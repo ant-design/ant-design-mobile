@@ -256,8 +256,8 @@ export const Tabs: FC<TabsProps> = p => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     const keys = Object.keys(keyToIndexRecord)
     const currentIndex = keyToIndexRecord[activeKey as string]
-    const isRightKey = isRTL ? e.key === 'ArrowLeft' : e.key === 'ArrowRight'
-    const isLeftKey = isRTL ? e.key === 'ArrowRight' : e.key === 'ArrowLeft'
+    const isNext = isRTL ? e.key === 'ArrowLeft' : e.key === 'ArrowRight'
+    const offsetDirection = isNext ? 1 : -1
 
     const findNextEnabledTab = (startIndex: number, direction: 1 | -1) => {
       const length = keys.length
@@ -269,18 +269,9 @@ export const Tabs: FC<TabsProps> = p => {
       }
       return keys[startIndex]
     }
-
-    if (isRightKey) {
-      e.preventDefault()
-      const nextKey = findNextEnabledTab(currentIndex, 1)
-      setActiveKey(nextKey)
-      tabRefs.current[nextKey]?.focus()
-    } else if (isLeftKey) {
-      e.preventDefault()
-      const prevKey = findNextEnabledTab(currentIndex, -1)
-      setActiveKey(prevKey)
-      tabRefs.current[prevKey]?.focus()
-    }
+    const currentKey = findNextEnabledTab(currentIndex, offsetDirection)
+    setActiveKey(currentKey)
+    tabRefs.current[currentKey]?.focus()
   }
 
   return withNativeProps(
