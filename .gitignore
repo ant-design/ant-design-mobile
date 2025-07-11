@@ -4,8 +4,9 @@
 /coverage/
 .DS_Store
 .doc/
-.umi/
-.umi-production/
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production
 /report/
 /report.json
 /report.html
@@ -34,6 +35,3 @@
 .pnp.*
 
 bun.lock*
-
-.dumi/tmp
-.dumi/tmp-production

@@ -1,0 +1,988 @@
+{
+  "menus": {
+    "en": {
+      "/404": [
+        {
+          "path": "/404",
+          "title": "404",
+          "meta": {}
+        }
+      ],
+      "*": [
+        {
+          "path": "/",
+          "title": "Ant Design Mobile",
+          "meta": {}
+        }
+      ],
+      "/resources": [
+        {
+          "path": "/resources",
+          "title": "Resources",
+          "meta": {}
+        }
+      ],
+      "/components": [
+        {
+          "title": "Common",
+          "children": [
+            {
+              "path": "/components/button",
+              "title": "Button"
+            },
+            {
+              "path": "/components/icon",
+              "title": "Icon"
+            }
+          ]
+        },
+        {
+          "title": "Layout",
+          "children": [
+            {
+              "path": "/components/auto-center",
+              "title": "AutoCenter"
+            },
+            {
+              "path": "/components/divider",
+              "title": "Divider"
+            },
+            {
+              "path": "/components/grid",
+              "title": "Grid"
+            },
+            {
+              "path": "/components/safe-area",
+              "title": "SafeArea"
+            },
+            {
+              "path": "/components/space",
+              "title": "Space"
+            }
+          ]
+        },
+        {
+          "title": "Navigation",
+          "children": [
+            {
+              "path": "/components/capsule-tabs",
+              "title": "CapsuleTabs"
+            },
+            {
+              "path": "/components/index-bar",
+              "title": "IndexBar"
+            },
+            {
+              "path": "/components/jumbo-tabs",
+              "title": "JumboTabs"
+            },
+            {
+              "path": "/components/nav-bar",
+              "title": "NavBar"
+            },
+            {
+              "path": "/components/side-bar",
+              "title": "SideBar"
+            },
+            {
+              "path": "/components/tab-bar",
+              "title": "TabBar"
+            },
+            {
+              "path": "/components/tabs",
+              "title": "Tabs"
+            }
+          ]
+        },
+        {
+          "title": "Data Display",
+          "children": [
+            {
+              "path": "/components/avatar",
+              "title": "Avatar"
+            },
+            {
+              "path": "/components/card",
+              "title": "Card"
+            },
+            {
+              "path": "/components/collapse",
+              "title": "Collapse"
+            },
+            {
+              "path": "/components/ellipsis",
+              "title": "Ellipsis"
+            },
+            {
+              "path": "/components/floating-panel",
+              "title": "FloatingPanel"
+            },
+            {
+              "path": "/components/image",
+              "title": "Image"
+            },
+            {
+              "path": "/components/image-viewer",
+              "title": "ImageViewer"
+            },
+            {
+              "path": "/components/infinite-scroll",
+              "title": "InfiniteScroll"
+            },
+            {
+              "path": "/components/list",
+              "title": "List"
+            },
+            {
+              "path": "/components/page-indicator",
+              "title": "PageIndicator"
+            },
+            {
+              "path": "/components/segmented",
+              "title": "Segmented"
+            },
+            {
+              "path": "/components/steps",
+              "title": "Steps"
+            },
+            {
+              "path": "/components/swiper",
+              "title": "Swiper"
+            },
+            {
+              "path": "/components/tag",
+              "title": "Tag"
+            },
+            {
+              "path": "/components/water-mark",
+              "title": "WaterMark"
+            },
+            {
+              "path": "/components/footer",
+              "title": "Footer"
+            }
+          ]
+        },
+        {
+          "title": "Data Entry",
+          "children": [
+            {
+              "path": "/components/cascader",
+              "title": "Cascader"
+            },
+            {
+              "path": "/components/cascader-view",
+              "title": "CascaderView"
+            },
+            {
+              "path": "/components/check-list",
+              "title": "CheckList"
+            },
+            {
+              "path": "/components/checkbox",
+              "title": "Checkbox"
+            },
+            {
+              "path": "/components/form",
+              "title": "Form"
+            },
+            {
+              "path": "/components/input",
+              "title": "Input"
+            },
+            {
+              "path": "/components/picker",
+              "title": "Picker"
+            },
+            {
+              "path": "/components/picker-view",
+              "title": "PickerView"
+            },
+            {
+              "path": "/components/radio",
+              "title": "Radio"
+            },
+            {
+              "path": "/components/rate",
+              "title": "Rate"
+            },
+            {
+              "path": "/components/search-bar",
+              "title": "SearchBar"
+            },
+            {
+              "path": "/components/selector",
+              "title": "Selector"
+            },
+            {
+              "path": "/components/slider",
+              "title": "Slider"
+            },
+            {
+              "path": "/components/stepper",
+              "title": "Stepper"
+            },
+            {
+              "path": "/components/switch",
+              "title": "Switch"
+            },
+            {
+              "path": "/components/text-area",
+              "title": "TextArea"
+            }
+          ]
+        },
+        {
+          "title": "Feedback",
+          "children": [
+            {
+              "path": "/components/action-sheet",
+              "title": "ActionSheet"
+            },
+            {
+              "path": "/components/dialog",
+              "title": "Dialog"
+            },
+            {
+              "path": "/components/empty",
+              "title": "Empty"
+            },
+            {
+              "path": "/components/error-block",
+              "title": "ErrorBlock"
+            },
+            {
+              "path": "/components/loading",
+              "title": "Loading"
+            },
+            {
+              "path": "/components/mask",
+              "title": "Mask"
+            },
+            {
+              "path": "/components/modal",
+              "title": "Modal"
+            },
+            {
+              "path": "/components/popover",
+              "title": "Popover"
+            },
+            {
+              "path": "/components/popup",
+              "title": "Popup"
+            },
+            {
+              "path": "/components/progress-bar",
+              "title": "ProgressBar"
+            },
+            {
+              "path": "/components/progress-circle",
+              "title": "ProgressCircle"
+            },
+            {
+              "path": "/components/pull-to-refresh",
+              "title": "PullToRefresh"
+            },
+            {
+              "path": "/components/result",
+              "title": "Result"
+            },
+            {
+              "path": "/components/skeleton/skeleton",
+              "title": "Skeleton"
+            },
+            {
+              "path": "/components/swipe-action",
+              "title": "SwipeAction"
+            },
+            {
+              "path": "/components/toast",
+              "title": "Toast"
+            }
+          ]
+        },
+        {
+          "title": "Guidance",
+          "children": [
+            {
+              "path": "/components/badge",
+              "title": "Badge"
+            },
+            {
+              "path": "/components/notice-bar",
+              "title": "NoticeBar"
+            }
+          ]
+        },
+        {
+          "title": "Other",
+          "children": [
+            {
+              "path": "/components/config-provider",
+              "title": "ConfigProvider"
+            }
+          ]
+        },
+        {
+          "title": "Experimental",
+          "children": [
+            {
+              "path": "/guide/what-is-experimental",
+              "title": "What are 'Experimental Features'?"
+            },
+            {
+              "path": "/components/calendar/calendar",
+              "title": "Calendar "
+            },
+            {
+              "path": "/components/calendar-picker/calendar-picker",
+              "title": "CalendarPicker "
+            },
+            {
+              "path": "/components/calendar-picker-view/calendar-picker-view",
+              "title": "CalendarPickerView "
+            },
+            {
+              "path": "/components/dropdown",
+              "title": "Dropdown "
+            },
+            {
+              "path": "/components/floating-bubble",
+              "title": "FloatingBubble "
+            },
+            {
+              "path": "/components/image-uploader",
+              "title": "ImageUploader "
+            },
+            {
+              "path": "/components/number-keyboard",
+              "title": "NumberKeyboard "
+            },
+            {
+              "path": "/components/passcode-input",
+              "title": "PasscodeInput "
+            },
+            {
+              "path": "/components/result-page",
+              "title": "ResultPage "
+            },
+            {
+              "path": "/components/tree-select",
+              "title": "TreeSelect "
+            },
+            {
+              "path": "/components/virtual-input",
+              "title": "VirtualInput "
+            }
+          ]
+        }
+      ],
+      "/guide": [
+        {
+          "title": "Quick Start",
+          "path": "/guide/quick-start"
+        },
+        {
+          "title": "Migration",
+          "path": "/guide/migration"
+        },
+        {
+          "title": "FAQ",
+          "path": "/guide/faq"
+        },
+        {
+          "title": "CSS Variables",
+          "path": "/guide/css-variables"
+        },
+        {
+          "title": "Theming",
+          "path": "/guide/theming"
+        },
+        {
+          "title": "Dark Mode (Experimental)",
+          "path": "/guide/dark-mode"
+        },
+        {
+          "title": "Load on Demand",
+          "path": "/guide/import-on-demand"
+        },
+        {
+          "title": "Internationalization",
+          "path": "/guide/i18n"
+        },
+        {
+          "title": "About Experimental",
+          "path": "/zh/guide/what-is-experimental"
+        },
+        {
+          "title": "HD",
+          "path": "/guide/hd"
+        },
+        {
+          "title": "Pre Built Bundles",
+          "path": "/guide/pre-built-bundles"
+        },
+        {
+          "title": "SSR (Experimental)",
+          "path": "/guide/ssr"
+        },
+        {
+          "title": "Reduce Motion (Experimental)",
+          "path": "/guide/reduce-motion"
+        },
+        {
+          "title": "React 19 Compatibility",
+          "path": "/guide/v5-for-19"
+        }
+      ],
+      "/": [
+        {
+          "title": "Home",
+          "path": "index"
+        }
+      ]
+    },
+    "zh": {
+      "/zh/404": [
+        {
+          "path": "/zh/404",
+          "title": "404",
+          "meta": {}
+        }
+      ],
+      "*": [
+        {
+          "path": "/zh",
+          "title": "Ant Design Mobile",
+          "meta": {}
+        }
+      ],
+      "/zh/resources": [
+        {
+          "path": "/zh/resources",
+          "title": "资源",
+          "meta": {}
+        }
+      ],
+      "/zh/components": [
+        {
+          "title": "通用",
+          "children": [
+            {
+              "path": "/zh/components/button",
+              "title": "Button 按钮"
+            },
+            {
+              "path": "/zh/components/icon",
+              "title": "Icon 图标"
+            }
+          ]
+        },
+        {
+          "title": "布局",
+          "children": [
+            {
+              "path": "/zh/components/auto-center",
+              "title": "AutoCenter 自动居中"
+            },
+            {
+              "path": "/zh/components/divider",
+              "title": "Divider 分割线"
+            },
+            {
+              "path": "/zh/components/grid",
+              "title": "Grid 栅格"
+            },
+            {
+              "path": "/zh/components/safe-area",
+              "title": "SafeArea 安全区"
+            },
+            {
+              "path": "/zh/components/space",
+              "title": "Space 间距"
+            }
+          ]
+        },
+        {
+          "title": "导航",
+          "children": [
+            {
+              "path": "/zh/components/capsule-tabs",
+              "title": "CapsuleTabs 胶囊选项卡"
+            },
+            {
+              "path": "/zh/components/index-bar",
+              "title": "IndexBar 序列"
+            },
+            {
+              "path": "/zh/components/jumbo-tabs",
+              "title": "JumboTabs 复杂选项卡"
+            },
+            {
+              "path": "/zh/components/nav-bar",
+              "title": "NavBar 导航栏"
+            },
+            {
+              "path": "/zh/components/side-bar",
+              "title": "SideBar 侧边导航"
+            },
+            {
+              "path": "/zh/components/tab-bar",
+              "title": "TabBar 标签栏"
+            },
+            {
+              "path": "/zh/components/tabs",
+              "title": "Tabs 标签页"
+            }
+          ]
+        },
+        {
+          "title": "信息展示",
+          "children": [
+            {
+              "path": "/zh/components/avatar",
+              "title": "Avatar 头像"
+            },
+            {
+              "path": "/zh/components/card",
+              "title": "Card 卡片"
+            },
+            {
+              "path": "/zh/components/collapse",
+              "title": "Collapse 折叠面板"
+            },
+            {
+              "path": "/zh/components/ellipsis",
+              "title": "Ellipsis 文本省略"
+            },
+            {
+              "path": "/zh/components/floating-panel",
+              "title": "FloatingPanel 浮动面板"
+            },
+            {
+              "path": "/zh/components/image",
+              "title": "Image 图片"
+            },
+            {
+              "path": "/zh/components/image-viewer",
+              "title": "ImageViewer 图片查看器"
+            },
+            {
+              "path": "/zh/components/infinite-scroll",
+              "title": "InfiniteScroll 无限滚动"
+            },
+            {
+              "path": "/zh/components/list",
+              "title": "List 列表"
+            },
+            {
+              "path": "/zh/components/page-indicator",
+              "title": "PageIndicator 分页符"
+            },
+            {
+              "path": "/zh/components/segmented",
+              "title": "Segmented 分段控制器"
+            },
+            {
+              "path": "/zh/components/steps",
+              "title": "Steps 步骤条"
+            },
+            {
+              "path": "/zh/components/swiper",
+              "title": "Swiper 走马灯"
+            },
+            {
+              "path": "/zh/components/tag",
+              "title": "Tag 标签"
+            },
+            {
+              "path": "/zh/components/water-mark",
+              "title": "WaterMark 水印"
+            },
+            {
+              "path": "/zh/components/footer",
+              "title": "Footer 页脚"
+            }
+          ]
+        },
+        {
+          "title": "信息录入",
+          "children": [
+            {
+              "path": "/zh/components/cascader",
+              "title": "Cascader 级联选择"
+            },
+            {
+              "path": "/zh/components/cascader-view",
+              "title": "CascaderView 级联选择视图"
+            },
+            {
+              "path": "/zh/components/check-list",
+              "title": "CheckList 可勾选列表"
+            },
+            {
+              "path": "/zh/components/checkbox",
+              "title": "Checkbox 复选框"
+            },
+            {
+              "path": "/zh/components/form",
+              "title": "Form 表单"
+            },
+            {
+              "path": "/zh/components/input",
+              "title": "Input 输入框"
+            },
+            {
+              "path": "/zh/components/picker",
+              "title": "Picker 选择器"
+            },
+            {
+              "path": "/zh/components/picker-view",
+              "title": "PickerView 选择器视图"
+            },
+            {
+              "path": "/zh/components/radio",
+              "title": "Radio 单选框"
+            },
+            {
+              "path": "/zh/components/rate",
+              "title": "Rate 评分"
+            },
+            {
+              "path": "/zh/components/search-bar",
+              "title": "SearchBar 搜索框"
+            },
+            {
+              "path": "/zh/components/selector",
+              "title": "Selector 选择组"
+            },
+            {
+              "path": "/zh/components/slider",
+              "title": "Slider 滑动输入条"
+            },
+            {
+              "path": "/zh/components/stepper",
+              "title": "Stepper 步进器"
+            },
+            {
+              "path": "/zh/components/switch",
+              "title": "Switch 开关"
+            },
+            {
+              "path": "/zh/components/text-area",
+              "title": "TextArea 文本域"
+            }
+          ]
+        },
+        {
+          "title": "反馈",
+          "children": [
+            {
+              "path": "/zh/components/action-sheet",
+              "title": "ActionSheet 动作面板"
+            },
+            {
+              "path": "/zh/components/dialog",
+              "title": "Dialog 对话框"
+            },
+            {
+              "path": "/zh/components/empty",
+              "title": "Empty 空状态"
+            },
+            {
+              "path": "/zh/components/error-block",
+              "title": "ErrorBlock 异常"
+            },
+            {
+              "path": "/zh/components/loading",
+              "title": "Loading 加载中"
+            },
+            {
+              "path": "/zh/components/mask",
+              "title": "Mask 背景蒙层"
+            },
+            {
+              "path": "/zh/components/modal",
+              "title": "Modal 弹窗"
+            },
+            {
+              "path": "/zh/components/popover",
+              "title": "Popover 气泡弹出框"
+            },
+            {
+              "path": "/zh/components/popup",
+              "title": "Popup 弹出层"
+            },
+            {
+              "path": "/zh/components/progress-bar",
+              "title": "ProgressBar 进度条"
+            },
+            {
+              "path": "/zh/components/progress-circle",
+              "title": "ProgressCircle 进度圈"
+            },
+            {
+              "path": "/zh/components/pull-to-refresh",
+              "title": "PullToRefresh 下拉刷新"
+            },
+            {
+              "path": "/zh/components/result",
+              "title": "Result 结果"
+            },
+            {
+              "path": "/zh/components/skeleton/skeleton",
+              "title": "Skeleton 骨架屏"
+            },
+            {
+              "path": "/zh/components/swipe-action",
+              "title": "SwipeAction 滑动操作"
+            },
+            {
+              "path": "/zh/components/toast",
+              "title": "Toast 轻提示"
+            }
+          ]
+        },
+        {
+          "title": "引导提示",
+          "children": [
+            {
+              "path": "/zh/components/badge",
+              "title": "Badge 徽标"
+            },
+            {
+              "path": "/zh/components/notice-bar",
+              "title": "NoticeBar 通告栏"
+            }
+          ]
+        },
+        {
+          "title": "其他",
+          "children": [
+            {
+              "path": "/zh/components/config-provider",
+              "title": "ConfigProvider 配置"
+            }
+          ]
+        },
+        {
+          "title": "试验性",
+          "children": [
+            {
+              "path": "/zh/guide/what-is-experimental",
+              "title": "什么是试验性"
+            },
+            {
+              "path": "/zh/components/calendar/calendar",
+              "title": "Calendar 日历 "
+            },
+            {
+              "path": "/zh/components/calendar-picker/calendar-picker",
+              "title": "CalendarPicker 日历选择器 "
+            },
+            {
+              "path": "/zh/components/calendar-picker-view/calendar-picker-view",
+              "title": "CalendarPickerView 日历选择器视图 "
+            },
+            {
+              "path": "/zh/components/dropdown",
+              "title": "Dropdown 下拉菜单 "
+            },
+            {
+              "path": "/zh/components/floating-bubble",
+              "title": "FloatingBubble 浮动气泡 "
+            },
+            {
+              "path": "/zh/components/image-uploader",
+              "title": "ImageUploader 图片上传 "
+            },
+            {
+              "path": "/zh/components/number-keyboard",
+              "title": "NumberKeyboard 数字键盘 "
+            },
+            {
+              "path": "/zh/components/passcode-input",
+              "title": "PasscodeInput 密码输入框 "
+            },
+            {
+              "path": "/zh/components/result-page",
+              "title": "ResultPage 结果页面 "
+            },
+            {
+              "path": "/zh/components/tree-select",
+              "title": "TreeSelect 级联选择器 "
+            },
+            {
+              "path": "/zh/components/virtual-input",
+              "title": "VirtualInput 虚拟输入框 "
+            }
+          ]
+        }
+      ],
+      "/zh/guide": [
+        {
+          "title": "快速上手",
+          "path": "/zh/guide/quick-start"
+        },
+        {
+          "title": "迁移指南",
+          "path": "/zh/guide/migration"
+        },
+        {
+          "title": "常见问题",
+          "path": "/zh/guide/faq"
+        },
+        {
+          "title": "CSS 变量",
+          "path": "/zh/guide/css-variables"
+        },
+        {
+          "title": "主题",
+          "path": "/zh/guide/theming"
+        },
+        {
+          "title": "深色模式（试验性）",
+          "path": "/zh/guide/dark-mode"
+        },
+        {
+          "title": "按需加载",
+          "path": "/zh/guide/import-on-demand"
+        },
+        {
+          "title": "国际化",
+          "path": "/zh/guide/i18n"
+        },
+        {
+          "title": "关于试验性",
+          "path": "/zh/guide/what-is-experimental"
+        },
+        {
+          "title": "高清适配",
+          "path": "/zh/guide/hd"
+        },
+        {
+          "title": "预构建产物",
+          "path": "/zh/guide/pre-built-bundles"
+        },
+        {
+          "title": "服务端渲染 / SSR（试验性）",
+          "path": "/zh/guide/ssr"
+        },
+        {
+          "title": "减弱动效（试验性）",
+          "path": "/zh/guide/reduce-motion"
+        },
+        {
+          "title": "React 19 兼容",
+          "path": "/zh/guide/v5-for-19"
+        }
+      ],
+      "/zh": [
+        {
+          "title": "首页",
+          "path": "/zhindex"
+        }
+      ]
+    }
+  },
+  "locales": [
+    {
+      "name": "en",
+      "label": "English"
+    },
+    {
+      "name": "zh",
+      "label": "中文"
+    }
+  ],
+  "navs": {
+    "en": [
+      {
+        "title": "Guide",
+        "path": "/guide"
+      },
+      {
+        "title": "Components",
+        "path": "/components"
+      },
+      {
+        "title": "Resources",
+        "path": "/resources"
+      },
+      {
+        "title": "Legacy Versions",
+        "children": [
+          {
+            "title": "v2",
+            "path": "https://antd-mobile-v2.surge.sh"
+          },
+          {
+            "title": "v3 alpha",
+            "path": "https://antd-mobile-v3.surge.sh"
+          }
+        ]
+      },
+      {
+        "title": "Releases",
+        "path": "https://github.com/ant-design/ant-design-mobile/releases"
+      },
+      {
+        "title": "GitHub",
+        "path": "https://github.com/ant-design/ant-design-mobile"
+      }
+    ],
+    "zh": [
+      {
+        "title": "指南",
+        "path": "/zh/guide"
+      },
+      {
+        "title": "组件",
+        "path": "/zh/components"
+      },
+      {
+        "title": "资源",
+        "path": "/zh/resources"
+      },
+      {
+        "title": "国内镜像",
+        "path": "http://ant-design-mobile.antgroup.com"
+      },
+      {
+        "title": "返回旧版",
+        "children": [
+          {
+            "title": "v2",
+            "path": "https://antd-mobile-v2.surge.sh"
+          },
+          {
+            "title": "v3 alpha",
+            "path": "https://antd-mobile-v3.surge.sh"
+          }
+        ]
+      },
+      {
+        "title": "发布日志",
+        "path": "https://github.com/ant-design/ant-design-mobile/releases"
+      },
+      {
+        "title": "GitHub",
+        "path": "https://github.com/ant-design/ant-design-mobile"
+      }
+    ]
+  },
+  "title": "Ant Design Mobile",
+  "logo": "https://gw.alipayobjects.com/zos/bmw-prod/b874caa9-4458-412a-9ac6-a61486180a62.svg",
+  "mode": "site",
+  "repository": {
+    "url": "https://github.com/ant-design/ant-design-mobile",
+    "branch": "master",
+    "platform": "github"
+  },
+  "theme": {
+    "hd": {
+      "rules": []
+    }
+  },
+  "exportStatic": {}
+}

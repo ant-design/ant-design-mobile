@@ -15,6 +15,7 @@
     "typeRoots": ["./src/typings", "./node_modules/@types"],
     "lib": ["ES2016", "DOM"],
     "paths": {
+      "@@/*": [".dumi/tmp/*"],
       "antd-mobile": ["src/index.ts"],
       "antd-mobile/src/*": ["src/*"],
       "antd-mobile/es/*": ["src/*"],
