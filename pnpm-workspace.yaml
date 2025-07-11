@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - '@ant-design/tools'
+  - core-js
+  - core-js-pure
+  - es5-ext
+  - esbuild
