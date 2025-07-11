@@ -32,6 +32,7 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
             aria-selected="true"
             class="adm-tabs-tab adm-tabs-tab-active"
             role="tab"
+            tabindex="0"
           >
             fruits
           </div>
@@ -43,6 +44,7 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
             aria-selected="false"
             class="adm-tabs-tab"
             role="tab"
+            tabindex="-1"
           >
             vegetables
           </div>
@@ -54,6 +56,7 @@ exports[`Tabs \`activeLineMode\` prop 1`] = `
             aria-selected="false"
             class="adm-tabs-tab"
             role="tab"
+            tabindex="-1"
           >
             animals
           </div>
@@ -102,6 +105,7 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
             aria-selected="true"
             class="adm-tabs-tab adm-tabs-tab-active"
             role="tab"
+            tabindex="0"
           >
             fruits
           </div>
@@ -113,6 +117,7 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
             aria-selected="false"
             class="adm-tabs-tab"
             role="tab"
+            tabindex="-1"
           >
             vegetables
           </div>
@@ -124,6 +129,7 @@ exports[`Tabs \`activeLineMode\` prop 2`] = `
             aria-selected="false"
             class="adm-tabs-tab"
             role="tab"
+            tabindex="-1"
           >
             animals
           </div>
@@ -172,6 +178,7 @@ exports[`Tabs RTL render component should be rendered correctly in RTL direction
             aria-selected="true"
             class="adm-tabs-tab adm-tabs-tab-active"
             role="tab"
+            tabindex="0"
           >
             fruits
           </div>
@@ -183,6 +190,7 @@ exports[`Tabs RTL render component should be rendered correctly in RTL direction
             aria-selected="false"
             class="adm-tabs-tab"
             role="tab"
+            tabindex="-1"
           >
             vegetables
           </div>
