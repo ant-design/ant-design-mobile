@@ -301,6 +301,35 @@ export const Slide: FC<Props> = props => {
     typeof imageRender === 'function' &&
     imageRender(props.image, { index } as { index: number })
 
+  const domRender = (dom: React.ReactElement): React.ReactElement => {
+    let refApplied = false
+    function recursiveClone(element: React.ReactElement): React.ReactElement {
+      if (!React.isValidElement(element)) return element
+
+      if (
+        typeof element.type === 'string' &&
+        ['img', 'video'].includes(element.type) &&
+        !refApplied
+      ) {
+        refApplied = true
+        return React.cloneElement(element, {
+          ref: (element as any)?.ref || imgRef,
+        } as any)
+      }
+
+      const children = (element.props as { children?: React.ReactNode })
+        ?.children
+      if (children) {
+        const newChildren = React.Children.map(children, child =>
+          React.isValidElement(child) ? recursiveClone(child) : child
+        )
+        return React.cloneElement(element, undefined, newChildren)
+      }
+      return element
+    }
+    return recursiveClone(dom)
+  }
+
   return (
     <div className={`${classPrefix}-slide`}>
       <div className={`${classPrefix}-control`} ref={controlRef}>
@@ -310,8 +339,8 @@ export const Slide: FC<Props> = props => {
             matrix,
           }}
         >
-          {customRendering ? (
-            customRendering
+          {customRendering && React.isValidElement(customRendering) ? (
+            domRender(customRendering)
           ) : (
             <img
               ref={imgRef}
