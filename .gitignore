@@ -34,3 +34,6 @@
 .pnp.*
 
 bun.lock*
+
+.dumi/tmp
+.dumi/tmp-production
