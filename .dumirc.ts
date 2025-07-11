@@ -82,6 +82,9 @@ export default defineConfig({
   extraPostCSSPlugins: [shouldDisableCSSVar && postcssDisableCSSVars()].filter(
     i => i
   ),
-  plugins: ['./.dumi/plugin-gallery/index.ts', './.dumi/plugin-theme/index.ts'],
+  plugins: [
+    './.dumi/plugin-theme/theme-plugin.ts',
+    './.dumi/plugin-gallery/gallery-plugin.ts',
+  ],
   exportStatic: {},
 })
