@@ -2,7 +2,7 @@ import { animated, useSpring } from '@react-spring/web'
 import { useIsomorphicLayoutEffect, useThrottleFn } from 'ahooks'
 import classNames from 'classnames'
 import type { FC, ReactElement, ReactNode } from 'react'
-import React, { isValidElement, useRef } from 'react'
+import React, { isValidElement, useEffect, useRef } from 'react'
 import { bound } from '../../utils/bound'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
@@ -257,6 +257,7 @@ export const Tabs: FC<TabsProps> = p => {
     const keys = Object.keys(keyToIndexRecord)
     const currentIndex = keyToIndexRecord[activeKey as string]
     const isNext = isRTL ? e.key === 'ArrowLeft' : e.key === 'ArrowRight'
+    const isPrev = isRTL ? e.key === 'ArrowRight' : e.key === 'ArrowLeft'
     const offsetDirection = isNext ? 1 : -1
 
     const findNextEnabledTab = (startIndex: number, direction: 1 | -1) => {
@@ -270,9 +271,17 @@ export const Tabs: FC<TabsProps> = p => {
       return keys[startIndex]
     }
     const currentKey = findNextEnabledTab(currentIndex, offsetDirection)
-    setActiveKey(currentKey)
-    tabRefs.current[currentKey]?.focus()
+    if (isNext || isPrev) {
+      e.preventDefault()
+      setActiveKey(currentKey)
+    }
   }
+
+  useEffect(() => {
+    if (activeKey && tabRefs.current[activeKey]) {
+      tabRefs.current[activeKey]?.focus()
+    }
+  }, [activeKey])
 
   return withNativeProps(
     props,
