@@ -312,9 +312,7 @@ export const Slide: FC<Props> = props => {
         !refApplied
       ) {
         refApplied = true
-        return React.cloneElement(element, {
-          ref: (element as any)?.ref || imgRef,
-        } as any)
+        return React.cloneElement(element, { ref: imgRef } as any)
       }
 
       const children = (element.props as { children?: React.ReactNode })

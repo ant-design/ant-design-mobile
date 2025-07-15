@@ -89,3 +89,17 @@ ImageViewer.Multi is an [uncontrolled](https://reactjs.org/docs/glossary.html#co
 ```
 
 You can use ref for manual manipulation of ImageViewer.Multi, or consider using `ImageViewer.show()`.
+
+### What should I do if I don't need a ref when previewing custom images?
+
+If you don't need to preview custom images and don't need ref when opening the preview, you can simply use HOC to create a wrapper that doesn't support ref
+
+```jsx
+const ImagePreview = () => {
+  return (
+    <>
+      <img src='xxx' ref='xxx' alt='预览图' />
+    </>
+  )
+}
+```
