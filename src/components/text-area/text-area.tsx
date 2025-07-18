@@ -201,6 +201,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onBlur={props.onBlur}
           onClick={props.onClick}
           onKeyDown={handleKeydown}
+          enterKeyHint={props.enterKeyHint}
         />
         {count}
 
