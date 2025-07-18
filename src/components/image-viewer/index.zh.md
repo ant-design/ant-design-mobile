@@ -84,3 +84,17 @@ ImageViewer.Multi 是一个[非受控](https://reactjs.org/docs/glossary.html#co
 ```
 
 你可以使用 ref 来对 ImageViewer.Multi 进行手动的操作，也可以考虑使用 `ImageViewer.show()`。
+
+### 自定义图片预览的时候，如果不需要 ref 怎么办?
+
+如果自定义图片预览的时候不需要，打开预览不需要 ref 的时候，可以直接 HOC 做个不支持 ref 的封装就行了
+
+```jsx
+const ImagePreview = () => {
+  return (
+    <>
+      <img src='xxx' ref='xxx' alt='预览图' />
+    </>
+  )
+}
+```
