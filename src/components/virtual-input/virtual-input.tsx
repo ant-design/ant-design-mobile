@@ -18,6 +18,11 @@ import { NumberKeyboardProps } from '../number-keyboard'
 
 const classPrefix = 'adm-virtual-input'
 
+export type Cursor = {
+  movable?: boolean
+  onMove?: (position: number) => void
+}
+
 export type VirtualInputProps = {
   onFocus?: () => void
   onBlur?: () => void
@@ -25,8 +30,7 @@ export type VirtualInputProps = {
   keyboard?: ReactElement<NumberKeyboardProps>
   clearable?: boolean
   onClear?: () => void
-  cursor?: 'static' | 'movable'
-  onCursorMove?: (position: number) => void
+  cursor?: Cursor
 } & Pick<
   InputProps,
   'value' | 'onChange' | 'placeholder' | 'disabled' | 'clearIcon'
@@ -43,7 +47,7 @@ export type VirtualInputProps = {
 
 const defaultProps = {
   defaultValue: '',
-  cursor: 'static',
+  cursor: { movable: false },
 }
 
 export type VirtualInputRef = {
@@ -184,13 +188,13 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const setCaretPositionToEnd = () => {
       if (caretPosition !== value.length) {
         setCaretPosition(value.length)
-        mergedProps.onCursorMove?.(value.length)
+        mergedProps.cursor?.onMove?.(value.length)
       }
     }
 
     // 点击单个字符时，根据点击位置置于字符前或后
     const changeCaretPosition = (index: number) => (e: React.MouseEvent) => {
-      if (mergedProps.disabled || mergedProps.cursor === 'static') return
+      if (mergedProps.disabled || !mergedProps.cursor?.movable) return
 
       e.stopPropagation()
       const rect = (e.target as HTMLElement).getBoundingClientRect()
@@ -201,12 +205,12 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
       const newCaretPosition = isRight ? index + 1 : index
       setCaretPosition(newCaretPosition)
-      mergedProps.onCursorMove?.(newCaretPosition)
+      mergedProps.cursor?.onMove?.(newCaretPosition)
     }
 
     // 在光标附近 touchmove 时也可以调整光标位置
     const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-      if (mergedProps.disabled || mergedProps.cursor === 'static') return
+      if (mergedProps.disabled || !mergedProps.cursor?.movable) return
       if (!caretRef.current) return
 
       const touch = e.touches[0]
@@ -226,7 +230,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     }
 
     const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-      if (!touchDataRef.current || mergedProps.cursor === 'static') return
+      if (!touchDataRef.current || !mergedProps.cursor?.movable) return
 
       setIsCaretDragging(true)
 
@@ -239,7 +243,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       // 边界处理
       newCaretPosition = Math.max(0, Math.min(newCaretPosition, value.length))
       setCaretPosition(newCaretPosition)
-      mergedProps.onCursorMove?.(newCaretPosition)
+      mergedProps.cursor?.onMove?.(newCaretPosition)
 
       // 防止 touchend 不触发
       if (touchMoveTimeoutRef.current) {

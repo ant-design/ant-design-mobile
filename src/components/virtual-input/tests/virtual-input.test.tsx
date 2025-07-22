@@ -221,7 +221,7 @@ describe('VirtualInput', () => {
         <VirtualInput
           data-testid='virtualInput'
           clearable
-          cursor='movable'
+          cursor={{ movable: true }}
           value={value}
           onChange={setValue}
           keyboard={<NumberKeyboard confirmText='确定' />}
@@ -283,13 +283,14 @@ describe('VirtualInput', () => {
   })
 
   test('caret position should changed by click', async () => {
+    const onMove = jest.fn()
     const KeyBoardClassPrefix = 'adm-number-keyboard'
     const Wrapper = () => {
       return (
         <VirtualInput
           data-testid='virtualInput'
           clearable
-          cursor='movable'
+          cursor={{ movable: true, onMove: onMove }}
           keyboard={<NumberKeyboard confirmText='确定' />}
         />
       )
@@ -357,6 +358,8 @@ describe('VirtualInput', () => {
       ).toBeVisible()
     })
     expect(getCaretPosition(caretContainer)).toBe(3)
+
+    expect(onMove.mock.calls.length).toBe(2)
   })
 
   test('只支持两位金额的受控组件，光标处理正常', async () => {
@@ -367,7 +370,7 @@ describe('VirtualInput', () => {
         <VirtualInput
           data-testid='virtualInput'
           clearable
-          cursor='movable'
+          cursor={{ movable: true }}
           value={value || '0'}
           onChange={v => {
             if (v.startsWith('.')) {
@@ -500,7 +503,7 @@ describe('VirtualInput', () => {
         <VirtualInput
           data-testid='virtualInput'
           clearable
-          cursor='movable'
+          cursor={{ movable: true }}
           value={value || '0'}
           onChange={v => {
             if (v.startsWith('.')) {
