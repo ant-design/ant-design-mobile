@@ -7,6 +7,7 @@ import type { Matrix } from '../../utils/matrix'
 import * as mat from '../../utils/matrix'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
+import { mergeRefs } from './methods'
 
 const classPrefix = `adm-image-viewer`
 
@@ -312,7 +313,11 @@ export const Slide: FC<Props> = props => {
         !refApplied
       ) {
         refApplied = true
-        return React.cloneElement(element, { ref: imgRef } as any)
+        // 合并 imgRef 和原始 ref
+        const originRef = (element as any).ref
+        return React.cloneElement(element, {
+          ref: mergeRefs(imgRef, originRef),
+        } as any)
       }
 
       const children = (element.props as { children?: React.ReactNode })

@@ -1,11 +1,11 @@
 import React from 'react'
-import {
-  ImageViewerProps,
-  ImageViewer,
-  MultiImageViewerProps,
-  MultiImageViewer,
-} from './image-viewer'
 import { renderImperatively } from '../../utils/render-imperatively'
+import {
+  ImageViewer,
+  ImageViewerProps,
+  MultiImageViewer,
+  MultiImageViewerProps,
+} from './image-viewer'
 
 export type ImageViewerShowHandler = {
   close: () => void
@@ -50,4 +50,18 @@ export function clearImageViewer() {
     handler.close()
   })
   handlerSet.clear()
+}
+
+export function mergeRefs<T>(
+  ...refs: (React.Ref<T> | undefined)[]
+): React.RefCallback<T> {
+  return (value: T) => {
+    refs.forEach(ref => {
+      if (typeof ref === 'function') {
+        ref(value)
+      } else if (ref && typeof ref === 'object') {
+        ;(ref as React.MutableRefObject<T | null>).current = value
+      }
+    })
+  }
 }
