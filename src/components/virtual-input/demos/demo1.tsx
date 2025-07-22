@@ -7,6 +7,7 @@ const TWO_DIGIT_NUMBER_REGEX = /^(([1-9]\d{0,11})|0)(\.\d{0,2}?)?$/
 export default () => {
   const [value, setValue] = useState('')
   const ref = React.useRef(null)
+
   return (
     <>
       <DemoBlock title='配合 NumberKeyboard 使用'>
@@ -80,6 +81,11 @@ export default () => {
       </DemoBlock>
 
       <div style={{ height: '200vh' }}></div>
+          keyboard={<NumberKeyboard confirmText='确定' customKey={'.'} />}
+        />
+      </DemoBlock>
+
+      <div style={{ height: '100vh' }}></div>
     </>
   )
 }

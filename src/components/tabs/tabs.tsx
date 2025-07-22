@@ -1,17 +1,17 @@
-import React, { isValidElement, useRef } from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
+import { animated, useSpring } from '@react-spring/web'
+import { useIsomorphicLayoutEffect, useThrottleFn } from 'ahooks'
 import classNames from 'classnames'
-import { useSpring, animated } from '@react-spring/web'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { usePropsValue } from '../../utils/use-props-value'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React, { isValidElement, useEffect, useRef } from 'react'
 import { bound } from '../../utils/bound'
-import { useThrottleFn, useIsomorphicLayoutEffect } from 'ahooks'
-import { useMutationEffect } from '../../utils/use-mutation-effect'
-import { useResizeEffect } from '../../utils/use-resize-effect'
-import { mergeProps } from '../../utils/with-default-props'
-import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { ShouldRender } from '../../utils/should-render'
 import { traverseReactNode } from '../../utils/traverse-react-node'
+import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
+import { useMutationEffect } from '../../utils/use-mutation-effect'
+import { usePropsValue } from '../../utils/use-props-value'
+import { useResizeEffect } from '../../utils/use-resize-effect'
+import { mergeProps } from '../../utils/with-default-props'
 
 const classPrefix = `adm-tabs`
 
@@ -61,6 +61,8 @@ export const Tabs: FC<TabsProps> = p => {
   const props = mergeProps(defaultProps, p)
   const tabListContainerRef = useRef<HTMLDivElement>(null)
   const activeLineRef = useRef<HTMLDivElement>(null)
+  const tabRefs = useRef<Record<string, HTMLDivElement | null>>({})
+
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
 
@@ -92,26 +94,18 @@ export const Tabs: FC<TabsProps> = p => {
   const [{ x, width }, inkApi] = useSpring(() => ({
     x: 0,
     width: 0,
-    config: {
-      tension: 300,
-      clamp: true,
-    },
+    config: { tension: 300, clamp: true },
   }))
 
   const [{ scrollLeft }, scrollApi] = useSpring(() => ({
     scrollLeft: 0,
-    config: {
-      tension: 300,
-      clamp: true,
-    },
+    config: { tension: 300, clamp: true },
   }))
 
   const [{ leftMaskOpacity, rightMaskOpacity }, maskApi] = useSpring(() => ({
     leftMaskOpacity: 0,
     rightMaskOpacity: 0,
-    config: {
-      clamp: true,
-    },
+    config: { clamp: true },
   }))
 
   function animate(immediate = false, fromMutation = false) {
@@ -120,11 +114,7 @@ export const Tabs: FC<TabsProps> = p => {
 
     const activeIndex = keyToIndexRecord[activeKey as string]
     if (activeIndex === undefined) {
-      inkApi.start({
-        x: 0,
-        width: 0,
-        immediate: true,
-      })
+      inkApi.start({ x: 0, width: 0, immediate: true })
       return
     }
     const activeLine = activeLineRef.current
@@ -168,11 +158,7 @@ export const Tabs: FC<TabsProps> = p => {
       x = -(containerWidth - x - w)
     }
 
-    inkApi.start({
-      x,
-      width,
-      immediate,
-    })
+    inkApi.start({ x, width, immediate })
 
     const maxScrollDistance = containerScrollWidth - containerWidth
     if (maxScrollDistance <= 0) return
@@ -226,20 +212,15 @@ export const Tabs: FC<TabsProps> = p => {
       animate(!x.isAnimating, true)
     },
     tabListContainerRef,
-    {
-      subtree: true,
-      childList: true,
-      characterData: true,
-    }
+    { subtree: true, childList: true, characterData: true }
   )
 
   const { run: updateMask } = useThrottleFn(
-    (immediate = false) => {
+    immediate => {
       const container = tabListContainerRef.current
       if (!container) return
 
       const scrollLeft = container.scrollLeft
-
       let showLeftMask = false
       let showRightMask = false
 
@@ -265,49 +246,67 @@ export const Tabs: FC<TabsProps> = p => {
         immediate,
       })
     },
-    {
-      wait: 100,
-      trailing: true,
-      leading: true,
-    }
+    { wait: 100, trailing: true, leading: true }
   )
 
   useIsomorphicLayoutEffect(() => {
     updateMask(true)
   }, [])
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const keys = Object.keys(keyToIndexRecord)
+    const currentIndex = keyToIndexRecord[activeKey as string]
+    const isNext = isRTL ? e.key === 'ArrowLeft' : e.key === 'ArrowRight'
+    const isPrev = isRTL ? e.key === 'ArrowRight' : e.key === 'ArrowLeft'
+    const offsetDirection = isNext ? 1 : -1
+
+    const findNextEnabledTab = (startIndex: number, direction: 1 | -1) => {
+      const length = keys.length
+      for (let i = 0; i < length; i++) {
+        const index = (startIndex + direction * (i + 1) + length) % length
+        const key = keys[index]
+        const pane = panes.find(p => p.key === key)
+        if (!pane?.props.disabled) return key
+      }
+      return keys[startIndex]
+    }
+    const currentKey = findNextEnabledTab(currentIndex, offsetDirection)
+    if (isNext || isPrev) {
+      e.preventDefault()
+      setActiveKey(currentKey)
+    }
+  }
+
+  useEffect(() => {
+    if (activeKey && tabRefs.current[activeKey]) {
+      tabRefs.current[activeKey]?.focus()
+    }
+  }, [activeKey])
+
   return withNativeProps(
     props,
-    <div
-      className={classPrefix}
-      style={{
-        direction: props.direction,
-      }}
-    >
+    <div className={classPrefix} style={{ direction: props.direction }}>
       <div className={`${classPrefix}-header`}>
         <animated.div
           className={classNames(
             `${classPrefix}-header-mask`,
             `${classPrefix}-header-mask-left`
           )}
-          style={{
-            opacity: leftMaskOpacity,
-          }}
+          style={{ opacity: leftMaskOpacity }}
         />
         <animated.div
           className={classNames(
             `${classPrefix}-header-mask`,
             `${classPrefix}-header-mask-right`
           )}
-          style={{
-            opacity: rightMaskOpacity,
-          }}
+          style={{ opacity: rightMaskOpacity }}
         />
         <animated.div
           className={`${classPrefix}-tab-list`}
           ref={tabListContainerRef}
           scrollLeft={scrollLeft}
           onScroll={updateMask}
+          onKeyDown={handleKeyDown}
           role='tablist'
         >
           <animated.div
@@ -331,6 +330,10 @@ export const Tabs: FC<TabsProps> = p => {
                 })}
               >
                 <div
+                  role='tab'
+                  aria-selected={pane.key === activeKey}
+                  tabIndex={pane.key === activeKey ? 0 : -1}
+                  ref={el => (tabRefs.current[pane.key as string] = el)}
                   onClick={() => {
                     const { key } = pane
                     if (pane.props.disabled) return
@@ -343,8 +346,6 @@ export const Tabs: FC<TabsProps> = p => {
                     [`${classPrefix}-tab-active`]: pane.key === activeKey,
                     [`${classPrefix}-tab-disabled`]: pane.props.disabled,
                   })}
-                  role='tab'
-                  aria-selected={pane.key === activeKey}
                 >
                   {pane.props.title}
                 </div>

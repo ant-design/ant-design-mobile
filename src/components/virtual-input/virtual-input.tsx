@@ -59,6 +59,10 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const [value, setValue] = usePropsValue(mergedProps)
     const rootRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
+    const keyboardDataRef = useRef<{
+      newValue?: string
+      mode?: 'input' | 'delete'
+    }>({})
     const [hasFocus, setHasFocus] = useState(false)
     const [caretPosition, setCaretPosition] = useState(value.length) // Cursor position starting from 0, e.g. value 2 means cursor is before the character at index 2
     const keyboardDataRef = useRef<{
@@ -74,6 +78,18 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const caretRef = useRef<HTMLDivElement>(null) // DOM reference of cursor
     const [isCaretDragging, setIsCaretDragging] = useState<boolean>(false)
     const touchMoveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>()
+
+    useEffect(() => {
+      if (value === keyboardDataRef.current.newValue) {
+        if (keyboardDataRef.current.mode === 'input') {
+          setCaretPosition(c => c + 1)
+        } else {
+          setCaretPosition(c => c - 1)
+        }
+      } else {
+        setCaretPosition(value.length)
+      }
+    }, [value])
 
     const clearIcon = mergeProp(
       <CloseCircleFill />,

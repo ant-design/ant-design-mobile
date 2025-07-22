@@ -26,6 +26,7 @@ It is suitable for displaying pop-up windows, information prompts, selection inp
 | closeOnMaskClick | Whether to close after clicking the mask layer | `boolean` | `false` |
 | closeIcon | Custom close button icon | `ReactNode` | `<CloseOutline/>` |
 | destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
+| disableBodyScroll | Mask Whether to disable body scrolling | `boolean` | `true` |
 | forceRender | Render content forcely | `boolean` | `false` |
 | getContainer | To get the specified mounted `HTML` node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `() => document.body` |
 | mask | Whether to display Mask | `boolean` | `true` |

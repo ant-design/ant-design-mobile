@@ -135,7 +135,8 @@ export function convertStringArrayToDate<
   const yearString = value[0] ?? '1900'
   const weekString = value[1] ?? '1'
   const weekdayString = value[2] ?? '1'
-  const day = dayjs(`${parseInt(yearString as string)}-01-01`)
+  // See https://github.com/ant-design/ant-design-mobile/issues/6905
+  const day = dayjs(`${parseInt(yearString as string)}-01-04`)
     .isoWeek(parseInt(weekString as string))
     .isoWeekday(parseInt(weekdayString as string))
     .hour(0)
