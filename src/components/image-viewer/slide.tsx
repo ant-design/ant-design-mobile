@@ -307,28 +307,27 @@ export const Slide: FC<Props> = props => {
     function recursiveClone(element: React.ReactElement): React.ReactElement {
       if (!React.isValidElement(element)) return element
 
+      let props: any = undefined
       if (
         typeof element.type === 'string' &&
         ['img', 'video'].includes(element.type) &&
         !refApplied
       ) {
         refApplied = true
-        // 合并 imgRef 和原始 ref
         const originRef = (element as any).ref
-        return React.cloneElement(element, {
-          ref: mergeRefs(imgRef, originRef),
-        } as any)
+        props = { ref: mergeRefs(imgRef, originRef) }
       }
 
       const children = (element.props as { children?: React.ReactNode })
         ?.children
+      let newChildren = children
       if (children) {
-        const newChildren = React.Children.map(children, child =>
+        newChildren = React.Children.map(children, child =>
           React.isValidElement(child) ? recursiveClone(child) : child
         )
-        return React.cloneElement(element, undefined, newChildren)
       }
-      return element
+
+      return React.cloneElement(element, props, newChildren)
     }
     return recursiveClone(dom)
   }
