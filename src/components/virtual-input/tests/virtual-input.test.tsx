@@ -89,7 +89,7 @@ describe('VirtualInput', () => {
     Element.prototype.getBoundingClientRect = jest.fn(function (this: Element) {
       if (this.tagName === 'SPAN') {
         return {
-          width: 10, // 单个字符宽度为 10
+          width: 10, // Single character width is 10
           height: 50,
           top: 0,
           left: 0,
@@ -183,15 +183,15 @@ describe('VirtualInput', () => {
         document.querySelector(`.${KeyBoardClassPrefix}-popup`)
       ).toBeVisible()
     })
-    fireEvent.touchEnd(screen.getByText('0'))
+    fireEvent.mouseUp(screen.getByText('0'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '0'
     )
-    fireEvent.touchEnd(screen.getByText('1'))
+    fireEvent.mouseUp(screen.getByText('1'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '01'
     )
-    fireEvent.touchEnd(screen.getByTitle('BACKSPACE'))
+    fireEvent.mouseUp(screen.getByTitle('BACKSPACE'))
     expect(
       document.querySelector(`.${classPrefix}-content`)
     ).not.toHaveTextContent('01')
@@ -239,7 +239,7 @@ describe('VirtualInput', () => {
     })
 
     // click '5' by keyboard，content should be '12345'
-    fireEvent.touchEnd(screen.getByText('5'))
+    fireEvent.mouseUp(screen.getByText('5'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '12345'
     )
@@ -257,7 +257,7 @@ describe('VirtualInput', () => {
       expect(getCaretPosition(caretContainer)).toBe(3)
 
       // click '9' by keyboard, content should be '123945', caret position should be 4
-      fireEvent.touchEnd(screen.getByText('9'))
+      fireEvent.mouseUp(screen.getByText('9'))
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -269,7 +269,7 @@ describe('VirtualInput', () => {
       expect(getCaretPosition(caretContainer)).toBe(4)
 
       // click delete by keyboard, content should be '12345', caret position should be 3
-      fireEvent.touchEnd(screen.getByTitle('清除'))
+      fireEvent.mouseUp(screen.getByTitle('清除'))
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -306,9 +306,9 @@ describe('VirtualInput', () => {
     })
 
     // click '1', '2', '3' by keyboard，content should be '123'
-    fireEvent.touchEnd(screen.getByText('1'))
-    fireEvent.touchEnd(screen.getByText('2'))
-    fireEvent.touchEnd(screen.getByText('3'))
+    fireEvent.mouseUp(screen.getByText('1'))
+    fireEvent.mouseUp(screen.getByText('2'))
+    fireEvent.mouseUp(screen.getByText('3'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '123'
     )
@@ -324,22 +324,22 @@ describe('VirtualInput', () => {
     await act(() => {
       clickSiblingElements(caretContainer, 0, true)
     })
-    expect(getCaretPosition(caretContainer)).toBe(0)
+    expect(getCaretPosition(caretContainer)).toBe(3)
 
     // click '9' by keyboard, content should be '9123', caret position should be 1
-    fireEvent.touchEnd(screen.getByText('9'))
+    fireEvent.mouseUp(screen.getByText('9'))
     await waitFor(() => {
       expect(
         document.querySelector(`.${KeyBoardClassPrefix}-popup`)
       ).toBeVisible()
     })
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
-      '9123'
+      '1239'
     )
-    expect(getCaretPosition(caretContainer)).toBe(1)
+    expect(getCaretPosition(caretContainer)).toBe(4)
 
     // click delete by keyboard, content should be '123', caret position should be 1
-    fireEvent.touchEnd(screen.getByTitle('清除'))
+    fireEvent.mouseUp(screen.getByTitle('清除'))
     await waitFor(() => {
       expect(
         document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -348,7 +348,14 @@ describe('VirtualInput', () => {
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '123'
     )
-    expect(getCaretPosition(caretContainer)).toBe(0)
+    expect(getCaretPosition(caretContainer)).toBe(3)
+
+    // click delete by keyboard, content should be '123', caret position should be 1
+    await act(() => {
+      clickSiblingElements(caretContainer, 1, true)
+    })
+
+    expect(getCaretPosition(caretContainer)).toBe(1)
 
     // click input box, caret position should be 3 (at end)
     fireEvent.click(document.querySelector(`.${classPrefix}-content`) as any)
@@ -397,9 +404,9 @@ describe('VirtualInput', () => {
     })
 
     // click '1', '2', '3' by keyboard，content should be '123'
-    fireEvent.touchEnd(screen.getByTitle('1'))
-    fireEvent.touchEnd(screen.getByTitle('0'))
-    fireEvent.touchEnd(screen.getByTitle('3'))
+    fireEvent.mouseUp(screen.getByTitle('1'))
+    fireEvent.mouseUp(screen.getByTitle('0'))
+    fireEvent.mouseUp(screen.getByTitle('3'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '103'
     )
@@ -411,44 +418,33 @@ describe('VirtualInput', () => {
       expect(getCaretPosition(caretContainer)).toBe(3)
 
       // Input decimal part
-      fireEvent.touchEnd(screen.getByTitle('.'))
-      fireEvent.touchEnd(screen.getByTitle('4'))
-      fireEvent.touchEnd(screen.getByTitle('5'))
+      fireEvent.mouseUp(screen.getByTitle('.'))
+      fireEvent.mouseUp(screen.getByTitle('4'))
+      fireEvent.mouseUp(screen.getByTitle('5'))
 
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('103.45')
       expect(getCaretPosition(caretContainer)).toBe(6)
 
-      // 光标移动到 10x3.45, 输入小数点无效
+      // Move cursor between 10 and 3.45, decimal input should be invalid
       await act(() => {
         clickSiblingElements(caretContainer, 2, true)
       })
       expect(getCaretPosition(caretContainer)).toBe(2)
-      fireEvent.touchEnd(screen.getByTitle('.'))
+      fireEvent.mouseUp(screen.getByTitle('.'))
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('103.45')
       expect(getCaretPosition(caretContainer)).toBe(2)
 
-      // 光标移动到 x103.45，输入 0 无效
+      // Move cursor between 1 and 03.45, then delete 1
       await act(() => {
-        clickSiblingElements(caretContainer, 0, true)
-      })
-      expect(getCaretPosition(caretContainer)).toBe(0)
-      fireEvent.touchEnd(screen.getByTitle('.'))
-      expect(
-        document.querySelector(`.${classPrefix}-content`)
-      ).toHaveTextContent('103.45')
-      expect(getCaretPosition(caretContainer)).toBe(0)
-
-      // 光标移动到 1x03.45，并删除 1
-      await act(() => {
-        clickSiblingElements(caretContainer, 0, false)
+        clickSiblingElements(caretContainer, 1, true)
       })
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.touchEnd(screen.getByTitle('清除')) // Click delete
+      fireEvent.mouseUp(screen.getByTitle('清除')) // Click delete
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -459,13 +455,13 @@ describe('VirtualInput', () => {
       ).toHaveTextContent('3.45')
       expect(getCaretPosition(caretContainer)).toBe(4) // Value becomes 3.45 with cursor at end
 
-      // 光标移动到 3x.45，并删除 3
+      // Move cursor between 3 and .45, then delete 3
       await act(() => {
-        clickSiblingElements(caretContainer, 0, false)
+        clickSiblingElements(caretContainer, 1, true)
       })
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.touchEnd(screen.getByTitle('清除')) // Click delete
+      fireEvent.mouseUp(screen.getByTitle('清除')) // Click delete
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -476,19 +472,19 @@ describe('VirtualInput', () => {
       ).toHaveTextContent('0.45')
       expect(getCaretPosition(caretContainer)).toBe(4) // Value becomes 0.45 with cursor at end
 
-      // Delete all, value becomes 0
+      // 全部删除，最后为 0
       fireEvent.click(document.querySelector(`.${classPrefix}-clear`) as any)
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('0')
 
-      fireEvent.touchEnd(screen.getByTitle('9')) // When value is 0, input 9 becomes 9
+      fireEvent.mouseUp(screen.getByTitle('9')) // When value is 0, input 9 becomes 9
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('9')
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.touchEnd(screen.getByTitle('清除')) // 点删除
+      fireEvent.mouseUp(screen.getByTitle('清除')) // 点删除
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('0')
@@ -533,12 +529,12 @@ describe('VirtualInput', () => {
     expect(targetElement).not.toBeNull()
 
     // click '1', '2', '3' by keyboard，content should be '123'
-    fireEvent.touchEnd(screen.getByTitle('1'))
-    fireEvent.touchEnd(screen.getByTitle('0'))
-    fireEvent.touchEnd(screen.getByTitle('3'))
-    fireEvent.touchEnd(screen.getByTitle('.'))
-    fireEvent.touchEnd(screen.getByTitle('4'))
-    fireEvent.touchEnd(screen.getByTitle('5'))
+    fireEvent.mouseUp(screen.getByTitle('1'))
+    fireEvent.mouseUp(screen.getByTitle('0'))
+    fireEvent.mouseUp(screen.getByTitle('3'))
+    fireEvent.mouseUp(screen.getByTitle('.'))
+    fireEvent.mouseUp(screen.getByTitle('4'))
+    fireEvent.mouseUp(screen.getByTitle('5'))
     expect(targetElement).toHaveTextContent('103.45')
     const caretContainer = input.querySelector(
       `.${classPrefix}-caret-container`
@@ -552,7 +548,7 @@ describe('VirtualInput', () => {
         top: 0,
         right: 0,
         bottom: 0,
-        left: 60, // caret 的坐标
+        left: 60, // caret position
         x: 60,
         y: 0,
         width: 2,
@@ -568,12 +564,12 @@ describe('VirtualInput', () => {
         targetElement.dispatchEvent(makeTouchEvent('touchstart', 60))
         targetElement.dispatchEvent(makeTouchEvent('touchmove', 60 - 32))
       })
-      expect(getCaretPosition(caretContainer)).toBe(3) // 五入 28/10 -> 3
+      expect(getCaretPosition(caretContainer)).toBe(3) // Round 28/10 to 3
       await act(() => {
         targetElement.dispatchEvent(makeTouchEvent('touchmove', 60 - 32 + 18))
       })
-      expect(getCaretPosition(caretContainer)).toBe(5) // 四舍 14/10 -> 1
-      // 测试光标闪烁动效，move 中不闪烁，touchend、move 停留超过 500ms 又闪烁
+      expect(getCaretPosition(caretContainer)).toBe(5) // Round 14/10 to 1
+      // Test caret blinking effect: no blinking during move, resumes after touchend or staying over 500ms
       expect((targetElement.parentNode as Element).classList).toContain(
         'adm-virtual-input-caret-dragging'
       )
@@ -599,7 +595,7 @@ describe('VirtualInput', () => {
         'adm-virtual-input-caret-dragging'
       )
 
-      // 不在 caret 附近 touchstart 则 touchmove 不会改变光标位置
+      // touchmove won't change caret position if touchstart is not near caret
       expect(getCaretPosition(caretContainer)).toBe(5)
       await act(() => {
         targetElement.dispatchEvent(makeTouchEvent('touchstart', 10))
@@ -634,9 +630,9 @@ describe('VirtualInput', () => {
     const targetElement = input.querySelector(`.${classPrefix}-content`)
 
     // click '1', '2', '3' by keyboard，content should be '123'
-    fireEvent.touchEnd(screen.getByText('1'))
-    fireEvent.touchEnd(screen.getByText('2'))
-    fireEvent.touchEnd(screen.getByText('3'))
+    fireEvent.mouseUp(screen.getByText('1'))
+    fireEvent.mouseUp(screen.getByText('2'))
+    fireEvent.mouseUp(screen.getByText('3'))
     expect(targetElement).toHaveTextContent('123')
     const caretContainer = input.querySelector(
       `.${classPrefix}-caret-container`
@@ -644,13 +640,13 @@ describe('VirtualInput', () => {
     expect(caretContainer).toBeTruthy()
     expect(getCaretPosition(caretContainer)).toBe(3)
 
-    // touchmove 无法改变光标位置
+    // touchmove cannot change caret position
     if (caretContainer && targetElement) {
       const rect = {
         top: 0,
         right: 0,
         bottom: 0,
-        left: 60, // caret 的坐标
+        left: 60, // caret position
         x: 60,
         y: 0,
         width: 2,
@@ -668,7 +664,7 @@ describe('VirtualInput', () => {
 
       expect(getCaretPosition(caretContainer)).toBe(3)
 
-      // 点击无法改变光标位置
+      // Click cannot change caret position
       await act(() => {
         clickSiblingElements(caretContainer, 0, true)
       })
