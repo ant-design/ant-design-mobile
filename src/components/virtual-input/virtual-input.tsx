@@ -258,6 +258,11 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     const handleTouchEnd = () => {
       touchDataRef.current = null
       setIsCaretDragging(false)
+
+      if (touchMoveTimeoutRef.current) {
+        clearTimeout(touchMoveTimeoutRef.current)
+        touchMoveTimeoutRef.current = null
+      }
     }
 
     const chars = (value + '').split('')
