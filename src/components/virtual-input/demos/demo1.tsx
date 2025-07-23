@@ -14,6 +14,7 @@ export default () => {
         <VirtualInput
           placeholder='请输入内容'
           ref={ref}
+          cursor={{ movable: true }}
           keyboard={<NumberKeyboard confirmText='确定' customKey='.' />}
         />
       </DemoBlock>
@@ -22,6 +23,7 @@ export default () => {
         <VirtualInput
           placeholder='请输入内容'
           clearable
+          cursor={{ movable: true }}
           keyboard={<NumberKeyboard />}
         />
       </DemoBlock>
@@ -60,6 +62,7 @@ export default () => {
       <DemoBlock title='只支持金额数字输入，配合 NumberKeyboard 使用'>
         <VirtualInput
           value={value || '0'}
+          cursor={{ movable: true }}
           onChange={v => {
             if (v.startsWith('.')) {
               v = '0' + v

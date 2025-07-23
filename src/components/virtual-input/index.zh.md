@@ -23,6 +23,7 @@
 | onFocus | 获得焦点时触发 | `() => void` | - |
 | placeholder | 提示文本 | `string` | - |
 | value | 输入值 | `string` | `''` |
+| cursor | 光标相关配置，movable 表示是否可调整，onMove 为光标移动回调 | `{ movable?: boolean; onMove?: (position: number) => void }` | `{ movable: false }` |
 
 严格意义上讲，VirtualInput 并不是一个表单类型的组件，它只是对数据进行展示。
 
