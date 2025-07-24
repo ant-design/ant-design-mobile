@@ -84,3 +84,43 @@ ImageViewer.Multi 是一个[非受控](https://reactjs.org/docs/glossary.html#co
 ```
 
 你可以使用 ref 来对 ImageViewer.Multi 进行手动的操作，也可以考虑使用 `ImageViewer.show()`。
+
+### 自定义图片预览，我如果不需要注入 ImageViewer 的默认操作行为该怎么做？
+
+ImageViewer 默认会递归查找子元素并对 img 元素注入 ref 以实现控制，你可以通过高阶组件（HOC）的方式对图片预览组件进行封装，从而实现跳过注入的过程。
+
+```jsx
+// withImagePreview.tsx
+import React from 'react'
+
+// 简单的 HOC，用于包裹 img，避免被 ImageViewer 自动注入 ref
+const withImagePreview = (Component: React.ComponentType<any>) => {
+  return (props: any) => {
+    const handleClick = () => {
+      ImageViewer.show({ src: props.src })
+    }
+
+    return (
+      <div>
+        <Component {...props} onClick={handleClick} />
+      </div>
+    )
+  }
+}
+
+export default withImagePreview
+
+
+// ImagePreview.tsx
+import withImagePreview from './withImagePreview'
+
+const BasicImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+  return <img {...props} alt={props.alt || '预览图'} style={{ cursor: 'pointer' }} />
+}
+
+const ImagePreview = withImagePreview(BasicImage)
+export default ImagePreview
+
+// 使用方式
+<ImagePreview src="https://example.com/image.jpg" />
+```
