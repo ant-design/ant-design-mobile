@@ -1,5 +1,6 @@
 import { animated, useSpring } from '@react-spring/web'
 import { useSize } from 'ahooks'
+import { composeRef } from 'rc-util/lib/ref'
 import type { FC, MutableRefObject, ReactNode } from 'react'
 import React, { useRef } from 'react'
 import { bound } from '../../utils/bound'
@@ -7,7 +8,6 @@ import type { Matrix } from '../../utils/matrix'
 import * as mat from '../../utils/matrix'
 import { rubberbandIfOutOfBounds } from '../../utils/rubberband'
 import { useDragAndPinch } from '../../utils/use-drag-and-pinch'
-import { mergeRefs } from './methods'
 
 const classPrefix = `adm-image-viewer`
 
@@ -304,6 +304,7 @@ export const Slide: FC<Props> = props => {
 
   const domRender = (dom: React.ReactElement): React.ReactElement => {
     let refApplied = false
+
     function recursiveClone(element: React.ReactElement): React.ReactElement {
       if (!React.isValidElement(element)) return element
 
@@ -315,7 +316,7 @@ export const Slide: FC<Props> = props => {
       ) {
         refApplied = true
         const originRef = (element as any).ref
-        props = { ref: mergeRefs(imgRef, originRef) }
+        props = { ref: composeRef(imgRef, originRef) }
       }
 
       const children = (element.props as { children?: React.ReactNode })
@@ -329,6 +330,7 @@ export const Slide: FC<Props> = props => {
 
       return React.cloneElement(element, props, newChildren)
     }
+
     return recursiveClone(dom)
   }
 

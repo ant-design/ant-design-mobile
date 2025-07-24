@@ -92,14 +92,34 @@ You can use ref for manual manipulation of ImageViewer.Multi, or consider using 
 
 ### What should I do if I don't need a ref when previewing custom images?
 
-If you don't need to preview custom images and don't need ref when opening the preview, you can simply use HOC to create a wrapper that doesn't support ref
+In scenarios where a custom image preview component does not require the use of ref for control, a Higher-Order Component (HOC) can be used to encapsulate the preview logic. This eliminates the dependency on ref, making the component more flexible, maintainable, and reusable.
 
 ```jsx
-const ImagePreview = () => {
-  return (
-    <>
-      <img src='xxx' ref='xxx' alt='预览图' />
-    </>
-  )
+import React from 'react'
+
+// 高阶组件：用于封装不需要 ref 的图片预览逻辑
+const withImagePreview = (WrappedComponent: React.ComponentType<any>) => {
+  return (props: any) => {
+    return (
+      <div onClick={() => alert('图片预览触发')}>
+        <WrappedComponent {...props} />
+      </div>
+    )
+  }
 }
+
+// 原始图片组件
+const BasicImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+  return <img {...props} alt={props.alt || '预览图'} />
+}
+
+// 使用 HOC 包裹后的预览组件
+const ImagePreview = withImagePreview(BasicImage)
+
+export default ImagePreview
+
+
+// 使用方式
+<ImagePreview src="xxx" />
+
 ```

@@ -290,3 +290,86 @@ describe('ImageViewer', () => {
     await waitFor(() => expect(img).not.toBeVisible())
   })
 })
+
+describe('自定义渲染和HOC场景', () => {
+  test('自定义渲染图片时，图片放大后可以拖动但不会自动缩小', async () => {
+    let lastZoom = 1
+    function CustomImageRender(image: string, info: { index: number }) {
+      return (
+        <img
+          src={image}
+          alt={`custom-img-${info.index}`}
+          style={{ width: 100, height: 100 }}
+        />
+      )
+    }
+    // mock onZoomChange
+    jest.mock('../slide', () => {
+      const { Slide, ...rest } = jest.requireActual('../slide')
+      return {
+        ...rest,
+        Slide: (props: any) => {
+          return (
+            <Slide
+              {...props}
+              onZoomChange={(nextZoom: number) => {
+                lastZoom = nextZoom
+                if (props.onZoomChange) props.onZoomChange(nextZoom)
+              }}
+            />
+          )
+        },
+      }
+    })
+
+    render(
+      <ImageViewer.Multi
+        images={demoImages}
+        visible
+        imageRender={CustomImageRender}
+      />
+    )
+    await getImages()
+    // 放大
+    act(() => {
+      triggerPinch([5, 0])
+    })
+    expect(lastZoom).toBeGreaterThan(1)
+    // 拖动
+    const slides = document.querySelectorAll(`.${classPrefix}-control`)[0]
+    mockDrag(slides as HTMLElement, [
+      { clientX: 100 },
+      { clientX: 200 },
+      { clientX: 300 },
+    ])
+    // 拖动后 zoom 不会变小
+    expect(lastZoom).toBeGreaterThan(1)
+  })
+
+  test('HOC 封装的 ImageViewer 也能正常工作', async () => {
+    function withWrapper<P>(Component: React.ComponentType<P>) {
+      return (props: P) => (
+        <Component {...props} data-testid='hoc-image-viewer' />
+      )
+    }
+    const WrappedImageViewer = withWrapper(ImageViewer)
+    render(
+      <>
+        <button
+          onClick={() => {
+            WrappedImageViewer.show?.({ image: demoImages[0] })
+          }}
+        >
+          show
+        </button>
+      </>
+    )
+    fireEvent.click(screen.getByText('show'))
+    const img = await getImages()
+    expect(img).toBeVisible()
+    act(() => {
+      WrappedImageViewer.clear?.()
+    })
+    await waitFor(() => expect(img).not.toBeVisible())
+  })
+})
