@@ -352,7 +352,7 @@ describe('自定义渲染和HOC场景', () => {
         <Component {...props} data-testid='hoc-image-viewer' />
       )
     }
-    const WrappedImageViewer = withWrapper(ImageViewer)
+    const WrappedImageViewer = withWrapper(ImageViewer) as typeof ImageViewer
     render(
       <>
         <button
