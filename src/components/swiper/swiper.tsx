@@ -396,7 +396,9 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       function renderTrackInner() {
         if (loop) {
           return (
-            <div className={`${classPrefix}-track-inner`}>{renderItems()}</div>
+            <animated.div className={`${classPrefix}-track-inner`}>
+              {renderItems()}
+            </animated.div>
           )
         } else {
           return (

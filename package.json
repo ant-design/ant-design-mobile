@@ -41,7 +41,7 @@
     "pub:dev": "npm publish ./lib --tag dev",
     "size-limit": "size-limit",
     "size-limit:ci": "size-limit --json",
-    "start": "dumi dev",
+    "start": "node --openssl-legacy-provider ./node_modules/.bin/dumi dev",
     "test": "jest",
     "bun-install-react-19": "bun remove react react-dom && bun add --no-save react@19 react-dom@19",
     "test-with-coverage": "jest --coverage"
