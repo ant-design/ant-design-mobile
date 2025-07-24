@@ -85,36 +85,42 @@ ImageViewer.Multi 是一个[非受控](https://reactjs.org/docs/glossary.html#co
 
 你可以使用 ref 来对 ImageViewer.Multi 进行手动的操作，也可以考虑使用 `ImageViewer.show()`。
 
-### 自定义图片预览的时候，如果不需要 ref 怎么办?
+### 自定义图片预览，我如果不需要注入 ImageViewer 的默认操作行为该怎么做？
 
-在自定义图片预览组件的场景中，如果无需使用 ref 来控制组件行为，可以通过高阶组件（HOC）的方式对图片预览组件进行封装，从而避免对 ref 的依赖。这种方式更加灵活，也便于后续维护和复用。
+ImageViewer 默认会递归查找子元素并对 img 元素注入 ref 以实现控制，你可以通过高阶组件（HOC）的方式对图片预览组件进行封装，从而实现跳过注入的过程。
 
 ```jsx
+// withImagePreview.tsx
 import React from 'react'
 
-// 高阶组件：用于封装不需要 ref 的图片预览逻辑
-const withImagePreview = (WrappedComponent: React.ComponentType<any>) => {
+// 简单的 HOC，用于包裹 img，避免被 ImageViewer 自动注入 ref
+const withImagePreview = (Component: React.ComponentType<any>) => {
   return (props: any) => {
+    const handleClick = () => {
+      ImageViewer.show({ src: props.src })
+    }
+
     return (
-      <div onClick={() => alert('图片预览触发')}>
-        <WrappedComponent {...props} />
+      <div>
+        <Component {...props} onClick={handleClick} />
       </div>
     )
   }
 }
 
-// 原始图片组件
+export default withImagePreview
+
+
+// ImagePreview.tsx
+import withImagePreview from './withImagePreview'
+
 const BasicImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-  return <img {...props} alt={props.alt || '预览图'} />
+  return <img {...props} alt={props.alt || '预览图'} style={{ cursor: 'pointer' }} />
 }
 
-// 使用 HOC 包裹后的预览组件
 const ImagePreview = withImagePreview(BasicImage)
-
 export default ImagePreview
 
-
 // 使用方式
-<ImagePreview src="xxx" />
-
+<ImagePreview src="https://example.com/image.jpg" />
 ```

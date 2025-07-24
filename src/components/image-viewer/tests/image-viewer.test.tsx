@@ -39,7 +39,6 @@ jest.mock('../slide', () => {
           {...props}
           onZoomChange={(nextZoom: number) => {
             G.nextZoom = nextZoom
-            G.lastZoom = nextZoom // 新增这一行
           }}
         />
       )
@@ -292,8 +291,8 @@ describe('ImageViewer', () => {
   })
 })
 
-describe('自定义渲染和HOC场景', () => {
-  test('自定义渲染图片时，图片放大后可以拖动但不会自动缩小', async () => {
+describe('Custom rendering and HOC scene', () => {
+  test('Custom rendered image enlargement', async () => {
     function CustomImageRender(image: string, info: { index: number }) {
       return (
         <img
@@ -316,7 +315,7 @@ describe('自定义渲染和HOC场景', () => {
     act(() => {
       triggerPinch([5, 0])
     })
-    expect(G.lastZoom).toBeGreaterThan(1)
+    expect(G.nextZoom).toBeGreaterThan(1)
     // 拖动
     const slides = document.querySelectorAll(`.${classPrefix}-control`)[0]
     mockDrag(slides as HTMLElement, [
@@ -325,33 +324,28 @@ describe('自定义渲染和HOC场景', () => {
       { clientX: 300 },
     ])
     // 拖动后 zoom 不会变小
-    expect(G.lastZoom).toBeGreaterThan(1)
+    expect(G.nextZoom).toBeGreaterThan(1)
   })
 
-  test('HOC 封装的 ImageViewer 也能正常工作', async () => {
+  test('ImageViewer in HOC does not zoom on pinch', async () => {
     function withWrapper<P>(Component: React.ComponentType<P>) {
       return (props: P) => (
         <Component {...props} data-testid='hoc-image-viewer' />
       )
     }
-    const WrappedImageViewer = withWrapper(ImageViewer) as typeof ImageViewer
-    render(
-      <>
-        <button
-          onClick={() => {
-            WrappedImageViewer.show?.({ image: demoImages[0] })
-          }}
-        >
-          show
-        </button>
-      </>
-    )
-    fireEvent.click(screen.getByText('show'))
-    const img = await getImages()
-    expect(img).toBeVisible()
+    const WrappedImageViewer = withWrapper(
+      ImageViewer.Multi
+    ) as typeof ImageViewer.Multi
+
+    render(<WrappedImageViewer images={demoImages} visible defaultIndex={0} />)
+    await getImages()
+    // 初始 zoom
+    expect(G.nextZoom).toBe(1)
+    // 触发 pinch
     act(() => {
-      WrappedImageViewer.clear?.()
+      triggerPinch([5, 0])
     })
-    await waitFor(() => expect(img).not.toBeVisible())
+    // zoom 不变
+    expect(G.nextZoom).toBe(1)
   })
 })

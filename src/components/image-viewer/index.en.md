@@ -90,36 +90,43 @@ ImageViewer.Multi is an [uncontrolled](https://reactjs.org/docs/glossary.html#co
 
 You can use ref for manual manipulation of ImageViewer.Multi, or consider using `ImageViewer.show()`.
 
-### What should I do if I don't need a ref when previewing custom images?
+### What should I do if I don't need to inject the default operation behavior of ImageViewer for custom image preview?
 
-In scenarios where a custom image preview component does not require the use of ref for control, a Higher-Order Component (HOC) can be used to encapsulate the preview logic. This eliminates the dependency on ref, making the component more flexible, maintainable, and reusable.
+ImageViewer defaults to recursively searching for child elements and injecting ref into img elements to achieve control. You can encapsulate the image preview component through high-order components (HOC) to skip the injection process.
 
 ```jsx
+// withImagePreview.tsx
 import React from 'react'
 
-// 高阶组件：用于封装不需要 ref 的图片预览逻辑
-const withImagePreview = (WrappedComponent: React.ComponentType<any>) => {
+// Simple HOC for wrapping img to avoid automatic injection of ref by ImageViewer
+const withImagePreview = (Component: React.ComponentType<any>) => {
   return (props: any) => {
+    const handleClick = () => {
+      ImageViewer.show({ src: props.src })
+    }
+
     return (
-      <div onClick={() => alert('图片预览触发')}>
-        <WrappedComponent {...props} />
+      <div>
+        <Component {...props} onClick={handleClick} />
       </div>
     )
   }
 }
 
-// 原始图片组件
+export default withImagePreview
+
+
+// ImagePreview.tsx
+import withImagePreview from './withImagePreview'
+
 const BasicImage = (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-  return <img {...props} alt={props.alt || '预览图'} />
+  return <img {...props} alt={props.alt || '预览图'} style={{ cursor: 'pointer' }} />
 }
 
-// 使用 HOC 包裹后的预览组件
 const ImagePreview = withImagePreview(BasicImage)
-
 export default ImagePreview
 
-
-// 使用方式
-<ImagePreview src="xxx" />
+// usage
+<ImagePreview src="https://example.com/image.jpg" />
 
 ```

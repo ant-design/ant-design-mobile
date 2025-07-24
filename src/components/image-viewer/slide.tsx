@@ -302,7 +302,7 @@ export const Slide: FC<Props> = props => {
     typeof imageRender === 'function' &&
     imageRender(props.image, { index } as { index: number })
 
-  const domRender = (dom: React.ReactElement): React.ReactElement => {
+  const domRender = (dom: React.ReactElement | any): React.ReactElement => {
     let refApplied = false
 
     function recursiveClone(element: React.ReactElement): React.ReactElement {
@@ -343,7 +343,7 @@ export const Slide: FC<Props> = props => {
             matrix,
           }}
         >
-          {customRendering && React.isValidElement(customRendering) ? (
+          {customRendering ? (
             domRender(customRendering)
           ) : (
             <img
