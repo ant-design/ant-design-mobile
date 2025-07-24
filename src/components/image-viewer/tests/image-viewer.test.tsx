@@ -39,6 +39,7 @@ jest.mock('../slide', () => {
           {...props}
           onZoomChange={(nextZoom: number) => {
             G.nextZoom = nextZoom
+            G.lastZoom = nextZoom // 新增这一行
           }}
         />
       )
@@ -293,7 +294,6 @@ describe('ImageViewer', () => {
 
 describe('自定义渲染和HOC场景', () => {
   test('自定义渲染图片时，图片放大后可以拖动但不会自动缩小', async () => {
-    let lastZoom = 1
     function CustomImageRender(image: string, info: { index: number }) {
       return (
         <img
@@ -303,24 +303,6 @@ describe('自定义渲染和HOC场景', () => {
         />
       )
     }
-    // mock onZoomChange
-    jest.mock('../slide', () => {
-      const { Slide, ...rest } = jest.requireActual('../slide')
-      return {
-        ...rest,
-        Slide: (props: any) => {
-          return (
-            <Slide
-              {...props}
-              onZoomChange={(nextZoom: number) => {
-                lastZoom = nextZoom
-                if (props.onZoomChange) props.onZoomChange(nextZoom)
-              }}
-            />
-          )
-        },
-      }
-    })
 
     render(
       <ImageViewer.Multi
@@ -334,7 +316,7 @@ describe('自定义渲染和HOC场景', () => {
     act(() => {
       triggerPinch([5, 0])
     })
-    expect(lastZoom).toBeGreaterThan(1)
+    expect(G.lastZoom).toBeGreaterThan(1)
     // 拖动
     const slides = document.querySelectorAll(`.${classPrefix}-control`)[0]
     mockDrag(slides as HTMLElement, [
@@ -343,7 +325,7 @@ describe('自定义渲染和HOC场景', () => {
       { clientX: 300 },
     ])
     // 拖动后 zoom 不会变小
-    expect(lastZoom).toBeGreaterThan(1)
+    expect(G.lastZoom).toBeGreaterThan(1)
   })
 
   test('HOC 封装的 ImageViewer 也能正常工作', async () => {
