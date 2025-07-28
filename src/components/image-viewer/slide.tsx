@@ -301,7 +301,7 @@ export const Slide: FC<Props> = props => {
     typeof imageRender === 'function' &&
     imageRender(props.image, { ref: imgRef, index } as {
       index: number
-      ref: RefObject<HTMLImageElement>
+      ref?: RefObject<HTMLImageElement>
     })
 
   return (

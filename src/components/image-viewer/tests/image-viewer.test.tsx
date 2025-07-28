@@ -245,6 +245,25 @@ describe('ImageViewer.Multi', () => {
     render(<App />)
     expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
   })
+
+  test('rendering with imageRender and ref', () => {
+    function App() {
+      return (
+        <ImageViewer.Multi
+          images={demoViewImages}
+          visible
+          imageRender={(image, info) => (
+            <div
+              className={`customize-preview-node-${info.index}`}
+              ref={info.ref}
+            />
+          )}
+        />
+      )
+    }
+    render(<App />)
+    expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
+  })
 })
 
 describe('ImageViewer', () => {
@@ -288,5 +307,24 @@ describe('ImageViewer', () => {
       ImageViewer.clear()
     })
     await waitFor(() => expect(img).not.toBeVisible())
+  })
+
+  test('rendering with imageRender and ref', () => {
+    function App() {
+      return (
+        <ImageViewer
+          image={demoImages[0]}
+          visible
+          imageRender={(image, info) => (
+            <div
+              className={`customize-preview-node-${info.index}`}
+              ref={info.ref}
+            />
+          )}
+        />
+      )
+    }
+    render(<App />)
+    expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
   })
 })
