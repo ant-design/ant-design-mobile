@@ -1,7 +1,6 @@
 import { animated, useSpring } from '@react-spring/web'
 import { useSize } from 'ahooks'
-import { composeRef } from 'rc-util/lib/ref'
-import type { FC, MutableRefObject, ReactNode } from 'react'
+import type { FC, MutableRefObject, ReactNode, RefObject } from 'react'
 import React, { useRef } from 'react'
 import { bound } from '../../utils/bound'
 import type { Matrix } from '../../utils/matrix'
@@ -300,39 +299,10 @@ export const Slide: FC<Props> = props => {
 
   const customRendering =
     typeof imageRender === 'function' &&
-    imageRender(props.image, { index } as { index: number })
-
-  const domRender = (dom: React.ReactElement | any): React.ReactElement => {
-    let refApplied = false
-
-    function recursiveClone(element: React.ReactElement): React.ReactElement {
-      if (!React.isValidElement(element)) return element
-
-      let props: any = undefined
-      if (
-        typeof element.type === 'string' &&
-        ['img', 'video'].includes(element.type) &&
-        !refApplied
-      ) {
-        refApplied = true
-        const originRef = (element as any).ref
-        props = { ref: composeRef(imgRef, originRef) }
-      }
-
-      const children = (element.props as { children?: React.ReactNode })
-        ?.children
-      let newChildren = children
-      if (children) {
-        newChildren = React.Children.map(children, child =>
-          React.isValidElement(child) ? recursiveClone(child) : child
-        )
-      }
-
-      return React.cloneElement(element, props, newChildren)
-    }
-
-    return recursiveClone(dom)
-  }
+    imageRender(props.image, { ref: imgRef, index } as {
+      index: number
+      ref: RefObject<HTMLImageElement>
+    })
 
   return (
     <div className={`${classPrefix}-slide`}>
@@ -344,7 +314,7 @@ export const Slide: FC<Props> = props => {
           }}
         >
           {customRendering ? (
-            domRender(customRendering)
+            customRendering
           ) : (
             <img
               ref={imgRef}
