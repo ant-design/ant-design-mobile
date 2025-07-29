@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   ignorePatterns: ['/*', '!/src', '/src/**/*.js'],
   'env': {
     'browser': true,
