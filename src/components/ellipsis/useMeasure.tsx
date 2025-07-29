@@ -1,3 +1,4 @@
+import { useIsomorphicLayoutEffect } from 'ahooks'
 import { useEvent } from 'rc-util'
 import React from 'react'
 import { unstable_batchedUpdates } from 'react-dom'
@@ -60,12 +61,12 @@ export default function useMeasure(
   })
 
   // Initialize
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     startMeasure()
   }, [contentChars, rows])
 
   // Measure element height
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (status === MEASURE_STATUS.PREPARE) {
       const fullMeasureHeight = fullMeasureRef.current?.offsetHeight || 0
       const singleRowMeasureHeight =
@@ -82,7 +83,7 @@ export default function useMeasure(
   }, [status])
 
   // Walking measure
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (status === MEASURE_STATUS.MEASURE_WALKING) {
       const diff = walkingIndexes[1] - walkingIndexes[0]
       const midHeight = midMeasureRef.current?.offsetHeight || 0
