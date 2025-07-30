@@ -1,4 +1,5 @@
 import { useEvent } from 'rc-util'
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect'
 import React from 'react'
 import { unstable_batchedUpdates } from 'react-dom'
 import runes from 'runes2'
@@ -60,12 +61,12 @@ export default function useMeasure(
   })
 
   // Initialize
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     startMeasure()
   }, [contentChars, rows])
 
   // Measure element height
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (status === MEASURE_STATUS.PREPARE) {
       const fullMeasureHeight = fullMeasureRef.current?.offsetHeight || 0
       const singleRowMeasureHeight =
@@ -82,7 +83,7 @@ export default function useMeasure(
   }, [status])
 
   // Walking measure
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (status === MEASURE_STATUS.MEASURE_WALKING) {
       const diff = walkingIndexes[1] - walkingIndexes[0]
       const midHeight = midMeasureRef.current?.offsetHeight || 0
