@@ -8,27 +8,33 @@ export default () => {
 
   return (
     <>
-      <DemoBlock title='自定义日期单元格样式'>
+      <DemoBlock title='自定义日期单元格渲染'>
         <Calendar
           selectionMode='single'
-          customCellClassName={date => {
-            // 周末
-            if (date.getDay() === 0 || date.getDay() === 6) {
-              return 'calendar-weekend'
+          cellRender={(oriNode, { date }) => {
+            const isWeekend = date.getDay() === 0 || date.getDay() === 6
+            const isHoliday = date.getMonth() === 0 && date.getDate() === 1 // 元旦
+            const isFirstDay = date.getDate() === 1
+            const isPastDate = date < today
+
+            let customClass = ''
+            if (isWeekend) {
+              customClass = 'calendar-weekend'
+            } else if (isHoliday) {
+              customClass = 'calendar-holiday'
+            } else if (isFirstDay) {
+              customClass = 'calendar-first-day'
+            } else if (isPastDate) {
+              customClass = 'calendar-past-date'
             }
-            // 节假日 (示例：元旦)
-            if (date.getMonth() === 0 && date.getDate() === 1) {
-              return 'calendar-holiday'
+
+            if (customClass) {
+              return React.cloneElement(oriNode, {
+                className: `${oriNode.props.className} ${customClass}`,
+              })
             }
-            // 每月1号
-            if (date.getDate() === 1) {
-              return 'calendar-first-day'
-            }
-            // 过去的日期
-            if (date < today) {
-              return 'calendar-past-date'
-            }
-            return ''
+
+            return oriNode
           }}
         />
       </DemoBlock>

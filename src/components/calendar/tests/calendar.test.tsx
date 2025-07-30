@@ -171,14 +171,22 @@ describe('Calendar', () => {
     expect(document.getElementsByClassName('custom-cell').length).toBe(42)
   })
 
-  test('custom cell className', () => {
+  test('cellRender', () => {
     const { container } = render(
       <Calendar
-        customCellClassName={date => {
+        cellRender={(oriNode, { date }) => {
           const day = dayjs(date)
-          if (day.date() === 15) return 'special-day'
-          if (day.day() === 0 || day.day() === 6) return 'weekend'
-          return ''
+          if (day.date() === 15) {
+            return React.cloneElement(oriNode, {
+              className: `${oriNode.props.className} special-day`,
+            })
+          }
+          if (day.day() === 0 || day.day() === 6) {
+            return React.cloneElement(oriNode, {
+              className: `${oriNode.props.className} weekend`,
+            })
+          }
+          return oriNode
         }}
       />
     )
@@ -198,23 +206,39 @@ describe('Calendar', () => {
     })
   })
 
-  test('custom cell className with empty string', () => {
-    const { container } = render(<Calendar customCellClassName={() => ''} />)
+  test('cellRender with custom content', () => {
+    const { container } = render(
+      <Calendar
+        cellRender={(oriNode, { date }) => {
+          const day = dayjs(date)
+          if (day.date() === 1) {
+            return (
+              <div className='custom-first-day' data-testid='custom-cell'>
+                <span>首日</span>
+                {oriNode}
+              </div>
+            )
+          }
+          return oriNode
+        }}
+      />
+    )
 
-    // 确保空字符串不会影响正常的类名
-    const cells = container.querySelectorAll('.adm-calendar-cell')
-    expect(cells.length).toBe(42)
-    cells.forEach(cell => {
-      expect(cell).toHaveClass('adm-calendar-cell')
+    // 检查自定义内容是否正确渲染
+    const customCells = container.querySelectorAll(
+      '[data-testid="custom-cell"]'
+    )
+    expect(customCells.length).toBeGreaterThan(0)
+    customCells.forEach(cell => {
+      expect(cell).toHaveClass('custom-first-day')
+      expect(cell.textContent).toContain('首日')
     })
   })
 
-  test('custom cell className with undefined return', () => {
-    const { container } = render(
-      <Calendar customCellClassName={() => undefined as any} />
-    )
+  test('cellRender without modification', () => {
+    const { container } = render(<Calendar cellRender={oriNode => oriNode} />)
 
-    // 确保返回 undefined 不会影响正常的类名
+    // 确保不修改时正常渲染
     const cells = container.querySelectorAll('.adm-calendar-cell')
     expect(cells.length).toBe(42)
     cells.forEach(cell => {

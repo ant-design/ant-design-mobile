@@ -36,7 +36,7 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | min | Minimum value of a selectable range. | `Date` | - |  |
 | maxPage | Maximum visible page of date. | `Page` | - |  |
 | minPage | Minimum visible page of date. | `Page` | - |  |
-| customCellClassName | Custom className for calendar cells. Return a className string based on date. | `(date: Date) => string` | - |  |
+| cellRender | Custom render function for calendar cells. | `(oriNode: ReactElement, info: { date: Date }) => ReactNode` | - |  |
 | nextMonthButton | Contents of the Next Month button on the navigation pane | `React.ReactNode` | `>` |
 | nextYearButton | Contents of the next Year button on the navigation pane | `React.ReactNode` | `>>` |
 | onChange | Trigger when selected date changes. | `(val: Date \| null) => void` when selection mode is "single". `(val: [Date, Date] \| null) => void` when selection mode is "range". | - |

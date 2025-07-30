@@ -43,7 +43,7 @@ export type CalendarProps = {
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => React.ReactNode
   renderDate?: (date: Date) => React.ReactNode
-  customCellClassName?: (date: Date) => string
+  cellRender?: (oriNode: React.ReactElement, info: { date: Date }) => ReactNode
   allowClear?: boolean
   max?: Date
   min?: Date
@@ -245,8 +245,8 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         ? props.shouldDisableDate(d.toDate())
         : (maxDay && d.isAfter(maxDay, 'day')) ||
           (minDay && d.isBefore(minDay, 'day'))
-      const customClassName = props.customCellClassName?.(d.toDate())
-      cells.push(
+
+      const originalCell = (
         <div
           key={d.valueOf()}
           className={classNames(
@@ -259,8 +259,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
               [`${classPrefix}-cell-selected-end`]: isEnd,
               [`${classPrefix}-cell-selected-row-begin`]: isSelectRowBegin,
               [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
-            },
-            customClassName
+            }
           )}
           onClick={() => {
             if (!props.selectionMode) return
@@ -311,6 +310,17 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           </div>
         </div>
       )
+
+      const cellNode = props.cellRender
+        ? props.cellRender(originalCell, { date: d.toDate() })
+        : originalCell
+
+      // Ensure the cell node has a key
+      const cellWithKey = React.isValidElement(cellNode)
+        ? React.cloneElement(cellNode, { key: d.valueOf() })
+        : cellNode
+
+      cells.push(cellWithKey)
       iterator = iterator.add(1, 'day')
     }
     return cells
