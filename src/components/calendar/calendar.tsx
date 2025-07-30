@@ -315,10 +315,12 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         ? props.cellRender(originalCell, { date: d.toDate() })
         : originalCell
 
-      // Ensure the cell node has a key
-      const cellWithKey = React.isValidElement(cellNode)
-        ? React.cloneElement(cellNode, { key: d.valueOf() })
-        : cellNode
+      // Wrap with Fragment to ensure key is properly set
+      const cellWithKey = props.cellRender ? (
+        <React.Fragment key={d.valueOf()}>{cellNode}</React.Fragment>
+      ) : (
+        cellNode
+      )
 
       cells.push(cellWithKey)
       iterator = iterator.add(1, 'day')
