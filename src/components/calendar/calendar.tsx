@@ -311,15 +311,13 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         </div>
       )
 
-      const cellNode = props.cellRender
-        ? props.cellRender(originalCell, { date: d.toDate() })
-        : originalCell
-
       // Wrap with Fragment to ensure key is properly set
       const cellWithKey = props.cellRender ? (
-        <React.Fragment key={d.valueOf()}>{cellNode}</React.Fragment>
+        <React.Fragment key={d.valueOf()}>
+          {props.cellRender(originalCell, { date: d.toDate() })}
+        </React.Fragment>
       ) : (
-        cellNode
+        originalCell
       )
 
       cells.push(cellWithKey)
