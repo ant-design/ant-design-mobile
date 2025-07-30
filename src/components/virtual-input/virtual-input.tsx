@@ -275,8 +275,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           [`${classPrefix}-disabled`]: mergedProps.disabled,
           [`${classPrefix}-caret-dragging`]: isCaretDragging,
         })}
-        tabIndex={mergedProps.disabled ? undefined : 0}
-        role='textbox'
         onFocus={onFocus}
         onBlur={onBlur}
         onClick={mergedProps.onClick}
@@ -285,7 +283,10 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           className={`${classPrefix}-content`}
           ref={contentRef}
           aria-disabled={mergedProps.disabled}
-          aria-label={mergedProps.placeholder}
+          // 有值时不要设置 aria-label 否则可能会读两遍
+          aria-label={value ? undefined : mergedProps.placeholder}
+          tabIndex={mergedProps.disabled ? undefined : 0}
+          role='textbox'
           onClick={setCaretPositionToEnd}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
