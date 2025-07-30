@@ -1,5 +1,5 @@
-import { useIsomorphicLayoutEffect } from 'ahooks'
 import { useEvent } from 'rc-util'
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect'
 import React from 'react'
 import { unstable_batchedUpdates } from 'react-dom'
 import runes from 'runes2'
@@ -61,12 +61,12 @@ export default function useMeasure(
   })
 
   // Initialize
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     startMeasure()
   }, [contentChars, rows])
 
   // Measure element height
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (status === MEASURE_STATUS.PREPARE) {
       const fullMeasureHeight = fullMeasureRef.current?.offsetHeight || 0
       const singleRowMeasureHeight =
@@ -83,7 +83,7 @@ export default function useMeasure(
   }, [status])
 
   // Walking measure
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (status === MEASURE_STATUS.MEASURE_WALKING) {
       const diff = walkingIndexes[1] - walkingIndexes[0]
       const midHeight = midMeasureRef.current?.offsetHeight || 0
