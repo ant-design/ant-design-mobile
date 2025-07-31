@@ -1,12 +1,12 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
-import type { ReactNode } from 'react'
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import runes from 'runes2'
+import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
+import { devError } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
-import { devError } from '../../utils/dev-log'
-import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
 
 const classPrefix = 'adm-text-area'
 
@@ -96,8 +96,6 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     const handleKeydown = useInputHandleKeyDown({
       onEnterPress: props.onEnterPress,
       onKeyDown: props.onKeyDown,
-      nativeInputRef: nativeTextAreaRef,
-      enterKeyHint: props.enterKeyHint,
     })
 
     useImperativeHandle(ref, () => ({
@@ -201,6 +199,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onBlur={props.onBlur}
           onClick={props.onClick}
           onKeyDown={handleKeydown}
+          enterKeyHint={props.enterKeyHint}
         />
         {count}
 
