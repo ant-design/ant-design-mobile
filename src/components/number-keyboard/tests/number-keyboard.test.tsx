@@ -204,4 +204,39 @@ describe('NumberKeyboard', () => {
     jest.advanceTimersByTime(10000)
     expect(onDelete).not.toHaveBeenCalled()
   })
+
+  test('long press backspace and release with confirmText', () => {
+    const onDelete = jest.fn()
+    const { container } = render(
+      <NumberKeyboard visible confirmText='确定' onDelete={onDelete} />
+    )
+
+    // Fire touchstart event
+    fireEvent.touchStart(screen.getByTitle(locale.Input.clear), {
+      touches: [{}],
+    })
+    onDelete.mockReset()
+
+    jest.advanceTimersByTime(10000)
+    expect(onDelete).toHaveBeenCalled()
+
+    // release
+    fireEvent.touchEnd(screen.getByTitle(locale.Input.clear), { touches: [{}] })
+    const callTimes = onDelete.mock.calls.length
+    jest.advanceTimersByTime(10000)
+    expect(onDelete.mock.calls.length).toBe(callTimes)
+
+    onDelete.mockReset()
+
+    // We do not fire touchend event to mock ISO missing touchend event
+    // Press other key
+    mockClick(
+      document.body.querySelector(
+        '.adm-number-keyboard-key-number'
+      ) as HTMLDivElement
+    )
+
+    jest.advanceTimersByTime(10000)
+    expect(onDelete).not.toHaveBeenCalled()
+  })
 })
