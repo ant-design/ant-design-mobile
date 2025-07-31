@@ -177,16 +177,20 @@ describe('NumberKeyboard', () => {
     const { container } = render(<NumberKeyboard visible onDelete={onDelete} />)
 
     // Fire touchstart event
-    fireEvent.touchStart(
-      document.body.querySelector(
-        '.adm-number-keyboard-key-sign'
-      ) as HTMLDivElement,
-      { touches: [{}] }
-    )
+    fireEvent.touchStart(screen.getByTitle(locale.Input.clear), {
+      touches: [{}],
+    })
     onDelete.mockReset()
 
     jest.advanceTimersByTime(10000)
     expect(onDelete).toHaveBeenCalled()
+
+    // release
+    fireEvent.touchEnd(screen.getByTitle(locale.Input.clear), { touches: [{}] })
+    const callTimes = onDelete.mock.calls.length
+    jest.advanceTimersByTime(10000)
+    expect(onDelete.mock.calls.length).toBe(callTimes)
+
     onDelete.mockReset()
 
     // We do not fire touchend event to mock ISO missing touchend event
