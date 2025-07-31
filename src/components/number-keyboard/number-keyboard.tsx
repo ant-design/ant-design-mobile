@@ -195,6 +195,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
         // see https://ua-gilded-eef7f9.netlify.app/grid-button-bug.html
         // 所以还是绑定 click，通过 touchEnd 的 preventDefault 防重复触发
         onClick={(e: MouseEvent<HTMLDivElement>) => {
+          stopContinueClear()
           onKeyPress(e, key)
         }}
         {...ariaProps}
