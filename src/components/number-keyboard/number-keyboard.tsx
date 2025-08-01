@@ -173,14 +173,14 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
       <div
         key={key}
         className={className}
-        onTouchStart={() => {
+        onMouseDown={() => {
           stopContinueClear()
 
           if (key === 'BACKSPACE') {
             startContinueClear()
           }
         }}
-        onTouchEnd={e => {
+        onMouseUp={e => {
           onKeyPress(e, key)
           if (key === 'BACKSPACE') {
             stopContinueClear()
@@ -227,10 +227,10 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
               <div className={`${classPrefix}-confirm`}>
                 <div
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-bs`}
-                  onTouchStart={() => {
+                  onMouseDown={() => {
                     startContinueClear()
                   }}
-                  onTouchEnd={e => {
+                  onMouseUp={e => {
                     onKeyPress(e, 'BACKSPACE')
                     stopContinueClear()
                   }}
@@ -246,7 +246,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                 </div>
                 <div
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
-                  onTouchEnd={e => onKeyPress(e, 'OK')}
+                  onClick={e => onKeyPress(e, 'OK')}
                   role='button'
                   tabIndex={-1}
                   aria-label={confirmText}
