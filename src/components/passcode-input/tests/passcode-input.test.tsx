@@ -11,8 +11,7 @@ function getCells() {
 }
 
 function mockClick(el: HTMLElement) {
-  fireEvent.touchStart(el, { touches: [{}] })
-  fireEvent.touchEnd(el, { touches: [{}] })
+  fireEvent.click(el)
 }
 
 describe('PasscodeInput', () => {

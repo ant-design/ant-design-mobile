@@ -154,6 +154,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
 
   const renderKey = (key: string, index: number) => {
     const isNumberKey = /^\d$/.test(key)
+    const isBackspace = key === 'BACKSPACE'
     const className = classNames(`${classPrefix}-key`, {
       [`${classPrefix}-key-number`]: isNumberKey,
       [`${classPrefix}-key-sign`]: !isNumberKey && key,
@@ -164,7 +165,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     const ariaProps = key
       ? {
           role: 'button',
-          title: key,
+          title: isBackspace ? locale.Input.clear : key,
           tabIndex: -1,
         }
       : undefined
@@ -173,22 +174,33 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
       <div
         key={key}
         className={className}
-        onTouchStart={() => {
+        // 仅为  backspace 绑定，支持长按快速删除
+        onTouchStart={
+          isBackspace
+            ? () => {
+                stopContinueClear()
+                startContinueClear()
+              }
+            : undefined
+        }
+        onTouchEnd={
+          isBackspace
+            ? e => {
+                stopContinueClear()
+                onKeyPress(e, key)
+              }
+            : undefined
+        }
+        // <div role="button" title="1" onTouchEnd={e => {}}>1</div> 安卓上 talback 可读不可点
+        // see https://ua-gilded-eef7f9.netlify.app/grid-button-bug.html
+        // 所以还是绑定 click，通过 touchEnd 的 preventDefault 防重复触发
+        onClick={(e: MouseEvent<HTMLDivElement>) => {
           stopContinueClear()
-
-          if (key === 'BACKSPACE') {
-            startContinueClear()
-          }
-        }}
-        onTouchEnd={e => {
           onKeyPress(e, key)
-          if (key === 'BACKSPACE') {
-            stopContinueClear()
-          }
         }}
         {...ariaProps}
       >
-        {key === 'BACKSPACE' ? <TextDeletionOutline /> : key}
+        {isBackspace ? <TextDeletionOutline /> : key}
       </div>
     )
   }
@@ -231,8 +243,12 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                     startContinueClear()
                   }}
                   onTouchEnd={e => {
-                    onKeyPress(e, 'BACKSPACE')
                     stopContinueClear()
+                    onKeyPress(e, 'BACKSPACE')
+                  }}
+                  onClick={e => {
+                    stopContinueClear()
+                    onKeyPress(e, 'BACKSPACE')
                   }}
                   onContextMenu={e => {
                     // Long press should not trigger native context menu
@@ -246,7 +262,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                 </div>
                 <div
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-ok`}
-                  onTouchEnd={e => onKeyPress(e, 'OK')}
+                  onClick={e => onKeyPress(e, 'OK')}
                   role='button'
                   tabIndex={-1}
                   aria-label={confirmText}

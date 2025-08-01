@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { fireEvent, render, screen, testA11y, waitFor } from 'testing'
 import NumberKeyboard from '..'
+import { getDefaultConfig } from '../../config-provider'
 
 const classPrefix = 'adm-number-keyboard'
+const { locale } = getDefaultConfig()
 
 function mockClick(el: HTMLElement) {
-  fireEvent.touchStart(el, { touches: [{}] })
-  fireEvent.touchEnd(el, { touches: [{}] })
+  fireEvent.click(el)
 }
 
 describe('NumberKeyboard', () => {
@@ -65,7 +66,7 @@ describe('NumberKeyboard', () => {
       />
     )
 
-    mockClick(screen.getByTitle('BACKSPACE'))
+    mockClick(screen.getByTitle(locale.Input.clear))
     expect(onDelete).toBeCalled()
 
     mockClick(screen.getByText('-'))
@@ -86,7 +87,7 @@ describe('NumberKeyboard', () => {
       />
     )
     const confirm = screen.getByText('confirm')
-    const del = screen.getByTitle('清除')
+    const del = screen.getByTitle(locale.Input.clear)
     expect(confirm).toBeInTheDocument()
     expect(confirm).toHaveClass(
       `${classPrefix}-key-extra ${classPrefix}-key-ok`
@@ -137,7 +138,7 @@ describe('NumberKeyboard', () => {
     jest.useFakeTimers()
     const onDelete = jest.fn()
     render(<NumberKeyboard visible onDelete={onDelete} />)
-    const del = screen.getByTitle('BACKSPACE')
+    const del = screen.getByTitle(locale.Input.clear)
     fireEvent.touchStart(del, { touches: [{}] })
     jest.runOnlyPendingTimers()
     expect(onDelete).toBeCalledTimes(1)
@@ -176,25 +177,63 @@ describe('NumberKeyboard', () => {
     const { container } = render(<NumberKeyboard visible onDelete={onDelete} />)
 
     // Fire touchstart event
-    fireEvent.touchStart(
-      document.body.querySelector(
-        '.adm-number-keyboard-key-sign'
-      ) as HTMLDivElement,
-      { touches: [{}] }
-    )
+    fireEvent.touchStart(screen.getByTitle(locale.Input.clear), {
+      touches: [{}],
+    })
     onDelete.mockReset()
 
     jest.advanceTimersByTime(10000)
     expect(onDelete).toHaveBeenCalled()
+
+    // release
+    fireEvent.touchEnd(screen.getByTitle(locale.Input.clear), { touches: [{}] })
+    const callTimes = onDelete.mock.calls.length
+    jest.advanceTimersByTime(10000)
+    expect(onDelete.mock.calls.length).toBe(callTimes)
+
     onDelete.mockReset()
 
     // We do not fire touchend event to mock ISO missing touchend event
     // Press other key
-    fireEvent.touchStart(
+    mockClick(
       document.body.querySelector(
         '.adm-number-keyboard-key-number'
-      ) as HTMLDivElement,
-      { touches: [{}] }
+      ) as HTMLDivElement
+    )
+
+    jest.advanceTimersByTime(10000)
+    expect(onDelete).not.toHaveBeenCalled()
+  })
+
+  test('long press backspace and release with confirmText', () => {
+    const onDelete = jest.fn()
+    const { container } = render(
+      <NumberKeyboard visible confirmText='确定' onDelete={onDelete} />
+    )
+
+    // Fire touchstart event
+    fireEvent.touchStart(screen.getByTitle(locale.Input.clear), {
+      touches: [{}],
+    })
+    onDelete.mockReset()
+
+    jest.advanceTimersByTime(10000)
+    expect(onDelete).toHaveBeenCalled()
+
+    // release
+    fireEvent.touchEnd(screen.getByTitle(locale.Input.clear), { touches: [{}] })
+    const callTimes = onDelete.mock.calls.length
+    jest.advanceTimersByTime(10000)
+    expect(onDelete.mock.calls.length).toBe(callTimes)
+
+    onDelete.mockReset()
+
+    // We do not fire touchend event to mock ISO missing touchend event
+    // Press other key
+    mockClick(
+      document.body.querySelector(
+        '.adm-number-keyboard-key-number'
+      ) as HTMLDivElement
     )
 
     jest.advanceTimersByTime(10000)
