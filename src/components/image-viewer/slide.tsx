@@ -16,7 +16,10 @@ type Props = {
   onTap?: () => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
-  imageRender?: (image: string, { index }: { index: number }) => ReactNode
+  imageRender?: (
+    image: string,
+    { ref, index }: { ref: RefObject<HTMLImageElement>; index: number }
+  ) => ReactNode
   index?: number
 }
 
@@ -299,10 +302,7 @@ export const Slide: FC<Props> = props => {
 
   const customRendering =
     typeof imageRender === 'function' &&
-    imageRender(props.image, { ref: imgRef, index } as {
-      index: number
-      ref?: RefObject<HTMLImageElement>
-    })
+    imageRender(props.image, { ref: imgRef, index: index ?? 0 })
 
   return (
     <div className={`${classPrefix}-slide`}>

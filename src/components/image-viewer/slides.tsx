@@ -21,7 +21,7 @@ export type SlidesType = {
   onIndexChange?: (index: number) => void
   imageRender?: (
     image: string,
-    { ref, index }: { ref?: RefObject<HTMLImageElement>; index: number }
+    { ref, index }: { ref: RefObject<HTMLImageElement>; index: number }
   ) => ReactNode
 }
 export type SlidesRef = {

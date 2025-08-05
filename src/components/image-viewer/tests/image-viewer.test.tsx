@@ -247,22 +247,29 @@ describe('ImageViewer.Multi', () => {
   })
 
   test('rendering with imageRender and ref', () => {
+    let capturedRef: any = null
     function App() {
       return (
         <ImageViewer.Multi
           images={demoViewImages}
           visible
-          imageRender={(image, info) => (
-            <div
-              className={`customize-preview-node-${info.index}`}
-              ref={info.ref}
-            />
-          )}
+          imageRender={(image, info) => {
+            capturedRef = info.ref
+            return (
+              <div
+                className={`customize-preview-node-${info.index}`}
+                ref={info.ref}
+              />
+            )
+          }}
         />
       )
     }
     render(<App />)
     expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
+    expect(capturedRef).toBeTruthy()
+    expect(typeof capturedRef).toBe('object')
+    expect(capturedRef.current).toBeDefined()
   })
 })
 
@@ -310,21 +317,25 @@ describe('ImageViewer', () => {
   })
 
   test('rendering with imageRender and ref', () => {
+    let capturedRef: any = null
     function App() {
       return (
         <ImageViewer
           image={demoImages[0]}
           visible
-          imageRender={(image, info) => (
-            <div
-              className={`customize-preview-node-${info.index}`}
-              ref={info.ref}
-            />
-          )}
+          imageRender={(image, { ref, index }) => {
+            capturedRef = ref
+            return (
+              <div className={`customize-preview-node-${index}`} ref={ref} />
+            )
+          }}
         />
       )
     }
     render(<App />)
     expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
+    expect(capturedRef).toBeTruthy()
+    expect(typeof capturedRef).toBe('object')
+    expect(capturedRef.current).toBeDefined()
   })
 })

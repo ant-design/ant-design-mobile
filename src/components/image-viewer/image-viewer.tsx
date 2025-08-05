@@ -29,7 +29,7 @@ export type ImageViewerProps = {
   renderFooter?: (image: string) => ReactNode
   imageRender?: (
     image: string,
-    { ref, index }: { ref?: RefObject<HTMLImageElement>; index: number }
+    { ref, index }: { ref: RefObject<HTMLImageElement>; index: number }
   ) => ReactNode
   classNames?: {
     mask?: string
