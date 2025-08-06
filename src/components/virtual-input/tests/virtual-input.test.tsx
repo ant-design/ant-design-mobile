@@ -1,9 +1,11 @@
 import React, { createRef } from 'react'
 import { act, fireEvent, render, screen, waitFor } from 'testing'
+import { getDefaultConfig } from '../../config-provider'
 import NumberKeyboard from '../../number-keyboard'
 import { VirtualInput, VirtualInputRef } from '../virtual-input'
 
 const classPrefix = 'adm-virtual-input'
+const { locale } = getDefaultConfig()
 const TWO_DIGIT_NUMBER_REGEX = /^(([1-9]\d{0,11})|0)(\.\d{0,2}?)?$/
 
 function getSiblingElements(element: Element | null) {
@@ -183,15 +185,15 @@ describe('VirtualInput', () => {
         document.querySelector(`.${KeyBoardClassPrefix}-popup`)
       ).toBeVisible()
     })
-    fireEvent.touchEnd(screen.getByText('0'))
+    fireEvent.click(screen.getByText('0'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '0'
     )
-    fireEvent.touchEnd(screen.getByText('1'))
+    fireEvent.click(screen.getByText('1'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '01'
     )
-    fireEvent.touchEnd(screen.getByTitle('BACKSPACE'))
+    fireEvent.click(screen.getByTitle(locale.Input.clear))
     expect(
       document.querySelector(`.${classPrefix}-content`)
     ).not.toHaveTextContent('01')
@@ -239,7 +241,7 @@ describe('VirtualInput', () => {
     })
 
     // click '5' by keyboard，content should be '12345'
-    fireEvent.touchEnd(screen.getByText('5'))
+    fireEvent.click(screen.getByText('5'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '12345'
     )
@@ -257,7 +259,7 @@ describe('VirtualInput', () => {
       expect(getCaretPosition(caretContainer)).toBe(3)
 
       // click '9' by keyboard, content should be '123945', caret position should be 4
-      fireEvent.touchEnd(screen.getByText('9'))
+      fireEvent.click(screen.getByText('9'))
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -269,7 +271,7 @@ describe('VirtualInput', () => {
       expect(getCaretPosition(caretContainer)).toBe(4)
 
       // click delete by keyboard, content should be '12345', caret position should be 3
-      fireEvent.touchEnd(screen.getByTitle('清除'))
+      fireEvent.click(screen.getByTitle(locale.Input.clear))
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -306,9 +308,9 @@ describe('VirtualInput', () => {
     })
 
     // click '1', '2', '3' by keyboard，content should be '123'
-    fireEvent.touchEnd(screen.getByText('1'))
-    fireEvent.touchEnd(screen.getByText('2'))
-    fireEvent.touchEnd(screen.getByText('3'))
+    fireEvent.click(screen.getByText('1'))
+    fireEvent.click(screen.getByText('2'))
+    fireEvent.click(screen.getByText('3'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '123'
     )
@@ -327,7 +329,7 @@ describe('VirtualInput', () => {
     expect(getCaretPosition(caretContainer)).toBe(0)
 
     // click '9' by keyboard, content should be '9123', caret position should be 1
-    fireEvent.touchEnd(screen.getByText('9'))
+    fireEvent.click(screen.getByText('9'))
     await waitFor(() => {
       expect(
         document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -339,7 +341,7 @@ describe('VirtualInput', () => {
     expect(getCaretPosition(caretContainer)).toBe(1)
 
     // click delete by keyboard, content should be '123', caret position should be 1
-    fireEvent.touchEnd(screen.getByTitle('清除'))
+    fireEvent.click(screen.getByTitle(locale.Input.clear))
     await waitFor(() => {
       expect(
         document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -397,9 +399,9 @@ describe('VirtualInput', () => {
     })
 
     // click '1', '2', '3' by keyboard，content should be '123'
-    fireEvent.touchEnd(screen.getByTitle('1'))
-    fireEvent.touchEnd(screen.getByTitle('0'))
-    fireEvent.touchEnd(screen.getByTitle('3'))
+    fireEvent.click(screen.getByTitle('1'))
+    fireEvent.click(screen.getByTitle('0'))
+    fireEvent.click(screen.getByTitle('3'))
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '103'
     )
@@ -411,9 +413,9 @@ describe('VirtualInput', () => {
       expect(getCaretPosition(caretContainer)).toBe(3)
 
       //  输入小数部分
-      fireEvent.touchEnd(screen.getByTitle('.'))
-      fireEvent.touchEnd(screen.getByTitle('4'))
-      fireEvent.touchEnd(screen.getByTitle('5'))
+      fireEvent.click(screen.getByTitle('.'))
+      fireEvent.click(screen.getByTitle('4'))
+      fireEvent.click(screen.getByTitle('5'))
 
       expect(
         document.querySelector(`.${classPrefix}-content`)
@@ -425,7 +427,7 @@ describe('VirtualInput', () => {
         clickSiblingElements(caretContainer, 2, true)
       })
       expect(getCaretPosition(caretContainer)).toBe(2)
-      fireEvent.touchEnd(screen.getByTitle('.'))
+      fireEvent.click(screen.getByTitle('.'))
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('103.45')
@@ -436,7 +438,7 @@ describe('VirtualInput', () => {
         clickSiblingElements(caretContainer, 0, true)
       })
       expect(getCaretPosition(caretContainer)).toBe(0)
-      fireEvent.touchEnd(screen.getByTitle('.'))
+      fireEvent.click(screen.getByTitle('.'))
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('103.45')
@@ -448,7 +450,7 @@ describe('VirtualInput', () => {
       })
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.touchEnd(screen.getByTitle('清除')) // 点删除
+      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -465,7 +467,7 @@ describe('VirtualInput', () => {
       })
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.touchEnd(screen.getByTitle('清除')) // 点删除
+      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -482,13 +484,13 @@ describe('VirtualInput', () => {
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('0')
 
-      fireEvent.touchEnd(screen.getByTitle('9')) // 在 0 时输入 9，则为 9
+      fireEvent.click(screen.getByTitle('9')) // 在 0 时输入 9，则为 9
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('9')
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.touchEnd(screen.getByTitle('清除')) // 点删除
+      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('0')
@@ -533,12 +535,12 @@ describe('VirtualInput', () => {
     expect(targetElement).not.toBeNull()
 
     // click '1', '2', '3' by keyboard，content should be '123'
-    fireEvent.touchEnd(screen.getByTitle('1'))
-    fireEvent.touchEnd(screen.getByTitle('0'))
-    fireEvent.touchEnd(screen.getByTitle('3'))
-    fireEvent.touchEnd(screen.getByTitle('.'))
-    fireEvent.touchEnd(screen.getByTitle('4'))
-    fireEvent.touchEnd(screen.getByTitle('5'))
+    fireEvent.click(screen.getByTitle('1'))
+    fireEvent.click(screen.getByTitle('0'))
+    fireEvent.click(screen.getByTitle('3'))
+    fireEvent.click(screen.getByTitle('.'))
+    fireEvent.click(screen.getByTitle('4'))
+    fireEvent.click(screen.getByTitle('5'))
     expect(targetElement).toHaveTextContent('103.45')
     const caretContainer = input.querySelector(
       `.${classPrefix}-caret-container`
@@ -634,9 +636,9 @@ describe('VirtualInput', () => {
     const targetElement = input.querySelector(`.${classPrefix}-content`)
 
     // click '1', '2', '3' by keyboard，content should be '123'
-    fireEvent.touchEnd(screen.getByText('1'))
-    fireEvent.touchEnd(screen.getByText('2'))
-    fireEvent.touchEnd(screen.getByText('3'))
+    fireEvent.click(screen.getByText('1'))
+    fireEvent.click(screen.getByText('2'))
+    fireEvent.click(screen.getByText('3'))
     expect(targetElement).toHaveTextContent('123')
     const caretContainer = input.querySelector(
       `.${classPrefix}-caret-container`

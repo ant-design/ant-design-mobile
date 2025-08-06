@@ -12,7 +12,7 @@
 
 ## 示例
 
-tips: 建议在移动端打开 demo 预览效果更佳，因为组件使用的 touch 事件在 web 端看不到效果
+tips: 仅移动端下删除按钮支持长按快删（通过 touchStart/touchEnd 实现）。
 
 <code src="./demos/demo1.tsx"></code>
 
