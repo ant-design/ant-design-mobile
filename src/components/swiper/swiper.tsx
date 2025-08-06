@@ -1,25 +1,26 @@
+import { animated, useSpring } from '@react-spring/web'
+import { useDrag } from '@use-gesture/react'
+import { useGetState, useIsomorphicLayoutEffect } from 'ahooks'
+import classNames from 'classnames'
+import type { CSSProperties, ReactElement, ReactNode } from 'react'
 import React, {
   forwardRef,
+  useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
   useState,
 } from 'react'
-import type { ReactNode, CSSProperties, ReactElement } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
-import { SwiperItem } from './swiper-item'
-import { devWarning } from '../../utils/dev-log'
-import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from '@use-gesture/react'
-import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
-import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { useIsomorphicLayoutEffect, useGetState } from 'ahooks'
+import { devWarning } from '../../utils/dev-log'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useRefState } from '../../utils/use-ref-state'
+import { mergeProps } from '../../utils/with-default-props'
 import { mergeFuncProps } from '../../utils/with-func-props'
+import PageIndicator, { PageIndicatorProps } from '../page-indicator'
+import { SwiperItem } from './swiper-item'
 
 const classPrefix = `adm-swiper`
 
@@ -317,7 +318,11 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
       // ============================== Render ==============================
       // Render Item
-      function renderItem(index: number, child: React.ReactNode) {
+      function renderItem(
+        index: number,
+        child: React.ReactNode,
+        key?: React.Key
+      ) {
         let itemStyle: React.CSSProperties = {}
 
         if (loop) {
@@ -340,14 +345,14 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               [`${classPrefix}-slide-active`]: current === index,
             })}
             style={itemStyle}
-            key={index}
+            key={key ?? index}
           >
             {child}
           </animated.div>
         )
       }
 
-      function renderItems() {
+      const renderStableItems = useCallback(() => {
         if (renderChildren && total) {
           const offsetCount = 2
           const startIndex = Math.max(current - offsetCount, 0)
@@ -355,7 +360,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
           const items: ReactElement[] = []
           for (let index = startIndex; index <= endIndex; index += 1) {
-            items.push(renderItem(index, renderChildren(index)))
+            items.push(renderItem(index, renderChildren(index), index))
           }
 
           return (
@@ -371,9 +376,27 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           )
         }
 
-        return React.Children.map(validChildren, (child, index) => {
-          return renderItem(index, child)
-        })
+        if (validChildren) {
+          return validChildren.map((child, index) => {
+            const key = child?.key ?? index
+            return renderItem(index, child, key)
+          })
+        }
+
+        return null
+      }, [
+        validChildren,
+        renderChildren,
+        total,
+        current,
+        isVertical,
+        position,
+        mergedTotal,
+        loop,
+      ])
+
+      function renderItems() {
+        return renderStableItems()
       }
 
       // Render Track Inner

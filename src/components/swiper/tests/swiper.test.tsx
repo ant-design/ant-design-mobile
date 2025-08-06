@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'
-import { render, testA11y, fireEvent, screen, mockDrag } from 'testing'
-import Swiper, { SwiperRef } from '..'
 import { act } from '@testing-library/react'
+import React, { useRef, useState } from 'react'
+import { fireEvent, mockDrag, render, screen, testA11y } from 'testing'
+import Swiper, { SwiperRef } from '..'
 
 const classPrefix = `adm-swiper`
 
@@ -379,5 +379,45 @@ describe('Swiper', () => {
     )
 
     expect(container).toMatchSnapshot()
+  })
+
+  test('should not remount items when reordering', () => {
+    const mountLog: any[] = []
+
+    const TestItem = ({ id }: { id: string }) => {
+      React.useEffect(() => {
+        mountLog.push(id)
+      }, [])
+      return <div data-testid={`item-${id}`}>Item {id}</div>
+    }
+
+    const TestApp = () => {
+      const [items, setItems] = React.useState(['a', 'b', 'c'])
+      return (
+        <>
+          <Swiper>
+            {items.map(id => (
+              <Swiper.Item key={id}>
+                <TestItem id={id} />
+              </Swiper.Item>
+            ))}
+          </Swiper>
+          <button
+            data-testid='change-order'
+            onClick={() => setItems(['c', 'a', 'b'])}
+          >
+            Change Order
+          </button>
+        </>
+      )
+    }
+
+    const { getByTestId } = render(<TestApp />)
+
+    expect(mountLog).toEqual(['a', 'b', 'c'])
+
+    fireEvent.click(getByTestId('change-order'))
+
+    expect(mountLog).toEqual(['a', 'b', 'c'])
   })
 })
