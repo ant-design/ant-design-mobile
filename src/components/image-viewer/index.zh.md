@@ -21,7 +21,7 @@
 | maxZoom | 最大缩放比例 | `number \| 'auto'` | `3` |  |
 | onClose | 关闭时触发 | `() => void` | - |  |
 | renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |  |
-| imageRender | 自定义渲染内容 | `(image: string, { index }: { index: number }) => ReactNode` | - | 5.39.0 |
+| imageRender | 自定义渲染内容 | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - | 5.39.0 |
 | visible | 是否显示 | `boolean` | `false` |  |
 
 ## ImageViewer.Multi
@@ -33,7 +33,7 @@
 | images | 图片资源的 url 列表 | `string[]` | - |  |
 | onIndexChange | 切换图片时触发 | `(index: number) => void` | - |  |
 | renderFooter | 渲染底部额外内容 | `(image: string, index: number) => ReactNode` | - |  |
-| imageRender | 自定义渲染内容 | `(image: string, {ref, index }: {ref?:RefObject<HTMLImageElement>, index: number }) => ReactNode` | - |  |
+| imageRender | 自定义渲染内容 | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - |  |
 
 其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
 
