@@ -2,6 +2,7 @@ import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import { useGetState, useIsomorphicLayoutEffect } from 'ahooks'
 import classNames from 'classnames'
+import toArray from 'rc-util/lib/Children/toArray'
 import type { CSSProperties, ReactElement, ReactNode } from 'react'
 import React, {
   forwardRef,
@@ -105,17 +106,18 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       if (typeof children === 'function') {
         renderChildren = children
       } else {
-        validChildren = React.Children.map(children, child => {
+        const childrenArray = toArray(children)
+        validChildren = childrenArray.filter(child => {
           if (!React.isValidElement(child)) return null
           if (child.type !== SwiperItem) {
             devWarning(
               'Swiper',
               'The children of `Swiper` must be `Swiper.Item` components.'
             )
-            return null
+            return false
           }
           count++
-          return child
+          return true
         })
       }
 
@@ -377,8 +379,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
         if (validChildren) {
           return validChildren.map((child, index) => {
-            const key = child?.key ?? index
-            return renderItem(index, child, key)
+            return renderItem(index, child, child?.key ?? index)
           })
         }
 
