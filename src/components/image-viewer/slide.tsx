@@ -1,6 +1,6 @@
 import { animated, useSpring } from '@react-spring/web'
 import { useSize } from 'ahooks'
-import type { FC, MutableRefObject, ReactNode } from 'react'
+import type { FC, MutableRefObject, ReactNode, RefObject } from 'react'
 import React, { useRef } from 'react'
 import { bound } from '../../utils/bound'
 import type { Matrix } from '../../utils/matrix'
@@ -16,7 +16,10 @@ type Props = {
   onTap?: () => void
   onZoomChange?: (zoom: number) => void
   dragLockRef?: MutableRefObject<boolean>
-  imageRender?: (image: string, { index }: { index: number }) => ReactNode
+  imageRender?: (
+    image: string,
+    { ref, index }: { ref: RefObject<HTMLImageElement>; index: number }
+  ) => ReactNode
   index?: number
 }
 
@@ -299,7 +302,7 @@ export const Slide: FC<Props> = props => {
 
   const customRendering =
     typeof imageRender === 'function' &&
-    imageRender(props.image, { index } as { index: number })
+    imageRender(props.image, { ref: imgRef, index: index ?? 0 })
 
   return (
     <div className={`${classPrefix}-slide`}>
