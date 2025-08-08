@@ -5,7 +5,6 @@ import classNames from 'classnames'
 import type { CSSProperties, ReactElement, ReactNode } from 'react'
 import React, {
   forwardRef,
-  useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -352,7 +351,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         )
       }
 
-      const renderStableItems = useCallback(() => {
+      const renderStableItems = () => {
         if (renderChildren && total) {
           const offsetCount = 2
           const startIndex = Math.max(current - offsetCount, 0)
@@ -384,16 +383,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         }
 
         return null
-      }, [
-        validChildren,
-        renderChildren,
-        total,
-        current,
-        isVertical,
-        position,
-        mergedTotal,
-        loop,
-      ])
+      }
 
       function renderItems() {
         return renderStableItems()
