@@ -22,6 +22,14 @@ const defaultProps = {
 export const Avatar: FC<AvatarProps> = p => {
   const props = mergeProps(defaultProps, p)
   const mergedSrc = props.src?.trim() || undefined
+
+  if (!mergedSrc) {
+    return withNativeProps(
+      props,
+      <div className={classPrefix}>{props.fallback}</div>
+    )
+  }
+
   return withNativeProps(
     props,
     <Image
