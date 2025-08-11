@@ -1,3 +1,9 @@
+import { animated, useSpring } from '@react-spring/web'
+import { useDrag } from '@use-gesture/react'
+import { useGetState, useIsomorphicLayoutEffect } from 'ahooks'
+import classNames from 'classnames'
+import toArray from 'rc-util/lib/Children/toArray'
+import type { CSSProperties, ReactElement, ReactNode } from 'react'
 import React, {
   forwardRef,
   useEffect,
@@ -6,20 +12,15 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import type { ReactNode, CSSProperties, ReactElement } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import classNames from 'classnames'
-import { SwiperItem } from './swiper-item'
-import { devWarning } from '../../utils/dev-log'
-import { useSpring, animated } from '@react-spring/web'
-import { useDrag } from '@use-gesture/react'
-import PageIndicator, { PageIndicatorProps } from '../page-indicator'
 import { staged } from 'staged-components'
-import { useRefState } from '../../utils/use-ref-state'
 import { bound } from '../../utils/bound'
-import { useIsomorphicLayoutEffect, useGetState } from 'ahooks'
+import { devWarning } from '../../utils/dev-log'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useRefState } from '../../utils/use-ref-state'
+import { mergeProps } from '../../utils/with-default-props'
 import { mergeFuncProps } from '../../utils/with-func-props'
+import PageIndicator, { PageIndicatorProps } from '../page-indicator'
+import { SwiperItem } from './swiper-item'
 
 const classPrefix = `adm-swiper`
 
@@ -105,17 +106,18 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       if (typeof children === 'function') {
         renderChildren = children
       } else {
-        validChildren = React.Children.map(children, child => {
+        const childrenArray = toArray(children)
+        validChildren = childrenArray.filter(child => {
           if (!React.isValidElement(child)) return null
           if (child.type !== SwiperItem) {
             devWarning(
               'Swiper',
               'The children of `Swiper` must be `Swiper.Item` components.'
             )
-            return null
+            return false
           }
           count++
-          return child
+          return true
         })
       }
 
@@ -317,7 +319,11 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
       // ============================== Render ==============================
       // Render Item
-      function renderItem(index: number, child: React.ReactNode) {
+      function renderItem(
+        index: number,
+        child: React.ReactNode,
+        key?: React.Key
+      ) {
         let itemStyle: React.CSSProperties = {}
 
         if (loop) {
@@ -340,14 +346,14 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
               [`${classPrefix}-slide-active`]: current === index,
             })}
             style={itemStyle}
-            key={index}
+            key={key ?? index}
           >
             {child}
           </animated.div>
         )
       }
 
-      function renderItems() {
+      const renderStableItems = () => {
         if (renderChildren && total) {
           const offsetCount = 2
           const startIndex = Math.max(current - offsetCount, 0)
@@ -355,7 +361,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
           const items: ReactElement[] = []
           for (let index = startIndex; index <= endIndex; index += 1) {
-            items.push(renderItem(index, renderChildren(index)))
+            items.push(renderItem(index, renderChildren(index), index))
           }
 
           return (
@@ -371,9 +377,17 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           )
         }
 
-        return React.Children.map(validChildren, (child, index) => {
-          return renderItem(index, child)
-        })
+        if (validChildren) {
+          return validChildren.map((child, index) => {
+            return renderItem(index, child, child?.key ?? index)
+          })
+        }
+
+        return null
+      }
+
+      function renderItems() {
+        return renderStableItems()
       }
 
       // Render Track Inner
