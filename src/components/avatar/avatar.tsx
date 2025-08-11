@@ -11,7 +11,10 @@ export type AvatarProps = {
   src: string
   fallback?: ReactNode
   fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
-} & Pick<ImageProps, 'alt' | 'lazy' | 'onClick' | 'onError' | 'onLoad'> &
+  onClick?: (
+    event: React.MouseEvent<HTMLDivElement | HTMLImageElement, Event>
+  ) => void
+} & Pick<ImageProps, 'alt' | 'lazy' | 'onError' | 'onLoad'> &
   NativeProps<'--size' | '--border-radius'>
 
 const defaultProps = {
@@ -26,7 +29,14 @@ export const Avatar: FC<AvatarProps> = p => {
   if (!mergedSrc) {
     return withNativeProps(
       props,
-      <div className={classPrefix}>{props.fallback}</div>
+      <div
+        className={classPrefix}
+        onClick={props.onClick}
+        role='img'
+        aria-label={props.alt || 'avatar'}
+      >
+        {props.fallback}
+      </div>
     )
   }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, testA11y } from 'testing'
+import { fireEvent, render, testA11y } from 'testing'
 import Avatar from '..'
 
 const demoImage =
@@ -27,5 +27,38 @@ describe('Avatar', () => {
   test('whitespace src should show fallback', () => {
     render(<Avatar src={'   '} />)
     expect(document.querySelectorAll('.adm-avatar-fallback')[0]).toBeVisible()
+  })
+
+  test('onClick should work in fallback scenario', () => {
+    const handleClick = jest.fn()
+    const { container } = render(<Avatar src='' onClick={handleClick} />)
+
+    const avatar = container.querySelector('.adm-avatar')
+    expect(avatar).toBeVisible()
+
+    if (avatar) {
+      fireEvent.click(avatar)
+    }
+
+    expect(handleClick).toHaveBeenCalledTimes(1)
+  })
+
+  test('onClick should work in normal scenario', async () => {
+    const handleClick = jest.fn()
+    const { container } = render(
+      <Avatar src={demoImage} onClick={handleClick} />
+    )
+
+    const avatar = container.querySelector('.adm-avatar')
+    expect(avatar).toBeVisible()
+
+    const img = avatar?.querySelector('img')
+    expect(img).toBeInTheDocument()
+
+    if (img) {
+      fireEvent.click(img)
+    }
+
+    expect(handleClick).toHaveBeenCalledTimes(1)
   })
 })
