@@ -361,7 +361,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
           const items: ReactElement[] = []
           for (let index = startIndex; index <= endIndex; index += 1) {
-            items.push(renderItem(index, renderChildren(index), index))
+            items.push(renderItem(index, renderChildren(index)))
           }
 
           return (
@@ -378,9 +378,9 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         }
 
         if (validChildren) {
-          return validChildren.map((child, index) => {
-            return renderItem(index, child, child?.key ?? index)
-          })
+          return validChildren.map((child, index) =>
+            renderItem(index, child, child?.key ?? index)
+          )
         }
 
         return null
