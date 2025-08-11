@@ -1,9 +1,9 @@
-import React from 'react'
 import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-import { Fallback } from './fallback'
 import Image, { ImageProps } from '../image'
+import { Fallback } from './fallback'
 
 const classPrefix = 'adm-avatar'
 
@@ -21,11 +21,12 @@ const defaultProps = {
 
 export const Avatar: FC<AvatarProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const validSrc = props.src?.trim() || undefined
   return withNativeProps(
     props,
     <Image
       className={classPrefix}
-      src={props.src}
+      src={validSrc}
       fallback={props.fallback}
       placeholder={props.fallback}
       alt={props.alt}
