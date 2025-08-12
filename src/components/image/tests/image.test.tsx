@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, render, act } from 'testing'
+import { act, fireEvent, render } from 'testing'
 import Image from '../index'
 
 const classPrefix = `adm-image`
@@ -48,8 +48,9 @@ describe('Image', () => {
     window.IntersectionObserver = mockIntersectionObserver
 
     render(<Image src={demoSrc} lazy />)
-    const img = document.querySelectorAll(`.${classPrefix}-img`)[0]
-    expect(img).not.toHaveAttribute('src')
+    // 初始状态下，由于懒加载，img 元素不应该存在
+    let img = document.querySelectorAll(`.${classPrefix}-img`)[0]
+    expect(img).toBeUndefined()
 
     const calls = mockIntersectionObserver.mock.calls
     const [onChange] = calls[calls.length - 1]
@@ -60,6 +61,7 @@ describe('Image', () => {
         },
       ])
     })
+    img = document.querySelectorAll(`.${classPrefix}-img`)[0]
     expect(img).toHaveAttribute('src', demoSrc)
   })
 
