@@ -14,4 +14,18 @@ describe('Avatar', () => {
     render(<Avatar src='/404' />)
     expect(document.querySelectorAll('.adm-avatar-fallback')[0]).toBeVisible()
   })
+
+  test('empty src should show fallback', () => {
+    render(<Avatar src='' />)
+    const avatar = document.querySelector('.adm-avatar')
+    expect(avatar).toBeVisible()
+    const img = avatar?.querySelector('img')
+    expect(img?.getAttribute('src')).toBeFalsy()
+    expect(document.querySelectorAll('.adm-avatar-fallback')[0]).toBeVisible()
+  })
+
+  test('whitespace src should show fallback', () => {
+    render(<Avatar src={'   '} />)
+    expect(document.querySelectorAll('.adm-avatar-fallback')[0]).toBeVisible()
+  })
 })
