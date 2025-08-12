@@ -84,11 +84,13 @@ export const Image = staged<ImageProps>(p => {
   }, [])
 
   function renderInner() {
-    if (!src) {
-      return <>{props.fallback}</>
-    }
     if (failed) {
       return <>{props.fallback}</>
+    }
+    if (src === undefined && !srcSet) {
+      return (
+        <>{props.lazy && !initialized ? props.placeholder : props.fallback}</>
+      )
     }
     const img = (
       <img
