@@ -5,13 +5,14 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
+  useMemo,
 } from 'react'
 import { bound } from '../../utils/bound'
 import { convertPx } from '../../utils/convert-px'
 import { Slide } from './slide'
+import { isRtl } from '../../utils/get-is-rtl'
 
 const classPrefix = `adm-image-viewer`
-
 export type SlidesType = {
   images: string[]
   onTap?: () => void
@@ -19,6 +20,7 @@ export type SlidesType = {
   defaultIndex: number
   onIndexChange?: (index: number) => void
   imageRender?: (image: string, { index }: { index: number }) => ReactNode
+  dir?: 'rtl' | 'ltr' | 'auto'
 }
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
@@ -30,7 +32,9 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
     x: props.defaultIndex * slideWidth,
     config: { tension: 250, clamp: true },
   }))
-
+  const isRtlMode = useMemo(() => {
+    return props.dir === 'rtl' || isRtl() || false
+  }, [props.dir])
   const count = props.images.length
 
   function swipeTo(index: number, immediate = false) {
@@ -71,7 +75,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
       }
     },
     {
-      transform: ([x, y]) => [-x, y],
+      transform: ([x, y]) => (isRtlMode ? [x, y] : [-x, y]),
       from: () => [x.get(), 0],
       bounds: () => ({
         left: 0,
@@ -93,7 +97,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
       </animated.div>
       <animated.div
         className={`${classPrefix}-slides-inner`}
-        style={{ x: x.to(x => -x) }}
+        style={{ x: x.to(x => (isRtlMode ? x : -x)) }}
       >
         {props.images.map((image, index) => (
           <Slide
