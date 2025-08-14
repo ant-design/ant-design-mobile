@@ -1,11 +1,11 @@
 import React from 'react'
-import {
-  ImageViewerProps,
-  ImageViewer,
-  MultiImageViewerProps,
-  MultiImageViewer,
-} from './image-viewer'
 import { renderImperatively } from '../../utils/render-imperatively'
+import {
+  ImageViewer,
+  ImageViewerProps,
+  MultiImageViewer,
+  MultiImageViewerProps,
+} from './image-viewer'
 
 export type ImageViewerShowHandler = {
   close: () => void

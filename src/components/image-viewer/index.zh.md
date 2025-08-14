@@ -21,7 +21,7 @@
 | maxZoom | 最大缩放比例 | `number \| 'auto'` | `3` |  |
 | onClose | 关闭时触发 | `() => void` | - |  |
 | renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |  |
-| imageRender | 自定义渲染内容 | `(image: string, { index }: { index: number }) => ReactNode` | - | 5.39.0 |
+| imageRender | 自定义渲染内容 | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - | 5.39.0 |
 | visible | 是否显示 | `boolean` | `false` |  |
 
 ## ImageViewer.Multi
@@ -33,7 +33,7 @@
 | images | 图片资源的 url 列表 | `string[]` | - |  |
 | onIndexChange | 切换图片时触发 | `(index: number) => void` | - |  |
 | renderFooter | 渲染底部额外内容 | `(image: string, index: number) => ReactNode` | - |  |
-| imageRender | 自定义渲染内容 | `(image: string, { index }: { index: number }) => ReactNode` | - |  |
+| imageRender | 自定义渲染内容 | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - |  |
 
 其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
 
@@ -84,3 +84,26 @@ ImageViewer.Multi 是一个[非受控](https://reactjs.org/docs/glossary.html#co
 ```
 
 你可以使用 ref 来对 ImageViewer.Multi 进行手动的操作，也可以考虑使用 `ImageViewer.show()`。
+
+### 为什么我自定义的图片预览不支持手势？
+
+由于在 ImageViewer 中使用了默认的图片预览机制，若需进行自定义渲染，可根据实际需求手动传入 ref，并在自定义渲染的标签元素上自行绑定该 ref。
+
+```jsx
+  <ImageViewer.Multi
+        images={demoViewImages}
+        visible={visible}
+        imageRender={(image, info) => {
+          if (info.index === 0)
+            return (
+              <div className={styles['image-render']} ref={info.ref}>
+                <video muted width='100%' controls src={image} />
+              </div>
+            )
+        }}
+        defaultIndex={0}
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
+```
