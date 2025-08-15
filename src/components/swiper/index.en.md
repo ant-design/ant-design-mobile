@@ -38,6 +38,8 @@ Use `total` with `renderProps` for render. Not support `loop`
 
 <code src="./demos/demo8.tsx"></code>
 
+<code src="./demos/demo9.tsx" debug></code>
+
 <code src="./demos/demo6.tsx" debug></code>
 
 <code src="./demos/demo7.tsx" debug></code>

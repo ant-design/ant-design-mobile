@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { render, testA11y, fireEvent } from 'testing'
+import { fireEvent, render, testA11y } from 'testing'
 import Tabs, { TabsProps } from '..'
 
 const classPrefix = `adm-tabs`
@@ -124,5 +124,34 @@ describe('Tabs', () => {
       </Tabs>
     )
     expect(container).toMatchSnapshot()
+  })
+
+  test('tabs should be focusable and keyboard-navigable', async () => {
+    const { getByText } = render(<Basic />)
+
+    const fruitsTab = getByText('fruits')
+    const vegetablesTab = getByText('vegetables')
+    const animalsTab = getByText('animals')
+
+    expect(fruitsTab).toHaveAttribute('tabIndex', '0')
+    expect(vegetablesTab).toHaveAttribute('tabIndex', '-1')
+    expect(animalsTab).toHaveAttribute('tabIndex', '-1')
+
+    fruitsTab.focus()
+    expect(fruitsTab).toHaveFocus()
+
+    fireEvent.keyDown(fruitsTab, { key: 'ArrowRight' })
+    expect(vegetablesTab).toHaveFocus()
+    expect(vegetablesTab).toHaveClass(`${classPrefix}-tab-active`)
+    expect(fruitsTab).toHaveAttribute('tabIndex', '-1')
+    expect(vegetablesTab).toHaveAttribute('tabIndex', '0')
+
+    fireEvent.keyDown(vegetablesTab, { key: 'ArrowRight' })
+    expect(animalsTab).toHaveFocus()
+    expect(animalsTab).toHaveClass(`${classPrefix}-tab-active`)
+
+    fireEvent.keyDown(animalsTab, { key: 'ArrowLeft' })
+    expect(vegetablesTab).toHaveFocus()
+    expect(vegetablesTab).toHaveClass(`${classPrefix}-tab-active`)
   })
 })

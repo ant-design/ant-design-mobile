@@ -22,6 +22,8 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 
 <code src="./demos/demo5.tsx"></code>
 
+<code src="./demos/demo6.tsx"></code>
+
 ## Calendar
 
 ### Props
@@ -30,10 +32,11 @@ When the user needs to enter a date, he can select it in the pop-up date panel.
 | --- | --- | --- | --- | --- |
 | allowClear | Whether to allow clearing after another click. | `boolean` | `true` |
 | defaultValue | The default selected date or date range. | Same as `value` prop. | - |
-| max | Maximum value of a selectable range. | `Date` | - |
-| min | Minimum value of a selectable range. | `Date` | - | - |
-| maxPage | Maximum visible page of date. | `Page` |
-| minPage | Minimum visible page of date. | `Page` | - |
+| max | Maximum value of a selectable range. | `Date` | - |  |
+| min | Minimum value of a selectable range. | `Date` | - |  |
+| maxPage | Maximum visible page of date. | `Page` | - |  |
+| minPage | Minimum visible page of date. | `Page` | - |  |
+| cellRender | Custom render function for calendar cells. | `(oriNode: ReactElement, info: { date: Date }) => ReactNode` | - |  |
 | nextMonthButton | Contents of the Next Month button on the navigation pane | `React.ReactNode` | `>` |
 | nextYearButton | Contents of the next Year button on the navigation pane | `React.ReactNode` | `>>` |
 | onChange | Trigger when selected date changes. | `(val: Date \| null) => void` when selection mode is "single". `(val: [Date, Date] \| null) => void` when selection mode is "range". | - |
