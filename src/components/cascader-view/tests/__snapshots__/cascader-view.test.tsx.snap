@@ -35,6 +35,7 @@ exports[`CascaderView basic usage 1`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -50,6 +51,7 @@ exports[`CascaderView basic usage 1`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -300,6 +302,7 @@ exports[`CascaderView basic usage 2`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -315,6 +318,7 @@ exports[`CascaderView basic usage 2`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -330,6 +334,7 @@ exports[`CascaderView basic usage 2`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -699,6 +704,7 @@ exports[`CascaderView basic usage 3`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -714,6 +720,7 @@ exports[`CascaderView basic usage 3`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -729,6 +736,7 @@ exports[`CascaderView basic usage 3`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1136,6 +1144,7 @@ exports[`CascaderView controlled mode 1`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1151,6 +1160,7 @@ exports[`CascaderView controlled mode 1`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1166,6 +1176,7 @@ exports[`CascaderView controlled mode 1`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1573,6 +1584,7 @@ exports[`CascaderView same value in options 1`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1588,6 +1600,7 @@ exports[`CascaderView same value in options 1`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1798,6 +1811,7 @@ exports[`CascaderView same value in options 2`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1813,6 +1827,7 @@ exports[`CascaderView same value in options 2`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -1828,6 +1843,7 @@ exports[`CascaderView same value in options 2`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2137,6 +2153,7 @@ exports[`CascaderView same value in options 3`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2152,6 +2169,7 @@ exports[`CascaderView same value in options 3`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2167,6 +2185,7 @@ exports[`CascaderView same value in options 3`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2514,6 +2533,7 @@ exports[`CascaderView test fieldNames 1`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2529,6 +2549,7 @@ exports[`CascaderView test fieldNames 1`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2779,6 +2800,7 @@ exports[`CascaderView test fieldNames 2`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2794,6 +2816,7 @@ exports[`CascaderView test fieldNames 2`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -2809,6 +2832,7 @@ exports[`CascaderView test fieldNames 2`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -3178,6 +3202,7 @@ exports[`CascaderView test fieldNames 3`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -3193,6 +3218,7 @@ exports[`CascaderView test fieldNames 3`] = `
               aria-selected="false"
               class="adm-tabs-tab"
               role="tab"
+              tabindex="-1"
             >
               <div
                 class="adm-cascader-view-header-title"
@@ -3208,6 +3234,7 @@ exports[`CascaderView test fieldNames 3`] = `
               aria-selected="true"
               class="adm-tabs-tab adm-tabs-tab-active"
               role="tab"
+              tabindex="0"
             >
               <div
                 class="adm-cascader-view-header-title"

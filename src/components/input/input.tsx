@@ -93,8 +93,6 @@ export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const handleKeydown = useInputHandleKeyDown({
     onEnterPress: mergedProps.onEnterPress,
     onKeyDown: mergedProps.onKeyDown,
-    nativeInputRef,
-    enterKeyHint: mergedProps.enterKeyHint,
   })
 
   useImperativeHandle(ref, () => ({

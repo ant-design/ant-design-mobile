@@ -1,26 +1,26 @@
+import { useUpdateEffect } from 'ahooks'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import isoWeek from 'dayjs/plugin/isoWeek'
 import React, {
   forwardRef,
   ReactNode,
-  useState,
+  useEffect,
   useImperativeHandle,
   useMemo,
-  useEffect,
+  useState,
 } from 'react'
+import { devWarning } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import dayjs from 'dayjs'
-import classNames from 'classnames'
+import { replaceMessage } from '../../utils/replace-message'
+import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import { ArrowLeft } from './arrow-left'
 import { ArrowLeftDouble } from './arrow-left-double'
-import { useConfig } from '../config-provider'
-import isoWeek from 'dayjs/plugin/isoWeek'
-import { useUpdateEffect } from 'ahooks'
-import { usePropsValue } from '../../utils/use-props-value'
-import { replaceMessage } from '../../utils/replace-message'
-import { devWarning } from '../../utils/dev-log'
 import {
-  convertValueToRange,
   convertPageToDayjs,
+  convertValueToRange,
   DateRange,
   Page,
 } from './convert'
@@ -43,6 +43,7 @@ export type CalendarProps = {
   weekStartsOn?: 'Monday' | 'Sunday'
   renderLabel?: (date: Date) => React.ReactNode
   renderDate?: (date: Date) => React.ReactNode
+  cellRender?: (oriNode: React.ReactElement, info: { date: Date }) => ReactNode
   allowClear?: boolean
   max?: Date
   min?: Date
@@ -244,7 +245,8 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         ? props.shouldDisableDate(d.toDate())
         : (maxDay && d.isAfter(maxDay, 'day')) ||
           (minDay && d.isBefore(minDay, 'day'))
-      cells.push(
+
+      const originalCell = (
         <div
           key={d.valueOf()}
           className={classNames(
@@ -308,6 +310,17 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           </div>
         </div>
       )
+
+      // Wrap with Fragment to ensure key is properly set
+      const cellWithKey = props.cellRender ? (
+        <React.Fragment key={d.valueOf()}>
+          {props.cellRender(originalCell, { date: d.toDate() })}
+        </React.Fragment>
+      ) : (
+        originalCell
+      )
+
+      cells.push(cellWithKey)
       iterator = iterator.add(1, 'day')
     }
     return cells

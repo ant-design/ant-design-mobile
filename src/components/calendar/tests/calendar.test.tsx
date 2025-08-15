@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react'
-import { render, testA11y, fireEvent } from 'testing'
-import Calendar, { CalendarRef } from '..'
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
+import React, { useRef, useState } from 'react'
+import { fireEvent, render, testA11y } from 'testing'
+import Calendar, { CalendarRef } from '..'
 
 const classPrefix = `adm-calendar`
 
@@ -169,5 +169,80 @@ describe('Calendar', () => {
       />
     )
     expect(document.getElementsByClassName('custom-cell').length).toBe(42)
+  })
+
+  test('cellRender', () => {
+    const { container } = render(
+      <Calendar
+        cellRender={(oriNode, { date }) => {
+          const day = dayjs(date)
+          if (day.date() === 15) {
+            return React.cloneElement(oriNode, {
+              className: `${oriNode.props.className} special-day`,
+            })
+          }
+          if (day.day() === 0 || day.day() === 6) {
+            return React.cloneElement(oriNode, {
+              className: `${oriNode.props.className} weekend`,
+            })
+          }
+          return oriNode
+        }}
+      />
+    )
+
+    // 检查特定日期是否有自定义类名
+    const specialDayCell = container.querySelector('.special-day')
+    expect(specialDayCell).toBeTruthy()
+    expect(specialDayCell).toHaveClass('adm-calendar-cell')
+    expect(specialDayCell).toHaveClass('special-day')
+
+    // 检查周末日期是否有自定义类名
+    const weekendCells = container.querySelectorAll('.weekend')
+    expect(weekendCells.length).toBeGreaterThan(0)
+    weekendCells.forEach(cell => {
+      expect(cell).toHaveClass('adm-calendar-cell')
+      expect(cell).toHaveClass('weekend')
+    })
+  })
+
+  test('cellRender with custom content', () => {
+    const { container } = render(
+      <Calendar
+        cellRender={(oriNode, { date }) => {
+          const day = dayjs(date)
+          if (day.date() === 1) {
+            return (
+              <div className='custom-first-day' data-testid='custom-cell'>
+                <span>首日</span>
+                {oriNode}
+              </div>
+            )
+          }
+          return oriNode
+        }}
+      />
+    )
+
+    // 检查自定义内容是否正确渲染
+    const customCells = container.querySelectorAll(
+      '[data-testid="custom-cell"]'
+    )
+    expect(customCells.length).toBeGreaterThan(0)
+    customCells.forEach(cell => {
+      expect(cell).toHaveClass('custom-first-day')
+      expect(cell.textContent).toContain('首日')
+    })
+  })
+
+  test('cellRender without modification', () => {
+    const { container } = render(<Calendar cellRender={oriNode => oriNode} />)
+
+    // 确保不修改时正常渲染
+    const cells = container.querySelectorAll('.adm-calendar-cell')
+    expect(cells.length).toBe(42)
+    cells.forEach(cell => {
+      expect(cell).toHaveClass('adm-calendar-cell')
+    })
   })
 })

@@ -16,16 +16,17 @@ When the display space is not enough, hide some content and replace it with "...
 
 ### Props
 
-| Name | Description | Type | Default |
-| --- | --- | --- | --- |
-| collapseText | Collapse operation text | `React.ReactNode` | `''` |
-| content | The text content | `string` | - |
-| direction | Position omitted | `'start' \| 'end' \| 'middle'` | `'end'` |
-| expandText | Expand operation text | `React.ReactNode` | `''` |
-| onContentClick | Trigger when clicked text content | `(e: React.MouseEvent) => void` | - |
-| rows | The number to display lines | `number` | `1` |
-| stopPropagationForActionButtons | Prevent the event bubbling caused by the expand operation and the collapse operation | `PropagationEvent[]` | `[]` |
-| defaultExpanded | Whether to expand by default | `boolean` | `false` |
+| Name | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| collapseText | Collapse operation text | `React.ReactNode` | `''` |  |
+| content | The text content | `string` | - |  |
+| direction | Position omitted | `'start' \| 'end' \| 'middle'` | `'end'` |  |
+| expandText | Expand operation text | `React.ReactNode` | `''` |  |
+| onContentClick | Trigger when clicked text content | `(e: React.MouseEvent) => void` | - |  |
+| rows | The number to display lines | `number` | `1` |  |
+| stopPropagationForActionButtons | Prevent the event bubbling caused by the expand operation and the collapse operation | `PropagationEvent[]` | `[]` |  |
+| defaultExpanded | Whether to expand by default | `boolean` | `false` |  |
+| onExpand | Callback when expand or collapse | `(expanded: boolean, info: { event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void}` | - | 5.41.0 |
 
 ## FAQ
 
