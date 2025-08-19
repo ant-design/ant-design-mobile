@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import type { FC, ReactNode } from 'react'
+import type { FC, ReactNode, RefObject } from 'react'
 import React, {
   forwardRef,
   useCallback,
@@ -27,7 +27,10 @@ export type ImageViewerProps = {
   onClose?: () => void
   afterClose?: () => void
   renderFooter?: (image: string) => ReactNode
-  imageRender?: (image: string, { index }: { index: number }) => ReactNode
+  imageRender?: (
+    image: string,
+    { ref, index }: { ref: RefObject<HTMLImageElement>; index: number }
+  ) => ReactNode
   classNames?: {
     mask?: string
     body?: string
@@ -88,7 +91,10 @@ export type MultiImageViewerProps = Omit<
   defaultIndex?: number
   onIndexChange?: (index: number) => void
   renderFooter?: (image: string, index: number) => ReactNode
-  imageRender?: (image: string, { index }: { index: number }) => ReactNode
+  imageRender?: (
+    image: string,
+    { ref, index }: { ref: RefObject<HTMLImageElement>; index: number }
+  ) => ReactNode
 }
 
 const multiDefaultProps = {

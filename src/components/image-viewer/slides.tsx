@@ -2,6 +2,7 @@ import { animated, useSpring } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 import React, {
   ReactNode,
+  RefObject,
   forwardRef,
   useImperativeHandle,
   useRef,
@@ -18,7 +19,10 @@ export type SlidesType = {
   maxZoom: number
   defaultIndex: number
   onIndexChange?: (index: number) => void
-  imageRender?: (image: string, { index }: { index: number }) => ReactNode
+  imageRender?: (
+    image: string,
+    { ref, index }: { ref: RefObject<HTMLImageElement>; index: number }
+  ) => ReactNode
 }
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
