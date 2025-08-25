@@ -47,6 +47,14 @@ At the same time, the `image` prop is removed.
 | --- | --- | --- |
 | swipeTo | Switch to the specified index | `(index: number, immediate: boolean) => void` |
 
+### Mask
+
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| afterClose | Triggered when completely closed | `() => void` | - |
+| afterShow | Triggered after fully displayed | `() => void` | - |
+| onMaskClick | Triggered when the mask is clicked | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
+
 ## Imperative
 
 Compared with the component-based usage above, the command-style is more convenient and more commonly used. In most cases, this method is recommended:

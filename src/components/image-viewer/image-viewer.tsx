@@ -51,13 +51,13 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
   const node = (
     <Mask
       visible={props.visible}
+      afterShow={props.afterShow}
+      afterClose={props.afterClose}
+      onMaskClick={props.onMaskClick}
+      className={props?.classNames?.mask}
       disableBodyScroll={false}
       opacity='thick'
-      afterClose={props.afterClose}
-      afterShow={props.afterShow}
-      onMaskClick={props.onMaskClick}
       destroyOnClose
-      className={props?.classNames?.mask}
     >
       <div
         className={classNames(
@@ -133,13 +133,13 @@ export const MultiImageViewer = forwardRef<
   const node = (
     <Mask
       visible={props.visible}
-      disableBodyScroll={false}
-      opacity='thick'
       afterClose={props.afterClose}
       afterShow={props.afterShow}
-      onMaskClick={props.onMaskClick}
-      destroyOnClose
       className={props?.classNames?.mask}
+      onMaskClick={props.onMaskClick}
+      disableBodyScroll={false}
+      opacity='thick'
+      destroyOnClose
     >
       <div
         className={classNames(
