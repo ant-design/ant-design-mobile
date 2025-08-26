@@ -42,7 +42,7 @@ tips: It is recommended to open the demo on the mobile side for better preview e
 | title | The title of the keyboard | `string` | - |
 | visible | Whether to show or hide | `boolean` | - |
 
-In addition, the following attributes of [Popup](/components/popup) are supported: `stopPropagation` `mask` `maskStyle`
+In addition, the following attributes of [Popup](/components/popup) are supported: `stopPropagation`, `mask`, `maskStyle`
 
 ## FAQ
 
