@@ -60,8 +60,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     randomOrder,
     showCloseButton,
     onInput,
-    mask = false,
-    maskStyle,
+    mask,
+    maskStyle
   } = props
 
   const { locale } = useConfig()
