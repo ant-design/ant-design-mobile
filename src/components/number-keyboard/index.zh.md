@@ -42,7 +42,7 @@ tips: 仅移动端下删除按钮支持长按快删（通过 touchStart/touchEnd
 | title | 键盘标题 | `string` | - |
 | visible | 是否展示 | `boolean` | - |
 
-此外还支持 [Popup](/zh/components/popup) 的以下属性: `stopPropagation` `mask` `maskStyle`
+此外还支持 [Popup](/zh/components/popup) 的以下属性: `stopPropagation`, `mask`, `maskStyle`
 
 ## FAQ
 
