@@ -256,10 +256,9 @@ describe('Calendar', () => {
     const props = { [propName]: null, onPageChange }
     const { container } = render(<Calendar {...props} />)
 
+    // 确保按钮元素不存在
     const button = container.querySelector(selector)
-    if (button) {
-      fireEvent.click(button)
-    }
+    expect(button).toBeNull()
 
     // 确保 onPageChange 没有被调用
     expect(onPageChange).not.toBeCalled()
