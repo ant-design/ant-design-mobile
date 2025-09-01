@@ -140,6 +140,26 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     num: number,
     type: 'month' | 'year'
   ) => {
+    // Check if navigation is allowed based on button configuration
+    const isPrevNavigation = action === 'subtract'
+    const isYearNavigation = type === 'year'
+
+    if (isYearNavigation) {
+      if (
+        (isPrevNavigation && !props.prevYearButton) ||
+        (!isPrevNavigation && !props.nextYearButton)
+      ) {
+        return
+      }
+    } else {
+      if (
+        (isPrevNavigation && !props.prevMonthButton) ||
+        (!isPrevNavigation && !props.nextMonthButton)
+      ) {
+        return
+      }
+    }
+
     const nxtCurrent = current[action](num, type)
     if (action === 'subtract' && props.minPage) {
       const minPage = convertPageToDayjs(props.minPage)

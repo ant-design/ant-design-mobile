@@ -245,4 +245,64 @@ describe('Calendar', () => {
       expect(cell).toHaveClass('adm-calendar-cell')
     })
   })
+
+  test('prevMonthButton disabled', () => {
+    const onPageChange = jest.fn()
+    const { container } = render(
+      <Calendar prevMonthButton={null} onPageChange={onPageChange} />
+    )
+
+    const prevMonthButton = container.querySelector(
+      `.${classPrefix}-arrow-button-month`
+    )
+    fireEvent.click(prevMonthButton!)
+
+    // 确保 onPageChange 没有被调用
+    expect(onPageChange).not.toBeCalled()
+  })
+
+  test('prevYearButton disabled', () => {
+    const onPageChange = jest.fn()
+    const { container } = render(
+      <Calendar prevYearButton={null} onPageChange={onPageChange} />
+    )
+
+    const prevYearButton = container.querySelector(
+      `.${classPrefix}-arrow-button-year`
+    )
+    fireEvent.click(prevYearButton!)
+
+    // 确保 onPageChange 没有被调用
+    expect(onPageChange).not.toBeCalled()
+  })
+
+  test('nextMonthButton disabled', () => {
+    const onPageChange = jest.fn()
+    const { container } = render(
+      <Calendar nextMonthButton={null} onPageChange={onPageChange} />
+    )
+
+    const nextMonthButton = container.querySelector(
+      `.${classPrefix}-arrow-button-right-month`
+    )
+    fireEvent.click(nextMonthButton!)
+
+    // 确保 onPageChange 没有被调用
+    expect(onPageChange).not.toBeCalled()
+  })
+
+  test('nextYearButton disabled', () => {
+    const onPageChange = jest.fn()
+    const { container } = render(
+      <Calendar nextYearButton={null} onPageChange={onPageChange} />
+    )
+
+    const nextYearButton = container.querySelector(
+      `.${classPrefix}-arrow-button-right-year`
+    )
+    fireEvent.click(nextYearButton!)
+
+    // 确保 onPageChange 没有被调用
+    expect(onPageChange).not.toBeCalled()
+  })
 })

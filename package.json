@@ -41,7 +41,7 @@
     "pub:dev": "npm publish ./lib --tag dev",
     "size-limit": "size-limit",
     "size-limit:ci": "size-limit --json",
-    "start": "dumi dev",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider dumi dev",
     "test": "jest",
     "ci-install-react-19": "pnpm i react@19 react-dom@19",
     "test-with-coverage": "jest --coverage"
