@@ -141,23 +141,17 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     type: 'month' | 'year'
   ) => {
     // Check if navigation is allowed based on button configuration
-    const isPrevNavigation = action === 'subtract'
-    const isYearNavigation = type === 'year'
+    const isPrev = action === 'subtract'
+    const buttonProp = isPrev
+      ? type === 'year'
+        ? props.prevYearButton
+        : props.prevMonthButton
+      : type === 'year'
+        ? props.nextYearButton
+        : props.nextMonthButton
 
-    if (isYearNavigation) {
-      if (
-        (isPrevNavigation && !props.prevYearButton) ||
-        (!isPrevNavigation && !props.nextYearButton)
-      ) {
-        return
-      }
-    } else {
-      if (
-        (isPrevNavigation && !props.prevMonthButton) ||
-        (!isPrevNavigation && !props.nextMonthButton)
-      ) {
-        return
-      }
+    if (!buttonProp) {
+      return
     }
 
     const nxtCurrent = current[action](num, type)
