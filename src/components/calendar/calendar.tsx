@@ -158,7 +158,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
 
   const header = (
     <div className={`${classPrefix}-header`}>
-      {props.prevYearButton ? (
+      {props.prevYearButton !== null && (
         <a
           className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
           onClick={() => {
@@ -167,8 +167,8 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         >
           {props.prevYearButton}
         </a>
-      ) : null}
-      {props.prevMonthButton ? (
+      )}
+      {props.prevMonthButton !== null && (
         <a
           className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
           onClick={() => {
@@ -177,14 +177,14 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         >
           {props.prevMonthButton}
         </a>
-      ) : null}
+      )}
       <div className={`${classPrefix}-title`}>
         {replaceMessage(locale.Calendar.yearAndMonth, {
           year: current.year().toString(),
           month: (current.month() + 1).toString(),
         })}
       </div>
-      {props.nextMonthButton ? (
+      {props.nextMonthButton !== null && (
         <a
           className={classNames(
             `${classPrefix}-arrow-button`,
@@ -197,8 +197,8 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         >
           {props.nextMonthButton}
         </a>
-      ) : null}
-      {props.nextYearButton ? (
+      )}
+      {props.nextYearButton !== null && (
         <a
           className={classNames(
             `${classPrefix}-arrow-button`,
@@ -211,7 +211,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         >
           {props.nextYearButton}
         </a>
-      ) : null}
+      )}
     </div>
   )
 
