@@ -140,20 +140,6 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     num: number,
     type: 'month' | 'year'
   ) => {
-    // Check if navigation is allowed based on button configuration
-    const isPrev = action === 'subtract'
-    const buttonProp = isPrev
-      ? type === 'year'
-        ? props.prevYearButton
-        : props.prevMonthButton
-      : type === 'year'
-        ? props.nextYearButton
-        : props.nextMonthButton
-
-    if (!buttonProp) {
-      return
-    }
-
     const nxtCurrent = current[action](num, type)
     if (action === 'subtract' && props.minPage) {
       const minPage = convertPageToDayjs(props.minPage)
@@ -172,52 +158,60 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
 
   const header = (
     <div className={`${classPrefix}-header`}>
-      <a
-        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
-        onClick={() => {
-          handlePageChange('subtract', 1, 'year')
-        }}
-      >
-        {props.prevYearButton}
-      </a>
-      <a
-        className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
-        onClick={() => {
-          handlePageChange('subtract', 1, 'month')
-        }}
-      >
-        {props.prevMonthButton}
-      </a>
+      {props.prevYearButton ? (
+        <a
+          className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
+          onClick={() => {
+            handlePageChange('subtract', 1, 'year')
+          }}
+        >
+          {props.prevYearButton}
+        </a>
+      ) : null}
+      {props.prevMonthButton ? (
+        <a
+          className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
+          onClick={() => {
+            handlePageChange('subtract', 1, 'month')
+          }}
+        >
+          {props.prevMonthButton}
+        </a>
+      ) : null}
       <div className={`${classPrefix}-title`}>
         {replaceMessage(locale.Calendar.yearAndMonth, {
           year: current.year().toString(),
           month: (current.month() + 1).toString(),
         })}
       </div>
-      <a
-        className={classNames(
-          `${classPrefix}-arrow-button`,
-          `${classPrefix}-arrow-button-right`,
-          `${classPrefix}-arrow-button-right-month`
-        )}
-        onClick={() => {
-          handlePageChange('add', 1, 'month')
-        }}
-      >
-        {props.nextMonthButton}
-      </a>
-      <a
-        className={classNames(
-          `${classPrefix}-arrow-button`,
-          `${classPrefix}-arrow-button-right`,
-          `${classPrefix}-arrow-button-right-year`
-        )}
-        onClick={() => {
-          handlePageChange('add', 1, 'year')
-        }}
-      >
-        {props.nextYearButton}
-      </a>
+      {props.nextMonthButton ? (
+        <a
+          className={classNames(
+            `${classPrefix}-arrow-button`,
+            `${classPrefix}-arrow-button-right`,
+            `${classPrefix}-arrow-button-right-month`
+          )}
+          onClick={() => {
+            handlePageChange('add', 1, 'month')
+          }}
+        >
+          {props.nextMonthButton}
+        </a>
+      ) : null}
+      {props.nextYearButton ? (
+        <a
+          className={classNames(
+            `${classPrefix}-arrow-button`,
+            `${classPrefix}-arrow-button-right`,
+            `${classPrefix}-arrow-button-right-year`
+          )}
+          onClick={() => {
+            handlePageChange('add', 1, 'year')
+          }}
+        >
+          {props.nextYearButton}
+        </a>
+      ) : null}
     </div>
   )
 

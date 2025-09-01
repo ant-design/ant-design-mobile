@@ -257,7 +257,9 @@ describe('Calendar', () => {
     const { container } = render(<Calendar {...props} />)
 
     const button = container.querySelector(selector)
-    fireEvent.click(button!)
+    if (button) {
+      fireEvent.click(button)
+    }
 
     // 确保 onPageChange 没有被调用
     expect(onPageChange).not.toBeCalled()
