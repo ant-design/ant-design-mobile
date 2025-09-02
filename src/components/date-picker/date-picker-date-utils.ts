@@ -127,7 +127,7 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.minute) defaultColumns.push(MINUTE_COLUMN)
   if (rank >= precisionRankRecord.second) defaultColumns.push(SECOND_COLUMN)
 
-  const finalColumns = columns || defaultColumns
+  const finalColumns = columns?.length ? columns : defaultColumns
 
   const validColumns = finalColumns.filter(columnType => {
     const columnPrecision = columnToPrecisionMap[columnType]

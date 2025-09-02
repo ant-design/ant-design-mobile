@@ -10,7 +10,7 @@ import {
   MINUTE_COLUMN,
   MONTH_COLUMN,
   YEAR_COLUMN,
-} from '../date-picker-date-utils'
+} from '../util'
 
 const now = new Date()
 
