@@ -4,13 +4,8 @@ import React, { useCallback, useState } from 'react'
 import { weekdayToZh } from './weekdayToZh'
 
 // 导入列常量用于自定义列顺序
-import {
-  DAY_COLUMN,
-  HOUR_COLUMN,
-  MINUTE_COLUMN,
-  MONTH_COLUMN,
-  YEAR_COLUMN,
-} from '../util'
+const { DAY_COLUMN, HOUR_COLUMN, MINUTE_COLUMN, MONTH_COLUMN, YEAR_COLUMN } =
+  DatePicker
 
 const now = new Date()
 

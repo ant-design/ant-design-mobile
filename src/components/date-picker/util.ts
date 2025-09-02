@@ -4,12 +4,12 @@ export type PickerDate = Date & {
   tillNow?: boolean
 }
 
-export const YEAR_COLUMN = 'YEAR_COLUMN'
-export const MONTH_COLUMN = 'MONTH_COLUMN'
-export const DAY_COLUMN = 'DAY_COLUMN'
-export const HOUR_COLUMN = 'HOUR_COLUMN'
-export const MINUTE_COLUMN = 'MINUTE_COLUMN'
-export const SECOND_COLUMN = 'SECOND_COLUMN'
+export const YEAR_COLUMN = 'YEAR_COLUMN' as const
+export const MONTH_COLUMN = 'MONTH_COLUMN' as const
+export const DAY_COLUMN = 'DAY_COLUMN' as const
+export const HOUR_COLUMN = 'HOUR_COLUMN' as const
+export const MINUTE_COLUMN = 'MINUTE_COLUMN' as const
+export const SECOND_COLUMN = 'SECOND_COLUMN' as const
 
 export type DateColumnType =
   | typeof YEAR_COLUMN
