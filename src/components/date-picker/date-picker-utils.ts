@@ -5,7 +5,7 @@ import type { QuarterPrecision } from './date-picker-quarter-utils'
 import * as quarterUtils from './date-picker-quarter-utils'
 import type { WeekPrecision } from './date-picker-week-utils'
 import * as weekUtils from './date-picker-week-utils'
-import type { PickerDate } from './util'
+import type { DateColumnType, PickerDate } from './util'
 import { TILL_NOW } from './util'
 
 export type Precision = DatePrecision | WeekPrecision | QuarterPrecision
@@ -50,7 +50,8 @@ export const convertStringArrayToDate = <
   T extends string | number | null | undefined,
 >(
   value: T[],
-  precision: Precision
+  precision: Precision,
+  columns?: DateColumnType[]
 ) => {
   // Special case for DATE_NOW
   if (value?.[0] === TILL_NOW) {
@@ -64,7 +65,7 @@ export const convertStringArrayToDate = <
   } else if (precision.includes('quarter')) {
     return quarterUtils.convertStringArrayToDate(value)
   } else {
-    return dateUtils.convertStringArrayToDate(value)
+    return dateUtils.convertStringArrayToDate(value, columns)
   }
 }
 
@@ -75,7 +76,8 @@ export const generateDatePickerColumns = (
   precision: Precision,
   renderLabel: RenderLabel,
   filter: DatePickerFilter | undefined,
-  tillNow?: boolean
+  tillNow?: boolean,
+  columns?: DateColumnType[]
 ) => {
   if (precision.startsWith('week')) {
     return weekUtils.generateDatePickerColumns(
@@ -103,7 +105,8 @@ export const generateDatePickerColumns = (
       precision as DatePrecision,
       renderLabel,
       filter,
-      tillNow
+      tillNow,
+      columns
     )
   }
 }
