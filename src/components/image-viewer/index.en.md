@@ -21,7 +21,7 @@ You need to click on the picture to view the details and use it with the thumbna
 | maxZoom | The maximum zoom ratio | `number \| 'auto'` | `3` |  |
 | onClose | Triggered when it is closed | `() => void` | - |  |
 | renderFooter | Render extra content on footer | `(image: string) => ReactNode` | - |  |
-| imageRender | Custom rendering content | `(image: string, { index }: { index: number }) => ReactNode` | - | 5.39.0 |
+| imageRender | Custom rendering content | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - | 5.39.0 |
 | visible | Whether to show or hide | `boolean` | `false` |  |
 
 ## ImageViewer.Multi
@@ -35,7 +35,7 @@ On the basis of `ImageViewer`, the following props have been added:
 | images | Url list of image resources | `string[]` | - |  |
 | onIndexChange | Triggered when the picture is switched | `(index: number) => void` | - |  |
 | renderFooter | Render extra content on footer | `(image: string, index: number) => ReactNode` | - |  |
-| imageRender | Custom rendering content | `(image: string, { index }: { index: number }) => ReactNode` | - |  |
+| imageRender | Custom rendering content | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - |  |
 
 At the same time, the `image` prop is removed.
 
@@ -89,3 +89,26 @@ ImageViewer.Multi is an [uncontrolled](https://reactjs.org/docs/glossary.html#co
 ```
 
 You can use ref for manual manipulation of ImageViewer.Multi, or consider using `ImageViewer.show()`.
+
+### Why doesn't my custom image preview support gestures?
+
+Since the default image preview mechanism is used in ImageViewer, if custom rendering is required, the ref can be manually passed in according to actual needs, and the ref can be bound to the tag element of the custom rendering by itself.
+
+```jsx
+  <ImageViewer.Multi
+        images={demoViewImages}
+        visible={visible}
+        imageRender={(image, info) => {
+          if (info.index === 0)
+            return (
+              <div className={styles['image-render']} ref={info.ref}>
+                <video muted width='100%' controls src={image} />
+              </div>
+            )
+        }}
+        defaultIndex={0}
+        onClose={() => {
+          setVisible(false)
+        }}
+      />
+```

@@ -1,13 +1,13 @@
-import { mergeProps } from '../../utils/with-default-props'
-import React, { useState, useRef, useEffect } from 'react'
 import type { ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
+import React, { useEffect, useRef, useState } from 'react'
 import { staged } from 'staged-components'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { toCSSLength } from '../../utils/to-css-length'
-import { LazyDetector } from './lazy-detector'
 import { useIsomorphicUpdateLayoutEffect } from '../../utils/use-isomorphic-update-layout-effect'
-import { ImageIcon } from './image-icon'
+import { mergeProps } from '../../utils/with-default-props'
 import { BrokenImageIcon } from './broken-image-icon'
+import { ImageIcon } from './image-icon'
+import { LazyDetector } from './lazy-detector'
 
 const classPrefix = `adm-image`
 
@@ -84,7 +84,7 @@ export const Image = staged<ImageProps>(p => {
   }, [])
 
   function renderInner() {
-    if (failed) {
+    if (failed || (src === undefined && !srcSet)) {
       return <>{props.fallback}</>
     }
     const img = (

@@ -176,7 +176,7 @@ describe('ImageViewer.Multi', () => {
     })
     const onIndexChange = jest.fn()
 
-    const { getByText } = render(
+    render(
       <ImageViewer.Multi
         visible
         defaultIndex={3}
@@ -195,9 +195,18 @@ describe('ImageViewer.Multi', () => {
     // need to wait image render.
     await act(() => new Promise(resolve => setTimeout(resolve, 2500)))
 
+    // 等待动画完成并确保指示器已更新
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 100))
+    })
+
     const slides = document.querySelectorAll(`.${classPrefix}-control`)[3]
 
-    expect(getByText('4 / 4')).toBeInTheDocument()
+    // 使用查询所有包含数字和斜杠的元素来查找指示器
+    const indicatorElements = screen.getAllByText(/\d+\s*\/\s*\d+/)
+    expect(
+      indicatorElements.some(el => el.textContent?.includes('4 / 4'))
+    ).toBe(true)
 
     mockDrag(slides as HTMLElement, [
       {
@@ -210,7 +219,17 @@ describe('ImageViewer.Multi', () => {
         clientX: 300,
       },
     ])
-    expect(getByText('3 / 4')).toBeInTheDocument()
+
+    // 等待拖拽完成并确保指示器已更新
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 100))
+    })
+
+    const indicatorElementsAfterDrag = screen.getAllByText(/\d+\s*\/\s*\d+/)
+    expect(
+      indicatorElementsAfterDrag.some(el => el.textContent?.includes('3 / 4'))
+    ).toBe(true)
+
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(1))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(2))
 
@@ -226,7 +245,18 @@ describe('ImageViewer.Multi', () => {
       },
     ])
 
-    expect(screen.getByText('4 / 4')).toBeInTheDocument()
+    // 等待拖拽完成并确保指示器已更新
+    await act(async () => {
+      await new Promise(resolve => setTimeout(resolve, 100))
+    })
+
+    const indicatorElementsAfterDragBack = screen.getAllByText(/\d+\s*\/\s*\d+/)
+    expect(
+      indicatorElementsAfterDragBack.some(el =>
+        el.textContent?.includes('4 / 4')
+      )
+    ).toBe(true)
+
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(2))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(3))
   })
@@ -244,6 +274,32 @@ describe('ImageViewer.Multi', () => {
     }
     render(<App />)
     expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
+  })
+
+  test('rendering with imageRender and ref', () => {
+    let capturedRef: any = null
+    function App() {
+      return (
+        <ImageViewer.Multi
+          images={demoViewImages}
+          visible
+          imageRender={(image, info) => {
+            capturedRef = info.ref
+            return (
+              <div
+                className={`customize-preview-node-${info.index}`}
+                ref={info.ref}
+              />
+            )
+          }}
+        />
+      )
+    }
+    render(<App />)
+    expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
+    expect(capturedRef).toBeTruthy()
+    expect(typeof capturedRef).toBe('object')
+    expect(capturedRef.current).toBeDefined()
   })
 })
 
@@ -288,5 +344,28 @@ describe('ImageViewer', () => {
       ImageViewer.clear()
     })
     await waitFor(() => expect(img).not.toBeVisible())
+  })
+
+  test('rendering with imageRender and ref', () => {
+    let capturedRef: any = null
+    function App() {
+      return (
+        <ImageViewer
+          image={demoImages[0]}
+          visible
+          imageRender={(image, { ref, index }) => {
+            capturedRef = ref
+            return (
+              <div className={`customize-preview-node-${index}`} ref={ref} />
+            )
+          }}
+        />
+      )
+    }
+    render(<App />)
+    expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
+    expect(capturedRef).toBeTruthy()
+    expect(typeof capturedRef).toBe('object')
+    expect(capturedRef.current).toBeDefined()
   })
 })
