@@ -82,9 +82,13 @@ export function generateDatePickerColumns(
   if (rank >= precisionRankRecord.second) defaultColumns.push(SECOND_COLUMN)
 
   const finalColumns = columns?.length ? columns : defaultColumns
+  const renderedColumns = finalColumns.filter(columnType => {
+    const columnPrecision = columnToPrecisionMap[columnType]
+    return rank >= precisionRankRecord[columnPrecision]
+  })
   function getValue(type: DateColumnType): number | null {
-    const index = finalColumns.indexOf(type)
-    if (index !== undefined && index >= 0 && index < selected.length) {
+    const index = renderedColumns.indexOf(type)
+    if (index >= 0 && index < selected.length) {
       const val = parseInt(selected[index], 10)
       return isNaN(val) ? null : val
     }
@@ -136,14 +140,9 @@ export function generateDatePickerColumns(
     return column
   }
 
-  const validColumns = finalColumns.filter(columnType => {
-    const columnPrecision = columnToPrecisionMap[columnType]
-    return rank >= precisionRankRecord[columnPrecision]
-  })
-
-  validColumns.forEach(columnType => {
+  renderedColumns.forEach(columnType => {
     switch (columnType) {
-      case YEAR_COLUMN:
+      case YEAR_COLUMN: {
         const lower = minYear
         const upper = maxYear
         const years = generateColumn(lower, upper, 'year')
@@ -154,8 +153,8 @@ export function generateDatePickerColumns(
           }))
         )
         break
-
-      case MONTH_COLUMN:
+      }
+      case MONTH_COLUMN: {
         const lowerMonth = isInMinYear ? minMonth : 1
         const upperMonth = isInMaxYear ? maxMonth : 12
         const months = generateColumn(lowerMonth, upperMonth, 'month')
@@ -166,8 +165,8 @@ export function generateDatePickerColumns(
           }))
         )
         break
-
-      case DAY_COLUMN:
+      }
+      case DAY_COLUMN: {
         const lowerDay = isInMinMonth ? minDay : 1
         const upperDay = isInMaxMonth
           ? maxDay
@@ -180,8 +179,8 @@ export function generateDatePickerColumns(
           }))
         )
         break
-
-      case HOUR_COLUMN:
+      }
+      case HOUR_COLUMN: {
         const lowerHour = isInMinDay ? minHour : 0
         const upperHour = isInMaxDay ? maxHour : 23
         const hours = generateColumn(lowerHour, upperHour, 'hour')
@@ -192,8 +191,8 @@ export function generateDatePickerColumns(
           }))
         )
         break
-
-      case MINUTE_COLUMN:
+      }
+      case MINUTE_COLUMN: {
         const lowerMinute = isInMinHour ? minMinute : 0
         const upperMinute = isInMaxHour ? maxMinute : 59
         const minutes = generateColumn(lowerMinute, upperMinute, 'minute')
@@ -204,8 +203,8 @@ export function generateDatePickerColumns(
           }))
         )
         break
-
-      case SECOND_COLUMN:
+      }
+      case SECOND_COLUMN: {
         const lowerSecond = isInMinMinute ? minSecond : 0
         const upperSecond = isInMaxMinute ? maxSecond : 59
         const seconds = generateColumn(lowerSecond, upperSecond, 'second')
@@ -216,6 +215,7 @@ export function generateDatePickerColumns(
           }))
         )
         break
+      }
     }
   })
 

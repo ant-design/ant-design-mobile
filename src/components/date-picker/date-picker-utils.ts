@@ -64,7 +64,18 @@ export const convertDateToStringArray = (
     [MINUTE_COLUMN]: standard[4],
     [SECOND_COLUMN]: standard[5],
   }
-  return columns.map(col => map[col])
+  const order: DateColumnType[] = [
+    YEAR_COLUMN,
+    MONTH_COLUMN,
+    DAY_COLUMN,
+    HOUR_COLUMN,
+    MINUTE_COLUMN,
+    SECOND_COLUMN,
+  ]
+  const max = precisionLengthRecord[datePrecision]
+  return columns
+    .filter(col => order.indexOf(col) > -1 && order.indexOf(col) < max)
+    .map(col => map[col])
 }
 
 export const convertStringArrayToDate = <
