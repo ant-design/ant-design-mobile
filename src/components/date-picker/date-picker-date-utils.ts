@@ -5,7 +5,16 @@ import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
 import { RenderLabel } from '../date-picker-view/date-picker-view'
 import { PickerColumn } from '../picker'
 import type { DatePickerFilter } from './date-picker-utils'
-import { TILL_NOW } from './util'
+import {
+  DateColumnType,
+  DAY_COLUMN,
+  HOUR_COLUMN,
+  MINUTE_COLUMN,
+  MONTH_COLUMN,
+  SECOND_COLUMN,
+  TILL_NOW,
+  YEAR_COLUMN,
+} from './util'
 
 dayjs.extend(isoWeek)
 dayjs.extend(isoWeeksInYear)
@@ -28,6 +37,15 @@ const precisionRankRecord: Record<DatePrecision, number> = {
   second: 5,
 }
 
+const columnToPrecisionMap: Record<DateColumnType, DatePrecision> = {
+  [YEAR_COLUMN]: 'year',
+  [MONTH_COLUMN]: 'month',
+  [DAY_COLUMN]: 'day',
+  [HOUR_COLUMN]: 'hour',
+  [MINUTE_COLUMN]: 'minute',
+  [SECOND_COLUMN]: 'second',
+}
+
 export function generateDatePickerColumns(
   selected: string[],
   min: Date,
@@ -35,7 +53,8 @@ export function generateDatePickerColumns(
   precision: DatePrecision,
   renderLabel: RenderLabel,
   filter: DatePickerFilter | undefined,
-  tillNow?: boolean
+  tillNow?: boolean,
+  columns?: DateColumnType[]
 ) {
   const ret: PickerColumn[] = []
 
@@ -54,16 +73,37 @@ export function generateDatePickerColumns(
   const maxSecond = max.getSeconds()
 
   const rank = precisionRankRecord[precision]
+  const defaultColumns: DateColumnType[] = []
+  if (rank >= precisionRankRecord.year) defaultColumns.push(YEAR_COLUMN)
+  if (rank >= precisionRankRecord.month) defaultColumns.push(MONTH_COLUMN)
+  if (rank >= precisionRankRecord.day) defaultColumns.push(DAY_COLUMN)
+  if (rank >= precisionRankRecord.hour) defaultColumns.push(HOUR_COLUMN)
+  if (rank >= precisionRankRecord.minute) defaultColumns.push(MINUTE_COLUMN)
+  if (rank >= precisionRankRecord.second) defaultColumns.push(SECOND_COLUMN)
 
-  const selectedYear = parseInt(selected[0])
+  const finalColumns = columns?.length ? columns : defaultColumns
+  const renderedColumns = finalColumns.filter(columnType => {
+    const columnPrecision = columnToPrecisionMap[columnType]
+    return rank >= precisionRankRecord[columnPrecision]
+  })
+  function getValue(type: DateColumnType): number | null {
+    const index = renderedColumns.indexOf(type)
+    if (index >= 0 && index < selected.length) {
+      const val = parseInt(selected[index], 10)
+      return isNaN(val) ? null : val
+    }
+    return null
+  }
+
+  const selectedYear = getValue(YEAR_COLUMN) ?? min.getFullYear()
+  const selectedMonth = getValue(MONTH_COLUMN) ?? 1
+  const selectedDay = getValue(DAY_COLUMN) ?? 1
+  const selectedHour = getValue(HOUR_COLUMN) ?? 0
+  const selectedMinute = getValue(MINUTE_COLUMN) ?? 0
+  const selectedSecond = getValue(SECOND_COLUMN) ?? 0
   const firstDayInSelectedMonth = dayjs(
-    convertStringArrayToDate([selected[0], selected[1], '1'])
+    convertStringArrayToDate([selectedYear, selectedMonth, '1'])
   )
-  const selectedMonth = parseInt(selected[1])
-  const selectedDay = parseInt(selected[2])
-  const selectedHour = parseInt(selected[3])
-  const selectedMinute = parseInt(selected[4])
-  const selectedSecond = parseInt(selected[5])
 
   const isInMinYear = selectedYear === minYear
   const isInMaxYear = selectedYear === maxYear
@@ -100,78 +140,89 @@ export function generateDatePickerColumns(
     return column
   }
 
-  if (rank >= precisionRankRecord.year) {
-    const lower = minYear
-    const upper = maxYear
-    const years = generateColumn(lower, upper, 'year')
-    ret.push(
-      years.map(v => ({
-        label: renderLabel('year', v, { selected: selectedYear === v }),
-        value: v.toString(),
-      }))
-    )
-  }
-
-  if (rank >= precisionRankRecord.month) {
-    const lower = isInMinYear ? minMonth : 1
-    const upper = isInMaxYear ? maxMonth : 12
-    const months = generateColumn(lower, upper, 'month')
-    ret.push(
-      months.map(v => ({
-        label: renderLabel('month', v, { selected: selectedMonth === v }),
-        value: v.toString(),
-      }))
-    )
-  }
-  if (rank >= precisionRankRecord.day) {
-    const lower = isInMinMonth ? minDay : 1
-    const upper = isInMaxMonth ? maxDay : firstDayInSelectedMonth.daysInMonth()
-    const days = generateColumn(lower, upper, 'day')
-    ret.push(
-      days.map(v => ({
-        label: renderLabel('day', v, { selected: selectedDay === v }),
-        value: v.toString(),
-      }))
-    )
-  }
-  if (rank >= precisionRankRecord.hour) {
-    const lower = isInMinDay ? minHour : 0
-    const upper = isInMaxDay ? maxHour : 23
-    const hours = generateColumn(lower, upper, 'hour')
-    ret.push(
-      hours.map(v => ({
-        label: renderLabel('hour', v, { selected: selectedHour === v }),
-        value: v.toString(),
-      }))
-    )
-  }
-  if (rank >= precisionRankRecord.minute) {
-    const lower = isInMinHour ? minMinute : 0
-    const upper = isInMaxHour ? maxMinute : 59
-    const minutes = generateColumn(lower, upper, 'minute')
-    ret.push(
-      minutes.map(v => ({
-        label: renderLabel('minute', v, { selected: selectedMinute === v }),
-        value: v.toString(),
-      }))
-    )
-  }
-  if (rank >= precisionRankRecord.second) {
-    const lower = isInMinMinute ? minSecond : 0
-    const upper = isInMaxMinute ? maxSecond : 59
-    const seconds = generateColumn(lower, upper, 'second')
-    ret.push(
-      seconds.map(v => ({
-        label: renderLabel('second', v, { selected: selectedSecond === v }),
-        value: v.toString(),
-      }))
-    )
-  }
+  renderedColumns.forEach(columnType => {
+    switch (columnType) {
+      case YEAR_COLUMN: {
+        const lower = minYear
+        const upper = maxYear
+        const years = generateColumn(lower, upper, 'year')
+        ret.push(
+          years.map(v => ({
+            label: renderLabel('year', v, { selected: selectedYear === v }),
+            value: v.toString(),
+          }))
+        )
+        break
+      }
+      case MONTH_COLUMN: {
+        const lowerMonth = isInMinYear ? minMonth : 1
+        const upperMonth = isInMaxYear ? maxMonth : 12
+        const months = generateColumn(lowerMonth, upperMonth, 'month')
+        ret.push(
+          months.map(v => ({
+            label: renderLabel('month', v, { selected: selectedMonth === v }),
+            value: v.toString(),
+          }))
+        )
+        break
+      }
+      case DAY_COLUMN: {
+        const lowerDay = isInMinMonth ? minDay : 1
+        const upperDay = isInMaxMonth
+          ? maxDay
+          : firstDayInSelectedMonth.daysInMonth()
+        const days = generateColumn(lowerDay, upperDay, 'day')
+        ret.push(
+          days.map(v => ({
+            label: renderLabel('day', v, { selected: selectedDay === v }),
+            value: v.toString(),
+          }))
+        )
+        break
+      }
+      case HOUR_COLUMN: {
+        const lowerHour = isInMinDay ? minHour : 0
+        const upperHour = isInMaxDay ? maxHour : 23
+        const hours = generateColumn(lowerHour, upperHour, 'hour')
+        ret.push(
+          hours.map(v => ({
+            label: renderLabel('hour', v, { selected: selectedHour === v }),
+            value: v.toString(),
+          }))
+        )
+        break
+      }
+      case MINUTE_COLUMN: {
+        const lowerMinute = isInMinHour ? minMinute : 0
+        const upperMinute = isInMaxHour ? maxMinute : 59
+        const minutes = generateColumn(lowerMinute, upperMinute, 'minute')
+        ret.push(
+          minutes.map(v => ({
+            label: renderLabel('minute', v, { selected: selectedMinute === v }),
+            value: v.toString(),
+          }))
+        )
+        break
+      }
+      case SECOND_COLUMN: {
+        const lowerSecond = isInMinMinute ? minSecond : 0
+        const upperSecond = isInMaxMinute ? maxSecond : 59
+        const seconds = generateColumn(lowerSecond, upperSecond, 'second')
+        ret.push(
+          seconds.map(v => ({
+            label: renderLabel('second', v, { selected: selectedSecond === v }),
+            value: v.toString(),
+          }))
+        )
+        break
+      }
+    }
+  })
 
   // Till Now
-  if (tillNow) {
+  if (tillNow && ret.length > 0) {
     ret[0].push({
-      label: renderLabel('now', null!, { selected: selected[0] === TILL_NOW }),
+      label: renderLabel('now', 0, { selected: selected[0] === TILL_NOW }),
       value: TILL_NOW,
     })
 
@@ -201,19 +252,68 @@ export function convertDateToStringArray(
 
 export function convertStringArrayToDate<
   T extends string | number | null | undefined,
->(value: T[]): Date {
-  const yearString = value[0] ?? '1900'
-  const monthString = value[1] ?? '1'
-  const dateString = value[2] ?? '1'
-  const hourString = value[3] ?? '0'
-  const minuteString = value[4] ?? '0'
-  const secondString = value[5] ?? '0'
+>(value: T[], columns?: DateColumnType[]): Date {
+  const now = new Date()
+
+  // 默认值
+  let yearString = '1900'
+  let monthString = '1'
+  let dateString = '1'
+  let hourString = '0'
+  let minuteString = '0'
+  let secondString = '0'
+
+  if (columns && value.length > 0) {
+    columns.forEach((columnType, index) => {
+      const val = value[index]?.toString() ?? null
+
+      switch (columnType) {
+        case YEAR_COLUMN:
+          if (val) yearString = val
+          break
+        case MONTH_COLUMN:
+          if (val) monthString = val
+          break
+        case DAY_COLUMN:
+          if (val) dateString = val
+          break
+        case HOUR_COLUMN:
+          if (val) hourString = val
+          break
+        case MINUTE_COLUMN:
+          if (val) minuteString = val
+          break
+        case SECOND_COLUMN:
+          if (val) secondString = val
+          break
+      }
+    })
+
+    if (!columns.includes(YEAR_COLUMN))
+      yearString = now.getFullYear().toString()
+    if (!columns.includes(MONTH_COLUMN))
+      monthString = (now.getMonth() + 1).toString()
+    if (!columns.includes(DAY_COLUMN)) dateString = now.getDate().toString()
+    if (!columns.includes(HOUR_COLUMN)) hourString = now.getHours().toString()
+    if (!columns.includes(MINUTE_COLUMN))
+      minuteString = now.getMinutes().toString()
+    if (!columns.includes(SECOND_COLUMN))
+      secondString = now.getSeconds().toString()
+  } else {
+    yearString = (value[0] ?? '1900').toString()
+    monthString = (value[1] ?? '1').toString()
+    dateString = (value[2] ?? '1').toString()
+    hourString = (value[3] ?? '0').toString()
+    minuteString = (value[4] ?? '0').toString()
+    secondString = (value[5] ?? '0').toString()
+  }
+
   return new Date(
-    parseInt(yearString as string),
-    parseInt(monthString as string) - 1,
-    parseInt(dateString as string),
-    parseInt(hourString as string),
-    parseInt(minuteString as string),
-    parseInt(secondString as string)
+    parseInt(yearString),
+    parseInt(monthString) - 1,
+    parseInt(dateString),
+    parseInt(hourString),
+    parseInt(minuteString),
+    parseInt(secondString)
   )
 }
