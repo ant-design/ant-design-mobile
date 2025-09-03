@@ -6,7 +6,15 @@ import * as quarterUtils from './date-picker-quarter-utils'
 import type { WeekPrecision } from './date-picker-week-utils'
 import * as weekUtils from './date-picker-week-utils'
 import type { DateColumnType, PickerDate } from './util'
-import { TILL_NOW } from './util'
+import {
+  DAY_COLUMN,
+  HOUR_COLUMN,
+  MINUTE_COLUMN,
+  MONTH_COLUMN,
+  SECOND_COLUMN,
+  TILL_NOW,
+  YEAR_COLUMN,
+} from './util'
 
 export type Precision = DatePrecision | WeekPrecision | QuarterPrecision
 
@@ -33,17 +41,30 @@ const precisionLengthRecord: Record<DatePrecision, number> = {
 
 export const convertDateToStringArray = (
   date: Date | undefined | null,
-  precision: Precision
+  precision: Precision,
+  columns?: DateColumnType[]
 ) => {
+  if (!date) return []
   if (precision.includes('week')) {
     return weekUtils.convertDateToStringArray(date)
   } else if (precision.includes('quarter')) {
     return quarterUtils.convertDateToStringArray(date)
-  } else {
-    const datePrecision = precision as DatePrecision
-    const stringArray = dateUtils.convertDateToStringArray(date)
-    return stringArray.slice(0, precisionLengthRecord[datePrecision])
   }
+  const datePrecision = precision as DatePrecision
+  const standard = dateUtils.convertDateToStringArray(date)
+
+  if (!columns?.length) {
+    return standard.slice(0, precisionLengthRecord[datePrecision])
+  }
+  const map: Record<DateColumnType, string> = {
+    [YEAR_COLUMN]: standard[0],
+    [MONTH_COLUMN]: standard[1],
+    [DAY_COLUMN]: standard[2],
+    [HOUR_COLUMN]: standard[3],
+    [MINUTE_COLUMN]: standard[4],
+    [SECOND_COLUMN]: standard[5],
+  }
+  return columns.map(col => map[col])
 }
 
 export const convertStringArrayToDate = <

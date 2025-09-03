@@ -98,7 +98,7 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
       date = new Date(
         bound(date.getTime(), props.min.getTime(), props.max.getTime())
       )
-      return convertDateToStringArray(date, props.precision)
+      return convertDateToStringArray(date, props.precision, props.columns)
     }, [value, props.precision, props.min, props.max])
 
     const onConfirm = useCallback(

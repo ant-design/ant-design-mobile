@@ -73,16 +73,33 @@ export function generateDatePickerColumns(
   const maxSecond = max.getSeconds()
 
   const rank = precisionRankRecord[precision]
+  const defaultColumns: DateColumnType[] = []
+  if (rank >= precisionRankRecord.year) defaultColumns.push(YEAR_COLUMN)
+  if (rank >= precisionRankRecord.month) defaultColumns.push(MONTH_COLUMN)
+  if (rank >= precisionRankRecord.day) defaultColumns.push(DAY_COLUMN)
+  if (rank >= precisionRankRecord.hour) defaultColumns.push(HOUR_COLUMN)
+  if (rank >= precisionRankRecord.minute) defaultColumns.push(MINUTE_COLUMN)
+  if (rank >= precisionRankRecord.second) defaultColumns.push(SECOND_COLUMN)
 
-  const selectedYear = parseInt(selected[0])
+  const finalColumns = columns?.length ? columns : defaultColumns
+  function getValue(type: DateColumnType): number | null {
+    const index = finalColumns.indexOf(type)
+    if (index !== undefined && index >= 0 && index < selected.length) {
+      const val = parseInt(selected[index], 10)
+      return isNaN(val) ? null : val
+    }
+    return null
+  }
+
+  const selectedYear = getValue(YEAR_COLUMN) ?? min.getFullYear()
+  const selectedMonth = getValue(MONTH_COLUMN) ?? 1
+  const selectedDay = getValue(DAY_COLUMN) ?? 1
+  const selectedHour = getValue(HOUR_COLUMN) ?? 0
+  const selectedMinute = getValue(MINUTE_COLUMN) ?? 0
+  const selectedSecond = getValue(SECOND_COLUMN) ?? 0
   const firstDayInSelectedMonth = dayjs(
-    convertStringArrayToDate([selected[0], selected[1], '1'])
+    convertStringArrayToDate([selectedYear, selectedMonth, '1'])
   )
-  const selectedMonth = parseInt(selected[1])
-  const selectedDay = parseInt(selected[2])
-  const selectedHour = parseInt(selected[3])
-  const selectedMinute = parseInt(selected[4])
-  const selectedSecond = parseInt(selected[5])
 
   const isInMinYear = selectedYear === minYear
   const isInMaxYear = selectedYear === maxYear
@@ -118,16 +135,6 @@ export function generateDatePickerColumns(
     }
     return column
   }
-
-  const defaultColumns: DateColumnType[] = []
-  if (rank >= precisionRankRecord.year) defaultColumns.push(YEAR_COLUMN)
-  if (rank >= precisionRankRecord.month) defaultColumns.push(MONTH_COLUMN)
-  if (rank >= precisionRankRecord.day) defaultColumns.push(DAY_COLUMN)
-  if (rank >= precisionRankRecord.hour) defaultColumns.push(HOUR_COLUMN)
-  if (rank >= precisionRankRecord.minute) defaultColumns.push(MINUTE_COLUMN)
-  if (rank >= precisionRankRecord.second) defaultColumns.push(SECOND_COLUMN)
-
-  const finalColumns = columns?.length ? columns : defaultColumns
 
   const validColumns = finalColumns.filter(columnType => {
     const columnPrecision = columnToPrecisionMap[columnType]
@@ -248,72 +255,65 @@ export function convertStringArrayToDate<
 >(value: T[], columns?: DateColumnType[]): Date {
   const now = new Date()
 
-  let yearString = value[0] ?? '1900'
-  let monthString = value[1] ?? '1'
-  let dateString = value[2] ?? '1'
-  let hourString = value[3] ?? '0'
-  let minuteString = value[4] ?? '0'
-  let secondString = value[5] ?? '0'
+  // 默认值
+  let yearString = '1900'
+  let monthString = '1'
+  let dateString = '1'
+  let hourString = '0'
+  let minuteString = '0'
+  let secondString = '0'
 
-  if (columns) {
-    const valueMap = {
-      [YEAR_COLUMN]: {
-        value: yearString,
-        setValue: (val: string) => {
-          yearString = val
-        },
-        nowValue: now.getFullYear().toString(),
-      },
-      [MONTH_COLUMN]: {
-        value: monthString,
-        setValue: (val: string) => {
-          monthString = val
-        },
-        nowValue: (now.getMonth() + 1).toString(),
-      },
-      [DAY_COLUMN]: {
-        value: dateString,
-        setValue: (val: string) => {
-          dateString = val
-        },
-        nowValue: now.getDate().toString(),
-      },
-      [HOUR_COLUMN]: {
-        value: hourString,
-        setValue: (val: string) => {
-          hourString = val
-        },
-        nowValue: now.getHours().toString(),
-      },
-      [MINUTE_COLUMN]: {
-        value: minuteString,
-        setValue: (val: string) => {
-          minuteString = val
-        },
-        nowValue: now.getMinutes().toString(),
-      },
-      [SECOND_COLUMN]: {
-        value: secondString,
-        setValue: (val: string) => {
-          secondString = val
-        },
-        nowValue: now.getSeconds().toString(),
-      },
-    }
+  if (columns && value.length > 0) {
+    columns.forEach((columnType, index) => {
+      const val = value[index]?.toString() ?? null
 
-    Object.entries(valueMap).forEach(([columnType, config]) => {
-      if (!columns.includes(columnType as DateColumnType)) {
-        config.setValue(config.nowValue)
+      switch (columnType) {
+        case YEAR_COLUMN:
+          if (val) yearString = val
+          break
+        case MONTH_COLUMN:
+          if (val) monthString = val
+          break
+        case DAY_COLUMN:
+          if (val) dateString = val
+          break
+        case HOUR_COLUMN:
+          if (val) hourString = val
+          break
+        case MINUTE_COLUMN:
+          if (val) minuteString = val
+          break
+        case SECOND_COLUMN:
+          if (val) secondString = val
+          break
       }
     })
+
+    if (!columns.includes(YEAR_COLUMN))
+      yearString = now.getFullYear().toString()
+    if (!columns.includes(MONTH_COLUMN))
+      monthString = (now.getMonth() + 1).toString()
+    if (!columns.includes(DAY_COLUMN)) dateString = now.getDate().toString()
+    if (!columns.includes(HOUR_COLUMN)) hourString = now.getHours().toString()
+    if (!columns.includes(MINUTE_COLUMN))
+      minuteString = now.getMinutes().toString()
+    if (!columns.includes(SECOND_COLUMN))
+      secondString = now.getSeconds().toString()
+  } else {
+    yearString = (value[0] ?? '1900').toString()
+    monthString = (value[1] ?? '1').toString()
+    dateString = (value[2] ?? '1').toString()
+    hourString = (value[3] ?? '0').toString()
+    minuteString = (value[4] ?? '0').toString()
+    secondString = (value[5] ?? '0').toString()
   }
 
   return new Date(
-    parseInt(yearString as string),
-    parseInt(monthString as string) - 1,
-    parseInt(dateString as string),
-    parseInt(hourString as string),
-    parseInt(minuteString as string),
-    parseInt(secondString as string)
+    parseInt(yearString),
+    parseInt(monthString) - 1,
+    parseInt(dateString),
+    parseInt(hourString),
+    parseInt(minuteString),
+    parseInt(secondString)
   )
 }
