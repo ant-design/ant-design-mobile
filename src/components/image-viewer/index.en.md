@@ -53,7 +53,7 @@ At the same time, the `image` prop is removed.
 | --- | --- | --- | --- |
 | afterClose | Triggered when completely closed | `() => void` | - |
 | afterShow | Triggered after fully displayed | `() => void` | - |
-| onMaskClick | Triggered when the mask is clicked | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
+| onClick | Triggered when the mask is clicked | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 
 ## Imperative
 

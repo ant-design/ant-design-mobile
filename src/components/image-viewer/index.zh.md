@@ -42,7 +42,7 @@
 | --- | --- | --- | --- |
 | afterClose | 完全关闭后触发 | `() => void` | - |
 | afterShow | 完全展示后触发 | `() => void` | - |
-| onMaskClick | 点击蒙层自身触发 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
+| onClick | 点击蒙层自身触发 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 
 ### Ref
 
