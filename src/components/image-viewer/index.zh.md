@@ -14,7 +14,6 @@
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| afterClose | 完全关闭后触发 | `() => void` | - |  |
 | classNames | 语义化 class | `{ mask?:string,body?:string }` | - | 5.33.1 |
 | getContainer | 指定挂载的 HTML 节点，默认为 `null` 渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `null` |  |
 | image | 图片资源的 `url` | `string` | - |  |
@@ -36,6 +35,14 @@
 | imageRender | 自定义渲染内容 | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - |  |
 
 其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
+
+### Mask
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| afterClose | 完全关闭后触发 | `() => void` | - |
+| afterShow | 完全展示后触发 | `() => void` | - |
+| onClick | 点击蒙层自身触发 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 
 ### Ref
 
