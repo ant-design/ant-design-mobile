@@ -74,12 +74,12 @@ export function generateDatePickerColumns(
 
   const rank = precisionRankRecord[precision]
   const defaultColumns: DateColumnType[] = []
-  if (rank >= precisionRankRecord.year) defaultColumns.push(YEAR_COLUMN)
-  if (rank >= precisionRankRecord.month) defaultColumns.push(MONTH_COLUMN)
-  if (rank >= precisionRankRecord.day) defaultColumns.push(DAY_COLUMN)
-  if (rank >= precisionRankRecord.hour) defaultColumns.push(HOUR_COLUMN)
-  if (rank >= precisionRankRecord.minute) defaultColumns.push(MINUTE_COLUMN)
-  if (rank >= precisionRankRecord.second) defaultColumns.push(SECOND_COLUMN)
+  Object.keys(columnToPrecisionMap).forEach(columnType => {
+    const precision = columnToPrecisionMap[columnType as DateColumnType]
+    if (rank >= precisionRankRecord[precision]) {
+      defaultColumns.push(columnType as DateColumnType)
+    }
+  })
 
   const finalColumns = columns?.length ? columns : defaultColumns
   const renderedColumns = finalColumns.filter(columnType => {
