@@ -54,17 +54,20 @@
 
   &-caret-container {
     display: inline-block;
-    width: var(--caret-width);
+    width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
     height: 1.3em;
     vertical-align: top;
     margin-right: 1px;
-    position: absolute;
+    position: relative;
   }
   &-caret {
-    width: 100%;
+    width: var(--caret-width);
     height: 100%;
     background-color: var(--caret-color);
-    position: relative;
+    position: absolute;
     top: 5%;
   }
   &:focus {
