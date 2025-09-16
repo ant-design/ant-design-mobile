@@ -97,7 +97,11 @@ export const convertStringArrayToDate = <
   } else if (precision.includes('quarter')) {
     return quarterUtils.convertStringArrayToDate(value)
   } else {
-    return dateUtils.convertStringArrayToDate(value, columns)
+    return dateUtils.convertStringArrayToDate(
+      value,
+      columns,
+      precision as DatePrecision
+    )
   }
 }
 

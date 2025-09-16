@@ -102,7 +102,11 @@ export function generateDatePickerColumns(
   const selectedMinute = getValue(MINUTE_COLUMN) ?? 0
   const selectedSecond = getValue(SECOND_COLUMN) ?? 0
   const firstDayInSelectedMonth = dayjs(
-    convertStringArrayToDate([selectedYear, selectedMonth, '1'])
+    convertStringArrayToDate(
+      [selectedYear, selectedMonth, '1'],
+      undefined,
+      precision
+    )
   )
 
   const isInMinYear = selectedYear === minYear
@@ -132,7 +136,7 @@ export function generateDatePickerColumns(
         currentFilter(i, {
           get date() {
             const stringArray = [...prefix, i.toString()]
-            return convertStringArrayToDate(stringArray)
+            return convertStringArrayToDate(stringArray, undefined, precision)
           },
         })
       )
@@ -252,68 +256,45 @@ export function convertDateToStringArray(
 
 export function convertStringArrayToDate<
   T extends string | number | null | undefined,
->(value: T[], columns?: DateColumnType[]): Date {
-  const now = new Date()
-
-  // 默认值
-  let yearString = '1900'
-  let monthString = '1'
-  let dateString = '1'
-  let hourString = '0'
-  let minuteString = '0'
-  let secondString = '0'
-
-  if (columns && value.length > 0) {
-    columns.forEach((columnType, index) => {
-      const val = value[index]?.toString() ?? null
-
-      switch (columnType) {
-        case YEAR_COLUMN:
-          if (val) yearString = val
-          break
-        case MONTH_COLUMN:
-          if (val) monthString = val
-          break
-        case DAY_COLUMN:
-          if (val) dateString = val
-          break
-        case HOUR_COLUMN:
-          if (val) hourString = val
-          break
-        case MINUTE_COLUMN:
-          if (val) minuteString = val
-          break
-        case SECOND_COLUMN:
-          if (val) secondString = val
-          break
-      }
-    })
-
-    if (!columns.includes(YEAR_COLUMN))
-      yearString = now.getFullYear().toString()
-    if (!columns.includes(MONTH_COLUMN))
-      monthString = (now.getMonth() + 1).toString()
-    if (!columns.includes(DAY_COLUMN)) dateString = now.getDate().toString()
-    if (!columns.includes(HOUR_COLUMN)) hourString = now.getHours().toString()
-    if (!columns.includes(MINUTE_COLUMN))
-      minuteString = now.getMinutes().toString()
-    if (!columns.includes(SECOND_COLUMN))
-      secondString = now.getSeconds().toString()
-  } else {
-    yearString = (value[0] ?? '1900').toString()
-    monthString = (value[1] ?? '1').toString()
-    dateString = (value[2] ?? '1').toString()
-    hourString = (value[3] ?? '0').toString()
-    minuteString = (value[4] ?? '0').toString()
-    secondString = (value[5] ?? '0').toString()
+>(
+  value: T[],
+  columns: DateColumnType[] | undefined,
+  precision: DatePrecision
+): Date {
+  let finalColumns = columns
+  if (!finalColumns || finalColumns.length === 0) {
+    const rank = precisionRankRecord[precision]
+    finalColumns = (
+      Object.keys(columnToPrecisionMap) as DateColumnType[]
+    ).filter(
+      columnType =>
+        rank >= precisionRankRecord[columnToPrecisionMap[columnType]]
+    )
   }
 
+  const now = new Date()
+  const dateParts = {
+    [YEAR_COLUMN]: now.getFullYear().toString(),
+    [MONTH_COLUMN]: (now.getMonth() + 1).toString(),
+    [DAY_COLUMN]: now.getDate().toString(),
+    [HOUR_COLUMN]: now.getHours().toString(),
+    [MINUTE_COLUMN]: now.getMinutes().toString(),
+    [SECOND_COLUMN]: now.getSeconds().toString(),
+  }
+
+  finalColumns.forEach((columnType, index) => {
+    const val = value[index]?.toString()
+    if (val !== null && val !== undefined) {
+      dateParts[columnType] = val
+    }
+  })
+
   return new Date(
-    parseInt(yearString),
-    parseInt(monthString) - 1,
-    parseInt(dateString),
-    parseInt(hourString),
-    parseInt(minuteString),
-    parseInt(secondString)
+    parseInt(dateParts[YEAR_COLUMN]),
+    parseInt(dateParts[MONTH_COLUMN]) - 1,
+    parseInt(dateParts[DAY_COLUMN]),
+    parseInt(dateParts[HOUR_COLUMN]),
+    parseInt(dateParts[MINUTE_COLUMN]),
+    parseInt(dateParts[SECOND_COLUMN])
   )
 }
