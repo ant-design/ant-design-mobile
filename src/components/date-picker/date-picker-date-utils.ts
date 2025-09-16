@@ -151,98 +151,63 @@ export function generateDatePickerColumns(
     return column
   }
 
+  const columnConfigs = {
+    [YEAR_COLUMN]: {
+      lower: minYear,
+      upper: maxYear,
+      selected: selectedYear,
+      precision: 'year' as DatePrecision,
+    },
+    [MONTH_COLUMN]: {
+      lower: isInMinYear ? minMonth : 1,
+      upper: isInMaxYear ? maxMonth : 12,
+      selected: selectedMonth,
+      precision: 'month' as DatePrecision,
+    },
+    [DAY_COLUMN]: {
+      lower: isInMinMonth ? minDay : 1,
+      upper: isInMaxMonth ? maxDay : firstDayInSelectedMonth.daysInMonth(),
+      selected: selectedDay,
+      precision: 'day' as DatePrecision,
+    },
+    [HOUR_COLUMN]: {
+      lower: isInMinDay ? minHour : 0,
+      upper: isInMaxDay ? maxHour : 23,
+      selected: selectedHour,
+      precision: 'hour' as DatePrecision,
+    },
+    [MINUTE_COLUMN]: {
+      lower: isInMinHour ? minMinute : 0,
+      upper: isInMaxHour ? maxMinute : 59,
+      selected: selectedMinute,
+      precision: 'minute' as DatePrecision,
+    },
+    [SECOND_COLUMN]: {
+      lower: isInMinMinute ? minSecond : 0,
+      upper: isInMaxMinute ? maxSecond : 59,
+      selected: selectedSecond,
+      precision: 'second' as DatePrecision,
+    },
+  }
+
   renderedColumns.forEach(columnType => {
-    switch (columnType) {
-      case YEAR_COLUMN: {
-        const lower = minYear
-        const upper = maxYear
-        const years = generateColumn(lower, upper, 'year', YEAR_COLUMN)
-        ret.push(
-          years.map(v => ({
-            label: renderLabel('year', v, { selected: selectedYear === v }),
-            value: v.toString(),
-          }))
-        )
-        break
-      }
-      case MONTH_COLUMN: {
-        const lowerMonth = isInMinYear ? minMonth : 1
-        const upperMonth = isInMaxYear ? maxMonth : 12
-        const months = generateColumn(
-          lowerMonth,
-          upperMonth,
-          'month',
-          MONTH_COLUMN
-        )
-        ret.push(
-          months.map(v => ({
-            label: renderLabel('month', v, { selected: selectedMonth === v }),
-            value: v.toString(),
-          }))
-        )
-        break
-      }
-      case DAY_COLUMN: {
-        const lowerDay = isInMinMonth ? minDay : 1
-        const upperDay = isInMaxMonth
-          ? maxDay
-          : firstDayInSelectedMonth.daysInMonth()
-        const days = generateColumn(lowerDay, upperDay, 'day', DAY_COLUMN)
-        ret.push(
-          days.map(v => ({
-            label: renderLabel('day', v, { selected: selectedDay === v }),
-            value: v.toString(),
-          }))
-        )
-        break
-      }
-      case HOUR_COLUMN: {
-        const lowerHour = isInMinDay ? minHour : 0
-        const upperHour = isInMaxDay ? maxHour : 23
-        const hours = generateColumn(lowerHour, upperHour, 'hour', HOUR_COLUMN)
-        ret.push(
-          hours.map(v => ({
-            label: renderLabel('hour', v, { selected: selectedHour === v }),
-            value: v.toString(),
-          }))
-        )
-        break
-      }
-      case MINUTE_COLUMN: {
-        const lowerMinute = isInMinHour ? minMinute : 0
-        const upperMinute = isInMaxHour ? maxMinute : 59
-        const minutes = generateColumn(
-          lowerMinute,
-          upperMinute,
-          'minute',
-          MINUTE_COLUMN
-        )
-        ret.push(
-          minutes.map(v => ({
-            label: renderLabel('minute', v, { selected: selectedMinute === v }),
-            value: v.toString(),
-          }))
-        )
-        break
-      }
-      case SECOND_COLUMN: {
-        const lowerSecond = isInMinMinute ? minSecond : 0
-        const upperSecond = isInMaxMinute ? maxSecond : 59
-        const seconds = generateColumn(
-          lowerSecond,
-          upperSecond,
-          'second',
-          SECOND_COLUMN
-        )
-        ret.push(
-          seconds.map(v => ({
-            label: renderLabel('second', v, { selected: selectedSecond === v }),
-            value: v.toString(),
-          }))
-        )
-        break
-      }
-    }
+    const config = columnConfigs[columnType]
+    if (!config) return
+
+    const column = generateColumn(
+      config.lower,
+      config.upper,
+      config.precision,
+      columnType
+    )
+    ret.push(
+      column.map(v => ({
+        label: renderLabel(config.precision, v, {
+          selected: config.selected === v,
+        }),
+        value: v.toString(),
+      }))
+    )
   })
 
   // Till Now
