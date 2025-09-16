@@ -104,7 +104,7 @@ export function generateDatePickerColumns(
   const firstDayInSelectedMonth = dayjs(
     convertStringArrayToDate(
       [selectedYear, selectedMonth, '1'],
-      undefined,
+      columns ?? defaultColumns,
       precision
     )
   )
@@ -123,20 +123,27 @@ export function generateDatePickerColumns(
   const generateColumn = (
     from: number,
     to: number,
-    precision: DatePrecision
+    precision: DatePrecision,
+    columnType: DateColumnType
   ) => {
     let column: number[] = []
     for (let i = from; i <= to; i++) {
       column.push(i)
     }
-    const prefix = selected.slice(0, precisionRankRecord[precision])
+    const pos = Math.max(0, renderedColumns.indexOf(columnType))
+    const prefix = selected.slice(0, pos)
+    const partialColumns = renderedColumns.slice(0, pos).concat(columnType)
     const currentFilter = filter?.[precision]
     if (currentFilter && typeof currentFilter === 'function') {
       column = column.filter(i =>
         currentFilter(i, {
           get date() {
             const stringArray = [...prefix, i.toString()]
-            return convertStringArrayToDate(stringArray, undefined, precision)
+            return convertStringArrayToDate(
+              stringArray,
+              partialColumns,
+              precision
+            )
           },
         })
       )
@@ -149,7 +156,7 @@ export function generateDatePickerColumns(
       case YEAR_COLUMN: {
         const lower = minYear
         const upper = maxYear
-        const years = generateColumn(lower, upper, 'year')
+        const years = generateColumn(lower, upper, 'year', YEAR_COLUMN)
         ret.push(
           years.map(v => ({
             label: renderLabel('year', v, { selected: selectedYear === v }),
@@ -161,7 +168,12 @@ export function generateDatePickerColumns(
       case MONTH_COLUMN: {
         const lowerMonth = isInMinYear ? minMonth : 1
         const upperMonth = isInMaxYear ? maxMonth : 12
-        const months = generateColumn(lowerMonth, upperMonth, 'month')
+        const months = generateColumn(
+          lowerMonth,
+          upperMonth,
+          'month',
+          MONTH_COLUMN
+        )
         ret.push(
           months.map(v => ({
             label: renderLabel('month', v, { selected: selectedMonth === v }),
@@ -175,7 +187,7 @@ export function generateDatePickerColumns(
         const upperDay = isInMaxMonth
           ? maxDay
           : firstDayInSelectedMonth.daysInMonth()
-        const days = generateColumn(lowerDay, upperDay, 'day')
+        const days = generateColumn(lowerDay, upperDay, 'day', DAY_COLUMN)
         ret.push(
           days.map(v => ({
             label: renderLabel('day', v, { selected: selectedDay === v }),
@@ -187,7 +199,7 @@ export function generateDatePickerColumns(
       case HOUR_COLUMN: {
         const lowerHour = isInMinDay ? minHour : 0
         const upperHour = isInMaxDay ? maxHour : 23
-        const hours = generateColumn(lowerHour, upperHour, 'hour')
+        const hours = generateColumn(lowerHour, upperHour, 'hour', HOUR_COLUMN)
         ret.push(
           hours.map(v => ({
             label: renderLabel('hour', v, { selected: selectedHour === v }),
@@ -199,7 +211,12 @@ export function generateDatePickerColumns(
       case MINUTE_COLUMN: {
         const lowerMinute = isInMinHour ? minMinute : 0
         const upperMinute = isInMaxHour ? maxMinute : 59
-        const minutes = generateColumn(lowerMinute, upperMinute, 'minute')
+        const minutes = generateColumn(
+          lowerMinute,
+          upperMinute,
+          'minute',
+          MINUTE_COLUMN
+        )
         ret.push(
           minutes.map(v => ({
             label: renderLabel('minute', v, { selected: selectedMinute === v }),
@@ -211,7 +228,12 @@ export function generateDatePickerColumns(
       case SECOND_COLUMN: {
         const lowerSecond = isInMinMinute ? minSecond : 0
         const upperSecond = isInMaxMinute ? maxSecond : 59
-        const seconds = generateColumn(lowerSecond, upperSecond, 'second')
+        const seconds = generateColumn(
+          lowerSecond,
+          upperSecond,
+          'second',
+          SECOND_COLUMN
+        )
         ret.push(
           seconds.map(v => ({
             label: renderLabel('second', v, { selected: selectedSecond === v }),
@@ -283,9 +305,9 @@ export function convertStringArrayToDate<
   }
 
   finalColumns.forEach((columnType, index) => {
-    const val = value[index]?.toString()
+    const val = value[index]
     if (val !== null && val !== undefined) {
-      dateParts[columnType] = val
+      dateParts[columnType] = val.toString()
     }
   })
 
