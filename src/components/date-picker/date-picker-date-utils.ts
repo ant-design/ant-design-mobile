@@ -46,6 +46,13 @@ const columnToPrecisionMap: Record<DateColumnType, DatePrecision> = {
   [SECOND_COLUMN]: 'second',
 }
 
+function getDefaultColumns(precision: DatePrecision): DateColumnType[] {
+  const rank = precisionRankRecord[precision]
+  return (Object.keys(columnToPrecisionMap) as DateColumnType[]).filter(
+    columnType => rank >= precisionRankRecord[columnToPrecisionMap[columnType]]
+  )
+}
+
 export function generateDatePickerColumns(
   selected: string[],
   min: Date,
@@ -73,14 +80,7 @@ export function generateDatePickerColumns(
   const maxSecond = max.getSeconds()
 
   const rank = precisionRankRecord[precision]
-  const defaultColumns: DateColumnType[] = []
-  Object.keys(columnToPrecisionMap).forEach(columnType => {
-    const precision = columnToPrecisionMap[columnType as DateColumnType]
-    if (rank >= precisionRankRecord[precision]) {
-      defaultColumns.push(columnType as DateColumnType)
-    }
-  })
-
+  const defaultColumns = getDefaultColumns(precision)
   const finalColumns = columns?.length ? columns : defaultColumns
   const renderedColumns = finalColumns.filter(columnType => {
     const columnPrecision = columnToPrecisionMap[columnType]
@@ -102,11 +102,7 @@ export function generateDatePickerColumns(
   const selectedMinute = getValue(MINUTE_COLUMN) ?? 0
   const selectedSecond = getValue(SECOND_COLUMN) ?? 0
   const firstDayInSelectedMonth = dayjs(
-    convertStringArrayToDate(
-      [selectedYear, selectedMonth, '1'],
-      columns ?? defaultColumns,
-      precision
-    )
+    new Date(selectedYear, selectedMonth - 1, 1)
   )
 
   const isInMinYear = selectedYear === minYear
@@ -250,13 +246,7 @@ export function convertStringArrayToDate<
 ): Date {
   let finalColumns = columns
   if (!finalColumns || finalColumns.length === 0) {
-    const rank = precisionRankRecord[precision]
-    finalColumns = (
-      Object.keys(columnToPrecisionMap) as DateColumnType[]
-    ).filter(
-      columnType =>
-        rank >= precisionRankRecord[columnToPrecisionMap[columnType]]
-    )
+    finalColumns = getDefaultColumns(precision)
   }
 
   const now = new Date()
