@@ -14,7 +14,6 @@ You need to click on the picture to view the details and use it with the thumbna
 
 | Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| afterClose | Triggered when it is completely closed | `() => void` | - |  |
 | classNames | Semantic structure class | `{ mask?:string,body?:string }` | - | 5.33.1 |
 | getContainer | To get the specified mounted HTML node, the default is `null` rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `null` |  |
 | image | The `url` of the image resource | `string` | - |  |
@@ -23,6 +22,7 @@ You need to click on the picture to view the details and use it with the thumbna
 | renderFooter | Render extra content on footer | `(image: string) => ReactNode` | - |  |
 | imageRender | Custom rendering content | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - | 5.39.0 |
 | visible | Whether to show or hide | `boolean` | `false` |  |
+| mask | Attributes of Mask Layer | `{afterClose?:()=>void,onClick?:(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void}` | - |  |
 
 ## ImageViewer.Multi
 
@@ -44,6 +44,13 @@ At the same time, the `image` prop is removed.
 | Name | Description | Type |
 | --- | --- | --- |
 | swipeTo | Switch to the specified index | `(index: number, immediate: boolean) => void` |
+
+### Mask
+
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| afterClose | Triggered when completely closed | `() => void` | - |
+| onClick | Triggered when the mask is clicked | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 
 ## Imperative
 

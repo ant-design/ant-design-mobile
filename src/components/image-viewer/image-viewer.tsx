@@ -25,7 +25,6 @@ export type ImageViewerProps = {
   getContainer?: GetContainer
   visible?: boolean
   onClose?: () => void
-  afterClose?: () => void
   renderFooter?: (image: string) => ReactNode
   imageRender?: (
     image: string,
@@ -34,6 +33,10 @@ export type ImageViewerProps = {
   classNames?: {
     mask?: string
     body?: string
+  }
+  mask?: {
+    afterClose?: () => void
+    onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   }
 }
 
@@ -49,11 +52,12 @@ export const ImageViewer: FC<ImageViewerProps> = p => {
   const node = (
     <Mask
       visible={props.visible}
+      afterClose={props.mask?.afterClose}
+      onMaskClick={props.mask?.onClick}
+      className={props?.classNames?.mask}
       disableBodyScroll={false}
       opacity='thick'
-      afterClose={props.afterClose}
       destroyOnClose
-      className={props?.classNames?.mask}
     >
       <div
         className={classNames(
@@ -129,11 +133,12 @@ export const MultiImageViewer = forwardRef<
   const node = (
     <Mask
       visible={props.visible}
+      afterClose={props.mask?.afterClose}
+      className={props?.classNames?.mask}
+      onMaskClick={props.mask?.onClick}
       disableBodyScroll={false}
       opacity='thick'
-      afterClose={props.afterClose}
       destroyOnClose
-      className={props?.classNames?.mask}
     >
       <div
         className={classNames(
