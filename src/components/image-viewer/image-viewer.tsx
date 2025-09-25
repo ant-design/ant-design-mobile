@@ -116,7 +116,16 @@ export const MultiImageViewer = forwardRef<
       slidesRef.current?.swipeTo(index, immediate)
     },
   }))
-
+  const viewportWidth = (function () {
+    try {
+      const host = props.getContainer && props.getContainer();
+      if (host && host.getBoundingClientRect) {
+        const w = host.getBoundingClientRect().width;
+        if (w && w > 0) return w;
+      }
+    } catch (e) {}
+    return typeof window !== 'undefined' ? window.innerWidth : 375;
+  })();
   const onSlideChange = useCallback(
     (newIndex: number) => {
       if (newIndex === index) return
@@ -150,6 +159,7 @@ export const MultiImageViewer = forwardRef<
             onTap={props.onClose}
             maxZoom={props.maxZoom}
             imageRender={props.imageRender}
+            viewportWidth={viewportWidth}
           />
         )}
       </div>
