@@ -1,4 +1,4 @@
-import { useIsomorphicLayoutEffect } from 'ahooks'
+import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import type { ReactElement } from 'react'
@@ -133,15 +133,18 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       },
     }))
 
-    function onFocus() {
+    function setFocus() {
+      if (hasFocus) return
       setHasFocus(true)
       mergedProps.onFocus?.()
     }
 
-    function onBlur() {
-      setHasFocus(false)
-      mergedProps.onBlur?.()
-    }
+    useClickAway(() => {
+      if (hasFocus) {
+        setHasFocus(false)
+        mergedProps.onBlur?.()
+      }
+    }, rootRef)
 
     const keyboard = mergedProps.keyboard
     const keyboardElement =
@@ -171,6 +174,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         onClose: () => {
           const activeElement = document.activeElement as HTMLElement
 
+          // 这段依然要保留，因为点击数字键盘不会让输入框失焦（原因未知），要手动触发下 blur，否则下次再点击输入框不会再触发 focus 事件
           // Long press makes `activeElement` to be the child of rootRef
           // We will trigger blur on the child element instead
           if (activeElement && rootRef.current?.contains(activeElement)) {
@@ -178,6 +182,9 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           } else {
             rootRef.current?.blur()
           }
+
+          setHasFocus(false)
+          mergedProps.onBlur?.()
 
           keyboard.props.onClose?.()
         },
@@ -274,18 +281,20 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         className={classNames(classPrefix, {
           [`${classPrefix}-disabled`]: mergedProps.disabled,
           [`${classPrefix}-caret-dragging`]: isCaretDragging,
+          [`${classPrefix}-focused`]: hasFocus,
         })}
-        tabIndex={mergedProps.disabled ? undefined : 0}
-        role='textbox'
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onClick={mergedProps.onClick}
       >
         <div
           className={`${classPrefix}-content`}
           ref={contentRef}
           aria-disabled={mergedProps.disabled}
-          aria-label={mergedProps.placeholder}
+          aria-label={value || mergedProps.placeholder}
+          role='textbox'
+          tabIndex={mergedProps.disabled ? undefined : 0}
+          // note: 这里增加 onFocus 有两个目的：
+          // 1. 在安卓 talkback 模式下，role=textbox 的元素双击后只会触发 focus 而非 click
+          // 2. 处理 content 框点击、单个字符点击时，不用再额外处理 focus 逻辑，因为 focus 事件会先触发
+          onFocus={setFocus}
           onClick={setCaretPositionToEnd}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
