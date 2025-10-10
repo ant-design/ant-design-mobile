@@ -305,6 +305,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
+          <span className={`${classPrefix}-trap`}></span>
           {chars.slice(0, caretPosition).map((i: string, index: number) => (
             <span
               ref={index === 0 ? charRef : undefined}
