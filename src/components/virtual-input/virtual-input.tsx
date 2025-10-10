@@ -197,7 +197,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       } as NumberKeyboardProps)
 
     // 点击输入框时，将光标置于最后
-    const setCaretPositionToEnd = (e: React.MouseEvent) => {
+    const setCaretPositionToEnd = (e: React.MouseEvent<HTMLDivElement>) => {
       if (caretPosition !== value.length) {
         setCaretPosition(value.length)
         mergedProps.cursor?.onMove?.(value.length)
