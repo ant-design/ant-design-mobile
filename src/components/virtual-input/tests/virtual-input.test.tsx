@@ -117,9 +117,9 @@ describe('VirtualInput', () => {
 
   test('focus and blur', async () => {
     render(<VirtualInput data-testid='virtualInput' clearable value='abc' />)
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
     expect(document.querySelector(`.${classPrefix}-caret`)).toBeInTheDocument()
-    fireEvent.blur(screen.getByTestId('virtualInput'))
+    fireEvent.click(document.body) // 点击空白处
     expect(
       document.querySelector(`.${classPrefix}-caret`)
     ).not.toBeInTheDocument()
@@ -161,7 +161,7 @@ describe('VirtualInput', () => {
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       'Value'
     )
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
     expect(document.querySelector(`.${classPrefix}-clear`)).toBeInTheDocument()
     fireEvent.click(document.querySelector(`.${classPrefix}-clear`) as any)
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
@@ -178,7 +178,7 @@ describe('VirtualInput', () => {
         keyboard={<NumberKeyboard title='title' />}
       />
     )
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -232,7 +232,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -299,7 +299,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -390,7 +390,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -523,7 +523,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -625,7 +625,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
