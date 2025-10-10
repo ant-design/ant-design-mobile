@@ -1,4 +1,4 @@
-import { useClickAway, useIsomorphicLayoutEffect } from 'ahooks'
+import { useIsomorphicLayoutEffect } from 'ahooks'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import classNames from 'classnames'
 import type { ReactElement } from 'react'
@@ -15,6 +15,7 @@ import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import type { InputProps } from '../input'
 import { NumberKeyboardProps } from '../number-keyboard'
+import useClickOutside from './use-click-outside'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -126,10 +127,12 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     useImperativeHandle(ref, () => ({
       focus: () => {
-        rootRef.current?.focus()
+        contentRef.current?.focus()
       },
       blur: () => {
-        rootRef.current?.blur()
+        contentRef.current?.blur()
+        setHasFocus(false)
+        mergedProps.onBlur?.()
       },
     }))
 
@@ -139,11 +142,14 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       mergedProps.onFocus?.()
     }
 
-    useClickAway(() => {
-      if (hasFocus) {
-        setHasFocus(false)
-        mergedProps.onBlur?.()
-      }
+    function setBlur() {
+      if (!hasFocus) return
+      setHasFocus(false)
+      mergedProps.onBlur?.()
+    }
+
+    useClickOutside(() => {
+      setBlur()
     }, rootRef)
 
     const keyboard = mergedProps.keyboard
@@ -183,8 +189,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
             rootRef.current?.blur()
           }
 
-          setHasFocus(false)
-          mergedProps.onBlur?.()
+          setBlur()
 
           keyboard.props.onClose?.()
         },
