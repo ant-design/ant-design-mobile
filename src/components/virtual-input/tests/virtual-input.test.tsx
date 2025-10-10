@@ -17,7 +17,7 @@ function getSiblingElements(element: Element | null) {
     current = current?.nextElementSibling
   }
   current = element?.previousElementSibling
-  while (current) {
+  while (current && current.className !== `${classPrefix}-trap`) {
     prevElements.push(current)
     current = current?.previousElementSibling
   }
