@@ -1,12 +1,12 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { Action, DialogActionButton } from './dialog-action-button'
-import Image from '../image'
-import AutoCenter from '../auto-center'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import AutoCenter from '../auto-center'
 import CenterPopup, { CenterPopupProps } from '../center-popup'
+import Image from '../image'
+import { Action, DialogActionButton } from './dialog-action-button'
 
 export type DialogProps = Pick<
   CenterPopupProps,
@@ -32,7 +32,13 @@ export type DialogProps = Pick<
   onClose?: () => void
   closeOnAction?: boolean
   closeOnMaskClick?: boolean
-} & NativeProps
+} & NativeProps<
+    | '--background-color'
+    | '--border-radius'
+    | '--max-width'
+    | '--min-width'
+    | '--z-index'
+  >
 
 const defaultProps = {
   actions: [] as Action[],
