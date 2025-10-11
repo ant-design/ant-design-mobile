@@ -192,7 +192,6 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
         // 所以普通按钮绑定 click 事件，而 backspace 仍然额外绑定 touch 事件支持长按删除
         // backspace touchend 时会 preventDefault 阻止其后续 click 事件
         onClick={(e: MouseEvent<HTMLDivElement>) => {
-          console.log('click')
           stopContinueClear()
           onKeyPress(e, key)
         }}
