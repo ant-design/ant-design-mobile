@@ -178,19 +178,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         },
         visible: hasFocus,
         onClose: () => {
-          const activeElement = document.activeElement as HTMLElement
-
-          // 这段依然要保留，因为点击数字键盘不会让输入框失焦（原因未知），要手动触发下 blur，否则下次再点击输入框不会再触发 focus 事件
-          // Long press makes `activeElement` to be the child of rootRef
-          // We will trigger blur on the child element instead
-          if (activeElement && rootRef.current?.contains(activeElement)) {
-            activeElement.blur()
-          } else {
-            rootRef.current?.blur()
-          }
-
           setBlur()
-
           keyboard.props.onClose?.()
         },
         getContainer: null,
