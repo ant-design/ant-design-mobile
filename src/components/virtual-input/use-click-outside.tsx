@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+// 监听点击组件外部的事件
 function useClickOutside(
   handler: (event: MouseEvent) => void,
   ref: React.RefObject<HTMLElement>
