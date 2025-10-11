@@ -131,8 +131,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       },
       blur: () => {
         contentRef.current?.blur()
-        setHasFocus(false)
-        mergedProps.onBlur?.()
+        setBlur()
       },
     }))
 

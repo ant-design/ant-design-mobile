@@ -150,7 +150,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     )
   }
 
-  const onBackspaceTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+  const onBackspaceTouchStart = () => {
     stopContinueClear()
     startContinueClear()
   }
