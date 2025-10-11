@@ -6,7 +6,9 @@ function useClickOutside(
 ) {
   useEffect(() => {
     function handleClick(event: MouseEvent) {
-      if (!ref.current || ref.current.contains(event.target as Node)) return
+      if (!ref.current || ref.current.contains(event.target as Node)) {
+        return
+      }
       handler(event)
     }
 
