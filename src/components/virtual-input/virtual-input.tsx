@@ -86,13 +86,11 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     )
 
     function scrollToEnd() {
-      const root = rootRef.current
-      if (!root) return
-      if (document.activeElement !== root) {
+      const content = contentRef.current
+      if (!content || !hasFocus) {
         return
       }
-      const content = contentRef.current
-      if (!content) return
+
       content.scrollLeft = content.clientWidth
     }
 
