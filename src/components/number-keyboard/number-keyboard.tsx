@@ -186,6 +186,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
         // 仅为  backspace 绑定，支持长按快速删除
         onTouchStart={isBackspace ? onBackspaceTouchStart : undefined}
         onTouchEnd={isBackspace ? onBackspaceTouchEnd : undefined}
+        onTouchCancel={isBackspace ? stopContinueClear : undefined}
         // <div role="button" title="1" onTouchEnd={e => {}}>1</div> 安卓上 talback 可读不可点
         // see https://ua-gilded-eef7f9.netlify.app/grid-button-bug.html
         // 所以普通按钮绑定 click 事件，而 backspace 仍然额外绑定 touch 事件支持长按删除
@@ -233,6 +234,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-bs`}
                   onTouchStart={onBackspaceTouchStart}
                   onTouchEnd={onBackspaceTouchEnd}
+                  onTouchCancel={stopContinueClear}
                   onClick={e => {
                     stopContinueClear()
                     onKeyPress(e, 'BACKSPACE')
