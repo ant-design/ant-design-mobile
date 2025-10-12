@@ -611,6 +611,55 @@ describe('VirtualInput', () => {
     }
   })
 
+  test('scrollToEnd function', async () => {
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <VirtualInput
+          data-testid='virtualInput'
+          value={value}
+          onChange={setValue}
+          keyboard={<NumberKeyboard />}
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByTestId('virtualInput')
+    const content = input.querySelector(
+      `.${classPrefix}-content`
+    ) as HTMLElement
+
+    // Mock scroll properties
+    content.scrollLeft = 0
+    Object.defineProperty(content, 'clientWidth', {
+      get: function () {
+        return (content.textContent || '').length * 20
+      },
+    })
+
+    // Test focus scenario
+    fireEvent.focus(content)
+    expect(content.scrollLeft).toBe(0)
+
+    // Test input scenario
+    content.scrollLeft = 0
+    fireEvent.click(screen.getByText('1')) // Simulate keyboard input
+    await waitFor(() => {
+      expect(content.scrollLeft).toBe(20) // Should scroll on input
+    })
+
+    // Test with long content
+    content.scrollLeft = 0
+    fireEvent.click(screen.getByText('2'))
+    fireEvent.click(screen.getByText('3'))
+    fireEvent.click(screen.getByText('4'))
+    fireEvent.click(screen.getByText('5'))
+
+    await waitFor(() => {
+      expect(content.scrollLeft).toBe(100) // Should stay scrolled to end
+    })
+  })
+
   test('disable caret position', async () => {
     const KeyBoardClassPrefix = 'adm-number-keyboard'
     const Wrapper = () => {

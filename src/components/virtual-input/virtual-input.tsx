@@ -87,7 +87,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     function scrollToEnd() {
       const content = contentRef.current
-      if (!content || !hasFocus) {
+      if (!content) {
         return
       }
 
