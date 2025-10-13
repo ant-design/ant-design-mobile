@@ -165,7 +165,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
 
   const renderKey = (key: CustomKeyType, index: number) => {
     const realKey = typeof key === 'object' ? key.key : key
-    const isNumberKey = typeof key === 'string' && /^\d$/.test(realKey)
+    const isNumberKey = /^\d$/.test(realKey)
     const isBackspace = realKey === 'BACKSPACE'
     const className = classNames(`${classPrefix}-key`, {
       [`${classPrefix}-key-number`]: isNumberKey,
