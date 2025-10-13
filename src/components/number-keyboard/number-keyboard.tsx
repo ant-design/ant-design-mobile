@@ -168,6 +168,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     const realKey = keyConfig.key
     const isNumberKey = /^\d$/.test(realKey)
     const isBackspace = realKey === 'BACKSPACE'
+    const title = isBackspace ? locale.Input.clear : keyConfig.title
     const className = classNames(`${classPrefix}-key`, {
       [`${classPrefix}-key-number`]: isNumberKey,
       [`${classPrefix}-key-sign`]: !isNumberKey && realKey,
@@ -178,7 +179,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     const ariaProps = realKey
       ? {
           role: 'button',
-          title: isBackspace ? locale.Input.clear : keyConfig.title,
+          title,
+          'aria-label': title,
           tabIndex: -1,
         }
       : undefined
