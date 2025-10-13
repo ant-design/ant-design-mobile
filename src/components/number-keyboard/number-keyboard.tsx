@@ -103,8 +103,6 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>,
     key: string
   ) => {
-    e.preventDefault()
-
     switch (key) {
       case 'BACKSPACE':
         onDelete?.()
@@ -152,6 +150,17 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     )
   }
 
+  const onBackspaceTouchStart = () => {
+    stopContinueClear()
+    startContinueClear()
+  }
+
+  const onBackspaceTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
+    e.preventDefault() // 短按时，touchend 会阻止后续 click 事件触发，防止删除两次
+    stopContinueClear()
+    onKeyPress(e, 'BACKSPACE')
+  }
+
   const renderKey = (key: string, index: number) => {
     const isNumberKey = /^\d$/.test(key)
     const isBackspace = key === 'BACKSPACE'
@@ -175,25 +184,13 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
         key={key}
         className={className}
         // 仅为  backspace 绑定，支持长按快速删除
-        onTouchStart={
-          isBackspace
-            ? () => {
-                stopContinueClear()
-                startContinueClear()
-              }
-            : undefined
-        }
-        onTouchEnd={
-          isBackspace
-            ? e => {
-                stopContinueClear()
-                onKeyPress(e, key)
-              }
-            : undefined
-        }
+        onTouchStart={isBackspace ? onBackspaceTouchStart : undefined}
+        onTouchEnd={isBackspace ? onBackspaceTouchEnd : undefined}
+        onTouchCancel={isBackspace ? stopContinueClear : undefined}
         // <div role="button" title="1" onTouchEnd={e => {}}>1</div> 安卓上 talback 可读不可点
         // see https://ua-gilded-eef7f9.netlify.app/grid-button-bug.html
-        // 所以还是绑定 click，通过 touchEnd 的 preventDefault 防重复触发
+        // 所以普通按钮绑定 click 事件，而 backspace 仍然额外绑定 touch 事件支持长按删除
+        // backspace touchend 时会 preventDefault 阻止其后续 click 事件
         onClick={(e: MouseEvent<HTMLDivElement>) => {
           stopContinueClear()
           onKeyPress(e, key)
@@ -219,13 +216,7 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     >
       {withNativeProps(
         props,
-        <div
-          ref={keyboardRef}
-          className={classPrefix}
-          onMouseDown={e => {
-            e.preventDefault()
-          }}
-        >
+        <div ref={keyboardRef} className={classPrefix}>
           {renderHeader()}
           <div className={`${classPrefix}-wrapper`}>
             <div
@@ -237,15 +228,12 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
             </div>
             {!!confirmText && (
               <div className={`${classPrefix}-confirm`}>
+                {/* 与上面的 backspace 代码是一样的 */}
                 <div
                   className={`${classPrefix}-key ${classPrefix}-key-extra ${classPrefix}-key-bs`}
-                  onTouchStart={() => {
-                    startContinueClear()
-                  }}
-                  onTouchEnd={e => {
-                    stopContinueClear()
-                    onKeyPress(e, 'BACKSPACE')
-                  }}
+                  onTouchStart={onBackspaceTouchStart}
+                  onTouchEnd={onBackspaceTouchEnd}
+                  onTouchCancel={stopContinueClear}
                   onClick={e => {
                     stopContinueClear()
                     onKeyPress(e, 'BACKSPACE')

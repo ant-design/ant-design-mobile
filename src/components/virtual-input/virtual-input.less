@@ -41,6 +41,16 @@
     scrollbar-width: none;
   }
 
+  // note: 在 iOS 旁白模式下，role="textbox" 聚焦时会自动给第一个可见子元素发送 click 事件
+  // 因此在这里放一个陷阱元素，将事件引导到至此，避免光标移动
+  // 实测至少 10x10 大小才有效
+  &-trap {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    opacity: 0;
+  }
+
   &-placeholder {
     display: block;
     position: absolute;
@@ -72,7 +82,7 @@
     left: 0;
     z-index: 1;
   }
-  &:focus {
+  &-focused {
     outline: none;
     .@{class-prefix-virtual-input}-caret {
       animation-name: adm-caret-blink;
