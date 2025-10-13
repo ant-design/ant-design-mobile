@@ -164,7 +164,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
   }
 
   const renderKey = (key: CustomKeyType, index: number) => {
-    const realKey = typeof key === 'object' ? key.key : key
+    const keyConfig = typeof key === 'string' ? { key, title: key } : key
+    const realKey = keyConfig.key
     const isNumberKey = /^\d$/.test(realKey)
     const isBackspace = realKey === 'BACKSPACE'
     const className = classNames(`${classPrefix}-key`, {
@@ -177,18 +178,14 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     const ariaProps = key
       ? {
           role: 'button',
-          title: isBackspace
-            ? locale.Input.clear
-            : typeof key === 'object'
-              ? key.title
-              : key,
+          title: isBackspace ? locale.Input.clear : keyConfig.title,
           tabIndex: -1,
         }
       : undefined
 
     return (
       <div
-        key={typeof key === 'string' ? key : key.key}
+        key={realKey}
         className={className}
         // 仅为  backspace 绑定，支持长按快速删除
         onTouchStart={isBackspace ? onBackspaceTouchStart : undefined}
