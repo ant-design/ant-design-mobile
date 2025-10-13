@@ -161,6 +161,28 @@ describe('NumberKeyboard', () => {
     expect(onInput).toBeCalledWith('.')
   })
 
+  test('render with customKey and title', () => {
+    const onInput = jest.fn()
+    render(
+      <NumberKeyboard
+        customKey={['-', { key: '.', title: '小数点' }]}
+        visible
+        onInput={onInput}
+      />
+    )
+    const left = screen.getByText('-')
+    const right = screen.getByText('.')
+    expect(left).toBeInTheDocument()
+    expect(right).toBeInTheDocument()
+    expect(left.title).toBe('-')
+    expect(right.title).toBe('小数点')
+
+    mockClick(left)
+    expect(onInput).toBeCalledWith('-')
+    mockClick(right)
+    expect(onInput).toBeCalledWith('.')
+  })
+
   test('render with multiple customKeys and confirmText', () => {
     render(
       <NumberKeyboard customKey={['-', '.']} visible confirmText='confirm' />

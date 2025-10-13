@@ -13,7 +13,12 @@ export default () => {
         <VirtualInput
           placeholder='请输入内容'
           cursor={{ movable: true }}
-          keyboard={<NumberKeyboard confirmText='确定' customKey='.' />}
+          keyboard={
+            <NumberKeyboard
+              confirmText='确定'
+              customKey={{ key: '.', title: '小数点' }}
+            />
+          }
         />
       </DemoBlock>
 
@@ -57,7 +62,7 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='只支持金额数字输入，配合 NumberKeyboard 使用'>
+      <DemoBlock title='只支持两位小数的金额输入，配合 NumberKeyboard 使用'>
         <VirtualInput
           value={value || '0'}
           cursor={{ movable: true }}
@@ -71,7 +76,12 @@ export default () => {
             }
           }}
           placeholder='请输入内容'
-          keyboard={<NumberKeyboard confirmText='确定' customKey='.' />}
+          keyboard={
+            <NumberKeyboard
+              confirmText='确定'
+              customKey={{ key: '.', title: '小数点' }}
+            />
+          }
           style={{
             '--font-size': '40px',
           }}
