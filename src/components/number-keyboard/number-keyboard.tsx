@@ -12,11 +12,13 @@ import SafeArea from '../safe-area'
 
 const classPrefix = 'adm-number-keyboard'
 
+type CustomKeyType = string | { key: string; title: string }
+
 export type NumberKeyboardProps = {
   visible?: boolean
   title?: string
   confirmText?: string | null
-  customKey?: string | [string, string]
+  customKey?: CustomKeyType | CustomKeyType[]
   randomOrder?: boolean
   showCloseButton?: boolean
   onInput?: (v: string) => void
@@ -161,27 +163,31 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     onKeyPress(e, 'BACKSPACE')
   }
 
-  const renderKey = (key: string, index: number) => {
-    const isNumberKey = /^\d$/.test(key)
-    const isBackspace = key === 'BACKSPACE'
+  const renderKey = (key: CustomKeyType, index: number) => {
+    const keyConfig = typeof key === 'string' ? { key, title: key } : key
+    const realKey = keyConfig.key
+    const isNumberKey = /^\d$/.test(realKey)
+    const isBackspace = realKey === 'BACKSPACE'
+    const title = isBackspace ? locale.Input.clear : keyConfig.title
     const className = classNames(`${classPrefix}-key`, {
       [`${classPrefix}-key-number`]: isNumberKey,
-      [`${classPrefix}-key-sign`]: !isNumberKey && key,
+      [`${classPrefix}-key-sign`]: !isNumberKey && realKey,
       [`${classPrefix}-key-mid`]:
         index === 9 && !!confirmText && keys.length < 12,
     })
 
-    const ariaProps = key
+    const ariaProps = realKey
       ? {
           role: 'button',
-          title: isBackspace ? locale.Input.clear : key,
+          title,
+          'aria-label': title,
           tabIndex: -1,
         }
       : undefined
 
     return (
       <div
-        key={key}
+        key={realKey}
         className={className}
         // 仅为  backspace 绑定，支持长按快速删除
         onTouchStart={isBackspace ? onBackspaceTouchStart : undefined}
@@ -193,11 +199,11 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
         // backspace touchend 时会 preventDefault 阻止其后续 click 事件
         onClick={(e: MouseEvent<HTMLDivElement>) => {
           stopContinueClear()
-          onKeyPress(e, key)
+          onKeyPress(e, realKey)
         }}
         {...ariaProps}
       >
-        {isBackspace ? <TextDeletionOutline /> : key}
+        {isBackspace ? <TextDeletionOutline /> : realKey}
       </div>
     )
   }
