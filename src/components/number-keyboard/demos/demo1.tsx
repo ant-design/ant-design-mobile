@@ -116,7 +116,7 @@ export default () => {
         customKey='X'
       />
       <NumberKeyboard
-        visible={visible === 'demo3'}
+        visible={visible === 'demo7'}
         onClose={actions.onClose}
         onInput={actions.onInput}
         onDelete={actions.onDelete}
