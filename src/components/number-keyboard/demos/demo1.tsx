@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { List, Input, Dialog, NumberKeyboard, Toast, Button } from 'antd-mobile'
+import { Button, Dialog, Input, List, NumberKeyboard, Toast } from 'antd-mobile'
 import { DemoBlock } from 'demos'
+import React, { useState } from 'react'
 
 export default () => {
   const [visible, setVisible] = useState<any>('')
@@ -66,6 +66,9 @@ export default () => {
             {/* 添加 readOnly 阻止原生键盘弹出 */}
             <Input placeholder='请输入内容' value={value} readOnly />
           </List.Item>
+          <List.Item onClick={() => openKeyboard('demo7')}>
+            确认按钮文案支持换行
+          </List.Item>
         </List>
       </DemoBlock>
       <NumberKeyboard
@@ -111,6 +114,14 @@ export default () => {
         onInput={onInput}
         onDelete={onDelete}
         customKey='X'
+      />
+      <NumberKeyboard
+        visible={visible === 'demo3'}
+        onClose={actions.onClose}
+        onInput={actions.onInput}
+        onDelete={actions.onDelete}
+        showCloseButton={false}
+        confirmText={'先签约\n再转入'} // {'\n'} 可以而 '\n' 不行，后者会被转义为 '\\n'
       />
     </>
   )
