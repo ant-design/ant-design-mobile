@@ -29,6 +29,7 @@ Configure locale messages and custom icons globally.
 | navBar | NavBar config | `{ backIcon?: ReactNode }` | - |
 | noticeBar | NoticeBar config | `{ icon?: ReactNode, closeIcon?: ReactNode }` | - |
 | popup | Popup config | `{ closeIcon?: ReactNode }` | - |
+| prefixCls | Set prefix className | string | `adm` |
 | result | Result config | `{ successIcon?: ReactNode, errorIcon?: ReactNode, infoIcon?: ReactNode, waitingIcon?: ReactNode, warningIcon?: ReactNode }` | - |
 | searchBar | SearchBar config | `{ searchIcon?: ReactNode }` | - |
 

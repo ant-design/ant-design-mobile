@@ -40,6 +40,7 @@ import viVN from '../../../locales/vi-VN'
 import zhCN from '../../../locales/zh-CN'
 import zhHK from '../../../locales/zh-HK'
 import zhTW from '../../../locales/zh-TW'
+import Collapse from '../../collapse'
 
 const locales = [
   zhCN,
@@ -118,7 +119,7 @@ describe('ConfigProvider', () => {
     })
   })
 
-  test('useConfig should only has `locale`', () => {
+  test('useConfig should only has `locale` and `getPrefixCls`', () => {
     let config: ReturnType<typeof useConfig>
 
     const Demo = () => {
@@ -127,6 +128,46 @@ describe('ConfigProvider', () => {
     }
     render(<Demo />)
 
-    expect(Object.keys(config!)).toEqual(['locale'])
+    expect(Object.keys(config!)).toEqual(['locale', 'getPrefixCls'])
+  })
+
+  test('default adm class', () => {
+    const { container } = render(
+      <ConfigProvider>
+        <Collapse defaultActiveKey={['1']}>
+          <Collapse.Panel key='1' title='第一项'>
+            第一项
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.adm-collapse')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='custom-prefix'>
+        <Collapse defaultActiveKey={['1']}>
+          <Collapse.Panel key='1' title='第一项'>
+            第一项
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.custom-prefix-collapse')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(component) ', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='custom-prefix'>
+        <Collapse defaultActiveKey={['1']} prefixCls='another-prefix'>
+          <Collapse.Panel key='1' title='第一项'>
+            第一项
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.custom-prefix-collapse')).toBeFalsy()
+    expect(container.querySelector('.another-prefix')).toBeTruthy()
   })
 })

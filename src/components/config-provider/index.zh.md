@@ -29,7 +29,9 @@
 | navBar | NavBar 配置 | `{ backIcon?: ReactNode }` | - |
 | noticeBar | NoticeBar 配置 | `{ icon?: ReactNode, closeIcon?: ReactNode }` | - |
 | popup | Popup 配置 | `{ closeIcon?: ReactNode }` | - |
-| result | Result 配置 | `{ successIcon?: ReactNode, errorIcon?: ReactNode, infoIcon?: ReactNode, waitingIcon?: ReactNode, warningIcon?: ReactNode }` | - |
+| prefixCls | 设置统一样式前缀 | string | `adm` |
+| result | Result 配置 | `{ successIcon?: ReactNode, errorIcon?: ReactNode, infoIcon?: ReactNode, |
+| waitingIcon?: ReactNode, warningIcon?: ReactNode }` | - |
 | searchBar | SearchBar 配置 | `{ searchIcon?: ReactNode }` | - |
 
 [zh-CN]: https://github.com/ant-design/ant-design-mobile/blob/master/src/locales/zh-CN.ts

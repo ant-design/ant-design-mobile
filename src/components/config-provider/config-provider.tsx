@@ -2,6 +2,8 @@ import React, { FC, ReactNode, useContext } from 'react'
 import { Locale } from '../../locales/base'
 import zhCN from '../../locales/zh-CN'
 
+type GetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => string
+
 type Config = {
   locale: Locale
   checkList?: {
@@ -42,13 +44,23 @@ type Config = {
   searchBar?: {
     searchIcon?: ReactNode
   }
+  prefixCls?: string
+  getPrefixCls: GetPrefixCls
 }
+export const defaultPrefixCls = 'adm'
 
+const getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
+  if (customizePrefixCls) {
+    return customizePrefixCls
+  }
+  return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : defaultPrefixCls
+}
 export const defaultConfigRef: {
   current: Config
 } = {
   current: {
     locale: zhCN,
+    getPrefixCls,
   },
 }
 
@@ -70,11 +82,21 @@ export const ConfigProvider: FC<ConfigProviderProps> = props => {
   const { children, ...config } = props
   const parentConfig = useConfig()
 
+  const getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
+    if (customizePrefixCls) {
+      return customizePrefixCls
+    }
+    const mergedPrefixCls =
+      config.prefixCls || parentConfig.prefixCls || defaultPrefixCls
+    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls
+  }
+
   return (
     <ConfigContext.Provider
       value={{
         ...parentConfig,
         ...config,
+        getPrefixCls,
       }}
     >
       {children}
