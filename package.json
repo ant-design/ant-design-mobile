@@ -41,7 +41,7 @@
     "pub:dev": "npm publish ./lib --tag dev",
     "size-limit": "size-limit",
     "size-limit:ci": "size-limit --json",
-    "start": "dumi dev",
+    "start": " cross-env NODE_OPTIONS=--openssl-legacy-provider dumi dev",
     "test": "jest",
     "ci-install-react-19": "pnpm i react@19 react-dom@19",
     "test-with-coverage": "jest --coverage"
@@ -116,6 +116,7 @@
     "@use-gesture/core": "10.2.20",
     "autoprefixer": "^9.8.8",
     "babel-loader": "^8.3.0",
+    "cross-env": "^10.1.0",
     "css-loader": "^6.7.3",
     "csstype": "^3.1.2",
     "del": "^6.1.1",

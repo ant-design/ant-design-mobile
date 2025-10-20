@@ -14,8 +14,6 @@ import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import List from '../list'
 
-const classPrefix = `adm-collapse`
-
 export type CollapsePanelProps = {
   key: string
   title: ReactNode
@@ -39,9 +37,10 @@ const CollapsePanelContent: FC<{
   visible: boolean
   forceRender: boolean
   destroyOnClose: boolean
+  prefixCls: string
   children?: ReactNode
 }> = props => {
-  const { visible } = props
+  const { visible, prefixCls } = props
   const innerRef = useRef<HTMLDivElement>(null)
   const shouldRender = useShouldRender(
     visible,
@@ -103,8 +102,8 @@ const CollapsePanelContent: FC<{
 
   return (
     <animated.div
-      className={classNames(`${classPrefix}-panel-content`, {
-        [`${classPrefix}-panel-content-active`]: visible,
+      className={classNames(`${prefixCls}-panel-content`, {
+        [`${prefixCls}-panel-content-active`]: visible,
       })}
       style={{
         height: height.to(v => {
@@ -116,7 +115,7 @@ const CollapsePanelContent: FC<{
         }),
       }}
     >
-      <div className={`${classPrefix}-panel-content-inner`} ref={innerRef}>
+      <div className={`${prefixCls}-panel-content-inner`} ref={innerRef}>
         <List.Item>{shouldRender && props.children}</List.Item>
       </div>
     </animated.div>
@@ -143,10 +142,19 @@ export type CollapseProps = (
     } & ValueProps<string | null>)
 ) & {
   children?: ReactNode
+  prefixCls?: string
 } & NativeProps
 
 export const Collapse: FC<CollapseProps> = props => {
-  const { collapse: componentConfig = {} } = useConfig()
+  const {
+    collapse: componentConfig = {},
+    prefixCls: configPrefixCls,
+    getPrefixCls,
+  } = useConfig()
+  const prefixCls = getPrefixCls(
+    'collapse',
+    props?.prefixCls ?? configPrefixCls
+  )
   const mergedProps = mergeProps(componentConfig, props)
   const panels: ReactElement<CollapsePanelProps>[] = []
   traverseReactNode(mergedProps.children, child => {
@@ -202,7 +210,7 @@ export const Collapse: FC<CollapseProps> = props => {
 
   return withNativeProps(
     mergedProps,
-    <div className={classPrefix}>
+    <div className={prefixCls}>
       <List>
         {panels.map(panel => {
           const key = panel.key as string
@@ -238,8 +246,8 @@ export const Collapse: FC<CollapseProps> = props => {
               arrow(active)
             ) : (
               <div
-                className={classNames(`${classPrefix}-arrow`, {
-                  [`${classPrefix}-arrow-active`]: active,
+                className={classNames(`${prefixCls}-arrow`, {
+                  [`${prefixCls}-arrow-active`]: active,
                 })}
               >
                 {arrow}
@@ -251,7 +259,7 @@ export const Collapse: FC<CollapseProps> = props => {
               {withNativeProps(
                 panel.props,
                 <List.Item
-                  className={`${classPrefix}-panel-header`}
+                  className={`${prefixCls}-panel-header`}
                   onClick={handleClick}
                   disabled={panel.props.disabled}
                   arrowIcon={arrowIcon}
@@ -263,6 +271,7 @@ export const Collapse: FC<CollapseProps> = props => {
                 visible={active}
                 forceRender={!!panel.props.forceRender}
                 destroyOnClose={!!panel.props.destroyOnClose}
+                prefixCls={prefixCls}
               >
                 {panel.props.children}
               </CollapsePanelContent>

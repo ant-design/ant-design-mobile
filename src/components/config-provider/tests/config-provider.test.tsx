@@ -40,6 +40,7 @@ import viVN from '../../../locales/vi-VN'
 import zhCN from '../../../locales/zh-CN'
 import zhHK from '../../../locales/zh-HK'
 import zhTW from '../../../locales/zh-TW'
+import Collapse from '../../collapse'
 
 const locales = [
   zhCN,
@@ -128,5 +129,32 @@ describe('ConfigProvider', () => {
     render(<Demo />)
 
     expect(Object.keys(config!)).toEqual(['locale'])
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='custom-prefix'>
+        <Collapse defaultActiveKey={['1']}>
+          <Collapse.Panel key='1' title='第一项'>
+            第一项
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.custom-prefix')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(component) ', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='custom-prefix'>
+        <Collapse defaultActiveKey={['1']} prefixCls='another-prefix-collapse'>
+          <Collapse.Panel key='1' title='第一项'>
+            第一项
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.custom-prefix')).toBeFalsy()
+    expect(container.querySelector('.another-prefix-collapse')).toBeTruthy()
   })
 })
