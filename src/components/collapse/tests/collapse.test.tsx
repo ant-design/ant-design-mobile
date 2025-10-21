@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { fireEvent, render, screen, testA11y, waitFor } from 'testing'
 import Collapse from '../'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-collapse`
 
@@ -177,5 +178,32 @@ describe('arrow', () => {
       </Collapse>
     )
     expect(screen.getByText('bar')).toBeVisible()
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='custom-prefix'>
+        <Collapse defaultActiveKey={['1']}>
+          <Collapse.Panel key='1' title='第一项'>
+            第一项
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.custom-prefix-collapse')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(component) ', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='custom-prefix'>
+        <Collapse defaultActiveKey={['1']} prefixCls='another-prefix'>
+          <Collapse.Panel key='1' title='第一项'>
+            第一项
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.custom-prefix-collapse')).toBeFalsy()
+    expect(container.querySelector('.another-prefix')).toBeTruthy()
   })
 })
