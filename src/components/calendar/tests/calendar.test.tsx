@@ -3,6 +3,7 @@ import MockDate from 'mockdate'
 import React, { useRef, useState } from 'react'
 import { fireEvent, render, testA11y } from 'testing'
 import Calendar, { CalendarRef } from '..'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-calendar`
 
@@ -259,5 +260,25 @@ describe('Calendar', () => {
     // 确保按钮元素不存在
     const button = container.querySelector(selector)
     expect(button).toBeNull()
+  })
+  test('should apply custom prefixCls', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Calendar />
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.config-prefix-calendar')).toBeTruthy()
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should apply custom prefixCls', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Calendar prefixCls='component-prefix' />
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.component-prefix')).toBeTruthy()
+    expect(container.querySelector('.config-prefix-calendar')).toBeFalsy()
+    expect(container).toMatchSnapshot()
   })
 })
