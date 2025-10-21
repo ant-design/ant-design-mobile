@@ -81,14 +81,17 @@ export const ConfigProvider: FC<ConfigProviderProps> = props => {
   const { children, ...config } = props
   const parentConfig = useConfig()
 
-  const getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) {
-      return customizePrefixCls
-    }
-    const mergedPrefixCls =
-      config.prefixCls || parentConfig.prefixCls || defaultPrefixCls
-    return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls
-  }
+  const getPrefixCls = React.useCallback(
+    (suffixCls?: string, customizePrefixCls?: string) => {
+      if (customizePrefixCls) {
+        return customizePrefixCls
+      }
+      const mergedPrefixCls =
+        config.prefixCls || parentConfig.prefixCls || defaultPrefixCls
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls
+    },
+    [config.prefixCls, parentConfig.prefixCls]
+  )
 
   return (
     <ConfigContext.Provider
