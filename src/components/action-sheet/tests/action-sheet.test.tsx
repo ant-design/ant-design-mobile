@@ -252,12 +252,12 @@ describe('ActionSheet', () => {
   })
 
   test('should apply custom prefixCls(component) ', () => {
-    const { container } = render(
+    render(
       <ConfigProvider prefixCls='custom-prefix'>
         <ActionSheet visible prefixCls='another-prefix' actions={[]} />
       </ConfigProvider>
     )
-    expect(container.querySelector('.custom-prefix-action-sheet')).toBeFalsy()
-    expect(container.querySelector('.another-prefix')).toBeTruthy()
+    expect(document.querySelector('.custom-prefix-action-sheet')).toBeFalsy()
+    expect(document.querySelector('.another-prefix')).toBeTruthy()
   })
 })
