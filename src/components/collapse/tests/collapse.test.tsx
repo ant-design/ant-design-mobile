@@ -180,6 +180,19 @@ describe('arrow', () => {
     expect(screen.getByText('bar')).toBeVisible()
   })
 
+  test('default adm class', () => {
+    const { container } = render(
+      <ConfigProvider>
+        <Collapse defaultActiveKey={['1']}>
+          <Collapse.Panel key='1' title='第一项'>
+            第一项
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.adm-collapse')).toBeTruthy()
+  })
+
   test('should apply custom prefixCls(ConfigProvider)', () => {
     const { container } = render(
       <ConfigProvider prefixCls='custom-prefix'>

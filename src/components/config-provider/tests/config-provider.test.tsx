@@ -40,7 +40,6 @@ import viVN from '../../../locales/vi-VN'
 import zhCN from '../../../locales/zh-CN'
 import zhHK from '../../../locales/zh-HK'
 import zhTW from '../../../locales/zh-TW'
-import Collapse from '../../collapse'
 
 const locales = [
   zhCN,
@@ -129,18 +128,5 @@ describe('ConfigProvider', () => {
     render(<Demo />)
 
     expect(Object.keys(config!)).toEqual(['locale', 'getPrefixCls'])
-  })
-
-  test('default adm class', () => {
-    const { container } = render(
-      <ConfigProvider>
-        <Collapse defaultActiveKey={['1']}>
-          <Collapse.Panel key='1' title='第一项'>
-            第一项
-          </Collapse.Panel>
-        </Collapse>
-      </ConfigProvider>
-    )
-    expect(container.querySelector('.adm-collapse')).toBeTruthy()
   })
 })
