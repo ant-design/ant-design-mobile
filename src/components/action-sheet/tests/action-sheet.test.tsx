@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { render, testA11y, fireEvent, waitFor, cleanup, sleep } from 'testing'
-import ActionSheet, { Action } from '../'
-import Button from '../../button'
+import { cleanup, fireEvent, render, testA11y, waitFor } from 'testing'
 import type { ActionSheetProps, ActionSheetShowHandler } from '..'
+import ActionSheet, { Action } from '../'
 import {
   reduceMotion,
   restoreMotion,
 } from '../../../utils/reduce-and-restore-motion'
+import Button from '../../button'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-action-sheet`
 
@@ -248,5 +249,15 @@ describe('ActionSheet', () => {
     expect(document.querySelector('.adm-popup-body')).toHaveStyle(
       'fontSize: 18'
     )
+  })
+
+  test('should apply custom prefixCls(component) ', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='custom-prefix'>
+        <ActionSheet visible prefixCls='another-prefix' actions={[]} />
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.custom-prefix-action-sheet')).toBeFalsy()
+    expect(container.querySelector('.another-prefix')).toBeTruthy()
   })
 })
