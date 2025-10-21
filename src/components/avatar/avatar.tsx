@@ -2,10 +2,9 @@ import type { FC, ReactNode } from 'react'
 import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import Image, { ImageProps } from '../image'
 import { Fallback } from './fallback'
-
-const classPrefix = 'adm-avatar'
 
 export type AvatarProps = {
   src: string
@@ -14,6 +13,7 @@ export type AvatarProps = {
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLImageElement, Event>
   ) => void
+  prefixCls?: string
 } & Pick<ImageProps, 'alt' | 'lazy' | 'onError' | 'onLoad'> &
   NativeProps<'--size' | '--border-radius'>
 
@@ -24,12 +24,14 @@ const defaultProps = {
 
 export const Avatar: FC<AvatarProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('avatar', props.prefixCls)
   const mergedSrc = props.src?.trim() || undefined
 
   return withNativeProps(
     props,
     <Image
-      className={classPrefix}
+      className={prefixCls}
       src={mergedSrc}
       fallback={props.fallback}
       placeholder={props.fallback}
