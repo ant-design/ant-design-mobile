@@ -223,6 +223,16 @@ describe('Button', () => {
   test('should apply custom prefixCls', () => {
     const { container } = render(
       <ConfigProvider prefixCls='config-prefix'>
+        <Button>按钮</Button>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.config-prefix-button')).toBeTruthy()
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should apply custom prefixCls', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
         <Button block color='primary' size='large' prefixCls='component-prefix'>
           Block
         </Button>
