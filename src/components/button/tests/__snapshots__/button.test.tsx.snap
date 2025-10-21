@@ -1,6 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should apply custom prefixCls 1`] = `
+exports[`Button should apply custom prefixCls(ConfigProvider) 1`] = `
+<div>
+  <button
+    class="config-prefix-button config-prefix-button-default config-prefix-button-shape-default"
+    type="button"
+  >
+    <span>
+      按钮
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button should apply custom prefixCls(component) 1`] = `
 <div>
   <button
     class="component-prefix component-prefix-primary component-prefix-block component-prefix-large component-prefix-shape-default"
