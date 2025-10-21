@@ -13,8 +13,6 @@ import { useConfig } from '../config-provider'
 import Divider from '../divider'
 import Popup from '../popup'
 
-const classPrefix = 'adm-calendar-picker'
-
 export type CalendarPickerRef = CalendarPickerViewRef
 
 export type CalendarPickerProps = CalendarPickerViewProps & {
@@ -28,6 +26,7 @@ export type CalendarPickerProps = CalendarPickerViewProps & {
   onClose?: () => void
   onMaskClick?: () => void
   getContainer?: GetContainer
+  prefixCls?: string
 } & (
     | {
         selectionMode?: undefined
@@ -60,7 +59,7 @@ export const CalendarPicker = forwardRef<
     p
   )
 
-  const { locale } = useConfig()
+  const { locale, getPrefixCls } = useConfig()
   const calendarRef = (ref ??
     useRef<CalendarPickerRef>(null)) as React.RefObject<CalendarPickerRef>
 
@@ -76,15 +75,16 @@ export const CalendarPicker = forwardRef<
     onConfirm,
     onMaskClick,
     getContainer,
+    prefixCls: customPrefixCls,
     ...calendarViewProps
   } = props
-
+  const prefixCls = getPrefixCls('calendar-picker', customPrefixCls)
   const viewContext = React.useMemo(() => ({ visible: !!visible }), [visible])
 
   const footer = (
-    <div className={`${classPrefix}-footer`}>
+    <div className={`${prefixCls}-footer`}>
       <Divider />
-      <div className={`${classPrefix}-footer-bottom`}>
+      <div className={`${prefixCls}-footer-bottom`}>
         <Button
           color='primary'
           onClick={() => {
@@ -106,10 +106,10 @@ export const CalendarPicker = forwardRef<
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div className={prefixCls}>
       <Popup
         visible={visible}
-        className={classNames(`${classPrefix}-popup`, popupClassName)}
+        className={classNames(`${prefixCls}-popup`, popupClassName)}
         showCloseButton
         forceRender={ref ? true : forceRender}
         style={popupStyle}
