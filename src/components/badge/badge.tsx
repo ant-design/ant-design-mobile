@@ -1,9 +1,8 @@
 import classNames from 'classnames'
+import type { CSSProperties, FC, ReactNode } from 'react'
 import React from 'react'
-import type { FC, ReactNode, CSSProperties } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-
-const classPrefix = `adm-badge`
+import { useConfig } from '../config-provider'
 
 export const dot = <React.Fragment />
 
@@ -14,17 +13,20 @@ export type BadgeProps = {
   children?: ReactNode
   wrapperClassName?: string
   wrapperStyle?: CSSProperties
+  prefixCls?: string
 } & NativeProps<'--right' | '--top' | '--color'>
 
 export const Badge: FC<BadgeProps> = props => {
   const { content, color, children } = props
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('badge', props?.prefixCls)
 
   const isDot = content === dot
 
-  const badgeClass = classNames(classPrefix, {
-    [`${classPrefix}-fixed`]: !!children,
-    [`${classPrefix}-dot`]: isDot,
-    [`${classPrefix}-bordered`]: props.bordered,
+  const badgeClass = classNames(prefixCls, {
+    [`${prefixCls}-fixed`]: !!children,
+    [`${prefixCls}-dot`]: isDot,
+    [`${prefixCls}-bordered`]: props.bordered,
   })
 
   const element =
@@ -39,16 +41,14 @@ export const Badge: FC<BadgeProps> = props => {
               } as BadgeProps['style']
             }
           >
-            {!isDot && (
-              <div className={`${classPrefix}-content`}>{content}</div>
-            )}
+            {!isDot && <div className={`${prefixCls}-content`}>{content}</div>}
           </div>
         )
       : null
 
   return children ? (
     <div
-      className={classNames(`${classPrefix}-wrapper`, props.wrapperClassName)}
+      className={classNames(`${prefixCls}-wrapper`, props.wrapperClassName)}
       style={props.wrapperStyle}
     >
       {children}
