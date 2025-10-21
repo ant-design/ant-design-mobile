@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ConfigProvider should apply custom prefixCls 1`] = `
+<div>
+  <button
+    class="config-prefix-button config-prefix-button-default config-prefix-button-shape-default"
+    type="button"
+  >
+    <span>
+      按钮
+    </span>
+  </button>
+</div>
+`;
+
 exports[`ConfigProvider should display the text as ar-SA 1`] = `
 <div>
   <div

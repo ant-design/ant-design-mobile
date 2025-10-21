@@ -40,6 +40,7 @@ import viVN from '../../../locales/vi-VN'
 import zhCN from '../../../locales/zh-CN'
 import zhHK from '../../../locales/zh-HK'
 import zhTW from '../../../locales/zh-TW'
+import Button from '../../button'
 
 const locales = [
   zhCN,
@@ -128,5 +129,15 @@ describe('ConfigProvider', () => {
     render(<Demo />)
 
     expect(Object.keys(config!)).toEqual(['locale', 'getPrefixCls'])
+  })
+
+  test('should apply custom prefixCls', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Button>按钮</Button>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.config-prefix-button')).toBeTruthy()
+    expect(container).toMatchSnapshot()
   })
 })
