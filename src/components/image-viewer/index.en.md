@@ -14,7 +14,7 @@ You need to click on the picture to view the details and use it with the thumbna
 
 | Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| afterClose | Triggered when completely closed | `() => void` | - |
+| afterClose | Triggered when it is completely closed | `() => void` | - |  |
 | classNames | Semantic structure class | `{ mask?:string,body?:string }` | - | 5.33.1 |
 | getContainer | To get the specified mounted HTML node, the default is `null` rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `null` |  |
 | image | The `url` of the image resource | `string` | - |  |

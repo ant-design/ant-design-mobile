@@ -14,7 +14,7 @@
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| afterClose | 完全关闭后触发 | `() => void` | - |
+| afterClose | 完全关闭后触发 | `() => void` | - |  |
 | classNames | 语义化 class | `{ mask?:string,body?:string }` | - | 5.33.1 |
 | getContainer | 指定挂载的 HTML 节点，默认为 `null` 渲染到当前节点 | `HTMLElement \| () => HTMLElement \| null` | `null` |  |
 | image | 图片资源的 `url` | `string` | - |  |
