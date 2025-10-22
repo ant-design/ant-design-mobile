@@ -3,6 +3,7 @@ import MockDate from 'mockdate'
 import React, { useRef } from 'react'
 import { fireEvent, render, testA11y } from 'testing'
 import CalendarPickerView, { CalendarPickerViewRef } from '..'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-calendar-picker-view`
 
@@ -219,5 +220,30 @@ describe('Calendar', () => {
     expect(
       container.querySelector('[data-year-month="2025-8"]')
     ).toBeInTheDocument()
+  })
+
+  test('should apply prefixCls from ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <CalendarPickerView />
+      </ConfigProvider>
+    )
+    expect(
+      container.querySelector('.config-prefix-calendar-picker-view')
+    ).toBeTruthy()
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should prioritize component prefixCls over ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <CalendarPickerView prefixCls='component-prefix' />
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.component-prefix')).toBeTruthy()
+    expect(
+      container.querySelector('.config-prefix-calendar-picker-view')
+    ).toBeFalsy()
+    expect(container).toMatchSnapshot()
   })
 })
