@@ -3676,13 +3676,13 @@ exports[`Calendar range mode 1`] = `
 exports[`Calendar should apply custom prefixCls 1`] = `
 <div>
   <div
-    class="component-prefix"
+    class="config-prefix-calendar"
   >
     <div
-      class="component-prefix-header"
+      class="config-prefix-calendar-header"
     >
       <a
-        class="component-prefix-arrow-button component-prefix-arrow-button-year"
+        class="config-prefix-calendar-arrow-button config-prefix-calendar-arrow-button-year"
       >
         <svg
           height="1em"
@@ -3724,7 +3724,7 @@ exports[`Calendar should apply custom prefixCls 1`] = `
         </svg>
       </a>
       <a
-        class="component-prefix-arrow-button component-prefix-arrow-button-month"
+        class="config-prefix-calendar-arrow-button config-prefix-calendar-arrow-button-month"
       >
         <svg
           height="1em"
@@ -3763,12 +3763,12 @@ exports[`Calendar should apply custom prefixCls 1`] = `
         </svg>
       </a>
       <div
-        class="component-prefix-title"
+        class="config-prefix-calendar-title"
       >
         2022年3月
       </div>
       <a
-        class="component-prefix-arrow-button component-prefix-arrow-button-right component-prefix-arrow-button-right-month"
+        class="config-prefix-calendar-arrow-button config-prefix-calendar-arrow-button-right config-prefix-calendar-arrow-button-right-month"
       >
         <svg
           height="1em"
@@ -3807,7 +3807,7 @@ exports[`Calendar should apply custom prefixCls 1`] = `
         </svg>
       </a>
       <a
-        class="component-prefix-arrow-button component-prefix-arrow-button-right component-prefix-arrow-button-right-year"
+        class="config-prefix-calendar-arrow-button config-prefix-calendar-arrow-button-right config-prefix-calendar-arrow-button-right-year"
       >
         <svg
           height="1em"
@@ -3850,549 +3850,549 @@ exports[`Calendar should apply custom prefixCls 1`] = `
       </a>
     </div>
     <div
-      class="component-prefix-mark"
+      class="config-prefix-calendar-mark"
     >
       <div
-        class="component-prefix-mark-cell"
+        class="config-prefix-calendar-mark-cell"
       >
         日
       </div>
       <div
-        class="component-prefix-mark-cell"
+        class="config-prefix-calendar-mark-cell"
       >
         一
       </div>
       <div
-        class="component-prefix-mark-cell"
+        class="config-prefix-calendar-mark-cell"
       >
         二
       </div>
       <div
-        class="component-prefix-mark-cell"
+        class="config-prefix-calendar-mark-cell"
       >
         三
       </div>
       <div
-        class="component-prefix-mark-cell"
+        class="config-prefix-calendar-mark-cell"
       >
         四
       </div>
       <div
-        class="component-prefix-mark-cell"
+        class="config-prefix-calendar-mark-cell"
       >
         五
       </div>
       <div
-        class="component-prefix-mark-cell"
+        class="config-prefix-calendar-mark-cell"
       >
         六
       </div>
     </div>
     <div
-      class="component-prefix-cells"
+      class="config-prefix-calendar-cells"
     >
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           27
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           28
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           1
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           2
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           3
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           4
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           5
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           6
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           7
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           8
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           9
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           10
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           11
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           12
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           13
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           14
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           15
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           16
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           17
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           18
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           19
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           20
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           21
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-today"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-today"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           22
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           23
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           24
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           25
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           26
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           27
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           28
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           29
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           30
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell"
+        class="config-prefix-calendar-cell"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           31
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           1
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           2
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           3
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           4
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           5
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           6
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           7
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           8
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
       <div
-        class="component-prefix-cell component-prefix-cell-disabled"
+        class="config-prefix-calendar-cell config-prefix-calendar-cell-disabled"
       >
         <div
-          class="component-prefix-cell-top"
+          class="config-prefix-calendar-cell-top"
         >
           9
         </div>
         <div
-          class="component-prefix-cell-bottom"
+          class="config-prefix-calendar-cell-bottom"
         />
       </div>
     </div>
