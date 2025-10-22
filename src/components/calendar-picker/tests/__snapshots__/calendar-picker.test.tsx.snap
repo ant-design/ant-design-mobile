@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Calendar should apply custom prefixCls 1`] = `
+<div>
+  <div
+    class="config-prefix-calendar-picker"
+  />
+</div>
+`;
+
+exports[`Calendar should apply custom prefixCls 2`] = `
+<div>
+  <div
+    class="component-prefix"
+  />
+</div>
+`;
+
 exports[`Calendar single mode 1`] = `
 <div>
   <div
