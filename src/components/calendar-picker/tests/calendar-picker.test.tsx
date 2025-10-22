@@ -97,7 +97,7 @@ describe('Calendar', () => {
     spyHTMLElement.mockRestore()
   })
 
-  test('should apply custom prefixCls', () => {
+  test('should apply prefixCls from ConfigProvider', () => {
     const { container } = render(
       <ConfigProvider prefixCls='config-prefix'>
         <CalendarPicker
