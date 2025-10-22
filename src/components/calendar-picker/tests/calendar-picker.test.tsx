@@ -115,7 +115,7 @@ describe('Calendar', () => {
     expect(container).toMatchSnapshot()
   })
 
-  test('should apply custom prefixCls', () => {
+  test('should prioritize component prefixCls over ConfigProvider', () => {
     const { container } = render(
       <ConfigProvider prefixCls='config-prefix'>
         <CalendarPicker
