@@ -35,6 +35,8 @@ export type NumberKeyboardProps = {
   | 'destroyOnClose'
   | 'forceRender'
   | 'stopPropagation'
+  | 'mask'
+  | 'maskStyle'
 > &
   NativeProps<'--adm-safe-area-multiple'>
 
@@ -60,6 +62,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     randomOrder,
     showCloseButton,
     onInput,
+    mask,
+    maskStyle
   } = props
 
   const { locale } = useConfig()
@@ -212,7 +216,8 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     <Popup
       visible={visible}
       getContainer={getContainer}
-      mask={false}
+      mask={mask}
+      maskStyle={maskStyle}
       afterClose={props.afterClose}
       afterShow={props.afterShow}
       className={`${classPrefix}-popup`}
