@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Calendar should apply custom prefixCls 1`] = `
+exports[`Calendar should apply prefixCls from ConfigProvider 1`] = `
 <div>
   <div
     class="config-prefix-calendar-picker"
@@ -8,7 +8,7 @@ exports[`Calendar should apply custom prefixCls 1`] = `
 </div>
 `;
 
-exports[`Calendar should apply custom prefixCls 2`] = `
+exports[`Calendar should prioritize component prefixCls over ConfigProvider 1`] = `
 <div>
   <div
     class="component-prefix"
