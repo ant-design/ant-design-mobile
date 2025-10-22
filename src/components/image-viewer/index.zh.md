@@ -19,6 +19,7 @@
 | image | 图片资源的 `url` | `string` | - |  |
 | maxZoom | 最大缩放比例 | `number \| 'auto'` | `3` |  |
 | onClose | 关闭时触发 | `() => void` | - |  |
+| afterClose | 完全关闭后触发 | `() => void` | - |
 | renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |  |
 | imageRender | 自定义渲染内容 | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - | 5.39.0 |
 | visible | 是否显示 | `boolean` | `false` |  |
@@ -41,7 +42,6 @@
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| afterClose | 完全关闭后触发 | `() => void` | - |
 | onClick | 点击蒙层自身触发 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 
 ### Ref

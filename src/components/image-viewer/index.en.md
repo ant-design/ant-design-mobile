@@ -19,6 +19,7 @@ You need to click on the picture to view the details and use it with the thumbna
 | image | The `url` of the image resource | `string` | - |  |
 | maxZoom | The maximum zoom ratio | `number \| 'auto'` | `3` |  |
 | onClose | Triggered when it is closed | `() => void` | - |  |
+| afterClose | Triggered when completely closed | `() => void` | - |
 | renderFooter | Render extra content on footer | `(image: string) => ReactNode` | - |  |
 | imageRender | Custom rendering content | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - | 5.39.0 |
 | visible | Whether to show or hide | `boolean` | `false` |  |
@@ -49,7 +50,6 @@ At the same time, the `image` prop is removed.
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
-| afterClose | Triggered when completely closed | `() => void` | - |
 | onClick | Triggered when the mask is clicked | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 
 ## Imperative

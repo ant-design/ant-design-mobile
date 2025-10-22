@@ -18,12 +18,9 @@ export function showImageViewer(props: Omit<ImageViewerProps, 'visible'>) {
   const handler: ImageViewerShowHandler = renderImperatively(
     <ImageViewer
       {...props}
-      mask={{
-        ...props.mask,
-        afterClose: () => {
-          handlerSet.delete(handler)
-          props.mask?.afterClose?.()
-        },
+      afterClose={() => {
+        handlerSet.delete(handler)
+        props.afterClose?.()
       }}
     />
   )
@@ -38,12 +35,9 @@ export function showMultiImageViewer(
   const handler: ImageViewerShowHandler = renderImperatively(
     <MultiImageViewer
       {...props}
-      mask={{
-        ...props.mask,
-        afterClose: () => {
-          handlerSet.delete(handler)
-          props.mask?.afterClose?.()
-        },
+      afterClose={() => {
+        handlerSet.delete(handler)
+        props.afterClose?.()
       }}
     />
   )
