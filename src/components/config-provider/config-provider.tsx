@@ -45,7 +45,6 @@ type Config = {
     searchIcon?: ReactNode
   }
   prefixCls?: string
-  getPrefixCls: GetPrefixCls
 }
 export const defaultPrefixCls = 'adm'
 
@@ -54,12 +53,6 @@ export const defaultConfigRef: {
 } = {
   current: {
     locale: zhCN,
-    getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-      if (customizePrefixCls) {
-        return customizePrefixCls
-      }
-      return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : defaultPrefixCls
-    },
   },
 }
 
@@ -71,7 +64,9 @@ export function getDefaultConfig() {
   return defaultConfigRef.current
 }
 
-const ConfigContext = React.createContext<Config | null>(null)
+const ConfigContext = React.createContext<
+  (Config & { getPrefixCls: GetPrefixCls }) | null
+>(null)
 
 export type ConfigProviderProps = Partial<Config> & {
   children?: ReactNode
