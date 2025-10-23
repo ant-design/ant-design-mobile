@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { render, testA11y } from 'testing'
 import Badge from '../'
+import ConfigProvider from '../../config-provider'
 
 describe('Badge', () => {
   test('passes a11y test', async () => {
@@ -43,5 +44,30 @@ describe('Badge', () => {
     const element = getByTestId('test-badge-wrap')
     expect(element.parentNode).toHaveClass('test')
     expect(element.parentNode).toHaveStyle('color: red')
+  })
+
+  test('should apply custom prefixCls(component)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Badge color='#108ee9' content='新' prefixCls='component-prefix'>
+          text
+        </Badge>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.component-prefix')).toBeTruthy()
+    expect(container.querySelector('.config-prefix-badge')).toBeFalsy()
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Badge color='#108ee9' content='新'>
+          text
+        </Badge>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.config-prefix-badge')).toBeTruthy()
+    expect(container).toMatchSnapshot()
   })
 })

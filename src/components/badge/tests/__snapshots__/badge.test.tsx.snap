@@ -51,3 +51,43 @@ exports[`Badge renders with color 1`] = `
   </div>
 </div>
 `;
+
+exports[`Badge should apply custom prefixCls(ConfigProvider) 1`] = `
+<div>
+  <div
+    class="config-prefix-badge-wrapper"
+  >
+    text
+    <div
+      class="config-prefix-badge config-prefix-badge-fixed"
+      style="--color: #108ee9;"
+    >
+      <div
+        class="config-prefix-badge-content"
+      >
+        新
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Badge should apply custom prefixCls(component) 1`] = `
+<div>
+  <div
+    class="component-prefix-wrapper"
+  >
+    text
+    <div
+      class="component-prefix component-prefix-fixed"
+      style="--color: #108ee9;"
+    >
+      <div
+        class="component-prefix-content"
+      >
+        新
+      </div>
+    </div>
+  </div>
+</div>
+`;
