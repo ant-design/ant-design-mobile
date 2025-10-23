@@ -81,7 +81,7 @@ describe('Cascader', () => {
   })
 
   test('should apply prefixCls from ConfigProvider', () => {
-    const { container } = render(
+    render(
       <ConfigProvider prefixCls='config-prefix'>
         <Cascader options={[]} visible />
       </ConfigProvider>
