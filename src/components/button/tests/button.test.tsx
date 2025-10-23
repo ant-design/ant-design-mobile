@@ -1,15 +1,16 @@
 import React, { createRef } from 'react'
 import {
-  render,
-  testA11y,
-  screen,
-  fireEvent,
-  sleep,
-  waitFor,
   act,
+  fireEvent,
+  render,
+  screen,
+  sleep,
+  testA11y,
+  waitFor,
 } from 'testing'
-import Button from '../'
 import type { ButtonRef } from '..'
+import Button from '../'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-button`
 
@@ -217,5 +218,28 @@ describe('Button', () => {
       await sleep(100)
       screen.getByText('Button')
     })
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Button>按钮</Button>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.config-prefix-button')).toBeTruthy()
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should apply custom prefixCls(component)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Button block color='primary' size='large' prefixCls='component-prefix'>
+          Block
+        </Button>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.component-prefix')).toBeTruthy()
+    expect(container.querySelector('.config-prefix-button')).toBeFalsy()
+    expect(container).toMatchSnapshot()
   })
 })

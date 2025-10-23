@@ -1,17 +1,16 @@
-import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import classNames from 'classnames'
 import type {
-  ReactNode,
   ButtonHTMLAttributes,
   DetailedHTMLProps,
   MouseEventHandler,
+  ReactNode,
 } from 'react'
-import classNames from 'classnames'
-import DotLoading from '../dot-loading'
-import { mergeProps } from '../../utils/with-default-props'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { isPromise } from '../../utils/validate'
-
-const classPrefix = `adm-button`
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import DotLoading from '../dot-loading'
 
 type NativeButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -33,6 +32,7 @@ export type ButtonProps = {
   type?: 'submit' | 'reset' | 'button'
   shape?: 'default' | 'rounded' | 'rectangular'
   children?: ReactNode
+  prefixCls?: string
 } & Pick<
   NativeButtonProps,
   'onMouseDown' | 'onMouseUp' | 'onTouchStart' | 'onTouchEnd' | 'id' | 'form'
@@ -63,6 +63,8 @@ const defaultProps: ButtonProps = {
 
 export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('button', props.prefixCls)
   const [innerLoading, setInnerLoading] = useState(false)
   const nativeButtonRef = useRef<HTMLButtonElement>(null)
   const loading = props.loading === 'auto' ? innerLoading : props.loading
@@ -99,19 +101,19 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
       form={props.form}
       onClick={handleClick}
       className={classNames(
-        classPrefix,
+        prefixCls,
         {
-          [`${classPrefix}-${props.color}`]: props.color,
-          [`${classPrefix}-block`]: props.block,
-          [`${classPrefix}-disabled`]: disabled,
-          [`${classPrefix}-fill-outline`]: props.fill === 'outline',
-          [`${classPrefix}-fill-none`]: props.fill === 'none',
-          [`${classPrefix}-mini`]: props.size === 'mini',
-          [`${classPrefix}-small`]: props.size === 'small',
-          [`${classPrefix}-large`]: props.size === 'large',
-          [`${classPrefix}-loading`]: loading,
+          [`${prefixCls}-${props.color}`]: props.color,
+          [`${prefixCls}-block`]: props.block,
+          [`${prefixCls}-disabled`]: disabled,
+          [`${prefixCls}-fill-outline`]: props.fill === 'outline',
+          [`${prefixCls}-fill-none`]: props.fill === 'none',
+          [`${prefixCls}-mini`]: props.size === 'mini',
+          [`${prefixCls}-small`]: props.size === 'small',
+          [`${prefixCls}-large`]: props.size === 'large',
+          [`${prefixCls}-loading`]: loading,
         },
-        `${classPrefix}-shape-${props.shape}`
+        `${prefixCls}-shape-${props.shape}`
       )}
       disabled={disabled}
       onMouseDown={props.onMouseDown}
@@ -120,7 +122,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>((p, ref) => {
       onTouchEnd={props.onTouchEnd}
     >
       {loading ? (
-        <div className={`${classPrefix}-loading-wrapper`}>
+        <div className={`${prefixCls}-loading-wrapper`}>
           {props.loadingIcon}
           {props.loadingText}
         </div>
