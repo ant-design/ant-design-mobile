@@ -118,7 +118,7 @@ describe('ConfigProvider', () => {
     })
   })
 
-  test('useConfig should only has `locale`', () => {
+  test('useConfig should only has `locale` and `getPrefixCls`', () => {
     let config: ReturnType<typeof useConfig>
 
     const Demo = () => {
@@ -127,6 +127,6 @@ describe('ConfigProvider', () => {
     }
     render(<Demo />)
 
-    expect(Object.keys(config!)).toEqual(['locale'])
+    expect(Object.keys(config!)).toEqual(['locale', 'getPrefixCls'])
   })
 })

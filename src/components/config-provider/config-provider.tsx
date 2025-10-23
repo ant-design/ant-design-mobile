@@ -2,6 +2,8 @@ import React, { FC, ReactNode, useContext } from 'react'
 import { Locale } from '../../locales/base'
 import zhCN from '../../locales/zh-CN'
 
+type GetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => string
+
 type Config = {
   locale: Locale
   checkList?: {
@@ -42,7 +44,9 @@ type Config = {
   searchBar?: {
     searchIcon?: ReactNode
   }
+  prefixCls?: string
 }
+export const defaultPrefixCls = 'adm'
 
 export const defaultConfigRef: {
   current: Config
@@ -60,7 +64,9 @@ export function getDefaultConfig() {
   return defaultConfigRef.current
 }
 
-const ConfigContext = React.createContext<Config | null>(null)
+const ConfigContext = React.createContext<
+  (Config & { getPrefixCls: GetPrefixCls }) | null
+>(null)
 
 export type ConfigProviderProps = Partial<Config> & {
   children?: ReactNode
@@ -70,11 +76,24 @@ export const ConfigProvider: FC<ConfigProviderProps> = props => {
   const { children, ...config } = props
   const parentConfig = useConfig()
 
+  const getPrefixCls = React.useCallback(
+    (suffixCls?: string, customizePrefixCls?: string) => {
+      if (customizePrefixCls) {
+        return customizePrefixCls
+      }
+      const mergedPrefixCls =
+        config.prefixCls || parentConfig.prefixCls || defaultPrefixCls
+      return suffixCls ? `${mergedPrefixCls}-${suffixCls}` : mergedPrefixCls
+    },
+    [config.prefixCls, parentConfig.prefixCls]
+  )
+
   return (
     <ConfigContext.Provider
       value={{
         ...parentConfig,
         ...config,
+        getPrefixCls,
       }}
     >
       {children}
@@ -83,5 +102,16 @@ export const ConfigProvider: FC<ConfigProviderProps> = props => {
 }
 
 export function useConfig() {
-  return useContext(ConfigContext) ?? getDefaultConfig()
+  const context = useContext(ConfigContext)
+  if (!context) {
+    const defaultConfig = getDefaultConfig()
+    return {
+      ...defaultConfig,
+      getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
+        if (customizePrefixCls) return customizePrefixCls
+        return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : defaultPrefixCls
+      },
+    }
+  }
+  return context
 }
