@@ -25,7 +25,7 @@ describe('list', () => {
     expect(baseElement).toMatchSnapshot()
   })
 
-  describe('arrow', () => {
+  describe('arrow and prefixCls', () => {
     it('show arrow', () => {
       const { baseElement } = render(
         <List>

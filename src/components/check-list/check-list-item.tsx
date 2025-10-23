@@ -1,13 +1,12 @@
-import React, { useContext } from 'react'
-import type { FC } from 'react'
-import List, { ListItemProps } from '../list'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { CheckListContext } from './context'
-import { devWarning } from '../../utils/dev-log'
 import classNames from 'classnames'
+import type { FC } from 'react'
+import React, { useContext } from 'react'
 import { CheckListValue } from '.'
-
-const classPrefix = `adm-check-list-item`
+import { devWarning } from '../../utils/dev-log'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { useConfig } from '../config-provider'
+import List, { ListItemProps } from '../list'
+import { CheckListContext } from './context'
 
 export type CheckListItemProps = Pick<
   ListItemProps,
@@ -18,6 +17,7 @@ export type CheckListItemProps = Pick<
   | 'disabled'
   | 'onClick'
   | 'style'
+  | 'prefixCls'
 > & {
   value: CheckListValue
   readOnly?: boolean
@@ -25,6 +25,8 @@ export type CheckListItemProps = Pick<
 
 export const CheckListItem: FC<CheckListItemProps> = props => {
   const context = useContext(CheckListContext)
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('check-list-item', props.prefixCls)
   if (context === null) {
     devWarning(
       'CheckList.Item',
@@ -36,16 +38,16 @@ export const CheckListItem: FC<CheckListItemProps> = props => {
   const readOnly = props.readOnly || context.readOnly
   const defaultExtra = active ? context.activeIcon : null
   const renderExtra = context.extra ? context.extra(active) : defaultExtra
-  const extra = <div className={`${classPrefix}-extra`}>{renderExtra}</div>
+  const extra = <div className={`${prefixCls}-extra`}>{renderExtra}</div>
 
   return withNativeProps(
     props,
     <List.Item
       title={props.title}
       className={classNames(
-        classPrefix,
-        readOnly && `${classPrefix}-readonly`,
-        active && `${classPrefix}-active`
+        prefixCls,
+        readOnly && `${prefixCls}-readonly`,
+        active && `${prefixCls}-active`
       )}
       description={props.description}
       prefix={props.prefix}

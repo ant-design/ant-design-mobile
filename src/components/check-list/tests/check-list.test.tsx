@@ -76,7 +76,7 @@ describe('CheckList', () => {
     expect(getByText('NO')).toBeVisible()
   })
 
-  describe('closeIcon', () => {
+  describe('closeIcon and prefixCls', () => {
     it('default', () => {
       const { baseElement } = render(
         <CheckList defaultValue={['B']}>
@@ -99,27 +99,41 @@ describe('CheckList', () => {
 
     it('context', () => {
       render(
-        <ConfigProvider checkList={{ activeIcon: 'little' }}>
+        <ConfigProvider
+          checkList={{ activeIcon: 'little' }}
+          prefixCls='config-prefix'
+        >
           <CheckList defaultValue={['B']}>
             <CheckList.Item value='A'>A</CheckList.Item>
             <CheckList.Item value='B'>B</CheckList.Item>
           </CheckList>
         </ConfigProvider>
       )
-
+      expect(document.querySelector('.config-prefix-check-list')).toBeTruthy()
       expect(screen.getByText('little')).toBeVisible()
     })
 
     it('props override context', () => {
       render(
-        <ConfigProvider checkList={{ activeIcon: 'little' }}>
-          <CheckList defaultValue={['B']} activeIcon='bamboo'>
-            <CheckList.Item value='A'>A</CheckList.Item>
+        <ConfigProvider
+          checkList={{ activeIcon: 'little' }}
+          prefixCls='config-prefix'
+        >
+          <CheckList
+            defaultValue={['B']}
+            activeIcon='bamboo'
+            prefixCls='list-prefix'
+          >
+            <CheckList.Item value='A' prefixCls='item-prefix'>
+              A
+            </CheckList.Item>
             <CheckList.Item value='B'>B</CheckList.Item>
           </CheckList>
         </ConfigProvider>
       )
-
+      expect(document.querySelector('.item-prefix')).toBeTruthy()
+      expect(document.querySelector('.list-prefix')).toBeTruthy()
+      expect(document.querySelector('.config-prefix-check-list')).toBeFalsy()
       expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
