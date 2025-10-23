@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CapsuleTabs should apply prefixCls from ConfigProvider 1`] = `
+<div>
+  <div
+    class="config-prefix-capsule-tabs"
+  >
+    <div
+      class="config-prefix-capsule-tabs-header"
+    >
+      <div
+        class="adm-scroll-mask adm-scroll-mask-left"
+        style="opacity: 0;"
+      />
+      <div
+        class="adm-scroll-mask adm-scroll-mask-right"
+        style="opacity: 0;"
+      />
+      <div
+        class="config-prefix-capsule-tabs-tab-list"
+      >
+        <div
+          class="config-prefix-capsule-tabs-tab-wrapper"
+        >
+          <div
+            class="config-prefix-capsule-tabs-tab config-prefix-capsule-tabs-tab-active"
+          >
+            fruits
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CapsuleTabs should prioritize component prefixCls over ConfigProvider 1`] = `
+<div>
+  <div
+    class="component-prefix"
+  >
+    <div
+      class="component-prefix-header"
+    >
+      <div
+        class="adm-scroll-mask adm-scroll-mask-left"
+        style="opacity: 0;"
+      />
+      <div
+        class="adm-scroll-mask adm-scroll-mask-right"
+        style="opacity: 0;"
+      />
+      <div
+        class="component-prefix-tab-list"
+      >
+        <div
+          class="component-prefix-tab-wrapper"
+        >
+          <div
+            class="component-prefix-tab component-prefix-tab-active"
+          >
+            fruits
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
