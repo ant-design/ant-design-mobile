@@ -1,8 +1,8 @@
+import { CloseOutline } from 'antd-mobile-icons'
 import React, { CSSProperties, ReactNode } from 'react'
 import { GetContainer } from '../../utils/render-to-container'
-import { MaskProps } from '../mask'
 import { PropagationEvent } from '../../utils/with-stop-propagation'
-import { CloseOutline } from 'antd-mobile-icons'
+import { MaskProps } from '../mask'
 
 export type PopupBaseProps = {
   afterClose?: () => void
@@ -24,6 +24,7 @@ export type PopupBaseProps = {
   showCloseButton?: boolean
   stopPropagation?: PropagationEvent[]
   visible?: boolean
+  prefixCls?: string
 }
 
 export const defaultPopupBaseProps = {
