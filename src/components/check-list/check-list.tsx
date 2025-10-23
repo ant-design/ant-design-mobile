@@ -8,11 +8,9 @@ import { useConfig } from '../config-provider'
 import List, { ListProps } from '../list'
 import { CheckListContext } from './context'
 
-const classPrefix = 'adm-check-list'
-
 export type CheckListValue = string | number
 
-export type CheckListProps = Pick<ListProps, 'mode' | 'style'> & {
+export type CheckListProps = Pick<ListProps, 'mode' | 'style' | 'prefixCls'> & {
   defaultValue?: CheckListValue[]
   value?: CheckListValue[]
   onChange?: (val: CheckListValue[]) => void
@@ -31,9 +29,9 @@ const defaultProps = {
 }
 
 export const CheckList: FC<CheckListProps> = props => {
-  const { checkList: componentConfig = {} } = useConfig()
+  const { checkList: componentConfig = {}, getPrefixCls } = useConfig()
   const mergedProps = mergeProps(defaultProps, componentConfig, props)
-
+  const prefixCls = getPrefixCls('check-list', mergedProps.prefixCls)
   const [value, setValue] = usePropsValue(mergedProps)
 
   function check(val: CheckListValue) {
@@ -64,7 +62,7 @@ export const CheckList: FC<CheckListProps> = props => {
     >
       {withNativeProps(
         mergedProps,
-        <List mode={mergedProps.mode} className={classPrefix}>
+        <List mode={mergedProps.mode} className={prefixCls}>
           {mergedProps.children}
         </List>
       )}

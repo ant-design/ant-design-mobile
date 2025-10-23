@@ -7,8 +7,6 @@ import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProp } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 
-const classPrefix = `adm-list-item`
-
 export type ListItemProps = {
   title?: ReactNode
   children?: ReactNode
@@ -23,13 +21,15 @@ export type ListItemProps = {
    * @deprecated use `arrowIcon` instead
    */
   arrow?: boolean | ReactNode
+  prefixCls?: string
 } & NativeProps<
   '--prefix-width' | '--align-items' | '--active-background-color'
 >
 
 export const ListItem: FC<ListItemProps> = props => {
   const { arrow, arrowIcon } = props
-  const { list: componentConfig = {} } = useConfig()
+  const { list: componentConfig = {}, getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('list-item', props.prefixCls)
   const clickable = props.clickable ?? !!props.onClick
 
   const showArrow = arrow ?? arrowIcon ?? clickable
@@ -40,26 +40,24 @@ export const ListItem: FC<ListItemProps> = props => {
   )
 
   const content = (
-    <div className={`${classPrefix}-content`}>
+    <div className={`${prefixCls}-content`}>
       {isNodeWithContent(props.prefix) && (
-        <div className={`${classPrefix}-content-prefix`}>{props.prefix}</div>
+        <div className={`${prefixCls}-content-prefix`}>{props.prefix}</div>
       )}
-      <div className={`${classPrefix}-content-main`}>
+      <div className={`${prefixCls}-content-main`}>
         {isNodeWithContent(props.title) && (
-          <div className={`${classPrefix}-title`}>{props.title}</div>
+          <div className={`${prefixCls}-title`}>{props.title}</div>
         )}
         {props.children}
         {isNodeWithContent(props.description) && (
-          <div className={`${classPrefix}-description`}>
-            {props.description}
-          </div>
+          <div className={`${prefixCls}-description`}>{props.description}</div>
         )}
       </div>
       {isNodeWithContent(props.extra) && (
-        <div className={`${classPrefix}-content-extra`}>{props.extra}</div>
+        <div className={`${prefixCls}-content-extra`}>{props.extra}</div>
       )}
       {showArrow && (
-        <div className={`${classPrefix}-content-arrow`}>
+        <div className={`${prefixCls}-content-arrow`}>
           {mergedArrowIcon || <RightOutline />}
         </div>
       )}
@@ -72,9 +70,9 @@ export const ListItem: FC<ListItemProps> = props => {
       clickable ? 'a' : 'div',
       {
         className: classNames(
-          `${classPrefix}`,
+          `${prefixCls}`,
           clickable ? ['adm-plain-anchor'] : [],
-          props.disabled && `${classPrefix}-disabled`
+          props.disabled && `${prefixCls}-disabled`
         ),
         onClick: props.disabled ? undefined : props.onClick,
       },

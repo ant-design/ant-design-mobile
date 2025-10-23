@@ -1,15 +1,15 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
-import type { ReactNode } from 'react'
 import classNames from 'classnames'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-
-const classPrefix = `adm-list`
+import { useConfig } from '../config-provider'
 
 export type ListProps = {
   header?: ReactNode
   mode?: 'default' | 'card' // 默认是整宽的列表，card 模式下展示为带 margin 和圆角的卡片
   children?: ReactNode
+  prefixCls?: string
 } & NativeProps<
   | '--active-background-color'
   | '--align-items'
@@ -35,6 +35,8 @@ export type ListRef = {
 
 export const List = forwardRef<ListRef, ListProps>((p, ref) => {
   const props = mergeProps(defaultProps, p)
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('list', props.prefixCls)
   const nativeElementRef = useRef<HTMLDivElement>(null)
 
   useImperativeHandle(ref, () => ({
@@ -46,14 +48,14 @@ export const List = forwardRef<ListRef, ListProps>((p, ref) => {
   return withNativeProps(
     props,
     <div
-      className={classNames(classPrefix, `${classPrefix}-${props.mode}`)}
+      className={classNames(prefixCls, `${prefixCls}-${props.mode}`)}
       ref={nativeElementRef}
     >
       {props.header && (
-        <div className={`${classPrefix}-header`}>{props.header}</div>
+        <div className={`${prefixCls}-header`}>{props.header}</div>
       )}
-      <div className={`${classPrefix}-body`}>
-        <div className={`${classPrefix}-body-inner`}>{props.children}</div>
+      <div className={`${prefixCls}-body`}>
+        <div className={`${prefixCls}-body-inner`}>{props.children}</div>
       </div>
     </div>
   )
