@@ -27,8 +27,6 @@ import useSyncScroll from './useSyncScroll'
 dayjs.extend(isoWeek)
 dayjs.extend(isSameOrBefore)
 
-const classPrefix = 'adm-calendar-picker-view'
-
 export const Context = React.createContext<{
   visible: boolean
 }>({
@@ -54,6 +52,7 @@ export type CalendarPickerViewProps = {
   max?: Date
   min?: Date
   shouldDisableDate?: (date: Date) => boolean
+  prefixCls?: string
 } & (
   | {
       selectionMode?: undefined
@@ -91,8 +90,8 @@ export const CalendarPickerView = forwardRef<
   const bodyRef = useRef<HTMLDivElement>(null)
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
-  const { locale } = useConfig()
-
+  const { locale, getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('calendar-picker-view', props.prefixCls)
   const markItems = [...locale.Calendar.markItems]
   if (props.weekStartsOn === 'Sunday') {
     const item = markItems.pop()
@@ -187,8 +186,8 @@ export const CalendarPickerView = forwardRef<
 
   // =============================== Render ===============================
   const header = (
-    <div className={`${classPrefix}-header`}>
-      <div className={`${classPrefix}-title`}>
+    <div className={`${prefixCls}-header`}>
+      <div className={`${prefixCls}-title`}>
         {props.title ?? locale.Calendar.title}
       </div>
     </div>
@@ -220,12 +219,12 @@ export const CalendarPickerView = forwardRef<
           : Array(presetEmptyCellCount)
               .fill(null)
               .map((_, index) => (
-                <div key={index} className={`${classPrefix}-cell`}></div>
+                <div key={index} className={`${prefixCls}-cell`}></div>
               ))
 
       cells.push(
         <div key={yearMonth} data-year-month={yearMonth}>
-          <div className={`${classPrefix}-title`}>
+          <div className={`${prefixCls}-title`}>
             {locale.Calendar.yearAndMonth?.replace(
               /\${(.*?)}/g,
               (_, variable: keyof typeof renderMap) => {
@@ -233,7 +232,7 @@ export const CalendarPickerView = forwardRef<
               }
             )}
           </div>
-          <div className={`${classPrefix}-cells`}>
+          <div className={`${prefixCls}-cells`}>
             {/* 空格填充 */}
             {presetEmptyCells}
             {/* 遍历每月 */}
@@ -274,7 +273,7 @@ export const CalendarPickerView = forwardRef<
                   if (props.renderTop === false) return null
 
                   const contentWrapper = (content: ReactNode) => (
-                    <div className={`${classPrefix}-cell-top`}>{content}</div>
+                    <div className={`${prefixCls}-cell-top`}>{content}</div>
                   )
 
                   const top = props.renderTop?.(d.toDate())
@@ -308,7 +307,7 @@ export const CalendarPickerView = forwardRef<
                   if (props.renderBottom === false) return null
 
                   return (
-                    <div className={`${classPrefix}-cell-bottom`}>
+                    <div className={`${prefixCls}-cell-bottom`}>
                       {props.renderBottom?.(d.toDate())}
                     </div>
                   )
@@ -317,15 +316,15 @@ export const CalendarPickerView = forwardRef<
                 return (
                   <div
                     key={d.valueOf()}
-                    className={classNames(`${classPrefix}-cell`, {
-                      [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
-                      [`${classPrefix}-cell-selected`]: isSelect,
-                      [`${classPrefix}-cell-selected-begin`]: isBegin,
-                      [`${classPrefix}-cell-selected-end`]: isEnd,
-                      [`${classPrefix}-cell-selected-row-begin`]:
+                    className={classNames(`${prefixCls}-cell`, {
+                      [`${prefixCls}-cell-today`]: d.isSame(today, 'day'),
+                      [`${prefixCls}-cell-selected`]: isSelect,
+                      [`${prefixCls}-cell-selected-begin`]: isBegin,
+                      [`${prefixCls}-cell-selected-end`]: isEnd,
+                      [`${prefixCls}-cell-selected-row-begin`]:
                         isSelectRowBegin,
-                      [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
-                      [`${classPrefix}-cell-disabled`]: !!disabled,
+                      [`${prefixCls}-cell-selected-row-end`]: isSelectRowEnd,
+                      [`${prefixCls}-cell-disabled`]: !!disabled,
                     })}
                     onClick={() => {
                       if (!props.selectionMode) return
@@ -368,7 +367,7 @@ export const CalendarPickerView = forwardRef<
                     }}
                   >
                     {renderTop()}
-                    <div className={`${classPrefix}-cell-date`}>
+                    <div className={`${prefixCls}-cell-date`}>
                       {props.renderDate
                         ? props.renderDate(d.toDate())
                         : d.date()}
@@ -387,15 +386,15 @@ export const CalendarPickerView = forwardRef<
     return cells
   }
   const body = (
-    <div className={`${classPrefix}-body`} ref={bodyRef}>
+    <div className={`${prefixCls}-body`} ref={bodyRef}>
       {renderBody()}
     </div>
   )
 
   const mark = (
-    <div className={`${classPrefix}-mark`}>
+    <div className={`${prefixCls}-mark`}>
       {markItems.map((item, index) => (
-        <div key={index} className={`${classPrefix}-mark-cell`}>
+        <div key={index} className={`${prefixCls}-mark-cell`}>
           {item}
         </div>
       ))}
@@ -404,7 +403,7 @@ export const CalendarPickerView = forwardRef<
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div className={prefixCls}>
       {showHeader && header}
       {mark}
       {body}

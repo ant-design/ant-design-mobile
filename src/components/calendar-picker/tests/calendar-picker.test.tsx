@@ -3,6 +3,7 @@ import { spyElementPrototype } from 'rc-util/lib/test/domHook'
 import React from 'react'
 import { act, fireEvent, render, testA11y } from 'testing'
 import CalendarPicker, { CalendarPickerRef } from '..'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-calendar-picker-view`
 
@@ -94,5 +95,43 @@ describe('Calendar', () => {
     expect(spyScrollIntoView).toBeCalled()
 
     spyHTMLElement.mockRestore()
+  })
+
+  test('should apply prefixCls from ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <CalendarPicker
+          visible={true}
+          selectionMode='single'
+          defaultValue={singleDate}
+          min={mixDate}
+          max={maxDate}
+        />
+      </ConfigProvider>
+    )
+    expect(
+      container.querySelector('.config-prefix-calendar-picker')
+    ).toBeTruthy()
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should prioritize component prefixCls over ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <CalendarPicker
+          visible={true}
+          selectionMode='single'
+          defaultValue={singleDate}
+          min={mixDate}
+          max={maxDate}
+          prefixCls='component-prefix'
+        />
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.component-prefix')).toBeTruthy()
+    expect(
+      container.querySelector('.config-prefix-calendar-picker')
+    ).toBeFalsy()
+    expect(container).toMatchSnapshot()
   })
 })
