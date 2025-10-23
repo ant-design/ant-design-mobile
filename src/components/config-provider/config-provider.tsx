@@ -102,5 +102,16 @@ export const ConfigProvider: FC<ConfigProviderProps> = props => {
 }
 
 export function useConfig() {
-  return useContext(ConfigContext) ?? getDefaultConfig()
+  const context = useContext(ConfigContext)
+  if (!context) {
+    const defaultConfig = getDefaultConfig()
+    return {
+      ...defaultConfig,
+      getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
+        if (customizePrefixCls) return customizePrefixCls
+        return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : defaultPrefixCls
+      },
+    }
+  }
+  return context
 }
