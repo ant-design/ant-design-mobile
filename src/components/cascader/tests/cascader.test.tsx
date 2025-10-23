@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
 import Cascader from '../'
+import ConfigProvider from '../../config-provider'
 import { options } from '../demos/data'
 
 describe('Cascader', () => {
@@ -77,5 +78,24 @@ describe('Cascader', () => {
     await waitFor(() => {
       expect(fn.mock.calls[0][0]).toEqual(['浙江', '杭州', '西湖区'])
     })
+  })
+
+  test('should apply prefixCls from ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Cascader options={[]} visible />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.config-prefix-cascader')).toBeTruthy()
+  })
+
+  test('should prioritize component prefixCls over ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Cascader options={[]} visible prefixCls='component-prefix' />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.component-prefix')).toBeTruthy()
+    expect(document.querySelector('.config-prefix-cascader')).toBeFalsy()
   })
 })
