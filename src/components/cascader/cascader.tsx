@@ -1,26 +1,23 @@
 import React, {
-  useState,
-  useEffect,
   ReactNode,
   forwardRef,
+  useEffect,
   useImperativeHandle,
+  useState,
 } from 'react'
-import Popup, { PopupProps } from '../popup'
-import {
-  CascaderValue,
-  CascaderValueExtend,
-  CascaderOption,
-} from '../cascader-view'
-import { mergeProps } from '../../utils/with-default-props'
+import type { FieldNamesType } from '../../hooks'
+import { useFieldNames } from '../../hooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import CascaderView from '../cascader-view'
-import { useConfig } from '../config-provider'
+import { mergeProps } from '../../utils/with-default-props'
+import CascaderView, {
+  CascaderOption,
+  CascaderValue,
+  CascaderValueExtend,
+} from '../cascader-view'
 import { useCascaderValueExtend } from '../cascader-view/use-cascader-value-extend'
-import { useFieldNames } from '../../hooks'
-import type { FieldNamesType } from '../../hooks'
-
-const classPrefix = `adm-cascader`
+import { useConfig } from '../config-provider'
+import Popup, { PopupProps } from '../popup'
 
 export type CascaderActions = {
   open: () => void
@@ -50,6 +47,7 @@ export type CascaderProps = {
   onTabsChange?: (index: number) => void
   activeIcon?: ReactNode
   fieldNames?: FieldNamesType
+  prefixCls?: string
 } & Pick<
   PopupProps,
   | 'getContainer'
@@ -69,7 +67,7 @@ const defaultProps = {
 }
 
 export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
-  const { locale } = useConfig()
+  const { locale, getPrefixCls } = useConfig()
   const props = mergeProps(
     defaultProps,
     {
@@ -79,6 +77,7 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
     },
     p
   )
+  const prefixCls = getPrefixCls('cascader', props.prefixCls)
 
   const [visible, setVisible] = usePropsValue({
     value: props.visible,
@@ -127,10 +126,10 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
 
   const cascaderElement = withNativeProps(
     props,
-    <div className={classPrefix}>
-      <div className={`${classPrefix}-header`}>
+    <div className={prefixCls}>
+      <div className={`${prefixCls}-header`}>
         <a
-          className={`${classPrefix}-header-button`}
+          className={`${prefixCls}-header-button`}
           onClick={() => {
             props.onCancel?.()
             setVisible(false)
@@ -138,9 +137,9 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
         >
           {props.cancelText}
         </a>
-        <div className={`${classPrefix}-header-title`}>{props.title}</div>
+        <div className={`${prefixCls}-header-title`}>{props.title}</div>
         <a
-          className={`${classPrefix}-header-button`}
+          className={`${prefixCls}-header-button`}
           onClick={() => {
             setValue(innerValue, true)
             setVisible(false)
@@ -149,9 +148,10 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
           {props.confirmText}
         </a>
       </div>
-      <div className={`${classPrefix}-body`}>
+      <div className={`${prefixCls}-body`}>
         <CascaderView
           {...props}
+          prefixCls={`${prefixCls}-view`}
           value={innerValue}
           onChange={(val, ext) => {
             setInnerValue(val)

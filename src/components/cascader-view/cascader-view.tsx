@@ -1,20 +1,18 @@
-import React, { useState, useEffect, useMemo } from 'react'
-import type { FC, ReactNode } from 'react'
-import classNames from 'classnames'
-import Tabs from '../tabs'
-import CheckList, { CheckListValue } from '../check-list'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import { usePropsValue } from '../../utils/use-props-value'
-import { useCascaderValueExtend } from './use-cascader-value-extend'
-import { useConfig } from '../config-provider'
-import { optionSkeleton } from './option-skeleton'
-import Skeleton from '../skeleton'
 import { useUpdateEffect } from 'ahooks'
+import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import type { BaseOptionType, FieldNamesType } from '../../hooks'
 import { useFieldNames } from '../../hooks'
-import type { FieldNamesType, BaseOptionType } from '../../hooks'
-
-const classPrefix = `adm-cascader-view`
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import CheckList, { CheckListValue } from '../check-list'
+import { useConfig } from '../config-provider'
+import Skeleton from '../skeleton'
+import Tabs from '../tabs'
+import { optionSkeleton } from './option-skeleton'
+import { useCascaderValueExtend } from './use-cascader-value-extend'
 
 export type CascaderValue = CheckListValue
 
@@ -40,6 +38,7 @@ export type CascaderViewProps = {
   activeIcon?: ReactNode
   loading?: boolean
   fieldNames?: FieldNamesType
+  prefixCls?: string
 } & NativeProps<'--height'>
 
 const defaultProps = {
@@ -49,7 +48,8 @@ const defaultProps = {
 export const CascaderView: FC<CascaderViewProps> = p => {
   const props = mergeProps(defaultProps, p)
 
-  const { locale } = useConfig()
+  const { locale, getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('cascader-view', props.prefixCls)
   const [labelName, valueName, childrenName, disabledName] = useFieldNames(
     props.fieldNames
   )
@@ -123,7 +123,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div className={prefixCls}>
       <Tabs
         activeKey={tabActiveIndex.toString()}
         onChange={key => {
@@ -131,7 +131,7 @@ export const CascaderView: FC<CascaderViewProps> = p => {
           setTabActiveIndex(activeIndex)
         }}
         stretch={false}
-        className={`${classPrefix}-tabs`}
+        className={`${prefixCls}-tabs`}
       >
         {levels.map((level, index) => {
           const selected = level.selected
@@ -139,33 +139,33 @@ export const CascaderView: FC<CascaderViewProps> = p => {
             <Tabs.Tab
               key={index.toString()}
               title={
-                <div className={`${classPrefix}-header-title`}>
+                <div className={`${prefixCls}-header-title`}>
                   {selected
                     ? selected[labelName]
                     : typeof placeholder === 'function'
-                    ? placeholder(index)
-                    : placeholder}
+                      ? placeholder(index)
+                      : placeholder}
                 </div>
               }
               forceRender
             >
-              <div className={`${classPrefix}-content`}>
+              <div className={`${prefixCls}-content`}>
                 {whetherLoading(level.options) ? (
-                  <div className={`${classPrefix}-skeleton`}>
+                  <div className={`${prefixCls}-skeleton`}>
                     <Skeleton
-                      className={`${classPrefix}-skeleton-line-1`}
+                      className={`${prefixCls}-skeleton-line-1`}
                       animated
                     />
                     <Skeleton
-                      className={`${classPrefix}-skeleton-line-2`}
+                      className={`${prefixCls}-skeleton-line-2`}
                       animated
                     />
                     <Skeleton
-                      className={`${classPrefix}-skeleton-line-3`}
+                      className={`${prefixCls}-skeleton-line-3`}
                       animated
                     />
                     <Skeleton
-                      className={`${classPrefix}-skeleton-line-4`}
+                      className={`${prefixCls}-skeleton-line-4`}
                       animated
                     />
                   </div>
@@ -184,8 +184,8 @@ export const CascaderView: FC<CascaderViewProps> = p => {
                           value={option[valueName]}
                           key={option[valueName]}
                           disabled={option[disabledName]}
-                          className={classNames(`${classPrefix}-item`, {
-                            [`${classPrefix}-item-active`]: active,
+                          className={classNames(`${prefixCls}-item`, {
+                            [`${prefixCls}-item-active`]: active,
                           })}
                         >
                           {option[labelName]}
