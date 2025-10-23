@@ -2,6 +2,7 @@ import { RightOutline } from 'antd-mobile-icons'
 import * as React from 'react'
 import { fireEvent, render, testA11y, waitFor } from 'testing'
 import Card from '../'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-card`
 
@@ -46,4 +47,28 @@ test('renders without children', async () => {
     <Card title='title' data-testid='test-card-id' />
   )
   expect(getByTestId('test-card-id')).not.toHaveClass(`${classPrefix}-body`)
+})
+test('should apply prefixCls from ConfigProvider', () => {
+  const { container } = render(
+    <ConfigProvider prefixCls='config-prefix'>
+      <Card title='title' data-testid='test-card-id' />
+    </ConfigProvider>
+  )
+  expect(container.querySelector('.config-prefix-card')).toBeTruthy()
+  expect(container).toMatchSnapshot()
+})
+
+test('should prioritize component prefixCls over ConfigProvider', () => {
+  const { container } = render(
+    <ConfigProvider prefixCls='config-prefix'>
+      <Card
+        title='title'
+        data-testid='test-card-id'
+        prefixCls='component-prefix'
+      />
+    </ConfigProvider>
+  )
+  expect(container.querySelector('.component-prefix')).toBeTruthy()
+  expect(container.querySelector('.config-prefix-card')).toBeFalsy()
+  expect(container).toMatchSnapshot()
 })

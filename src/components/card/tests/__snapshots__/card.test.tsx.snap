@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should apply prefixCls from ConfigProvider 1`] = `
+<div>
+  <div
+    class="config-prefix-card"
+    data-testid="test-card-id"
+  >
+    <div
+      class="config-prefix-card-header"
+    >
+      <div
+        class="config-prefix-card-header-title"
+      >
+        title
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should prioritize component prefixCls over ConfigProvider 1`] = `
+<div>
+  <div
+    class="component-prefix"
+    data-testid="test-card-id"
+  >
+    <div
+      class="component-prefix-header"
+    >
+      <div
+        class="component-prefix-header-title"
+      >
+        title
+      </div>
+    </div>
+  </div>
+</div>
+`;
