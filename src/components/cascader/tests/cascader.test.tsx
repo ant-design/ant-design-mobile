@@ -90,7 +90,7 @@ describe('Cascader', () => {
   })
 
   test('should prioritize component prefixCls over ConfigProvider', () => {
-    const { container } = render(
+    render(
       <ConfigProvider prefixCls='config-prefix'>
         <Cascader options={[]} visible prefixCls='component-prefix' />
       </ConfigProvider>
