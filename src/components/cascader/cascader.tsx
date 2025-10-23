@@ -151,6 +151,7 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
       <div className={`${prefixCls}-body`}>
         <CascaderView
           {...props}
+          prefixCls={`${prefixCls}-view`}
           value={innerValue}
           onChange={(val, ext) => {
             setInnerValue(val)

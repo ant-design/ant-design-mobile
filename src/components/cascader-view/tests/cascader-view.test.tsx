@@ -2,6 +2,7 @@ import React from 'react'
 import { fireEvent, render, testA11y } from 'testing'
 import CascaderView from '../'
 import { options, sameValueOptions } from '../../cascader/demos/data'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-cascader-view`
 
@@ -136,5 +137,37 @@ describe('CascaderView', () => {
     const { baseElement } = render(<CascaderView options={[]} loading />)
 
     expect(baseElement.querySelector('.adm-skeleton')).toBeInTheDocument()
+  })
+
+  test('should apply prefixCls from ConfigProvider', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <CascaderView
+          options={options}
+          placeholder={i => {
+            if (i === 2) return '区/县'
+            return '请选择'
+          }}
+        />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.config-prefix-cascader-view')).toBeTruthy()
+  })
+
+  test('should prioritize component prefixCls over ConfigProvider', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <CascaderView
+          options={options}
+          placeholder={i => {
+            if (i === 2) return '区/县'
+            return '请选择'
+          }}
+          prefixCls='component-prefix'
+        />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.component-prefix')).toBeTruthy()
+    expect(document.querySelector('.config-prefix-cascader-view')).toBeFalsy()
   })
 })
