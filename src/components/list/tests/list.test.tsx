@@ -57,25 +57,34 @@ describe('list', () => {
 
     it('context', () => {
       render(
-        <ConfigProvider list={{ arrowIcon: 'little' }}>
+        <ConfigProvider
+          list={{ arrowIcon: 'little' }}
+          prefixCls='config-prefix'
+        >
           <List>
             <List.Item clickable />
           </List>
         </ConfigProvider>
       )
 
+      expect(document.querySelector('.config-prefix-list')).toBeTruthy()
       expect(screen.getByText('little')).toBeVisible()
     })
 
     it('props override context', () => {
       render(
-        <ConfigProvider list={{ arrowIcon: 'little' }}>
-          <List>
-            <List.Item clickable arrowIcon='bamboo' />
+        <ConfigProvider
+          list={{ arrowIcon: 'little' }}
+          prefixCls='config-prefix'
+        >
+          <List prefixCls='list-prefix'>
+            <List.Item clickable arrowIcon='bamboo' prefixCls='item-prefix' />
           </List>
         </ConfigProvider>
       )
-
+      expect(document.querySelector('.item-prefix')).toBeTruthy()
+      expect(document.querySelector('.list-prefix')).toBeTruthy()
+      expect(document.querySelector('.config-prefix-list')).toBeFalsy()
       expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
