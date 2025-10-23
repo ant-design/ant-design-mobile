@@ -26,7 +26,6 @@ export type CalendarPickerProps = CalendarPickerViewProps & {
   onClose?: () => void
   onMaskClick?: () => void
   getContainer?: GetContainer
-  prefixCls?: string
 } & (
     | {
         selectionMode?: undefined
@@ -130,7 +129,11 @@ export const CalendarPicker = forwardRef<
         getContainer={getContainer}
       >
         <Context.Provider value={viewContext}>
-          <CalendarPickerView ref={calendarRef} {...calendarViewProps} />
+          <CalendarPickerView
+            ref={calendarRef}
+            {...calendarViewProps}
+            prefixCls={`${prefixCls}-view`}
+          />
         </Context.Provider>
         {footer}
       </Popup>
