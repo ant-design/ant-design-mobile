@@ -1,16 +1,15 @@
-import React, { isValidElement, useRef } from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
-import classNames from 'classnames'
 import { animated } from '@react-spring/web'
+import classNames from 'classnames'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React, { isValidElement, useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { ShouldRender } from '../../utils/should-render'
+import { traverseReactNode } from '../../utils/traverse-react-node'
 import { usePropsValue } from '../../utils/use-props-value'
 import { useResizeEffect } from '../../utils/use-resize-effect'
 import { useTabListScroll } from '../../utils/use-tab-list-scroll'
+import { useConfig } from '../config-provider'
 import ScrollMask from '../scroll-mask'
-import { ShouldRender } from '../../utils/should-render'
-import { traverseReactNode } from '../../utils/traverse-react-node'
-
-const classPrefix = `adm-capsule-tabs`
 
 export type CapsuleTabProps = {
   title: ReactNode
@@ -27,6 +26,7 @@ export type CapsuleTabsProps = {
   defaultActiveKey?: string | null
   onChange?: (key: string) => void
   children?: ReactNode
+  prefixCls?: string
 } & NativeProps
 
 export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
@@ -34,7 +34,8 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
   const rootRef = useRef<HTMLDivElement>(null)
   const keyToIndexRecord: Record<string, number> = {}
   let firstActiveKey: string | null = null
-
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('capsule-tabs', props.prefixCls)
   const panes: ReactElement<CapsuleTabProps>[] = []
 
   traverseReactNode(props.children, (child, index) => {
@@ -68,18 +69,18 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix} ref={rootRef}>
-      <div className={`${classPrefix}-header`}>
+    <div className={prefixCls} ref={rootRef}>
+      <div className={`${prefixCls}-header`}>
         <ScrollMask scrollTrackRef={tabListContainerRef} />
         <animated.div
-          className={`${classPrefix}-tab-list`}
+          className={`${prefixCls}-tab-list`}
           ref={tabListContainerRef}
           scrollLeft={scrollLeft}
         >
           {panes.map(pane =>
             withNativeProps(
               pane.props,
-              <div key={pane.key} className={`${classPrefix}-tab-wrapper`}>
+              <div key={pane.key} className={`${prefixCls}-tab-wrapper`}>
                 <div
                   onClick={() => {
                     const { key } = pane
@@ -89,9 +90,9 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
                     }
                     setActiveKey(key.toString())
                   }}
-                  className={classNames(`${classPrefix}-tab`, {
-                    [`${classPrefix}-tab-active`]: pane.key === activeKey,
-                    [`${classPrefix}-tab-disabled`]: pane.props.disabled,
+                  className={classNames(`${prefixCls}-tab`, {
+                    [`${prefixCls}-tab-active`]: pane.key === activeKey,
+                    [`${prefixCls}-tab-disabled`]: pane.props.disabled,
                   })}
                 >
                   {pane.props.title}
@@ -114,7 +115,7 @@ export const CapsuleTabs: FC<CapsuleTabsProps> = props => {
             destroyOnClose={pane.props.destroyOnClose}
           >
             <div
-              className={`${classPrefix}-content`}
+              className={`${prefixCls}-content`}
               style={{ display: active ? 'block' : 'none' }}
             >
               {pane.props.children}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { render, testA11y, fireEvent } from 'testing'
+import { fireEvent, render, testA11y } from 'testing'
 import CapsuleTabs, { CapsuleTabsProps } from '..'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-capsule-tabs`
 
@@ -94,5 +95,30 @@ describe('CapsuleTabs', () => {
     expect(queryByText('Apple')).toBeInTheDocument()
     fireEvent.click(getByText('vegetables'))
     expect(queryByText('Apple')).not.toBeInTheDocument()
+  })
+
+  test('should apply prefixCls from ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <CapsuleTabs>
+          <CapsuleTabs.Tab title='fruits' key='fruits' />
+        </CapsuleTabs>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.config-prefix-capsule-tabs')).toBeTruthy()
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should prioritize component prefixCls over ConfigProvider', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <CapsuleTabs prefixCls='component-prefix'>
+          <CapsuleTabs.Tab title='fruits' key='fruits' />
+        </CapsuleTabs>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.component-prefix')).toBeTruthy()
+    expect(container.querySelector('.config-prefix-capsule-tabs')).toBeFalsy()
+    expect(container).toMatchSnapshot()
   })
 })
