@@ -27,8 +27,6 @@ import {
 
 dayjs.extend(isoWeek)
 
-const classPrefix = 'adm-calendar'
-
 export type CalendarRef = {
   jumpTo: (page: Page | ((page: Page) => Page)) => void
   jumpToToday: () => void
@@ -50,6 +48,7 @@ export type CalendarProps = {
   shouldDisableDate?: (date: Date) => boolean
   minPage?: Page
   maxPage?: Page
+  prefixCls?: string
 } & (
   | {
       selectionMode?: undefined
@@ -85,7 +84,8 @@ const defaultProps = {
 export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   const today = dayjs()
   const props = mergeProps(defaultProps, p)
-  const { locale } = useConfig()
+  const { locale, getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('calendar', props.prefixCls)
   const markItems = [...locale.Calendar.markItems]
   if (props.weekStartsOn === 'Sunday') {
     const item = markItems.pop()
@@ -157,10 +157,10 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
   }
 
   const header = (
-    <div className={`${classPrefix}-header`}>
+    <div className={`${prefixCls}-header`}>
       {props.prevYearButton !== null && (
         <a
-          className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-year`}
+          className={`${prefixCls}-arrow-button ${prefixCls}-arrow-button-year`}
           onClick={() => {
             handlePageChange('subtract', 1, 'year')
           }}
@@ -170,7 +170,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       )}
       {props.prevMonthButton !== null && (
         <a
-          className={`${classPrefix}-arrow-button ${classPrefix}-arrow-button-month`}
+          className={`${prefixCls}-arrow-button ${prefixCls}-arrow-button-month`}
           onClick={() => {
             handlePageChange('subtract', 1, 'month')
           }}
@@ -178,7 +178,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
           {props.prevMonthButton}
         </a>
       )}
-      <div className={`${classPrefix}-title`}>
+      <div className={`${prefixCls}-title`}>
         {replaceMessage(locale.Calendar.yearAndMonth, {
           year: current.year().toString(),
           month: (current.month() + 1).toString(),
@@ -187,9 +187,9 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       {props.nextMonthButton !== null && (
         <a
           className={classNames(
-            `${classPrefix}-arrow-button`,
-            `${classPrefix}-arrow-button-right`,
-            `${classPrefix}-arrow-button-right-month`
+            `${prefixCls}-arrow-button`,
+            `${prefixCls}-arrow-button-right`,
+            `${prefixCls}-arrow-button-right-month`
           )}
           onClick={() => {
             handlePageChange('add', 1, 'month')
@@ -201,9 +201,9 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
       {props.nextYearButton !== null && (
         <a
           className={classNames(
-            `${classPrefix}-arrow-button`,
-            `${classPrefix}-arrow-button-right`,
-            `${classPrefix}-arrow-button-right-year`
+            `${prefixCls}-arrow-button`,
+            `${prefixCls}-arrow-button-right`,
+            `${prefixCls}-arrow-button-right-year`
           )}
           onClick={() => {
             handlePageChange('add', 1, 'year')
@@ -258,15 +258,15 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
         <div
           key={d.valueOf()}
           className={classNames(
-            `${classPrefix}-cell`,
-            (disabled || !inThisMonth) && `${classPrefix}-cell-disabled`,
+            `${prefixCls}-cell`,
+            (disabled || !inThisMonth) && `${prefixCls}-cell-disabled`,
             inThisMonth && {
-              [`${classPrefix}-cell-today`]: d.isSame(today, 'day'),
-              [`${classPrefix}-cell-selected`]: isSelect,
-              [`${classPrefix}-cell-selected-begin`]: isBegin,
-              [`${classPrefix}-cell-selected-end`]: isEnd,
-              [`${classPrefix}-cell-selected-row-begin`]: isSelectRowBegin,
-              [`${classPrefix}-cell-selected-row-end`]: isSelectRowEnd,
+              [`${prefixCls}-cell-today`]: d.isSame(today, 'day'),
+              [`${prefixCls}-cell-selected`]: isSelect,
+              [`${prefixCls}-cell-selected-begin`]: isBegin,
+              [`${prefixCls}-cell-selected-end`]: isEnd,
+              [`${prefixCls}-cell-selected-row-begin`]: isSelectRowBegin,
+              [`${prefixCls}-cell-selected-row-end`]: isSelectRowEnd,
             }
           )}
           onClick={() => {
@@ -310,10 +310,10 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
             }
           }}
         >
-          <div className={`${classPrefix}-cell-top`}>
+          <div className={`${prefixCls}-cell-top`}>
             {props.renderDate ? props.renderDate(d.toDate()) : d.date()}
           </div>
-          <div className={`${classPrefix}-cell-bottom`}>
+          <div className={`${prefixCls}-cell-bottom`}>
             {props.renderLabel?.(d.toDate())}
           </div>
         </div>
@@ -333,12 +333,12 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
     }
     return cells
   }
-  const body = <div className={`${classPrefix}-cells`}>{renderCells()}</div>
+  const body = <div className={`${prefixCls}-cells`}>{renderCells()}</div>
 
   const mark = (
-    <div className={`${classPrefix}-mark`}>
+    <div className={`${prefixCls}-mark`}>
       {markItems.map((item, index) => (
-        <div key={index} className={`${classPrefix}-mark-cell`}>
+        <div key={index} className={`${prefixCls}-mark-cell`}>
           {item}
         </div>
       ))}
@@ -357,7 +357,7 @@ export const Calendar = forwardRef<CalendarRef, CalendarProps>((p, ref) => {
 
   return withNativeProps(
     props,
-    <div className={classPrefix}>
+    <div className={prefixCls}>
       {header}
       {mark}
       {body}
