@@ -1,13 +1,12 @@
-import React from 'react'
-import type { FC, ReactNode, CSSProperties } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
+import type { CSSProperties, FC, ReactNode } from 'react'
+import React from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { renderImperatively } from '../../utils/render-imperatively'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import Popup, { PopupProps } from '../popup'
 import SafeArea from '../safe-area'
-import { renderImperatively } from '../../utils/render-imperatively'
-
-const classPrefix = `adm-action-sheet`
 
 export type Action = {
   key: string | number
@@ -34,6 +33,7 @@ export type ActionSheetProps = {
   /** @deprecated use `styles` instead */
   popupStyle?: CSSProperties
   styles?: Partial<Record<'body' | 'mask', CSSProperties>>
+  prefixCls?: string
 } & Pick<
   PopupProps,
   'afterClose' | 'getContainer' | 'destroyOnClose' | 'forceRender'
@@ -53,8 +53,9 @@ const defaultProps = {
 
 export const ActionSheet: FC<ActionSheetProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const { getPrefixCls } = useConfig()
   const { styles } = props
-
+  const prefixCls = getPrefixCls('action-sheet', props.prefixCls)
   return (
     <Popup
       visible={props.visible}
@@ -65,7 +66,7 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
         }
       }}
       afterClose={props.afterClose}
-      className={classNames(`${classPrefix}-popup`, props.popupClassName)}
+      className={classNames(`${prefixCls}-popup`, props.popupClassName)}
       style={props.popupStyle}
       getContainer={props.getContainer}
       destroyOnClose={props.destroyOnClose}
@@ -75,24 +76,24 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
     >
       {withNativeProps(
         props,
-        <div className={classPrefix}>
+        <div className={prefixCls}>
           {props.extra && (
-            <div className={`${classPrefix}-extra`}>{props.extra}</div>
+            <div className={`${prefixCls}-extra`}>{props.extra}</div>
           )}
-          <div className={`${classPrefix}-button-list`}>
+          <div className={`${prefixCls}-button-list`}>
             {props.actions.map((action, index) => (
               <div
                 key={action.key}
-                className={`${classPrefix}-button-item-wrapper`}
+                className={`${prefixCls}-button-item-wrapper`}
               >
                 <a
                   className={classNames(
                     'adm-plain-anchor',
-                    `${classPrefix}-button-item`,
+                    `${prefixCls}-button-item`,
                     {
-                      [`${classPrefix}-button-item-danger`]: action.danger,
-                      [`${classPrefix}-button-item-disabled`]: action.disabled,
-                      [`${classPrefix}-button-item-bold`]: action.bold,
+                      [`${prefixCls}-button-item-danger`]: action.danger,
+                      [`${prefixCls}-button-item-disabled`]: action.disabled,
+                      [`${prefixCls}-button-item-bold`]: action.bold,
                     }
                   )}
                   onClick={() => {
@@ -105,11 +106,11 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
                   role='option'
                   aria-disabled={action.disabled}
                 >
-                  <div className={`${classPrefix}-button-item-name`}>
+                  <div className={`${prefixCls}-button-item-name`}>
                     {action.text}
                   </div>
                   {action.description && (
-                    <div className={`${classPrefix}-button-item-description`}>
+                    <div className={`${prefixCls}-button-item-description`}>
                       {action.description}
                     </div>
                   )}
@@ -120,19 +121,19 @@ export const ActionSheet: FC<ActionSheetProps> = p => {
 
           {props.cancelText && (
             <div
-              className={`${classPrefix}-cancel`}
+              className={`${prefixCls}-cancel`}
               role='option'
               aria-label={props.cancelText}
             >
-              <div className={`${classPrefix}-button-item-wrapper`}>
+              <div className={`${prefixCls}-button-item-wrapper`}>
                 <a
                   className={classNames(
                     'adm-plain-anchor',
-                    `${classPrefix}-button-item`
+                    `${prefixCls}-button-item`
                   )}
                   onClick={props.onClose}
                 >
-                  <div className={`${classPrefix}-button-item-name`}>
+                  <div className={`${prefixCls}-button-item-name`}>
                     {props.cancelText}
                   </div>
                 </a>
