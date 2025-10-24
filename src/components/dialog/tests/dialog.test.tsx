@@ -12,6 +12,7 @@ import {
   waitForElementToBeRemoved,
 } from 'testing'
 import Dialog, { DialogAlertProps } from '..'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-dialog`
 
@@ -233,5 +234,25 @@ describe('Dialog', () => {
     await act(async () => {
       await promise
     })
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Dialog visible={true} />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.config-prefix-dialog')).toBeTruthy()
+    expect(document.querySelector('.config-prefix-dialog-content')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(component)', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Dialog visible={true} prefixCls='component-prefix' />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.component-prefix')).toBeTruthy()
+    expect(document.querySelector('.component-prefix-content')).toBeTruthy()
   })
 })
