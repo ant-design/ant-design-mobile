@@ -145,7 +145,7 @@ export const Popup: FC<PopupProps> = p => {
             <a
               className={classNames(
                 `${prefixCls}-close-icon`,
-                'adm-plain-anchor'
+                getPrefixCls('plain-anchor')
               )}
               onClick={() => {
                 props.onClose?.()

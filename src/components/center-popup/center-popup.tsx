@@ -128,7 +128,10 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
           >
             {mergedProps.showCloseButton && (
               <a
-                className={classNames(`${prefixCls}-close`, 'adm-plain-anchor')}
+                className={classNames(
+                  `${prefixCls}-close`,
+                  getPrefixCls('plain-anchor')
+                )}
                 onClick={() => {
                   mergedProps.onClose?.()
                 }}
