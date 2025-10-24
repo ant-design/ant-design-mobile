@@ -1,30 +1,30 @@
-import React, {
-  useState,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-  memo,
-} from 'react'
-import type { ReactNode, CSSProperties } from 'react'
+import { useMemoizedFn } from 'ahooks'
 import classNames from 'classnames'
-import Popup, { PopupProps } from '../popup'
-import { mergeProps } from '../../utils/with-default-props'
+import type { CSSProperties, ReactNode } from 'react'
+import React, {
+  forwardRef,
+  memo,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import PickerView from '../picker-view'
+import {
+  generateColumnsExtend,
+  useColumnsExtend,
+} from '../picker-view/columns-extend'
+import Popup, { PopupProps } from '../popup'
+import SafeArea from '../safe-area'
 import {
   PickerColumn,
   PickerColumnItem,
   PickerValue,
   PickerValueExtend,
 } from './index'
-import PickerView from '../picker-view'
-import {
-  generateColumnsExtend,
-  useColumnsExtend,
-} from '../picker-view/columns-extend'
-import { useConfig } from '../config-provider'
-import { useMemoizedFn } from 'ahooks'
-import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
 
 export type PickerActions = {
@@ -33,8 +33,6 @@ export type PickerActions = {
   toggle: () => void
 }
 export type PickerRef = PickerActions
-
-const classPrefix = `adm-picker`
 
 export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
@@ -59,6 +57,7 @@ export type PickerProps = {
   mouseWheel?: boolean
   popupClassName?: string
   popupStyle?: CSSProperties
+  prefixCls?: string
 } & Pick<
   PopupProps,
   | 'getContainer'
@@ -86,7 +85,7 @@ const defaultProps = {
 
 export const Picker = memo(
   forwardRef<PickerRef, PickerProps>((p, ref) => {
-    const { locale } = useConfig()
+    const { locale, getPrefixCls } = useConfig()
     const props = mergeProps(
       defaultProps,
       {
@@ -95,7 +94,7 @@ export const Picker = memo(
       },
       p
     )
-
+    const prefixCls = getPrefixCls('picker', props.prefixCls)
     const [visible, setVisible] = usePropsValue({
       value: props.visible,
       defaultValue: false,
@@ -151,11 +150,11 @@ export const Picker = memo(
 
     const pickerElement = withNativeProps(
       props,
-      <div className={classPrefix}>
-        <div className={`${classPrefix}-header`}>
+      <div className={prefixCls}>
+        <div className={`${prefixCls}-header`}>
           <a
             role='button'
-            className={`${classPrefix}-header-button`}
+            className={`${prefixCls}-header-button`}
             onClick={() => {
               props.onCancel?.()
               setVisible(false)
@@ -163,12 +162,12 @@ export const Picker = memo(
           >
             {props.cancelText}
           </a>
-          <div className={`${classPrefix}-header-title`}>{props.title}</div>
+          <div className={`${prefixCls}-header-title`}>{props.title}</div>
           <a
             role='button'
             className={classNames(
-              `${classPrefix}-header-button`,
-              props.loading && `${classPrefix}-header-button-disabled`
+              `${prefixCls}-header-button`,
+              props.loading && `${prefixCls}-header-button-disabled`
             )}
             onClick={() => {
               if (props.loading) return
@@ -180,7 +179,7 @@ export const Picker = memo(
             {props.confirmText}
           </a>
         </div>
-        <div className={`${classPrefix}-body`}>
+        <div className={`${prefixCls}-body`}>
           <PickerView
             loading={props.loading}
             loadingContent={props.loadingContent}
@@ -189,6 +188,7 @@ export const Picker = memo(
             value={innerValue}
             mouseWheel={props.mouseWheel}
             onChange={onChange}
+            prefixCls={`${prefixCls}-view`}
           />
         </div>
       </div>
@@ -197,7 +197,7 @@ export const Picker = memo(
     const popupElement = (
       <Popup
         style={props.popupStyle}
-        className={classNames(`${classPrefix}-popup`, props.popupClassName)}
+        className={classNames(`${prefixCls}-popup`, props.popupClassName)}
         visible={visible}
         position='bottom'
         onMaskClick={() => {

@@ -1,15 +1,14 @@
-import React, { memo, useCallback, useEffect, useState } from 'react'
-import type { ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { Wheel } from './wheel'
-import { useColumnsExtend } from './columns-extend'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
+import type { ReactNode } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import { PickerProps } from '../picker'
 import { defaultRenderLabel } from '../picker/picker-utils'
 import SpinLoading from '../spin-loading'
-
-const classPrefix = `adm-picker-view`
+import { useColumnsExtend } from './columns-extend'
+import { Wheel } from './wheel'
 
 export type PickerValue = string | number | null
 
@@ -34,7 +33,7 @@ export type PickerViewProps = {
   loading?: boolean
   loadingContent?: ReactNode
   onChange?: (value: PickerValue[], extend: PickerValueExtend) => void
-} & Pick<PickerProps, 'renderLabel'> &
+} & Pick<PickerProps, 'renderLabel' | 'prefixCls'> &
   NativeProps<'--height' | '--item-height' | '--item-font-size'>
 
 const defaultProps = {
@@ -42,7 +41,7 @@ const defaultProps = {
   renderLabel: defaultRenderLabel,
   mouseWheel: false,
   loadingContent: (
-    <div className={`${classPrefix}-loading-content`}>
+    <div className={`adm-loading-content`}>
       <SpinLoading />
     </div>
   ),
@@ -50,7 +49,9 @@ const defaultProps = {
 
 export const PickerView = memo<PickerViewProps>(p => {
   const props = mergeProps(defaultProps, p)
-
+  const { getPrefixCls } = useConfig()
+  // const prefixCls = getPrefixCls('picker-view', props.prefixCls)
+  const prefixCls = `adm-picker-view`
   const [innerValue, setInnerValue] = useState<PickerValue[]>(
     props.value === undefined ? props.defaultValue : props.value
   )
@@ -100,7 +101,7 @@ export const PickerView = memo<PickerViewProps>(p => {
 
   return withNativeProps(
     props,
-    <div className={`${classPrefix}`}>
+    <div className={`${prefixCls}`}>
       {props.loading ? (
         props.loadingContent
       ) : (
@@ -116,10 +117,10 @@ export const PickerView = memo<PickerViewProps>(p => {
               mouseWheel={props.mouseWheel}
             />
           ))}
-          <div className={`${classPrefix}-mask`}>
-            <div className={`${classPrefix}-mask-top`} />
-            <div className={`${classPrefix}-mask-middle`} />
-            <div className={`${classPrefix}-mask-bottom`} />
+          <div className={`${prefixCls}-mask`}>
+            <div className={`${prefixCls}-mask-top`} />
+            <div className={`${prefixCls}-mask-middle`} />
+            <div className={`${prefixCls}-mask-bottom`} />
           </div>
         </>
       )}
