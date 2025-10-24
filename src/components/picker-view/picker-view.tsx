@@ -41,7 +41,7 @@ const defaultProps = {
   renderLabel: defaultRenderLabel,
   mouseWheel: false,
   loadingContent: (
-    <div className={`adm-loading-content`}>
+    <div className={`adm-picker-view-loading-content`}>
       <SpinLoading />
     </div>
   ),
