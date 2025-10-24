@@ -3,6 +3,7 @@ import React, { useCallback, useMemo } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import type {
   DatePickerFilter,
   Precision,
@@ -28,7 +29,7 @@ export type RenderLabel = (
 
 export type DatePickerViewProps = Pick<
   PickerViewProps,
-  'style' | 'mouseWheel' | 'loading' | 'loadingContent'
+  'style' | 'mouseWheel' | 'loading' | 'loadingContent' | 'prefixCls'
 > & {
   value?: PickerDate
   defaultValue?: PickerDate
@@ -51,8 +52,9 @@ const defaultProps = {
 
 export const DatePickerView: FC<DatePickerViewProps> = p => {
   const props = mergeProps(defaultProps, p)
-  const { renderLabel } = props
-
+  const { renderLabel, prefixCls: customPrefix } = props
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('picker-view', customPrefix)
   const [value, setValue] = usePropsValue<PickerDate | null>({
     value: props.value,
     defaultValue: props.defaultValue ?? null,
@@ -98,6 +100,7 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
       value={pickerValue}
       mouseWheel={props.mouseWheel}
       onChange={onChange}
+      prefixCls={prefixCls}
     />
   )
 }
