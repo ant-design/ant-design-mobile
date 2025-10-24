@@ -1,17 +1,16 @@
-import React, { forwardRef, useContext, useImperativeHandle } from 'react'
-import type { ReactNode } from 'react'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
-import { CheckboxGroupContext } from './group-context'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useContext, useImperativeHandle } from 'react'
+import { devWarning } from '../../utils/dev-log'
+import { isDev } from '../../utils/is-dev'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProps } from '../../utils/with-default-props'
-import { devWarning } from '../../utils/dev-log'
+import { useConfig } from '../config-provider'
 import { CheckIcon } from './check-icon'
+import { CheckboxGroupContext } from './group-context'
 import { IndeterminateIcon } from './indeterminate-icon'
-import { isDev } from '../../utils/is-dev'
 import { NativeInput } from './native-input'
-
-const classPrefix = `adm-checkbox`
 
 export type CheckboxValue = string | number
 
@@ -27,6 +26,7 @@ export type CheckboxProps = {
   icon?: (checked: boolean, indeterminate: boolean) => ReactNode
   children?: ReactNode
   onClick?: (event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void
+  prefixCls?: string
 } & NativeProps<'--icon-size' | '--font-size' | '--gap'>
 
 const defaultProps = {
@@ -44,6 +44,8 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   const groupContext = useContext(CheckboxGroupContext)
 
   const props = mergeProps(defaultProps, p)
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('checkbox', props.prefixCls)
 
   let [checked, setChecked] = usePropsValue({
     value: props.checked,
@@ -96,14 +98,14 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
   const renderIcon = () => {
     if (props.icon) {
       return (
-        <div className={`${classPrefix}-custom-icon`}>
+        <div className={`${prefixCls}-custom-icon`}>
           {props.icon(checked, props.indeterminate)}
         </div>
       )
     }
 
     return (
-      <div className={`${classPrefix}-icon`}>
+      <div className={`${prefixCls}-icon`}>
         {props.indeterminate ? <IndeterminateIcon /> : checked && <CheckIcon />}
       </div>
     )
@@ -113,11 +115,11 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
     props,
     <label
       onClick={props.onClick}
-      className={classNames(classPrefix, {
-        [`${classPrefix}-checked`]: checked && !props.indeterminate,
-        [`${classPrefix}-indeterminate`]: props.indeterminate,
-        [`${classPrefix}-disabled`]: disabled,
-        [`${classPrefix}-block`]: props.block,
+      className={classNames(prefixCls, {
+        [`${prefixCls}-checked`]: checked && !props.indeterminate,
+        [`${prefixCls}-indeterminate`]: props.indeterminate,
+        [`${prefixCls}-disabled`]: disabled,
+        [`${prefixCls}-block`]: props.block,
       })}
     >
       <NativeInput
@@ -129,7 +131,7 @@ export const Checkbox = forwardRef<CheckboxRef, CheckboxProps>((p, ref) => {
       />
       {renderIcon()}
       {props.children && (
-        <div className={`${classPrefix}-content`}>{props.children}</div>
+        <div className={`${prefixCls}-content`}>{props.children}</div>
       )}
     </label>
   )

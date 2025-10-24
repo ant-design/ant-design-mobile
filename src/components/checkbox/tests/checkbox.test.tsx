@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { fireEvent, render, testA11y, userEvent } from 'testing'
 import Checkbox from '../'
+import ConfigProvider from '../../config-provider'
 import { CheckboxGroupProps } from '../group'
 
 const classPrefix = `adm-checkbox`
@@ -140,5 +141,30 @@ describe('Checkbox.Group', () => {
     expect(inputs.item(0)).not.toBeChecked()
     expect(inputs.item(1)).toBeChecked()
     expect(inputs.item(2)).toBeChecked()
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Checkbox.Group>
+          <Checkbox value='apple'>苹果</Checkbox>
+        </Checkbox.Group>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.config-prefix-checkbox')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(component)', () => {
+    const { container } = render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Checkbox.Group>
+          <Checkbox value='apple' prefixCls='component-prefix'>
+            苹果
+          </Checkbox>
+        </Checkbox.Group>
+      </ConfigProvider>
+    )
+    expect(container.querySelector('.component-prefix')).toBeTruthy()
+    expect(container.querySelector('.config-prefix-checkbox')).toBeFalsy()
   })
 })
