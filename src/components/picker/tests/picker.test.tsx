@@ -1,16 +1,17 @@
 import React, { createRef, useState } from 'react'
 import {
-  render,
+  act,
   fireEvent,
-  waitFor,
+  render,
   screen,
   sleep,
-  act,
+  waitFor,
   waitForElementToBeRemoved,
 } from 'testing'
-import { basicColumns } from '../demos/columns-data'
-import Picker, { PickerRef, PickerColumnItem, PickerColumn } from '..'
+import Picker, { PickerRef } from '..'
 import Button from '../../button'
+import ConfigProvider from '../../config-provider'
+import { basicColumns } from '../demos/columns-data'
 
 describe('Picker', () => {
   test('renderLabel works', async () => {
@@ -212,5 +213,26 @@ describe('Picker', () => {
     await act(() => sleep(0))
     fireEvent.click(confirm)
     expect(fn.mock.calls[0][0]).toEqual(['Mon', 'am'])
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Picker columns={basicColumns} visible />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.config-prefix-picker')).toBeTruthy()
+    expect(document.querySelector('.config-prefix-picker-view')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(component)', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Picker prefixCls='component-prefix' columns={basicColumns} visible />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.component-prefix')).toBeTruthy()
+    expect(document.querySelector('.component-prefix-view')).toBeTruthy()
+    expect(document.querySelector('.config-prefix-picker')).toBeFalsy()
   })
 })
