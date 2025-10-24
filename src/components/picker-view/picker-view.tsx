@@ -50,8 +50,7 @@ const defaultProps = {
 export const PickerView = memo<PickerViewProps>(p => {
   const props = mergeProps(defaultProps, p)
   const { getPrefixCls } = useConfig()
-  // const prefixCls = getPrefixCls('picker-view', props.prefixCls)
-  const prefixCls = `adm-picker-view`
+  const prefixCls = getPrefixCls('picker-view', props.prefixCls)
   const [innerValue, setInnerValue] = useState<PickerValue[]>(
     props.value === undefined ? props.defaultValue : props.value
   )
