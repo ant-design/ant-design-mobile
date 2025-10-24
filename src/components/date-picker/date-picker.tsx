@@ -1,28 +1,29 @@
-import React, { forwardRef, useCallback, useMemo } from 'react'
-import type { ReactNode } from 'react'
 import { useMemoizedFn } from 'ahooks'
-import Picker from '../picker'
+import type { ReactNode } from 'react'
+import React, { forwardRef, useCallback, useMemo } from 'react'
+import { bound } from '../../utils/bound'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import type { RenderLabel } from '../date-picker-view/date-picker-view'
+import useRenderLabel from '../date-picker-view/useRenderLabel'
 import type {
+  PickerActions,
+  PickerColumn,
   PickerProps,
   PickerRef,
-  PickerActions,
   PickerValue,
-  PickerColumn,
 } from '../picker'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { mergeProps } from '../../utils/with-default-props'
-import { usePropsValue } from '../../utils/use-props-value'
+import Picker from '../picker'
+import type { DatePickerFilter, Precision } from './date-picker-utils'
 import {
   convertDateToStringArray,
   convertStringArrayToDate,
   generateDatePickerColumns,
 } from './date-picker-utils'
-import type { Precision, DatePickerFilter } from './date-picker-utils'
-import { bound } from '../../utils/bound'
-import useRenderLabel from '../date-picker-view/useRenderLabel'
-import type { RenderLabel } from '../date-picker-view/date-picker-view'
-import { TILL_NOW } from './util'
 import type { PickerDate } from './util'
+import { TILL_NOW } from './util'
 
 export type DatePickerRef = PickerRef
 
@@ -46,6 +47,7 @@ export type DatePickerProps = Pick<
   | 'mouseWheel'
   | 'forceRender'
   | 'destroyOnClose'
+  | 'prefixCls'
 > & {
   value?: PickerDate | null
   defaultValue?: PickerDate | null
@@ -72,7 +74,9 @@ const defaultProps = {
 export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
   (p, ref) => {
     const props = mergeProps(defaultProps, p)
-    const { renderLabel } = props
+    const { renderLabel, prefixCls: customPrefix } = props
+    const { getPrefixCls } = useConfig()
+    const prefixCls = getPrefixCls('picker', customPrefix)
 
     const [value, setValue] = usePropsValue<PickerDate | null>({
       value: props.value,
@@ -152,6 +156,7 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
         mouseWheel={props.mouseWheel}
         destroyOnClose={props.destroyOnClose}
         forceRender={props.forceRender}
+        prefixCls={prefixCls}
       >
         {(_, actions) => props.children?.(value, actions)}
       </Picker>

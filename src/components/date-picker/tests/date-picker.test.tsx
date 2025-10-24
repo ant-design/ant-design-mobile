@@ -12,6 +12,7 @@ import {
 } from 'testing'
 import DatePicker from '../'
 import Button from '../../button'
+import ConfigProvider from '../../config-provider'
 import { convertStringArrayToDate } from '../date-picker-week-utils'
 
 const classPrefix = `adm-picker`
@@ -262,5 +263,31 @@ describe('DatePicker', () => {
     expect(monthEl).toBeInTheDocument()
     const dayEl = await screen.findByText('day-selected')
     expect(dayEl).toBeInTheDocument()
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <DatePicker visible precision='quarter' value={now} />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.config-prefix-picker')).toBeTruthy()
+    expect(document.querySelector('.config-prefix-picker-view')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(component)', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <DatePicker
+          visible
+          precision='quarter'
+          value={now}
+          prefixCls='component-prefix'
+        />
+      </ConfigProvider>
+    )
+    expect(document.querySelector('.component-prefix')).toBeTruthy()
+    expect(document.querySelector('.component-prefix-view')).toBeTruthy()
+    expect(document.querySelector('.config-prefix-picker')).toBeFalsy()
   })
 })
