@@ -17,8 +17,6 @@ import {
   defaultPopupBaseProps,
 } from '../popup/popup-base-props'
 
-const classPrefix = 'adm-center-popup'
-
 export type CenterPopupProps = PopupBaseProps &
   PropsWithChildren<{
     // These props currently are only used internally. They are not exported to users:
@@ -38,9 +36,9 @@ const defaultProps = {
 }
 
 export const CenterPopup: FC<CenterPopupProps> = props => {
-  const { popup: componentConfig = {} } = useConfig()
+  const { popup: componentConfig = {}, getPrefixCls } = useConfig()
   const mergedProps = mergeProps(defaultProps, componentConfig, props)
-
+  const prefixCls = getPrefixCls('center-popup', mergedProps.prefixCls)
   const unmountedRef = useUnmountedRef()
   const style = useSpring({
     scale: mergedProps.visible ? 1 : 0.8,
@@ -76,7 +74,7 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
 
   const body = (
     <div
-      className={classNames(`${classPrefix}-body`, mergedProps.bodyClassName)}
+      className={classNames(`${prefixCls}-body`, mergedProps.bodyClassName)}
       style={mergedProps.bodyStyle}
     >
       {mergedProps.children}
@@ -88,7 +86,7 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
     withNativeProps(
       mergedProps,
       <div
-        className={classPrefix}
+        className={prefixCls}
         style={{
           display: active ? undefined : 'none',
           pointerEvents: active ? undefined : 'none',
@@ -107,7 +105,7 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
             }}
             style={mergedProps.maskStyle}
             className={classNames(
-              `${classPrefix}-mask`,
+              `${prefixCls}-mask`,
               mergedProps.maskClassName
             )}
             disableBodyScroll={false}
@@ -115,7 +113,7 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
           />
         )}
         <div
-          className={`${classPrefix}-wrap`}
+          className={`${prefixCls}-wrap`}
           role={mergedProps.role}
           aria-label={mergedProps['aria-label']}
         >
@@ -131,8 +129,8 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
             {mergedProps.showCloseButton && (
               <a
                 className={classNames(
-                  `${classPrefix}-close`,
-                  'adm-plain-anchor'
+                  `${prefixCls}-close`,
+                  getPrefixCls('plain-anchor')
                 )}
                 onClick={() => {
                   mergedProps.onClose?.()

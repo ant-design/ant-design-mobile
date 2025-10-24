@@ -69,25 +69,37 @@ describe('Popup', () => {
 
     it('context', () => {
       render(
-        <ConfigProvider popup={{ closeIcon: 'little' }}>
+        <ConfigProvider
+          popup={{ closeIcon: 'little' }}
+          prefixCls='config-prefix'
+        >
           <Popup visible showCloseButton>
             foobar
           </Popup>
         </ConfigProvider>
       )
-
+      expect(document.querySelector('.config-prefix-popup')).toBeTruthy()
       expect(screen.getByText('little')).toBeVisible()
     })
 
     it('props override context', () => {
       render(
-        <ConfigProvider popup={{ closeIcon: 'little' }}>
-          <Popup visible showCloseButton closeIcon='bamboo'>
+        <ConfigProvider
+          popup={{ closeIcon: 'little' }}
+          prefixCls='config-prefix'
+        >
+          <Popup
+            visible
+            showCloseButton
+            closeIcon='bamboo'
+            prefixCls='component-prefix'
+          >
             foobar
           </Popup>
         </ConfigProvider>
       )
-
+      expect(document.querySelector('.component-prefix')).toBeTruthy()
+      expect(document.querySelector('.config-prefix-popup')).toBeFalsy()
       expect(screen.getByText('bamboo')).toBeVisible()
     })
   })

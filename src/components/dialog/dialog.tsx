@@ -5,6 +5,7 @@ import { NativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import AutoCenter from '../auto-center'
 import CenterPopup, { CenterPopupProps } from '../center-popup'
+import { useConfig } from '../config-provider'
 import Image from '../image'
 import { Action, DialogActionButton } from './dialog-action-button'
 
@@ -22,6 +23,7 @@ export type DialogProps = Pick<
   | 'maskStyle'
   | 'stopPropagation'
   | 'visible'
+  | 'prefixCls'
 > & {
   image?: string
   header?: ReactNode
@@ -49,24 +51,28 @@ const defaultProps = {
 
 export const Dialog: FC<DialogProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('dialog', props.prefixCls)
 
   const element = (
     <>
       {!!props.image && (
-        <div className={cls('image-container')}>
+        <div className={`${prefixCls}-image-container`}>
           <Image src={props.image} alt='dialog header image' width='100%' />
         </div>
       )}
       {!!props.header && (
-        <div className={cls('header')}>
+        <div className={`${prefixCls}-header`}>
           <AutoCenter>{props.header}</AutoCenter>
         </div>
       )}
-      {!!props.title && <div className={cls('title')}>{props.title}</div>}
+      {!!props.title && (
+        <div className={`${prefixCls}-title`}>{props.title}</div>
+      )}
       <div
         className={classNames(
-          cls('content'),
-          !props.content && cls('content-empty')
+          `${prefixCls}-content`,
+          !props.content && `${prefixCls}-content-empty`
         )}
       >
         {typeof props.content === 'string' ? (
@@ -75,11 +81,11 @@ export const Dialog: FC<DialogProps> = p => {
           props.content
         )}
       </div>
-      <div className={cls('footer')}>
+      <div className={`${prefixCls}-footer`}>
         {props.actions.map((row, index) => {
           const actions = Array.isArray(row) ? row : [row]
           return (
-            <div className={cls('action-row')} key={index}>
+            <div className={`${prefixCls}-action-row`} key={index}>
               {actions.map((action, index) => (
                 <DialogActionButton
                   key={action.key}
@@ -104,7 +110,7 @@ export const Dialog: FC<DialogProps> = p => {
 
   return (
     <CenterPopup
-      className={classNames(cls(), props.className)}
+      className={classNames(prefixCls, props.className)}
       style={props.style}
       afterClose={props.afterClose}
       afterShow={props.afterShow}
@@ -119,8 +125,8 @@ export const Dialog: FC<DialogProps> = p => {
       getContainer={props.getContainer}
       bodyStyle={props.bodyStyle}
       bodyClassName={classNames(
-        cls('body'),
-        props.image && cls('with-image'),
+        `${prefixCls}-body`,
+        props.image && `${prefixCls}-with-image`,
         props.bodyClassName
       )}
       maskStyle={props.maskStyle}
@@ -131,12 +137,9 @@ export const Dialog: FC<DialogProps> = p => {
       forceRender={props.forceRender}
       role='dialog'
       aria-label={props['aria-label']}
+      prefixCls={prefixCls}
     >
       {element}
     </CenterPopup>
   )
-}
-
-function cls(name: string = '') {
-  return 'adm-dialog' + (name && '-') + name
 }

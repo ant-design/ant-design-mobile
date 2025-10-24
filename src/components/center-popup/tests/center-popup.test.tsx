@@ -29,25 +29,37 @@ describe('center-popup', () => {
 
     it('context', () => {
       render(
-        <ConfigProvider popup={{ closeIcon: 'little' }}>
+        <ConfigProvider
+          popup={{ closeIcon: 'little' }}
+          prefixCls='config-prefix'
+        >
           <CenterPopup visible showCloseButton>
             foobar
           </CenterPopup>
         </ConfigProvider>
       )
-
+      expect(document.querySelector('.config-prefix-center-popup')).toBeTruthy()
       expect(screen.getByText('little')).toBeVisible()
     })
 
     it('props override context', () => {
       render(
-        <ConfigProvider popup={{ closeIcon: 'little' }}>
-          <CenterPopup visible showCloseButton closeIcon='bamboo'>
+        <ConfigProvider
+          popup={{ closeIcon: 'little' }}
+          prefixCls='config-prefix'
+        >
+          <CenterPopup
+            visible
+            showCloseButton
+            closeIcon='bamboo'
+            prefixCls='component-prefix'
+          >
             foobar
           </CenterPopup>
         </ConfigProvider>
       )
-
+      expect(document.querySelector('.component-prefix')).toBeTruthy()
+      expect(document.querySelector('.config-prefix-center-popup')).toBeFalsy()
       expect(screen.getByText('bamboo')).toBeVisible()
     })
   })
