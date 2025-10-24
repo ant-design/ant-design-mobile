@@ -279,7 +279,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           className={`${classPrefix}-content`}
           ref={contentRef}
           aria-disabled={mergedProps.disabled}
-          aria-label={value?undefined: mergedProps.placeholder}
+          aria-label={value ? undefined: mergedProps.placeholder}
           role='textbox'
           tabIndex={mergedProps.disabled ? undefined : 0}
           // note: 这里增加 onFocus 有两个目的：
