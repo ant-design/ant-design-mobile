@@ -187,7 +187,8 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         setCaretPosition(value.length)
         mergedProps.cursor?.onMove?.(value.length)
       }
-      mergedProps.onClick?.(e)
+      mergedProps.onClick?.(e);
+      setHasFocus(true)
     }
 
     // 点击单个字符时，根据点击位置置于字符前或后
