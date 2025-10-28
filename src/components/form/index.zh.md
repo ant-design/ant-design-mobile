@@ -17,6 +17,10 @@
 
 <code src="./demos/demo2.tsx"></code>
 
+### getValueProps-normalize
+
+<code src="./demos/getValueProps-normalize.tsx"></code>
+
 <code src="./demos/demo6.tsx" debug></code>
 
 ## Form
