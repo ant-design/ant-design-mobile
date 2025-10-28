@@ -24,8 +24,6 @@ import { defaultPopupBaseProps } from '../popup/popup-base-props'
 import { IconContext } from './context'
 import Item, { ItemChildrenWrap } from './item'
 
-const classPrefix = `adm-dropdown`
-
 export type DropdownProps = {
   activeKey?: string | null
   defaultActiveKey?: string | null
@@ -38,6 +36,7 @@ export type DropdownProps = {
    */
   arrow?: ReactNode
   getContainer?: PopupProps['getContainer']
+  prefixCls?: string
 } & NativeProps
 
 const defaultProps = {
@@ -53,7 +52,7 @@ export type DropdownRef = {
 
 const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
   (props, ref) => {
-    const { dropdown: componentConfig = {} } = useConfig()
+    const { dropdown: componentConfig = {}, getPrefixCls } = useConfig()
     const mergedProps = mergeProps(defaultProps, componentConfig, props)
     const arrowIcon = mergeProp(
       componentConfig.arrowIcon,
@@ -65,7 +64,7 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
       defaultValue: mergedProps.defaultActiveKey,
       onChange: mergedProps.onChange,
     })
-
+    const prefixCls = getPrefixCls('dropdown', mergedProps.prefixCls)
     const navRef = useRef<HTMLDivElement>(null)
     const contentRef = useRef<HTMLDivElement>(null)
 
@@ -128,13 +127,13 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
     return withNativeProps(
       mergedProps,
       <div
-        className={classNames(classPrefix, {
-          [`${classPrefix}-open`]: !!value,
+        className={classNames(prefixCls, {
+          [`${prefixCls}-open`]: !!value,
         })}
         ref={containerRef}
       >
         <IconContext.Provider value={arrowIcon}>
-          <div className={`${classPrefix}-nav`} ref={navRef}>
+          <div className={`${prefixCls}-nav`} ref={navRef}>
             {navs}
           </div>
         </IconContext.Provider>
@@ -142,9 +141,9 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
           visible={!!value}
           position='top'
           getContainer={mergedProps.getContainer}
-          className={`${classPrefix}-popup`}
-          maskClassName={`${classPrefix}-popup-mask`}
-          bodyClassName={`${classPrefix}-popup-body`}
+          className={`${prefixCls}-popup`}
+          maskClassName={`${prefixCls}-popup-mask`}
+          bodyClassName={`${prefixCls}-popup-body`}
           style={{ top }}
           forceRender={popupForceRender}
           onMaskClick={
@@ -164,6 +163,7 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
                   active={isActive}
                   forceRender={item.props.forceRender}
                   destroyOnClose={item.props.destroyOnClose}
+                  prefixCls={prefixCls}
                 >
                   {item.props.children}
                 </ItemChildrenWrap>
