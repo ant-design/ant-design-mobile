@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { fireEvent, render, screen, waitFor } from 'testing'
 import Dropdown from '..'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = `adm-dropdown`
 
@@ -149,5 +150,35 @@ describe('Dropdown', () => {
       )
       expect(screen.getByText('bamboo')).toBeVisible()
     })
+  })
+
+  test('should apply custom prefixCls(ConfigProvider)', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Dropdown arrowIcon='ignore' arrow='ignore'>
+          <Dropdown.Item title='sorter' key='sorter' />
+        </Dropdown>
+      </ConfigProvider>
+    )
+    fireEvent.click(screen.getByText('sorter'))
+    expect(document.querySelector('.config-prefix-dropdown')).toBeTruthy()
+    expect(
+      document.querySelector('.config-prefix-dropdown-content')
+    ).toBeTruthy()
+    expect(document.querySelector('.config-prefix-dropdown-item')).toBeTruthy()
+  })
+
+  test('should apply custom prefixCls(component)', () => {
+    render(
+      <ConfigProvider prefixCls='config-prefix'>
+        <Dropdown arrowIcon='ignore' prefixCls='component-prefix'>
+          <Dropdown.Item title='sorter' key='sorter' />
+        </Dropdown>
+      </ConfigProvider>
+    )
+    fireEvent.click(screen.getByText('sorter'))
+    expect(document.querySelector('.component-prefix')).toBeTruthy()
+    expect(document.querySelector('.component-prefix-content')).toBeTruthy()
+    expect(document.querySelector('.config-prefix-dropdown-item')).toBeTruthy()
   })
 })

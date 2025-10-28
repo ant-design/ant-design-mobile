@@ -8,8 +8,6 @@ import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import { IconContext } from './context'
 
-const classPrefix = `adm-dropdown-item`
-
 export type DropdownItemProps = {
   key: string
   title: ReactNode
@@ -24,15 +22,17 @@ export type DropdownItemProps = {
    */
   arrow?: ReactNode
   children?: ReactNode
+  prefixCls?: string
 } & NativeProps
 
 const Item: FC<DropdownItemProps> = props => {
-  const { dropdown: componentConfig = {} } = useConfig()
+  const { dropdown: componentConfig = {}, getPrefixCls } = useConfig()
   const mergedProps = mergeProps(componentConfig, props)
+  const prefixCls = getPrefixCls('dropdown-item', mergedProps.prefixCls)
   const { active, highlight, onClick, title } = mergedProps
-  const cls = classNames(classPrefix, {
-    [`${classPrefix}-active`]: active,
-    [`${classPrefix}-highlight`]: highlight ?? active,
+  const cls = classNames(prefixCls, {
+    [`${prefixCls}-active`]: active,
+    [`${prefixCls}-highlight`]: highlight ?? active,
   })
 
   const contextArrowIcon = React.useContext(IconContext)
@@ -46,11 +46,11 @@ const Item: FC<DropdownItemProps> = props => {
   return withNativeProps(
     props,
     <div className={cls} onClick={onClick}>
-      <div className={`${classPrefix}-title`}>
-        <span className={`${classPrefix}-title-text`}>{title}</span>
+      <div className={`${prefixCls}-title`}>
+        <span className={`${prefixCls}-title-text`}>{title}</span>
         <span
-          className={classNames(`${classPrefix}-title-arrow`, {
-            [`${classPrefix}-title-arrow-active`]: active,
+          className={classNames(`${prefixCls}-title-arrow`, {
+            [`${prefixCls}-title-arrow-active`]: active,
           })}
         >
           {mergedArrowIcon}
@@ -64,19 +64,20 @@ export default Item
 
 type DropdownItemChildrenWrapProps = {
   onClick?: () => void
+  prefixCls: string
 } & Pick<
   DropdownItemProps,
   'active' | 'forceRender' | 'destroyOnClose' | 'children'
 >
 export const ItemChildrenWrap: FC<DropdownItemChildrenWrapProps> = props => {
-  const { active = false } = props
+  const { active = false, prefixCls } = props
   const shouldRender = useShouldRender(
     active,
     props.forceRender,
     props.destroyOnClose
   )
-  const cls = classNames(`${classPrefix}-content`, {
-    [`${classPrefix}-content-hidden`]: !active,
+  const cls = classNames(`${prefixCls}-content`, {
+    [`${prefixCls}-content-hidden`]: !active,
   })
 
   return shouldRender ? (
