@@ -1,9 +1,8 @@
-import React, { memo } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import classNames from 'classnames'
-
-const classPrefix = `adm-dot-loading`
+import React, { memo } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const colorRecord: Record<string, string> = {
   default: 'var(--adm-color-weak)',
@@ -13,6 +12,7 @@ const colorRecord: Record<string, string> = {
 
 export type DotLoadingProps = {
   color?: 'default' | 'primary' | 'white' | (string & {})
+  prefixCls?: string
 } & NativeProps
 
 const defaultProps = {
@@ -21,13 +21,15 @@ const defaultProps = {
 
 export const DotLoading = memo<DotLoadingProps>(p => {
   const props = mergeProps(defaultProps, p)
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('dot-loading', props.prefixCls)
   return withNativeProps(
     props,
     <div
       style={{
         color: colorRecord[props.color] ?? props.color,
       }}
-      className={classNames('adm-loading', classPrefix)}
+      className={classNames('adm-loading', prefixCls)}
     >
       <svg
         height='1em'
