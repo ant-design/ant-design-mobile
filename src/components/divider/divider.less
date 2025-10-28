@@ -1,9 +1,6 @@
 @class-prefix-divider: ~'adm-divider';
 
-.@{class-prefix-divider} {
-}
-
-.adm-divider-horizontal {
+.@{class-prefix-divider}-horizontal {
   display: flex;
   align-items: center;
   margin: 16px 0;
@@ -12,10 +9,10 @@
   border-style: solid;
   color: var(--adm-color-weak);
   font-size: 14px;
-  .adm-divider-left&::before {
+  .@{class-prefix-divider}-left&::before {
     max-width: 10%;
   }
-  .adm-divider-right&::after {
+  .@{class-prefix-divider}-right&::after {
     max-width: 10%;
   }
   &::after,
@@ -27,13 +24,13 @@
     border-color: inherit;
     border-width: 1px 0 0;
   }
-  .adm-divider-content {
+  .@{class-prefix-divider}-content {
     flex: none;
     padding: 0 16px;
   }
 }
 
-.adm-divider-vertical {
+.@{class-prefix-divider}-vertical {
   position: relative;
   top: -0.06em;
   display: inline-block;
