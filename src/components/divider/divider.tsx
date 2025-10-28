@@ -1,15 +1,15 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
 import classNames from 'classnames'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
-
-const classPrefix = `adm-divider`
+import { useConfig } from '../config-provider'
 
 export type DividerProps = {
   contentPosition?: 'left' | 'right' | 'center'
   direction?: 'horizontal' | 'vertical'
   children?: ReactNode
+  prefixCls?: string
 } & NativeProps
 
 const defaultProps = {
@@ -19,17 +19,19 @@ const defaultProps = {
 
 export const Divider: FC<DividerProps> = p => {
   const props = mergeProps(defaultProps, p)
+  const { getPrefixCls } = useConfig()
+  const prefixCls = getPrefixCls('divider', props.prefixCls)
   return withNativeProps(
     props,
     <div
       className={classNames(
-        classPrefix,
-        `${classPrefix}-${props.direction}`,
-        `${classPrefix}-${props.contentPosition}`
+        prefixCls,
+        `${prefixCls}-${props.direction}`,
+        `${prefixCls}-${props.contentPosition}`
       )}
     >
       {props.children && (
-        <div className={`${classPrefix}-content`}>{props.children}</div>
+        <div className={`${prefixCls}-content`}>{props.children}</div>
       )}
     </div>
   )
