@@ -25,7 +25,7 @@ export default () => {
         name='date'
         label='日期'
         trigger='onConfirm'
-        onClick={(e, datePickerRef: RefObject<DatePickerRef>) => {
+        onClick={(e: React.MouseEvent, datePickerRef: RefObject<DatePickerRef>) => {
           datePickerRef.current?.open()
         }}
         getValueProps={value => ({ value: value && new Date(value) })}
