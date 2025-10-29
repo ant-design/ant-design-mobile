@@ -1,4 +1,4 @@
-﻿import { Button, DatePicker, Dialog, Form } from 'antd-mobile'
+import { Button, DatePicker, Dialog, Form } from 'antd-mobile'
 import type { DatePickerRef } from 'antd-mobile/es/components/date-picker'
 import dayjs from 'dayjs'
 import React, { RefObject } from 'react'
