@@ -179,7 +179,8 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
       }
 
       if (maxCount > 0) {
-        const exceed = value.length + files.length - maxCount
+        const exceed =
+          value.length + files.length + finalTasks.length - maxCount
         if (exceed > 0) {
           files = files.slice(0, files.length - exceed)
           props.onCountExceed?.(exceed)
@@ -251,8 +252,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
 
     const showUpload =
       props.showUpload &&
-      (maxCount === 0 ||
-        value.length + finalTasks.length + finalTasks.length < maxCount)
+      (maxCount === 0 || value.length + finalTasks.length < maxCount)
 
     const renderImages = () => {
       return value.map((fileItem, index) => {
