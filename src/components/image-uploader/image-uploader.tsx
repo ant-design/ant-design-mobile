@@ -157,6 +157,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
         ? tasks
         : tasks.filter(task => task.status !== 'fail')
     }
+    const finalTasks = getFinalTasks(tasks)
 
     async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
       e.persist()
@@ -248,11 +249,10 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
       imageViewerHandlerRef.current?.close()
     })
 
-    const finalTasks = getFinalTasks(tasks)
-
     const showUpload =
       props.showUpload &&
-      (maxCount === 0 || value.length + finalTasks.length < maxCount)
+      (maxCount === 0 ||
+        value.length + finalTasks.length + finalTasks.length < maxCount)
 
     const renderImages = () => {
       return value.map((fileItem, index) => {
