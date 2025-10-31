@@ -143,7 +143,7 @@ describe('ImageUploader', () => {
     expect(input.files?.length ?? 0).toBe(0)
   })
 
-  test('limit count', async () => {
+  test('limit count should include uploading', async () => {
     const maxCount = 3
     const fn = jest.fn()
 
@@ -156,7 +156,7 @@ describe('ImageUploader', () => {
         }}
       />
     )
-
+    mockInputFile([new File(['one'], 'one.png', { type: 'image/png' })])
     mockInputFile([
       new File(['one'], 'one.png', { type: 'image/png' }),
       new File(['two'], 'two.png', { type: 'image/png' }),
@@ -166,7 +166,7 @@ describe('ImageUploader', () => {
       jest.runAllTimers()
     })
 
-    expect(fn.mock.calls[0][0]).toBe(1)
+    expect(fn.mock.calls[0][0]).toBe(2)
     expect($$(`.${classPrefix}-upload-button-wrap`)[0]).toHaveStyle(
       'display: none'
     )
