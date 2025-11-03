@@ -188,7 +188,6 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         mergedProps.cursor?.onMove?.(value.length)
       }
       mergedProps.onClick?.(e)
-      setHasFocus(true)
       setFocus()
     }
 
