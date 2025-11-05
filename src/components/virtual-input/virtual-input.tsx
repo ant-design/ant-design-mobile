@@ -187,8 +187,8 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         setCaretPosition(value.length)
         mergedProps.cursor?.onMove?.(value.length)
       }
-      mergedProps.onClick?.(e);
-      setHasFocus(true)
+      mergedProps.onClick?.(e)
+      setFocus()
     }
 
     // 点击单个字符时，根据点击位置置于字符前或后
@@ -280,7 +280,7 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
           className={`${classPrefix}-content`}
           ref={contentRef}
           aria-disabled={mergedProps.disabled}
-          aria-label={value ? undefined: mergedProps.placeholder}
+          aria-label={value ? undefined : mergedProps.placeholder}
           role='textbox'
           tabIndex={mergedProps.disabled ? undefined : 0}
           // note: 这里增加 onFocus 有两个目的：
