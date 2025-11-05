@@ -23,13 +23,17 @@ export type SlidesType = {
     image: string,
     { ref, index }: { ref: RefObject<HTMLImageElement>; index: number }
   ) => ReactNode
+  viewportWidth: number
 }
 export type SlidesRef = {
   swipeTo: (index: number, immediate?: boolean) => void
 }
 
 export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
-  const slideWidth = window.innerWidth + convertPx(16)
+  const baseWidth = props.viewportWidth
+
+  const slideWidth = baseWidth + convertPx(16)
+
   const [{ x }, api] = useSpring(() => ({
     x: props.defaultIndex * slideWidth,
     config: { tension: 250, clamp: true },
@@ -51,6 +55,7 @@ export const Slides = forwardRef<SlidesRef, SlidesType>((props, ref) => {
   }))
 
   const dragLockRef = useRef(false)
+
   const bind = useDrag(
     state => {
       if (dragLockRef.current) return
