@@ -30,7 +30,6 @@
     z-index: 1;
     width: 100%;
     max-width: 100%;
-    min-height: 1.5em;
     overflow-y: hidden;
     overflow-x: scroll;
     letter-spacing: 1px;
@@ -49,6 +48,7 @@
     height: 10px;
     position: absolute;
     opacity: 0;
+    left: 0; // 右对齐时，元素不会占位而导致光标错位
   }
 
   &-placeholder {
