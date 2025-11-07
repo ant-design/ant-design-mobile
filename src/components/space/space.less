@@ -25,12 +25,18 @@
     }
     > .@{class-prefix-space}-item {
       margin-right: var(--gap-horizontal);
+      &:last-child {
+        margin-right: 0;
+      }
     }
     &.@{class-prefix-space}-wrap {
       flex-wrap: wrap;
       margin-bottom: calc(var(--gap-vertical) * -1);
       > .@{class-prefix-space}-item {
         padding-bottom: var(--gap-vertical);
+        &:last-child {
+          padding-bottom: 0;
+        }
       }
     }
   }
