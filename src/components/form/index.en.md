@@ -19,6 +19,10 @@ High-performance form controls with built-in data field management. Including da
 
 <code src="./demos/demo6.tsx" debug></code>
 
+### getvalueprops-normalize
+
+<code src="./demos/getvalueprops-normalize.tsx"></code>
+
 ## Form
 
 ### Props

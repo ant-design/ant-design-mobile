@@ -15,6 +15,7 @@ import { mergeProp, mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 import type { InputProps } from '../input'
 import { NumberKeyboardProps } from '../number-keyboard'
+import useClickOutside from './use-click-outside'
 
 const classPrefix = 'adm-virtual-input'
 
@@ -85,13 +86,11 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
     )
 
     function scrollToEnd() {
-      const root = rootRef.current
-      if (!root) return
-      if (document.activeElement !== root) {
+      const content = contentRef.current
+      if (!content) {
         return
       }
-      const content = contentRef.current
-      if (!content) return
+
       content.scrollLeft = content.clientWidth
     }
 
@@ -126,22 +125,29 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     useImperativeHandle(ref, () => ({
       focus: () => {
-        rootRef.current?.focus()
+        contentRef.current?.focus()
       },
       blur: () => {
-        rootRef.current?.blur()
+        contentRef.current?.blur()
+        setBlur()
       },
     }))
 
-    function onFocus() {
+    function setFocus() {
+      if (hasFocus) return
       setHasFocus(true)
       mergedProps.onFocus?.()
     }
 
-    function onBlur() {
+    function setBlur() {
+      if (!hasFocus) return
       setHasFocus(false)
       mergedProps.onBlur?.()
     }
+
+    useClickOutside(() => {
+      setBlur()
+    }, rootRef)
 
     const keyboard = mergedProps.keyboard
     const keyboardElement =
@@ -169,27 +175,20 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         },
         visible: hasFocus,
         onClose: () => {
-          const activeElement = document.activeElement as HTMLElement
-
-          // Long press makes `activeElement` to be the child of rootRef
-          // We will trigger blur on the child element instead
-          if (activeElement && rootRef.current?.contains(activeElement)) {
-            activeElement.blur()
-          } else {
-            rootRef.current?.blur()
-          }
-
+          setBlur()
           keyboard.props.onClose?.()
         },
         getContainer: null,
       } as NumberKeyboardProps)
 
     // 点击输入框时，将光标置于最后
-    const setCaretPositionToEnd = () => {
+    const setCaretPositionToEnd = (e: React.MouseEvent<HTMLDivElement>) => {
       if (caretPosition !== value.length) {
         setCaretPosition(value.length)
         mergedProps.cursor?.onMove?.(value.length)
       }
+      mergedProps.onClick?.(e)
+      setFocus()
     }
 
     // 点击单个字符时，根据点击位置置于字符前或后
@@ -274,23 +273,26 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         className={classNames(classPrefix, {
           [`${classPrefix}-disabled`]: mergedProps.disabled,
           [`${classPrefix}-caret-dragging`]: isCaretDragging,
+          [`${classPrefix}-focused`]: hasFocus,
         })}
-        tabIndex={mergedProps.disabled ? undefined : 0}
-        role='textbox'
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onClick={mergedProps.onClick}
       >
         <div
           className={`${classPrefix}-content`}
           ref={contentRef}
           aria-disabled={mergedProps.disabled}
-          aria-label={mergedProps.placeholder}
+          aria-label={value ? undefined : mergedProps.placeholder}
+          role='textbox'
+          tabIndex={mergedProps.disabled ? undefined : 0}
+          // note: 这里增加 onFocus 有两个目的：
+          // 1. 在安卓 talkback 模式下，role=textbox 的元素双击后只会触发 focus 而非 click
+          // 2. 处理 content 框点击、单个字符点击时，不用再额外处理 focus 逻辑，因为 focus 事件会先触发
+          onFocus={setFocus}
           onClick={setCaretPositionToEnd}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
+          <span className={`${classPrefix}-trap`} />
           {chars.slice(0, caretPosition).map((i: string, index: number) => (
             <span
               ref={index === 0 ? charRef : undefined}

@@ -23,6 +23,7 @@
 | renderFooter | 渲染底部额外内容 | `(image: string) => ReactNode` | - |  |
 | imageRender | 自定义渲染内容 | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - | 5.39.0 |
 | visible | 是否显示 | `boolean` | `false` |  |
+| mask | 遮罩层的属性 | `{onClick?:(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void}` | - |  |
 
 ## ImageViewer.Multi
 
@@ -36,6 +37,12 @@
 | imageRender | 自定义渲染内容 | `(image: string,{ ref, index }: { ref: RefObject<HTMLImageElement>; index: number }) => ReactNode` | - |  |
 
 其他属性同 `ImageViewer`，但是去掉了 `image` 属性。
+
+### Mask
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| onClick | 点击蒙层自身触发 | `(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void` | - |
 
 ### Ref
 

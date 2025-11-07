@@ -17,7 +17,7 @@ function getSiblingElements(element: Element | null) {
     current = current?.nextElementSibling
   }
   current = element?.previousElementSibling
-  while (current) {
+  while (current && current.className !== `${classPrefix}-trap`) {
     prevElements.push(current)
     current = current?.previousElementSibling
   }
@@ -117,9 +117,9 @@ describe('VirtualInput', () => {
 
   test('focus and blur', async () => {
     render(<VirtualInput data-testid='virtualInput' clearable value='abc' />)
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
     expect(document.querySelector(`.${classPrefix}-caret`)).toBeInTheDocument()
-    fireEvent.blur(screen.getByTestId('virtualInput'))
+    fireEvent.click(document.body) // 点击空白处
     expect(
       document.querySelector(`.${classPrefix}-caret`)
     ).not.toBeInTheDocument()
@@ -161,7 +161,7 @@ describe('VirtualInput', () => {
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       'Value'
     )
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
     expect(document.querySelector(`.${classPrefix}-clear`)).toBeInTheDocument()
     fireEvent.click(document.querySelector(`.${classPrefix}-clear`) as any)
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
@@ -178,7 +178,7 @@ describe('VirtualInput', () => {
         keyboard={<NumberKeyboard title='title' />}
       />
     )
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -232,7 +232,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -299,7 +299,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -390,7 +390,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -523,7 +523,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -611,6 +611,55 @@ describe('VirtualInput', () => {
     }
   })
 
+  test('scrollToEnd function', async () => {
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <VirtualInput
+          data-testid='virtualInput'
+          value={value}
+          onChange={setValue}
+          keyboard={<NumberKeyboard />}
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByTestId('virtualInput')
+    const content = input.querySelector(
+      `.${classPrefix}-content`
+    ) as HTMLElement
+
+    // Mock scroll properties
+    content.scrollLeft = 0
+    Object.defineProperty(content, 'clientWidth', {
+      get: function () {
+        return (content.textContent || '').length * 20
+      },
+    })
+
+    // Test focus scenario
+    fireEvent.focus(content)
+    expect(content.scrollLeft).toBe(0)
+
+    // Test input scenario
+    content.scrollLeft = 0
+    fireEvent.click(screen.getByText('1')) // Simulate keyboard input
+    await waitFor(() => {
+      expect(content.scrollLeft).toBe(20) // Should scroll on input
+    })
+
+    // Test with long content
+    content.scrollLeft = 0
+    fireEvent.click(screen.getByText('2'))
+    fireEvent.click(screen.getByText('3'))
+    fireEvent.click(screen.getByText('4'))
+    fireEvent.click(screen.getByText('5'))
+
+    await waitFor(() => {
+      expect(content.scrollLeft).toBe(100) // Should stay scrolled to end
+    })
+  })
+
   test('disable caret position', async () => {
     const KeyBoardClassPrefix = 'adm-number-keyboard'
     const Wrapper = () => {
@@ -625,7 +674,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(

@@ -157,6 +157,7 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
         ? tasks
         : tasks.filter(task => task.status !== 'fail')
     }
+    const finalTasks = getFinalTasks(tasks)
 
     async function onChange(e: React.ChangeEvent<HTMLInputElement>) {
       e.persist()
@@ -178,7 +179,8 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
       }
 
       if (maxCount > 0) {
-        const exceed = value.length + files.length - maxCount
+        const exceed =
+          value.length + files.length + finalTasks.length - maxCount
         if (exceed > 0) {
           files = files.slice(0, files.length - exceed)
           props.onCountExceed?.(exceed)
@@ -247,8 +249,6 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
     useUnmount(() => {
       imageViewerHandlerRef.current?.close()
     })
-
-    const finalTasks = getFinalTasks(tasks)
 
     const showUpload =
       props.showUpload &&
