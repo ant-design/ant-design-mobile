@@ -222,7 +222,14 @@ export const NumberKeyboard: FC<NumberKeyboardProps> = p => {
     >
       {withNativeProps(
         props,
-        <div ref={keyboardRef} className={classPrefix}>
+        <div
+          ref={keyboardRef}
+          className={classPrefix}
+          onMouseDown={e => {
+            // 点击键盘时，不会触发页面已聚焦元素（如输入框）的 blur 事件
+            e.preventDefault()
+          }}
+        >
           {renderHeader()}
           <div className={`${classPrefix}-wrapper`}>
             <div
