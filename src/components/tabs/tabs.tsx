@@ -189,7 +189,7 @@ export const Tabs: FC<TabsProps> = p => {
       )
     }
 
-    if (!fromMutation || props.autoScroll !== false) {
+    if (!fromMutation && props.autoScroll !== false) {
       scrollApi.start({
         scrollLeft: nextScrollLeft,
         from: { scrollLeft: containerScrollLeft },

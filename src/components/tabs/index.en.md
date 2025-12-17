@@ -30,6 +30,7 @@ The current content needs to be divided into groups of the same hierarchical str
 | onChange | Callback when switching panel | `(key: string) => void` | - |
 | stretch | Whether stretch the tab header | `boolean` | `true` |
 | direction | Document layout direction | `'ltr' \| 'rtl'` | `'ltr'` |
+| autoScroll | Whether to enable auto scroll when switching tabs | `boolean` | `true` |
 
 ### CSS Variables
 

@@ -30,6 +30,7 @@
 | onChange | 切换面板的回调 | `(key: string) => void` | - |
 | stretch | 选项卡头部是否拉伸 | `boolean` | `true` |
 | direction | 文档排版方向 | `'ltr' \| 'rtl'` | `'ltr'` |
+| autoScroll | 切换 tab 时是否自动滚动 | `boolean` | `true` |
 
 ### CSS 变量
 
