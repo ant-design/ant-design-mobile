@@ -1,11 +1,14 @@
-import { NumberKeyboard, VirtualInput } from 'antd-mobile'
+import { NumberKeyboard, VirtualInput, VirtualInputRef } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 const TWO_DIGIT_NUMBER_REGEX = /^(([1-9]\d{0,11})|0)(\.\d{0,2}?)?$/
 
 export default () => {
   const [value, setValue] = useState('')
+  const [value2, setValue2] = useState('')
+  const [visible, setVisible] = useState(false)
+  const inputRef = useRef<VirtualInputRef>(null)
 
   return (
     <>
@@ -84,6 +87,29 @@ export default () => {
           }
           style={{
             '--font-size': '40px',
+          }}
+        />
+      </DemoBlock>
+
+      <DemoBlock title='同级使用 NumberKeyboard 和 VirtualInput（👎️不推荐）'>
+        <VirtualInput
+          placeholder='请输入内容'
+          clearable
+          value={value2}
+          onFocus={() => setVisible(true)}
+          onBlur={() => setVisible(false)}
+          onClear={() => setValue2('')}
+          ref={inputRef}
+        />
+        <NumberKeyboard
+          visible={visible}
+          confirmText='确定'
+          customKey={{ key: '.', title: '小数点' }}
+          onInput={v => setValue2(i => i + v)}
+          onDelete={() => setValue2(i => i.slice(0, i.length - 1))}
+          onClose={() => {
+            setVisible(false)
+            inputRef.current?.blur()
           }}
         />
       </DemoBlock>
