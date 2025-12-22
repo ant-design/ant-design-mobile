@@ -91,29 +91,6 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='同级使用 NumberKeyboard 和 VirtualInput（👎️不推荐）'>
-        <VirtualInput
-          placeholder='请输入内容'
-          clearable
-          value={value2}
-          onFocus={() => setVisible(true)}
-          onBlur={() => setVisible(false)}
-          onClear={() => setValue2('')}
-          ref={inputRef}
-        />
-        <NumberKeyboard
-          visible={visible}
-          confirmText='确定'
-          customKey={{ key: '.', title: '小数点' }}
-          onInput={v => setValue2(i => i + v)}
-          onDelete={() => setValue2(i => i.slice(0, i.length - 1))}
-          onClose={() => {
-            setVisible(false)
-            inputRef.current?.blur()
-          }}
-        />
-      </DemoBlock>
-
       <div style={{ height: '100vh' }}></div>
     </>
   )
