@@ -48,7 +48,7 @@
 
 ### 与NumberKeyboard配合使用
 
-强烈推荐将 NumberKeyboard 作为属性传入 VirtualInput，一方面可以少写很多连接代码，另外也有完善的无障碍支持。
+强烈推荐将 NumberKeyboard 作为属性传入 VirtualInput，一方面可以少写很多联动代码，另外也有完善的无障碍支持。
 
 如果两个组件分离式引入，则需手动添加联动逻辑代码，且存在无障碍支持问题。
 
