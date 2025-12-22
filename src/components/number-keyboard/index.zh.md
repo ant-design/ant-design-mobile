@@ -49,3 +49,7 @@ tips: 仅移动端下删除按钮支持长按快删（通过 touchStart/touchEnd
 ### 数字键盘是否支持自动从短信中读取验证码？
 
 不支持。
+
+### 数字键盘与 VirtualInput 如何搭配使用？
+
+参考 [VirtualInput](/zh/components/virtual-input#与NumberKeyboard配合使用)
