@@ -84,3 +84,5 @@
   onClose={() => { setVisible(false); inputRef.current?.blur(); }}
 />
 ```
+
+<code src="./demos/demo2.tsx"></code>

@@ -38,7 +38,7 @@ export default () => {
         />
       </DemoBlock>
 
-      <DemoBlock title='同级使用 NumberKeyboard 和 VirtualInput（👎️不推荐）'>
+      <DemoBlock title='同级使用 NumberKeyboard 和 VirtualInput（👎️不推荐❌）'>
         <VirtualInput
           placeholder='请输入内容'
           clearable
