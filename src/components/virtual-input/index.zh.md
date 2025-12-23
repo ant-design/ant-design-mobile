@@ -45,3 +45,44 @@
 | --font-size | 字号 | `17px` | - |
 | --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)` | - |
 | --text-align | 文字对齐方式 | `left` | - |
+
+### 与NumberKeyboard配合使用
+
+强烈推荐将 NumberKeyboard 作为属性传入 VirtualInput，一方面可以少写很多联动代码，另外也有完善的无障碍支持。
+
+如果两个组件分离式引入，则需手动添加联动逻辑代码，且存在无障碍支持问题。
+
+```js
+// ✅ 推荐这么做
+ <VirtualInput
+  placeholder='请输入内容'
+  clearable
+  keyboard={
+    <NumberKeyboard
+      confirmText='确定'
+      customKey={{ key: '.', title: '小数点' }}
+    />
+  }
+/>
+
+// ❌ 不推荐这么做
+<VirtualInput
+  placeholder='请输入内容'
+  clearable
+  value={value}
+  onFocus={() => setVisible(true)}
+  onBlur={() => setVisible(false)}
+  onClear={() => setValue('')}
+  ref={inputRef}
+/>
+<NumberKeyboard
+  visible={visible}
+  confirmText='确定'
+  customKey={{ key: '.', title: '小数点' }}
+  onInput={v => setValue(i => i + v)}
+  onDelete={() => setValue(i => i.slice(0, i.length - 1))}
+  onClose={() => { setVisible(false); inputRef.current?.blur(); }}
+/>
+```
+
+<code src="./demos/demo2.tsx"></code>

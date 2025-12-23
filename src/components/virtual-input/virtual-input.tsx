@@ -145,9 +145,13 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
       mergedProps.onBlur?.()
     }
 
-    useClickOutside(() => {
-      setBlur()
-    }, rootRef)
+    useClickOutside(
+      () => {
+        setBlur()
+      },
+      rootRef,
+      !!mergedProps.keyboard
+    )
 
     const keyboard = mergedProps.keyboard
     const keyboardElement =
@@ -175,6 +179,13 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
         },
         visible: hasFocus,
         onClose: () => {
+          const activeElement = document.activeElement as HTMLElement
+
+          if (activeElement === contentRef.current) {
+            // 点击 NumberKeyboard 的确认和关闭时不会触发输入框的 blur 事件，手动调用让其失焦，否则之后无法 focus
+            contentRef.current?.blur()
+          }
+
           setBlur()
           keyboard.props.onClose?.()
         },
@@ -183,6 +194,9 @@ export const VirtualInput = forwardRef<VirtualInputRef, VirtualInputProps>(
 
     // 点击输入框时，将光标置于最后
     const setCaretPositionToEnd = (e: React.MouseEvent<HTMLDivElement>) => {
+      if (mergedProps.disabled) {
+        return
+      }
       if (caretPosition !== value.length) {
         setCaretPosition(value.length)
         mergedProps.cursor?.onMove?.(value.length)
