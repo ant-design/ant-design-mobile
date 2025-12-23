@@ -7,6 +7,6 @@ export function renderToBody(element: ReactElement) {
   const unmount = unstableSetRender()(element, container)
   return () => {
     unmount()
-    document.body.removeChild(container)
+    container.parentNode?.removeChild(container)
   }
 }
