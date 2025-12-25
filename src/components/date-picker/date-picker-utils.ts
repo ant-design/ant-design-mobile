@@ -5,8 +5,16 @@ import type { QuarterPrecision } from './date-picker-quarter-utils'
 import * as quarterUtils from './date-picker-quarter-utils'
 import type { WeekPrecision } from './date-picker-week-utils'
 import * as weekUtils from './date-picker-week-utils'
-import type { PickerDate } from './util'
-import { TILL_NOW } from './util'
+import type { DateColumnType, PickerDate } from './util'
+import {
+  DAY_COLUMN,
+  HOUR_COLUMN,
+  MINUTE_COLUMN,
+  MONTH_COLUMN,
+  SECOND_COLUMN,
+  TILL_NOW,
+  YEAR_COLUMN,
+} from './util'
 
 export type Precision = DatePrecision | WeekPrecision | QuarterPrecision
 
@@ -33,24 +41,49 @@ const precisionLengthRecord: Record<DatePrecision, number> = {
 
 export const convertDateToStringArray = (
   date: Date | undefined | null,
-  precision: Precision
+  precision: Precision,
+  columns?: DateColumnType[]
 ) => {
+  if (!date) return []
   if (precision.includes('week')) {
     return weekUtils.convertDateToStringArray(date)
   } else if (precision.includes('quarter')) {
     return quarterUtils.convertDateToStringArray(date)
-  } else {
-    const datePrecision = precision as DatePrecision
-    const stringArray = dateUtils.convertDateToStringArray(date)
-    return stringArray.slice(0, precisionLengthRecord[datePrecision])
   }
+  const datePrecision = precision as DatePrecision
+  const standard = dateUtils.convertDateToStringArray(date)
+
+  if (!columns?.length) {
+    return standard.slice(0, precisionLengthRecord[datePrecision])
+  }
+  const map: Record<DateColumnType, string> = {
+    [YEAR_COLUMN]: standard[0],
+    [MONTH_COLUMN]: standard[1],
+    [DAY_COLUMN]: standard[2],
+    [HOUR_COLUMN]: standard[3],
+    [MINUTE_COLUMN]: standard[4],
+    [SECOND_COLUMN]: standard[5],
+  }
+  const order: DateColumnType[] = [
+    YEAR_COLUMN,
+    MONTH_COLUMN,
+    DAY_COLUMN,
+    HOUR_COLUMN,
+    MINUTE_COLUMN,
+    SECOND_COLUMN,
+  ]
+  const max = precisionLengthRecord[datePrecision]
+  return columns
+    .filter(col => order.indexOf(col) > -1 && order.indexOf(col) < max)
+    .map(col => map[col])
 }
 
 export const convertStringArrayToDate = <
   T extends string | number | null | undefined,
 >(
   value: T[],
-  precision: Precision
+  precision: Precision,
+  columns?: DateColumnType[]
 ) => {
   // Special case for DATE_NOW
   if (value?.[0] === TILL_NOW) {
@@ -64,7 +97,11 @@ export const convertStringArrayToDate = <
   } else if (precision.includes('quarter')) {
     return quarterUtils.convertStringArrayToDate(value)
   } else {
-    return dateUtils.convertStringArrayToDate(value)
+    return dateUtils.convertStringArrayToDate(
+      value,
+      columns,
+      precision as DatePrecision
+    )
   }
 }
 
@@ -75,7 +112,8 @@ export const generateDatePickerColumns = (
   precision: Precision,
   renderLabel: RenderLabel,
   filter: DatePickerFilter | undefined,
-  tillNow?: boolean
+  tillNow?: boolean,
+  columns?: DateColumnType[]
 ) => {
   if (precision.startsWith('week')) {
     return weekUtils.generateDatePickerColumns(
@@ -103,7 +141,8 @@ export const generateDatePickerColumns = (
       precision as DatePrecision,
       renderLabel,
       filter,
-      tillNow
+      tillNow,
+      columns
     )
   }
 }
