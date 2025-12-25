@@ -1,11 +1,14 @@
-import { NumberKeyboard, VirtualInput } from 'antd-mobile'
+import { NumberKeyboard, VirtualInput, VirtualInputRef } from 'antd-mobile'
 import { DemoBlock } from 'demos'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 const TWO_DIGIT_NUMBER_REGEX = /^(([1-9]\d{0,11})|0)(\.\d{0,2}?)?$/
 
 export default () => {
   const [value, setValue] = useState('')
+  const [value2, setValue2] = useState('')
+  const [visible, setVisible] = useState(false)
+  const inputRef = useRef<VirtualInputRef>(null)
 
   return (
     <>
