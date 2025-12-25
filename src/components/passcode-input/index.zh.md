@@ -72,4 +72,11 @@ const syncValue = () => {
     }
   }, 100);
 };
+
+<PasscodeInput
+  ref={inputRef}
+  value={code}
+  onChange={setCode}
+  onFocus={handleFocus}
+/>
 ```
