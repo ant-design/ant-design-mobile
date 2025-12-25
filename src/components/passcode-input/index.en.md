@@ -52,3 +52,24 @@ When `length` is not a positive number, replace it with the default value.
 | --cell-gap | Gap between cells, only take effect in `seperated` mode | `6px` |
 | --cell-size | Size of cells | `40px` |
 | --dot-size | The size of the point when the password is hidden | `10px` |
+
+## FAQ
+
+### Q: When clicking to auto-fill SMS verification code on iOS, the numbers don't appear in the PasscodeInput cells?
+
+This is due to iOS system compatibility limitations. On some devices, SMS auto-fill directly writes to the native input element but doesn't trigger React's onChange event, causing the component state to become out of sync. You can access the native input element via ref and manually sync the input.value using setTimeout in the onFocus or onFill callbacks. If you need to call blur() to dismiss the keyboard after auto-fill, it's recommended to include this in the delayed logic to ensure state rendering is complete before blurring.
+
+```jsx
+const inputRef = useRef(null);
+const [value, setValue] = useState('');
+
+const syncValue = () => {
+  setTimeout(() => {
+    // Get the native input value and sync it
+    const realValue = inputRef.current?.nativeElement?.value || inputRef.current?.value;
+    if (realValue && realValue !== value) {
+      setValue(realValue);
+    }
+  }, 100);
+};
+```
