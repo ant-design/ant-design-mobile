@@ -111,6 +111,9 @@ const koKR = mergeLocale(base, {
   Modal: {
     ok: '확인',
   },
+  NumberKeyboard: {
+    backspace: '삭제',
+  },
   PasscodeInput: {
     name: '비밀번호 입력',
   },

@@ -103,6 +103,9 @@ const msMY = mergeLocale(base, {
   'Input': { 'clear': 'Bersihkan' },
   'Mask': { 'name': 'lapisan topeng latar belakang' },
   'Modal': { 'ok': 'Faham' },
+  'NumberKeyboard': {
+    'backspace': 'Padam',
+  },
   'PasscodeInput': { 'name': 'Kotak input kata laluan' },
   'PullToRefresh': {
     'pulling': 'Tarik ke bawah untuk muat semula',

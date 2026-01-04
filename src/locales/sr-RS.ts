@@ -117,6 +117,9 @@ const srRS = mergeLocale(base, {
   Modal: {
     ok: 'У реду',
   },
+  NumberKeyboard: {
+    backspace: 'Обриши',
+  },
   PasscodeInput: {
     name: 'Унос шифре',
   },

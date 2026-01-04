@@ -111,6 +111,9 @@ const trTR = mergeLocale(base, {
   Modal: {
     ok: 'Tamam',
   },
+  NumberKeyboard: {
+    backspace: 'Sil',
+  },
   PasscodeInput: {
     name: 'Şifre Girişi',
   },

@@ -66,7 +66,7 @@ describe('NumberKeyboard', () => {
       />
     )
 
-    mockClick(screen.getByTitle(locale.Input.clear))
+    mockClick(screen.getByTitle(locale.NumberKeyboard.backspace))
     expect(onDelete).toBeCalled()
 
     mockClick(screen.getByText('-'))
@@ -87,7 +87,7 @@ describe('NumberKeyboard', () => {
       />
     )
     const confirm = screen.getByText('confirm')
-    const del = screen.getByTitle(locale.Input.clear)
+    const del = screen.getByTitle(locale.NumberKeyboard.backspace)
     expect(confirm).toBeInTheDocument()
     expect(confirm).toHaveClass(
       `${classPrefix}-key-extra ${classPrefix}-key-ok`
@@ -138,7 +138,7 @@ describe('NumberKeyboard', () => {
     jest.useFakeTimers()
     const onDelete = jest.fn()
     render(<NumberKeyboard visible onDelete={onDelete} />)
-    const del = screen.getByTitle(locale.Input.clear)
+    const del = screen.getByTitle(locale.NumberKeyboard.backspace)
     fireEvent.touchStart(del, { touches: [{}] })
     jest.runOnlyPendingTimers()
     expect(onDelete).toBeCalledTimes(1)
@@ -199,7 +199,7 @@ describe('NumberKeyboard', () => {
     const { container } = render(<NumberKeyboard visible onDelete={onDelete} />)
 
     // Fire touchstart event
-    fireEvent.touchStart(screen.getByTitle(locale.Input.clear), {
+    fireEvent.touchStart(screen.getByTitle(locale.NumberKeyboard.backspace), {
       touches: [{}],
     })
     onDelete.mockReset()
@@ -208,7 +208,9 @@ describe('NumberKeyboard', () => {
     expect(onDelete).toHaveBeenCalled()
 
     // release
-    fireEvent.touchEnd(screen.getByTitle(locale.Input.clear), { touches: [{}] })
+    fireEvent.touchEnd(screen.getByTitle(locale.NumberKeyboard.backspace), {
+      touches: [{}],
+    })
     const callTimes = onDelete.mock.calls.length
     jest.advanceTimersByTime(10000)
     expect(onDelete.mock.calls.length).toBe(callTimes)
@@ -234,7 +236,7 @@ describe('NumberKeyboard', () => {
     )
 
     // Fire touchstart event
-    fireEvent.touchStart(screen.getByTitle(locale.Input.clear), {
+    fireEvent.touchStart(screen.getByTitle(locale.NumberKeyboard.backspace), {
       touches: [{}],
     })
     onDelete.mockReset()
@@ -243,7 +245,9 @@ describe('NumberKeyboard', () => {
     expect(onDelete).toHaveBeenCalled()
 
     // release
-    fireEvent.touchEnd(screen.getByTitle(locale.Input.clear), { touches: [{}] })
+    fireEvent.touchEnd(screen.getByTitle(locale.NumberKeyboard.backspace), {
+      touches: [{}],
+    })
     const callTimes = onDelete.mock.calls.length
     jest.advanceTimersByTime(10000)
     expect(onDelete.mock.calls.length).toBe(callTimes)
