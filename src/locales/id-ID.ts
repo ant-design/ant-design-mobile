@@ -104,6 +104,9 @@ const idID = mergeLocale(base, {
   Modal: {
     ok: 'Saya mendapatkannya',
   },
+  NumberKeyboard: {
+    backspace: 'Hapus',
+  },
   PullToRefresh: {
     pulling: 'Tarik ke bawah untuk menyegarkan',
     canRelease: 'Lepaskan untuk menyegarkan segera',

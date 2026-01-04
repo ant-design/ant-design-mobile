@@ -111,6 +111,9 @@ const itIT = mergeLocale(base, {
   Modal: {
     ok: 'Ho capito',
   },
+  NumberKeyboard: {
+    backspace: 'Cancella',
+  },
   PasscodeInput: {
     name: 'Input per codice di accesso',
   },

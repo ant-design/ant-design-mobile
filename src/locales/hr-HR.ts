@@ -117,6 +117,9 @@ const hrHR = mergeLocale(base, {
   Modal: {
     ok: 'U redu',
   },
+  NumberKeyboard: {
+    backspace: 'Izbriši',
+  },
   PasscodeInput: {
     name: 'Unos lozinke',
   },

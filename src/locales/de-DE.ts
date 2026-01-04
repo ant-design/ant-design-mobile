@@ -102,6 +102,9 @@ const deDE = mergeLocale(base, {
   'Input': { 'clear': 'Löschen' },
   'Mask': { 'name': 'Hintergrundmaske' },
   'Modal': { 'ok': 'Ich weiß.' },
+  'NumberKeyboard': {
+    'backspace': 'Löschen',
+  },
   'PasscodeInput': { 'name': 'Passwort-Eingabefeld' },
   'PullToRefresh': {
     'pulling': 'Nach unten zum Aktualisieren ziehen',

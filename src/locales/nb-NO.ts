@@ -111,6 +111,9 @@ const nbNO = mergeLocale(base, {
   Modal: {
     ok: 'OK',
   },
+  NumberKeyboard: {
+    backspace: 'Slett',
+  },
   PasscodeInput: {
     name: 'Inndata for adgangskode',
   },

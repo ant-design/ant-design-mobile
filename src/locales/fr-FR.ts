@@ -102,6 +102,9 @@ const frFR = mergeLocale(base, {
   Modal: {
     ok: 'Je l’ai compris',
   },
+  NumberKeyboard: {
+    backspace: 'Supprimer',
+  },
   PullToRefresh: {
     pulling: 'Rafraîchir la liste déroulante',
     canRelease: 'Libérez instantanément rafraîchir',

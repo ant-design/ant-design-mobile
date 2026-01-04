@@ -193,7 +193,7 @@ describe('VirtualInput', () => {
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '01'
     )
-    fireEvent.click(screen.getByTitle(locale.Input.clear))
+    fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace))
     expect(
       document.querySelector(`.${classPrefix}-content`)
     ).not.toHaveTextContent('01')
@@ -271,7 +271,7 @@ describe('VirtualInput', () => {
       expect(getCaretPosition(caretContainer)).toBe(4)
 
       // click delete by keyboard, content should be '12345', caret position should be 3
-      fireEvent.click(screen.getByTitle(locale.Input.clear))
+      fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace))
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -341,7 +341,7 @@ describe('VirtualInput', () => {
     expect(getCaretPosition(caretContainer)).toBe(1)
 
     // click delete by keyboard, content should be '123', caret position should be 1
-    fireEvent.click(screen.getByTitle(locale.Input.clear))
+    fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace))
     await waitFor(() => {
       expect(
         document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -450,7 +450,7 @@ describe('VirtualInput', () => {
       })
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
+      fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace)) // 点删除
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -467,7 +467,7 @@ describe('VirtualInput', () => {
       })
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
+      fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace)) // 点删除
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -490,7 +490,7 @@ describe('VirtualInput', () => {
       ).toHaveTextContent('9')
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
+      fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace)) // 点删除
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('0')
