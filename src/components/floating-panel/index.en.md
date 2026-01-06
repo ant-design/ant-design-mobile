@@ -20,7 +20,7 @@ Users can freely and flexibly slide up and down to browse the content, which is 
 
 ### Props
 
-| Name | Description | Type | Description | Version |
+| Name | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | anchors | What height can be dragged to, the unit is `px` | `number[]` | - |  |
 | handleDraggingOfContent | Whether to handle the drag event of the panel content area. If disabled, only the head area can be dragged | `boolean` | `true` |  |
