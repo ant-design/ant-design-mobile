@@ -107,6 +107,9 @@ const jaJP = mergeLocale(base, {
   Modal: {
     ok: '了解',
   },
+  NumberKeyboard: {
+    backspace: '削除',
+  },
   PasscodeInput: {
     name: 'パスコード入力',
   },

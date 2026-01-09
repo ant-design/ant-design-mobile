@@ -117,6 +117,9 @@ const cnrME = mergeLocale(base, {
   Modal: {
     ok: 'U redu',
   },
+  NumberKeyboard: {
+    backspace: 'obriši',
+  },
   PasscodeInput: {
     name: 'Unos šifre',
   },

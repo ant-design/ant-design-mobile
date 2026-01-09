@@ -118,6 +118,9 @@ const ruRU = mergeLocale(base, {
   Modal: {
     ok: 'ОК',
   },
+  NumberKeyboard: {
+    backspace: 'Удалить',
+  },
   PasscodeInput: {
     name: 'Ввод пароля',
   },
