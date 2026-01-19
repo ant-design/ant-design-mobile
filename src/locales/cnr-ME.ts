@@ -145,7 +145,7 @@ const cnrME = mergeLocale(base, {
     name: 'Selektor',
   },
   TextArea: {
-    clear: 'obriši',
+    clear: 'očisti',
   },
 })
 

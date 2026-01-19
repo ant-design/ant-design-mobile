@@ -145,7 +145,7 @@ const srRS = mergeLocale(base, {
     name: 'Селектор',
   },
   TextArea: {
-    clear: 'обриши',
+    clear: 'очисти',
   },
 })
 
