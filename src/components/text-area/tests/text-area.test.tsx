@@ -1,13 +1,8 @@
 import React, { createRef } from 'react'
 import { act, fireEvent, render, screen } from 'testing'
 import TextArea, { TextAreaRef } from '..'
+import * as validate from '../../../utils/validate'
 import ConfigProvider from '../../config-provider'
-
-jest.mock('../../../utils/validate', () => ({
-  isIOS: function () {
-    return true
-  },
-}))
 
 const classPrefix = 'adm-text-area'
 const lineHeight = 25
@@ -184,7 +179,8 @@ describe('TextArea', () => {
     expect(textarea.value).toBe('')
   })
 
-  test('should works with composition', async () => {
+  test('should works with composition on iOS', async () => {
+    const spy = jest.spyOn(validate, 'isIOS').mockReturnValue(true)
     const onCompositionStart = jest.fn()
     const onCompositionEnd = jest.fn()
     const { container } = render(
@@ -213,6 +209,29 @@ describe('TextArea', () => {
     expect(clearBtn).toBeInTheDocument()
     fireEvent.click(clearBtn)
     expect(textarea).not.toHaveFocus()
+    spy.mockRestore()
+  })
+
+  test('should not blur on non-iOS when click clear button', async () => {
+    const spy = jest.spyOn(validate, 'isIOS').mockReturnValue(false)
+    const { container } = render(
+      <TextArea clearable defaultValue={'testValue'} />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    act(() => {
+      textarea.focus()
+    })
+    fireEvent.compositionStart(textarea)
+    expect(textarea).toHaveFocus()
+
+    const clearBtn = container.querySelector(
+      `.${classPrefix}-clear`
+    ) as HTMLElement
+    fireEvent.click(clearBtn)
+    // On non-iOS, the textarea should keep focus even during composition
+    expect(textarea).toHaveFocus()
+    expect(textarea.value).toBe('')
+    spy.mockRestore()
   })
 
   test('onClear callback', () => {
