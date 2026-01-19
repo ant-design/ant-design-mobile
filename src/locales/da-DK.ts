@@ -126,6 +126,9 @@ const daDK = mergeLocale(base, {
   Selector: {
     name: 'Vælger',
   },
+  TextArea: {
+    clear: 'ryd',
+  },
 })
 
 export default daDK

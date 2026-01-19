@@ -111,6 +111,7 @@ const arSA = mergeLocale(base, {
   'Stepper': { 'decrease': 'يقلل', 'increase': 'يزيد' },
   'Switch': { 'name': 'زر الفتح والإغلاق' },
   'Selector': { 'name': 'اختر مجموعة' },
+  'TextArea': { 'clear': 'مسح' },
 })
 
 export default arSA

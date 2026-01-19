@@ -6,6 +6,8 @@
   --text-align: left;
   --count-text-align: right;
   position: relative;
+  display: flex;
+  align-items: flex-start;
   width: 100%;
   max-width: 100%;
   max-height: 100%;
@@ -74,4 +76,19 @@
   color: var(--adm-color-weak);
   font-size: var(--adm-font-size-9);
   padding-top: 8px;
+}
+
+.adm-text-area-clear {
+  flex: none;
+  margin-left: 8px;
+  color: var(--adm-color-light);
+  &:active {
+    color: var(--adm-color-weak);
+  }
+  padding: 4px;
+  cursor: pointer;
+  .antd-mobile-icon {
+    display: block;
+    font-size: var(--adm-font-size-7);
+  }
 }

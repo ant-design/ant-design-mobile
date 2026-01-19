@@ -1,6 +1,13 @@
 import React, { createRef } from 'react'
-import { render, fireEvent, act } from 'testing'
+import { act, fireEvent, render, screen } from 'testing'
 import TextArea, { TextAreaRef } from '..'
+import ConfigProvider from '../../config-provider'
+
+jest.mock('../../../utils/validate', () => ({
+  isIOS: function () {
+    return true
+  },
+}))
 
 const classPrefix = 'adm-text-area'
 const lineHeight = 25
@@ -164,5 +171,90 @@ describe('TextArea', () => {
     fireEvent.keyDown(textarea, { keyCode: 14 })
     expect(onEnterPress).toBeCalledTimes(2)
     fireEvent.keyUp(textarea, { keyCode: 14 })
+  })
+
+  test('the clear button should works', async () => {
+    const { container } = render(
+      <TextArea clearable defaultValue={'testValue'} />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    const clearBtn = container.querySelector(`.${classPrefix}-clear`)
+    expect(clearBtn).toBeInTheDocument()
+    fireEvent.click(clearBtn as HTMLElement)
+    expect(textarea.value).toBe('')
+  })
+
+  test('should works with composition', async () => {
+    const onCompositionStart = jest.fn()
+    const onCompositionEnd = jest.fn()
+    const { container } = render(
+      <TextArea
+        clearable
+        defaultValue={'testValue'}
+        onCompositionStart={onCompositionStart}
+        onCompositionEnd={onCompositionEnd}
+      />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    act(() => {
+      textarea.focus()
+    })
+    expect(textarea).toHaveFocus()
+    fireEvent.compositionStart(textarea)
+    expect(onCompositionStart).toBeCalledTimes(1)
+    fireEvent.compositionEnd(textarea)
+    expect(onCompositionEnd).toBeCalledTimes(1)
+    fireEvent.compositionStart(textarea)
+    expect(onCompositionStart).toBeCalledTimes(2)
+
+    const clearBtn = container.querySelector(
+      `.${classPrefix}-clear`
+    ) as HTMLElement
+    expect(clearBtn).toBeInTheDocument()
+    fireEvent.click(clearBtn)
+    expect(textarea).not.toHaveFocus()
+  })
+
+  test('onClear callback', () => {
+    const onClear = jest.fn()
+    const { container } = render(
+      <TextArea clearable defaultValue={'testValue'} onClear={onClear} />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    fireEvent.focus(textarea)
+    const clearBtn = container.querySelector(`.${classPrefix}-clear`)
+    fireEvent.click(clearBtn as HTMLElement)
+    expect(onClear).toBeCalledTimes(1)
+    expect(textarea.value).toBe('')
+  })
+
+  describe('clearIcon', () => {
+    it('default', () => {
+      const { baseElement } = render(<TextArea value='foobar' clearable />)
+      expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
+    })
+
+    it('props', () => {
+      render(<TextArea value='foobar' clearable clearIcon='bamboo' />)
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider textArea={{ clearIcon: 'little' }}>
+          <TextArea value='foobar' clearable />
+        </ConfigProvider>
+      )
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider textArea={{ clearIcon: 'little' }}>
+          <TextArea value='foobar' clearable clearIcon='bamboo' />
+        </ConfigProvider>
+      )
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
   })
 })

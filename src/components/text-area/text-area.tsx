@@ -1,4 +1,5 @@
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import { CloseCircleFill } from 'antd-mobile-icons'
 import type { ReactNode } from 'react'
 import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import runes from 'runes2'
@@ -6,7 +7,9 @@ import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
 import { devError } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { isIOS } from '../../utils/validate'
 import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-text-area'
 
@@ -50,6 +53,9 @@ export type TextAreaProps = Pick<
     | 'previous'
     | 'search'
     | 'send'
+  clearable?: boolean
+  clearIcon?: ReactNode
+  onClear?: () => void
 } & NativeProps<
     | '--font-size'
     | '--color'
@@ -71,11 +77,13 @@ const defaultProps = {
   showCount: false as NonNullable<TextAreaProps['showCount']>,
   autoSize: false as NonNullable<TextAreaProps['autoSize']>,
   defaultValue: '',
+  clearIcon: <CloseCircleFill />,
 }
 
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (p: TextAreaProps, ref) => {
-    const props = mergeProps(defaultProps, p)
+    const { locale, textArea: componentConfig = {} } = useConfig()
+    const props = mergeProps(defaultProps, componentConfig, p)
     const { autoSize, showCount, maxLength } = props
     const [value, setValue] = usePropsValue({
       ...props,
@@ -136,6 +144,9 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     }, [value, autoSize])
 
     const compositingRef = useRef(false)
+
+    const shouldShowClear =
+      props.clearable && !!value && !props.readOnly && !props.disabled
 
     let count
     const valueLength = runes(value).length
@@ -201,6 +212,27 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onKeyDown={handleKeydown}
           enterKeyHint={props.enterKeyHint}
         />
+        {shouldShowClear && (
+          <div
+            className={`${classPrefix}-clear`}
+            onMouseDown={e => {
+              e.preventDefault()
+            }}
+            onClick={() => {
+              setValue('')
+              props.onClear?.()
+
+              // https://github.com/ant-design/ant-design-mobile/issues/5212
+              if (isIOS() && compositingRef.current) {
+                compositingRef.current = false
+                nativeTextAreaRef.current?.blur()
+              }
+            }}
+            aria-label={locale.TextArea.clear}
+          >
+            {props.clearIcon}
+          </div>
+        )}
         {count}
 
         {autoSize && (

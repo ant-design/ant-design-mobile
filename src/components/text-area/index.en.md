@@ -17,16 +17,19 @@ Long text input that requires wrapping.
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | autoSize | Adaptive content height | `boolean \| { minRows?: number, maxRows?: number }` | `false` |
+| clearable | Whether to enable the clear icon, the input box will be cleared after clicking the clear icon | `boolean` | `false` |
+| clearIcon | Custom clear icon | `ReactNode` | `<CloseCircleFill />` |
 | defaultValue | Input value by default | `string` | - |
 | id | `id` of `textarea` element, often used in conjunction with `label` | `string` | - |
 | maxLength | Maximum number of characters | `number` | - |
 | onChange | Triggered when the TextArea content changed | `(value: string) => void` | - |
+| onClear | Triggered after clicking the clear button | `() => void` | - |
 | placeholder | Hint text | `string` | - |
 | rows | Number of rows | `number` | `2` |
 | showCount | Display the number of words, supports custom render | `boolean \| ((length: number, maxLength?: number) => ReactNode)` | `false` |
 | value | Input value | `string` | - |
 
-In addition, the following native attributes are supported: `autoComplete` `autoFocus` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd` `onClick`
+In addition, the following native attributes are supported: `autoComplete` `autoFocus` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd` `onClick` `onKeyDown` `enterKeyHint`
 
 ### CSS Variables
 

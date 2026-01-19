@@ -144,6 +144,9 @@ const hrHR = mergeLocale(base, {
   Selector: {
     name: 'Selektor',
   },
+  TextArea: {
+    clear: 'obriši',
+  },
 })
 
 export default hrHR

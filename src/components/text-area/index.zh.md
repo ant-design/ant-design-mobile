@@ -17,16 +17,19 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | autoSize | 自适应内容高度 | `boolean \| { minRows?: number, maxRows?: number }` | `false` |
+| clearable | 是否启用清除图标，点击清除图标后会清空输入框 | `boolean` | `false` |
+| clearIcon | 自定义清除图标 | `ReactNode` | `<CloseCircleFill />` |
 | defaultValue | 默认值 | `string` | - |
 | id | `textarea` 元素的 `id`，常用来配合 `label` 使用 | `string` | - |
 | maxLength | 最大字符数 | `number` | - |
 | onChange | 文本域内容变化时触发 | `(value: string) => void` | - |
+| onClear | 点击清除按钮后触发 | `() => void` | - |
 | placeholder | 提示文本 | `string` | - |
 | rows | 行数 | `number` | `2` |
 | showCount | 显示字数，支持自定义渲染 | `boolean \| ((length: number, maxLength?: number) => ReactNode)` | `false` |
 | value | 输入值 | `string` | - |
 
-此外还支持以下原生属性：`autoComplete` `autoFocus` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd` `onClick`
+此外还支持以下原生属性：`autoComplete` `autoFocus` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd` `onClick` `onKeyDown` `enterKeyHint`
 
 ### CSS 变量
 
