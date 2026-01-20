@@ -249,5 +249,3 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     )
   }
 )
-
-TextArea.defaultProps = defaultProps
