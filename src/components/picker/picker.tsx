@@ -131,10 +131,14 @@ export const Picker = memo(
     })
 
     useEffect(() => {
-      if (innerValue !== value) {
-        setInnerValue(value)
+      // 仅在非受控模式下，当 picker 打开时，重置 innerValue
+      if (props.selectValue === undefined && visible) {
+        if (innerValue !== value) {
+          setInnerValue(value)
+        }
       }
-    }, [visible])
+    }, [visible, props.selectValue])
+
     useEffect(() => {
       if (!visible) {
         setInnerValue(value)
