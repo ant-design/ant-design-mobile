@@ -31,11 +31,11 @@ Long text input that requires wrapping.
 
 In addition, the following native attributes are supported: `autoComplete` `autoFocus` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd` `onClick` `onKeyDown` `enterKeyHint`
 
-#### Why there is no onlyShowClearWhenFocus property?
+#### Why is there no onlyShowClearWhenFocus property?
 
 The clearable feature of the TextArea component has already implemented similar behavior:
 
-- In non-autoSize scenario, the clear icon only shows when focused;
+- In non-autoSize scenario, the clear icon only shows when focused and the value is not empty;
 - In autoSize scenario, to prevent input area width changes caused by the appearance/disappearance of the clear icon which could trigger height jitters, the space for the clear icon is always reserved.
 
 ### CSS Variables
