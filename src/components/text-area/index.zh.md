@@ -31,6 +31,13 @@
 
 此外还支持以下原生属性：`autoComplete` `autoFocus` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd` `onClick` `onKeyDown` `enterKeyHint`
 
+#### 为什么没有 onlyShowClearWhenFocus 属性？
+
+TextArea 组件的 clearable 功能已实现类似行为：
+
+- 在非 autoSize 场景下，清除图标仅在聚焦时显示；
+- 在 autoSize 场景下，为了防止清除图标出现/消失导致输入区域宽度变化进而引发高度抖动，会始终预留清除图标的空间。
+
 ### CSS 变量
 
 | 属性                | 说明                   | 默认值                   |

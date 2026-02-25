@@ -1,7 +1,7 @@
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import { CloseCircleFill } from 'antd-mobile-icons'
 import type { ReactNode } from 'react'
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import runes from 'runes2'
 import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
 import { devError } from '../../utils/dev-log'
@@ -89,6 +89,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       ...props,
       value: props.value === null ? '' : props.value,
     })
+    const [hasFocus, setHasFocus] = useState(false)
     if (props.value === null) {
       devError(
         'TextArea',
@@ -105,6 +106,13 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       onEnterPress: props.onEnterPress,
       onKeyDown: props.onKeyDown,
     })
+
+    const canClear = props.clearable && !props.readOnly && !props.disabled
+    const shouldShowClear = (() => {
+      if (!canClear || !value) return false
+      return hasFocus
+    })()
+    const reserveClearSpace = canClear && !!autoSize
 
     useImperativeHandle(ref, () => ({
       clear: () => {
@@ -144,9 +152,6 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     }, [value, autoSize])
 
     const compositingRef = useRef(false)
-
-    const shouldShowClear =
-      props.clearable && !!value && !props.readOnly && !props.disabled
 
     let count
     const valueLength = runes(value).length
@@ -208,8 +213,14 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               disabled={props.disabled}
               readOnly={props.readOnly}
               name={props.name}
-              onFocus={props.onFocus}
-              onBlur={props.onBlur}
+              onFocus={e => {
+                setHasFocus(true)
+                props.onFocus?.(e)
+              }}
+              onBlur={e => {
+                setHasFocus(false)
+                props.onBlur?.(e)
+              }}
               onClick={props.onClick}
               onKeyDown={handleKeydown}
               enterKeyHint={props.enterKeyHint}
@@ -225,9 +236,10 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               />
             )}
           </div>
-          {shouldShowClear && (
+          {(shouldShowClear || reserveClearSpace) && (
             <div
-              className={`${classPrefix}-clear`}
+              className={`${classPrefix}-clear ${!shouldShowClear ? `${classPrefix}-clear-hidden` : ''}`}
+              aria-hidden={!shouldShowClear}
               onMouseDown={e => {
                 e.preventDefault()
               }}
