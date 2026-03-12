@@ -17,9 +17,6 @@ function useClickOutside(
       if (!ref.current || ref.current.contains(event.target as Node)) {
         return
       }
-      if (ref.current?.contains(document.activeElement)) {
-        return
-      }
       handlerRef.current(event) // 使用 ref 中的 handler
     }
     // 向前兼容逻辑：
