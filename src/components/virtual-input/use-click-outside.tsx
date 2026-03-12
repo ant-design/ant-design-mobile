@@ -31,7 +31,7 @@ function useClickOutside(
     return () => {
       document.removeEventListener('click', handleClick, hasKeyboardProps)
     }
-  }, [ref, hasKeyboardProps]) // 只依赖 ref，不依赖 handler
+  }, [ref]) // 只依赖 ref，不依赖 handler
 }
 
 export default useClickOutside
