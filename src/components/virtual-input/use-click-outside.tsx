@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react'
+import { useEvent } from 'rc-util'
+import { useEffect } from 'react'
 
 // 监听点击组件外部的事件
 function useClickOutside(
@@ -6,18 +7,14 @@ function useClickOutside(
   ref: React.RefObject<HTMLElement>,
   hasKeyboardProps: boolean = false
 ) {
-  const handlerRef = useRef(handler)
-
-  useEffect(() => {
-    handlerRef.current = handler
-  }, [handler])
+  const stableHandler = useEvent(handler)
 
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (!ref.current || ref.current.contains(event.target as Node)) {
         return
       }
-      handlerRef.current(event) // 使用 ref 中的 handler
+      stableHandler(event) // 使用 ref 中的 handler
     }
     // 向前兼容逻辑：
     // 1. 对于有键盘属性的 VirtualInput，在捕获阶段监听：
