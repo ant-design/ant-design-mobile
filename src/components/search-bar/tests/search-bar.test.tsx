@@ -71,6 +71,28 @@ describe('adm-search-bar', () => {
     expect(onSearch).toBeCalledWith('12')
   })
 
+  // Issue #7031: Test that isComposing prevents search during IME composition
+  test('onSearch should not be triggered when isComposing is true', async () => {
+    const onSearch = jest.fn()
+    render(<SearchBar onSearch={onSearch} defaultValue='test' />)
+    const input = screen.getByRole('searchbox')
+
+    // Mock nativeEvent.isComposing to true
+    const mockEvent = new KeyboardEvent('keydown', {
+      key: 'Enter',
+      code: 'Enter',
+    })
+    Object.defineProperty(mockEvent, 'isComposing', { value: true })
+    // Mock native property
+    Object.defineProperty(mockEvent, 'nativeEvent', {
+      value: { isComposing: true },
+    })
+
+    fireEvent(input, mockEvent)
+
+    expect(onSearch).not.toBeCalled()
+  })
+
   test('ref', async () => {
     const ref = createRef<SearchBarRef>()
     const onFocus = jest.fn()

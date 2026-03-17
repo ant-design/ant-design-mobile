@@ -75,7 +75,6 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>(
     const [value, setValue] = usePropsValue(mergedProps)
     const [hasFocus, setHasFocus] = useState(false)
     const inputRef = useRef<InputRef>(null)
-    const composingRef = useRef(false)
 
     useImperativeHandle(ref, () => ({
       clear: () => inputRef.current?.clear(),
@@ -153,19 +152,19 @@ export const SearchBar = forwardRef<SearchBarRef, SearchBarProps>(
             onClear={mergedProps.onClear}
             type='search'
             enterKeyHint='search'
-            onEnterPress={() => {
-              if (!composingRef.current) {
+            onEnterPress={e => {
+              // Use nativeEvent.isComposing to check IME composition state
+              // This is more reliable than maintaining a manual ref
+              if (!e.nativeEvent.isComposing) {
                 inputRef.current?.blur()
                 mergedProps.onSearch?.(value)
               }
             }}
             aria-label={locale.SearchBar.name}
             onCompositionStart={e => {
-              composingRef.current = true
               mergedProps.onCompositionStart?.(e)
             }}
             onCompositionEnd={e => {
-              composingRef.current = false
               mergedProps.onCompositionEnd?.(e)
             }}
           />
