@@ -967,4 +967,116 @@ describe('useClickOutside', () => {
     expect(onFocus).toBeCalledTimes(1)
     expect(onBlur).toBeCalledTimes(0)
   })
+
+  test('外部元素 focusin 应触发 VirtualInput blur', async () => {
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <div>
+          <VirtualInput
+            value={value}
+            onChange={setValue}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            keyboard={<NumberKeyboard />}
+          />
+          <input data-testid='outside-input' />
+        </div>
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+    const outsideInput = screen.getByTestId('outside-input')
+
+    // 先 focus VirtualInput
+    await user.click(content)
+    expect(onFocus).toBeCalledTimes(1)
+    expect(onBlur).toBeCalledTimes(0)
+
+    // 外部 input 获得焦点，触发 focusin 事件
+    outsideInput.focus()
+    await waitFor(() => {
+      expect(onBlur).toBeCalledTimes(1)
+    })
+  })
+
+  test('VirtualInput 内部元素 focusin 不应触发 blur', async () => {
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <VirtualInput
+          value={value}
+          onChange={setValue}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          keyboard={<NumberKeyboard />}
+        />
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // focus VirtualInput
+    await user.click(content)
+    expect(onFocus).toBeCalledTimes(1)
+
+    // 模拟内部元素获得焦点
+    const focusinEvent = new FocusEvent('focusin', {
+      bubbles: true,
+      cancelable: true,
+    })
+    content.dispatchEvent(focusinEvent)
+
+    // blur 不应被触发
+    expect(onBlur).toBeCalledTimes(0)
+  })
+
+  test('focusin 事件应使用最新的 handler', async () => {
+    const onBlur1 = jest.fn()
+    const onBlur2 = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      const [useSecond, setUseSecond] = React.useState(false)
+      return (
+        <div>
+          <VirtualInput
+            value={value}
+            onChange={setValue}
+            onFocus={() => {
+              setUseSecond(true)
+            }}
+            onBlur={useSecond ? onBlur2 : onBlur1}
+            keyboard={<NumberKeyboard />}
+          />
+          <input data-testid='outside-input' />
+        </div>
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+    const outsideInput = screen.getByTestId('outside-input')
+
+    // focus，同时触发 handler 切换
+    await user.click(content)
+
+    // 外部 input 获得焦点，应调用最新的 onBlur2
+    outsideInput.focus()
+    await waitFor(() => {
+      expect(onBlur1).toBeCalledTimes(0)
+      expect(onBlur2).toBeCalledTimes(1)
+    })
+  })
 })

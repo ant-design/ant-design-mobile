@@ -86,7 +86,3 @@
 ```
 
 <code src="./demos/demo2.tsx"></code>
-
-### 安卓系统长按不会触发click 分离式写法在失焦处理上会有异常
-
-<code src="./demos/demo3.tsx"></code>
