@@ -34,10 +34,10 @@ function useClickOutside(
     }
 
     document.addEventListener('click', handleClick, hasKeyboardProps)
-    document.addEventListener('focusin', handleFocusIn)
+    document.addEventListener('focusin', handleFocusIn, hasKeyboardProps)
     return () => {
       document.removeEventListener('click', handleClick, hasKeyboardProps)
-      document.removeEventListener('focusin', handleFocusIn)
+      document.removeEventListener('focusin', handleFocusIn, hasKeyboardProps)
     }
   }, [ref]) // 只依赖 ref，不依赖 handler
 }
