@@ -13,6 +13,14 @@ import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-text-area'
 
+/** Object configuration for the `clearable` prop */
+export type TextAreaClearableConfig = {
+  /** Callback when the clear button is clicked */
+  onClear?: () => void
+  /** Custom clear icon */
+  clearIcon?: ReactNode
+}
+
 export type TextAreaProps = Pick<
   React.DetailedHTMLProps<
     React.TextareaHTMLAttributes<HTMLTextAreaElement>,
@@ -53,9 +61,8 @@ export type TextAreaProps = Pick<
     | 'previous'
     | 'search'
     | 'send'
-  clearable?: boolean
-  clearIcon?: ReactNode
-  onClear?: () => void
+  /** Whether to enable clear functionality, supports object for detailed config */
+  clearable?: boolean | TextAreaClearableConfig
 } & NativeProps<
     | '--font-size'
     | '--color'
@@ -77,7 +84,6 @@ const defaultProps = {
   showCount: false as NonNullable<TextAreaProps['showCount']>,
   autoSize: false as NonNullable<TextAreaProps['autoSize']>,
   defaultValue: '',
-  clearIcon: <CloseCircleFill />,
 }
 
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
@@ -107,12 +113,23 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       onKeyDown: props.onKeyDown,
     })
 
-    const canClear = props.clearable && !props.readOnly && !props.disabled
+    // Resolve clearable: boolean acts as toggle, object acts as detailed config
+    const clearableConfig = (() => {
+      if (!props.clearable) return null
+      if (props.clearable === true) return {}
+      return props.clearable
+    })()
+    const isClearable = !!clearableConfig && !props.readOnly && !props.disabled
+    // clearIcon priority: clearable config > ConfigProvider.textArea.clearIcon > built-in default
+    const clearIcon = clearableConfig?.clearIcon ??
+      componentConfig?.clearIcon ?? <CloseCircleFill />
+    const onClearCallback = clearableConfig?.onClear
+
     const shouldShowClear = (() => {
-      if (!canClear || !value) return false
+      if (!isClearable || !value) return false
       return hasFocus
     })()
-    const reserveClearSpace = canClear && !!autoSize
+    const reserveClearSpace = isClearable && !!autoSize
 
     useImperativeHandle(ref, () => ({
       clear: () => {
@@ -245,7 +262,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               }}
               onClick={() => {
                 setValue('')
-                props.onClear?.()
+                onClearCallback?.()
 
                 // https://github.com/ant-design/ant-design-mobile/issues/5212
                 if (isIOS() && compositingRef.current) {
@@ -255,7 +272,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               }}
               aria-label={locale.TextArea.clear}
             >
-              {props.clearIcon}
+              {clearIcon}
             </div>
           )}
         </div>

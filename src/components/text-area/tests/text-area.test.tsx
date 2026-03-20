@@ -245,7 +245,7 @@ describe('TextArea', () => {
   test('onClear callback', () => {
     const onClear = jest.fn()
     const { container } = render(
-      <TextArea clearable defaultValue={'testValue'} onClear={onClear} />
+      <TextArea clearable={{ onClear }} defaultValue={'testValue'} />
     )
     const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
     fireEvent.focus(textarea)
@@ -264,7 +264,9 @@ describe('TextArea', () => {
     })
 
     it('props', () => {
-      render(<TextArea value='foobar' clearable autoSize clearIcon='bamboo' />)
+      render(
+        <TextArea value='foobar' clearable={{ clearIcon: 'bamboo' }} autoSize />
+      )
       fireEvent.focus(screen.getByRole('textbox'))
       expect(screen.getByText('bamboo')).toBeVisible()
     })
@@ -282,7 +284,11 @@ describe('TextArea', () => {
     it('props override context', () => {
       render(
         <ConfigProvider textArea={{ clearIcon: 'little' }}>
-          <TextArea value='foobar' clearable autoSize clearIcon='bamboo' />
+          <TextArea
+            value='foobar'
+            clearable={{ clearIcon: 'bamboo' }}
+            autoSize
+          />
         </ConfigProvider>
       )
       fireEvent.focus(screen.getByRole('textbox'))
