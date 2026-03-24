@@ -44,11 +44,12 @@ export function useClearable(props: UseClearableProps) {
   // Clearable is disabled when readOnly or disabled
   const isClearable = !!config && !readOnly && !disabled
 
-  // Show clear button only when: clearable enabled + has value + focus condition met
+  // Show clear button only when: clearable enabled + has value + focus condition met.
+  // By default hasFocus is required; only skip focus check when onlyShowClearWhenFocus is explicitly false.
   const shouldShowClear = (() => {
     if (!isClearable || !value) return false
-    if (onlyShowClearWhenFocus) return hasFocus
-    return true
+    if (onlyShowClearWhenFocus === false) return true
+    return hasFocus
   })()
 
   // clearIcon priority: config.clearIcon > props.clearIcon > props.defaultClearIcon > built-in default
