@@ -1,10 +1,6 @@
-import './text-area.less'
 import { TextArea } from './text-area'
+import './text-area.less'
 
-export type {
-  TextAreaClearableConfig,
-  TextAreaProps,
-  TextAreaRef,
-} from './text-area'
+export type { TextAreaProps, TextAreaRef } from './text-area'
 
 export default TextArea

@@ -17,7 +17,7 @@
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | autoSize | 自适应内容高度 | `boolean \| { minRows?: number, maxRows?: number }` | `false` |
-| clearable | 是否启用清除功能，支持传入对象进行详细配置 | `boolean \| TextAreaClearableConfig` | `false` |
+| clearable | 是否启用清除功能，支持传入对象进行详细配置 | `boolean \| ClearableConfig` | `false` |
 | defaultValue | 默认值 | `string` | - |
 | id | `textarea` 元素的 `id`，常用来配合 `label` 使用 | `string` | - |
 | maxLength | 最大字符数 | `number` | - |
@@ -27,7 +27,7 @@
 | showCount | 显示字数，支持自定义渲染 | `boolean \| ((length: number, maxLength?: number) => ReactNode)` | `false` |
 | value | 输入值 | `string` | - |
 
-#### TextAreaClearableConfig
+#### ClearableConfig
 
 | 属性      | 说明               | 类型         | 默认值                |
 | --------- | ------------------ | ------------ | --------------------- |

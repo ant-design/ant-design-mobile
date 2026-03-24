@@ -1,9 +1,10 @@
 import { useIsomorphicLayoutEffect } from 'ahooks'
-import { CloseCircleFill } from 'antd-mobile-icons'
 import type { ReactNode } from 'react'
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import runes from 'runes2'
 import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
+import type { ClearableConfig } from '../../hooks/useClearable'
+import { useClearable } from '../../hooks/useClearable'
 import { devError } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
@@ -12,14 +13,6 @@ import { mergeProps } from '../../utils/with-default-props'
 import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-text-area'
-
-/** Object configuration for the `clearable` prop */
-export type TextAreaClearableConfig = {
-  /** Callback when the clear button is clicked */
-  onClear?: () => void
-  /** Custom clear icon */
-  clearIcon?: ReactNode
-}
 
 export type TextAreaProps = Pick<
   React.DetailedHTMLProps<
@@ -62,7 +55,7 @@ export type TextAreaProps = Pick<
     | 'search'
     | 'send'
   /** Whether to enable clear functionality, supports object for detailed config */
-  clearable?: boolean | TextAreaClearableConfig
+  clearable?: boolean | ClearableConfig
 } & NativeProps<
     | '--font-size'
     | '--color'
@@ -113,22 +106,14 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       onKeyDown: props.onKeyDown,
     })
 
-    // Resolve clearable: boolean acts as toggle, object acts as detailed config
-    const clearableConfig = (() => {
-      if (!props.clearable) return null
-      if (props.clearable === true) return {}
-      return props.clearable
-    })()
-    const isClearable = !!clearableConfig && !props.readOnly && !props.disabled
-    // clearIcon priority: clearable config > ConfigProvider.textArea.clearIcon > built-in default
-    const clearIcon = clearableConfig?.clearIcon ??
-      componentConfig?.clearIcon ?? <CloseCircleFill />
-    const onClearCallback = clearableConfig?.onClear
-
-    const shouldShowClear = (() => {
-      if (!isClearable || !value) return false
-      return hasFocus
-    })()
+    const { isClearable, shouldShowClear, clearIcon, onClear } = useClearable({
+      clearable: props.clearable,
+      value,
+      hasFocus,
+      readOnly: props.readOnly,
+      disabled: props.disabled,
+      defaultClearIcon: componentConfig?.clearIcon,
+    })
     const reserveClearSpace = isClearable && !!autoSize
 
     useImperativeHandle(ref, () => ({
@@ -262,7 +247,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
               }}
               onClick={() => {
                 setValue('')
-                onClearCallback?.()
+                onClear?.()
 
                 // https://github.com/ant-design/ant-design-mobile/issues/5212
                 if (isIOS() && compositingRef.current) {

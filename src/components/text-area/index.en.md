@@ -17,7 +17,7 @@ Long text input that requires wrapping.
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | autoSize | Adaptive content height | `boolean \| { minRows?: number, maxRows?: number }` | `false` |
-| clearable | Whether to enable the clear feature, supports passing an object for detailed configuration | `boolean \| TextAreaClearableConfig` | `false` |
+| clearable | Whether to enable the clear feature, supports passing an object for detailed configuration | `boolean \| ClearableConfig` | `false` |
 | defaultValue | Input value by default | `string` | - |
 | id | `id` of `textarea` element, often used in conjunction with `label` | `string` | - |
 | maxLength | Maximum number of characters | `number` | - |
@@ -27,7 +27,7 @@ Long text input that requires wrapping.
 | showCount | Display the number of words, supports custom render | `boolean \| ((length: number, maxLength?: number) => ReactNode)` | `false` |
 | value | Input value | `string` | - |
 
-#### TextAreaClearableConfig
+#### ClearableConfig
 
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
