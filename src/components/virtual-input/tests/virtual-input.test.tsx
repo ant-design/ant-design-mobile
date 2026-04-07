@@ -828,3 +828,143 @@ describe('VirtualInput', () => {
     }
   })
 })
+
+describe('useClickOutside', () => {
+  const KeyBoardClassPrefix = 'adm-number-keyboard'
+
+  test('首次点击 VirtualInput 不应同时触发 focus 和 blur', async () => {
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <VirtualInput
+          value={value}
+          onChange={setValue}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          keyboard={<NumberKeyboard />}
+        />
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // 首次点击 VirtualInput content 区域
+    await user.click(content)
+
+    // 应该只触发 focus，不触发 blur
+    expect(onFocus).toBeCalledTimes(1)
+    expect(onBlur).toBeCalledTimes(0)
+
+    // 键盘应该可见
+    expect(
+      document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+    ).toBeVisible()
+  })
+
+  test('点击外部应触发 blur', async () => {
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <div>
+          <VirtualInput
+            value={value}
+            onChange={setValue}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            keyboard={<NumberKeyboard />}
+          />
+          <button data-testid='outside'>outside</button>
+        </div>
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // 先 focus
+    await user.click(content)
+    expect(onFocus).toBeCalledTimes(1)
+
+    // 点击外部
+    await user.click(screen.getByTestId('outside'))
+    expect(onBlur).toBeCalledTimes(1)
+  })
+
+  test('handler 更新后点击外部应使用最新的 handler', async () => {
+    const onBlur1 = jest.fn()
+    const onBlur2 = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      const [useSecond, setUseSecond] = React.useState(false)
+      return (
+        <div>
+          <VirtualInput
+            value={value}
+            onChange={setValue}
+            onFocus={() => {
+              // focus 时切换到第二个 handler
+              setUseSecond(true)
+            }}
+            onBlur={useSecond ? onBlur2 : onBlur1}
+            keyboard={<NumberKeyboard />}
+          />
+          <button data-testid='outside'>outside</button>
+        </div>
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // focus，同时触发 handler 切换
+    await user.click(content)
+
+    // 点击外部，应调用最新的 onBlur2（而非旧的 onBlur1）
+    await user.click(screen.getByTestId('outside'))
+
+    expect(onBlur1).toBeCalledTimes(0)
+    expect(onBlur2).toBeCalledTimes(1)
+  })
+
+  test('多次点击 VirtualInput 不应重复触发 focus', async () => {
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <VirtualInput
+          value={value}
+          onChange={setValue}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          keyboard={<NumberKeyboard />}
+        />
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // 连续点击多次
+    await user.click(content)
+    await user.click(content)
+    await user.click(content)
+
+    // focus 只触发一次，blur 不触发
+    expect(onFocus).toBeCalledTimes(1)
+    expect(onBlur).toBeCalledTimes(0)
+  })
+})
