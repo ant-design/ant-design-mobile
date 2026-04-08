@@ -251,11 +251,11 @@ describe('DatePicker', () => {
       const min = new Date('2020-01-01')
       const max = new Date('2025-12-29')
       const columns = generateDatePickerColumns(
-        ['2025', '1', '1'],
+        ['2026', '1', '1'],
         min,
         max,
         'week',
-        (type, data) => `${type}: ${data}`,
+        (type, data) => type + '：' + data,
         undefined
       )
 
@@ -267,7 +267,7 @@ describe('DatePicker', () => {
       // The week column for year 2026 should start from week 1
       const weekColumn = columns[1] as { label: string; value: string }[]
       const weekValues = weekColumn.map(item => item.value)
-      expect(weekValues).toContain('1')
+      expect(weekValues).toEqual(['1'])
     })
   })
 
