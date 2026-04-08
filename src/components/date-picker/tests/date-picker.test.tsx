@@ -12,7 +12,10 @@ import {
 } from 'testing'
 import DatePicker from '../'
 import Button from '../../button'
-import { convertStringArrayToDate } from '../date-picker-week-utils'
+import {
+  convertStringArrayToDate,
+  generateDatePickerColumns,
+} from '../date-picker-week-utils'
 
 const classPrefix = `adm-picker`
 
@@ -239,6 +242,32 @@ describe('DatePicker', () => {
       expect(date.getFullYear()).toBe(2023)
       expect(date.getMonth()).toBe(6)
       expect(date.getDate()).toBe(3)
+    })
+  })
+
+  describe('generateDatePickerColumns for week precision', () => {
+    it('should use isoWeekYear when max date is in first week of next year', () => {
+      // 2025-12-29 is in ISO week 1 of 2026
+      const min = new Date('2020-01-01')
+      const max = new Date('2025-12-29')
+      const columns = generateDatePickerColumns(
+        ['2026', '1', '1'],
+        min,
+        max,
+        'week',
+        (type, data) => type + '：' + data,
+        undefined
+      )
+
+      // The year column should include 2026 (isoWeekYear of 2025-12-29)
+      const yearColumn = columns[0] as { label: string; value: string }[]
+      const yearValues = yearColumn.map(item => item.value)
+      expect(yearValues).toContain('2026')
+
+      // The week column for year 2026 should start from week 1
+      const weekColumn = columns[1] as { label: string; value: string }[]
+      const weekValues = weekColumn.map(item => item.value)
+      expect(weekValues).toEqual(['1'])
     })
   })
 

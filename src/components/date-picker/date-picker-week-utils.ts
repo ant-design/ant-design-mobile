@@ -34,8 +34,10 @@ export function generateDatePickerColumns(
 ) {
   const ret: PickerColumn[] = []
 
-  const minYear = min.getFullYear()
-  const maxYear = max.getFullYear()
+  const minDay = dayjs(min)
+  const maxDay = dayjs(max)
+  const minYear = minDay.isoWeekYear()
+  const maxYear = maxDay.isoWeekYear()
 
   const rank = precisionRankRecord[precision]
 
@@ -43,8 +45,6 @@ export function generateDatePickerColumns(
   const isInMinYear = selectedYear === minYear
   const isInMaxYear = selectedYear === maxYear
 
-  const minDay = dayjs(min)
-  const maxDay = dayjs(max)
   const minWeek = minDay.isoWeek()
   const maxWeek = maxDay.isoWeek()
   const minWeekday = minDay.isoWeekday()
