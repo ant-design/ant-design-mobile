@@ -331,7 +331,10 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
             [isVertical ? 'y' : 'x']: position.to(position => {
               let finalPosition = -position + index * 100
               const totalWidth = mergedTotal * 100
-              const flagWidth = totalWidth / 2
+              const flagWidth = Math.min(
+                totalWidth / 2,
+                Math.max(100, (offsetRatio / slideRatio + 1) * 100)
+              )
               finalPosition =
                 modulus(finalPosition + flagWidth, totalWidth) - flagWidth
               return `${finalPosition}%`
