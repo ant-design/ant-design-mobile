@@ -381,6 +381,65 @@ describe('Swiper', () => {
     expect(container).toMatchSnapshot()
   })
 
+  test('loop with small slideSize should show correct number of slides', () => {
+    const sixItems = [1, 2, 3, 4, 5, 6].map(item => (
+      <Swiper.Item key={item}>
+        <div>{item}</div>
+      </Swiper.Item>
+    ))
+
+    render(
+      <Swiper slideSize={20} loop stuckAtBoundary={false}>
+        {sixItems}
+      </Swiper>
+    )
+
+    const slides = $$(`.${classPrefix}-slide`)
+    expect(slides.length).toBe(6)
+
+    const visibleCount = Array.from(slides).filter(slide => {
+      const style = slide.getAttribute('style') || ''
+      if (style.includes('transform: none')) return true
+      const match = style.match(/translate3d\((-?\d+(?:\.\d+)?)%/)
+      if (!match) return false
+      const pos = parseFloat(match[1])
+      const actualPos = (pos * 20) / 100
+      return actualPos >= 0 && actualPos < 100
+    }).length
+
+    expect(visibleCount).toBe(5)
+  })
+
+  test('loop with small slideSize and trackOffset should show correct slides', () => {
+    const sixItems = [1, 2, 3, 4, 5, 6].map(item => (
+      <Swiper.Item key={item}>
+        <div>{item}</div>
+      </Swiper.Item>
+    ))
+
+    render(
+      <Swiper slideSize={70} trackOffset={15} loop stuckAtBoundary={false}>
+        {sixItems}
+      </Swiper>
+    )
+
+    const slides = $$(`.${classPrefix}-slide`)
+    expect(slides.length).toBe(6)
+
+    const positions = Array.from(slides).map(slide => {
+      const style = slide.getAttribute('style') || ''
+      if (style.includes('transform: none')) return 0
+      const match = style.match(/translate3d\((-?\d+(?:\.\d+)?)%/)
+      return match ? parseFloat(match[1]) : null
+    })
+
+    const validPositions = positions.filter(p => p !== null)
+    // 确保所有 slides 都成功解析了位置，避免空通过
+    expect(validPositions.length).toBe(slides.length)
+    const uniquePositions = new Set(validPositions)
+    expect(uniquePositions.size).toBe(validPositions.length)
+  })
+
   test('should not remount items when reordering', () => {
     const mountLog: any[] = []
 
