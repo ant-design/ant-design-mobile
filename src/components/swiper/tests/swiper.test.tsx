@@ -428,6 +428,7 @@ describe('Swiper', () => {
 
     const positions = Array.from(slides).map(slide => {
       const style = slide.getAttribute('style') || ''
+      if (style.includes('transform: none')) return 0
       const match = style.match(/translate3d\((-?\d+(?:\.\d+)?)%/)
       return match ? parseFloat(match[1]) : null
     })
