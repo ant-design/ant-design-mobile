@@ -331,7 +331,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
           const totalWidth = mergedTotal * 100
           const flagWidth = Math.min(
             totalWidth / 2,
-            Math.max(100, (offsetRatio / slideRatio + 1) * 100)
+            (offsetRatio / slideRatio + 1) * 100
           )
 
           itemStyle = {
