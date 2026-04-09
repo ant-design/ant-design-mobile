@@ -400,9 +400,9 @@ describe('Swiper', () => {
     const visibleCount = Array.from(slides).filter(slide => {
       const style = slide.getAttribute('style') || ''
       if (style.includes('transform: none')) return true
-      const match = style.match(/translate3d\((-?\d+)%/)
+      const match = style.match(/translate3d\((-?\d+(?:\.\d+)?)%/)
       if (!match) return false
-      const pos = parseInt(match[1])
+      const pos = parseFloat(match[1])
       const actualPos = (pos * 20) / 100
       return actualPos >= 0 && actualPos < 100
     }).length
@@ -428,11 +428,13 @@ describe('Swiper', () => {
 
     const positions = Array.from(slides).map(slide => {
       const style = slide.getAttribute('style') || ''
-      const match = style.match(/translate3d\((-?\d+)%/)
-      return match ? parseInt(match[1]) : null
+      const match = style.match(/translate3d\((-?\d+(?:\.\d+)?)%/)
+      return match ? parseFloat(match[1]) : null
     })
 
     const validPositions = positions.filter(p => p !== null)
+    // 确保所有 slides 都成功解析了位置，避免空通过
+    expect(validPositions.length).toBe(slides.length)
     const uniquePositions = new Set(validPositions)
     expect(uniquePositions.size).toBe(validPositions.length)
   })

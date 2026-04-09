@@ -93,7 +93,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
     const timeoutRef = useRef<number | null>(null)
     const isVertical = direction === 'vertical'
 
-    const slideRatio = props.slideSize / 100
+    const slideRatio = Math.max(props.slideSize, 1) / 100
     const offsetRatio = props.trackOffset / 100
 
     const { validChildren, count, renderChildren } = useMemo(() => {
@@ -327,14 +327,16 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         let itemStyle: React.CSSProperties = {}
 
         if (loop) {
+          // 计算循环模式下定位所需的常量，避免在动画回调中重复计算
+          const totalWidth = mergedTotal * 100
+          const flagWidth = Math.min(
+            totalWidth / 2,
+            Math.max(100, (offsetRatio / slideRatio + 1) * 100)
+          )
+
           itemStyle = {
             [isVertical ? 'y' : 'x']: position.to(position => {
               let finalPosition = -position + index * 100
-              const totalWidth = mergedTotal * 100
-              const flagWidth = Math.min(
-                totalWidth / 2,
-                Math.max(100, (offsetRatio / slideRatio + 1) * 100)
-              )
               finalPosition =
                 modulus(finalPosition + flagWidth, totalWidth) - flagWidth
               return `${finalPosition}%`
