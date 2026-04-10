@@ -65,20 +65,20 @@
   }
 
   &&-rtl:not(.@{class-prefix-passcode-input}-seperated) {
-    .@{class-prefix-passcode-input}-cell:not(:last-child) {
+    .@{class-prefix-passcode-input}-cell:first-child {
       border-right: none;
     }
-    .@{class-prefix-passcode-input}-cell:not(:first-child) {
+    .@{class-prefix-passcode-input}-cell:last-child {
       border-right: 1px solid var(--border-color);
     }
   }
 
   &&-rtl&&-seperated {
     .@{class-prefix-passcode-input}-cell {
-      &:not(:last-child) {
+      &:first-child {
         margin-right: 0;
       }
-      &:not(:first-child) {
+      &:last-child {
         margin-right: var(--cell-gap);
       }
     }
