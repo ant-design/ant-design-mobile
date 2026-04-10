@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
 import { NumberKeyboard, PasscodeInput, Space } from 'antd-mobile'
 import { DemoBlock, DemoDescription } from 'demos'
+import React, { useState } from 'react'
 
 export default () => {
   const [error, setError] = useState(false)
@@ -34,6 +34,9 @@ export default () => {
       </DemoBlock>
       <DemoBlock title='使用系统原生键盘'>
         <PasscodeInput plain />
+      </DemoBlock>
+      <DemoBlock title='输入框方向'>
+        <PasscodeInput direction='rtl' />
       </DemoBlock>
     </>
   )

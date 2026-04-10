@@ -24,6 +24,7 @@ export type PasscodeInputProps = {
   seperated?: boolean
   keyboard?: ReactElement<NumberKeyboardProps>
   inputMode?: 'numeric' | 'text'
+  direction?: 'ltr' | 'rtl'
   onBlur?: () => void
   onFocus?: () => void
   onChange?: (val: string) => void
@@ -51,6 +52,7 @@ const defaultProps = {
   seperated: false,
   caret: true,
   inputMode: 'numeric',
+  direction: 'ltr' as const,
 }
 
 export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
@@ -110,11 +112,13 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
       },
     }))
 
+    const isRTL = props.direction === 'rtl'
+
     const renderCells = () => {
       const cells: ReactElement[] = []
 
       const chars = value.split('')
-      const caretIndex = chars.length // 光标位置index等于当前文字长度
+      const caretIndex = chars.length
       const focusedIndex = bound(chars.length, 0, cellLength - 1)
 
       for (let i = 0; i < cellLength; i++) {
@@ -139,6 +143,7 @@ export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
       [`${classPrefix}-focused`]: focused,
       [`${classPrefix}-error`]: props.error,
       [`${classPrefix}-seperated`]: props.seperated,
+      [`${classPrefix}-rtl`]: isRTL,
     })
 
     return (

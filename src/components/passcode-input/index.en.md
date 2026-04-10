@@ -21,6 +21,7 @@ Input for password, captcha and verification code.
 | caret | Whether to show the caret | `boolean` | `true` |  |
 | className | ClassName of passcode | `string` | - |  |
 | defaultValue | The initial passcode content | `string` | - |  |
+| direction | The direction of the input | `'ltr' \| 'rtl'` | `'ltr'` |  |
 | error | Whether to show the error style | `boolean` | `false` |  |
 | keyboard | The virtual keyboard component. If not set, it will use the native keyboard. | `NumberKeyboard` | - |  |
 | inputMode | The type of the input box, which changes the native keyboard type | `'numeric' \| 'text'` | `'numeric'` | 5.39.0 |

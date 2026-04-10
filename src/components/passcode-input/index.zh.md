@@ -21,6 +21,7 @@
 | caret | 是否展示光标 | `boolean` | `true` |  |
 | className | 外层 className | `string` | - |  |
 | defaultValue | 非受控值 | `string` | - |  |
+| direction | 输入框方向 | `'ltr' \| 'rtl'` | `'ltr'` |  |
 | error | 是否有错 | `boolean` | `false` |  |
 | keyboard | 键盘组件，如不传，默认使用系统原生的键盘 | `NumberKeyboard` | - |  |
 | inputMode | 输入框类型, 改变原生键盘类型 | `'numeric' \| 'text'` | `'numeric'` | 5.39.0 |
