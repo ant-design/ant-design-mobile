@@ -52,7 +52,7 @@ const defaultProps = {
   seperated: false,
   caret: true,
   inputMode: 'numeric',
-  direction: 'ltr' as const,
+  direction: 'ltr',
 }
 
 export const PasscodeInput = forwardRef<PasscodeInputRef, PasscodeInputProps>(
