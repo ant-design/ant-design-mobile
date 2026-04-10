@@ -138,6 +138,9 @@ const trTR = mergeLocale(base, {
   Selector: {
     name: 'Seçici',
   },
+  TextArea: {
+    clear: 'temizle',
+  },
 })
 
 export default trTR

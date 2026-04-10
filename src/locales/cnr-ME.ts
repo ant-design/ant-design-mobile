@@ -144,6 +144,9 @@ const cnrME = mergeLocale(base, {
   Selector: {
     name: 'Selektor',
   },
+  TextArea: {
+    clear: 'očisti',
+  },
 })
 
 export default cnrME

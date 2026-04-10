@@ -152,6 +152,9 @@ const thTH = mergeLocale(base, {
   Selector: {
     name: 'เลือก',
   },
+  TextArea: {
+    clear: 'ล้าง',
+  },
 })
 
 export default thTH

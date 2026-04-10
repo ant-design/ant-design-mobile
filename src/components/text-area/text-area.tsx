@@ -1,12 +1,16 @@
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import type { ReactNode } from 'react'
-import React, { forwardRef, useImperativeHandle, useRef } from 'react'
+import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import runes from 'runes2'
 import useInputHandleKeyDown from '../../components/input/useInputHandleKeyDown'
+import type { ClearableConfig } from '../../hooks/useClearable'
+import { useClearable } from '../../hooks/useClearable'
 import { devError } from '../../utils/dev-log'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { isIOS } from '../../utils/validate'
 import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 
 const classPrefix = 'adm-text-area'
 
@@ -50,6 +54,8 @@ export type TextAreaProps = Pick<
     | 'previous'
     | 'search'
     | 'send'
+  /** Whether to enable clear functionality, supports object for detailed config */
+  clearable?: boolean | ClearableConfig
 } & NativeProps<
     | '--font-size'
     | '--color'
@@ -75,12 +81,14 @@ const defaultProps = {
 
 export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
   (p: TextAreaProps, ref) => {
-    const props = mergeProps(defaultProps, p)
+    const { locale, textArea: componentConfig = {} } = useConfig()
+    const props = mergeProps(defaultProps, componentConfig, p)
     const { autoSize, showCount, maxLength } = props
     const [value, setValue] = usePropsValue({
       ...props,
       value: props.value === null ? '' : props.value,
     })
+    const [hasFocus, setHasFocus] = useState(false)
     if (props.value === null) {
       devError(
         'TextArea',
@@ -97,6 +105,16 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
       onEnterPress: props.onEnterPress,
       onKeyDown: props.onKeyDown,
     })
+
+    const { isClearable, shouldShowClear, clearIcon, onClear } = useClearable({
+      clearable: props.clearable,
+      value,
+      hasFocus,
+      readOnly: props.readOnly,
+      disabled: props.disabled,
+      defaultClearIcon: componentConfig?.clearIcon,
+    })
+    const reserveClearSpace = isClearable && !!autoSize
 
     useImperativeHandle(ref, () => ({
       clear: () => {
@@ -164,58 +182,87 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
     return withNativeProps(
       props,
       <div className={classPrefix}>
-        <textarea
-          ref={nativeTextAreaRef}
-          className={`${classPrefix}-element`}
-          rows={rows}
-          value={value}
-          placeholder={props.placeholder}
-          onChange={e => {
-            let v = e.target.value
-            if (maxLength && !compositingRef.current) {
-              v = runes(v).slice(0, maxLength).join('')
-            }
-            setValue(v)
-          }}
-          id={props.id}
-          onCompositionStart={e => {
-            compositingRef.current = true
-            props.onCompositionStart?.(e)
-          }}
-          onCompositionEnd={e => {
-            compositingRef.current = false
-            if (maxLength) {
-              const v = (e.target as HTMLTextAreaElement).value
-              setValue(runes(v).slice(0, maxLength).join(''))
-            }
-            props.onCompositionEnd?.(e)
-          }}
-          autoComplete={props.autoComplete}
-          autoFocus={props.autoFocus}
-          disabled={props.disabled}
-          readOnly={props.readOnly}
-          name={props.name}
-          onFocus={props.onFocus}
-          onBlur={props.onBlur}
-          onClick={props.onClick}
-          onKeyDown={handleKeydown}
-          enterKeyHint={props.enterKeyHint}
-        />
-        {count}
+        <div className={`${classPrefix}-input-wrapper`}>
+          <div className={`${classPrefix}-textarea-wrapper`}>
+            <textarea
+              ref={nativeTextAreaRef}
+              className={`${classPrefix}-element`}
+              rows={rows}
+              value={value}
+              placeholder={props.placeholder}
+              onChange={e => {
+                let v = e.target.value
+                if (maxLength && !compositingRef.current) {
+                  v = runes(v).slice(0, maxLength).join('')
+                }
+                setValue(v)
+              }}
+              id={props.id}
+              onCompositionStart={e => {
+                compositingRef.current = true
+                props.onCompositionStart?.(e)
+              }}
+              onCompositionEnd={e => {
+                compositingRef.current = false
+                if (maxLength) {
+                  const v = (e.target as HTMLTextAreaElement).value
+                  setValue(runes(v).slice(0, maxLength).join(''))
+                }
+                props.onCompositionEnd?.(e)
+              }}
+              autoComplete={props.autoComplete}
+              autoFocus={props.autoFocus}
+              disabled={props.disabled}
+              readOnly={props.readOnly}
+              name={props.name}
+              onFocus={e => {
+                setHasFocus(true)
+                props.onFocus?.(e)
+              }}
+              onBlur={e => {
+                setHasFocus(false)
+                props.onBlur?.(e)
+              }}
+              onClick={props.onClick}
+              onKeyDown={handleKeydown}
+              enterKeyHint={props.enterKeyHint}
+            />
+            {autoSize && (
+              <textarea
+                ref={hiddenTextAreaRef}
+                className={`${classPrefix}-element ${classPrefix}-element-hidden`}
+                value={value}
+                rows={rows}
+                aria-hidden
+                readOnly
+              />
+            )}
+          </div>
+          {(shouldShowClear || reserveClearSpace) && (
+            <div
+              className={`${classPrefix}-clear ${!shouldShowClear ? `${classPrefix}-clear-hidden` : ''}`}
+              aria-hidden={!shouldShowClear}
+              onMouseDown={e => {
+                e.preventDefault()
+              }}
+              onClick={() => {
+                setValue('')
+                onClear?.()
 
-        {autoSize && (
-          <textarea
-            ref={hiddenTextAreaRef}
-            className={`${classPrefix}-element ${classPrefix}-element-hidden`}
-            value={value}
-            rows={rows}
-            aria-hidden
-            readOnly
-          />
-        )}
+                // https://github.com/ant-design/ant-design-mobile/issues/5212
+                if (isIOS() && compositingRef.current) {
+                  compositingRef.current = false
+                  nativeTextAreaRef.current?.blur()
+                }
+              }}
+              aria-label={locale.TextArea.clear}
+            >
+              {clearIcon}
+            </div>
+          )}
+        </div>
+        {count}
       </div>
     )
   }
 )
-
-TextArea.defaultProps = defaultProps

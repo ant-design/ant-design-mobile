@@ -11,6 +11,19 @@
   max-height: 100%;
 }
 
+.adm-text-area-input-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.adm-text-area-textarea-wrapper {
+  position: relative;
+  flex: auto;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+}
+
 .adm-text-area-element {
   font-family: var(--adm-font-family);
   resize: none;
@@ -74,4 +87,25 @@
   color: var(--adm-color-weak);
   font-size: var(--adm-font-size-9);
   padding-top: 8px;
+}
+
+.adm-text-area-clear {
+  flex: none;
+  margin-left: 8px;
+  color: var(--adm-color-light);
+  &:active {
+    color: var(--adm-color-weak);
+  }
+
+  padding: 4px;
+  cursor: pointer;
+  .antd-mobile-icon {
+    display: block;
+    font-size: var(--adm-font-size-7);
+  }
+
+  &-hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
