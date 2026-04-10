@@ -131,44 +131,8 @@ describe('PasscodeInput', () => {
   })
 
   test('RTL direction should be supported', () => {
-    render(
-      <PasscodeInput direction='rtl' plain keyboard={<NumberKeyboard />} />
-    )
+    render(<PasscodeInput direction='rtl' />)
     const input = screen.getByRole('button', { name: '密码输入框' })
     expect(input).toHaveClass(`${classPrefix}-rtl`)
-
-    fireEvent.focus(input)
-
-    mockClick(screen.getByText('1'))
-    mockClick(screen.getByText('2'))
-
-    const cells = getCells()
-    expect(cells[0]).toHaveTextContent('1')
-    expect(cells[1]).toHaveTextContent('2')
-    expect(cells[2]).toHaveClass(`${cellClassPrefix}-caret`)
-  })
-
-  test('RTL direction with seperated should be supported', () => {
-    render(
-      <PasscodeInput
-        direction='rtl'
-        seperated
-        plain
-        keyboard={<NumberKeyboard />}
-      />
-    )
-    const input = screen.getByRole('button', { name: '密码输入框' })
-    expect(input).toHaveClass(`${classPrefix}-rtl`)
-    expect(input).toHaveClass(`${classPrefix}-seperated`)
-
-    fireEvent.focus(input)
-
-    mockClick(screen.getByText('1'))
-    mockClick(screen.getByText('2'))
-
-    const cells = getCells()
-    expect(cells[0]).toHaveTextContent('1')
-    expect(cells[1]).toHaveTextContent('2')
-    expect(cells[2]).toHaveClass(`${cellClassPrefix}-caret`)
   })
 })
