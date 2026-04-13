@@ -114,6 +114,9 @@ export const base = {
   Modal: {
     ok: 'OK',
   },
+  NumberKeyboard: {
+    backspace: 'backspace',
+  },
   PasscodeInput: {
     name: 'Passcode Input',
   },

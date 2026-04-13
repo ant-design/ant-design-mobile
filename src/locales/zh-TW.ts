@@ -102,6 +102,9 @@ const zhTW = mergeLocale(base, {
   Modal: {
     ok: '我知道了',
   },
+  NumberKeyboard: {
+    backspace: '刪除',
+  },
   PullToRefresh: {
     pulling: '下拉刷新',
     canRelease: '釋放立即刷新',

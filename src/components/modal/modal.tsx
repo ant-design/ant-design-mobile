@@ -1,13 +1,13 @@
-import React from 'react'
-import type { FC, ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
 import classNames from 'classnames'
-import { Action, ModalActionButton } from './modal-action-button'
+import type { FC, ReactNode } from 'react'
+import React from 'react'
+import { NativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import AutoCenter from '../auto-center'
+import CenterPopup, { CenterPopupProps } from '../center-popup'
 import Image from '../image'
 import Space from '../space'
-import AutoCenter from '../auto-center'
-import { NativeProps } from '../../utils/native-props'
-import CenterPopup, { CenterPopupProps } from '../center-popup'
+import { Action, ModalActionButton } from './modal-action-button'
 
 export type ModalProps = Pick<
   CenterPopupProps,
@@ -34,7 +34,13 @@ export type ModalProps = Pick<
   closeOnAction?: boolean
   closeOnMaskClick?: boolean
   showCloseButton?: boolean
-} & NativeProps
+} & NativeProps<
+    | '--background-color'
+    | '--border-radius'
+    | '--max-width'
+    | '--min-width'
+    | '--z-index'
+  >
 
 const defaultProps = {
   actions: [] as Action[],

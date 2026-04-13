@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event'
 import React, { createRef } from 'react'
 import { act, fireEvent, render, screen, waitFor } from 'testing'
 import { getDefaultConfig } from '../../config-provider'
@@ -17,7 +18,7 @@ function getSiblingElements(element: Element | null) {
     current = current?.nextElementSibling
   }
   current = element?.previousElementSibling
-  while (current) {
+  while (current && current.className !== `${classPrefix}-trap`) {
     prevElements.push(current)
     current = current?.previousElementSibling
   }
@@ -115,14 +116,114 @@ describe('VirtualInput', () => {
     expect(ref.current?.blur).toBeDefined()
   })
 
-  test('focus and blur', async () => {
-    render(<VirtualInput data-testid='virtualInput' clearable value='abc' />)
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+  test('focus and blur with keyboard', async () => {
+    const user = userEvent.setup()
+    render(
+      <VirtualInput
+        data-testid='virtualInput'
+        clearable
+        keyboard={<NumberKeyboard confirmText={'go'} />}
+      />
+    )
+    await user.click(document.querySelector(`.${classPrefix}-content`)!)
     expect(document.querySelector(`.${classPrefix}-caret`)).toBeInTheDocument()
-    fireEvent.blur(screen.getByTestId('virtualInput'))
+    expect(document.querySelector('.adm-number-keyboard-popup')).toBeVisible()
+
+    await user.click(document.body) // 点击空白处
+    await new Promise(r => setTimeout(r, 500)) // 键盘收起有个动画，大约 300ms
+
     expect(
       document.querySelector(`.${classPrefix}-caret`)
     ).not.toBeInTheDocument()
+    expect(
+      document.querySelector('.adm-number-keyboard-popup')
+    ).not.toBeVisible()
+
+    // 重新聚焦
+    await user.click(document.querySelector(`.${classPrefix}-content`)!)
+    expect(document.querySelector(`.${classPrefix}-caret`)).toBeInTheDocument()
+    expect(document.querySelector('.adm-number-keyboard-popup')).toBeVisible()
+
+    // 检查输入
+    await user.click(screen.getByText('7'))
+    await new Promise(r => setTimeout(r, 500)) // 键盘收起有个动画，大约 300ms
+    expect(document.querySelector('.adm-number-keyboard-popup')).toBeVisible() // 点击键盘上数字，不会让键盘收起
+
+    await user.click(screen.getByText('go'))
+    await new Promise(r => setTimeout(r, 500)) // 键盘收起有个动画，大约 300ms
+    expect(
+      document.querySelector('.adm-number-keyboard-popup')
+    ).not.toBeVisible() // 点击确定，收起键盘
+
+    expect(document.querySelector(`.${classPrefix}-content`)!.textContent).toBe(
+      '7'
+    )
+  })
+
+  test('focus and blur with external keyboard', async () => {
+    const user = userEvent.setup()
+    const Wrapper = () => {
+      const [visible, setVisible] = React.useState(false)
+      const [value, setValue] = React.useState('')
+      const ref = React.useRef<VirtualInputRef>(null)
+      return (
+        <>
+          <VirtualInput
+            data-testid='virtualInput'
+            clearable
+            value={value}
+            ref={ref}
+            onFocus={() => setVisible(true)}
+            onBlur={() => setVisible(false)}
+          />
+          <NumberKeyboard
+            visible={visible}
+            confirmText={'go'}
+            onInput={v => setValue(ov => ov + v)}
+            onDelete={() => setValue(ov => ov.slice(0, ov.length - 1))}
+            onClose={() => {
+              setVisible(false)
+              ref.current?.blur()
+            }}
+          />
+        </>
+      )
+    }
+    render(<Wrapper />)
+    expect(document.querySelector(`.${classPrefix}-content`)!.textContent).toBe(
+      ''
+    )
+    await user.click(document.querySelector(`.${classPrefix}-content`)!) // 聚焦输入框
+    expect(document.querySelector(`.${classPrefix}-caret`)).toBeInTheDocument()
+    expect(document.querySelector('.adm-number-keyboard-popup')).toBeVisible()
+
+    await user.click(screen.getByText('8'))
+    await new Promise(r => setTimeout(r, 500)) // 键盘收起有个动画，大约 300ms
+    expect(document.querySelector('.adm-number-keyboard-popup')).toBeVisible() // 点击键盘上数字，不会触发 onBlur 让键盘收起
+
+    await user.click(screen.getByText('go'))
+    await new Promise(r => setTimeout(r, 500)) // 键盘收起有个动画，大约 300ms
+    expect(
+      document.querySelector('.adm-number-keyboard-popup')
+    ).not.toBeVisible() // 点击确定，收起键盘
+
+    expect(document.querySelector(`.${classPrefix}-content`)!.textContent).toBe(
+      '8'
+    )
+
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!) // 重新聚焦，唤起键盘
+    await new Promise(r => setTimeout(r, 500)) // 键盘收起有个动画，大约 300ms
+    expect(document.querySelector(`.${classPrefix}-caret`)).toBeInTheDocument()
+    expect(document.querySelector('.adm-number-keyboard-popup')).toBeVisible()
+
+    await user.click(document.body)
+    await new Promise(r => setTimeout(r, 500)) // 键盘收起有个动画，大约 300ms
+    expect(
+      document.querySelector(`.${classPrefix}-caret`)
+    ).not.toBeInTheDocument()
+    expect(
+      document.querySelector('.adm-number-keyboard-popup')
+    ).not.toBeVisible()
   })
 
   test('ref should works', async () => {
@@ -161,7 +262,7 @@ describe('VirtualInput', () => {
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       'Value'
     )
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
     expect(document.querySelector(`.${classPrefix}-clear`)).toBeInTheDocument()
     fireEvent.click(document.querySelector(`.${classPrefix}-clear`) as any)
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
@@ -178,7 +279,7 @@ describe('VirtualInput', () => {
         keyboard={<NumberKeyboard title='title' />}
       />
     )
-    fireEvent.focus(screen.getByTestId('virtualInput'))
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -193,7 +294,7 @@ describe('VirtualInput', () => {
     expect(document.querySelector(`.${classPrefix}-content`)).toHaveTextContent(
       '01'
     )
-    fireEvent.click(screen.getByTitle(locale.Input.clear))
+    fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace))
     expect(
       document.querySelector(`.${classPrefix}-content`)
     ).not.toHaveTextContent('01')
@@ -232,7 +333,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -271,7 +372,7 @@ describe('VirtualInput', () => {
       expect(getCaretPosition(caretContainer)).toBe(4)
 
       // click delete by keyboard, content should be '12345', caret position should be 3
-      fireEvent.click(screen.getByTitle(locale.Input.clear))
+      fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace))
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -299,7 +400,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -341,7 +442,7 @@ describe('VirtualInput', () => {
     expect(getCaretPosition(caretContainer)).toBe(1)
 
     // click delete by keyboard, content should be '123', caret position should be 1
-    fireEvent.click(screen.getByTitle(locale.Input.clear))
+    fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace))
     await waitFor(() => {
       expect(
         document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -390,7 +491,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -450,7 +551,7 @@ describe('VirtualInput', () => {
       })
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
+      fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace)) // 点删除
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -467,7 +568,7 @@ describe('VirtualInput', () => {
       })
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
+      fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace)) // 点删除
       await waitFor(() => {
         expect(
           document.querySelector(`.${KeyBoardClassPrefix}-popup`)
@@ -490,7 +591,7 @@ describe('VirtualInput', () => {
       ).toHaveTextContent('9')
       expect(getCaretPosition(caretContainer)).toBe(1)
 
-      fireEvent.click(screen.getByTitle(locale.Input.clear)) // 点删除
+      fireEvent.click(screen.getByTitle(locale.NumberKeyboard.backspace)) // 点删除
       expect(
         document.querySelector(`.${classPrefix}-content`)
       ).toHaveTextContent('0')
@@ -523,7 +624,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -611,6 +712,55 @@ describe('VirtualInput', () => {
     }
   })
 
+  test('scrollToEnd function', async () => {
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <VirtualInput
+          data-testid='virtualInput'
+          value={value}
+          onChange={setValue}
+          keyboard={<NumberKeyboard />}
+        />
+      )
+    }
+    render(<Wrapper />)
+    const input = screen.getByTestId('virtualInput')
+    const content = input.querySelector(
+      `.${classPrefix}-content`
+    ) as HTMLElement
+
+    // Mock scroll properties
+    content.scrollLeft = 0
+    Object.defineProperty(content, 'clientWidth', {
+      get: function () {
+        return (content.textContent || '').length * 20
+      },
+    })
+
+    // Test focus scenario
+    fireEvent.focus(content)
+    expect(content.scrollLeft).toBe(0)
+
+    // Test input scenario
+    content.scrollLeft = 0
+    fireEvent.click(screen.getByText('1')) // Simulate keyboard input
+    await waitFor(() => {
+      expect(content.scrollLeft).toBe(20) // Should scroll on input
+    })
+
+    // Test with long content
+    content.scrollLeft = 0
+    fireEvent.click(screen.getByText('2'))
+    fireEvent.click(screen.getByText('3'))
+    fireEvent.click(screen.getByText('4'))
+    fireEvent.click(screen.getByText('5'))
+
+    await waitFor(() => {
+      expect(content.scrollLeft).toBe(100) // Should stay scrolled to end
+    })
+  })
+
   test('disable caret position', async () => {
     const KeyBoardClassPrefix = 'adm-number-keyboard'
     const Wrapper = () => {
@@ -625,7 +775,7 @@ describe('VirtualInput', () => {
     }
     render(<Wrapper />)
     const input = screen.getByTestId('virtualInput')
-    fireEvent.focus(input)
+    fireEvent.focus(document.querySelector(`.${classPrefix}-content`)!)
 
     await waitFor(() => {
       expect(
@@ -676,5 +826,145 @@ describe('VirtualInput', () => {
       })
       expect(getCaretPosition(caretContainer)).toBe(3)
     }
+  })
+})
+
+describe('useClickOutside', () => {
+  const KeyBoardClassPrefix = 'adm-number-keyboard'
+
+  test('首次点击 VirtualInput 不应同时触发 focus 和 blur', async () => {
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <VirtualInput
+          value={value}
+          onChange={setValue}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          keyboard={<NumberKeyboard />}
+        />
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // 首次点击 VirtualInput content 区域
+    await user.click(content)
+
+    // 应该只触发 focus，不触发 blur
+    expect(onFocus).toBeCalledTimes(1)
+    expect(onBlur).toBeCalledTimes(0)
+
+    // 键盘应该可见
+    expect(
+      document.querySelector(`.${KeyBoardClassPrefix}-popup`)
+    ).toBeVisible()
+  })
+
+  test('点击外部应触发 blur', async () => {
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <div>
+          <VirtualInput
+            value={value}
+            onChange={setValue}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            keyboard={<NumberKeyboard />}
+          />
+          <button data-testid='outside'>outside</button>
+        </div>
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // 先 focus
+    await user.click(content)
+    expect(onFocus).toBeCalledTimes(1)
+
+    // 点击外部
+    await user.click(screen.getByTestId('outside'))
+    expect(onBlur).toBeCalledTimes(1)
+  })
+
+  test('handler 更新后点击外部应使用最新的 handler', async () => {
+    const onBlur1 = jest.fn()
+    const onBlur2 = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      const [useSecond, setUseSecond] = React.useState(false)
+      return (
+        <div>
+          <VirtualInput
+            value={value}
+            onChange={setValue}
+            onFocus={() => {
+              // focus 时切换到第二个 handler
+              setUseSecond(true)
+            }}
+            onBlur={useSecond ? onBlur2 : onBlur1}
+            keyboard={<NumberKeyboard />}
+          />
+          <button data-testid='outside'>outside</button>
+        </div>
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // focus，同时触发 handler 切换
+    await user.click(content)
+
+    // 点击外部，应调用最新的 onBlur2（而非旧的 onBlur1）
+    await user.click(screen.getByTestId('outside'))
+
+    expect(onBlur1).toBeCalledTimes(0)
+    expect(onBlur2).toBeCalledTimes(1)
+  })
+
+  test('多次点击 VirtualInput 不应重复触发 focus', async () => {
+    const onFocus = jest.fn()
+    const onBlur = jest.fn()
+    const user = userEvent.setup()
+
+    const Wrapper = () => {
+      const [value, setValue] = React.useState('')
+      return (
+        <VirtualInput
+          value={value}
+          onChange={setValue}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          keyboard={<NumberKeyboard />}
+        />
+      )
+    }
+
+    render(<Wrapper />)
+    const content = document.querySelector(`.${classPrefix}-content`)!
+
+    // 连续点击多次
+    await user.click(content)
+    await user.click(content)
+    await user.click(content)
+
+    // focus 只触发一次，blur 不触发
+    expect(onFocus).toBeCalledTimes(1)
+    expect(onBlur).toBeCalledTimes(0)
   })
 })

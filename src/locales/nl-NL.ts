@@ -111,6 +111,9 @@ const nlNL = mergeLocale(base, {
   Modal: {
     ok: 'Begrepen',
   },
+  NumberKeyboard: {
+    backspace: 'Verwijderen',
+  },
   PasscodeInput: {
     name: 'Invoer voor toegangscode',
   },

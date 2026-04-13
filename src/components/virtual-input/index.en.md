@@ -23,6 +23,7 @@ When you need to use it with the virtual keyboard.
 | onFocus | Triggered when element get focus | `() => void` | - |
 | placeholder | The placeholder text | `string` | - |
 | value | The input value | `string` | `''` |
+| cursor | Cursor related configuration, `movable` indicates whether it can be adjusted, `onMove` is the cursor movement callback | `{ movable?: boolean; onMove?: (position: number) => void }` | `{ movable: false }` |
 
 Strictly speaking, VirtualInput is not a form field component. It just displays the data.
 

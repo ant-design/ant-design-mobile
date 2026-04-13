@@ -98,6 +98,9 @@ const esES = mergeLocale(base, {
   Modal: {
     ok: 'Entendido',
   },
+  NumberKeyboard: {
+    backspace: 'Borrar',
+  },
   PullToRefresh: {
     pulling: 'Desplácese hacia abajo para refrescar',
     canRelease: 'Suelte para refrescar inmediatamente',

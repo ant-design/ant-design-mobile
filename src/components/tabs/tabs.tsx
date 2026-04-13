@@ -91,6 +91,9 @@ export const Tabs: FC<TabsProps> = p => {
     },
   })
 
+  /** Save the keyboard click to make sure focus only trigger when by keyboard */
+  const manuallyActiveRef = useRef<string | null>(null)
+
   const [{ x, width }, inkApi] = useSpring(() => ({
     x: 0,
     width: 0,
@@ -273,13 +276,19 @@ export const Tabs: FC<TabsProps> = p => {
     const currentKey = findNextEnabledTab(currentIndex, offsetDirection)
     if (isNext || isPrev) {
       e.preventDefault()
+      manuallyActiveRef.current = currentKey
       setActiveKey(currentKey)
     }
   }
 
   useEffect(() => {
-    if (activeKey && tabRefs.current[activeKey]) {
+    if (
+      activeKey &&
+      tabRefs.current[activeKey] &&
+      manuallyActiveRef.current === activeKey
+    ) {
       tabRefs.current[activeKey]?.focus()
+      manuallyActiveRef.current = null
     }
   }, [activeKey])
 

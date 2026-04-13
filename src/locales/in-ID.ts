@@ -100,6 +100,9 @@ const inID = mergeLocale(base, {
   Input: { clear: 'Hapus' },
   Mask: { name: 'lapisan pelindung' },
   Modal: { ok: 'Saya mendapatkannya' },
+  NumberKeyboard: {
+    backspace: 'Hapus',
+  },
   PasscodeInput: { name: 'Kotak kata sandi' },
   PullToRefresh: {
     pulling: 'Tarik ke bawah untuk menyegarkan',

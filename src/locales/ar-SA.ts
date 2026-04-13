@@ -97,6 +97,9 @@ const arSA = mergeLocale(base, {
   'Input': { 'clear': 'إزالة' },
   'Mask': { 'name': 'قناع الخلفية' },
   'Modal': { 'ok': 'فهمت' },
+  'NumberKeyboard': {
+    'backspace': 'حذف',
+  },
   'PasscodeInput': { 'name': 'مربع إدخال كلمة المرور' },
   'PullToRefresh': {
     'pulling': 'اسحب إلى الأسفل للتحديث',

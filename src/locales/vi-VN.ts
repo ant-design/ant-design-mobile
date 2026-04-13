@@ -97,6 +97,9 @@ const viVN = mergeLocale(base, {
   'Input': { 'clear': 'Xóa' },
   'Mask': { 'name': 'Nền tối' },
   'Modal': { 'ok': 'OK' },
+  'NumberKeyboard': {
+    'backspace': 'Xóa',
+  },
   'PasscodeInput': { 'name': 'Khung nhập mật khẩu' },
   'PullToRefresh': {
     'pulling': 'Kéo xuống để làm mới',

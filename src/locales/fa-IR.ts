@@ -105,6 +105,9 @@ const faIR = mergeLocale(base, {
   Modal: {
     ok: 'باشه',
   },
+  NumberKeyboard: {
+    backspace: 'حذف',
+  },
 })
 
 export default faIR

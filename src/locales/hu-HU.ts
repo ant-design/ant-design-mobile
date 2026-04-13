@@ -41,7 +41,7 @@ export const huHU = mergeLocale(base, {
       description: 'Próbálja meg frissíteni az oldalt',
     },
     empty: {
-      title: "Hmm, nem találjuk amit keresel...",
+      title: 'Hmm, nem találjuk amit keresel...',
       description: 'Szeretnél új keresést indítani?',
     },
   },
@@ -113,6 +113,9 @@ export const huHU = mergeLocale(base, {
   },
   Modal: {
     ok: 'OK',
+  },
+  NumberKeyboard: {
+    backspace: 'Törlés',
   },
   PasscodeInput: {
     name: 'PIN-kód',

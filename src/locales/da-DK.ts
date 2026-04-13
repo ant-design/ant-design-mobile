@@ -111,6 +111,9 @@ const daDK = mergeLocale(base, {
   Modal: {
     ok: 'Bekræft',
   },
+  NumberKeyboard: {
+    backspace: 'slet',
+  },
   PullToRefresh: {
     pulling: 'Rul ned for at opdatere',
     canRelease: 'Slip for at opdatere med det samme',

@@ -23,12 +23,12 @@ tips: It is recommended to open the demo on the mobile side for better preview e
 ### Props
 
 | Name | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | afterClose | Callback when the keyboard is completely put away | `() => void` | - |
 | afterShow | Callback when the keyboard is completely bounced | `() => void` | - |
 | closeOnConfirm | Whether to automatically close when the ok button is clicked | `boolean` | `true` |
 | confirmText | The text of the confirm button, if `null` is set, it would be shown | `string \| null` | `null` |
-| customKey | Customized button | `string \| [string, string]` | - |
+| customKey | Customized button | `string | { key: string; title: string } | (string | { key: string; title: string })[]` | - |
 | destroyOnClose | Destroy `dom` when not visible | `boolean` | `false` |
 | forceRender | Render content forcely | `boolean` | `false` |
 | getContainer | To get the specified mounted HTML node, the default is `body`, if `null` returned, it would be rendered to the current node | `HTMLElement \| () => HTMLElement \| null` | `() => document.body` |

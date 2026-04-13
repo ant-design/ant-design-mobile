@@ -21,6 +21,7 @@
 | caret | 是否展示光标 | `boolean` | `true` |  |
 | className | 外层 className | `string` | - |  |
 | defaultValue | 非受控值 | `string` | - |  |
+| direction | 输入框方向 | `'ltr' \| 'rtl'` | `'ltr'` |  |
 | error | 是否有错 | `boolean` | `false` |  |
 | keyboard | 键盘组件，如不传，默认使用系统原生的键盘 | `NumberKeyboard` | - |  |
 | inputMode | 输入框类型, 改变原生键盘类型 | `'numeric' \| 'text'` | `'numeric'` | 5.39.0 |
@@ -52,3 +53,31 @@
 | --cell-gap | 单元格间距，仅在 `seperated` 模式下生效 | `6px` |
 | --cell-size | 单元格大小 | `40px` |
 | --dot-size | 密码隐藏时，点的大小 | `10px` |
+
+## FAQ
+
+### Q: PasscodeInput 在 iOS 上点击自动填充短信验证码，但格子内不显示数字？
+
+这是 iOS 系统的兼容性限制导致的。在部分机型上，短信回填会直接写入原生 input 元素，但不触发 React 的 onChange 事件，导致组件状态无法同步。可以通过 ref 获取原生 input 元素，在 onFocus 或 onFill 回调中使用 setTimeout 手动同步 input.value。如果回填后需要调用 blur() 收起键盘，建议同样放在延迟逻辑中，确保状态渲染完成后再失焦。
+
+```jsx
+const inputRef = useRef(null);
+const [value, setValue] = useState('');
+
+const syncValue = () => {
+  setTimeout(() => {
+    // 获取原生 input 的值并同步
+    const realValue = inputRef.current?.nativeElement?.value || inputRef.current?.value;
+    if (realValue && realValue !== value) {
+      setValue(realValue);
+    }
+  }, 100);
+};
+
+<PasscodeInput
+  ref={inputRef}
+  value={code}
+  onChange={setCode}
+  onFocus={handleFocus}
+/>
+```

@@ -129,4 +129,10 @@ describe('PasscodeInput', () => {
     const input2 = container2.querySelector('input')
     expect(input2).toHaveAttribute('inputMode', 'text')
   })
+
+  test('RTL direction should be supported', () => {
+    render(<PasscodeInput direction='rtl' />)
+    const input = screen.getByRole('button', { name: '密码输入框' })
+    expect(input).toHaveClass(`${classPrefix}-rtl`)
+  })
 })

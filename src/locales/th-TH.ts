@@ -125,6 +125,9 @@ const thTH = mergeLocale(base, {
   Modal: {
     ok: 'ฉันรู้แล้ว',
   },
+  NumberKeyboard: {
+    backspace: 'ลบ',
+  },
   PasscodeInput: {
     name: 'ป้อนรหัสผ่าน',
   },

@@ -15,6 +15,10 @@
     vertical-align: top;
   }
 
+  &&-rtl &-cell-container {
+    flex-direction: row-reverse;
+  }
+
   &-cell {
     flex: none;
     display: flex;
@@ -56,6 +60,26 @@
       &-focused {
         border-color: var(--adm-color-primary);
         box-shadow: 0 0 2px 0 var(--adm-color-primary);
+      }
+    }
+  }
+
+  &&-rtl:not(.@{class-prefix-passcode-input}-seperated) {
+    .@{class-prefix-passcode-input}-cell:first-child {
+      border-right: none;
+    }
+    .@{class-prefix-passcode-input}-cell:last-child {
+      border-right: 1px solid var(--border-color);
+    }
+  }
+
+  &&-rtl&&-seperated {
+    .@{class-prefix-passcode-input}-cell {
+      &:first-child {
+        margin-right: 0;
+      }
+      &:last-child {
+        margin-right: var(--cell-gap);
       }
     }
   }

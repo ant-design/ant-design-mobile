@@ -116,6 +116,9 @@ const zhCN: Locale = {
   Modal: {
     ok: '我知道了',
   },
+  NumberKeyboard: {
+    backspace: '删除',
+  },
   PasscodeInput: {
     name: '密码输入框',
   },

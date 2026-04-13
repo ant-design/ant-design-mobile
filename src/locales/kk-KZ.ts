@@ -104,6 +104,9 @@ const kkKZ = mergeLocale(base, {
   Modal: {
     ok: 'Мен түсіндім',
   },
+  NumberKeyboard: {
+    backspace: 'Жою',
+  },
   PullToRefresh: {
     pulling: 'Жаңарту үшін тартыңыз',
     canRelease: 'Жаңарту үшін жіберіңіз',

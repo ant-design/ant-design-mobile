@@ -245,4 +245,19 @@ describe('Calendar', () => {
       expect(cell).toHaveClass('adm-calendar-cell')
     })
   })
+
+  test.each([
+    ['prevMonthButton', `.${classPrefix}-arrow-button-month`],
+    ['prevYearButton', `.${classPrefix}-arrow-button-year`],
+    ['nextMonthButton', `.${classPrefix}-arrow-button-right-month`],
+    ['nextYearButton', `.${classPrefix}-arrow-button-right-year`],
+  ])('%s disabled', (propName, selector) => {
+    const onPageChange = jest.fn()
+    const props = { [propName]: null, onPageChange }
+    const { container } = render(<Calendar {...props} />)
+
+    // 确保按钮元素不存在
+    const button = container.querySelector(selector)
+    expect(button).toBeNull()
+  })
 })

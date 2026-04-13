@@ -100,6 +100,93 @@ async function getImages() {
   return images[0]
 }
 
+describe('ImageViewer', () => {
+  test('a11y', async () => {
+    await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
+  })
+
+  test('maxZoom support auto', async () => {
+    jest.useFakeTimers()
+
+    render(<ImageViewer image={demoImages[0]} visible maxZoom='auto' />)
+
+    // Pinch to zoom bigger
+    act(() => {
+      triggerPinch([9999999, 9999999])
+    })
+
+    expect(G.nextZoom).toEqual(10)
+
+    jest.clearAllTimers()
+    jest.useRealTimers()
+    jest.restoreAllMocks()
+  })
+
+  test('`ImageViewer.show/ImageViewer.clear` should be work', async () => {
+    render(
+      <button
+        onClick={() => {
+          ImageViewer.show({ image: demoImages[0] })
+        }}
+      >
+        show
+      </button>
+    )
+    fireEvent.click(screen.getByText('show'))
+
+    const img = await getImages()
+    expect(img).toBeVisible()
+
+    act(() => {
+      ImageViewer.clear()
+    })
+    await waitFor(() => expect(img).not.toBeVisible())
+  })
+
+  test('rendering with imageRender and ref', () => {
+    let capturedRef: any = null
+    function App() {
+      return (
+        <ImageViewer
+          image={demoImages[0]}
+          visible
+          imageRender={(image, { ref, index }) => {
+            capturedRef = ref
+            return (
+              <div className={`customize-preview-node-${index}`} ref={ref} />
+            )
+          }}
+        />
+      )
+    }
+    render(<App />)
+    expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
+    expect(capturedRef).toBeTruthy()
+    expect(typeof capturedRef).toBe('object')
+    expect(capturedRef.current).toBeDefined()
+  })
+
+  test('mask onClick should be work', () => {
+    const onMaskClick = jest.fn()
+    function App() {
+      return (
+        <ImageViewer
+          image={demoImages[0]}
+          visible
+          mask={{
+            onClick: onMaskClick,
+          }}
+        />
+      )
+    }
+    render(<App />)
+    const mask = document.querySelector('.adm-mask')
+    expect(mask).toBeTruthy()
+    fireEvent.click(mask!)
+    expect(onMaskClick).toBeCalledTimes(1)
+  })
+})
+
 describe('ImageViewer.Multi', () => {
   test('calling ref.current.swipeTo before initialization', async () => {
     function App() {
@@ -301,71 +388,24 @@ describe('ImageViewer.Multi', () => {
     expect(typeof capturedRef).toBe('object')
     expect(capturedRef.current).toBeDefined()
   })
-})
 
-describe('ImageViewer', () => {
-  test('a11y', async () => {
-    await testA11y(<ImageViewer image={demoImages[0]} visible={true} />)
-  })
-
-  test('maxZoom support auto', async () => {
-    jest.useFakeTimers()
-
-    render(<ImageViewer image={demoImages[0]} visible maxZoom='auto' />)
-
-    // Pinch to zoom bigger
-    act(() => {
-      triggerPinch([9999999, 9999999])
-    })
-
-    expect(G.nextZoom).toEqual(10)
-
-    jest.clearAllTimers()
-    jest.useRealTimers()
-    jest.restoreAllMocks()
-  })
-
-  test('`ImageViewer.show/ImageViewer.clear` should be work', async () => {
-    render(
-      <button
-        onClick={() => {
-          ImageViewer.show({ image: demoImages[0] })
-        }}
-      >
-        show
-      </button>
-    )
-    fireEvent.click(screen.getByText('show'))
-
-    const img = await getImages()
-    expect(img).toBeVisible()
-
-    act(() => {
-      ImageViewer.clear()
-    })
-    await waitFor(() => expect(img).not.toBeVisible())
-  })
-
-  test('rendering with imageRender and ref', () => {
-    let capturedRef: any = null
+  test('mask onClick should be work', () => {
+    const onMaskClick = jest.fn()
     function App() {
       return (
-        <ImageViewer
-          image={demoImages[0]}
+        <ImageViewer.Multi
+          images={demoImages}
           visible
-          imageRender={(image, { ref, index }) => {
-            capturedRef = ref
-            return (
-              <div className={`customize-preview-node-${index}`} ref={ref} />
-            )
+          mask={{
+            onClick: onMaskClick,
           }}
         />
       )
     }
     render(<App />)
-    expect(document.querySelector('.customize-preview-node-0')).toBeTruthy()
-    expect(capturedRef).toBeTruthy()
-    expect(typeof capturedRef).toBe('object')
-    expect(capturedRef.current).toBeDefined()
+    const mask = document.querySelector('.adm-mask')
+    expect(mask).toBeTruthy()
+    fireEvent.click(mask!)
+    expect(onMaskClick).toBeCalledTimes(1)
   })
 })

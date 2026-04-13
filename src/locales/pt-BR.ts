@@ -111,6 +111,9 @@ const ptBR = mergeLocale(base, {
   Modal: {
     ok: 'OK',
   },
+  NumberKeyboard: {
+    backspace: 'Apagar',
+  },
   PasscodeInput: {
     name: 'Input de código de acesso',
   },
