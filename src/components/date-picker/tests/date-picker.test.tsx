@@ -12,7 +12,10 @@ import {
 } from 'testing'
 import DatePicker from '../'
 import Button from '../../button'
-import { convertStringArrayToDate } from '../date-picker-week-utils'
+import {
+  convertStringArrayToDate,
+  generateDatePickerColumns,
+} from '../date-picker-week-utils'
 import {
   DAY_COLUMN,
   HOUR_COLUMN,
@@ -20,10 +23,6 @@ import {
   MONTH_COLUMN,
   YEAR_COLUMN,
 } from '../util'
-import {
-  convertStringArrayToDate,
-  generateDatePickerColumns,
-} from '../date-picker-week-utils'
 
 const classPrefix = `adm-picker`
 
