@@ -187,6 +187,21 @@ describe('TextArea', () => {
     expect(textarea.value).toBe('')
   })
 
+  test('clear button should preventDefault on mouseDown', () => {
+    const { container } = render(
+      <TextArea clearable defaultValue={'testValue'} />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    fireEvent.focus(textarea)
+    const clearBtn = container.querySelector(
+      `.${classPrefix}-clear`
+    ) as HTMLElement
+    expect(clearBtn).toBeInTheDocument()
+    // onMouseDown calls e.preventDefault() to keep textarea focused
+    const prevented = fireEvent.mouseDown(clearBtn)
+    expect(prevented).toBe(false)
+  })
+
   test('should works with composition on iOS', async () => {
     const spy = jest.spyOn(validate, 'isIOS').mockReturnValue(true)
     const onCompositionStart = jest.fn()
