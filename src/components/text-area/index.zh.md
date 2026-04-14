@@ -45,14 +45,15 @@ TextArea 组件的 clearable 功能已实现类似行为：
 
 ### CSS 变量
 
-| 属性                | 说明                   | 默认值                   |
-| ------------------- | ---------------------- | ------------------------ |
-| --color             | 文字颜色               | `var(--adm-color-text)`  |
-| --count-text-align  | 统计文字对齐方式       | `right`                  |
-| --disabled-color    | 禁用状态下的文字颜色   | `var(--adm-color-weak)`  |
-| --font-size         | 字号                   | `17px`                   |
-| --placeholder-color | `placeholder` 文字颜色 | `var(--adm-color-light)` |
-| --text-align        | 文字对齐方式           | `left`                   |
+| 属性                 | 说明                     | 默认值                   |
+| -------------------- | ------------------------ | ------------------------ |
+| --color              | 文字颜色                 | `var(--adm-color-text)`  |
+| --count-text-align   | 统计文字对齐方式         | `right`                  |
+| --disabled-color     | 禁用状态下的文字颜色     | `var(--adm-color-weak)`  |
+| --font-size          | 字号                     | `17px`                   |
+| --placeholder-color  | `placeholder` 文字颜色   | `var(--adm-color-light)` |
+| --text-align         | 文字对齐方式             | `left`                   |
+| --clear-icon-padding | 清除图标区域的预留内边距 | `28px`                   |
 
 ### Ref
 

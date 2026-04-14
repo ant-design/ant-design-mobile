@@ -1,4 +1,5 @@
 import { useIsomorphicLayoutEffect } from 'ahooks'
+import classNames from 'classnames'
 import type { ReactNode } from 'react'
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import runes from 'runes2'
@@ -181,87 +182,88 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
 
     return withNativeProps(
       props,
-      <div className={classPrefix}>
-        <div className={`${classPrefix}-input-wrapper`}>
-          <div className={`${classPrefix}-textarea-wrapper`}>
-            <textarea
-              ref={nativeTextAreaRef}
-              className={`${classPrefix}-element`}
-              rows={rows}
-              value={value}
-              placeholder={props.placeholder}
-              onChange={e => {
-                let v = e.target.value
-                if (maxLength && !compositingRef.current) {
-                  v = runes(v).slice(0, maxLength).join('')
-                }
-                setValue(v)
-              }}
-              id={props.id}
-              onCompositionStart={e => {
-                compositingRef.current = true
-                props.onCompositionStart?.(e)
-              }}
-              onCompositionEnd={e => {
-                compositingRef.current = false
-                if (maxLength) {
-                  const v = (e.target as HTMLTextAreaElement).value
-                  setValue(runes(v).slice(0, maxLength).join(''))
-                }
-                props.onCompositionEnd?.(e)
-              }}
-              autoComplete={props.autoComplete}
-              autoFocus={props.autoFocus}
-              disabled={props.disabled}
-              readOnly={props.readOnly}
-              name={props.name}
-              onFocus={e => {
-                setHasFocus(true)
-                props.onFocus?.(e)
-              }}
-              onBlur={e => {
-                setHasFocus(false)
-                props.onBlur?.(e)
-              }}
-              onClick={props.onClick}
-              onKeyDown={handleKeydown}
-              enterKeyHint={props.enterKeyHint}
-            />
-            {autoSize && (
-              <textarea
-                ref={hiddenTextAreaRef}
-                className={`${classPrefix}-element ${classPrefix}-element-hidden`}
-                value={value}
-                rows={rows}
-                aria-hidden
-                readOnly
-              />
-            )}
-          </div>
-          {(shouldShowClear || reserveClearSpace) && (
-            <div
-              className={`${classPrefix}-clear ${!shouldShowClear ? `${classPrefix}-clear-hidden` : ''}`}
-              aria-hidden={!shouldShowClear}
-              onMouseDown={e => {
-                e.preventDefault()
-              }}
-              onClick={() => {
-                setValue('')
-                onClear?.()
-
-                // https://github.com/ant-design/ant-design-mobile/issues/5212
-                if (isIOS() && compositingRef.current) {
-                  compositingRef.current = false
-                  nativeTextAreaRef.current?.blur()
-                }
-              }}
-              aria-label={locale.TextArea.clear}
-            >
-              {clearIcon}
-            </div>
-          )}
-        </div>
+      <div
+        className={classNames(classPrefix, {
+          [`${classPrefix}-clearable`]: isClearable,
+        })}
+      >
+        <textarea
+          ref={nativeTextAreaRef}
+          className={`${classPrefix}-element`}
+          rows={rows}
+          value={value}
+          placeholder={props.placeholder}
+          onChange={e => {
+            let v = e.target.value
+            if (maxLength && !compositingRef.current) {
+              v = runes(v).slice(0, maxLength).join('')
+            }
+            setValue(v)
+          }}
+          id={props.id}
+          onCompositionStart={e => {
+            compositingRef.current = true
+            props.onCompositionStart?.(e)
+          }}
+          onCompositionEnd={e => {
+            compositingRef.current = false
+            if (maxLength) {
+              const v = (e.target as HTMLTextAreaElement).value
+              setValue(runes(v).slice(0, maxLength).join(''))
+            }
+            props.onCompositionEnd?.(e)
+          }}
+          autoComplete={props.autoComplete}
+          autoFocus={props.autoFocus}
+          disabled={props.disabled}
+          readOnly={props.readOnly}
+          name={props.name}
+          onFocus={e => {
+            setHasFocus(true)
+            props.onFocus?.(e)
+          }}
+          onBlur={e => {
+            setHasFocus(false)
+            props.onBlur?.(e)
+          }}
+          onClick={props.onClick}
+          onKeyDown={handleKeydown}
+          enterKeyHint={props.enterKeyHint}
+        />
         {count}
+
+        {autoSize && (
+          <textarea
+            ref={hiddenTextAreaRef}
+            className={`${classPrefix}-element ${classPrefix}-element-hidden`}
+            value={value}
+            rows={rows}
+            aria-hidden
+            readOnly
+          />
+        )}
+        {(shouldShowClear || reserveClearSpace) && (
+          <div
+            className={`${classPrefix}-clear ${!shouldShowClear ? `${classPrefix}-clear-hidden` : ''}`}
+            aria-hidden={!shouldShowClear}
+            onMouseDown={e => {
+              e.preventDefault()
+            }}
+            onClick={() => {
+              setValue('')
+              onClear?.()
+
+              // https://github.com/ant-design/ant-design-mobile/issues/5212
+              if (isIOS() && compositingRef.current) {
+                compositingRef.current = false
+                nativeTextAreaRef.current?.blur()
+              }
+            }}
+            aria-label={locale.TextArea.clear}
+          >
+            {clearIcon}
+          </div>
+        )}
       </div>
     )
   }

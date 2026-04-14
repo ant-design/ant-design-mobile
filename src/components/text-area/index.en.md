@@ -53,6 +53,7 @@ The clearable feature of the TextArea component has already implemented similar 
 | --font-size | font size. | `17px` |
 | --placeholder-color | `placeholder` font color. | `var(--adm-color-light)` |
 | --text-align | The alignment of text. | `left` |
+| --clear-icon-padding | The reserved padding for the clear icon area. | `28px` |
 
 ### Ref
 

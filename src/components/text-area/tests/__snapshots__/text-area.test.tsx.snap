@@ -5,18 +5,10 @@ exports[`TextArea should works with \`value={null}\` 1`] = `
   <div
     class="adm-text-area"
   >
-    <div
-      class="adm-text-area-input-wrapper"
-    >
-      <div
-        class="adm-text-area-textarea-wrapper"
-      >
-        <textarea
-          class="adm-text-area-element"
-          rows="2"
-        />
-      </div>
-    </div>
+    <textarea
+      class="adm-text-area-element"
+      rows="2"
+    />
   </div>
 </div>
 `;

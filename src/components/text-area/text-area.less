@@ -5,23 +5,17 @@
   --disabled-color: var(--adm-color-weak);
   --text-align: left;
   --count-text-align: right;
+  --clear-icon-padding: 28px;
   position: relative;
   width: 100%;
   max-width: 100%;
   max-height: 100%;
 }
 
-.adm-text-area-input-wrapper {
-  display: flex;
-  align-items: flex-start;
-}
-
-.adm-text-area-textarea-wrapper {
-  position: relative;
-  flex: auto;
-  display: flex;
-  width: 100%;
-  max-width: 100%;
+.adm-text-area-clearable {
+  .adm-text-area-element {
+    padding-right: var(--clear-icon-padding);
+  }
 }
 
 .adm-text-area-element {
@@ -90,8 +84,9 @@
 }
 
 .adm-text-area-clear {
-  flex: none;
-  margin-left: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
   color: var(--adm-color-light);
   &:active {
     color: var(--adm-color-weak);
