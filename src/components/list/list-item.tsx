@@ -35,8 +35,8 @@ export const ListItem: FC<ListItemProps> = props => {
   const showArrow = arrow ?? arrowIcon ?? clickable
   const mergedArrowIcon = mergeProp<React.ReactNode>(
     componentConfig.arrowIcon,
-    arrow !== true ? arrow : null,
-    arrowIcon !== true ? arrowIcon : null
+    arrow !== true ? arrow : undefined,
+    arrowIcon !== true ? arrowIcon : undefined
   )
 
   const content = (

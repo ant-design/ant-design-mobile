@@ -78,5 +78,17 @@ describe('list', () => {
 
       expect(screen.getByText('bamboo')).toBeVisible()
     })
+
+    it('arrowIcon={true} should use config provider arrow', () => {
+      render(
+        <ConfigProvider list={{ arrowIcon: 'little' }}>
+          <List>
+            <List.Item clickable arrowIcon={true} />
+          </List>
+        </ConfigProvider>
+      )
+
+      expect(screen.getByText('little')).toBeVisible()
+    })
   })
 })
