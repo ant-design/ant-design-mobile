@@ -361,6 +361,32 @@ describe('DatePicker', () => {
       expect(result.getMinutes()).toBe(30)
     })
 
+    test('partial columns should respect min and max', () => {
+      jest.useFakeTimers({ now: new Date('2026-04-17 10:00:00') })
+
+      render(
+        <DatePicker
+          visible
+          precision='minute'
+          columns={[HOUR_COLUMN, MINUTE_COLUMN]}
+          min={new Date('2025-09-02 14:00:00')}
+          max={new Date('2025-09-02 16:00:00')}
+        />
+      )
+
+      const pickerColumns = document.body.querySelectorAll(
+        `.${classPrefix}-view-column`
+      )
+      expect(pickerColumns.length).toBe(2)
+
+      const hourValues = Array.from(
+        pickerColumns[0].querySelectorAll(
+          `.${classPrefix}-view-column-item-label`
+        )
+      ).map(item => item.textContent)
+      expect(hourValues).toEqual(['14', '15', '16'])
+    })
+
     test('columns should respect precision limits', async () => {
       const fn = jest.fn()
       const { getByText } = render(
