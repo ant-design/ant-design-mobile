@@ -61,8 +61,10 @@ export function generateDatePickerColumns(
   renderLabel: RenderLabel,
   filter: DatePickerFilter | undefined,
   tillNow?: boolean,
-  columns?: DateColumnType[]
+  columns?: DateColumnType[],
+  baselineDate?: Date
 ) {
+  const effectiveBaseline = baselineDate || new Date()
   const ret: PickerColumn[] = []
 
   const minYear = min.getFullYear()
@@ -95,12 +97,15 @@ export function generateDatePickerColumns(
     return null
   }
 
-  const selectedYear = getValue(YEAR_COLUMN) ?? min.getFullYear()
-  const selectedMonth = getValue(MONTH_COLUMN) ?? 1
-  const selectedDay = getValue(DAY_COLUMN) ?? 1
-  const selectedHour = getValue(HOUR_COLUMN) ?? 0
-  const selectedMinute = getValue(MINUTE_COLUMN) ?? 0
-  const selectedSecond = getValue(SECOND_COLUMN) ?? 0
+  const selectedYear = getValue(YEAR_COLUMN) ?? effectiveBaseline.getFullYear()
+  const selectedMonth =
+    getValue(MONTH_COLUMN) ?? effectiveBaseline.getMonth() + 1
+  const selectedDay = getValue(DAY_COLUMN) ?? effectiveBaseline.getDate()
+  const selectedHour = getValue(HOUR_COLUMN) ?? effectiveBaseline.getHours()
+  const selectedMinute =
+    getValue(MINUTE_COLUMN) ?? effectiveBaseline.getMinutes()
+  const selectedSecond =
+    getValue(SECOND_COLUMN) ?? effectiveBaseline.getSeconds()
   const firstDayInSelectedMonth = dayjs(
     new Date(selectedYear, selectedMonth - 1, 1)
   )
@@ -138,7 +143,8 @@ export function generateDatePickerColumns(
             return convertStringArrayToDate(
               stringArray,
               partialColumns,
-              precision
+              precision,
+              effectiveBaseline
             )
           },
         })
@@ -242,21 +248,32 @@ export function convertStringArrayToDate<
 >(
   value: T[],
   columns: DateColumnType[] | undefined,
-  precision: DatePrecision
+  precision: DatePrecision,
+  baselineDate?: Date
 ): Date {
-  let finalColumns = columns
-  if (!finalColumns || finalColumns.length === 0) {
-    finalColumns = getDefaultColumns(precision)
-  }
+  const effectiveBaseline = baselineDate || new Date()
+  const hasCustomColumns = columns && columns.length > 0
+  const finalColumns = hasCustomColumns ? columns : getDefaultColumns(precision)
 
-  const now = new Date()
   const dateParts = {
-    [YEAR_COLUMN]: now.getFullYear().toString(),
-    [MONTH_COLUMN]: (now.getMonth() + 1).toString(),
-    [DAY_COLUMN]: now.getDate().toString(),
-    [HOUR_COLUMN]: now.getHours().toString(),
-    [MINUTE_COLUMN]: now.getMinutes().toString(),
-    [SECOND_COLUMN]: now.getSeconds().toString(),
+    [YEAR_COLUMN]: hasCustomColumns
+      ? effectiveBaseline.getFullYear().toString()
+      : '1900',
+    [MONTH_COLUMN]: hasCustomColumns
+      ? (effectiveBaseline.getMonth() + 1).toString()
+      : '1',
+    [DAY_COLUMN]: hasCustomColumns
+      ? effectiveBaseline.getDate().toString()
+      : '1',
+    [HOUR_COLUMN]: hasCustomColumns
+      ? effectiveBaseline.getHours().toString()
+      : '0',
+    [MINUTE_COLUMN]: hasCustomColumns
+      ? effectiveBaseline.getMinutes().toString()
+      : '0',
+    [SECOND_COLUMN]: hasCustomColumns
+      ? effectiveBaseline.getSeconds().toString()
+      : '0',
   }
 
   finalColumns.forEach((columnType, index) => {

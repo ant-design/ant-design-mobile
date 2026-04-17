@@ -99,22 +99,28 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
         bound(date.getTime(), props.min.getTime(), props.max.getTime())
       )
       return convertDateToStringArray(date, props.precision, props.columns)
-    }, [value, props.precision, props.min, props.max])
+    }, [value, props.precision, props.min, props.max, props.columns])
 
     const onConfirm = useCallback(
       (val: PickerValue[]) => {
         const date = convertStringArrayToDate(
           val,
           props.precision,
-          props.columns
+          props.columns,
+          value ?? undefined
         )
         setValue(date, true)
       },
-      [setValue, props.precision, props.columns]
+      [setValue, props.precision, props.columns, value]
     )
 
     const onSelect = useMemoizedFn((val: PickerValue[]) => {
-      const date = convertStringArrayToDate(val, props.precision, props.columns)
+      const date = convertStringArrayToDate(
+        val,
+        props.precision,
+        props.columns,
+        value ?? undefined
+      )
       props.onSelect?.(date)
     })
 
@@ -128,7 +134,8 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
           mergedRenderLabel,
           props.filter,
           props.tillNow,
-          props.columns
+          props.columns,
+          value ?? undefined
         ),
       [
         props.min,
@@ -137,6 +144,7 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
         mergedRenderLabel,
         props.tillNow,
         props.columns,
+        value,
       ]
     )
 

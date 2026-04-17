@@ -83,7 +83,8 @@ export const convertStringArrayToDate = <
 >(
   value: T[],
   precision: Precision,
-  columns?: DateColumnType[]
+  columns?: DateColumnType[],
+  baselineDate?: Date
 ) => {
   // Special case for DATE_NOW
   if (value?.[0] === TILL_NOW) {
@@ -100,7 +101,8 @@ export const convertStringArrayToDate = <
     return dateUtils.convertStringArrayToDate(
       value,
       columns,
-      precision as DatePrecision
+      precision as DatePrecision,
+      baselineDate
     )
   }
 }
@@ -113,7 +115,8 @@ export const generateDatePickerColumns = (
   renderLabel: RenderLabel,
   filter: DatePickerFilter | undefined,
   tillNow?: boolean,
-  columns?: DateColumnType[]
+  columns?: DateColumnType[],
+  baselineDate?: Date
 ) => {
   if (precision.startsWith('week')) {
     return weekUtils.generateDatePickerColumns(
@@ -142,7 +145,8 @@ export const generateDatePickerColumns = (
       renderLabel,
       filter,
       tillNow,
-      columns
+      columns,
+      baselineDate
     )
   }
 }
