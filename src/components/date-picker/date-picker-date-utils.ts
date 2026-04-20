@@ -97,29 +97,50 @@ export function generateDatePickerColumns(
     return null
   }
 
+  // Check which columns are rendered
+  const hasYearColumn = renderedColumns.includes(YEAR_COLUMN)
+  const hasMonthColumn = renderedColumns.includes(MONTH_COLUMN)
+  const hasDayColumn = renderedColumns.includes(DAY_COLUMN)
+  const hasHourColumn = renderedColumns.includes(HOUR_COLUMN)
+  const hasMinuteColumn = renderedColumns.includes(MINUTE_COLUMN)
+
   const selectedYear = getValue(YEAR_COLUMN) ?? effectiveBaseline.getFullYear()
   const selectedMonth =
     getValue(MONTH_COLUMN) ?? effectiveBaseline.getMonth() + 1
   const selectedDay = getValue(DAY_COLUMN) ?? effectiveBaseline.getDate()
-  const selectedHour = getValue(HOUR_COLUMN) ?? effectiveBaseline.getHours()
   const selectedMinute =
     getValue(MINUTE_COLUMN) ?? effectiveBaseline.getMinutes()
   const selectedSecond =
     getValue(SECOND_COLUMN) ?? effectiveBaseline.getSeconds()
+
+  // For hour column without day context, check if min.max date is the same
+  const selectedHour =
+    getValue(HOUR_COLUMN) ??
+    (minDay === maxDay ? minHour : effectiveBaseline.getHours())
   const firstDayInSelectedMonth = dayjs(
     new Date(selectedYear, selectedMonth - 1, 1)
   )
 
-  const isInMinYear = selectedYear === minYear
-  const isInMaxYear = selectedYear === maxYear
-  const isInMinMonth = isInMinYear && selectedMonth === minMonth
-  const isInMaxMonth = isInMaxYear && selectedMonth === maxMonth
-  const isInMinDay = isInMinMonth && selectedDay === minDay
-  const isInMaxDay = isInMaxMonth && selectedDay === maxDay
-  const isInMinHour = isInMinDay && selectedHour === minHour
-  const isInMaxHour = isInMaxDay && selectedHour === maxHour
-  const isInMinMinute = isInMinHour && selectedMinute === minMinute
-  const isInMaxMinute = isInMaxHour && selectedMinute === maxMinute
+  // Boundary checks: for columns that are not rendered,
+  // we consider we're in that boundary only if min equals max
+  const isInMinYear = hasYearColumn ? selectedYear === minYear : true
+  const isInMaxYear = hasYearColumn ? selectedYear === maxYear : true
+  const isInMinMonth =
+    isInMinYear && (hasMonthColumn ? selectedMonth === minMonth : true)
+  const isInMaxMonth =
+    isInMaxYear && (hasMonthColumn ? selectedMonth === maxMonth : true)
+  const isInMinDay =
+    isInMinMonth && (hasDayColumn ? selectedDay === minDay : true)
+  const isInMaxDay =
+    isInMaxMonth && (hasDayColumn ? selectedDay === maxDay : true)
+  const isInMinHour =
+    isInMinDay && (hasHourColumn ? selectedHour === minHour : true)
+  const isInMaxHour =
+    isInMaxDay && (hasHourColumn ? selectedHour === maxHour : true)
+  const isInMinMinute =
+    isInMinHour && (hasMinuteColumn ? selectedMinute === minMinute : true)
+  const isInMaxMinute =
+    isInMaxHour && (hasMinuteColumn ? selectedMinute === maxMinute : true)
 
   const generateColumn = (
     from: number,
