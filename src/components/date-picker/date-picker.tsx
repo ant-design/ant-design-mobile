@@ -103,15 +103,22 @@ export const DatePicker = forwardRef<DatePickerRef, DatePickerProps>(
 
     const onConfirm = useCallback(
       (val: PickerValue[]) => {
+        let baseline: Date | undefined = value ?? undefined
+        if (!baseline && props.min && props.max) {
+          const oneDay = 24 * 60 * 60 * 1000
+          if (props.max.getTime() - props.min.getTime() <= oneDay) {
+            baseline = props.min
+          }
+        }
         const date = convertStringArrayToDate(
           val,
           props.precision,
           props.columns,
-          value ?? undefined
+          baseline
         )
         setValue(date, true)
       },
-      [setValue, props.precision, props.columns, value]
+      [setValue, props.precision, props.columns, value, props.min, props.max]
     )
 
     const onSelect = useMemoizedFn((val: PickerValue[]) => {

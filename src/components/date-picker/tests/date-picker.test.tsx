@@ -486,6 +486,32 @@ describe('DatePicker', () => {
       expect(result.getTime()).toBeGreaterThanOrEqual(min.getTime())
     })
 
+    test('partial columns with exactly one day window should still respect min and max', async () => {
+      jest.useFakeTimers({ now: new Date('2026-04-17 10:00:00') })
+
+      const min = new Date('2025-09-02 14:00:00')
+      const max = new Date('2025-09-03 14:00:00')
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker
+          visible
+          precision='minute'
+          columns={[HOUR_COLUMN, MINUTE_COLUMN]}
+          min={min}
+          max={max}
+          onConfirm={fn}
+        />
+      )
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      const result = fn.mock.calls[0][0]
+      expect(result.getTime()).toBeLessThanOrEqual(max.getTime())
+      expect(result.getTime()).toBeGreaterThanOrEqual(min.getTime())
+    })
+
     test('empty columns should use default behavior', async () => {
       const fn = jest.fn()
       const { getByText } = render(

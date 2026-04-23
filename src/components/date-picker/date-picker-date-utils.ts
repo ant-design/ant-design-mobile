@@ -274,27 +274,67 @@ export function convertStringArrayToDate<
 ): Date {
   const effectiveBaseline = baselineDate || new Date()
   const hasCustomColumns = columns && columns.length > 0
-  const finalColumns = hasCustomColumns ? columns : getDefaultColumns(precision)
+  const rank = precisionRankRecord[precision]
+  const defaultColumns = getDefaultColumns(precision)
+  const finalColumns = hasCustomColumns
+    ? columns.filter(col => {
+        const colPrecision = columnToPrecisionMap[col]
+        return rank >= precisionRankRecord[colPrecision]
+      })
+    : defaultColumns
+
+  const precisionDefaults: Record<
+    DatePrecision,
+    Partial<Record<DateColumnType, string>>
+  > = {
+    year: {
+      [MONTH_COLUMN]: '1',
+      [DAY_COLUMN]: '1',
+      [HOUR_COLUMN]: '0',
+      [MINUTE_COLUMN]: '0',
+      [SECOND_COLUMN]: '0',
+    },
+    month: {
+      [DAY_COLUMN]: '1',
+      [HOUR_COLUMN]: '0',
+      [MINUTE_COLUMN]: '0',
+      [SECOND_COLUMN]: '0',
+    },
+    day: {
+      [HOUR_COLUMN]: '0',
+      [MINUTE_COLUMN]: '0',
+      [SECOND_COLUMN]: '0',
+    },
+    hour: {
+      [MINUTE_COLUMN]: '0',
+      [SECOND_COLUMN]: '0',
+    },
+    minute: {
+      [SECOND_COLUMN]: '0',
+    },
+    second: {},
+  }
+
+  const defaults = precisionDefaults[precision]
 
   const dateParts = {
-    [YEAR_COLUMN]: hasCustomColumns
-      ? effectiveBaseline.getFullYear().toString()
-      : '1900',
-    [MONTH_COLUMN]: hasCustomColumns
+    [YEAR_COLUMN]: effectiveBaseline.getFullYear().toString(),
+    [MONTH_COLUMN]: finalColumns.includes(MONTH_COLUMN)
       ? (effectiveBaseline.getMonth() + 1).toString()
-      : '1',
-    [DAY_COLUMN]: hasCustomColumns
+      : (defaults[MONTH_COLUMN] ??
+        (effectiveBaseline.getMonth() + 1).toString()),
+    [DAY_COLUMN]: finalColumns.includes(DAY_COLUMN)
       ? effectiveBaseline.getDate().toString()
-      : '1',
-    [HOUR_COLUMN]: hasCustomColumns
+      : (defaults[DAY_COLUMN] ?? effectiveBaseline.getDate().toString()),
+    [HOUR_COLUMN]: finalColumns.includes(HOUR_COLUMN)
       ? effectiveBaseline.getHours().toString()
-      : '0',
-    [MINUTE_COLUMN]: hasCustomColumns
+      : (defaults[HOUR_COLUMN] ?? effectiveBaseline.getHours().toString()),
+    [MINUTE_COLUMN]: finalColumns.includes(MINUTE_COLUMN)
       ? effectiveBaseline.getMinutes().toString()
-      : '0',
-    [SECOND_COLUMN]: hasCustomColumns
+      : (defaults[MINUTE_COLUMN] ?? effectiveBaseline.getMinutes().toString()),
+    [SECOND_COLUMN]: finalColumns.includes(SECOND_COLUMN)
       ? effectiveBaseline.getSeconds().toString()
-      : '0',
+      : (defaults[SECOND_COLUMN] ?? effectiveBaseline.getSeconds().toString()),
   }
 
   finalColumns.forEach((columnType, index) => {
