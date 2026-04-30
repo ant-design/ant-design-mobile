@@ -198,7 +198,137 @@ describe('Swiper', () => {
     const { getByText } = render(<App />)
 
     fireEvent.click(getByText('to'))
-    expect(onIndexChange).toBeCalledWith(2)
+    expect(onIndexChange).toBeCalledWith(2, 'swipeTo')
+  })
+
+  test('`onIndexChange` source should be `swipeNext` when use `swipeNext`', () => {
+    const onIndexChange = jest.fn()
+    const App = () => {
+      const ref = useRef<SwiperRef>(null)
+      return (
+        <>
+          <Swiper ref={ref} onIndexChange={onIndexChange}>
+            {items}
+          </Swiper>
+          <button
+            onClick={() => {
+              ref.current?.swipeNext()
+            }}
+          >
+            next
+          </button>
+        </>
+      )
+    }
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('next'))
+    expect(onIndexChange).toBeCalledWith(1, 'swipeNext')
+  })
+
+  test('`onIndexChange` source should be `swipePrev` when use `swipePrev`', () => {
+    const onIndexChange = jest.fn()
+    const App = () => {
+      const ref = useRef<SwiperRef>(null)
+      return (
+        <>
+          <Swiper defaultIndex={1} ref={ref} onIndexChange={onIndexChange}>
+            {items}
+          </Swiper>
+          <button
+            onClick={() => {
+              ref.current?.swipePrev()
+            }}
+          >
+            prev
+          </button>
+        </>
+      )
+    }
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('prev'))
+    expect(onIndexChange).toBeCalledWith(0, 'swipePrev')
+  })
+
+  test('`onIndexChange` source should be `autoplay`', () => {
+    jest.useFakeTimers()
+    const onIndexChange = jest.fn()
+    render(
+      <Swiper autoplay onIndexChange={onIndexChange}>
+        {items}
+      </Swiper>
+    )
+
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+
+    expect(onIndexChange).toBeCalledWith(1, 'autoplay')
+    jest.useRealTimers()
+  })
+
+  test('`onIndexChange` source should be `autoplay` when autoplay reverse', () => {
+    jest.useFakeTimers()
+    const onIndexChange = jest.fn()
+    render(
+      <Swiper autoplay='reverse' defaultIndex={1} onIndexChange={onIndexChange}>
+        {items}
+      </Swiper>
+    )
+
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+
+    expect(onIndexChange).toBeCalledWith(0, 'autoplay')
+    jest.useRealTimers()
+  })
+
+  test('`onIndexChange` source should be `drag` when dragged', async () => {
+    const onIndexChange = jest.fn()
+    render(<Swiper onIndexChange={onIndexChange}>{items}</Swiper>)
+
+    const el = $$(`.${classPrefix}-track`)[0]
+    await mockDrag(
+      el,
+      [
+        { clientX: 300, clientY: 0 },
+        {
+          clientX: 200,
+          clientY: 25,
+        },
+        {
+          clientX: 100,
+          clientY: 30,
+        },
+      ],
+      5
+    )
+
+    expect(onIndexChange).toBeCalledWith(1, 'drag')
+  })
+
+  test('`onIndexChange` source should be `resize` when current index out of range', () => {
+    const onIndexChange = jest.fn()
+    const App = () => {
+      const [list, setList] = useState(['1', '2', '3'])
+      return (
+        <>
+          <Swiper defaultIndex={2} onIndexChange={onIndexChange}>
+            {list.map(item => (
+              <Swiper.Item key={item}>{item}</Swiper.Item>
+            ))}
+          </Swiper>
+          <button onClick={() => setList(['1', '2'])}>shrink</button>
+        </>
+      )
+    }
+
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('shrink'))
+    expect(onIndexChange).toBeCalledWith(1, 'resize')
   })
 
   test('`onIndexChange` should not be called when use `swipeTo` equal value', () => {

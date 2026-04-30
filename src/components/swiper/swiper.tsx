@@ -42,6 +42,14 @@ export type SwiperRef = {
   swipePrev: () => void
 }
 
+export type SwiperIndexChangeSource =
+  | 'drag'
+  | 'autoplay'
+  | 'swipeTo'
+  | 'swipeNext'
+  | 'swipePrev'
+  | 'resize'
+
 export type SwiperProps = {
   defaultIndex?: number
   allowTouchMove?: boolean
@@ -49,7 +57,7 @@ export type SwiperProps = {
   autoplayInterval?: number
   loop?: boolean
   direction?: 'horizontal' | 'vertical'
-  onIndexChange?: (index: number) => void
+  onIndexChange?: (index: number, source: SwiperIndexChangeSource) => void
   indicatorProps?: Pick<PageIndicatorProps, 'color' | 'style' | 'className'>
   indicator?: false | ((total: number, current: number) => ReactNode)
   slideSize?: number
@@ -216,7 +224,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
             const index = Math.round(
               (offset + velocity * 2000 * direction) / slidePixels
             )
-            swipeTo(bound(index, minIndex, maxIndex))
+            swipeTo(bound(index, minIndex, maxIndex), false, 'drag')
             window.setTimeout(() => {
               setDragging(false)
             })
@@ -256,14 +264,18 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         }
       )
 
-      function swipeTo(index: number, immediate = false) {
+      function swipeTo(
+        index: number,
+        immediate = false,
+        source: SwiperIndexChangeSource = 'swipeTo'
+      ) {
         const roundedIndex = Math.round(index)
         const targetIndex = loop
           ? modulus(roundedIndex, mergedTotal)
           : bound(roundedIndex, 0, mergedTotal - 1)
 
         if (targetIndex !== getCurrent()) {
-          props.onIndexChange?.(targetIndex)
+          props.onIndexChange?.(targetIndex, source)
         }
 
         setCurrent(targetIndex)
@@ -275,11 +287,11 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       }
 
       function swipeNext() {
-        swipeTo(Math.round(position.get() / 100) + 1)
+        swipeTo(Math.round(position.get() / 100) + 1, false, 'swipeNext')
       }
 
       function swipePrev() {
-        swipeTo(Math.round(position.get() / 100) - 1)
+        swipeTo(Math.round(position.get() / 100) - 1, false, 'swipePrev')
       }
 
       useImperativeHandle(ref, () => ({
@@ -291,7 +303,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       useIsomorphicLayoutEffect(() => {
         const maxIndex = mergedTotal - 1
         if (current > maxIndex) {
-          swipeTo(maxIndex, true)
+          swipeTo(maxIndex, true, 'resize')
         }
       })
 
@@ -300,9 +312,9 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       const runTimeSwiper = () => {
         timeoutRef.current = window.setTimeout(() => {
           if (autoplay === 'reverse') {
-            swipePrev()
+            swipeTo(Math.round(position.get() / 100) - 1, false, 'autoplay')
           } else {
-            swipeNext()
+            swipeTo(Math.round(position.get() / 100) + 1, false, 'autoplay')
           }
           runTimeSwiper()
         }, autoplayInterval)

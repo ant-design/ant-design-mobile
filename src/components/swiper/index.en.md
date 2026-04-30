@@ -58,7 +58,7 @@ Use `total` with `renderProps` for render. Not support `loop`
 | indicator | Render a customized indicator | `(total: number, current: number) => ReactNode` | - |
 | indicatorProps | Related attributes of the indicator | support [PageIndicator](/components/page-indicator) `color` `style` `className` prop | - |
 | loop | Whether to loop | `boolean` | `false` |
-| onIndexChange | Triggered on index is changed | `(index: number) => void` | - |
+| onIndexChange | Triggered on index is changed | `(index: number, source: SwiperIndexChangeSource) => void` | - |
 | rubberband | Whether to enable the rubberband effect. | `boolean` | `true` |
 | slideSize | The slide width in percentage | `number` | `100` |
 | stuckAtBoundary | Whether to stuck at boundary in order to prevent white spaces. Only available when `loop` is `false` and `slideWidth` < 100. | `boolean` | `true` |
@@ -81,11 +81,11 @@ type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 
 ### Ref
 
-| Name      | Description                   | Type                      |
-| --------- | ----------------------------- | ------------------------- |
-| swipeNext | Switch to the next one        | `() => void`              |
-| swipePrev | Switch to the previous one    | `() => void`              |
-| swipeTo   | Switch to the specified index | `(index: number) => void` |
+| Name | Description | Type |
+| --- | --- | --- |
+| swipeNext | Switch to the next one | `() => void` |
+| swipePrev | Switch to the previous one | `() => void` |
+| swipeTo | Switch to the specified index | `(index: number, source: SwiperIndexChangeSource) => void` |
 
 ## Swiper.Item
 
