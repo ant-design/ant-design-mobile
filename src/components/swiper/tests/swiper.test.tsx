@@ -187,7 +187,7 @@ describe('Swiper', () => {
           </Swiper>
           <button
             onClick={() => {
-              ref.current?.swipeTo(3)
+              ref.current?.swipeTo(3, { source: 'swipeTo' })
             }}
           >
             to
@@ -342,7 +342,7 @@ describe('Swiper', () => {
           </Swiper>
           <button
             onClick={() => {
-              ref.current?.swipeTo(0)
+              ref.current?.swipeTo(0, { source: 'swipeTo' })
             }}
           >
             to

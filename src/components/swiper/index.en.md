@@ -85,7 +85,7 @@ type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 | --- | --- | --- |
 | swipeNext | Switch to the next one | `() => void` |
 | swipePrev | Switch to the previous one | `() => void` |
-| swipeTo | Switch to the specified index | `(index: number, source: SwiperIndexChangeSource) => void` |
+| swipeTo | Switch to the specified index | `(index: number, info?: { source: SwiperIndexChangeSource }) => void` |
 
 ## Swiper.Item
 
