@@ -70,6 +70,10 @@
 type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 ```
 
+```ts
+type SwiperIndexChangeSource = 'swipe' | 'swipeNext' | 'swipePrev' | 'resize'
+```
+
 ### CSS 变量
 
 | 属性            | 说明                 | 默认值 |

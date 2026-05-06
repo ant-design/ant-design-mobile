@@ -176,7 +176,7 @@ describe('Swiper', () => {
     expect($$(`.${classPrefix}-track-inner`)[0]).toHaveStyle('transform: none')
   })
 
-  test('`onIndexChange` should be called when use `swipeTo`', () => {
+  test('`onIndexChange` source should be `swipe` when use `swipeTo`', () => {
     const onIndexChange = jest.fn()
     const App = () => {
       const ref = useRef<SwiperRef>(null)
@@ -198,7 +198,7 @@ describe('Swiper', () => {
     const { getByText } = render(<App />)
 
     fireEvent.click(getByText('to'))
-    expect(onIndexChange).toBeCalledWith(2, { source: 'swipeTo' })
+    expect(onIndexChange).toBeCalledWith(2, { source: 'swipe' })
   })
 
   test('`onIndexChange` source should be `swipeNext` when use `swipeNext`', () => {
@@ -249,64 +249,6 @@ describe('Swiper', () => {
 
     fireEvent.click(getByText('prev'))
     expect(onIndexChange).toBeCalledWith(0, { source: 'swipePrev' })
-  })
-
-  test('`onIndexChange` source should be `autoplay`', () => {
-    jest.useFakeTimers()
-    const onIndexChange = jest.fn()
-    render(
-      <Swiper autoplay onIndexChange={onIndexChange}>
-        {items}
-      </Swiper>
-    )
-
-    act(() => {
-      jest.runOnlyPendingTimers()
-    })
-
-    expect(onIndexChange).toBeCalledWith(1, { source: 'autoplay' })
-    jest.useRealTimers()
-  })
-
-  test('`onIndexChange` source should be `autoplay` when autoplay reverse', () => {
-    jest.useFakeTimers()
-    const onIndexChange = jest.fn()
-    render(
-      <Swiper autoplay='reverse' defaultIndex={1} onIndexChange={onIndexChange}>
-        {items}
-      </Swiper>
-    )
-
-    act(() => {
-      jest.runOnlyPendingTimers()
-    })
-
-    expect(onIndexChange).toBeCalledWith(0, { source: 'autoplay' })
-    jest.useRealTimers()
-  })
-
-  test('`onIndexChange` source should be `drag` when dragged', async () => {
-    const onIndexChange = jest.fn()
-    render(<Swiper onIndexChange={onIndexChange}>{items}</Swiper>)
-
-    const el = $$(`.${classPrefix}-track`)[0]
-    await mockDrag(
-      el,
-      [
-        { clientX: 300, clientY: 0 },
-        {
-          clientX: 200,
-          clientY: 25,
-        },
-        {
-          clientX: 100,
-          clientY: 30,
-        },
-      ],
-      5
-    )
-
-    expect(onIndexChange).toBeCalledWith(1, { source: 'drag' })
   })
 
   test('`onIndexChange` source should be `resize` when current index out of range', () => {

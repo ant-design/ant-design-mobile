@@ -70,6 +70,10 @@ Use `total` with `renderProps` for render. Not support `loop`
 type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 ```
 
+```ts
+type SwiperIndexChangeSource = 'swipe' | 'swipeNext' | 'swipePrev' | 'resize'
+```
+
 ### CSS Variables
 
 | Name            | Description                              | Default |

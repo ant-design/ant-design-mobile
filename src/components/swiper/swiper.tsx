@@ -43,9 +43,7 @@ export type SwiperRef = {
 }
 
 export type SwiperIndexChangeSource =
-  | 'drag'
-  | 'autoplay'
-  | 'swipeTo'
+  | 'swipe'
   | 'swipeNext'
   | 'swipePrev'
   | 'resize'
@@ -227,7 +225,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
             const index = Math.round(
               (offset + velocity * 2000 * direction) / slidePixels
             )
-            swipeTo(bound(index, minIndex, maxIndex), 'drag', false)
+            swipeTo(bound(index, minIndex, maxIndex), 'swipe', false)
             window.setTimeout(() => {
               setDragging(false)
             })
@@ -269,7 +267,7 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
 
       function swipeTo(
         index: number,
-        source: SwiperIndexChangeSource = 'swipeTo',
+        source: SwiperIndexChangeSource = 'swipe',
         immediate = false
       ) {
         const roundedIndex = Math.round(index)
@@ -289,16 +287,16 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         })
       }
 
-      function swipeNext() {
-        swipeTo(Math.round(position.get() / 100) + 1, 'swipeNext', false)
+      function swipeNext(source: SwiperIndexChangeSource = 'swipeNext') {
+        swipeTo(Math.round(position.get() / 100) + 1, source, false)
       }
 
-      function swipePrev() {
-        swipeTo(Math.round(position.get() / 100) - 1, 'swipePrev', false)
+      function swipePrev(source: SwiperIndexChangeSource = 'swipePrev') {
+        swipeTo(Math.round(position.get() / 100) - 1, source, false)
       }
 
       useImperativeHandle(ref, () => ({
-        swipeTo: index => swipeTo(index, 'swipeTo', false),
+        swipeTo: index => swipeTo(index, 'swipe', false),
         swipeNext,
         swipePrev,
       }))
@@ -315,9 +313,9 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       const runTimeSwiper = () => {
         timeoutRef.current = window.setTimeout(() => {
           if (autoplay === 'reverse') {
-            swipeTo(Math.round(position.get() / 100) - 1, 'autoplay', false)
+            swipePrev('swipe')
           } else {
-            swipeTo(Math.round(position.get() / 100) + 1, 'autoplay', false)
+            swipeNext('swipe')
           }
           runTimeSwiper()
         }, autoplayInterval)
