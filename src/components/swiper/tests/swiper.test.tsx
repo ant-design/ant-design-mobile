@@ -187,7 +187,7 @@ describe('Swiper', () => {
           </Swiper>
           <button
             onClick={() => {
-              ref.current?.swipeTo(3, { source: 'swipeTo' })
+              ref.current?.swipeTo(3)
             }}
           >
             to
@@ -198,7 +198,7 @@ describe('Swiper', () => {
     const { getByText } = render(<App />)
 
     fireEvent.click(getByText('to'))
-    expect(onIndexChange).toBeCalledWith(2, 'swipeTo')
+    expect(onIndexChange).toBeCalledWith(2, { source: 'swipeTo' })
   })
 
   test('`onIndexChange` source should be `swipeNext` when use `swipeNext`', () => {
@@ -223,7 +223,7 @@ describe('Swiper', () => {
     const { getByText } = render(<App />)
 
     fireEvent.click(getByText('next'))
-    expect(onIndexChange).toBeCalledWith(1, 'swipeNext')
+    expect(onIndexChange).toBeCalledWith(1, { source: 'swipeNext' })
   })
 
   test('`onIndexChange` source should be `swipePrev` when use `swipePrev`', () => {
@@ -248,7 +248,7 @@ describe('Swiper', () => {
     const { getByText } = render(<App />)
 
     fireEvent.click(getByText('prev'))
-    expect(onIndexChange).toBeCalledWith(0, 'swipePrev')
+    expect(onIndexChange).toBeCalledWith(0, { source: 'swipePrev' })
   })
 
   test('`onIndexChange` source should be `autoplay`', () => {
@@ -264,7 +264,7 @@ describe('Swiper', () => {
       jest.runOnlyPendingTimers()
     })
 
-    expect(onIndexChange).toBeCalledWith(1, 'autoplay')
+    expect(onIndexChange).toBeCalledWith(1, { source: 'autoplay' })
     jest.useRealTimers()
   })
 
@@ -281,7 +281,7 @@ describe('Swiper', () => {
       jest.runOnlyPendingTimers()
     })
 
-    expect(onIndexChange).toBeCalledWith(0, 'autoplay')
+    expect(onIndexChange).toBeCalledWith(0, { source: 'autoplay' })
     jest.useRealTimers()
   })
 
@@ -306,7 +306,7 @@ describe('Swiper', () => {
       5
     )
 
-    expect(onIndexChange).toBeCalledWith(1, 'drag')
+    expect(onIndexChange).toBeCalledWith(1, { source: 'drag' })
   })
 
   test('`onIndexChange` source should be `resize` when current index out of range', () => {
@@ -328,7 +328,7 @@ describe('Swiper', () => {
     const { getByText } = render(<App />)
 
     fireEvent.click(getByText('shrink'))
-    expect(onIndexChange).toBeCalledWith(1, 'resize')
+    expect(onIndexChange).toBeCalledWith(1, { source: 'resize' })
   })
 
   test('`onIndexChange` should not be called when use `swipeTo` equal value', () => {
@@ -342,7 +342,7 @@ describe('Swiper', () => {
           </Swiper>
           <button
             onClick={() => {
-              ref.current?.swipeTo(0, { source: 'swipeTo' })
+              ref.current?.swipeTo(0)
             }}
           >
             to

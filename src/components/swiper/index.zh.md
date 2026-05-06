@@ -58,7 +58,7 @@
 | indicator | 自定义指示器 | `(total: number, current: number) => ReactNode` | - |
 | indicatorProps | 指示器的相关属性 | 支持 [PageIndicator](/zh/components/page-indicator) 的 `color` `style` `className` 属性 | - |
 | loop | 是否循环 | `boolean` | `false` |
-| onIndexChange | 切换时触发 | `(index: number, source: SwiperIndexChangeSource) => void` | - |
+| onIndexChange | 切换时触发 | `(index: number, info: { source: SwiperIndexChangeSource }) => void` | - |
 | rubberband | 是否在拖动超出内容区域时启用橡皮筋效果，仅在非 `loop` 模式下生效 | `boolean` | `true` |
 | slideSize | 滑块的宽度百分比 | `number` | `100` |
 | stuckAtBoundary | 是否在边界两边卡住，避免出现空白，仅在非 `loop` 模式且 `slideSize` < 100 时生效 | `boolean` | `true` |
@@ -81,11 +81,11 @@ type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 
 ### Ref
 
-| 属性 | 说明 | 类型 |
-| --- | --- | --- |
-| swipeNext | 切换到下一张 | `() => void` |
-| swipePrev | 切换到上一张 | `() => void` |
-| swipeTo | 切换到指定索引 | `(index: number, info?: { source: SwiperIndexChangeSource }) => void` |
+| 属性      | 说明           | 类型                      |
+| --------- | -------------- | ------------------------- |
+| swipeNext | 切换到下一张   | `() => void`              |
+| swipePrev | 切换到上一张   | `() => void`              |
+| swipeTo   | 切换到指定索引 | `(index: number) => void` |
 
 ## Swiper.Item
 
