@@ -308,14 +308,13 @@ describe('ImageViewer.Multi', () => {
     ])
 
     // 等待拖拽完成并确保指示器已更新
-    await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 100))
-    })
-
-    const indicatorElementsAfterDrag = screen.getAllByText(/\d+\s*\/\s*\d+/)
-    expect(
-      indicatorElementsAfterDrag.some(el => el.textContent?.includes('3 / 4'))
-    ).toBe(true)
+    await waitFor(() =>
+      expect(
+        screen
+          .getAllByText(/\d+\s*\/\s*\d+/)
+          .some(el => el.textContent?.includes('3 / 4'))
+      ).toBe(true)
+    )
 
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(1))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(2))
@@ -333,16 +332,13 @@ describe('ImageViewer.Multi', () => {
     ])
 
     // 等待拖拽完成并确保指示器已更新
-    await act(async () => {
-      await new Promise(resolve => setTimeout(resolve, 100))
-    })
-
-    const indicatorElementsAfterDragBack = screen.getAllByText(/\d+\s*\/\s*\d+/)
-    expect(
-      indicatorElementsAfterDragBack.some(el =>
-        el.textContent?.includes('4 / 4')
-      )
-    ).toBe(true)
+    await waitFor(() =>
+      expect(
+        screen
+          .getAllByText(/\d+\s*\/\s*\d+/)
+          .some(el => el.textContent?.includes('4 / 4'))
+      ).toBe(true)
+    )
 
     await waitFor(() => expect(onIndexChange).toBeCalledTimes(2))
     await waitFor(() => expect(onIndexChange).toBeCalledWith(3))
