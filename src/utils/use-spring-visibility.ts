@@ -1,6 +1,6 @@
 import { useIsomorphicLayoutEffect } from 'ahooks'
 import type { RefObject } from 'react'
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 export function useSpringVisibility({
   visible,
@@ -28,11 +28,14 @@ export function useSpringVisibility({
     }
   }, [visible])
 
+  const visibleRef = useRef(visible)
+  visibleRef.current = visible
+
   useEffect(() => {
     const handler = () => {
       if (document.visibilityState !== 'visible') return
       if (unmountedRef.current) return
-      if (!visible && activeRef.current && !closedRef.current) {
+      if (!visibleRef.current && activeRef.current && !closedRef.current) {
         closedRef.current = true
         setActive(false)
         afterCloseRef.current?.()
@@ -40,13 +43,13 @@ export function useSpringVisibility({
     }
     document.addEventListener('visibilitychange', handler)
     return () => document.removeEventListener('visibilitychange', handler)
-  }, [visible, setActive, unmountedRef])
+  }, [setActive, unmountedRef])
 
-  function shouldCallAfterClose(): boolean {
+  const shouldCallAfterClose = useCallback((): boolean => {
     if (closedRef.current) return false
     closedRef.current = true
     return true
-  }
+  }, [])
 
   return { shouldCallAfterClose }
 }
