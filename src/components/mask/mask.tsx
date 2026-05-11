@@ -15,6 +15,7 @@ import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import { useSpringVisibility } from '../../utils/use-spring-visibility'
 
 const classPrefix = `adm-mask`
 
@@ -71,6 +72,14 @@ export const Mask: FC<MaskProps> = p => {
   const [active, setActive] = useState(props.visible)
 
   const unmountedRef = useUnmountedRef()
+  const { shouldCallAfterClose } = useSpringVisibility({
+    visible: props.visible,
+    active,
+    setActive,
+    afterClose: props.afterClose,
+    unmountedRef,
+  })
+
   const { opacity } = useSpring({
     opacity: props.visible ? 1 : 0,
     config: {
@@ -85,10 +94,11 @@ export const Mask: FC<MaskProps> = p => {
     },
     onRest: () => {
       if (unmountedRef.current) return
-      setActive(props.visible)
       if (props.visible) {
+        setActive(true)
         props.afterShow?.()
-      } else {
+      } else if (shouldCallAfterClose()) {
+        setActive(false)
         props.afterClose?.()
       }
     },
