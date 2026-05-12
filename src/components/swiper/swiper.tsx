@@ -42,11 +42,7 @@ export type SwiperRef = {
   swipePrev: () => void
 }
 
-export type SwiperIndexChangeSource =
-  | 'swipe'
-  | 'swipeNext'
-  | 'swipePrev'
-  | 'resize'
+export type SwiperIndexChangeSource = 'auto' | 'swipe' | 'resize'
 
 export type SwiperProps = {
   defaultIndex?: number
@@ -287,11 +283,11 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
         })
       }
 
-      function swipeNext(source: SwiperIndexChangeSource = 'swipeNext') {
+      function swipeNext(source: SwiperIndexChangeSource = 'swipe') {
         swipeTo(Math.round(position.get() / 100) + 1, source, false)
       }
 
-      function swipePrev(source: SwiperIndexChangeSource = 'swipePrev') {
+      function swipePrev(source: SwiperIndexChangeSource = 'swipe') {
         swipeTo(Math.round(position.get() / 100) - 1, source, false)
       }
 
@@ -313,9 +309,9 @@ export const Swiper = forwardRef<SwiperRef, SwiperProps>(
       const runTimeSwiper = () => {
         timeoutRef.current = window.setTimeout(() => {
           if (autoplay === 'reverse') {
-            swipePrev('swipe')
+            swipePrev('auto')
           } else {
-            swipeNext('swipe')
+            swipeNext('auto')
           }
           runTimeSwiper()
         }, autoplayInterval)

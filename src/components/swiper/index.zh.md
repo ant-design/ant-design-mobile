@@ -71,7 +71,7 @@ type PropagationEvent = 'mouseup' | 'mousemove' | 'mousedown'
 ```
 
 ```ts
-type SwiperIndexChangeSource = 'swipe' | 'swipeNext' | 'swipePrev' | 'resize'
+type SwiperIndexChangeSource = 'auto' | 'swipe' | 'resize'
 ```
 
 ### CSS 变量
