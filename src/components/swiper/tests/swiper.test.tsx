@@ -246,13 +246,13 @@ describe('Swiper', () => {
     }
     const { getByText } = render(<App />)
 
-    // Test swipeNext
     fireEvent.click(getByText('next'))
     expect(onIndexChange).toBeCalledWith(2, { source: 'swipe' })
 
-    // Test swipePrev
+    onIndexChange.mockClear()
+
     fireEvent.click(getByText('prev'))
-    expect(onIndexChange).toBeCalledWith(0, { source: 'swipe' })
+    expect(onIndexChange).toBeCalledWith(1, { source: 'swipe' })
   })
 
   test('`onIndexChange` source should be `resize` when current index out of range', () => {
