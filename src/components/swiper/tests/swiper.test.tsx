@@ -176,7 +176,7 @@ describe('Swiper', () => {
     expect($$(`.${classPrefix}-track-inner`)[0]).toHaveStyle('transform: none')
   })
 
-  test('`onIndexChange` should be called when use `swipeTo`', () => {
+  test('`onIndexChange` source should be `swipe` when use `swipeTo`', () => {
     const onIndexChange = jest.fn()
     const App = () => {
       const ref = useRef<SwiperRef>(null)
@@ -198,7 +198,83 @@ describe('Swiper', () => {
     const { getByText } = render(<App />)
 
     fireEvent.click(getByText('to'))
-    expect(onIndexChange).toBeCalledWith(2)
+    expect(onIndexChange).toBeCalledWith(2, { source: 'swipe' })
+  })
+
+  test('`onIndexChange` source should be `auto` when autoplay', () => {
+    jest.useFakeTimers()
+    const onIndexChange = jest.fn()
+    render(
+      <Swiper autoplay onIndexChange={onIndexChange}>
+        {items}
+      </Swiper>
+    )
+
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+
+    expect(onIndexChange).toBeCalledWith(1, { source: 'auto' })
+    jest.useRealTimers()
+  })
+
+  test('`onIndexChange` source should be `swipe` when use `swipeNext` and `swipePrev`', () => {
+    const onIndexChange = jest.fn()
+    const App = () => {
+      const ref = useRef<SwiperRef>(null)
+      return (
+        <>
+          <Swiper defaultIndex={1} ref={ref} onIndexChange={onIndexChange}>
+            {items}
+          </Swiper>
+          <button
+            onClick={() => {
+              ref.current?.swipeNext()
+            }}
+          >
+            next
+          </button>
+          <button
+            onClick={() => {
+              ref.current?.swipePrev()
+            }}
+          >
+            prev
+          </button>
+        </>
+      )
+    }
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('next'))
+    expect(onIndexChange).toBeCalledWith(2, { source: 'swipe' })
+
+    onIndexChange.mockClear()
+
+    fireEvent.click(getByText('prev'))
+    expect(onIndexChange).toBeCalledWith(1, { source: 'swipe' })
+  })
+
+  test('`onIndexChange` source should be `resize` when current index out of range', () => {
+    const onIndexChange = jest.fn()
+    const App = () => {
+      const [list, setList] = useState(['1', '2', '3'])
+      return (
+        <>
+          <Swiper defaultIndex={2} onIndexChange={onIndexChange}>
+            {list.map(item => (
+              <Swiper.Item key={item}>{item}</Swiper.Item>
+            ))}
+          </Swiper>
+          <button onClick={() => setList(['1', '2'])}>shrink</button>
+        </>
+      )
+    }
+
+    const { getByText } = render(<App />)
+
+    fireEvent.click(getByText('shrink'))
+    expect(onIndexChange).toBeCalledWith(1, { source: 'resize' })
   })
 
   test('`onIndexChange` should not be called when use `swipeTo` equal value', () => {
