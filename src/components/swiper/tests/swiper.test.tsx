@@ -201,13 +201,30 @@ describe('Swiper', () => {
     expect(onIndexChange).toBeCalledWith(2, { source: 'swipe' })
   })
 
-  test('`onIndexChange` source should be `swipeNext` when use `swipeNext`', () => {
+  test('`onIndexChange` source should be `auto` when autoplay', () => {
+    jest.useFakeTimers()
+    const onIndexChange = jest.fn()
+    render(
+      <Swiper autoplay onIndexChange={onIndexChange}>
+        {items}
+      </Swiper>
+    )
+
+    act(() => {
+      jest.runOnlyPendingTimers()
+    })
+
+    expect(onIndexChange).toBeCalledWith(1, { source: 'auto' })
+    jest.useRealTimers()
+  })
+
+  test('`onIndexChange` source should be `swipe` when use `swipeNext` and `swipePrev`', () => {
     const onIndexChange = jest.fn()
     const App = () => {
       const ref = useRef<SwiperRef>(null)
       return (
         <>
-          <Swiper ref={ref} onIndexChange={onIndexChange}>
+          <Swiper defaultIndex={1} ref={ref} onIndexChange={onIndexChange}>
             {items}
           </Swiper>
           <button
@@ -217,24 +234,6 @@ describe('Swiper', () => {
           >
             next
           </button>
-        </>
-      )
-    }
-    const { getByText } = render(<App />)
-
-    fireEvent.click(getByText('next'))
-    expect(onIndexChange).toBeCalledWith(1, { source: 'swipeNext' })
-  })
-
-  test('`onIndexChange` source should be `swipePrev` when use `swipePrev`', () => {
-    const onIndexChange = jest.fn()
-    const App = () => {
-      const ref = useRef<SwiperRef>(null)
-      return (
-        <>
-          <Swiper defaultIndex={1} ref={ref} onIndexChange={onIndexChange}>
-            {items}
-          </Swiper>
           <button
             onClick={() => {
               ref.current?.swipePrev()
@@ -247,8 +246,13 @@ describe('Swiper', () => {
     }
     const { getByText } = render(<App />)
 
+    // Test swipeNext
+    fireEvent.click(getByText('next'))
+    expect(onIndexChange).toBeCalledWith(2, { source: 'swipe' })
+
+    // Test swipePrev
     fireEvent.click(getByText('prev'))
-    expect(onIndexChange).toBeCalledWith(0, { source: 'swipePrev' })
+    expect(onIndexChange).toBeCalledWith(0, { source: 'swipe' })
   })
 
   test('`onIndexChange` source should be `resize` when current index out of range', () => {
