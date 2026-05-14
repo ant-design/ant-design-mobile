@@ -120,9 +120,7 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
   const [innerValue, setInnerValue] = useState<CascaderValue[]>(value)
 
   useEffect(() => {
-    if (!visible) {
-      setInnerValue(value)
-    }
+    setInnerValue(value)
   }, [visible, value])
 
   const cascaderElement = withNativeProps(
