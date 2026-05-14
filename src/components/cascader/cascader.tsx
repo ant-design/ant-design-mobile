@@ -1,10 +1,10 @@
 import React, {
   useState,
-  useEffect,
   ReactNode,
   forwardRef,
   useImperativeHandle,
 } from 'react'
+import { useDeepCompareEffect } from 'ahooks'
 import Popup, { PopupProps } from '../popup'
 import {
   CascaderValue,
@@ -119,7 +119,7 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
 
   const [innerValue, setInnerValue] = useState<CascaderValue[]>(value)
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     setInnerValue(value)
   }, [visible, value])
 
