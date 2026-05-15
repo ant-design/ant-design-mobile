@@ -1,24 +1,23 @@
 import React, {
-  useState,
   ReactNode,
   forwardRef,
+  useEffect,
   useImperativeHandle,
+  useState,
 } from 'react'
-import { useDeepCompareEffect } from 'ahooks'
-import Popup, { PopupProps } from '../popup'
-import {
-  CascaderValue,
-  CascaderValueExtend,
-  CascaderOption,
-} from '../cascader-view'
-import { mergeProps } from '../../utils/with-default-props'
+import type { FieldNamesType } from '../../hooks'
+import { useFieldNames } from '../../hooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
-import CascaderView from '../cascader-view'
-import { useConfig } from '../config-provider'
+import { mergeProps } from '../../utils/with-default-props'
+import CascaderView, {
+  CascaderOption,
+  CascaderValue,
+  CascaderValueExtend,
+} from '../cascader-view'
 import { useCascaderValueExtend } from '../cascader-view/use-cascader-value-extend'
-import { useFieldNames } from '../../hooks'
-import type { FieldNamesType } from '../../hooks'
+import { useConfig } from '../config-provider'
+import Popup, { PopupProps } from '../popup'
 
 const classPrefix = `adm-cascader`
 
@@ -119,7 +118,7 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
 
   const [innerValue, setInnerValue] = useState<CascaderValue[]>(value)
 
-  useDeepCompareEffect(() => {
+  useEffect(() => {
     setInnerValue(value)
   }, [visible, value])
 
