@@ -70,13 +70,18 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
 
   const onChange = useCallback(
     (val: PickerValue[]) => {
-      const date = convertStringArrayToDate(val, props.precision)
+      const date = convertStringArrayToDate(
+        val,
+        props.precision,
+        undefined,
+        value ?? undefined
+      )
       if (date) {
         setValue(date)
         props.onChange?.(date)
       }
     },
-    [props.onChange, props.precision]
+    [props.onChange, props.precision, value]
   )
 
   return withNativeProps(
@@ -90,7 +95,9 @@ export const DatePickerView: FC<DatePickerViewProps> = p => {
           props.precision,
           mergedRenderLabel,
           props.filter,
-          props.tillNow
+          props.tillNow,
+          undefined,
+          value ?? undefined
         )
       }
       loading={props.loading}
