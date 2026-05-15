@@ -72,6 +72,45 @@ function RenderChildrenDemo() {
   )
 }
 
+// 手动控制选中值
+function SelectedDemo() {
+  const [value, setValue] = useState<(string | null)[]>([])
+
+  const [selectValue, setSelectValue] = useState<(string | null)[]>([])
+  return (
+    <Picker
+      columns={basicColumns}
+      value={value}
+      title={
+        <div
+          onClick={() => {
+            setSelectValue(['Fri', 'pm'])
+          }}
+        >
+          设置为星期五下午
+        </div>
+      }
+      selectValue={selectValue}
+      onConfirm={setValue}
+      onSelect={(val, extend) => {
+        console.log('onSelect', val, extend.items)
+        setSelectValue(val)
+      }}
+    >
+      {(items, { open }) => {
+        return (
+          <Space align='center'>
+            <Button onClick={open}>选择</Button>
+            {items.every(item => item === null)
+              ? '未选择'
+              : items.map(item => item?.label ?? '未选择').join(' - ')}
+          </Space>
+        )
+      }}
+    </Picker>
+  )
+}
+
 export default () => {
   return (
     <>
@@ -81,6 +120,10 @@ export default () => {
 
       <DemoBlock title='渲染所选值'>
         <RenderChildrenDemo />
+      </DemoBlock>
+
+      <DemoBlock title='使用 selectValue 来控制选择值'>
+        <SelectedDemo />
       </DemoBlock>
 
       <DemoBlock title='使用 actions 来控制显示/隐藏'>
