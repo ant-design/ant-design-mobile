@@ -8,6 +8,7 @@ import { renderToContainer } from '../../utils/render-to-container'
 import { ShouldRender } from '../../utils/should-render'
 import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useLockScroll } from '../../utils/use-lock-scroll'
+import { useSpringVisibility } from '../../utils/use-spring-visibility'
 import { mergeProps } from '../../utils/with-default-props'
 import { withStopPropagation } from '../../utils/with-stop-propagation'
 import { useConfig } from '../config-provider'
@@ -42,6 +43,15 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
   const mergedProps = mergeProps(defaultProps, componentConfig, props)
 
   const unmountedRef = useUnmountedRef()
+  const [active, setActive] = useState(mergedProps.visible)
+  const { shouldCallAfterClose } = useSpringVisibility({
+    visible: mergedProps.visible,
+    active,
+    setActive,
+    afterClose: mergedProps.afterClose,
+    unmountedRef,
+  })
+
   const style = useSpring({
     scale: mergedProps.visible ? 1 : 0.8,
     opacity: mergedProps.visible ? 1 : 0,
@@ -53,16 +63,16 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
     },
     onRest: () => {
       if (unmountedRef.current) return
-      setActive(mergedProps.visible)
       if (mergedProps.visible) {
+        setActive(true)
         mergedProps.afterShow?.()
-      } else {
+      } else if (shouldCallAfterClose()) {
+        setActive(false)
         mergedProps.afterClose?.()
       }
     },
   })
 
-  const [active, setActive] = useState(mergedProps.visible)
   useIsomorphicLayoutEffect(() => {
     if (mergedProps.visible) {
       setActive(true)

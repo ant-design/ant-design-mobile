@@ -14,6 +14,7 @@ import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useConfig } from '../config-provider'
 import { useDrag } from '@use-gesture/react'
+import { useSpringVisibility } from '../../utils/use-spring-visibility'
 
 const classPrefix = `adm-popup`
 
@@ -44,13 +45,21 @@ export const Popup: FC<PopupProps> = p => {
   const ref = useRef<HTMLDivElement>(null)
   useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
+  const unmountedRef = useUnmountedRef()
+  const { shouldCallAfterClose } = useSpringVisibility({
+    visible: props.visible,
+    active,
+    setActive,
+    afterClose: props.afterClose,
+    unmountedRef,
+  })
+
   useIsomorphicLayoutEffect(() => {
     if (props.visible) {
       setActive(true)
     }
   }, [props.visible])
 
-  const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({
     percent: props.visible ? 0 : 100,
     config: {
@@ -61,10 +70,11 @@ export const Popup: FC<PopupProps> = p => {
     },
     onRest: () => {
       if (unmountedRef.current) return
-      setActive(props.visible)
       if (props.visible) {
+        setActive(true)
         props.afterShow?.()
-      } else {
+      } else if (shouldCallAfterClose()) {
+        setActive(false)
         props.afterClose?.()
       }
     },
