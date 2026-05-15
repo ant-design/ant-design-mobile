@@ -114,6 +114,7 @@ const inID = mergeLocale(base, {
   Stepper: { decrease: 'mengurangi', increase: 'meningkat' },
   Switch: { name: 'Mengalihkan' },
   Selector: { name: 'Grup pilih' },
+  TextArea: { clear: 'Hapus' },
 })
 
 export default inID

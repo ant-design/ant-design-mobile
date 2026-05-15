@@ -145,6 +145,9 @@ const ruRU = mergeLocale(base, {
   Selector: {
     name: 'Селектор',
   },
+  TextArea: {
+    clear: 'очистить',
+  },
 })
 
 export default ruRU

@@ -1,6 +1,8 @@
 import React, { createRef } from 'react'
-import { render, fireEvent, act } from 'testing'
+import { act, fireEvent, render, screen } from 'testing'
 import TextArea, { TextAreaRef } from '..'
+import * as validate from '../../../utils/validate'
+import ConfigProvider from '../../config-provider'
 
 const classPrefix = 'adm-text-area'
 const lineHeight = 25
@@ -164,5 +166,214 @@ describe('TextArea', () => {
     fireEvent.keyDown(textarea, { keyCode: 14 })
     expect(onEnterPress).toBeCalledTimes(2)
     fireEvent.keyUp(textarea, { keyCode: 14 })
+  })
+
+  test('the clear button should works', async () => {
+    const { container } = render(
+      <TextArea clearable defaultValue={'testValue'} />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+
+    // For non-autoSize, clear button only shows when focused
+    let clearBtn = container.querySelector(`.${classPrefix}-clear`)
+    expect(clearBtn).not.toBeInTheDocument()
+
+    // Focus the textarea to show clear button
+    fireEvent.focus(textarea)
+    clearBtn = container.querySelector(`.${classPrefix}-clear`)
+    expect(clearBtn).toBeInTheDocument()
+
+    fireEvent.click(clearBtn as HTMLElement)
+    expect(textarea.value).toBe('')
+  })
+
+  test('clear button should preventDefault on mouseDown', () => {
+    const { container } = render(
+      <TextArea clearable defaultValue={'testValue'} />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    fireEvent.focus(textarea)
+    const clearBtn = container.querySelector(
+      `.${classPrefix}-clear`
+    ) as HTMLElement
+    expect(clearBtn).toBeInTheDocument()
+    // onMouseDown calls e.preventDefault() to keep textarea focused
+    const prevented = fireEvent.mouseDown(clearBtn)
+    expect(prevented).toBe(false)
+  })
+
+  test('should works with composition on iOS', async () => {
+    const spy = jest.spyOn(validate, 'isIOS').mockReturnValue(true)
+    const onCompositionStart = jest.fn()
+    const onCompositionEnd = jest.fn()
+    const { container } = render(
+      <TextArea
+        clearable
+        defaultValue={'testValue'}
+        onCompositionStart={onCompositionStart}
+        onCompositionEnd={onCompositionEnd}
+      />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    act(() => {
+      textarea.focus()
+    })
+    expect(textarea).toHaveFocus()
+    fireEvent.compositionStart(textarea)
+    expect(onCompositionStart).toBeCalledTimes(1)
+    fireEvent.compositionEnd(textarea)
+    expect(onCompositionEnd).toBeCalledTimes(1)
+    fireEvent.compositionStart(textarea)
+    expect(onCompositionStart).toBeCalledTimes(2)
+
+    const clearBtn = container.querySelector(
+      `.${classPrefix}-clear`
+    ) as HTMLElement
+    expect(clearBtn).toBeInTheDocument()
+    fireEvent.click(clearBtn)
+    expect(textarea).not.toHaveFocus()
+    spy.mockRestore()
+  })
+
+  test('should not blur on non-iOS when click clear button', async () => {
+    const spy = jest.spyOn(validate, 'isIOS').mockReturnValue(false)
+    const { container } = render(
+      <TextArea clearable defaultValue={'testValue'} />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    act(() => {
+      textarea.focus()
+    })
+    fireEvent.compositionStart(textarea)
+    expect(textarea).toHaveFocus()
+
+    const clearBtn = container.querySelector(
+      `.${classPrefix}-clear`
+    ) as HTMLElement
+    fireEvent.click(clearBtn)
+    // On non-iOS, the textarea should keep focus even during composition
+    expect(textarea).toHaveFocus()
+    expect(textarea.value).toBe('')
+    spy.mockRestore()
+  })
+
+  test('onClear callback', () => {
+    const onClear = jest.fn()
+    const { container } = render(
+      <TextArea clearable={{ onClear }} defaultValue={'testValue'} />
+    )
+    const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+    fireEvent.focus(textarea)
+    const clearBtn = container.querySelector(`.${classPrefix}-clear`)
+    fireEvent.click(clearBtn as HTMLElement)
+    expect(onClear).toBeCalledTimes(1)
+    expect(textarea.value).toBe('')
+  })
+
+  describe('clearIcon', () => {
+    it('default', () => {
+      const { baseElement } = render(
+        <TextArea value='foobar' clearable autoSize />
+      )
+      expect(baseElement.querySelector('.antd-mobile-icon')).toBeTruthy()
+    })
+
+    it('props', () => {
+      render(
+        <TextArea value='foobar' clearable={{ clearIcon: 'bamboo' }} autoSize />
+      )
+      fireEvent.focus(screen.getByRole('textbox'))
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+
+    it('context', () => {
+      render(
+        <ConfigProvider textArea={{ clearIcon: 'little' }}>
+          <TextArea value='foobar' clearable autoSize />
+        </ConfigProvider>
+      )
+      fireEvent.focus(screen.getByRole('textbox'))
+      expect(screen.getByText('little')).toBeVisible()
+    })
+
+    it('props override context', () => {
+      render(
+        <ConfigProvider textArea={{ clearIcon: 'little' }}>
+          <TextArea
+            value='foobar'
+            clearable={{ clearIcon: 'bamboo' }}
+            autoSize
+          />
+        </ConfigProvider>
+      )
+      fireEvent.focus(screen.getByRole('textbox'))
+      expect(screen.getByText('bamboo')).toBeVisible()
+    })
+  })
+
+  describe('clearable with focus behavior', () => {
+    test('non-autoSize: clear button only shows when focused and has value', () => {
+      const { container, rerender } = render(
+        <TextArea clearable value='test' />
+      )
+      let clearBtn = container.querySelector(`.${classPrefix}-clear`)
+      // Initially not focused, clear button should not be visible
+      expect(clearBtn).not.toBeInTheDocument()
+
+      // Focus but no value
+      rerender(<TextArea clearable value='' />)
+      const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+      fireEvent.focus(textarea)
+      clearBtn = container.querySelector(`.${classPrefix}-clear`)
+      expect(clearBtn).not.toBeInTheDocument()
+
+      // Focus and has value
+      rerender(<TextArea clearable value='test' />)
+      fireEvent.focus(textarea)
+      clearBtn = container.querySelector(`.${classPrefix}-clear`)
+      expect(clearBtn).toBeInTheDocument()
+
+      // Blur after focus
+      fireEvent.blur(textarea)
+      clearBtn = container.querySelector(`.${classPrefix}-clear`)
+      expect(clearBtn).not.toBeInTheDocument()
+    })
+
+    test('autoSize: clear container exists but hidden when not focused', () => {
+      const { container } = render(<TextArea clearable value='test' autoSize />)
+      let clearBtn = container.querySelector(`.${classPrefix}-clear`)
+      // Initially not focused, clear container should exist but be hidden
+      expect(clearBtn).toBeInTheDocument()
+      expect(clearBtn).toHaveClass(`${classPrefix}-clear-hidden`)
+      expect(clearBtn).toHaveAttribute('aria-hidden', 'true')
+
+      // Focus and has value - clear should be visible
+      const textarea = screen.getByRole('textbox') as HTMLTextAreaElement
+      fireEvent.focus(textarea)
+      clearBtn = container.querySelector(`.${classPrefix}-clear`)
+      expect(clearBtn).toBeInTheDocument()
+      expect(clearBtn).not.toHaveClass(`${classPrefix}-clear-hidden`)
+      expect(clearBtn).not.toHaveAttribute('aria-hidden', 'true')
+
+      // Blur after focus - clear should be hidden again
+      fireEvent.blur(textarea)
+      clearBtn = container.querySelector(`.${classPrefix}-clear`)
+      expect(clearBtn).toBeInTheDocument()
+      expect(clearBtn).toHaveClass(`${classPrefix}-clear-hidden`)
+      expect(clearBtn).toHaveAttribute('aria-hidden', 'true')
+    })
+
+    test('disabled or readOnly should not show clear', () => {
+      const { container } = render(<TextArea clearable value='test' disabled />)
+      const clearBtn = container.querySelector(`.${classPrefix}-clear`)
+      expect(clearBtn).not.toBeInTheDocument()
+
+      // Test readOnly
+      const { container: container2 } = render(
+        <TextArea clearable value='test' readOnly />
+      )
+      const clearBtn2 = container2.querySelector(`.${classPrefix}-clear`)
+      expect(clearBtn2).not.toBeInTheDocument()
+    })
   })
 })

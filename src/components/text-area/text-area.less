@@ -5,10 +5,17 @@
   --disabled-color: var(--adm-color-weak);
   --text-align: left;
   --count-text-align: right;
+  --clear-icon-padding: 28px;
   position: relative;
   width: 100%;
   max-width: 100%;
   max-height: 100%;
+}
+
+.adm-text-area-clearable {
+  .adm-text-area-element {
+    padding-right: var(--clear-icon-padding);
+  }
 }
 
 .adm-text-area-element {
@@ -74,4 +81,26 @@
   color: var(--adm-color-weak);
   font-size: var(--adm-font-size-9);
   padding-top: 8px;
+}
+
+.adm-text-area-clear {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--adm-color-light);
+  &:active {
+    color: var(--adm-color-weak);
+  }
+
+  padding: 4px;
+  cursor: pointer;
+  .antd-mobile-icon {
+    display: block;
+    font-size: var(--adm-font-size-7);
+  }
+
+  &-hidden {
+    visibility: hidden;
+    pointer-events: none;
+  }
 }

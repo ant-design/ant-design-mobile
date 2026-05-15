@@ -1,5 +1,5 @@
-import './text-area.less'
 import { TextArea } from './text-area'
+import './text-area.less'
 
 export type { TextAreaProps, TextAreaRef } from './text-area'
 

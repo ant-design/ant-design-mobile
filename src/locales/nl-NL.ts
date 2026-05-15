@@ -138,6 +138,9 @@ const nlNL = mergeLocale(base, {
   Selector: {
     name: 'Selector',
   },
+  TextArea: {
+    clear: 'wissen',
+  },
 })
 
 export default nlNL
