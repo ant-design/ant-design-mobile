@@ -71,7 +71,7 @@ export const Selector = <V extends SelectorValue>(p: SelectorProps<V>) => {
   const { locale } = useConfig()
 
   const items = props.options.map(option => {
-    const active = (value || []).includes(option[valueName])
+    const active = (Array.isArray(value) ? value : [value]).includes(option[valueName])
     const disabled = option[disabledName] || props.disabled
     const itemCls = classNames(`${classPrefix}-item`, {
       [`${classPrefix}-item-active`]: active && !props.multiple,
