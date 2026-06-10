@@ -5,7 +5,9 @@ import { devError } from './dev-log'
 let tenPxTester: HTMLDivElement | null = null
 let tester: HTMLDivElement | null = null
 
-if (canUseDom) {
+function initialize() {
+  if (tenPxTester !== null) return
+  if (!canUseDom || !document.body) return
   tenPxTester = document.createElement('div')
   tenPxTester.className = 'adm-px-tester'
   tenPxTester.style.setProperty('--size', '10')
@@ -24,6 +26,7 @@ if (canUseDom) {
 }
 
 export function convertPx(px: number) {
+  initialize()
   if (tenPxTester === null || tester === null) return px
   if (tenPxTester.getBoundingClientRect().height === 10) {
     return px
