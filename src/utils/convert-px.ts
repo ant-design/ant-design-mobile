@@ -1,6 +1,6 @@
 import { canUseDom } from './can-use-dom'
-import { isDev } from './is-dev'
 import { devError } from './dev-log'
+import { isDev } from './is-dev'
 
 let tenPxTester: HTMLDivElement | null = null
 let tester: HTMLDivElement | null = null
@@ -26,7 +26,9 @@ function initialize() {
 }
 
 export function convertPx(px: number) {
-  initialize()
+  if (tenPxTester === null) {
+    initialize()
+  }
   if (tenPxTester === null || tester === null) return px
   if (tenPxTester.getBoundingClientRect().height === 10) {
     return px
