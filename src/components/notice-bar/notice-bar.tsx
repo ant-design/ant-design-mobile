@@ -166,7 +166,8 @@ export const NoticeBar = memo<NoticeBarProps>(props => {
           {mergedProps.closeable && (
             <div
               className={`${classPrefix}-close`}
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation()
                 setVisible(false)
                 mergedProps.onClose?.()
               }}

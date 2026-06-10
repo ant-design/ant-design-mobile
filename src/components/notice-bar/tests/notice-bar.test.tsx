@@ -109,6 +109,25 @@ describe('NoticeBar', () => {
     expect(handleClick).toHaveBeenCalled()
   })
 
+  test('closeable click should not bubble to onClick', () => {
+    const handleClick = jest.fn()
+    const handleClose = jest.fn()
+    const { container } = render(
+      <NoticeBar
+        content='notice'
+        closeable
+        onClick={handleClick}
+        onClose={handleClose}
+      />
+    )
+
+    const closeIcon = container.querySelectorAll(`.${classPrefix}-close`)[0]
+    fireEvent.click(closeIcon)
+
+    expect(handleClose).toHaveBeenCalledTimes(1)
+    expect(handleClick).not.toHaveBeenCalled()
+  })
+
   describe('closeIcon', () => {
     it('default', () => {
       const { baseElement } = render(<NoticeBar content='foobar' closeable />)
