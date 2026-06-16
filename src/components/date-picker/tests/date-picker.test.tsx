@@ -16,6 +16,13 @@ import {
   convertStringArrayToDate,
   generateDatePickerColumns,
 } from '../date-picker-week-utils'
+import {
+  DAY_COLUMN,
+  HOUR_COLUMN,
+  MINUTE_COLUMN,
+  MONTH_COLUMN,
+  YEAR_COLUMN,
+} from '../util'
 
 const classPrefix = `adm-picker`
 
@@ -291,5 +298,235 @@ describe('DatePicker', () => {
     expect(monthEl).toBeInTheDocument()
     const dayEl = await screen.findByText('day-selected')
     expect(dayEl).toBeInTheDocument()
+  })
+
+  describe('columns control', () => {
+    afterEach(() => {
+      jest.useRealTimers()
+    })
+
+    test('custom columns order should work', async () => {
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker
+          visible
+          precision='day'
+          columns={[MONTH_COLUMN, DAY_COLUMN, YEAR_COLUMN]}
+          defaultValue={new Date('2025-09-02')}
+          onConfirm={fn}
+        />
+      )
+
+      expect(
+        document.body.querySelectorAll(`.${classPrefix}-view-column`).length
+      ).toBe(3)
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      const result = fn.mock.calls[0][0]
+      expect(result.getFullYear()).toBe(2025)
+      expect(result.getMonth()).toBe(8)
+      expect(result.getDate()).toBe(2)
+    })
+
+    test('partial columns should use current time for missing values', async () => {
+      const mockNow = new Date('2025-09-02 14:30:45')
+      jest.useFakeTimers({ now: mockNow })
+
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker
+          visible
+          precision='minute'
+          columns={[HOUR_COLUMN, MINUTE_COLUMN]}
+          onConfirm={fn}
+        />
+      )
+
+      expect(
+        document.body.querySelectorAll(`.${classPrefix}-view-column`).length
+      ).toBe(2)
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      const result = fn.mock.calls[0][0]
+      expect(result.getFullYear()).toBe(2025)
+      expect(result.getMonth()).toBe(8)
+      expect(result.getDate()).toBe(2)
+      expect(result.getHours()).toBe(14)
+      expect(result.getMinutes()).toBe(30)
+    })
+
+    test('partial columns should respect min and max', () => {
+      jest.useFakeTimers({ now: new Date('2026-04-17 10:00:00') })
+
+      render(
+        <DatePicker
+          visible
+          precision='minute'
+          columns={[HOUR_COLUMN, MINUTE_COLUMN]}
+          min={new Date('2025-09-02 14:00:00')}
+          max={new Date('2025-09-02 16:00:00')}
+        />
+      )
+
+      const pickerColumns = document.body.querySelectorAll(
+        `.${classPrefix}-view-column`
+      )
+      expect(pickerColumns.length).toBe(2)
+
+      const hourValues = Array.from(
+        pickerColumns[0].querySelectorAll(
+          `.${classPrefix}-view-column-item-label`
+        )
+      ).map(item => item.textContent)
+      expect(hourValues).toEqual(['14', '15', '16'])
+    })
+
+    test('columns should respect precision limits', async () => {
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker
+          visible
+          precision='day'
+          columns={[YEAR_COLUMN, MONTH_COLUMN, DAY_COLUMN, HOUR_COLUMN]}
+          onConfirm={fn}
+        />
+      )
+
+      expect(
+        document.body.querySelectorAll(`.${classPrefix}-view-column`).length
+      ).toBe(3)
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      expect(fn).toBeCalled()
+    })
+
+    test('columns outside precision should not affect confirmed value', async () => {
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker
+          visible
+          precision='day'
+          columns={[HOUR_COLUMN, YEAR_COLUMN, MONTH_COLUMN, DAY_COLUMN]}
+          defaultValue={new Date('2025-09-02 00:00:00')}
+          onConfirm={fn}
+        />
+      )
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      const result = fn.mock.calls[0][0]
+      expect(result.getFullYear()).toBe(2025)
+      expect(result.getMonth()).toBe(8)
+      expect(result.getDate()).toBe(2)
+      expect(result.getHours()).toBe(0)
+      expect(result.getMinutes()).toBe(0)
+      expect(result.getSeconds()).toBe(0)
+    })
+
+    test('custom day columns should keep lower precision fields at defaults', async () => {
+      jest.useFakeTimers({ now: new Date('2026-04-21 15:30:45') })
+
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker
+          visible
+          precision='day'
+          columns={[MONTH_COLUMN, DAY_COLUMN, YEAR_COLUMN]}
+          onConfirm={fn}
+        />
+      )
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      const result = fn.mock.calls[0][0]
+      expect(result.getFullYear()).toBe(2026)
+      expect(result.getMonth()).toBe(3)
+      expect(result.getDate()).toBe(21)
+      expect(result.getHours()).toBe(0)
+      expect(result.getMinutes()).toBe(0)
+      expect(result.getSeconds()).toBe(0)
+    })
+
+    test('partial columns confirmed value should respect min and max', async () => {
+      jest.useFakeTimers({ now: new Date('2026-04-17 10:00:00') })
+
+      const min = new Date('2025-09-02 14:00:00')
+      const max = new Date('2025-09-02 16:00:00')
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker
+          visible
+          precision='minute'
+          columns={[HOUR_COLUMN, MINUTE_COLUMN]}
+          min={min}
+          max={max}
+          onConfirm={fn}
+        />
+      )
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      const result = fn.mock.calls[0][0]
+      expect(result.getTime()).toBeLessThanOrEqual(max.getTime())
+      expect(result.getTime()).toBeGreaterThanOrEqual(min.getTime())
+    })
+
+    test('partial columns with exactly one day window should still respect min and max', async () => {
+      jest.useFakeTimers({ now: new Date('2026-04-17 10:00:00') })
+
+      const min = new Date('2025-09-02 14:00:00')
+      const max = new Date('2025-09-03 14:00:00')
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker
+          visible
+          precision='minute'
+          columns={[HOUR_COLUMN, MINUTE_COLUMN]}
+          min={min}
+          max={max}
+          onConfirm={fn}
+        />
+      )
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      const result = fn.mock.calls[0][0]
+      expect(result.getTime()).toBeLessThanOrEqual(max.getTime())
+      expect(result.getTime()).toBeGreaterThanOrEqual(min.getTime())
+    })
+
+    test('empty columns should use default behavior', async () => {
+      const fn = jest.fn()
+      const { getByText } = render(
+        <DatePicker visible precision='day' columns={[]} onConfirm={fn} />
+      )
+
+      expect(
+        document.body.querySelectorAll(`.${classPrefix}-view-column`).length
+      ).toBe(3)
+
+      await waitFor(() => {
+        fireEvent.click(getByText('确定'))
+      })
+
+      expect(fn).toBeCalled()
+    })
   })
 })
