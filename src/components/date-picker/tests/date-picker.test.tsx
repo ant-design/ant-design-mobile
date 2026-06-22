@@ -11,6 +11,7 @@ import {
   waitForElementToBeRemoved,
 } from 'testing'
 import DatePicker from '../'
+import { generateDatePickerColumns as generateDatePickerDateColumns } from '../date-picker-date-utils'
 import Button from '../../button'
 import {
   convertStringArrayToDate,
@@ -268,6 +269,37 @@ describe('DatePicker', () => {
       const weekColumn = columns[1] as { label: string; value: string }[]
       const weekValues = weekColumn.map(item => item.value)
       expect(weekValues).toEqual(['1'])
+    })
+  })
+
+  describe('generateDatePickerColumns for day precision', () => {
+    it('should include every day in December 1981', () => {
+      const originalTZ = process.env.TZ
+      // Asia/Singapore has a historical transition in December 1981 that
+      // makes dayjs().daysInMonth() report one day for this month.
+      process.env.TZ = 'Asia/Singapore'
+
+      try {
+        const columns = generateDatePickerDateColumns(
+          ['1981', '12', '1'],
+          new Date(1981, 0, 1),
+          new Date(1982, 0, 31),
+          'day',
+          (type, data) => type + '：' + data,
+          undefined
+        )
+
+        const dayColumn = columns[2] as { value: string }[]
+        expect(dayColumn.map(item => item.value)).toEqual(
+          Array.from({ length: 31 }, (_, index) => `${index + 1}`)
+        )
+      } finally {
+        if (originalTZ === undefined) {
+          delete process.env.TZ
+        } else {
+          process.env.TZ = originalTZ
+        }
+      }
     })
   })
 

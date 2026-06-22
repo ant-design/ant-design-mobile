@@ -1,15 +1,7 @@
-import dayjs from 'dayjs'
-import isLeapYear from 'dayjs/plugin/isLeapYear'
-import isoWeek from 'dayjs/plugin/isoWeek'
-import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear'
 import { RenderLabel } from '../date-picker-view/date-picker-view'
 import { PickerColumn } from '../picker'
 import type { DatePickerFilter } from './date-picker-utils'
 import { TILL_NOW } from './util'
-
-dayjs.extend(isoWeek)
-dayjs.extend(isoWeeksInYear)
-dayjs.extend(isLeapYear)
 
 export type DatePrecision =
   | 'year'
@@ -26,6 +18,10 @@ const precisionRankRecord: Record<DatePrecision, number> = {
   hour: 3,
   minute: 4,
   second: 5,
+}
+
+function getMonthDays(year: number, month: number) {
+  return new Date(Date.UTC(year, month, 0)).getUTCDate()
 }
 
 export function generateDatePickerColumns(
@@ -56,9 +52,6 @@ export function generateDatePickerColumns(
   const rank = precisionRankRecord[precision]
 
   const selectedYear = parseInt(selected[0])
-  const firstDayInSelectedMonth = dayjs(
-    convertStringArrayToDate([selected[0], selected[1], '1'])
-  )
   const selectedMonth = parseInt(selected[1])
   const selectedDay = parseInt(selected[2])
   const selectedHour = parseInt(selected[3])
@@ -125,7 +118,9 @@ export function generateDatePickerColumns(
   }
   if (rank >= precisionRankRecord.day) {
     const lower = isInMinMonth ? minDay : 1
-    const upper = isInMaxMonth ? maxDay : firstDayInSelectedMonth.daysInMonth()
+    const upper = isInMaxMonth
+      ? maxDay
+      : getMonthDays(selectedYear, selectedMonth)
     const days = generateColumn(lower, upper, 'day')
     ret.push(
       days.map(v => ({
