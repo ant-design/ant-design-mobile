@@ -180,6 +180,7 @@ export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         max={mergedProps.max}
         min={mergedProps.min}
         autoComplete={mergedProps.autoComplete}
+        /* https://github.com/ant-design/ant-design-mobile/issues/6636 */
         {...{ enterKeyHint: mergedProps.enterKeyHint }}
         autoFocus={mergedProps.autoFocus}
         pattern={mergedProps.pattern}

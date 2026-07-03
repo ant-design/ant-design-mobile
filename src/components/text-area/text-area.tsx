@@ -199,6 +199,7 @@ export const TextArea = forwardRef<TextAreaRef, TextAreaProps>(
           onBlur={props.onBlur}
           onClick={props.onClick}
           onKeyDown={handleKeydown}
+          /* https://github.com/ant-design/ant-design-mobile/issues/6636 */
           {...{ enterKeyHint: props.enterKeyHint }}
         />
         {count}
