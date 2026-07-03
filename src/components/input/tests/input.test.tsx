@@ -149,6 +149,12 @@ describe('Input', () => {
     expect(input.step).toBe('0.01')
   })
 
+  test('should pass enterKeyHint to native input element', () => {
+    render(<Input enterKeyHint='search' />)
+    const input = document.querySelector('input')! as HTMLInputElement
+    expect(input.getAttribute('enterkeyhint')).toBe('search')
+  })
+
   test('should works with `onEnterPress`', async () => {
     const onEnterPress = jest.fn()
     render(<Input defaultValue={'testValue'} onEnterPress={onEnterPress} />)
