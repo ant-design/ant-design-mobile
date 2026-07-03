@@ -52,8 +52,15 @@ export type InputProps = Pick<
   | 'placeholder'
   | 'readOnly'
   | 'disabled'
-  | 'enterKeyHint'
 > & {
+  enterKeyHint?:
+    | 'enter'
+    | 'done'
+    | 'go'
+    | 'next'
+    | 'previous'
+    | 'search'
+    | 'send'
   value?: string
   defaultValue?: string
   onChange?: (val: string) => void
@@ -173,7 +180,7 @@ export const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         max={mergedProps.max}
         min={mergedProps.min}
         autoComplete={mergedProps.autoComplete}
-        enterKeyHint={mergedProps.enterKeyHint}
+        {...{ enterKeyHint: mergedProps.enterKeyHint }}
         autoFocus={mergedProps.autoFocus}
         pattern={mergedProps.pattern}
         inputMode={mergedProps.inputMode}

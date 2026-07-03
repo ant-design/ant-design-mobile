@@ -143,6 +143,12 @@ describe('TextArea', () => {
     expect(textarea).toHaveAttribute('rows', '1')
   })
 
+  test('should pass enterKeyHint to native textarea element', () => {
+    const { getByRole } = render(<TextArea enterKeyHint='done' />)
+    const textarea = getByRole('textbox') as HTMLTextAreaElement
+    expect(textarea.getAttribute('enterkeyhint')).toBe('done')
+  })
+
   test('should works with `onEnterPress`', async () => {
     const onEnterPress = jest.fn()
     const { getByRole } = render(
