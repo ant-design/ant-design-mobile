@@ -156,3 +156,42 @@ export const mockDrag = async (el: Element, options: any[], time?: number) => {
   }
   fireEvent.mouseUp(el)
 }
+
+/**
+ * Simulates a vertical drag with velocity — smaller duration means faster flick
+ *
+ * @param el       Target element
+ * @param from     Starting clientY
+ * @param to       Ending clientY
+ * @param duration Drag duration in ms
+ * @param steps    Number of mouseMove events
+ */
+export const mockTimedDrag = (
+  el: Element,
+  from: number,
+  to: number,
+  duration: number,
+  steps: number,
+) => {
+  const dispatch = (
+    type: 'mousedown' | 'mousemove' | 'mouseup',
+    clientY: number,
+    timeStamp: number,
+  ) => {
+    const ev = new MouseEvent(type, {
+      clientY,
+      buttons: 1,
+      bubbles: true,
+      cancelable: true,
+    })
+    Object.defineProperty(ev, 'timeStamp', { value: timeStamp, configurable: true })
+    fireEvent(el, ev)
+  }
+
+  dispatch('mousedown', from, 1000)
+  for (let i = 1; i <= steps; i++) {
+    const progress = i / steps
+    dispatch('mousemove', from + (to - from) * progress, 1000 + duration * progress)
+  }
+  dispatch('mouseup', to, 1000 + duration)
+}
