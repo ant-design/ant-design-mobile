@@ -32,7 +32,7 @@ export type FloatingPanelProps = {
 
 const defaultProps = {
   handleDraggingOfContent: true,
-  inertiaFactor: 0,
+  inertiaFactor: 50,
 }
 
 export const FloatingPanel = forwardRef<FloatingPanelRef, FloatingPanelProps>(
