@@ -26,7 +26,7 @@ Users can freely and flexibly slide up and down to browse the content, which is 
 | handleDraggingOfContent | Whether to handle the drag event of the panel content area. If disabled, only the head area can be dragged | `boolean` | `true` |  |
 | onHeightChange | Triggered when the height changes, the `animating` parameter indicates whether it is in the process of animation | `(height: number, animating: boolean) => void` |  |  |
 | placement | Specify the direction in which the panel appears. | `'bottom' \| 'top'` | `'bottom'` | 5.39.0 |
-| inertiaFactor | Inertia factor for snap behavior. When the user flicks fast, velocity adds extra displacement to the snap target, making it easier to reach distant anchors. Set to 0 to disable. Recommended value: 50~100 | `number` | `0` |  |
+| inertiaFactor | Inertia factor for snap behavior. When the user flicks fast, velocity adds extra displacement to the snap target, making it easier to reach distant anchors. Set to 0 to disable. Recommended value: 50~100 | `number` | `50` |  |
 
 ### Ref
 
