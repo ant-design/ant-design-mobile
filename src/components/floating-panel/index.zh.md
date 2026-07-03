@@ -26,6 +26,7 @@
 | handleDraggingOfContent | 是否会处理面板内容区域的拖拽事件，禁用后则只能拖拽头部区域 | `boolean` | `true` |  |
 | onHeightChange | 当高度变化时触发，`animating` 参数表示是否处于动画过程中 | `(height: number, animating: boolean) => void` |  |  |
 | placement | 指定面板出现的方向 | `'bottom' \| 'top'` | `'bottom'` | 5.39.0 |
+| inertiaFactor | 惯性系数，用于吸附判定。快速滑动时速度会附加额外位移，使面板更容易到达较远的锚点。设为 0 可禁用。推荐值：50~100 | `number` | `50` | 5.42.3 |
 
 ### Ref
 

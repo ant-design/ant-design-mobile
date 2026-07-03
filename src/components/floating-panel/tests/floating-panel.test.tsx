@@ -1,7 +1,8 @@
-import React, { useRef, forwardRef } from 'react'
-import { render, testA11y, fireEvent, waitFor } from 'testing'
-import FloatingPanel, { FloatingPanelRef } from '..'
 import { reduceMotion, restoreMotion } from 'antd-mobile'
+import React, { forwardRef, useRef } from 'react'
+import { fireEvent, mockTimedDrag, render, testA11y, waitFor } from 'testing'
+import FloatingPanel, { FloatingPanelRef } from '..'
+import { nearest } from '../../../utils/nearest'
 
 const classPrefix = `adm-floating-panel`
 
@@ -154,6 +155,94 @@ describe('FloatingPanel', () => {
     mockDrag(headEl, 0, -(anchors[0] + 20))
     expect(panelEl.style.transform).toBe(
       `translateY(calc(100% + (-${anchors[1]}px)))`
+    )
+  })
+})
+
+describe('FloatingPanel inertiaFactor logic', () => {
+  const possibles = anchors.map(x => -x) // [-100, -200, -400]
+
+  test('inertiaFactor=0 ignores velocity', () => {
+    expect(nearest(possibles, -120 + -1 * 1.5 * 0)).toBe(-100)
+  })
+
+  test('upward flick pushes snap toward higher anchor', () => {
+    expect(nearest(possibles, -120 + -1 * 1.5 * 50)).toBe(-200)
+  })
+
+  test('downward flick pushes snap toward lower anchor', () => {
+    expect(nearest(possibles, -280 + 1 * 1.5 * 100)).toBe(-100)
+  })
+
+  test('small inertiaFactor has minimal effect', () => {
+    expect(nearest(possibles, -120 + -1 * 1.5 * 5)).toBe(-100)
+  })
+
+  test('large inertiaFactor can skip to farthest anchor', () => {
+    expect(nearest(possibles, -120 + -1 * 1.5 * 200)).toBe(-400)
+  })
+})
+
+describe('FloatingPanel inertiaFactor integration', () => {
+  const App = forwardRef((props: any, ref) => (
+    <FloatingPanel anchors={anchors} data-testid='panel' {...props} ref={ref}>
+      {data.map(item => (
+        <div key={item} style={{ height: 20 }}>
+          {item}
+        </div>
+      ))}
+    </FloatingPanel>
+  ))
+
+  test('without inertiaFactor, fast flick stays at nearest anchor', async () => {
+    const { getByTestId } = render(<App inertiaFactor={0} />)
+    const panelEl = getByTestId('panel')
+
+    mockTimedDrag(panelEl, 200, 170, 16, 3)
+
+    await waitFor(() =>
+      expect(panelEl.style.transform).toBe(
+        `translateY(calc(100% + (-${anchors[0]}px)))`
+      )
+    )
+  })
+
+  test('with inertiaFactor, fast flick snaps to higher anchor', async () => {
+    const { getByTestId } = render(<App inertiaFactor={50} />)
+    const panelEl = getByTestId('panel')
+
+    mockTimedDrag(panelEl, 200, 170, 32, 3)
+
+    await waitFor(() =>
+      expect(panelEl.style.transform).toBe(
+        `translateY(calc(100% + (-${anchors[1]}px)))`
+      )
+    )
+  })
+
+  test('with inertiaFactor, slow drag stays at nearest anchor', async () => {
+    const { getByTestId } = render(<App inertiaFactor={100} />)
+    const panelEl = getByTestId('panel')
+
+    mockTimedDrag(panelEl, 200, 170, 1000, 10)
+
+    await waitFor(() =>
+      expect(panelEl.style.transform).toBe(
+        `translateY(calc(100% + (-${anchors[0]}px)))`
+      )
+    )
+  })
+
+  test('large inertiaFactor with fast flick skips to farthest anchor', async () => {
+    const { getByTestId } = render(<App inertiaFactor={300} />)
+    const panelEl = getByTestId('panel')
+
+    mockTimedDrag(panelEl, 200, 170, 16, 3)
+
+    await waitFor(() =>
+      expect(panelEl.style.transform).toBe(
+        `translateY(calc(100% + (-${anchors[2]}px)))`
+      )
     )
   })
 })
