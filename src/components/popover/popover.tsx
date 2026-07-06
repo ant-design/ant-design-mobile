@@ -77,6 +77,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   })
 
   const showingRef = useRef(false)
+  const showTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useImperativeHandle(
     ref,
@@ -84,8 +85,10 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
       show: () => {
         showingRef.current = true
         setVisible(true)
-        setTimeout(() => {
+        if (showTimerRef.current) clearTimeout(showTimerRef.current)
+        showTimerRef.current = setTimeout(() => {
           showingRef.current = false
+          showTimerRef.current = null
         })
       },
       hide: () => setVisible(false),
@@ -93,6 +96,12 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     }),
     [visible]
   )
+
+  useEffect(() => {
+    return () => {
+      if (showTimerRef.current) clearTimeout(showTimerRef.current)
+    }
+  }, [])
 
   const targetRef = useRef<WrapperRef>(null)
   const floatingRef = useRef<HTMLDivElement>(null)
