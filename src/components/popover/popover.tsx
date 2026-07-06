@@ -83,6 +83,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     ref,
     () => ({
       show: () => {
+        // 标记进入 show() 触发链，避免同一次点击事件冒泡到 document 时被 useClickAway 立即关闭
         showingRef.current = true
         setVisible(true)
         if (showTimerRef.current) clearTimeout(showTimerRef.current)
