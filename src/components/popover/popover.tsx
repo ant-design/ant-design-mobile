@@ -76,10 +76,18 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
     onChange: props.onVisibleChange,
   })
 
+  const showingRef = useRef(false)
+
   useImperativeHandle(
     ref,
     () => ({
-      show: () => setVisible(true),
+      show: () => {
+        showingRef.current = true
+        setVisible(true)
+        setTimeout(() => {
+          showingRef.current = false
+        })
+      },
       hide: () => setVisible(false),
       visible,
     }),
@@ -196,6 +204,7 @@ export const Popover = forwardRef<PopoverRef, PopoverProps>((p, ref) => {
   useClickAway(
     () => {
       if (!props.trigger) return
+      if (showingRef.current) return // 跳过 show() 触发链上的 click-away
       setVisible(false)
     },
     [() => targetRef.current?.element, floatingRef],
