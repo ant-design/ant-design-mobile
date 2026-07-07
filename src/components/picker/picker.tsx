@@ -1,30 +1,24 @@
-import React, {
-  useState,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-  memo,
-} from 'react'
-import type { ReactNode, CSSProperties } from 'react'
+import { useMemoizedFn } from 'ahooks'
 import classNames from 'classnames'
-import Popup, { PopupProps } from '../popup'
-import { mergeProps } from '../../utils/with-default-props'
+import type { CSSProperties, ReactNode } from 'react'
+import React, { forwardRef, memo, useEffect, useImperativeHandle } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
+import PickerView from '../picker-view'
+import {
+  generateColumnsExtend,
+  useColumnsExtend,
+} from '../picker-view/columns-extend'
+import Popup, { PopupProps } from '../popup'
+import SafeArea from '../safe-area'
 import {
   PickerColumn,
   PickerColumnItem,
   PickerValue,
   PickerValueExtend,
 } from './index'
-import PickerView from '../picker-view'
-import {
-  generateColumnsExtend,
-  useColumnsExtend,
-} from '../picker-view/columns-extend'
-import { useConfig } from '../config-provider'
-import { useMemoizedFn } from 'ahooks'
-import SafeArea from '../safe-area'
 import { defaultRenderLabel } from './picker-utils'
 
 export type PickerActions = {
@@ -40,6 +34,7 @@ export type PickerProps = {
   columns: PickerColumn[] | ((value: PickerValue[]) => PickerColumn[])
   value?: PickerValue[]
   defaultValue?: PickerValue[]
+  selectValue?: PickerValue[]
   loading?: boolean
   loadingContent?: ReactNode
   onSelect?: (value: PickerValue[], extend: PickerValueExtend) => void
@@ -130,12 +125,20 @@ export const Picker = memo(
 
     const extend = useColumnsExtend(props.columns, value)
 
-    const [innerValue, setInnerValue] = useState<PickerValue[]>(value)
+    const [innerValue, setInnerValue] = usePropsValue({
+      value: props.selectValue,
+      defaultValue: value,
+    })
+
     useEffect(() => {
-      if (innerValue !== value) {
-        setInnerValue(value)
+      // 仅在非受控模式下，当 picker 打开时，重置 innerValue
+      if (props.selectValue === undefined && visible) {
+        if (innerValue !== value) {
+          setInnerValue(value)
+        }
       }
-    }, [visible])
+    }, [visible, props.selectValue])
+
     useEffect(() => {
       if (!visible) {
         setInnerValue(value)
