@@ -1,10 +1,10 @@
-import React from 'react'
-import type { FC, ReactNode, ReactElement } from 'react'
 import classNames from 'classnames'
-import { mergeProps } from '../../utils/with-default-props'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
-import { useConfig } from '../config-provider'
+import type { FC, ReactElement, ReactNode } from 'react'
+import React from 'react'
 import type { ErrorBlockStatus, ImageRecord } from '.'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
+import { useConfig } from '../config-provider'
 import './error-block.less'
 
 const classPrefix = `adm-error-block`

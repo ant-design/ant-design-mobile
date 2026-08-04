@@ -1,5 +1,5 @@
-import { createErrorBlock } from './create-error-block'
 import type { ReactElement } from 'react'
+import { createErrorBlock } from './create-error-block'
 import {
   busyImage,
   defaultImage,
