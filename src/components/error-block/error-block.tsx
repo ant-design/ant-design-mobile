@@ -1,20 +1,20 @@
-import type { ReactNode } from 'react'
+import type { ReactElement } from 'react'
 import { createErrorBlock } from './create-error-block'
 import {
-  busyImageFactory,
-  defaultImageFactory,
-  disconnectedImageFactory,
-  emptyImageFactory,
+  busyImage,
+  defaultImage,
+  disconnectedImage,
+  emptyImage,
 } from './images'
 
 const imageRecord: Record<
   'default' | 'disconnected' | 'empty' | 'busy',
-  (id: string) => ReactNode
+  ReactElement
 > = {
-  'default': defaultImageFactory,
-  'disconnected': disconnectedImageFactory,
-  'empty': emptyImageFactory,
-  'busy': busyImageFactory,
+  'default': defaultImage,
+  'disconnected': disconnectedImage,
+  'empty': emptyImage,
+  'busy': busyImage,
 }
 
 export const ErrorBlock = createErrorBlock(imageRecord)
