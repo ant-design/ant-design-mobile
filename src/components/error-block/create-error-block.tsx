@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import useId from 'rc-util/lib/hooks/useId'
 import type { FC, ReactElement, ReactNode } from 'react'
 import React from 'react'
 import type { ErrorBlockStatus, ImageRecord } from '.'
@@ -13,7 +12,7 @@ const classPrefix = `adm-error-block`
 export type ErrorBlockProps = {
   status?: ErrorBlockStatus
   title?: ReactNode
-  image?: string | ReactElement | ((id: string) => ReactElement)
+  image?: string | ReactElement
   description?: ReactNode
   fullPage?: boolean
   children?: ReactNode
@@ -37,14 +36,10 @@ export function createErrorBlock(imageRecord: ImageRecord) {
       'description' in props ? props.description : contentPack.description
     const title = 'title' in props ? props.title : contentPack.title
 
-    const id = useId()
-
-    const image = props.image ?? imageRecord[props.status]
+    const image: ReactNode = props.image ?? imageRecord[props.status]
     const imageNode =
       typeof image === 'string' ? (
         <img src={image} alt='error block image' />
-      ) : typeof image === 'function' ? (
-        image(id)
       ) : (
         image
       )
