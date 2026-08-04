@@ -6,6 +6,8 @@ export { createErrorBlock } from './create-error-block'
 export type { ErrorBlockProps } from './create-error-block'
 
 export type ErrorBlockStatus = 'default' | 'disconnected' | 'empty' | 'busy'
-export type ImageRecord = Partial<Record<ErrorBlockStatus, string | ReactNode>>
+export type ImageRecord = Partial<
+  Record<ErrorBlockStatus, string | ReactNode | ((id: string) => ReactNode)>
+>
 
 export default ErrorBlock
