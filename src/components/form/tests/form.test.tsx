@@ -343,6 +343,36 @@ describe('Form', () => {
   })
 
   describe('Form.Item', () => {
+    test('supports a single child wrapped in an array', async () => {
+      const onFinish = jest.fn()
+      const { container, getByText } = render(
+        <Form
+          initialValues={{ name: 'bamboo' }}
+          onFinish={onFinish}
+          footer={
+            <Button block type='submit'>
+              submit
+            </Button>
+          }
+        >
+          <Form.Item name='name' label='Name'>
+            {[<Input key='input' />]}
+          </Form.Item>
+        </Form>
+      )
+
+      const input = container.querySelector('input') as HTMLInputElement
+      expect(input.value).toBe('bamboo')
+
+      fireEvent.change(input, { target: { value: 'little' } })
+      fireEvent.click(getByText('submit'))
+
+      await waitFor(() => {
+        expect(onFinish).toHaveBeenCalled()
+      })
+      expect(onFinish.mock.calls[0][0]).toEqual({ name: 'little' })
+    })
+
     test('noStyle', async () => {
       const onChange = jest.fn()
       const { container } = render(
