@@ -2,6 +2,16 @@ import React, { useState } from 'react'
 import { act, fireEvent, render, screen, waitFor } from 'testing'
 import Dropdown from '..'
 
+jest.mock('../../../utils/get-scroll-parent', () => ({
+  getScrollParent: jest.fn(),
+}))
+
+import { getScrollParent } from '../../../utils/get-scroll-parent'
+
+const mockedGetScrollParent = getScrollParent as jest.MockedFunction<
+  typeof getScrollParent
+>
+
 const classPrefix = `adm-dropdown`
 
 describe('Dropdown', () => {
@@ -149,6 +159,126 @@ describe('Dropdown', () => {
       )
       expect(screen.getByText('bamboo')).toBeVisible()
     })
+  })
+
+  test('should lock scroll of nested scrollable container when open', async () => {
+    const scrollParentEl = document.createElement('div')
+    scrollParentEl.style.overflowY = 'auto'
+    mockedGetScrollParent.mockReturnValue(scrollParentEl)
+
+    render(
+      <Dropdown>
+        <Dropdown.Item title='sorter' key='sorter'>
+          content
+        </Dropdown.Item>
+      </Dropdown>
+    )
+
+    expect(scrollParentEl.style.overflowY).toBe('auto')
+
+    fireEvent.click(screen.getByText('sorter'))
+    await waitFor(() => {
+      expect(screen.getByText('content')).toBeVisible()
+    })
+
+    expect(scrollParentEl.style.overflowY).toBe('hidden')
+
+    fireEvent.click(screen.getByText('sorter'))
+    await waitFor(() => {
+      expect(screen.getByText('content')).not.toBeVisible()
+    })
+
+    expect(scrollParentEl.style.overflowY).toBe('auto')
+
+    mockedGetScrollParent.mockRestore()
+  })
+
+  test('should not lock scroll when scroll parent is window', async () => {
+    mockedGetScrollParent.mockReturnValue(window)
+
+    render(
+      <Dropdown>
+        <Dropdown.Item title='sorter' key='sorter'>
+          content
+        </Dropdown.Item>
+      </Dropdown>
+    )
+
+    // 打开 Dropdown
+    fireEvent.click(screen.getByText('sorter'))
+    await waitFor(() => {
+      expect(screen.getByText('content')).toBeVisible()
+    })
+
+    // scroll parent 为 window 时不应设置 overflow
+    expect(document.body.style.overflow).toBe('')
+
+    mockedGetScrollParent.mockRestore()
+  })
+
+  test('should not prematurely unlock when multiple Dropdowns share the same scroll parent', async () => {
+    const scrollParentEl = document.createElement('div')
+    scrollParentEl.style.overflowY = 'auto'
+
+    mockedGetScrollParent.mockImplementation(() => {
+      if (scrollParentEl.style.overflowY === 'hidden') {
+        return window
+      }
+      return scrollParentEl
+    })
+
+    const container = document.createElement('div')
+    scrollParentEl.appendChild(container)
+    document.body.appendChild(scrollParentEl)
+
+    const { unmount } = render(
+      <Dropdown>
+        <Dropdown.Item title='A' key='a'>
+          a-content
+        </Dropdown.Item>
+      </Dropdown>,
+      { container }
+    )
+
+    fireEvent.click(screen.getByText('A'))
+    await waitFor(() => {
+      expect(screen.getByText('a-content')).toBeVisible()
+    })
+    expect(scrollParentEl.style.overflowY).toBe('hidden')
+
+    const container2 = document.createElement('div')
+    scrollParentEl.appendChild(container2)
+    const { unmount: unmount2 } = render(
+      <Dropdown>
+        <Dropdown.Item title='B' key='b'>
+          b-content
+        </Dropdown.Item>
+      </Dropdown>,
+      { container: container2 }
+    )
+
+    fireEvent.click(screen.getByText('B'))
+    await waitFor(() => {
+      expect(screen.getByText('b-content')).toBeVisible()
+    })
+    expect(scrollParentEl.style.overflowY).toBe('hidden')
+
+    fireEvent.click(screen.getByText('A'))
+    await waitFor(() => {
+      expect(screen.getByText('a-content')).not.toBeVisible()
+    })
+    expect(scrollParentEl.style.overflowY).toBe('hidden')
+
+    fireEvent.click(screen.getByText('B'))
+    await waitFor(() => {
+      expect(screen.getByText('b-content')).not.toBeVisible()
+    })
+    expect(scrollParentEl.style.overflowY).toBe('auto')
+
+    unmount()
+    unmount2()
+    document.body.removeChild(scrollParentEl)
+    mockedGetScrollParent.mockRestore()
   })
 
   describe('onVisibleChange', () => {
