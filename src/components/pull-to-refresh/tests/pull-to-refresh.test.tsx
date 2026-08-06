@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import { render, fireEvent, sleep, screen, act } from 'testing'
-import PullToRefresh, { PullToRefreshProps, PullStatus } from '..'
+import PullToRefresh, {
+  PullToRefreshProps,
+  PullToRefreshRef,
+  PullStatus,
+} from '..'
 import { List } from 'antd-mobile'
 
 const classPrefix = `adm-pull-to-refresh`
@@ -182,5 +186,94 @@ describe('PullToRefresh', () => {
       jest.advanceTimersByTime(1000)
     })
     expect(screen.getByText('刷新成功')).toBeInTheDocument()
+  })
+
+  test('ref: startRefresh and completeRefresh', async () => {
+    const ref = React.createRef<PullToRefreshRef>()
+    render(
+      <PullToRefresh
+        ref={ref}
+        completeDelay={500}
+        onRefresh={() => new Promise(() => {})}
+      >
+        <div>Content</div>
+      </PullToRefresh>
+    )
+
+    // startRefresh triggers refreshing
+    await act(async () => {
+      ref.current?.startRefresh()
+    })
+    expect(screen.getByText('加载中...')).toBeInTheDocument()
+
+    // startRefresh again is no-op while refreshing
+    await act(async () => {
+      ref.current?.startRefresh()
+    })
+    expect(screen.getByText('加载中...')).toBeInTheDocument()
+
+    // completeRefresh ends the cycle → complete state
+    await act(async () => {
+      ref.current?.completeRefresh()
+    })
+    expect(screen.getByText('刷新成功')).toBeInTheDocument()
+
+    // after completeDelay → back to pulling
+    await act(async () => {
+      jest.advanceTimersByTime(500)
+    })
+    expect(screen.getByText('下拉刷新')).toBeInTheDocument()
+
+    // can startRefresh again after cycle completes
+    await act(async () => {
+      ref.current?.startRefresh()
+    })
+    expect(screen.getByText('加载中...')).toBeInTheDocument()
+
+    await act(async () => {
+      ref.current?.completeRefresh()
+    })
+    expect(screen.getByText('刷新成功')).toBeInTheDocument()
+
+    await act(async () => {
+      jest.advanceTimersByTime(500)
+    })
+    expect(screen.getByText('下拉刷新')).toBeInTheDocument()
+  })
+
+  test('ref: startRefresh should be no-op when not in pulling status', async () => {
+    const onRefresh = jest.fn(() => new Promise(() => {}))
+    const ref = React.createRef<PullToRefreshRef>()
+    render(
+      <PullToRefresh ref={ref} onRefresh={onRefresh}>
+        <div>Content</div>
+      </PullToRefresh>
+    )
+
+    // Trigger refresh via startRefresh
+    await act(async () => {
+      ref.current?.startRefresh()
+    })
+    expect(onRefresh).toBeCalledTimes(1)
+
+    // startRefresh while refreshing should be no-op
+    await act(async () => {
+      ref.current?.startRefresh()
+    })
+    expect(onRefresh).toBeCalledTimes(1)
+
+    // completeRefresh
+    await act(async () => {
+      ref.current?.completeRefresh()
+    })
+
+    // Now in pulling status again, startRefresh should work
+    await act(async () => {
+      jest.advanceTimersByTime(500)
+    })
+    await act(async () => {
+      ref.current?.startRefresh()
+    })
+    expect(onRefresh).toBeCalledTimes(2)
   })
 })
