@@ -116,6 +116,7 @@ const deDE = mergeLocale(base, {
   'Stepper': { 'decrease': 'Reduzieren', 'increase': 'Erhöhen' },
   'Switch': { 'name': 'Schalter' },
   'Selector': { 'name': 'Gruppe auswählen' },
+  'TextArea': { 'clear': 'Löschen' },
 })
 
 export default deDE

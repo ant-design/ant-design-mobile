@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { TextArea } from 'antd-mobile'
+import { TextArea, Toast } from 'antd-mobile'
+import { DeleteOutline } from 'antd-mobile-icons'
 import { DemoBlock } from 'demos'
+import React, { useState } from 'react'
 
 export default () => {
   const [value, setValue] = useState('')
@@ -20,10 +21,35 @@ export default () => {
         <TextArea placeholder='请输入内容' rows={5} />
       </DemoBlock>
 
+      <DemoBlock title='带清除按钮'>
+        <TextArea placeholder='请输入内容' clearable />
+      </DemoBlock>
+
+      <DemoBlock title='带清除按钮（自定义图标和回调）'>
+        <TextArea
+          placeholder='请输入内容'
+          defaultValue='试试点击清除'
+          clearable={{
+            clearIcon: <DeleteOutline />,
+            onClear: () => {
+              Toast.show('已清除')
+            },
+          }}
+        />
+      </DemoBlock>
+
       <DemoBlock title='根据内容自动调整高度'>
         <TextArea
           placeholder='请输入内容'
           autoSize={{ minRows: 3, maxRows: 5 }}
+        />
+      </DemoBlock>
+
+      <DemoBlock title='带清除按钮的自动调整高度'>
+        <TextArea
+          placeholder='请输入内容'
+          autoSize={{ minRows: 3, maxRows: 5 }}
+          clearable
         />
       </DemoBlock>
 

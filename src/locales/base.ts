@@ -141,6 +141,9 @@ export const base = {
   Selector: {
     name: 'Selector',
   },
+  TextArea: {
+    clear: 'clear',
+  },
 }
 
 export type Locale = typeof base

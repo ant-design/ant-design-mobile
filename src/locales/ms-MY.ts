@@ -117,6 +117,7 @@ const msMY = mergeLocale(base, {
   'Stepper': { 'decrease': 'Menurun', 'increase': 'Meningkat' },
   'Switch': { 'name': 'Suis' },
   'Selector': { 'name': 'Pilih kumpulan' },
+  'TextArea': { 'clear': 'Padam' },
 })
 
 export default msMY

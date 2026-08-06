@@ -115,6 +115,9 @@ const kkKZ = mergeLocale(base, {
   Switch: {
     name: 'Сөндіргіш',
   },
+  TextArea: {
+    clear: 'тазарту',
+  },
 })
 
 export default kkKZ

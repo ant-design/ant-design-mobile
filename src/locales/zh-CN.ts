@@ -143,6 +143,9 @@ const zhCN: Locale = {
   Selector: {
     name: '选择组',
   },
+  TextArea: {
+    clear: '清除',
+  },
 }
 
 export default zhCN

@@ -111,6 +111,7 @@ const viVN = mergeLocale(base, {
   'Stepper': { 'decrease': 'Giảm', 'increase': 'Tăng' },
   'Switch': { 'name': 'Bật tắt' },
   'Selector': { 'name': 'Chọn nhóm' },
+  'TextArea': { 'clear': 'Xóa' },
 })
 
 export default viVN

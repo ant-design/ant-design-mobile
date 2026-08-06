@@ -138,6 +138,9 @@ const ptBR = mergeLocale(base, {
   Selector: {
     name: 'Seletor',
   },
+  TextArea: {
+    clear: 'limpar',
+  },
 })
 
 export default ptBR
