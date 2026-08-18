@@ -44,14 +44,13 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
 
   const unmountedRef = useUnmountedRef()
   const [active, setActive] = useState(mergedProps.visible)
-  const activeRef = useRef(active)
-  activeRef.current = active
-  const { shouldCallAfterClose } = useSpringResumeOnVisible({
+  const { finishClose } = useSpringResumeOnVisible({
     visible: mergedProps.visible,
-    activeRef,
-    setActive,
-    afterClose: mergedProps.afterClose,
-    unmountedRef,
+    active,
+    onFinishClose: () => {
+      setActive(false)
+      mergedProps.afterClose?.()
+    },
   })
 
   const style = useSpring({
@@ -68,9 +67,8 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
       if (mergedProps.visible) {
         setActive(true)
         mergedProps.afterShow?.()
-      } else if (shouldCallAfterClose()) {
-        setActive(false)
-        mergedProps.afterClose?.()
+      } else {
+        finishClose()
       }
     },
   })

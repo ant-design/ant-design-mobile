@@ -42,18 +42,17 @@ export const Popup: FC<PopupProps> = p => {
   )
 
   const [active, setActive] = useState(props.visible)
-  const activeRef = useRef(active)
-  activeRef.current = active
   const ref = useRef<HTMLDivElement>(null)
   useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
   const unmountedRef = useUnmountedRef()
-  const { shouldCallAfterClose } = useSpringResumeOnVisible({
+  const { finishClose } = useSpringResumeOnVisible({
     visible: props.visible,
-    activeRef,
-    setActive,
-    afterClose: props.afterClose,
-    unmountedRef,
+    active,
+    onFinishClose: () => {
+      setActive(false)
+      props.afterClose?.()
+    },
   })
 
   useIsomorphicLayoutEffect(() => {
@@ -75,9 +74,8 @@ export const Popup: FC<PopupProps> = p => {
       if (props.visible) {
         setActive(true)
         props.afterShow?.()
-      } else if (shouldCallAfterClose()) {
-        setActive(false)
-        props.afterClose?.()
+      } else {
+        finishClose()
       }
     },
   })

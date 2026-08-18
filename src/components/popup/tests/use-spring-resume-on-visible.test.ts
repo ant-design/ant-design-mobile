@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react'
+import { act, renderHook } from '@testing-library/react'
 import { useSpringResumeOnVisible } from '../../../utils/use-spring-resume-on-visible'
 
 function setVisibilityState(state: 'visible' | 'hidden') {
@@ -10,10 +10,7 @@ function setVisibilityState(state: 'visible' | 'hidden') {
 }
 
 describe('useSpringResumeOnVisible', () => {
-  const mockSetActive = jest.fn()
-  const mockAfterClose = jest.fn()
-  const mockUnmountedRef = { current: false }
-  const mockActiveRef = { current: true }
+  const onFinishClose = jest.fn()
   const originalVisibilityState = Object.getOwnPropertyDescriptor(
     document,
     'visibilityState'
@@ -21,8 +18,6 @@ describe('useSpringResumeOnVisible', () => {
 
   beforeEach(() => {
     jest.clearAllMocks()
-    mockUnmountedRef.current = false
-    mockActiveRef.current = true
   })
 
   afterEach(() => {
@@ -37,14 +32,12 @@ describe('useSpringResumeOnVisible', () => {
     }
   })
 
-  it('should call setActive(false) and afterClose when page becomes visible after close while hidden', () => {
+  it('should finish closing when page becomes visible after close while hidden', () => {
     renderHook(() =>
       useSpringResumeOnVisible({
         visible: false,
-        activeRef: mockActiveRef,
-        setActive: mockSetActive,
-        afterClose: mockAfterClose,
-        unmountedRef: mockUnmountedRef,
+        active: true,
+        onFinishClose,
       })
     )
 
@@ -53,20 +46,15 @@ describe('useSpringResumeOnVisible', () => {
       document.dispatchEvent(new Event('visibilitychange'))
     })
 
-    expect(mockSetActive).toHaveBeenCalledWith(false)
-    expect(mockAfterClose).toHaveBeenCalledTimes(1)
+    expect(onFinishClose).toHaveBeenCalledTimes(1)
   })
 
-  it('should not call afterClose when page is already visible and active matches visible', () => {
-    mockActiveRef.current = false
-
+  it('should not finish closing when active matches visible', () => {
     renderHook(() =>
       useSpringResumeOnVisible({
         visible: false,
-        activeRef: mockActiveRef,
-        setActive: mockSetActive,
-        afterClose: mockAfterClose,
-        unmountedRef: mockUnmountedRef,
+        active: false,
+        onFinishClose,
       })
     )
 
@@ -75,107 +63,85 @@ describe('useSpringResumeOnVisible', () => {
       document.dispatchEvent(new Event('visibilitychange'))
     })
 
-    expect(mockSetActive).not.toHaveBeenCalled()
-    expect(mockAfterClose).not.toHaveBeenCalled()
+    expect(onFinishClose).not.toHaveBeenCalled()
   })
 
-  it('should not call afterClose when component is unmounted', () => {
-    mockUnmountedRef.current = true
-
-    renderHook(() =>
+  it('should not finish closing after unmount', () => {
+    const { unmount } = renderHook(() =>
       useSpringResumeOnVisible({
         visible: false,
-        activeRef: mockActiveRef,
-        setActive: mockSetActive,
-        afterClose: mockAfterClose,
-        unmountedRef: mockUnmountedRef,
+        active: true,
+        onFinishClose,
       })
     )
 
+    unmount()
     setVisibilityState('visible')
     act(() => {
       document.dispatchEvent(new Event('visibilitychange'))
     })
 
-    expect(mockSetActive).not.toHaveBeenCalled()
-    expect(mockAfterClose).not.toHaveBeenCalled()
+    expect(onFinishClose).not.toHaveBeenCalled()
   })
 
-  it('shouldCallAfterClose should prevent double-calling afterClose', () => {
+  it('should prevent closing twice after visibility resumes', () => {
     const { result } = renderHook(() =>
       useSpringResumeOnVisible({
         visible: false,
-        activeRef: mockActiveRef,
-        setActive: mockSetActive,
-        afterClose: mockAfterClose,
-        unmountedRef: mockUnmountedRef,
+        active: true,
+        onFinishClose,
       })
     )
 
-    // Simulate visibilitychange handler calling afterClose first
     setVisibilityState('visible')
     act(() => {
       document.dispatchEvent(new Event('visibilitychange'))
     })
+    result.current.finishClose()
 
-    expect(mockAfterClose).toHaveBeenCalledTimes(1)
-
-    // Now onRest fires later - shouldCallAfterClose should return false
-    expect(result.current.shouldCallAfterClose()).toBe(false)
+    expect(onFinishClose).toHaveBeenCalledTimes(1)
   })
 
-  it('shouldCallAfterClose should return true when afterClose has not been called', () => {
-    mockActiveRef.current = false
-
+  it('should prevent closing twice after spring rests', () => {
     const { result } = renderHook(() =>
       useSpringResumeOnVisible({
         visible: false,
-        activeRef: mockActiveRef,
-        setActive: mockSetActive,
-        afterClose: mockAfterClose,
-        unmountedRef: mockUnmountedRef,
+        active: false,
+        onFinishClose,
       })
     )
 
-    // onRest fires normally (no visibilitychange handler intervention)
-    expect(result.current.shouldCallAfterClose()).toBe(true)
-    // Second call should return false
-    expect(result.current.shouldCallAfterClose()).toBe(false)
+    result.current.finishClose()
+    result.current.finishClose()
+
+    expect(onFinishClose).toHaveBeenCalledTimes(1)
   })
 
-  it('should reset closedRef when visible becomes true', () => {
+  it('should reset closing state for the next visible cycle', () => {
     const { result, rerender } = renderHook(
       ({ visible }: { visible: boolean }) =>
         useSpringResumeOnVisible({
           visible,
-          activeRef: mockActiveRef,
-          setActive: mockSetActive,
-          afterClose: mockAfterClose,
-          unmountedRef: mockUnmountedRef,
+          active: true,
+          onFinishClose,
         }),
       { initialProps: { visible: false } }
     )
 
-    // Simulate afterClose being called (via onRest or visibilitychange)
-    // shouldCallAfterClose returns true on first call, then false on subsequent calls
-    expect(result.current.shouldCallAfterClose()).toBe(true)
-    expect(result.current.shouldCallAfterClose()).toBe(false)
-
-    // Now visible becomes true (new show cycle) - closedRef should be reset
+    result.current.finishClose()
     rerender({ visible: true })
+    rerender({ visible: false })
+    result.current.finishClose()
 
-    // shouldCallAfterClose should be reset and return true again
-    expect(result.current.shouldCallAfterClose()).toBe(true)
+    expect(onFinishClose).toHaveBeenCalledTimes(2)
   })
 
-  it('should not trigger on visibilitychange when document is hidden', () => {
+  it('should not finish closing while document is hidden', () => {
     renderHook(() =>
       useSpringResumeOnVisible({
         visible: false,
-        activeRef: mockActiveRef,
-        setActive: mockSetActive,
-        afterClose: mockAfterClose,
-        unmountedRef: mockUnmountedRef,
+        active: true,
+        onFinishClose,
       })
     )
 
@@ -184,7 +150,6 @@ describe('useSpringResumeOnVisible', () => {
       document.dispatchEvent(new Event('visibilitychange'))
     })
 
-    expect(mockSetActive).not.toHaveBeenCalled()
-    expect(mockAfterClose).not.toHaveBeenCalled()
+    expect(onFinishClose).not.toHaveBeenCalled()
   })
 })

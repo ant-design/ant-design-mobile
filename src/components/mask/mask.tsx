@@ -70,16 +70,15 @@ export const Mask: FC<MaskProps> = p => {
   }, [props.color, props.opacity])
 
   const [active, setActive] = useState(props.visible)
-  const activeRef = useRef(active)
-  activeRef.current = active
 
   const unmountedRef = useUnmountedRef()
-  const { shouldCallAfterClose } = useSpringResumeOnVisible({
+  const { finishClose } = useSpringResumeOnVisible({
     visible: props.visible,
-    activeRef,
-    setActive,
-    afterClose: props.afterClose,
-    unmountedRef,
+    active,
+    onFinishClose: () => {
+      setActive(false)
+      props.afterClose?.()
+    },
   })
 
   const { opacity } = useSpring({
@@ -99,9 +98,8 @@ export const Mask: FC<MaskProps> = p => {
       if (props.visible) {
         setActive(true)
         props.afterShow?.()
-      } else if (shouldCallAfterClose()) {
-        setActive(false)
-        props.afterClose?.()
+      } else {
+        finishClose()
       }
     },
   })
