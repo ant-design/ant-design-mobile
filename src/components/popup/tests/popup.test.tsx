@@ -121,14 +121,7 @@ describe('Popup', () => {
     it('should call afterClose when page becomes visible after close while hidden', () => {
       const afterClose = jest.fn()
       const { rerender } = render(
-        <Popup visible afterClose={afterClose}>
-          foobar
-        </Popup>
-      )
-
-      // The popup is visible, now close it
-      rerender(
-        <Popup visible={false} afterClose={afterClose}>
+        <Popup visible destroyOnClose afterClose={afterClose}>
           foobar
         </Popup>
       )
@@ -138,6 +131,15 @@ describe('Popup', () => {
         document.dispatchEvent(new Event('visibilitychange'))
       })
 
+      rerender(
+        <Popup visible={false} destroyOnClose afterClose={afterClose}>
+          foobar
+        </Popup>
+      )
+
+      expect(afterClose).not.toHaveBeenCalled()
+      expect(screen.getByText('foobar')).toBeInTheDocument()
+
       // Simulate page becoming visible (e.g. user switches back to tab)
       setVisibilityState('visible')
       act(() => {
@@ -145,6 +147,7 @@ describe('Popup', () => {
       })
 
       expect(afterClose).toHaveBeenCalledTimes(1)
+      expect(screen.queryByText('foobar')).not.toBeInTheDocument()
     })
 
     it('should not call afterClose when popup is still visible', () => {

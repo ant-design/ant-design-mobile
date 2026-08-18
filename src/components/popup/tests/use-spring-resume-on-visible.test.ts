@@ -5,6 +5,7 @@ function setVisibilityState(state: 'visible' | 'hidden') {
   Object.defineProperty(document, 'visibilityState', {
     value: state,
     writable: true,
+    configurable: true,
   })
 }
 
@@ -31,6 +32,8 @@ describe('useSpringResumeOnVisible', () => {
         'visibilityState',
         originalVisibilityState
       )
+    } else {
+      delete (document as any).visibilityState
     }
   })
 
