@@ -1,14 +1,13 @@
 import { animated, useSpring } from '@react-spring/web'
-import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import classNames from 'classnames'
 import type { FC, PropsWithChildren } from 'react'
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { renderToContainer } from '../../utils/render-to-container'
 import { ShouldRender } from '../../utils/should-render'
 import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useLockScroll } from '../../utils/use-lock-scroll'
-import { useSpringResumeOnVisible } from '../../utils/use-spring-resume-on-visible'
+import { usePopupSpringLifecycle } from '../../utils/use-popup-spring-lifecycle'
 import { mergeProps } from '../../utils/with-default-props'
 import { withStopPropagation } from '../../utils/with-stop-propagation'
 import { useConfig } from '../config-provider'
@@ -42,15 +41,10 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
   const { popup: componentConfig = {} } = useConfig()
   const mergedProps = mergeProps(defaultProps, componentConfig, props)
 
-  const unmountedRef = useUnmountedRef()
-  const [active, setActive] = useState(mergedProps.visible)
-  const { finishClose } = useSpringResumeOnVisible({
+  const { active, onRest } = usePopupSpringLifecycle({
     visible: mergedProps.visible,
-    active,
-    onFinishClose: () => {
-      setActive(false)
-      mergedProps.afterClose?.()
-    },
+    afterShow: mergedProps.afterShow,
+    afterClose: mergedProps.afterClose,
   })
 
   const style = useSpring({
@@ -62,22 +56,8 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
       friction: 25,
       clamp: true,
     },
-    onRest: () => {
-      if (unmountedRef.current) return
-      if (mergedProps.visible) {
-        setActive(true)
-        mergedProps.afterShow?.()
-      } else {
-        finishClose()
-      }
-    },
+    onRest,
   })
-
-  useIsomorphicLayoutEffect(() => {
-    if (mergedProps.visible) {
-      setActive(true)
-    }
-  }, [mergedProps.visible])
 
   const ref = useRef<HTMLDivElement>(null)
   useLockScroll(ref, mergedProps.disableBodyScroll && active)

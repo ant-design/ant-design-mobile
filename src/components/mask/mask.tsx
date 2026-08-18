@@ -1,7 +1,6 @@
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import React, { useMemo, useRef, useState } from 'react'
+import React, { useMemo, useRef } from 'react'
 import type { FC, ReactNode } from 'react'
-import { useUnmountedRef } from 'ahooks'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
 import {
@@ -15,7 +14,7 @@ import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
-import { useSpringResumeOnVisible } from '../../utils/use-spring-resume-on-visible'
+import { usePopupSpringLifecycle } from '../../utils/use-popup-spring-lifecycle'
 
 const classPrefix = `adm-mask`
 
@@ -69,16 +68,10 @@ export const Mask: FC<MaskProps> = p => {
     return rgb ? `rgba(${rgb}, ${opacity})` : props.color
   }, [props.color, props.opacity])
 
-  const [active, setActive] = useState(props.visible)
-
-  const unmountedRef = useUnmountedRef()
-  const { finishClose } = useSpringResumeOnVisible({
+  const { active, onRest } = usePopupSpringLifecycle({
     visible: props.visible,
-    active,
-    onFinishClose: () => {
-      setActive(false)
-      props.afterClose?.()
-    },
+    afterShow: props.afterShow,
+    afterClose: props.afterClose,
   })
 
   const { opacity } = useSpring({
@@ -90,18 +83,7 @@ export const Mask: FC<MaskProps> = p => {
       friction: 30,
       clamp: true,
     },
-    onStart: () => {
-      setActive(true)
-    },
-    onRest: () => {
-      if (unmountedRef.current) return
-      if (props.visible) {
-        setActive(true)
-        props.afterShow?.()
-      } else {
-        finishClose()
-      }
-    },
+    onRest,
   })
 
   const node = withStopPropagation(
