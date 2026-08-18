@@ -1,6 +1,7 @@
 import classNames from 'classnames'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import type { FC, PropsWithChildren } from 'react'
+import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { mergeProps } from '../../utils/with-default-props'
 import Mask from '../mask'
@@ -13,7 +14,7 @@ import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useConfig } from '../config-provider'
 import { useDrag } from '@use-gesture/react'
-import { usePopupSpringLifecycle } from '../../utils/use-popup-spring-lifecycle'
+import { useOnPageVisible } from '../../utils/use-on-page-visible'
 
 const classPrefix = `adm-popup`
 
@@ -40,13 +41,24 @@ export const Popup: FC<PopupProps> = p => {
     `${classPrefix}-body-position-${props.position}`
   )
 
-  const { active, onRest } = usePopupSpringLifecycle({
-    visible: props.visible,
-    afterShow: props.afterShow,
-    afterClose: props.afterClose,
-  })
+  const [active, setActive] = useState(props.visible)
+  const closedRef = useRef(false)
+  const unmountedRef = useUnmountedRef()
+  const finishClose = () => {
+    if (closedRef.current) return
+    closedRef.current = true
+    setActive(false)
+    props.afterClose?.()
+  }
   const ref = useRef<HTMLDivElement>(null)
   useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
+
+  useIsomorphicLayoutEffect(() => {
+    if (props.visible) {
+      closedRef.current = false
+      setActive(true)
+    }
+  }, [props.visible])
 
   const { percent } = useSpring({
     percent: props.visible ? 0 : 100,
@@ -56,7 +68,21 @@ export const Popup: FC<PopupProps> = p => {
       tension: 300,
       friction: 30,
     },
-    onRest,
+    onRest: () => {
+      if (unmountedRef.current) return
+      if (props.visible) {
+        setActive(true)
+        props.afterShow?.()
+      } else {
+        finishClose()
+      }
+    },
+  })
+
+  useOnPageVisible(() => {
+    if (!props.visible && active) {
+      finishClose()
+    }
   })
 
   const bind = useDrag(

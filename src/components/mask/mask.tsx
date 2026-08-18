@@ -1,6 +1,7 @@
 import { NativeProps, withNativeProps } from '../../utils/native-props'
-import React, { useMemo, useRef } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
+import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
 import {
@@ -14,7 +15,7 @@ import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
-import { usePopupSpringLifecycle } from '../../utils/use-popup-spring-lifecycle'
+import { useOnPageVisible } from '../../utils/use-on-page-visible'
 
 const classPrefix = `adm-mask`
 
@@ -68,11 +69,15 @@ export const Mask: FC<MaskProps> = p => {
     return rgb ? `rgba(${rgb}, ${opacity})` : props.color
   }, [props.color, props.opacity])
 
-  const { active, onRest } = usePopupSpringLifecycle({
-    visible: props.visible,
-    afterShow: props.afterShow,
-    afterClose: props.afterClose,
-  })
+  const [active, setActive] = useState(props.visible)
+  const closedRef = useRef(false)
+  const unmountedRef = useUnmountedRef()
+  const finishClose = () => {
+    if (closedRef.current) return
+    closedRef.current = true
+    setActive(false)
+    props.afterClose?.()
+  }
 
   const { opacity } = useSpring({
     opacity: props.visible ? 1 : 0,
@@ -83,8 +88,31 @@ export const Mask: FC<MaskProps> = p => {
       friction: 30,
       clamp: true,
     },
-    onRest,
+    onStart: () => {
+      setActive(true)
+    },
+    onRest: () => {
+      if (unmountedRef.current) return
+      if (props.visible) {
+        setActive(true)
+        props.afterShow?.()
+      } else {
+        finishClose()
+      }
+    },
   })
+
+  useOnPageVisible(() => {
+    if (!props.visible && active) {
+      finishClose()
+    }
+  })
+
+  useIsomorphicLayoutEffect(() => {
+    if (props.visible) {
+      closedRef.current = false
+    }
+  }, [props.visible])
 
   const node = withStopPropagation(
     props.stopPropagation,
