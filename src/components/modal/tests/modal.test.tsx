@@ -18,12 +18,33 @@ function $$(className: string) {
   return document.querySelectorAll(className)
 }
 
+function setVisibilityState(state: 'visible' | 'hidden') {
+  Object.defineProperty(document, 'visibilityState', {
+    value: state,
+    configurable: true,
+  })
+}
+
 describe('Modal', () => {
+  const originalVisibilityState = Object.getOwnPropertyDescriptor(
+    document,
+    'visibilityState'
+  )
+
   afterEach(async () => {
     act(() => {
       Modal.clear()
     })
     document.body.innerHTML = ''
+    if (originalVisibilityState) {
+      Object.defineProperty(
+        document,
+        'visibilityState',
+        originalVisibilityState
+      )
+    } else {
+      delete (document as any).visibilityState
+    }
   })
 
   const ModalAlert = (props: ModalAlertProps) => (
@@ -48,6 +69,27 @@ describe('Modal', () => {
     render(<ModalAlert afterShow={afterShow} />)
     fireEvent.click(screen.getByRole('button', { name: 'btn' }))
     await waitFor(() => expect(afterShow).toBeCalled())
+  })
+
+  test('should close after returning to a modal opened and closed in background', () => {
+    setVisibilityState('hidden')
+    let handler: ReturnType<typeof Modal.show>
+
+    act(() => {
+      handler = Modal.show({ content: 'content' })
+    })
+    act(() => {
+      handler.close()
+    })
+
+    expect(screen.getByText('content')).toBeInTheDocument()
+
+    setVisibilityState('visible')
+    act(() => {
+      document.dispatchEvent(new Event('visibilitychange'))
+    })
+
+    expect(screen.queryByText('content')).not.toBeInTheDocument()
   })
 
   test('onConfirm should be called', async () => {

@@ -1,7 +1,7 @@
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import React, { useMemo, useRef, useState } from 'react'
 import type { FC, ReactNode } from 'react'
-import { useUnmountedRef } from 'ahooks'
+import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { useLockScroll } from '../../utils/use-lock-scroll'
 import { useSpring, animated } from '@react-spring/web'
 import {
@@ -15,6 +15,7 @@ import {
   PropagationEvent,
   withStopPropagation,
 } from '../../utils/with-stop-propagation'
+import { useOnPageVisible } from '../../utils/use-on-page-visible'
 
 const classPrefix = `adm-mask`
 
@@ -69,8 +70,15 @@ export const Mask: FC<MaskProps> = p => {
   }, [props.color, props.opacity])
 
   const [active, setActive] = useState(props.visible)
-
+  const closedRef = useRef(false)
   const unmountedRef = useUnmountedRef()
+  const finishClose = () => {
+    if (closedRef.current) return
+    closedRef.current = true
+    setActive(false)
+    props.afterClose?.()
+  }
+
   const { opacity } = useSpring({
     opacity: props.visible ? 1 : 0,
     config: {
@@ -85,14 +93,26 @@ export const Mask: FC<MaskProps> = p => {
     },
     onRest: () => {
       if (unmountedRef.current) return
-      setActive(props.visible)
       if (props.visible) {
+        setActive(true)
         props.afterShow?.()
       } else {
-        props.afterClose?.()
+        finishClose()
       }
     },
   })
+
+  useOnPageVisible(() => {
+    if (!props.visible && active) {
+      finishClose()
+    }
+  })
+
+  useIsomorphicLayoutEffect(() => {
+    if (props.visible) {
+      closedRef.current = false
+    }
+  }, [props.visible])
 
   const node = withStopPropagation(
     props.stopPropagation,
