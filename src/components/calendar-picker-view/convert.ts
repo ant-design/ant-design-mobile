@@ -14,7 +14,7 @@ export function convertValueToRange(
 }
 export function convertPageToDayjs(page: Page) {
   return dayjs()
+    .date(1)
     .year(page.year)
     .month(page.month - 1)
-    .date(1)
 }
