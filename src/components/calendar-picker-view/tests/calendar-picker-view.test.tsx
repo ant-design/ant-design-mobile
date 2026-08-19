@@ -3,6 +3,7 @@ import MockDate from 'mockdate'
 import React, { useRef } from 'react'
 import { fireEvent, render, testA11y } from 'testing'
 import CalendarPickerView, { CalendarPickerViewRef } from '..'
+import { convertPageToDayjs } from '../convert'
 
 const classPrefix = `adm-calendar-picker-view`
 
@@ -335,5 +336,20 @@ describe('Calendar', () => {
     expect(
       container.querySelector('[data-year-month="2025-8"]')
     ).toBeInTheDocument()
+  })
+
+  test('convertPageToDayjs does not roll over to the next month on the 31st', () => {
+    // Regression: building the dayjs with year/month before pinning the day
+    // could turn Feb 1 into Mar 1 when today falls on the 31st.
+    MockDate.set(new Date('2023-01-31'))
+    expect(
+      convertPageToDayjs({ year: 2023, month: 2 }).format('YYYY-MM-DD')
+    ).toBe('2023-02-01')
+    MockDate.set(new Date('2023-03-31'))
+    expect(
+      convertPageToDayjs({ year: 2023, month: 2 }).format('YYYY-MM-DD')
+    ).toBe('2023-02-01')
+    // restore the shared "today" mock for the rest of the suite
+    MockDate.set(new Date('2023-05-22'))
   })
 })
