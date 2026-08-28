@@ -8,6 +8,7 @@ import { InternalToast, ToastProps } from './toast'
 
 let currentHandler: ImperativeHandler | null = null
 let currentTimeout: number | null = null
+let currentKey = 0
 
 export type ToastShowProps = Omit<ToastProps, 'visible'>
 
@@ -28,6 +29,7 @@ const ToastInner = (
 ) => <InternalToast {...props} />
 
 export function show(p: ToastShowProps | string) {
+  const key = ++currentKey
   const props = mergeProps(
     defaultProps,
     typeof p === 'string' ? { content: p } : p
@@ -37,7 +39,9 @@ export function show(p: ToastShowProps | string) {
     <ToastInner
       {...props}
       onClose={() => {
-        currentHandler = null
+        if (key === currentKey) {
+          currentHandler = null
+        }
       }}
     />
   )
@@ -61,10 +65,22 @@ export function show(p: ToastShowProps | string) {
     }, props.duration)
   }
 
-  return currentHandler as ToastHandler
+  const handler = currentHandler
+  return {
+    close: () => {
+      if (key === currentKey) {
+        handler.close()
+      }
+    },
+  } as ToastHandler
 }
 
 export function clear() {
+  currentKey++
+  if (currentTimeout) {
+    window.clearTimeout(currentTimeout)
+    currentTimeout = null
+  }
   currentHandler?.close()
   currentHandler = null
 }
