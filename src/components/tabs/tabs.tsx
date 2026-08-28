@@ -49,6 +49,7 @@ export type TabsProps = {
   | '--content-padding'
   | '--active-title-color'
   | '--active-line-color'
+  | '--border-bottom'
 >
 
 const defaultProps = {
