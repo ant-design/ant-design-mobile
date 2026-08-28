@@ -20,7 +20,7 @@ export const Device: FC<IDeviceProps> = ({ url }) => {
     config: { mode },
     locale,
   } = useContext(context)
-  const localizedUrl = withDemoLocale(url, locale)
+  const localizedUrl = withDemoLocale(url, locale === 'en' ? 'en' : 'zh')
 
   // re-render iframe if prefers color changed
   useEffect(() => {
