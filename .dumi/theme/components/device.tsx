@@ -4,6 +4,7 @@ import { QRCodeSVG } from 'qrcode.react'
 import { context, usePrefersColor } from 'dumi/theme'
 import './device.less'
 import { Popover } from 'antd-mobile'
+import { withDemoLocale } from '../utils/demo-locale'
 
 interface IDeviceProps {
   className?: string
@@ -17,7 +18,9 @@ export const Device: FC<IDeviceProps> = ({ url }) => {
   const [color] = usePrefersColor()
   const {
     config: { mode },
+    locale,
   } = useContext(context)
+  const localizedUrl = withDemoLocale(url, locale === 'en' ? 'en' : 'zh')
 
   // re-render iframe if prefers color changed
   useEffect(() => {
@@ -37,13 +40,16 @@ export const Device: FC<IDeviceProps> = ({ url }) => {
 
   return (
     <div className={'adm-doc-device'} data-device-type='iOS' data-mode={mode}>
-      <iframe title='dumi-previewer' src={url} key={renderKey} />
+      <iframe title='dumi-previewer' src={localizedUrl} key={renderKey} />
       <div className='adm-doc-device-action'>
         <a onClick={() => setRenderKey(Math.random())}>{refreshIcon}</a>
-        <Popover content={<QRCodeSVG value={url} size={96} />} trigger='click'>
+        <Popover
+          content={<QRCodeSVG value={localizedUrl} size={96} />}
+          trigger='click'
+        >
           <a>{qrIcon}</a>
         </Popover>
-        <a href={url} target='_blank' rel='noreferrer'>
+        <a href={localizedUrl} target='_blank' rel='noreferrer'>
           {openIcon}
         </a>
       </div>
