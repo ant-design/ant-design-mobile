@@ -10,6 +10,7 @@ const daDK = mergeLocale(base, {
     cancel: 'Afbestille',
     loading: 'Indlæser',
     close: 'Luk',
+    back: 'Tilbage',
   },
   Calendar: {
     markItems: ['ma', 'ti', 'on', 'to', 'fr', 'lø', 'sø'],

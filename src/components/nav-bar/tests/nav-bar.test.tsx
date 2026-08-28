@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen, userEvent } from 'testing'
 import NavBar from '..'
 import ConfigProvider from '../../config-provider'
+import enUS from '../../../locales/en-US'
 
 describe('NavBar', () => {
   test('render title', () => {
@@ -24,6 +25,37 @@ describe('NavBar', () => {
     expect(backButton).toHaveFocus()
     await userEvent.keyboard('{Enter}')
     expect(onBack).toHaveBeenCalledTimes(1)
+  })
+
+  test('keeps the back affordance non-interactive without onBack', () => {
+    const { baseElement } = render(<NavBar>Title</NavBar>)
+
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(baseElement.querySelector('.adm-nav-bar-back')).toBeVisible()
+  })
+
+  test('provides a localized name for an icon-only back button', () => {
+    const onBack = jest.fn()
+    render(
+      <ConfigProvider locale={enUS}>
+        <NavBar onBack={onBack}>Title</NavBar>
+      </ConfigProvider>
+    )
+
+    expect(screen.getByRole('button', { name: 'Back' })).toBeVisible()
+  })
+
+  test('provides a name when both the back text and icon are hidden', () => {
+    const onBack = jest.fn()
+    render(
+      <ConfigProvider locale={enUS}>
+        <NavBar backIcon={false} onBack={onBack}>
+          Title
+        </NavBar>
+      </ConfigProvider>
+    )
+
+    expect(screen.getByRole('button', { name: 'Back' })).toBeVisible()
   })
 
   describe('backIcon', () => {

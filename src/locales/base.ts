@@ -7,6 +7,7 @@ export const base = {
     cancel: 'Cancel',
     loading: 'Loading',
     close: 'Close',
+    back: 'Back',
   },
   Calendar: {
     title: 'Date selection',

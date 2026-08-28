@@ -10,6 +10,7 @@ const thTH = mergeLocale(base, {
     cancel: 'ยกเลิก',
     loading: 'กำลังโหลด',
     close: 'ปิด',
+    back: 'ย้อนกลับ',
   },
   Calendar: {
     title: 'เลือกวันที่',

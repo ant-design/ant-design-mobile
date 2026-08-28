@@ -9,6 +9,7 @@ const jaJP = mergeLocale(base, {
     confirm: '確認',
     cancel: 'キャンセル',
     loading: '読み込み中',
+    back: '戻る',
   },
   Calendar: {
     markItems: ['月', '火', '水', '木', '金', '土', '日'],
