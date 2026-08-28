@@ -77,6 +77,10 @@ export function show(p: ToastShowProps | string) {
 
 export function clear() {
   currentKey++
+  if (currentTimeout) {
+    window.clearTimeout(currentTimeout)
+    currentTimeout = null
+  }
   currentHandler?.close()
   currentHandler = null
 }
