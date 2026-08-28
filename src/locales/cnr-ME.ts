@@ -10,6 +10,7 @@ const cnrME = mergeLocale(base, {
     cancel: 'Otkaži',
     loading: 'Učitavanje',
     close: 'Zatvori',
+    back: 'Nazad',
   },
   Calendar: {
     title: 'Izbor datuma',

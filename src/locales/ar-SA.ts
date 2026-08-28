@@ -10,6 +10,7 @@ const arSA = mergeLocale(base, {
     'cancel': 'إلغاء',
     'loading': 'جار التحميل',
     'close': 'إغلاق',
+    'back': 'رجوع',
   },
   'Calendar': {
     'title': 'اختيار التاريخ',

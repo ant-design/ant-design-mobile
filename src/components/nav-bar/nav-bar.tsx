@@ -24,7 +24,7 @@ export type NavBarProps = {
 const defaultBackIcon = <LeftOutline />
 
 export const NavBar: FC<NavBarProps> = props => {
-  const { navBar: componentConfig = {} } = useConfig()
+  const { locale, navBar: componentConfig = {} } = useConfig()
   const mergedProps = mergeProps(componentConfig, props)
   const { back, backIcon, backArrow } = mergedProps
 
@@ -37,19 +37,39 @@ export const NavBar: FC<NavBarProps> = props => {
     backIcon === true ? mergedDefaultBackIcon : backIcon
   )
 
+  const backContent = (
+    <>
+      {mergedBackIcon && (
+        <span className={`${classPrefix}-back-arrow`}>{mergedBackIcon}</span>
+      )}
+      <span>{back}</span>
+    </>
+  )
+
+  const backAriaLabel =
+    back === undefined || back === null || back === false || back === ''
+      ? locale.common.back
+      : undefined
+
   return withNativeProps(
     mergedProps,
     <div className={classNames(classPrefix)}>
-      <div className={`${classPrefix}-left`} role='button'>
+      <div className={`${classPrefix}-left`}>
         {back !== null && (
-          <div className={`${classPrefix}-back`} onClick={mergedProps.onBack}>
-            {mergedBackIcon && (
-              <span className={`${classPrefix}-back-arrow`}>
-                {mergedBackIcon}
-              </span>
+          <>
+            {mergedProps.onBack ? (
+              <button
+                type='button'
+                className={`${classPrefix}-back`}
+                aria-label={backAriaLabel}
+                onClick={mergedProps.onBack}
+              >
+                {backContent}
+              </button>
+            ) : (
+              <div className={`${classPrefix}-back`}>{backContent}</div>
             )}
-            <span aria-hidden='true'>{back}</span>
-          </div>
+          </>
         )}
         {mergedProps.left}
       </div>

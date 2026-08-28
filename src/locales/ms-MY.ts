@@ -10,6 +10,7 @@ const msMY = mergeLocale(base, {
     'cancel': 'Batal',
     'loading': 'Memuatkan',
     'close': 'Tutup',
+    'back': 'Kembali',
   },
   'Calendar': {
     'title': 'Pemilihan tarikh',

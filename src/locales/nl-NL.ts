@@ -10,6 +10,7 @@ const nlNL = mergeLocale(base, {
     cancel: 'Annuleren',
     loading: 'Laden',
     close: 'Sluiten',
+    back: 'Terug',
   },
   Calendar: {
     markItems: ['Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za', 'Zo'],

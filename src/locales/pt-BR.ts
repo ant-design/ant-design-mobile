@@ -10,6 +10,7 @@ const ptBR = mergeLocale(base, {
     cancel: 'Cancelar',
     loading: 'Carregando',
     close: 'Fechar',
+    back: 'Voltar',
   },
   Calendar: {
     markItems: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],

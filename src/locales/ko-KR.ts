@@ -10,6 +10,7 @@ const koKR = mergeLocale(base, {
     cancel: '취소',
     loading: '로딩중',
     close: '닫기',
+    back: '뒤로',
   },
   Calendar: {
     markItems: ['월', '화', '수', '목', '금', '토', '일'],
