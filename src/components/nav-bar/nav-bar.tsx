@@ -40,16 +40,20 @@ export const NavBar: FC<NavBarProps> = props => {
   return withNativeProps(
     mergedProps,
     <div className={classNames(classPrefix)}>
-      <div className={`${classPrefix}-left`} role='button'>
+      <div className={`${classPrefix}-left`}>
         {back !== null && (
-          <div className={`${classPrefix}-back`} onClick={mergedProps.onBack}>
+          <button
+            type='button'
+            className={`${classPrefix}-back`}
+            onClick={mergedProps.onBack}
+          >
             {mergedBackIcon && (
               <span className={`${classPrefix}-back-arrow`}>
                 {mergedBackIcon}
               </span>
             )}
-            <span aria-hidden='true'>{back}</span>
-          </div>
+            <span>{back}</span>
+          </button>
         )}
         {mergedProps.left}
       </div>

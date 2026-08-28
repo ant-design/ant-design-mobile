@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from 'testing'
+import { render, screen, userEvent } from 'testing'
 import NavBar from '..'
 import ConfigProvider from '../../config-provider'
 
@@ -7,6 +7,23 @@ describe('NavBar', () => {
   test('render title', () => {
     render(<NavBar>Title</NavBar>)
     expect(screen.getByText('Title')).toBeInTheDocument()
+  })
+
+  test('renders a keyboard-accessible back button', async () => {
+    const onBack = jest.fn()
+    render(
+      <NavBar back='Back' onBack={onBack}>
+        Title
+      </NavBar>
+    )
+
+    const backButton = screen.getByRole('button', { name: 'Back' })
+    expect(backButton).toHaveAttribute('type', 'button')
+
+    await userEvent.tab()
+    expect(backButton).toHaveFocus()
+    await userEvent.keyboard('{Enter}')
+    expect(onBack).toHaveBeenCalledTimes(1)
   })
 
   describe('backIcon', () => {
