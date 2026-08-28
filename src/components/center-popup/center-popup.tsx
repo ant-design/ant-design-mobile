@@ -38,7 +38,7 @@ const defaultProps = {
 }
 
 export const CenterPopup: FC<CenterPopupProps> = props => {
-  const { popup: componentConfig = {} } = useConfig()
+  const { locale, popup: componentConfig = {} } = useConfig()
   const mergedProps = mergeProps(defaultProps, componentConfig, props)
 
   const unmountedRef = useUnmountedRef()
@@ -129,17 +129,16 @@ export const CenterPopup: FC<CenterPopupProps> = props => {
             ref={ref}
           >
             {mergedProps.showCloseButton && (
-              <a
-                className={classNames(
-                  `${classPrefix}-close`,
-                  'adm-plain-anchor'
-                )}
+              <button
+                type='button'
+                className={`${classPrefix}-close`}
                 onClick={() => {
                   mergedProps.onClose?.()
                 }}
+                aria-label={locale.common.close}
               >
                 {mergedProps.closeIcon}
-              </a>
+              </button>
             )}
             {body}
           </animated.div>

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { mockDrag, render, screen, testA11y } from 'testing'
+import { mockDrag, render, screen, testA11y, userEvent } from 'testing'
 import Popup from '..'
 import ConfigProvider from '../../config-provider'
 
@@ -49,6 +49,19 @@ describe('Popup', () => {
   })
 
   describe('closeIcon', () => {
+    it('supports keyboard activation', async () => {
+      const onClose = jest.fn()
+      render(<Popup visible showCloseButton onClose={onClose} />)
+
+      const closeButton = screen.getByRole('button')
+      expect(closeButton).toHaveAttribute('type', 'button')
+
+      await userEvent.tab()
+      expect(closeButton).toHaveFocus()
+      await userEvent.keyboard('{Enter}')
+      expect(onClose).toHaveBeenCalledTimes(1)
+    })
+
     it('default', () => {
       const { baseElement } = render(
         <Popup visible showCloseButton>
