@@ -7,13 +7,14 @@
   --active-line-border-radius: var(--active-line-height);
   --active-line-color: var(--adm-color-primary);
   --active-title-color: var(--adm-color-primary);
+  --border-bottom: solid 1px var(--adm-color-border);
   position: relative;
   // Hack for auto scroll fail when the parent element is a flex layout
   min-width: 0;
 
   &-header {
     position: relative;
-    border-bottom: solid 1px var(--adm-color-border);
+    border-bottom: var(--border-bottom);
   }
 
   &-tab-list {
