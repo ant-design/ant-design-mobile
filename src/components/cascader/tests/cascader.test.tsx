@@ -1,9 +1,31 @@
 import React, { useState } from 'react'
-import { fireEvent, render, screen, testA11y, waitFor } from 'testing'
+import {
+  fireEvent,
+  render,
+  screen,
+  testA11y,
+  userEvent,
+  waitFor,
+} from 'testing'
 import Cascader, { CascaderValue } from '../'
 import { options } from '../demos/data'
 
 describe('Cascader', () => {
+  test('header actions support keyboard operation', async () => {
+    const onCancel = jest.fn()
+    render(<Cascader options={options} visible onCancel={onCancel} />)
+
+    const cancelButton = screen.getByRole('button', { name: '取消' })
+    const confirmButton = screen.getByRole('button', { name: '确定' })
+    expect(cancelButton).toHaveAttribute('type', 'button')
+    expect(confirmButton).toHaveAttribute('type', 'button')
+
+    await userEvent.tab()
+    expect(cancelButton).toHaveFocus()
+    await userEvent.keyboard('{Enter}')
+    expect(onCancel).toHaveBeenCalledTimes(1)
+  })
+
   test('a11y', async () => {
     await testA11y(<Cascader options={options} visible={true} />)
   })

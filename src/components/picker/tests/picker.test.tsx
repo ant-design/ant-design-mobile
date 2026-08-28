@@ -6,6 +6,7 @@ import {
   screen,
   sleep,
   act,
+  userEvent,
   waitForElementToBeRemoved,
 } from 'testing'
 import { basicColumns } from '../demos/columns-data'
@@ -13,6 +14,29 @@ import Picker, { PickerRef, PickerColumnItem, PickerColumn } from '..'
 import Button from '../../button'
 
 describe('Picker', () => {
+  test('header actions support keyboard operation', async () => {
+    const onConfirm = jest.fn()
+    render(<Picker columns={basicColumns} visible onConfirm={onConfirm} />)
+
+    const cancelButton = screen.getByRole('button', { name: '取消' })
+    const confirmButton = screen.getByRole('button', { name: '确定' })
+    expect(cancelButton).toHaveAttribute('type', 'button')
+    expect(confirmButton).toHaveAttribute('type', 'button')
+
+    await userEvent.tab()
+    expect(cancelButton).toHaveFocus()
+    await userEvent.tab()
+    expect(confirmButton).toHaveFocus()
+    await userEvent.keyboard('{Enter}')
+    expect(onConfirm).toHaveBeenCalledTimes(1)
+  })
+
+  test('disables the confirm button while loading', () => {
+    render(<Picker columns={basicColumns} visible loading />)
+
+    expect(screen.getByRole('button', { name: '确定' })).toBeDisabled()
+  })
+
   test('renderLabel works', async () => {
     const { baseElement } = render(
       <Picker

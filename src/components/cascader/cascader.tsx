@@ -128,7 +128,8 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
     props,
     <div className={classPrefix}>
       <div className={`${classPrefix}-header`}>
-        <a
+        <button
+          type='button'
           className={`${classPrefix}-header-button`}
           onClick={() => {
             props.onCancel?.()
@@ -136,9 +137,10 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
           }}
         >
           {props.cancelText}
-        </a>
+        </button>
         <div className={`${classPrefix}-header-title`}>{props.title}</div>
-        <a
+        <button
+          type='button'
           className={`${classPrefix}-header-button`}
           onClick={() => {
             setValue(innerValue, true)
@@ -146,7 +148,7 @@ export const Cascader = forwardRef<CascaderRef, CascaderProps>((p, ref) => {
           }}
         >
           {props.confirmText}
-        </a>
+        </button>
       </div>
       <div className={`${classPrefix}-body`}>
         <CascaderView
