@@ -9,6 +9,7 @@ const esES = mergeLocale(base, {
     confirm: 'Confirmar',
     cancel: 'Cancelar',
     loading: 'Cargando',
+    back: 'Volver',
   },
   Calendar: {
     markItems: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],

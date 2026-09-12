@@ -10,6 +10,7 @@ const trTR = mergeLocale(base, {
     cancel: 'İptal',
     loading: 'Yükleniyor',
     close: 'Kapat',
+    back: 'Geri',
   },
   Calendar: {
     markItems: ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],

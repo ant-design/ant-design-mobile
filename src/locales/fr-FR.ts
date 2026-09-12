@@ -9,6 +9,7 @@ const frFR = mergeLocale(base, {
     confirm: 'Activer',
     cancel: 'Annuler',
     loading: 'Chargement',
+    back: 'Retour',
   },
   Calendar: {
     markItems: ['un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept'],

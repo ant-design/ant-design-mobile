@@ -10,6 +10,7 @@ const inID = mergeLocale(base, {
     cancel: 'Batal ',
     loading: 'memuat',
     close: 'Tutup',
+    back: 'Kembali',
   },
   Calendar: {
     title: 'Pilih Tanggal',

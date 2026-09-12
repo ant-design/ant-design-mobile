@@ -9,6 +9,7 @@ const zhCN: Locale = {
     cancel: '取消',
     loading: '加载中',
     close: '关闭',
+    back: '返回',
   },
   Calendar: {
     title: '日期选择',

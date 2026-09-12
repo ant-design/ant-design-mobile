@@ -10,6 +10,7 @@ const hrHR = mergeLocale(base, {
     cancel: 'Otkaži',
     loading: 'Učitavanje',
     close: 'Zatvori',
+    back: 'Natrag',
   },
   Calendar: {
     title: 'Odabir datuma',

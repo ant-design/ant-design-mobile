@@ -9,6 +9,7 @@ const kkKZ = mergeLocale(base, {
     confirm: 'OK',
     cancel: 'Бастарту',
     loading: 'Жүктелуде',
+    back: 'Артқа',
   },
   Calendar: {
     markItems: ['Дс', 'Сс', 'Ср', 'Бс', 'Жм', 'Сб', 'Жс'],

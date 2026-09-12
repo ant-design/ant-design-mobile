@@ -8,6 +8,7 @@ const faIR = mergeLocale(base, {
   common: {
     confirm: 'تایید',
     cancel: 'لغو',
+    back: 'بازگشت',
   },
   Calendar: {
     markItems: [

@@ -10,6 +10,7 @@ const ruRU = mergeLocale(base, {
     cancel: 'Отменить',
     loading: 'Загрузка',
     close: 'Закрыть',
+    back: 'Назад',
   },
   Calendar: {
     title: 'Выбор даты',

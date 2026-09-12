@@ -10,6 +10,7 @@ const nbNO = mergeLocale(base, {
     cancel: 'Avbryt',
     loading: 'Laster',
     close: 'Lukk',
+    back: 'Tilbake',
   },
   Calendar: {
     markItems: ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn'],

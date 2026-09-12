@@ -10,6 +10,7 @@ const itIT = mergeLocale(base, {
     cancel: 'Annulla',
     loading: 'Caricamento',
     close: 'Chiudi',
+    back: 'Indietro',
   },
   Calendar: {
     markItems: ['lun', 'mar', 'mer', 'gio', 'ven', 'sab', 'dom'],
