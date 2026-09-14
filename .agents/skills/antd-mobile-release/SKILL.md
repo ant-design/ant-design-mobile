@@ -22,7 +22,7 @@ description: 在 ant-design-mobile 仓库准备 npm 发版，并在用户手工�
 
 ## 用户手工发布完成后
 
-1. 用户告知发布完成后，立即从目标 npm registry 核对实际包版本与 dist-tag；稳定版应成为 `latest`。若查不到目标版本或标签不符，先核对发布命令输出和 registry，不得据此打 tag 或创建 Release，也不要代替用户重试 npm 发布。
+1. 用户告知发布完成后，从目标 npm registry 核对实际包版本与 dist-tag；稳定版应成为 `latest`。npm 发布成功后可能延迟可见，暂时查不到目标版本或标签仍是旧版本时，先核对发布命令输出和 registry，再每隔 30–60 秒重新查询并向用户报告等待状态，不把短暂的 404 当作发布失败。确认目标版本及标签可见前，不得打 tag 或创建 Release，也不要代替用户重试 npm 发布；若长时间仍不可见，再排查发布结果。
 2. 确认远端 `master` 包含版本提交。在该**版本提交**上创建并推送 `v<version>` tag；若 tag 已存在，核对其指向，正确则复用，错误则先处理冲突，不移动已发布的 tag。
 3. 用准备好的中英文日志在该 tag 上创建 GitHub Release；若 Release 已存在，则核对并更新标题、正文与 tag，不创建重复 Release。随后核对 npm 包、dist-tag、远端 tag 和 Release，并跟进 Release 触发的 `Doc Site` 工作流至结果明确。
 
