@@ -17,6 +17,7 @@ Long text input that requires wrapping.
 | Name | Description | Type | Default |
 | --- | --- | --- | --- |
 | autoSize | Adaptive content height | `boolean \| { minRows?: number, maxRows?: number }` | `false` |
+| clearable | Whether to enable the clear feature, supports passing an object for detailed configuration | `boolean \| ClearableConfig` | `false` |
 | defaultValue | Input value by default | `string` | - |
 | id | `id` of `textarea` element, often used in conjunction with `label` | `string` | - |
 | maxLength | Maximum number of characters | `number` | - |
@@ -26,7 +27,21 @@ Long text input that requires wrapping.
 | showCount | Display the number of words, supports custom render | `boolean \| ((length: number, maxLength?: number) => ReactNode)` | `false` |
 | value | Input value | `string` | - |
 
-In addition, the following native attributes are supported: `autoComplete` `autoFocus` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd` `onClick`
+#### ClearableConfig
+
+| Name | Description | Type | Default |
+| --- | --- | --- | --- |
+| clearIcon | Custom clear icon | `ReactNode` | `<CloseCircleFill />` |
+| onClear | Triggered after clicking the clear button | `() => void` | - |
+
+In addition, the following native attributes are supported: `autoComplete` `autoFocus` `disabled` `readOnly` `onFocus` `onBlur` `onCompositionStart` `onCompositionEnd` `onClick` `onKeyDown` `enterKeyHint`
+
+#### Why is there no onlyShowClearWhenFocus property?
+
+The clearable feature of the TextArea component has already implemented similar behavior:
+
+- In non-autoSize scenario, the clear icon only shows when focused and the value is not empty;
+- In autoSize scenario, to prevent input area width changes caused by the appearance/disappearance of the clear icon which could trigger height jitters, the space for the clear icon is always reserved.
 
 ### CSS Variables
 
@@ -38,6 +53,7 @@ In addition, the following native attributes are supported: `autoComplete` `auto
 | --font-size | font size. | `17px` |
 | --placeholder-color | `placeholder` font color. | `var(--adm-color-light)` |
 | --text-align | The alignment of text. | `left` |
+| --clear-icon-padding | The reserved padding for the clear icon area. | `28px` |
 
 ### Ref
 

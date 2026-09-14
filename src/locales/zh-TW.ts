@@ -96,6 +96,9 @@ const zhTW = mergeLocale(base, {
   InfiniteScroll: {
     noMore: '沒有更多了',
   },
+  Input: {
+    clear: '清除',
+  },
   Mask: {
     name: '遮罩層',
   },
@@ -109,6 +112,9 @@ const zhTW = mergeLocale(base, {
     pulling: '下拉刷新',
     canRelease: '釋放立即刷新',
     complete: '刷新成功',
+  },
+  TextArea: {
+    clear: '清除',
   },
 })
 

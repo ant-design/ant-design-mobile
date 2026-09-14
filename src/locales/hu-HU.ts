@@ -141,6 +141,9 @@ export const huHU = mergeLocale(base, {
   Selector: {
     name: 'Kiválasztás',
   },
+  TextArea: {
+    clear: 'törlés',
+  },
 })
 
 export default huHU

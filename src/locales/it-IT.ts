@@ -138,6 +138,9 @@ const itIT = mergeLocale(base, {
   Selector: {
     name: 'Selettore',
   },
+  TextArea: {
+    clear: 'cancella',
+  },
 })
 
 export default itIT

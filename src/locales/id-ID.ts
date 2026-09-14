@@ -125,6 +125,9 @@ const idID = mergeLocale(base, {
   Switch: {
     name: 'Mengalihkan',
   },
+  TextArea: {
+    clear: 'Hapus',
+  },
 })
 
 export default idID

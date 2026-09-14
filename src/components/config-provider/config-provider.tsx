@@ -42,6 +42,9 @@ type Config = {
   searchBar?: {
     searchIcon?: ReactNode
   }
+  textArea?: {
+    clearIcon?: ReactNode
+  }
 }
 
 export const defaultConfigRef: {

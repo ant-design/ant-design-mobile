@@ -135,6 +135,9 @@ const koKR = mergeLocale(base, {
   Switch: {
     name: '스위치',
   },
+  TextArea: {
+    clear: '지우기',
+  },
 })
 
 export default koKR

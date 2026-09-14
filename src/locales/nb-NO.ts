@@ -138,6 +138,9 @@ const nbNO = mergeLocale(base, {
   Selector: {
     name: 'Velger',
   },
+  TextArea: {
+    clear: 'fjern',
+  },
 })
 
 export default nbNO

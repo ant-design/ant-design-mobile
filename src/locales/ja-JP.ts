@@ -131,6 +131,9 @@ const jaJP = mergeLocale(base, {
   Switch: {
     name: 'スイッチ',
   },
+  TextArea: {
+    clear: 'クリア',
+  },
 })
 
 export default jaJP

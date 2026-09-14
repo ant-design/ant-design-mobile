@@ -144,6 +144,9 @@ const srRS = mergeLocale(base, {
   Selector: {
     name: 'Селектор',
   },
+  TextArea: {
+    clear: 'очисти',
+  },
 })
 
 export default srRS

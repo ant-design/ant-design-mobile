@@ -92,6 +92,9 @@ const esES = mergeLocale(base, {
   ImageUploader: {
     uploading: 'Subiendo...',
   },
+  Input: {
+    clear: 'Borrar',
+  },
   Mask: {
     name: 'Máscara',
   },
@@ -105,6 +108,9 @@ const esES = mergeLocale(base, {
     pulling: 'Desplácese hacia abajo para refrescar',
     canRelease: 'Suelte para refrescar inmediatamente',
     complete: 'Refrescó exitosamente',
+  },
+  TextArea: {
+    clear: 'Borrar',
   },
 })
 

@@ -96,6 +96,9 @@ const frFR = mergeLocale(base, {
   InfiniteScroll: {
     noMore: 'Non, plus maintenant.',
   },
+  Input: {
+    clear: 'Effacer',
+  },
   Mask: {
     name: 'Masques',
   },
@@ -109,6 +112,9 @@ const frFR = mergeLocale(base, {
     pulling: 'Rafraîchir la liste déroulante',
     canRelease: 'Libérez instantanément rafraîchir',
     complete: 'Rafraîchir avec succès',
+  },
+  TextArea: {
+    clear: 'Effacer',
   },
 })
 

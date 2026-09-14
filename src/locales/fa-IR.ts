@@ -108,6 +108,9 @@ const faIR = mergeLocale(base, {
   NumberKeyboard: {
     backspace: 'حذف',
   },
+  TextArea: {
+    clear: 'پاک کردن',
+  },
 })
 
 export default faIR
