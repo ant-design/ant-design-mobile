@@ -17,7 +17,7 @@ description: 在 ant-design-mobile 仓库准备发版、核对版本、编译验
 
 1. 基于最新 `master`，检查工作区和远端 CI。按锁文件安装依赖，使用与项目兼容的 Node.js、pnpm 版本，不顺手升级依赖或修改包管理配置。
 2. 将 `package.json` 改为确认的目标版本。执行 `pnpm build` 和适用的测试、检查，核对 `lib/package.json` 与目标版本一致，并检查预期发布文件；失败时先修复并重新验证，不带着失败结果提交。
-3. 只提交本次发版相关文件，可用 `chore: change version` 作为提交信息；推送至 `origin/master`，核对远端提交与本地一致，并报告远端 CI 状态。不能安全更新或推送时，说明阻塞，不覆盖他人改动。
+3. 只提交本次发版相关文件。版本提交标题必须写明完整目标版本，使用 `chore: release v<version>`，例如 `chore: release v5.43.0`；不得使用 `chore: change version` 等不含版本号的泛化标题。提交后核对标题与 `package.json` 版本一致，再推送至 `origin/master`，核对远端提交与本地一致，并报告远端 CI 状态。不能安全更新或推送时，说明阻塞，不覆盖他人改动。
 4. 整理上个稳定版以来的变更，准备简洁的中英文 GitHub Release 日志及相关 PR 链接。在此交接：准备阶段不创建或推送 tag，不运行 `pnpm pub`、`pnpm pub:alpha` 或 `pnpm pub:dev`，也不创建 GitHub Release。向用户报告版本、提交、构建与检查结果，以及仍需用户手工完成的步骤。
 
 ## 交给用户的手工发布指令
