@@ -61,7 +61,10 @@ export type {
 } from './components/checkbox'
 export { default as Collapse } from './components/collapse'
 export type { CollapseProps, CollapsePanelProps } from './components/collapse'
-export { default as ConfigProvider, useConfig } from './components/config-provider'
+export {
+  default as ConfigProvider,
+  useConfig,
+} from './components/config-provider'
 export type { ConfigProviderProps } from './components/config-provider'
 export { default as DatePicker } from './components/date-picker'
 export type { DatePickerProps, DatePickerRef } from './components/date-picker'
@@ -173,7 +176,10 @@ export type { ProgressBarProps } from './components/progress-bar'
 export { default as ProgressCircle } from './components/progress-circle'
 export type { ProgressCircleProps } from './components/progress-circle'
 export { default as PullToRefresh } from './components/pull-to-refresh'
-export type { PullToRefreshProps } from './components/pull-to-refresh'
+export type {
+  PullToRefreshProps,
+  PullToRefreshRef,
+} from './components/pull-to-refresh'
 export { default as Radio } from './components/radio'
 export type { RadioProps, RadioGroupProps } from './components/radio'
 export { default as Rate } from './components/rate'

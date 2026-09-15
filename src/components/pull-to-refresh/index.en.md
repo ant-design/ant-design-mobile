@@ -24,6 +24,10 @@ It is suitable for updating the content of the current page.
 
 <code src="./demos/demo-nested.tsx"></code>
 
+### Manual Control via Ref
+
+<code src="./demos/demo4.tsx"></code>
+
 ## PullToRefresh
 
 ### Props
@@ -45,6 +49,20 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 | renderText | Customize the pulling content according to the pulling status | `(status: PullStatus) => ReactNode` | - |
 | threshold | How far to pull down to trigger refresh, unit is px | `number` | `60` |
 
+### Ref
+
+```ts | pure
+type PullToRefreshRef = {
+  startRefresh: () => void
+  completeRefresh: () => void
+}
+```
+
+| Method | Description |
+| --- | --- |
+| startRefresh | Manually trigger a refresh (same as user pulling down) |
+| completeRefresh | Manually complete the current refresh (useful when onRefresh cannot return a Promise, e.g. callback-based APIs or event-driven data sources) |
+
 ## FAQ
 
 ### Does it support pull up to load more?
@@ -54,3 +72,17 @@ Pull-up loading is another component: [InfiniteScroll](/components/infinite-scro
 ### About the browser's default pull-down behavior
 
 Some browsers or webview containers have elastic effects or pull-to-refresh logic. We do not recommend using the PullToRefresh component in this environment. If you must use it, please disable the default pull-down and elastic effects of the outer browser. , otherwise PullToRefresh and the browser's default behavior may be triggered at the same time, resulting in a poor user experience.
+
+### How to control the refresh state externally?
+
+You can manually trigger and complete a refresh via Ref:
+
+```tsx | pure
+const ref = useRef<PullToRefreshRef>(null)
+
+// Manually trigger a refresh
+ref.current?.startRefresh()
+
+// Manually complete the refresh (useful when onRefresh cannot return a Promise)
+ref.current?.completeRefresh()
+```
