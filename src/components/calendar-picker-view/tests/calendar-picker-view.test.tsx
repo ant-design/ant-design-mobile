@@ -1,8 +1,10 @@
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
 import React, { useRef } from 'react'
-import { fireEvent, render, testA11y } from 'testing'
+import { act, fireEvent, render, testA11y } from 'testing'
+import { spyElementPrototype } from 'rc-util/lib/test/domHook'
 import CalendarPickerView, { CalendarPickerViewRef } from '..'
+import { convertPageToDayjs } from '../convert'
 
 const classPrefix = `adm-calendar-picker-view`
 
@@ -195,6 +197,165 @@ describe('Calendar', () => {
     expect(container.querySelectorAll(`.${classPrefix}-cell`)).toHaveLength(30)
   })
 
+  test('jumpTo expands rendering range', () => {
+    const App = () => {
+      const ref = useRef<CalendarPickerViewRef>(null)
+      return (
+        <>
+          <button
+            onClick={() => {
+              ref.current?.jumpTo({ year: 2021, month: 1 })
+            }}
+          >
+            jumpToPast
+          </button>
+          <button
+            onClick={() => {
+              ref.current?.jumpTo({ year: 2026, month: 12 })
+            }}
+          >
+            jumpToFuture
+          </button>
+          <CalendarPickerView ref={ref} selectionMode='single' />
+        </>
+      )
+    }
+    const { container, getByText } = render(<App />)
+
+    // defaultMin starts at today (2023-05), jumpTo 2021-01 resets window around target
+    fireEvent.click(getByText('jumpToPast'))
+    expect(
+      container.querySelector('[data-year-month="2021-1"]')
+    ).toBeInTheDocument()
+
+    // jumpToFuture 2026-12 resets window, 2021-1 should no longer be rendered
+    fireEvent.click(getByText('jumpToFuture'))
+    expect(
+      container.querySelector('[data-year-month="2026-12"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-year-month="2021-1"]')
+    ).not.toBeInTheDocument()
+  })
+
+  test('jumpTo resets rendering range even when a date is selected', () => {
+    const App = () => {
+      const ref = useRef<CalendarPickerViewRef>(null)
+      return (
+        <>
+          <button
+            onClick={() => {
+              ref.current?.jumpTo({ year: 2021, month: 1 })
+            }}
+          >
+            jumpToPast
+          </button>
+          <CalendarPickerView
+            ref={ref}
+            selectionMode='single'
+            defaultValue={new Date(2023, 4, 15)}
+          />
+        </>
+      )
+    }
+    const { container, getByText } = render(<App />)
+
+    // Selected date is 2023-05, jumpTo 2021-01 should NOT keep 2023-05 rendered
+    fireEvent.click(getByText('jumpToPast'))
+    expect(
+      container.querySelector('[data-year-month="2021-1"]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-year-month="2023-5"]')
+    ).not.toBeInTheDocument()
+  })
+
+  test('jumpTo clamps to min/max when bounds are set', () => {
+    jest.useFakeTimers()
+    const App = () => {
+      const ref = useRef<CalendarPickerViewRef>(null)
+      return (
+        <>
+          <button
+            onClick={() => {
+              ref.current?.jumpTo({ year: 2020, month: 1 })
+            }}
+          >
+            jumpBeforeMin
+          </button>
+          <button
+            onClick={() => {
+              ref.current?.jumpTo({ year: 2025, month: 6 })
+            }}
+          >
+            jumpAfterMax
+          </button>
+          <button
+            onClick={() => {
+              ref.current?.jumpTo({ year: 2023, month: 6 })
+            }}
+          >
+            jumpInBounds
+          </button>
+          <CalendarPickerView
+            ref={ref}
+            selectionMode='single'
+            min={new Date(2023, 0)}
+            max={new Date(2023, 11, 31)}
+          />
+        </>
+      )
+    }
+    const { getByText } = render(<App />)
+
+    const spyScrollIntoView = jest.fn()
+    const spyHTMLElement = spyElementPrototype(
+      HTMLElement,
+      'scrollIntoView',
+      spyScrollIntoView
+    )
+
+    // Initial render scrolls to current month (2023-5)
+    act(() => {
+      jest.runAllTimers()
+    })
+
+    // jumpTo before min should clamp to min month (2023-01)
+    fireEvent.click(getByText('jumpBeforeMin'))
+    act(() => {
+      jest.runAllTimers()
+    })
+    expect(spyScrollIntoView).toBeCalled()
+    const scrollCalls = spyScrollIntoView.mock.instances
+    expect(scrollCalls[scrollCalls.length - 1]).toHaveAttribute(
+      'data-year-month',
+      '2023-1'
+    )
+
+    // jumpTo after max should clamp to max month (2023-12)
+    fireEvent.click(getByText('jumpAfterMax'))
+    act(() => {
+      jest.runAllTimers()
+    })
+    expect(scrollCalls[scrollCalls.length - 1]).toHaveAttribute(
+      'data-year-month',
+      '2023-12'
+    )
+
+    // jumpTo within bounds should scroll to target month (2023-6)
+    fireEvent.click(getByText('jumpInBounds'))
+    act(() => {
+      jest.runAllTimers()
+    })
+    expect(scrollCalls[scrollCalls.length - 1]).toHaveAttribute(
+      'data-year-month',
+      '2023-6'
+    )
+
+    spyHTMLElement.mockRestore()
+    jest.useRealTimers()
+  })
+
   test('auto expand month list', () => {
     const { container, rerender } = render(
       <CalendarPickerView value={new Date(2024, 9, 1)} selectionMode='single' />
@@ -219,5 +380,20 @@ describe('Calendar', () => {
     expect(
       container.querySelector('[data-year-month="2025-8"]')
     ).toBeInTheDocument()
+  })
+
+  test('convertPageToDayjs does not roll over to the next month on the 31st', () => {
+    // Regression: building the dayjs with year/month before pinning the day
+    // could turn Feb 1 into Mar 1 when today falls on the 31st.
+    MockDate.set(new Date('2023-01-31'))
+    expect(
+      convertPageToDayjs({ year: 2023, month: 2 }).format('YYYY-MM-DD')
+    ).toBe('2023-02-01')
+    MockDate.set(new Date('2023-03-31'))
+    expect(
+      convertPageToDayjs({ year: 2023, month: 2 }).format('YYYY-MM-DD')
+    ).toBe('2023-02-01')
+    // restore the shared "today" mock for the rest of the suite
+    MockDate.set(new Date('2023-05-22'))
   })
 })

@@ -135,22 +135,37 @@ export const CalendarPickerView = forwardRef<
   const scrollTo = useSyncScroll(current, context.visible, bodyRef)
 
   // ============================== Boundary ==============================
+  const VISIBLE_MONTHS = 6
+
   // 记录默认的 min 和 max，并在外部的值超出边界时自动扩充
   const [defaultMin, setDefaultMin] = useState(current)
-  const [defaultMax, setDefaultMax] = useState(() => current.add(6, 'month'))
+  const [defaultMax, setDefaultMax] = useState(() =>
+    current.add(VISIBLE_MONTHS, 'month')
+  )
+
+  const alignRange = (target: dayjs.Dayjs) => {
+    if (!props.min) {
+      setDefaultMin(target)
+    }
+    if (!props.max) {
+      setDefaultMax(target.add(VISIBLE_MONTHS, 'month'))
+    }
+  }
 
   useEffect(() => {
-    if (dateRange) {
-      const [startDate, endDate] = dateRange
-      if (!props.min && startDate && dayjs(startDate).isBefore(defaultMin)) {
-        setDefaultMin(dayjs(startDate).date(1))
-      }
+    if (!dateRange) return
+    const [startDate, endDate] = dateRange
 
-      if (!props.max && endDate && dayjs(endDate).isAfter(defaultMax)) {
-        setDefaultMax(dayjs(endDate).endOf('month'))
-      }
+    if (!props.min && startDate) {
+      const targetMin = dayjs(startDate).date(1)
+      setDefaultMin(prev => (targetMin.isBefore(prev) ? targetMin : prev))
     }
-  }, [dateRange])
+
+    if (!props.max && endDate) {
+      const targetMax = dayjs(endDate).endOf('month')
+      setDefaultMax(prev => (targetMax.isAfter(prev) ? targetMax : prev))
+    }
+  }, [dateRange, props.min, props.max])
 
   const maxDay = useMemo(
     () => (props.max ? dayjs(props.max) : defaultMax),
@@ -162,6 +177,21 @@ export const CalendarPickerView = forwardRef<
   )
 
   // ================================ Refs ================================
+  const jumpToPage = (page: Page) => {
+    let next = convertPageToDayjs(page)
+    if (props.min && next.isBefore(minDay, 'month')) {
+      next = minDay.date(1)
+    }
+    if (props.max && next.isAfter(maxDay, 'month')) {
+      next = maxDay.date(1)
+    }
+    if (next.isBefore(defaultMin) || next.isAfter(defaultMax)) {
+      alignRange(next)
+    }
+    setCurrent(next)
+    scrollTo(next)
+  }
+
   useImperativeHandle(ref, () => ({
     jumpTo: pageOrPageGenerator => {
       let page: Page
@@ -173,14 +203,11 @@ export const CalendarPickerView = forwardRef<
       } else {
         page = pageOrPageGenerator
       }
-      const next = convertPageToDayjs(page)
-      setCurrent(next)
-      scrollTo(next)
+      jumpToPage(page)
     },
     jumpToToday: () => {
-      const next = dayjs().date(1)
-      setCurrent(next)
-      scrollTo(next)
+      const today = dayjs()
+      jumpToPage({ year: today.year(), month: today.month() + 1 })
     },
     getDateRange: () => dateRange,
   }))
