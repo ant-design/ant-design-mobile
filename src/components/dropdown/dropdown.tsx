@@ -17,6 +17,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
+import { getScrollParent } from '../../utils/get-scroll-parent'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { usePropsValue } from '../../utils/use-props-value'
 import { mergeProp, mergeProps } from '../../utils/with-default-props'
@@ -25,6 +26,32 @@ import Popup, { PopupProps } from '../popup'
 import { defaultPopupBaseProps } from '../popup/popup-base-props'
 import { IconContext } from './context'
 import Item, { ItemChildrenWrap } from './item'
+
+// 按滚动容器维护锁计数，防止多 Dropdown 共享同一容器时提前解锁
+const scrollLockState = new WeakMap<
+  HTMLElement,
+  { count: number; originalOverflowY: string }
+>()
+
+/**
+ * 获取要锁定的滚动容器。
+ */
+function getLockTarget(
+  el: HTMLElement
+): HTMLElement | Window | null | undefined {
+  let node: Element | null = el
+  while (node && node !== document.body && node !== document.documentElement) {
+    if (scrollLockState.has(node as HTMLElement)) {
+      return node as HTMLElement
+    }
+    node = node.parentElement
+  }
+  const parent = getScrollParent(el)
+  if (parent && parent !== window && !(parent instanceof HTMLElement)) {
+    return null
+  }
+  return parent as HTMLElement | Window | null | undefined
+}
 
 const classPrefix = `adm-dropdown`
 
@@ -104,6 +131,31 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
 
       updatePosition()
 
+      const container = containerRef.current
+      let scrollParent: HTMLElement | null = null
+
+      if (container) {
+        const parent = getLockTarget(container)
+        if (
+          parent &&
+          parent !== window &&
+          parent !== document.body &&
+          parent !== document.documentElement
+        ) {
+          scrollParent = parent as HTMLElement
+          const state = scrollLockState.get(scrollParent)
+          if (state) {
+            state.count += 1
+          } else {
+            scrollLockState.set(scrollParent, {
+              count: 1,
+              originalOverflowY: scrollParent.style.overflowY,
+            })
+            scrollParent.style.overflowY = 'hidden'
+          }
+        }
+      }
+
       window.addEventListener('scroll', updateTop, {
         passive: true,
         capture: true,
@@ -112,6 +164,17 @@ const Dropdown = forwardRef<DropdownRef, PropsWithChildren<DropdownProps>>(
 
       return () => {
         raf.cancel(rafIdRef.current)
+
+        if (scrollParent) {
+          const state = scrollLockState.get(scrollParent)
+          if (state) {
+            state.count -= 1
+            if (state.count === 0) {
+              scrollParent.style.overflowY = state.originalOverflowY
+              scrollLockState.delete(scrollParent)
+            }
+          }
+        }
 
         window.removeEventListener('scroll', updateTop, true)
         window.removeEventListener('resize', updateTop)
