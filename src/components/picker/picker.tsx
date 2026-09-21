@@ -153,8 +153,8 @@ export const Picker = memo(
       props,
       <div className={classPrefix}>
         <div className={`${classPrefix}-header`}>
-          <a
-            role='button'
+          <button
+            type='button'
             className={`${classPrefix}-header-button`}
             onClick={() => {
               props.onCancel?.()
@@ -162,23 +162,22 @@ export const Picker = memo(
             }}
           >
             {props.cancelText}
-          </a>
+          </button>
           <div className={`${classPrefix}-header-title`}>{props.title}</div>
-          <a
-            role='button'
+          <button
+            type='button'
             className={classNames(
               `${classPrefix}-header-button`,
               props.loading && `${classPrefix}-header-button-disabled`
             )}
+            disabled={props.loading}
             onClick={() => {
-              if (props.loading) return
               setValue(innerValue, true)
               setVisible(false)
             }}
-            aria-disabled={props.loading}
           >
             {props.confirmText}
-          </a>
+          </button>
         </div>
         <div className={`${classPrefix}-body`}>
           <PickerView

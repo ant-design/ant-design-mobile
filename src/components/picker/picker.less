@@ -29,9 +29,15 @@
   align-items: center;
   padding: 4px 4px;
   &-button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--adm-color-primary);
+    font: inherit;
     font-size: var(--header-button-font-size);
     display: inline-block;
     padding: 8px 8px;
+    cursor: pointer;
     &-disabled {
       &,
       &:active {
