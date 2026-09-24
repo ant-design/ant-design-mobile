@@ -39,6 +39,7 @@
 | --active-line-color | 当前激活 `tab` 下划线的颜色 | `var(--adm-color-primary)` |
 | --active-line-height | 当前激活 `tab` 下划线的高度 | `2px` |
 | --active-title-color | 当前激活 `tab` 选项文字颜色 | `var(--adm-color-primary)` |
+| --border-bottom | 选项卡头部的下边框 | `solid 1px var(--adm-color-border)` |
 | --content-padding | `tab` 内容区的 `padding` | `12px` |
 | --fixed-active-line-width | 当前激活 `tab` 下划线的宽度，仅在 `activeLineMode` 为 `'fixed'` 时有效 | `30px` |
 | --title-font-size | 选项卡头文字的大小 | `17px` |
