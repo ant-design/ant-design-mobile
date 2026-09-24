@@ -277,4 +277,29 @@ describe('Toast', () => {
     await waitForContentShow('content2')
     expect(document.querySelectorAll(`.${classPrefix}-main`).length)
   })
+
+  test('an outdated handler should not close the current toast', async () => {
+    const firstHandler = Toast.show({
+      content: 'content',
+      duration: 0,
+    })
+    await waitForContentShow('content')
+
+    const currentHandler = Toast.show({
+      content: 'content2',
+      duration: 0,
+    })
+    await waitForContentShow('content2')
+    expect(firstHandler).not.toBe(currentHandler)
+
+    act(() => {
+      firstHandler.close()
+    })
+    expect(screen.getByText('content2')).toBeVisible()
+
+    act(() => {
+      currentHandler.close()
+    })
+    await waitForElementToBeRemoved(() => screen.queryByText('content2'))
+  })
 })
