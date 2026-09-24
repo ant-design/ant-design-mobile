@@ -144,19 +144,16 @@ export const Popup: FC<PopupProps> = p => {
           ref={ref}
         >
           {props.showCloseButton && (
-            <a
-              className={classNames(
-                `${classPrefix}-close-icon`,
-                'adm-plain-anchor'
-              )}
+            <button
+              type='button'
+              className={`${classPrefix}-close-icon`}
               onClick={() => {
                 props.onClose?.()
               }}
-              role='button'
               aria-label={locale.common.close}
             >
               {props.closeIcon}
-            </a>
+            </button>
           )}
           {props.children}
         </animated.div>

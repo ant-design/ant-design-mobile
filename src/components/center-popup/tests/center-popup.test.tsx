@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen, testA11y } from 'testing'
+import { render, screen, testA11y, userEvent } from 'testing'
 import ConfigProvider from '../../config-provider'
 import { CenterPopup } from '../center-popup'
 
@@ -9,6 +9,19 @@ describe('center-popup', () => {
   })
 
   describe('closeIcon', () => {
+    it('supports keyboard activation', async () => {
+      const onClose = jest.fn()
+      render(<CenterPopup visible showCloseButton onClose={onClose} />)
+
+      const closeButton = screen.getByRole('button')
+      expect(closeButton).toHaveAttribute('type', 'button')
+
+      await userEvent.tab()
+      expect(closeButton).toHaveFocus()
+      await userEvent.keyboard('{Enter}')
+      expect(onClose).toHaveBeenCalledTimes(1)
+    })
+
     it('default', () => {
       const { baseElement } = render(
         <CenterPopup visible showCloseButton>
