@@ -10,6 +10,7 @@ const viVN = mergeLocale(base, {
     'cancel': 'Hủy',
     'loading': 'Đang tải',
     'close': 'Đóng',
+    'back': 'Quay lại',
   },
   'Calendar': {
     'title': 'Chọn ngày',

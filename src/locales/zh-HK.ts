@@ -10,6 +10,7 @@ const zhHK = mergeLocale(base, {
     cancel: '取消',
     loading: '加載中',
     close: '關閉',
+    back: '返回',
   },
   Calendar: {
     markItems: ['一', '二', '三', '四', '五', '六', '日'],

@@ -9,6 +9,7 @@ const idID = mergeLocale(base, {
     confirm: 'Yakin',
     cancel: 'Batal ',
     loading: 'memuat',
+    back: 'Kembali',
   },
   Calendar: {
     markItems: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],

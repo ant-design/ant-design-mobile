@@ -10,6 +10,7 @@ const srRS = mergeLocale(base, {
     cancel: 'Откажи',
     loading: 'Учитавање',
     close: 'Затвори',
+    back: 'Назад',
   },
   Calendar: {
     title: 'Избор датума',

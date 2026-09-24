@@ -10,6 +10,7 @@ const deDE = mergeLocale(base, {
     'cancel': 'Abbrechen',
     'loading': 'Wird geladen',
     'close': 'Deaktivieren',
+    'back': 'Zurück',
   },
   'Calendar': {
     'title': 'Datum auswählen',

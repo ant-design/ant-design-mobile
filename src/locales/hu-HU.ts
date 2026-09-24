@@ -10,6 +10,7 @@ export const huHU = mergeLocale(base, {
     cancel: 'Visszavonás',
     loading: 'Betöltés',
     close: 'Bezárás',
+    back: 'Vissza',
   },
   Calendar: {
     title: 'Dátum kiválasztása',
