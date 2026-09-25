@@ -12,6 +12,7 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Keep Node 16: dumi v1 (webpack/OpenSSL) does not support Node 17+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
