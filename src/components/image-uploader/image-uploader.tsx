@@ -272,7 +272,11 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
             onDelete={async () => {
               const canDelete = await props.onDelete?.(fileItem)
               if (canDelete === false) return
-              setValue(value.filter((x, i) => i !== index))
+              // Use a functional update and filter by identity: the awaited
+              // onDelete (e.g. a confirmation dialog) can span an upload that
+              // appends to `value`, and the captured `value`/`index` pair would
+              // then discard that upload or remove the wrong item.
+              setValue(prev => prev.filter(x => x !== fileItem))
             }}
           />
         )

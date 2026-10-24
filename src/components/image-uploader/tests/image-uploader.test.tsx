@@ -441,3 +441,61 @@ describe('ImageUploader', () => {
     expect(successFileNames).toEqual(mockInputSuccessFileNames)
   })
 })
+
+  test('async delete should not discard uploads completed during confirmation', async () => {
+    jest.useRealTimers()
+
+    let resolveDelete!: (value: boolean | void) => void
+    const onDelete = () =>
+      new Promise<boolean | void>(resolve => {
+        resolveDelete = resolve
+      })
+
+    const fastUpload = async (file: File) => {
+      await sleep(50)
+      return { url: URL.createObjectURL(file) }
+    }
+
+    const firstSrc = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80"%3E%3Crect width="80" height="80" fill="red"/%3E%3C/svg%3E'
+    const secondSrc = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80"%3E%3Crect width="80" height="80" fill="blue"/%3E%3C/svg%3E'
+    const initialItems: ImageUploadItem[] = [{ url: firstSrc }, { url: secondSrc }]
+
+    render(
+      <App
+        defaultFileList={initialItems}
+        onDelete={onDelete}
+        upload={fastUpload}
+      />
+    )
+
+    expect($$(`.${classPrefix}-cell-image`).length).toBe(2)
+
+    // Start async deletion of the first image (promise stays pending)
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+
+    // While the deletion confirmation is pending, upload a new file
+    mockInputFile()
+
+    // The upload completes and appends to value while onDelete is still pending
+    await waitFor(
+      () => expect($$(`.${classPrefix}-cell-image`).length).toBe(3),
+      { timeout: 3000 }
+    )
+
+    // Now the user confirms deletion
+    await act(async () => {
+      resolveDelete(true)
+    })
+
+    // The first image is gone, but the upload that landed during the
+    // confirmation is preserved. With the old stale-closure filter the
+    // value would reset to [item2], silently discarding the new upload.
+    await waitFor(() => {
+      expect($$(`.${classPrefix}-cell-image`).length).toBe(2)
+      const srcs = Array.from(
+        $$(`.${classPrefix}-cell-image img`)
+      ).map(img => (img as HTMLImageElement).src)
+      expect(srcs).toContain(secondSrc)
+      expect(srcs).not.toContain(firstSrc)
+    })
+  })
