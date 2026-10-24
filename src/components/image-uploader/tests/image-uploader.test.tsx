@@ -397,6 +397,89 @@ describe('ImageUploader', () => {
     expect(ref.current?.nativeElement).toBeDefined()
   })
 
+  test('async delete preserves items uploaded while confirmation is pending', async () => {
+    let resolveDelete!: (canDelete: boolean) => void
+    const deletePromise = new Promise<boolean>(resolve => {
+      resolveDelete = resolve
+    })
+
+    let resolveUpload!: (item: ImageUploadItem) => void
+    const uploadPromise = new Promise<ImageUploadItem>(resolve => {
+      resolveUpload = resolve
+    })
+
+    const { container } = render(
+      <App
+        defaultFileList={[
+          { key: 'A', url: 'a.png' },
+          { key: 'B', url: 'b.png' },
+        ]}
+        preview={false}
+        onDelete={() => deletePromise}
+        upload={() => uploadPromise}
+      />
+    )
+
+    const deleteButtons = container.querySelectorAll(
+      `.${classPrefix}-cell-delete`
+    )
+    fireEvent.click(deleteButtons[0])
+
+    const input = container.querySelector<HTMLInputElement>(
+      `.${classPrefix}-input`
+    )!
+    await act(async () => {
+      fireEvent.change(input, {
+        target: {
+          files: [new File(['C'], 'c.png', { type: 'image/png' })],
+        },
+      })
+      resolveUpload({ key: 'C', url: 'c.png' })
+      await uploadPromise
+    })
+
+    const getImageUrls = () =>
+      Array.from(container.querySelectorAll<HTMLImageElement>('.adm-image-img'))
+        .map(image => image.getAttribute('src'))
+    expect(getImageUrls()).toEqual(['a.png', 'b.png', 'c.png'])
+
+    await act(async () => {
+      resolveDelete(true)
+      await deletePromise
+    })
+
+    expect(getImageUrls()).toEqual(['b.png', 'c.png'])
+  })
+
+  test('async delete keeps the selected item when URLs are duplicated', async () => {
+    let resolveDelete!: (canDelete: boolean) => void
+    const deletePromise = new Promise<boolean>(resolve => {
+      resolveDelete = resolve
+    })
+    const onPreview = jest.fn()
+
+    const { container } = render(
+      <App
+        defaultFileList={[
+          { key: 'first', url: 'same.png' },
+          { key: 'second', url: 'same.png' },
+        ]}
+        preview={false}
+        onDelete={() => deletePromise}
+        onPreview={onPreview}
+      />
+    )
+
+    fireEvent.click(container.querySelectorAll(`.${classPrefix}-cell-delete`)[1])
+    await act(async () => {
+      resolveDelete(true)
+      await deletePromise
+    })
+
+    fireEvent.click(container.querySelector('.adm-image-img')!)
+    expect(onPreview).toBeCalledWith(0, { key: 'first', url: 'same.png' })
+  })
+
   test('get all upload url', async () => {
     function mockUploadWithFailure(failOnCount: number) {
       let count = 0

@@ -272,7 +272,25 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
             onDelete={async () => {
               const canDelete = await props.onDelete?.(fileItem)
               if (canDelete === false) return
-              setValue(value.filter((x, i) => i !== index))
+              setValue(currentValue => {
+                let currentIndex = -1
+                for (let i = 0; i < currentValue.length; i++) {
+                  if (currentValue[i] === fileItem) {
+                    if (currentIndex !== -1) return currentValue
+                    currentIndex = i
+                  }
+                }
+                if (currentIndex === -1 && fileItem.key != null) {
+                  for (let i = 0; i < currentValue.length; i++) {
+                    if (currentValue[i].key === fileItem.key) {
+                      if (currentIndex !== -1) return currentValue
+                      currentIndex = i
+                    }
+                  }
+                }
+                if (currentIndex === -1) return currentValue
+                return currentValue.filter((_, i) => i !== currentIndex)
+              })
             }}
           />
         )
