@@ -440,14 +440,13 @@ describe('ImageUploader', () => {
     )
     expect(successFileNames).toEqual(mockInputSuccessFileNames)
   })
-})
 
   test('async delete should not discard uploads completed during confirmation', async () => {
     jest.useRealTimers()
 
-    let resolveDelete!: (value: boolean | void) => void
+    let resolveDelete!: (value: boolean) => void
     const onDelete = () =>
-      new Promise<boolean | void>(resolve => {
+      new Promise<boolean>(resolve => {
         resolveDelete = resolve
       })
 
@@ -460,13 +459,7 @@ describe('ImageUploader', () => {
     const secondSrc = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80"%3E%3Crect width="80" height="80" fill="blue"/%3E%3C/svg%3E'
     const initialItems: ImageUploadItem[] = [{ url: firstSrc }, { url: secondSrc }]
 
-    render(
-      <App
-        defaultFileList={initialItems}
-        onDelete={onDelete}
-        upload={fastUpload}
-      />
-    )
+    render(<App defaultFileList={initialItems} onDelete={onDelete} upload={fastUpload} />)
 
     expect($$(`.${classPrefix}-cell-image`).length).toBe(2)
 
@@ -477,10 +470,9 @@ describe('ImageUploader', () => {
     mockInputFile()
 
     // The upload completes and appends to value while onDelete is still pending
-    await waitFor(
-      () => expect($$(`.${classPrefix}-cell-image`).length).toBe(3),
-      { timeout: 3000 }
-    )
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(3), {
+      timeout: 3000,
+    })
 
     // Now the user confirms deletion
     await act(async () => {
@@ -492,10 +484,76 @@ describe('ImageUploader', () => {
     // value would reset to [item2], silently discarding the new upload.
     await waitFor(() => {
       expect($$(`.${classPrefix}-cell-image`).length).toBe(2)
-      const srcs = Array.from(
-        $$(`.${classPrefix}-cell-image img`)
-      ).map(img => (img as HTMLImageElement).src)
+      const srcs = Array.from($$(`.${classPrefix}-cell-image img`)).map(
+        img => (img as HTMLImageElement).src
+      )
       expect(srcs).toContain(secondSrc)
       expect(srcs).not.toContain(firstSrc)
     })
   })
+
+  test('delete removes a single item even when the same object is passed twice', async () => {
+    const sharedItem: ImageUploadItem = { url: 'same.png' }
+    const onChange = jest.fn()
+
+    render(<App defaultFileList={[sharedItem, sharedItem]} onChange={onChange} />)
+    expect($$(`.${classPrefix}-cell-image`).length).toBe(2)
+
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+
+    await waitFor(() => expect($$(`.${classPrefix}-cell-image`).length).toBe(1))
+
+    // Filtering by reference would drop both entries; the deletion must
+    // remove exactly the one item the user clicked.
+    expect(onChange).toHaveBeenLastCalledWith([sharedItem])
+  })
+
+  test('delete still removes the item when the parent replaces the list with clones during confirmation', async () => {
+    jest.useRealTimers()
+
+    let resolveDelete!: (value: boolean) => void
+    const onDelete = () =>
+      new Promise<boolean>(resolve => {
+        resolveDelete = resolve
+      })
+
+    const firstSrc = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80"%3E%3Crect width="80" height="80" fill="red"/%3E%3C/svg%3E'
+    const secondSrc = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80"%3E%3Crect width="80" height="80" fill="blue"/%3E%3C/svg%3E'
+    const initialItems: ImageUploadItem[] = [{ url: firstSrc }, { url: secondSrc }]
+
+    // A parent that copies items into new objects on demand: while a child
+    // confirmation is pending the list identity changes but the content
+    // does not (value.map(item => ({ ...item }))).
+    function CloningParent() {
+      const [fileList, setFileList] = useState(initialItems)
+      return (
+        <>
+          <button onClick={() => setFileList(fileList.map(item => ({ ...item })))}>
+            clone
+          </button>
+          <ImageUploader value={fileList} onChange={setFileList} onDelete={onDelete} upload={mockUpload} />
+        </>
+      )
+    }
+    render(<CloningParent />)
+
+    // Start async deletion of the first image (promise stays pending)
+    fireEvent.click($$(`.${classPrefix}-cell-delete`)[0])
+
+    // The parent replaces the list with shallow clones meanwhile, so the
+    // clicked item's reference no longer exists in the new list.
+    fireEvent.click(screen.getByText('clone'))
+
+    await act(async () => {
+      resolveDelete(true)
+    })
+
+    // The first image is still removed and the second one is untouched.
+    await waitFor(() => {
+      const srcs = Array.from($$(`.${classPrefix}-cell-image img`)).map(
+        img => (img as HTMLImageElement).src
+      )
+      expect(srcs).toEqual([secondSrc])
+    })
+  })
+})
