@@ -199,7 +199,9 @@ export const Slider: FC<SliderProps> = p => {
           const val = getValueByPosition(position)
           const valueBeforeDrag = valueBeforeDragRef.current
           if (!valueBeforeDrag) return
-          const next = [...valueBeforeDrag] as [number, number]
+          const next = valueBeforeDrag.map(value =>
+            Math.min(max, Math.max(min, value))
+          ) as [number, number]
           next[index] = val
           setSliderValue(next)
           if (last) {
