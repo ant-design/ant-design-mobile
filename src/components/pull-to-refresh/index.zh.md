@@ -24,6 +24,10 @@
 
 <code src="./demos/demo-nested.tsx"></code>
 
+### 通过 Ref 手动控制刷新
+
+<code src="./demos/demo4.tsx"></code>
+
 ## PullToRefresh
 
 ### 属性
@@ -45,6 +49,20 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 | renderText | 根据下拉状态，自定义下拉提示文案 | `(status: PullStatus) => ReactNode` | - |
 | threshold | 触发刷新需要下拉多少距离，单位为 px | `number` | `60` |
 
+### Ref
+
+```ts | pure
+type PullToRefreshRef = {
+  startRefresh: () => void
+  completeRefresh: () => void
+}
+```
+
+| 方法 | 说明 |
+| --- | --- |
+| startRefresh | 手动触发刷新（与用户下拉触发效果一致） |
+| completeRefresh | 手动结束刷新（适用于 onRefresh 无法返回 Promise 的场景，如基于回调的 API 或事件驱动的数据源） |
+
 ## 常见问题
 
 ### 是否支持上拉加载更多？
@@ -54,3 +72,17 @@ type PullStatus = 'pulling' | 'canRelease' | 'refreshing' | 'complete'
 ### 关于浏览器的默认下拉行为
 
 一些浏览器或者 webview 容器本身会有弹性效果或下拉刷新的逻辑，我们不太建议在这种环境中使用 PullToRefresh 组件，如果你一定要用的话，请禁用掉外层浏览器默认的下拉和弹性效果，不然可能会出现 PullToRefresh 和浏览器的默认行为同时被触发的情况，从而导致用户体验比较差。
+
+### 如何在外部控制刷新状态？
+
+通过 Ref 可以手动触发和结束刷新：
+
+```tsx | pure
+const ref = useRef<PullToRefreshRef>(null)
+
+// 手动触发刷新
+ref.current?.startRefresh()
+
+// 手动结束刷新（适用于 onRefresh 无法返回 Promise 的场景）
+ref.current?.completeRefresh()
+```
