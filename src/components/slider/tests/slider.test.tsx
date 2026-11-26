@@ -85,6 +85,33 @@ describe('Slider', () => {
     expect(onAfterChange).toBeCalledWith(400)
   })
 
+  test.each([
+    { min: 40, max: 100, index: 1, expected: [40, 86] },
+    { min: 0, max: 60, index: 0, expected: [26, 60] },
+  ])(
+    'clamps both range handles after bounds change',
+    ({ min, max, index, expected }) => {
+      const onAfterChange = jest.fn()
+      const { rerender } = render(
+        <Slider range defaultValue={[20, 80]} onAfterChange={onAfterChange} />
+      )
+      const thumb = screen.getAllByRole('slider')[index]
+      fireEvent.mouseDown(thumb, { buttons: 1, clientX: 0 })
+      fireEvent.mouseMove(thumb, { buttons: 1, clientX: 10 })
+      rerender(
+        <Slider
+          range
+          min={min}
+          max={max}
+          defaultValue={[20, 80]}
+          onAfterChange={onAfterChange}
+        />
+      )
+      fireEvent.mouseUp(thumb, { clientX: 10 })
+      expect(onAfterChange).toHaveBeenLastCalledWith(expected)
+    }
+  )
+
   test('default value', () => {
     render(<Slider step={20} defaultValue={40} />)
     expect($$(`.${classPrefix}-fill`)[0]).toHaveStyle('width: 40%')
