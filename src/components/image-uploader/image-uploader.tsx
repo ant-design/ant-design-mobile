@@ -272,7 +272,31 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
             onDelete={async () => {
               const canDelete = await props.onDelete?.(fileItem)
               if (canDelete === false) return
-              setValue(value.filter((x, i) => i !== index))
+              // The awaited onDelete (e.g. a confirmation dialog) can span
+              // list mutations: uploads appended, items removed, or the
+              // parent replacing the list with shallow clones. Locate the
+              // single item the user clicked: by key first, then by
+              // reference, and only then fall back to the click position
+              // when it still holds an equivalent item.
+              setValue(prev => {
+                let targetIndex = -1
+                if (fileItem.key !== undefined) {
+                  targetIndex = prev.findIndex(item => item.key === fileItem.key)
+                }
+                if (targetIndex === -1) {
+                  targetIndex = prev.indexOf(fileItem)
+                }
+                if (
+                  targetIndex === -1 &&
+                  index < prev.length &&
+                  prev[index]?.url !== undefined &&
+                  prev[index]?.url === fileItem.url
+                ) {
+                  targetIndex = index
+                }
+                if (targetIndex === -1) return prev
+                return prev.filter((_, i) => i !== targetIndex)
+              })
             }}
           />
         )
