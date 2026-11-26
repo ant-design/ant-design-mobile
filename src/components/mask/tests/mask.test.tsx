@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { fireEvent, render, testA11y, waitFor } from 'testing'
+import { act, fireEvent, render, testA11y, waitFor } from 'testing'
 import Mask from '..'
 
 const classPrefix = `adm-mask`
@@ -10,7 +10,32 @@ const opacityRecord = {
   thick: 0.75,
 }
 
+function setVisibilityState(state: 'visible' | 'hidden') {
+  Object.defineProperty(document, 'visibilityState', {
+    value: state,
+    writable: true,
+    configurable: true,
+  })
+}
+
 describe('Mask', () => {
+  const originalVisibilityState = Object.getOwnPropertyDescriptor(
+    document,
+    'visibilityState'
+  )
+
+  afterEach(() => {
+    if (originalVisibilityState) {
+      Object.defineProperty(
+        document,
+        'visibilityState',
+        originalVisibilityState
+      )
+    } else {
+      delete (document as any).visibilityState
+    }
+  })
+
   test('a11y', async () => {
     await testA11y(<Mask visible />)
   })
@@ -107,5 +132,37 @@ describe('Mask', () => {
     )
 
     await waitFor(() => expect(afterClose).toBeCalled())
+  })
+
+  test('should finish closing after the hidden page becomes visible', () => {
+    const afterClose = jest.fn()
+    const { getByTestId, queryByTestId, rerender } = render(
+      <Mask visible destroyOnClose afterClose={afterClose} data-testid='mask' />
+    )
+
+    setVisibilityState('hidden')
+    act(() => {
+      document.dispatchEvent(new Event('visibilitychange'))
+    })
+
+    rerender(
+      <Mask
+        visible={false}
+        destroyOnClose
+        afterClose={afterClose}
+        data-testid='mask'
+      />
+    )
+
+    expect(afterClose).not.toHaveBeenCalled()
+    expect(getByTestId('mask')).toBeInTheDocument()
+
+    setVisibilityState('visible')
+    act(() => {
+      document.dispatchEvent(new Event('visibilitychange'))
+    })
+
+    expect(afterClose).toHaveBeenCalledTimes(1)
+    expect(queryByTestId('mask')).not.toBeInTheDocument()
   })
 })

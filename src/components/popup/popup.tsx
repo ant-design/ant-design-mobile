@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { useState, useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import type { FC, PropsWithChildren } from 'react'
 import { useIsomorphicLayoutEffect, useUnmountedRef } from 'ahooks'
 import { NativeProps, withNativeProps } from '../../utils/native-props'
@@ -14,6 +14,7 @@ import { defaultPopupBaseProps, PopupBaseProps } from './popup-base-props'
 import { useInnerVisible } from '../../utils/use-inner-visible'
 import { useConfig } from '../config-provider'
 import { useDrag } from '@use-gesture/react'
+import { useOnPageVisible } from '../../utils/use-on-page-visible'
 
 const classPrefix = `adm-popup`
 
@@ -41,16 +42,24 @@ export const Popup: FC<PopupProps> = p => {
   )
 
   const [active, setActive] = useState(props.visible)
+  const closedRef = useRef(false)
+  const unmountedRef = useUnmountedRef()
+  const finishClose = () => {
+    if (closedRef.current) return
+    closedRef.current = true
+    setActive(false)
+    props.afterClose?.()
+  }
   const ref = useRef<HTMLDivElement>(null)
   useLockScroll(ref, props.disableBodyScroll && active ? 'strict' : false)
 
   useIsomorphicLayoutEffect(() => {
     if (props.visible) {
+      closedRef.current = false
       setActive(true)
     }
   }, [props.visible])
 
-  const unmountedRef = useUnmountedRef()
   const { percent } = useSpring({
     percent: props.visible ? 0 : 100,
     config: {
@@ -61,13 +70,19 @@ export const Popup: FC<PopupProps> = p => {
     },
     onRest: () => {
       if (unmountedRef.current) return
-      setActive(props.visible)
       if (props.visible) {
+        setActive(true)
         props.afterShow?.()
       } else {
-        props.afterClose?.()
+        finishClose()
       }
     },
+  })
+
+  useOnPageVisible(() => {
+    if (!props.visible && active) {
+      finishClose()
+    }
   })
 
   const bind = useDrag(
