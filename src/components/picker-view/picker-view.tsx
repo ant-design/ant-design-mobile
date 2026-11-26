@@ -1,13 +1,13 @@
-import React, { memo, useCallback, useEffect, useState } from 'react'
-import type { ReactNode } from 'react'
-import { mergeProps } from '../../utils/with-default-props'
-import { Wheel } from './wheel'
-import { useColumnsExtend } from './columns-extend'
-import { NativeProps, withNativeProps } from '../../utils/native-props'
 import { useDebounceEffect } from 'ahooks'
+import type { ReactNode } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
+import { NativeProps, withNativeProps } from '../../utils/native-props'
+import { mergeProps } from '../../utils/with-default-props'
 import { PickerProps } from '../picker'
 import { defaultRenderLabel } from '../picker/picker-utils'
 import SpinLoading from '../spin-loading'
+import { generateColumnsExtend, useColumnsExtend } from './columns-extend'
+import { Wheel } from './wheel'
 
 const classPrefix = `adm-picker-view`
 
@@ -55,10 +55,24 @@ export const PickerView = memo<PickerViewProps>(p => {
     props.value === undefined ? props.defaultValue : props.value
   )
 
+  const extend = useColumnsExtend(props.columns, innerValue)
+  const columns = extend.columns
+
+  function isValueValid(value: PickerValue[]) {
+    const valueColumns = generateColumnsExtend(props.columns, value).columns
+    if (value.length !== valueColumns.length) return false
+    return value.every((v, i) => {
+      const col = valueColumns[i]
+      return col.some(item => item.value === v)
+    })
+  }
+
   // Sync `value` to `innerValue`
   useEffect(() => {
     if (props.value === undefined) return // Uncontrolled mode
     if (props.value === innerValue) return
+    // Skip sync if any prop value is invalid — avoids infinite loop
+    if (!isValueValid(props.value)) return
     setInnerValue(props.value)
   }, [props.value])
 
@@ -66,6 +80,7 @@ export const PickerView = memo<PickerViewProps>(p => {
     if (props.value === innerValue) return
     const timeout = window.setTimeout(() => {
       if (props.value !== undefined && props.value !== innerValue) {
+        if (!isValueValid(props.value)) return
         setInnerValue(props.value)
       }
     }, 1000)
@@ -73,9 +88,6 @@ export const PickerView = memo<PickerViewProps>(p => {
       window.clearTimeout(timeout)
     }
   }, [props.value, innerValue])
-
-  const extend = useColumnsExtend(props.columns, innerValue)
-  const columns = extend.columns
 
   useDebounceEffect(
     () => {
