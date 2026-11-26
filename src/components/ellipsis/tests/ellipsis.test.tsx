@@ -180,3 +180,36 @@ describe('Ellipsis', () => {
     expect(offsetHeight).toBe(expectHeight)
   })
 })
+
+// https://github.com/ant-design/ant-design-mobile/issues/6063
+test('should not commit to no-ellipsis when element is not visible', () => {
+  const originalOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight'
+  )
+
+  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+    get() {
+      return 0
+    },
+    configurable: true,
+  })
+
+  try {
+    const { getByTestId } = render(
+      <Ellipsis content={content} data-testid='ellipsis' />
+    )
+
+    const measureDivs =
+      getByTestId('ellipsis').querySelectorAll('[aria-hidden]')
+    expect(measureDivs.length).toBeGreaterThan(0)
+  } finally {
+    if (originalOffsetHeight) {
+      Object.defineProperty(
+        HTMLElement.prototype,
+        'offsetHeight',
+        originalOffsetHeight
+      )
+    }
+  }
+})

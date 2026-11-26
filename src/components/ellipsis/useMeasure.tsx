@@ -42,6 +42,8 @@ export default function useMeasure(
     MEASURE_STATUS.STABLE_NO_ELLIPSIS
   )
 
+  const [measureVersion, setMeasureVersion] = React.useState(0)
+
   // ============================ Refs ============================
   const singleRowMeasureRef = React.useRef<HTMLDivElement>(null)
   const fullMeasureRef = React.useRef<HTMLDivElement>(null)
@@ -57,6 +59,7 @@ export default function useMeasure(
           ? Math.ceil(contentChars.length / 2)
           : contentChars.length,
       ])
+      setMeasureVersion(v => v + 1)
     })
   })
 
@@ -73,6 +76,9 @@ export default function useMeasure(
         singleRowMeasureRef.current?.offsetHeight || 0
       const rowMeasureHeight = singleRowMeasureHeight * (rows + 0.5)
 
+      // Element not visible (e.g. display:none), skip and wait for ResizeObserver
+      if (fullMeasureHeight === 0 && singleRowMeasureHeight === 0) return
+
       if (fullMeasureHeight <= rowMeasureHeight) {
         setStatus(MEASURE_STATUS.STABLE_NO_ELLIPSIS)
       } else {
@@ -80,7 +86,7 @@ export default function useMeasure(
         setStatus(MEASURE_STATUS.MEASURE_WALKING)
       }
     }
-  }, [status])
+  }, [status, measureVersion])
 
   // Walking measure
   useLayoutEffect(() => {
