@@ -280,6 +280,10 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
                   return currentValue.filter((_, i) => i !== index)
                 }
 
+                if (value.some((item, i) => i !== index && item === fileItem)) {
+                  return currentValue
+                }
+
                 let currentIndex = -1
                 for (let i = 0; i < currentValue.length; i++) {
                   if (currentValue[i] === fileItem) {
@@ -288,6 +292,13 @@ export const ImageUploader = forwardRef<ImageUploaderRef, ImageUploaderProps>(
                   }
                 }
                 if (currentIndex === -1 && fileItem.key != null) {
+                  if (
+                    value.some(
+                      (item, i) => i !== index && item.key === fileItem.key
+                    )
+                  ) {
+                    return currentValue
+                  }
                   for (let i = 0; i < currentValue.length; i++) {
                     if (currentValue[i].key === fileItem.key) {
                       if (currentIndex !== -1) return currentValue

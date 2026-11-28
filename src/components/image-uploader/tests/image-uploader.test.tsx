@@ -418,7 +418,28 @@ describe('ImageUploader', () => {
     )
   })
 
+  const repeatedItem = { url: 'same.png' }
+  const duplicateKeyItem = { key: 'A', url: 'a.png' }
+
   test.each([
+    {
+      name: 'one surviving occurrence of the same object',
+      initial: [repeatedItem, repeatedItem],
+      replacement: [repeatedItem],
+      expected: ['same.png'],
+    },
+    {
+      name: 'one surviving replacement with an originally duplicate key',
+      initial: [duplicateKeyItem, { key: 'A', url: 'b.png' }],
+      replacement: [{ key: 'A', url: 'replacement.png' }],
+      expected: ['replacement.png'],
+    },
+    {
+      name: 'distinct original object with a duplicate key',
+      initial: [duplicateKeyItem, { key: 'A', url: 'b.png' }],
+      replacement: [duplicateKeyItem, { key: 'A', url: 'replacement.png' }],
+      expected: ['replacement.png'],
+    },
     {
       name: 'unique key',
       initial: [
